@@ -1,0 +1,2023 @@
+# Corpus analysis and statistics {#Corpus_Stats}
+
+# Loading packages
+
+```{r}
+## Use the code below to check if you have all required packages installed. If some are not installed already, the code below will install these. If you have all packages installed, then you could load them with the second code.
+requiredPackages = c('tidyverse', 'tidytext', 'rvest', 'janeaustenr', 'proustr', 'textdata', 'gutenbergr', 'quanteda', 'readtext', 'tm', 'SnowballC', 'stopwords', 'quanteda.textplots', 'udpipe', 'textplot', 'ggraph', 'wordcloud', 'quanteda.textstats', 'ggstats', 'RColorBrewer')
+for(p in requiredPackages){
+  if(!require(p,character.only = TRUE)) install.packages(p)
+  library(p,character.only = TRUE)
+}
+```
+
+
+# janeaustenr
+
+## Import into `Global Environment`
+
+Adding data from the first book into the `Global Environment`
+
+```{r}
+data(sensesensibility)
+#data(prideprejudice)
+#data(mansfieldpark)
+#data(emma)
+#data(northangerabbey)
+#data(persuasion)
+```
+
+## Look into data
+
+And we can get the top 60 rows from "sensesensibility"
+
+```{r}
+sensesensibility %>% 
+  head(n = 60)
+```
+
+## Transform to a dataframe
+
+```{r}
+sensesensibility_DF <- sensesensibility %>% 
+  data.frame()
+sensesensibility_DF
+sensesensibility_DF <- sensesensibility_DF[-c(1:12),]
+sensesensibility_DF
+```
+
+## Create a corpus
+
+```{r}
+sensesensibility_corpus <- corpus(sensesensibility_DF)
+print(sensesensibility_corpus)
+```
+
+### Summary
+
+```{r}
+summary(sensesensibility_corpus, 10)
+```
+
+### Accessing parts of corpus
+
+```{r}
+ndoc(sensesensibility_corpus)
+sensesensibility_corpus[[1]]
+```
+
+## Tokens
+
+`tokens()` segments texts in a corpus into tokens (words or sentences) by word boundaries.
+We can remove punctuations or not
+
+### With punctuations
+
+```{r}
+sensesensibility_corpus_tok <- tokens(sensesensibility_corpus)
+sensesensibility_corpus_tok
+```
+
+### Without punctuations
+
+```{r}
+sensesensibility_corpus_tok_no_punct <- tokens(sensesensibility_corpus, remove_punct = TRUE)
+sensesensibility_corpus_tok_no_punct
+```
+
+
+## Stop words
+
+It is best to remove stop words (function/grammatical words) when we use statistical analyses of a corpus. 
+
+```{r}
+sensesensibility_corpus_tok_no_punct_no_Stop <- tokens_select(sensesensibility_corpus_tok_no_punct, pattern = stopwords("en", source = "stopwords-iso"), selection = "remove")
+sensesensibility_corpus_tok_no_punct_no_Stop
+```
+
+
+## Statistical analyses
+
+We can start by providing statistics (whether descriptives or inferential) based on our corpora. 
+
+### Simple frequency analysis
+
+Here we look at obtaining a simple frequency analysis of usage.
+
+#### DFM
+
+We start by generating a DFM (document-feature matrix)
+
+```{r}
+sensesensibility_corpus_tok_no_punct_no_Stop_dfm <- dfm(sensesensibility_corpus_tok_no_punct_no_Stop)
+sensesensibility_corpus_tok_no_punct_no_Stop_dfm
+```
+
+#### Frequencies
+
+```{r}
+sensesensibility_corpus_tok_no_punct_no_Stop_dfm_freq <- textstat_frequency(sensesensibility_corpus_tok_no_punct_no_Stop_dfm)
+sensesensibility_corpus_tok_no_punct_no_Stop_dfm_freq
+```
+
+
+#### Plot
+
+We plot the top 15 most frequent words used in the text. 
+
+
+```{r}
+sensesensibility_corpus_tok_no_punct_no_Stop_dfm %>% 
+  textstat_frequency(n = 15) %>% 
+  ggplot(aes(x = reorder(feature, frequency), y = frequency)) +
+  geom_point() +
+  coord_flip() +
+  labs(x = NULL, y = "Frequency") +
+  theme_minimal()
+```
+
+### Lexical diversity
+
+We can compute the lexical diversity in a document. This is a measure allowing us to provide a statistical account of diversity in the choice of lexical items in a text. See the different measures implemented [here](https://quanteda.io/reference/textstat_lexdiv.html)
+
+#### TTR (Type-Token Ratio)
+
+##### Computing TTR
+
+```{r}
+sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr <- textstat_lexdiv(sensesensibility_corpus_tok_no_punct_no_Stop_dfm, measure = "TTR")
+head(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr, 5)
+```
+
+##### Plotting TTR
+
+```{r}
+plot(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr$TTR, type = "l", xaxt = "n", xlab = NULL, ylab = "TTR")
+grid()
+axis(1, at = seq_len(nrow(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr)), labels = sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr$document)
+```
+
+
+
+#### CTTR (Corrected Type-Token Ratio)
+
+##### Computing CTTR
+
+```{r}
+sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr <- textstat_lexdiv(sensesensibility_corpus_tok_no_punct_no_Stop_dfm, measure = "CTTR")
+head(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr, 5)
+```
+
+##### Plotting TTR
+
+```{r}
+plot(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr$CTTR, type = "l", xaxt = "n", xlab = NULL, ylab = "CTTR")
+grid()
+axis(1, at = seq_len(nrow(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr)), labels = sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr$document)
+```
+
+
+
+
+#### *K* (Yule's *K*)
+
+##### Computing *K*
+
+```{r}
+sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K <- textstat_lexdiv(sensesensibility_corpus_tok_no_punct_no_Stop_dfm, measure = "K")
+head(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K, 5)
+```
+
+##### Plotting *K*
+
+```{r}
+plot(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K$K, type = "l", xaxt = "n", xlab = NULL, ylab = expression(italic(K)))
+grid()
+axis(1, at = seq_len(nrow(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K)), labels = sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K$document)
+```
+
+
+### Keyness - relative frequency analysis
+
+The relative frequency analysis allows to provide a statistical analysis of frequent words as a function of a target reference level. For this dataset, we do not have a specific target. Hence the comparison is done based on the full dataset.
+
+#### Computing keyness
+
+```{r}
+sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_key <- textstat_keyness(sensesensibility_corpus_tok_no_punct_no_Stop_dfm)
+head(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_key, 10)
+```
+
+
+#### Plotting
+
+
+```{r}
+textplot_keyness(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_key, margin = 0.2)
+```
+
+
+### Collocations - scoring multi-word expressions
+
+A collocation analysis is a way to identify contiguous collocations of words, i.e., multi-word expressions. Depending on the language, these can be identified based on capitalisation (e.g., proper names) as in English texts. However, this is not the same across languages. 
+
+
+We look for capital letters in our text. The result provides Wald's Lamda and z statistics. Usually, any z value higher or equal to 2 is statistically significant. To compute p values, we use the probability of a normal distribution based on a mean of 0 and an SD of 1. This is appended to the table. 
+
+```{r}
+sensesensibility_corpus_tok_no_punct_no_Stop_tstat_col_caps <- tokens_select(sensesensibility_corpus_tok_no_punct_no_Stop, pattern = "^[A-Z]", valuetype = "regex", case_insensitive = FALSE, padding = TRUE) %>%  textstat_collocations(min_count = 10) %>% mutate(p_value = 1 - pnorm(z, 0, 1))
+sensesensibility_corpus_tok_no_punct_no_Stop_tstat_col_caps
+```
+
+
+### Word clouds
+
+We can use word clouds of the top 100 words
+
+```{r}
+set.seed(132)
+sensesensibility_corpus_tok_no_punct_no_Stop_dfm %>% 
+  textplot_wordcloud(max_words = 100, color = brewer.pal(8, "Dark2"))
+```
+
+
+### Network analysis
+
+A network analysis allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.
+
+
+
+
+```{r}
+set.seed(144)
+sensesensibility_corpus_tok_no_punct_no_Stop_dfm %>% 
+  dfm_trim(min_termfreq = 100) %>%
+  textplot_network(min_freq = 0.5)
+
+```
+
+
+
+### Poisson regression
+
+Finally, we run a GLM with a poisson family to evaluate the significance level of our most frequent words.
+
+#### Computing GLM
+
+```{r}
+sensesensibility_corpus_GLM <- sensesensibility_corpus_tok_no_punct_no_Stop_dfm_freq %>% 
+  filter(frequency >= 100) %>% 
+  glm(frequency ~ feature, data = ., family = "poisson")
+summary(sensesensibility_corpus_GLM)
+```
+
+
+#### Visualising coefficients
+
+##### A plot
+
+We use two functions from the package `ggstats`. Because we used a poisson distribution, we obtain the results in IRR (=Incident rate ratios). Usually, we need to exponentiate these to make sense of the results. 
+
+
+```{r}
+ggcoef_model(sensesensibility_corpus_GLM, exponentiate = TRUE)
+```
+
+
+
+##### A plot + a table + 95% CI
+
+```{r}
+ggcoef_table(sensesensibility_corpus_GLM, exponentiate = TRUE)
+```
+
+
+# proustr
+
+## Import into `Global Environment`
+
+Adding data from the first book into the Global environment
+
+```{r}
+data(ducotedechezswann)
+#data(alombredesjeunesfillesenfleurs)
+#data(lecotedeguermantes)
+#data(sodomeetgomorrhe)
+#data(laprisonniere)
+#data(albertinedisparue)
+#data(letempretrouve)
+```
+
+## Look into data
+
+And we can get the top 60 rows from the first one
+
+```{r}
+ducotedechezswann %>%
+  head(n = 60)
+```
+
+## Create a corpus
+
+```{r}
+ducotedechezswann_corpus <- corpus(ducotedechezswann, text_field = "text")
+print(ducotedechezswann_corpus)
+```
+
+### Summary
+
+```{r}
+summary(ducotedechezswann_corpus, 10)
+```
+
+### Accessing parts of corpus
+
+```{r}
+ducotedechezswann_corpus[[1]]
+```
+
+### Document-level information
+
+```{r}
+head(docvars(ducotedechezswann_corpus))
+
+```
+
+### Unique variable names (for volume)
+
+```{r}
+unique(docvars(ducotedechezswann_corpus, field = "volume"))
+
+```
+
+
+## Tokens
+
+`tokens()` segments texts in a corpus into tokens (words or sentences) by word boundaries.
+We can remove punctuations or not
+
+### With punctuations
+
+```{r}
+ducotedechezswann_corpus_tok <- tokens(ducotedechezswann_corpus)
+ducotedechezswann_corpus_tok
+```
+
+### Without punctuations
+
+```{r}
+ducotedechezswann_corpus_tok_no_punct <- tokens(ducotedechezswann_corpus, remove_punct = TRUE)
+ducotedechezswann_corpus_tok_no_punct
+```
+
+
+
+
+## Stop words
+
+It is best to remove stop words (function/grammatical words) when we use statistical analyses of a corpus. 
+
+```{r}
+ducotedechezswann_corpus_tok_no_punct_no_Stop <- tokens_select(ducotedechezswann_corpus_tok_no_punct, pattern = stopwords("fr", source = "stopwords-iso"), selection = "remove")
+ducotedechezswann_corpus_tok_no_punct_no_Stop
+```
+
+
+## Statistical analyses
+
+We can start by providing statistics (whether descriptives or inferential) based on our corpora. 
+
+### Simple frequency analysis
+
+Here we look at obtaining a simple frequency analysis of usage.
+
+#### DFM
+
+We start by generating a DFM (document-feature matrix)
+
+```{r}
+ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm <- dfm(ducotedechezswann_corpus_tok_no_punct_no_Stop)
+ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm
+```
+
+#### Frequencies
+
+```{r}
+ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm_freq <- textstat_frequency(ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm)
+ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm_freq
+```
+
+
+#### Plot
+
+We plot the top 15 most frequent words used in the text. 
+
+
+```{r}
+ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm %>% 
+  textstat_frequency(n = 15) %>% 
+  ggplot(aes(x = reorder(feature, frequency), y = frequency)) +
+  geom_point() +
+  coord_flip() +
+  labs(x = NULL, y = "Frequency") +
+  theme_minimal()
+```
+
+### Lexical diversity
+
+We can compute the lexical diversity in a document. This is a measure allowing us to provide a statistical account of diversity in the choice of lexical items in a text. See the different measures implemented [here](https://quanteda.io/reference/textstat_lexdiv.html)
+
+#### TTR (Type-Token Ratio)
+
+##### Computing TTR
+
+```{r}
+ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr <- textstat_lexdiv(ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm, measure = "TTR")
+head(ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr, 5)
+```
+
+##### Plotting TTR
+
+```{r}
+plot(ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr$TTR, type = "l", xaxt = "n", xlab = NULL, ylab = "TTR")
+grid()
+axis(1, at = seq_len(nrow(ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr)), labels = ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr$document)
+```
+
+
+
+#### CTTR (Corrected Type-Token Ratio)
+
+##### Computing CTTR
+
+```{r}
+ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr <- textstat_lexdiv(ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm, measure = "CTTR")
+head(ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr, 5)
+```
+
+##### Plotting TTR
+
+```{r}
+plot(ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr$CTTR, type = "l", xaxt = "n", xlab = NULL, ylab = "CTTR")
+grid()
+axis(1, at = seq_len(nrow(ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr)), labels = ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr$document)
+```
+
+
+
+
+#### *K* (Yule's *K*)
+
+##### Computing *K*
+
+```{r}
+ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K <- textstat_lexdiv(ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm, measure = "K")
+head(ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K, 5)
+```
+
+##### Plotting *K*
+
+```{r}
+plot(ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K$K, type = "l", xaxt = "n", xlab = NULL, ylab = expression(italic(K)))
+grid()
+axis(1, at = seq_len(nrow(ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K)), labels = ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K$document)
+```
+
+
+### Keyness - relative frequency analysis
+
+The relative frequency analysis allows to provide a statistical analysis of frequent words as a function of a target reference level. For this dataset, we do not have a specific target. Hence the comparison is done based on the full dataset.
+
+#### Computing keyness
+
+```{r}
+ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm_tstat_key <- textstat_keyness(ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm)
+head(ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm_tstat_key, 10)
+```
+
+
+#### Plotting
+
+
+```{r}
+textplot_keyness(ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm_tstat_key, margin = 0.2)
+```
+
+
+### Collocations - scoring multi-word expressions
+
+A collocation analysis is a way to identify contiguous collocations of words, i.e., multi-word expressions. Depending on the language, these can be identified based on capitalisation (e.g., proper names) as in English texts. However, this is not the same across languages. 
+
+
+We look for capital letters in our text. The result provides Wald's Lamda and z statistics. Usually, any z value higher or equal to 2 is statistically significant. To compute p values, we use the probability of a normal distribution based on a mean of 0 and an SD of 1. This is appended to the table. 
+
+```{r}
+ducotedechezswann_corpus_tok_no_punct_no_Stop_tstat_col_caps <- tokens_select(ducotedechezswann_corpus_tok_no_punct_no_Stop, pattern = "^[A-Z]", valuetype = "regex", case_insensitive = FALSE, padding = TRUE) %>%  textstat_collocations(min_count = 10) %>% mutate(p_value = 1 - pnorm(z, 0, 1))
+ducotedechezswann_corpus_tok_no_punct_no_Stop_tstat_col_caps
+```
+
+
+### Word clouds
+
+We can use word clouds of the top 100 words
+
+```{r}
+set.seed(132)
+ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm %>% 
+  textplot_wordcloud(max_words = 100, color = brewer.pal(8, "Dark2"))
+```
+
+
+### Network analysis
+
+A network analysis allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.
+
+
+
+
+```{r}
+set.seed(144)
+ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm %>% 
+  dfm_trim(min_termfreq = 200) %>%
+  textplot_network(min_freq = 0.5)
+
+```
+
+
+
+### Poisson regression
+
+Finally, we run a GLM with a poisson family to evaluate the significance level of our most frequent words.
+
+#### Computing GLM
+
+```{r}
+ducotedechezswann_corpus_GLM <- ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm_freq %>% 
+  filter(frequency >= 200) %>% 
+  glm(frequency ~ feature, data = ., family = "poisson")
+summary(ducotedechezswann_corpus_GLM)
+```
+
+
+#### Visualising coefficients
+
+##### A plot
+
+We use two functions from the package `ggstats`. Because we used a poisson distribution, we obtain the results in IRR (=Incident rate ratios). Usually, we need to exponentiate these to make sense of the results. 
+
+
+```{r}
+ggcoef_model(ducotedechezswann_corpus_GLM, exponentiate = TRUE)
+```
+
+
+
+##### A plot + a table + 95% CI
+
+```{r}
+ggcoef_table(ducotedechezswann_corpus_GLM, exponentiate = TRUE)
+```
+
+# Inaugural Corpus USA
+
+
+```{r}
+Data_Dir <- system.file("extdata/", package = "readtext")
+```
+
+
+## Importing data
+
+```{r}
+dat_inaug <- read.csv(paste0(Data_Dir, "/csv/inaugCorpus.csv"))
+```
+
+## Create a corpus
+
+```{r}
+dat_inaug_corpus <- corpus(dat_inaug, text_field = "texts")
+print(dat_inaug_corpus)
+```
+
+### Summary
+
+```{r}
+summary(dat_inaug_corpus, 10)
+```
+
+### Editing docnames
+
+```{r}
+docid <- paste(dat_inaug$Year, 
+               dat_inaug$FirstName, 
+               dat_inaug$President, sep = " ")
+docnames(dat_inaug_corpus) <- docid
+print(dat_inaug_corpus)
+```
+
+### Accessing parts of corpus
+
+```{r}
+dat_inaug_corpus[[1]]
+```
+
+```{r}
+dat_inaug_corpus[["1789 George Washington"]]
+```
+
+### Unique variable names (for volume)
+
+```{r}
+unique(docvars(dat_inaug_corpus, field = "Year"))
+
+```
+
+
+
+## Tokens
+
+`tokens()` segments texts in a corpus into tokens (words or sentences) by word boundaries.
+We can remove punctuations or not
+
+### With punctuations
+
+```{r}
+dat_inaug_corpus_tok <- tokens(dat_inaug_corpus)
+dat_inaug_corpus_tok
+```
+
+### Without punctuations
+
+```{r}
+dat_inaug_corpus_tok_no_punct <- tokens(dat_inaug_corpus, remove_punct = TRUE)
+dat_inaug_corpus_tok_no_punct
+```
+
+
+
+## Stop words
+
+It is best to remove stop words (function/grammatical words) when we use statistical analyses of a corpus. 
+
+```{r}
+dat_inaug_corpus_tok_no_punct_no_Stop <- tokens_select(dat_inaug_corpus_tok_no_punct, pattern = stopwords("en", source = "stopwords-iso"), selection = "remove")
+dat_inaug_corpus_tok_no_punct_no_Stop
+```
+
+
+## Statistical analyses
+
+We can start by providing statistics (whether descriptives or inferential) based on our corpora. 
+
+### Simple frequency analysis
+
+Here we look at obtaining a simple frequency analysis of usage.
+
+#### DFM
+
+We start by generating a DFM (document-feature matrix)
+
+```{r}
+dat_inaug_corpus_tok_no_punct_no_Stop_dfm <- dfm(dat_inaug_corpus_tok_no_punct_no_Stop)
+dat_inaug_corpus_tok_no_punct_no_Stop_dfm
+```
+
+#### Frequencies
+
+```{r}
+dat_inaug_corpus_tok_no_punct_no_Stop_dfm_freq <- textstat_frequency(dat_inaug_corpus_tok_no_punct_no_Stop_dfm)
+dat_inaug_corpus_tok_no_punct_no_Stop_dfm_freq
+```
+
+
+#### Plot
+
+We plot the top 15 most frequent words used in the text. 
+
+
+```{r}
+dat_inaug_corpus_tok_no_punct_no_Stop_dfm %>% 
+  textstat_frequency(n = 15) %>% 
+  ggplot(aes(x = reorder(feature, frequency), y = frequency)) +
+  geom_point() +
+  coord_flip() +
+  labs(x = NULL, y = "Frequency") +
+  theme_minimal()
+```
+
+### Lexical diversity
+
+We can compute the lexical diversity in a document. This is a measure allowing us to provide a statistical account of diversity in the choice of lexical items in a text. See the different measures implemented [here](https://quanteda.io/reference/textstat_lexdiv.html)
+
+#### TTR (Type-Token Ratio)
+
+##### Computing TTR
+
+```{r}
+dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr <- textstat_lexdiv(dat_inaug_corpus_tok_no_punct_no_Stop_dfm, measure = "TTR")
+head(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr, 5)
+```
+
+##### Plotting TTR
+
+```{r}
+plot(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr$TTR, type = "l", xaxt = "n", xlab = NULL, ylab = "TTR")
+grid()
+axis(1, at = seq_len(nrow(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr)), labels = dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr$document)
+```
+
+
+
+#### CTTR (Corrected Type-Token Ratio)
+
+##### Computing CTTR
+
+```{r}
+dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr <- textstat_lexdiv(dat_inaug_corpus_tok_no_punct_no_Stop_dfm, measure = "CTTR")
+head(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr, 5)
+```
+
+##### Plotting TTR
+
+```{r}
+plot(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr$CTTR, type = "l", xaxt = "n", xlab = NULL, ylab = "CTTR")
+grid()
+axis(1, at = seq_len(nrow(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr)), labels = dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr$document)
+```
+
+
+
+
+#### *K* (Yule's *K*)
+
+##### Computing *K*
+
+```{r}
+dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K <- textstat_lexdiv(dat_inaug_corpus_tok_no_punct_no_Stop_dfm, measure = "K")
+head(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K, 5)
+```
+
+##### Plotting *K*
+
+```{r}
+plot(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K$K, type = "l", xaxt = "n", xlab = NULL, ylab = expression(italic(K)))
+grid()
+axis(1, at = seq_len(nrow(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K)), labels = dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K$document)
+```
+
+
+### Keyness - relative frequency analysis
+
+The relative frequency analysis allows to provide a statistical analysis of frequent words as a function of a target reference level. For this dataset, we do not have a specific target. Hence the comparison is done based on the full dataset.
+
+#### Computing keyness
+
+```{r}
+dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_key <- textstat_keyness(dat_inaug_corpus_tok_no_punct_no_Stop_dfm)
+head(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_key, 10)
+```
+
+
+#### Plotting
+
+
+```{r}
+textplot_keyness(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_key, margin = 0.2)
+```
+
+
+### Collocations - scoring multi-word expressions
+
+A collocation analysis is a way to identify contiguous collocations of words, i.e., multi-word expressions. Depending on the language, these can be identified based on capitalisation (e.g., proper names) as in English texts. However, this is not the same across languages. 
+
+
+We look for capital letters in our text. The result provides Wald's Lamda and z statistics. Usually, any z value higher or equal to 2 is statistically significant. To compute p values, we use the probability of a normal distribution based on a mean of 0 and an SD of 1. This is appended to the table. 
+
+```{r}
+dat_inaug_corpus_tok_no_punct_no_Stop_tstat_col_caps <- tokens_select(dat_inaug_corpus_tok_no_punct_no_Stop, pattern = "^[A-Z]", valuetype = "regex", case_insensitive = FALSE, padding = TRUE) %>%  textstat_collocations(min_count = 1) %>% mutate(p_value = 1 - pnorm(z, 0, 1))
+dat_inaug_corpus_tok_no_punct_no_Stop_tstat_col_caps
+```
+
+
+### Word clouds
+
+We can use word clouds of the top 100 words
+
+```{r}
+set.seed(132)
+dat_inaug_corpus_tok_no_punct_no_Stop_dfm %>% 
+  textplot_wordcloud(max_words = 100, color = brewer.pal(8, "Dark2"))
+```
+
+
+### Network analysis
+
+A network analysis allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.
+
+
+
+
+```{r}
+set.seed(144)
+dat_inaug_corpus_tok_no_punct_no_Stop_dfm %>% 
+  dfm_trim(min_termfreq = 15) %>%
+  textplot_network(min_freq = 0.5)
+
+```
+
+
+
+### Poisson regression
+
+Finally, we run a GLM with a poisson family to evaluate the significance level of our most frequent words.
+
+#### Computing GLM
+
+```{r}
+dat_inaug_corpus_GLM <- dat_inaug_corpus_tok_no_punct_no_Stop_dfm_freq %>% 
+  filter(frequency >= 15) %>% 
+  glm(frequency ~ feature, data = ., family = "poisson")
+summary(dat_inaug_corpus_GLM)
+```
+
+
+#### Visualising coefficients
+
+##### A plot
+
+We use two functions from the package `ggstats`. Because we used a poisson distribution, we obtain the results in IRR (=Incident rate ratios). Usually, we need to exponentiate these to make sense of the results. 
+
+
+```{r}
+ggcoef_model(dat_inaug_corpus_GLM, exponentiate = TRUE)
+```
+
+
+
+##### A plot + a table + 95% CI
+
+```{r}
+ggcoef_table(dat_inaug_corpus_GLM, exponentiate = TRUE)
+```
+
+# Universal Declaration of Human Rights
+
+We import multiple files containing the Universal Declaration of Human Rights in 13 languages.
+There are 13 different textfiles
+
+## Importing data
+
+```{r}
+dat_udhr <- readtext(paste0(Data_Dir, "/txt/UDHR/*"),
+                      docvarsfrom = "filenames", 
+                      docvarnames = c("document", "language"))
+```
+
+## Create a corpus
+
+```{r}
+dat_udhr_corpus <- corpus(dat_udhr)
+print(dat_udhr_corpus)
+```
+
+### Summary
+
+```{r}
+summary(dat_udhr_corpus, 13)
+```
+
+### Accessing parts of corpus
+
+```{r}
+dat_udhr_corpus[[4]]
+```
+
+### Document-level information
+
+```{r}
+head(docvars(dat_udhr_corpus))
+
+```
+
+
+
+## Tokens
+
+`tokens()` segments texts in a corpus into tokens (words or sentences) by word boundaries.
+We can remove punctuations or not
+
+### With punctuations
+
+```{r}
+dat_udhr_corpus_tok <- tokens(dat_udhr_corpus)
+dat_udhr_corpus_tok
+```
+
+### Without punctuations
+
+```{r}
+dat_udhr_corpus_tok_no_punct <- tokens(dat_udhr_corpus, remove_punct = TRUE)
+dat_udhr_corpus_tok_no_punct
+```
+
+
+
+## Stop words
+
+It is best to remove stop words (function/grammatical words) when we use statistical analyses of a corpus. 
+
+```{r}
+dat_udhr_corpus_tok_no_punct_no_Stop <- tokens_select(dat_udhr_corpus_tok_no_punct, pattern = stopwords("en", source = "stopwords-iso"), selection = "remove")
+dat_udhr_corpus_tok_no_punct_no_Stop
+```
+
+
+## Statistical analyses
+
+We can start by providing statistics (whether descriptives or inferential) based on our corpora. 
+
+### Simple frequency analysis
+
+Here we look at obtaining a simple frequency analysis of usage.
+
+#### DFM
+
+We start by generating a DFM (document-feature matrix)
+
+```{r}
+dat_udhr_corpus_tok_no_punct_no_Stop_dfm <- dfm(dat_udhr_corpus_tok_no_punct_no_Stop)
+dat_udhr_corpus_tok_no_punct_no_Stop_dfm
+```
+
+#### Frequencies
+
+```{r}
+dat_udhr_corpus_tok_no_punct_no_Stop_dfm_freq <- textstat_frequency(dat_udhr_corpus_tok_no_punct_no_Stop_dfm)
+dat_udhr_corpus_tok_no_punct_no_Stop_dfm_freq
+```
+
+
+#### Plot
+
+We plot the top 15 most frequent words used in the text. 
+
+
+```{r}
+dat_udhr_corpus_tok_no_punct_no_Stop_dfm %>% 
+  textstat_frequency(n = 15) %>% 
+  ggplot(aes(x = reorder(feature, frequency), y = frequency)) +
+  geom_point() +
+  coord_flip() +
+  labs(x = NULL, y = "Frequency") +
+  theme_minimal()
+```
+
+### Lexical diversity
+
+We can compute the lexical diversity in a document. This is a measure allowing us to provide a statistical account of diversity in the choice of lexical items in a text. See the different measures implemented [here](https://quanteda.io/reference/textstat_lexdiv.html)
+
+#### TTR (Type-Token Ratio)
+
+##### Computing TTR
+
+```{r}
+dat_udhr_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr <- textstat_lexdiv(dat_udhr_corpus_tok_no_punct_no_Stop_dfm, measure = "TTR")
+head(dat_udhr_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr, 5)
+```
+
+##### Plotting TTR
+
+```{r}
+plot(dat_udhr_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr$TTR, type = "l", xaxt = "n", xlab = NULL, ylab = "TTR")
+grid()
+axis(1, at = seq_len(nrow(dat_udhr_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr)), labels = dat_udhr_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr$document)
+```
+
+
+
+#### CTTR (Corrected Type-Token Ratio)
+
+##### Computing CTTR
+
+```{r}
+dat_udhr_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr <- textstat_lexdiv(dat_udhr_corpus_tok_no_punct_no_Stop_dfm, measure = "CTTR")
+head(dat_udhr_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr, 5)
+```
+
+##### Plotting TTR
+
+```{r}
+plot(dat_udhr_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr$CTTR, type = "l", xaxt = "n", xlab = NULL, ylab = "CTTR")
+grid()
+axis(1, at = seq_len(nrow(dat_udhr_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr)), labels = dat_udhr_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr$document)
+```
+
+
+
+
+#### *K* (Yule's *K*)
+
+##### Computing *K*
+
+```{r}
+dat_udhr_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K <- textstat_lexdiv(dat_udhr_corpus_tok_no_punct_no_Stop_dfm, measure = "K")
+head(dat_udhr_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K, 5)
+```
+
+##### Plotting *K*
+
+```{r}
+plot(dat_udhr_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K$K, type = "l", xaxt = "n", xlab = NULL, ylab = expression(italic(K)))
+grid()
+axis(1, at = seq_len(nrow(dat_udhr_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K)), labels = dat_udhr_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K$document)
+```
+
+
+### Keyness - relative frequency analysis
+
+The relative frequency analysis allows to provide a statistical analysis of frequent words as a function of a target reference level. For this dataset, we do not have a specific target. Hence the comparison is done based on the full dataset.
+
+#### Computing keyness
+
+```{r}
+dat_udhr_corpus_tok_no_punct_no_Stop_dfm_tstat_key <- textstat_keyness(dat_udhr_corpus_tok_no_punct_no_Stop_dfm)
+head(dat_udhr_corpus_tok_no_punct_no_Stop_dfm_tstat_key, 10)
+```
+
+
+#### Plotting
+
+
+```{r}
+textplot_keyness(dat_udhr_corpus_tok_no_punct_no_Stop_dfm_tstat_key, margin = 0.2)
+```
+
+
+### Collocations - scoring multi-word expressions
+
+A collocation analysis is a way to identify contiguous collocations of words, i.e., multi-word expressions. Depending on the language, these can be identified based on capitalisation (e.g., proper names) as in English texts. However, this is not the same across languages. 
+
+
+We look for capital letters in our text. The result provides Wald's Lamda and z statistics. Usually, any z value higher or equal to 2 is statistically significant. To compute p values, we use the probability of a normal distribution based on a mean of 0 and an SD of 1. This is appended to the table. 
+
+```{r}
+dat_udhr_corpus_tok_no_punct_no_Stop_tstat_col_caps <- tokens_select(dat_udhr_corpus_tok_no_punct_no_Stop, pattern = "^[a-z]", valuetype = "regex", case_insensitive = FALSE, padding = TRUE) %>%  textstat_collocations(min_count = 10) %>% mutate(p_value = 1 - pnorm(z, 0, 1))
+dat_udhr_corpus_tok_no_punct_no_Stop_tstat_col_caps
+```
+
+
+### Word clouds
+
+We can use word clouds of the top 100 words
+
+```{r}
+set.seed(132)
+dat_udhr_corpus_tok_no_punct_no_Stop_dfm %>% 
+  textplot_wordcloud(max_words = 100, color = brewer.pal(8, "Dark2"))
+```
+
+
+### Network analysis
+
+A network analysis allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.
+
+
+
+
+```{r}
+set.seed(144)
+dat_udhr_corpus_tok_no_punct_no_Stop_dfm %>% 
+  dfm_trim(min_termfreq = 20) %>%
+  textplot_network(min_freq = 0.5)
+
+```
+
+
+
+### Poisson regression
+
+Finally, we run a GLM with a poisson family to evaluate the significance level of our most frequent words.
+
+#### Computing GLM
+
+```{r}
+dat_udhr_corpus_GLM <- dat_udhr_corpus_tok_no_punct_no_Stop_dfm_freq %>% 
+  filter(frequency >= 50) %>% 
+  glm(frequency ~ feature, data = ., family = "poisson")
+summary(dat_udhr_corpus_GLM)
+```
+
+
+#### Visualising coefficients
+
+##### A plot
+
+We use two functions from the package `ggstats`. Because we used a poisson distribution, we obtain the results in IRR (=Incident rate ratios). Usually, we need to exponentiate these to make sense of the results. 
+
+
+```{r}
+ggcoef_model(dat_udhr_corpus_GLM, exponentiate = TRUE)
+```
+
+
+
+##### A plot + a table + 95% CI
+
+```{r}
+ggcoef_table(dat_udhr_corpus_GLM, exponentiate = TRUE)
+```
+
+# Twitter data
+
+We the twitter.json data accessed from [here](https://github.com/quanteda/tutorials.quanteda.io/blob/master/content/data/twitter.json).
+This is a JSON file (.json) downloaded from the Twitter stream API.
+
+## Importing data
+
+```{r}
+dat_twitter <- readtext("data/twitter.json", source = "twitter")
+```
+
+## Create a corpus
+
+```{r}
+dat_twitter_corpus <- corpus(dat_twitter)
+print(dat_twitter_corpus)
+```
+
+### Summary
+
+```{r}
+summary(dat_twitter_corpus, 10)
+```
+
+### Accessing parts of corpus 
+
+```{r}
+dat_twitter_corpus[,1]
+```
+
+### Document-level information
+
+```{r}
+head(docvars(dat_twitter_corpus))
+
+```
+
+### Unique variable names (for volume)
+
+```{r}
+unique(docvars(dat_twitter_corpus, field = "lang"))
+
+```
+
+
+## Tokens
+
+`tokens()` segments texts in a corpus into tokens (words or sentences) by word boundaries.
+We can remove punctuations or not
+
+### With punctuations
+
+```{r}
+dat_twitter_corpus_tok <- tokens(dat_twitter_corpus)
+dat_twitter_corpus_tok
+```
+
+### Without punctuations
+
+```{r}
+dat_twitter_corpus_tok_no_punct <- tokens(dat_twitter_corpus, remove_punct = TRUE)
+dat_twitter_corpus_tok_no_punct
+```
+
+
+
+## Stop words
+
+It is best to remove stop words (function/grammatical words) when we use statistical analyses of a corpus. 
+
+```{r}
+dat_twitter_corpus_tok_no_punct_no_Stop <- tokens_select(dat_twitter_corpus_tok_no_punct, pattern = stopwords("en", source = "stopwords-iso"), selection = "remove")
+dat_twitter_corpus_tok_no_punct_no_Stop
+```
+
+
+## Statistical analyses
+
+We can start by providing statistics (whether descriptives or inferential) based on our corpora. 
+
+### Simple frequency analysis
+
+Here we look at obtaining a simple frequency analysis of usage.
+
+#### DFM
+
+We start by generating a DFM (document-feature matrix)
+
+```{r}
+dat_twitter_corpus_tok_no_punct_no_Stop_dfm <- dfm(dat_twitter_corpus_tok_no_punct_no_Stop)
+dat_twitter_corpus_tok_no_punct_no_Stop_dfm
+```
+
+#### Frequencies
+
+```{r}
+dat_twitter_corpus_tok_no_punct_no_Stop_dfm_freq <- textstat_frequency(dat_twitter_corpus_tok_no_punct_no_Stop_dfm)
+dat_twitter_corpus_tok_no_punct_no_Stop_dfm_freq
+```
+
+
+#### Plot
+
+We plot the top 15 most frequent words used in the text. 
+
+
+```{r}
+dat_twitter_corpus_tok_no_punct_no_Stop_dfm %>% 
+  textstat_frequency(n = 15) %>% 
+  ggplot(aes(x = reorder(feature, frequency), y = frequency)) +
+  geom_point() +
+  coord_flip() +
+  labs(x = NULL, y = "Frequency") +
+  theme_minimal()
+```
+
+### Lexical diversity
+
+We can compute the lexical diversity in a document. This is a measure allowing us to provide a statistical account of diversity in the choice of lexical items in a text. See the different measures implemented [here](https://quanteda.io/reference/textstat_lexdiv.html)
+
+#### TTR (Type-Token Ratio)
+
+##### Computing TTR
+
+```{r}
+dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr <- textstat_lexdiv(dat_twitter_corpus_tok_no_punct_no_Stop_dfm, measure = "TTR")
+head(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr, 5)
+```
+
+##### Plotting TTR
+
+```{r}
+plot(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr$TTR, type = "l", xaxt = "n", xlab = NULL, ylab = "TTR")
+grid()
+axis(1, at = seq_len(nrow(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr)), labels = dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr$document)
+```
+
+
+
+#### CTTR (Corrected Type-Token Ratio)
+
+##### Computing CTTR
+
+```{r}
+dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr <- textstat_lexdiv(dat_twitter_corpus_tok_no_punct_no_Stop_dfm, measure = "CTTR")
+head(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr, 5)
+```
+
+##### Plotting TTR
+
+```{r}
+plot(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr$CTTR, type = "l", xaxt = "n", xlab = NULL, ylab = "CTTR")
+grid()
+axis(1, at = seq_len(nrow(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr)), labels = dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr$document)
+```
+
+
+
+
+#### *K* (Yule's *K*)
+
+##### Computing *K*
+
+```{r}
+dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K <- textstat_lexdiv(dat_twitter_corpus_tok_no_punct_no_Stop_dfm, measure = "K")
+head(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K, 5)
+```
+
+##### Plotting *K*
+
+```{r}
+plot(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K$K, type = "l", xaxt = "n", xlab = NULL, ylab = expression(italic(K)))
+grid()
+axis(1, at = seq_len(nrow(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K)), labels = dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K$document)
+```
+
+
+### Keyness - relative frequency analysis
+
+The relative frequency analysis allows to provide a statistical analysis of frequent words as a function of a target reference level. For this dataset, we do not have a specific target. Hence the comparison is done based on the full dataset.
+
+#### Computing keyness
+
+```{r}
+dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_key <- textstat_keyness(dat_twitter_corpus_tok_no_punct_no_Stop_dfm)
+head(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_key, 10)
+```
+
+
+#### Plotting
+
+
+```{r}
+textplot_keyness(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_key, margin = 0.2)
+```
+
+
+### Collocations - scoring multi-word expressions
+
+A collocation analysis is a way to identify contiguous collocations of words, i.e., multi-word expressions. Depending on the language, these can be identified based on capitalisation (e.g., proper names) as in English texts. However, this is not the same across languages. 
+
+
+We look for capital letters in our text. The result provides Wald's Lamda and z statistics. Usually, any z value higher or equal to 2 is statistically significant. To compute p values, we use the probability of a normal distribution based on a mean of 0 and an SD of 1. This is appended to the table. 
+
+```{r}
+dat_twitter_corpus_tok_no_punct_no_Stop_tstat_col_caps <- tokens_select(dat_twitter_corpus_tok_no_punct_no_Stop, pattern = "^[A-Z]", valuetype = "regex", case_insensitive = FALSE, padding = TRUE) %>%  textstat_collocations(min_count = 10) %>% mutate(p_value = 1 - pnorm(z, 0, 1))
+dat_twitter_corpus_tok_no_punct_no_Stop_tstat_col_caps
+```
+
+
+### Word clouds
+
+We can use word clouds of the top 100 words
+
+```{r}
+set.seed(132)
+dat_twitter_corpus_tok_no_punct_no_Stop_dfm %>% 
+  textplot_wordcloud(max_words = 100, color = brewer.pal(8, "Dark2"))
+```
+
+
+### Network analysis
+
+A network analysis allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.
+
+
+
+
+```{r}
+set.seed(144)
+dat_twitter_corpus_tok_no_punct_no_Stop_dfm %>% 
+  dfm_trim(min_termfreq = 500) %>%
+  textplot_network(min_freq = 0.5)
+
+```
+
+
+
+### Poisson regression
+
+Finally, we run a GLM with a poisson family to evaluate the significance level of our most frequent words.
+
+#### Computing GLM
+
+```{r}
+dat_twitter_corpus_GLM <- dat_twitter_corpus_tok_no_punct_no_Stop_dfm_freq %>% 
+  filter(frequency >= 500) %>% 
+  glm(frequency ~ feature, data = ., family = "poisson")
+summary(dat_twitter_corpus_GLM)
+```
+
+
+#### Visualising coefficients
+
+##### A plot
+
+We use two functions from the package `ggstats`. Because we used a poisson distribution, we obtain the results in IRR (=Incident rate ratios). Usually, we need to exponentiate these to make sense of the results. 
+
+
+```{r}
+ggcoef_model(dat_twitter_corpus_GLM, exponentiate = TRUE)
+```
+
+
+
+##### A plot + a table + 95% CI
+
+```{r}
+ggcoef_table(dat_twitter_corpus_GLM, exponentiate = TRUE)
+```
+
+
+# Single web page
+
+## Read_html
+
+```{r}
+web_page <- rvest::read_html("https://www.tidyverse.org/packages/")
+web_page
+```
+
+Because the downloaded file contains a unnecessary information.
+We process the data to extract only the text from the webpage.
+
+## Extract headline
+
+```{r}
+header_web_page <- web_page %>%
+  # extract paragraphs
+  rvest::html_nodes("h1") %>%
+  # extract text
+  rvest::html_text() 
+head(header_web_page)
+```
+
+## Extract text
+
+```{r}
+web_page_txt <- web_page %>%
+  # extract paragraphs
+  rvest::html_nodes("p") %>%
+  # extract text
+  rvest::html_text()
+head(web_page_txt)
+```
+
+## Create a corpus
+
+```{r}
+web_page_txt_corpus <- corpus(web_page_txt)
+print(web_page_txt_corpus)
+```
+
+### Summary
+
+```{r}
+summary(web_page_txt_corpus, 10)
+```
+
+### Accessing parts of corpus
+
+```{r}
+web_page_txt_corpus[[4]]
+```
+
+### Document-level information
+
+```{r}
+head(docvars(web_page_txt_corpus))
+
+```
+
+
+## Tokens
+
+`tokens()` segments texts in a corpus into tokens (words or sentences) by word boundaries.
+We can remove punctuations or not
+
+### With punctuations
+
+```{r}
+web_page_txt_corpus_tok <- tokens(web_page_txt_corpus)
+web_page_txt_corpus_tok
+```
+
+### Without punctuations
+
+```{r}
+web_page_txt_corpus_tok_no_punct <- tokens(web_page_txt_corpus, remove_punct = TRUE)
+web_page_txt_corpus_tok_no_punct
+```
+
+
+
+
+## Stop words
+
+It is best to remove stop words (function/grammatical words) when we use statistical analyses of a corpus. 
+
+```{r}
+web_page_txt_corpus_tok_no_punct_no_Stop <- tokens_select(web_page_txt_corpus_tok_no_punct, pattern = stopwords("en", source = "stopwords-iso"), selection = "remove")
+web_page_txt_corpus_tok_no_punct_no_Stop
+```
+
+
+## Statistical analyses
+
+We can start by providing statistics (whether descriptives or inferential) based on our corpora. 
+
+### Simple frequency analysis
+
+Here we look at obtaining a simple frequency analysis of usage.
+
+#### DFM
+
+We start by generating a DFM (document-feature matrix)
+
+```{r}
+web_page_txt_corpus_tok_no_punct_no_Stop_dfm <- dfm(web_page_txt_corpus_tok_no_punct_no_Stop)
+web_page_txt_corpus_tok_no_punct_no_Stop_dfm
+```
+
+#### Frequencies
+
+```{r}
+web_page_txt_corpus_tok_no_punct_no_Stop_dfm_freq <- textstat_frequency(web_page_txt_corpus_tok_no_punct_no_Stop_dfm)
+web_page_txt_corpus_tok_no_punct_no_Stop_dfm_freq
+```
+
+
+#### Plot
+
+We plot the top 15 most frequent words used in the text. 
+
+
+```{r}
+web_page_txt_corpus_tok_no_punct_no_Stop_dfm %>% 
+  textstat_frequency(n = 15) %>% 
+  ggplot(aes(x = reorder(feature, frequency), y = frequency)) +
+  geom_point() +
+  coord_flip() +
+  labs(x = NULL, y = "Frequency") +
+  theme_minimal()
+```
+
+### Lexical diversity
+
+We can compute the lexical diversity in a document. This is a measure allowing us to provide a statistical account of diversity in the choice of lexical items in a text. See the different measures implemented [here](https://quanteda.io/reference/textstat_lexdiv.html)
+
+#### TTR (Type-Token Ratio)
+
+##### Computing TTR
+
+```{r}
+web_page_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr <- textstat_lexdiv(web_page_txt_corpus_tok_no_punct_no_Stop_dfm, measure = "TTR")
+head(web_page_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr, 5)
+```
+
+##### Plotting TTR
+
+```{r}
+plot(web_page_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr$TTR, type = "l", xaxt = "n", xlab = NULL, ylab = "TTR")
+grid()
+axis(1, at = seq_len(nrow(web_page_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr)), labels = web_page_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr$document)
+```
+
+
+
+#### CTTR (Corrected Type-Token Ratio)
+
+##### Computing CTTR
+
+```{r}
+web_page_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr <- textstat_lexdiv(web_page_txt_corpus_tok_no_punct_no_Stop_dfm, measure = "CTTR")
+head(web_page_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr, 5)
+```
+
+##### Plotting TTR
+
+```{r}
+plot(web_page_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr$CTTR, type = "l", xaxt = "n", xlab = NULL, ylab = "CTTR")
+grid()
+axis(1, at = seq_len(nrow(web_page_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr)), labels = web_page_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr$document)
+```
+
+
+
+
+#### *K* (Yule's *K*)
+
+##### Computing *K*
+
+```{r}
+web_page_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K <- textstat_lexdiv(web_page_txt_corpus_tok_no_punct_no_Stop_dfm, measure = "K")
+head(web_page_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K, 5)
+```
+
+##### Plotting *K*
+
+```{r}
+plot(web_page_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K$K, type = "l", xaxt = "n", xlab = NULL, ylab = expression(italic(K)))
+grid()
+axis(1, at = seq_len(nrow(web_page_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K)), labels = web_page_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K$document)
+```
+
+
+### Keyness - relative frequency analysis
+
+The relative frequency analysis allows to provide a statistical analysis of frequent words as a function of a target reference level. For this dataset, we do not have a specific target. Hence the comparison is done based on the full dataset.
+
+#### Computing keyness
+
+```{r}
+web_page_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_key <- textstat_keyness(web_page_txt_corpus_tok_no_punct_no_Stop_dfm)
+head(web_page_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_key, 10)
+```
+
+
+#### Plotting
+
+
+```{r}
+textplot_keyness(web_page_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_key, margin = 0.2)
+```
+
+
+### Collocations - scoring multi-word expressions
+
+A collocation analysis is a way to identify contiguous collocations of words, i.e., multi-word expressions. Depending on the language, these can be identified based on capitalisation (e.g., proper names) as in English texts. However, this is not the same across languages. 
+
+
+We look for capital letters in our text. The result provides Wald's Lamda and z statistics. Usually, any z value higher or equal to 2 is statistically significant. To compute p values, we use the probability of a normal distribution based on a mean of 0 and an SD of 1. This is appended to the table. 
+
+Here, we do not have any compound words!
+
+```{r}
+web_page_txt_corpus_tok_no_punct_no_Stop_tstat_col_caps <- tokens_select(web_page_txt_corpus_tok_no_punct_no_Stop, pattern = c("^[a-z]", "^[A-Z]"), valuetype = "regex", case_insensitive = FALSE, padding = TRUE) %>%  textstat_collocations(min_count = 10) %>% mutate(p_value = 1 - pnorm(z, 0, 1))
+web_page_txt_corpus_tok_no_punct_no_Stop_tstat_col_caps
+```
+
+
+### Word clouds
+
+We can use word clouds of the top 100 words
+
+```{r}
+set.seed(132)
+web_page_txt_corpus_tok_no_punct_no_Stop_dfm %>% 
+  textplot_wordcloud(max_words = 100, color = brewer.pal(8, "Dark2"))
+```
+
+
+### Network analysis
+
+A network analysis allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.
+
+
+
+
+```{r}
+set.seed(144)
+web_page_txt_corpus_tok_no_punct_no_Stop_dfm %>% 
+  dfm_trim(min_termfreq = 3) %>%
+  textplot_network(min_freq = 0.5)
+
+```
+
+
+
+### Poisson regression
+
+Finally, we run a GLM with a poisson family to evaluate the significance level of our most frequent words.
+
+#### Computing GLM
+
+```{r}
+web_page_txt_corpus_GLM <- web_page_txt_corpus_tok_no_punct_no_Stop_dfm_freq %>% 
+  filter(frequency >= 3) %>% 
+  glm(frequency ~ feature, data = ., family = "poisson")
+summary(web_page_txt_corpus_GLM)
+```
+
+
+#### Visualising coefficients
+
+##### A plot
+
+We use two functions from the package `ggstats`. Because we used a poisson distribution, we obtain the results in IRR (=Incident rate ratios). Usually, we need to exponentiate these to make sense of the results. 
+
+
+```{r}
+ggcoef_model(web_page_txt_corpus_GLM, exponentiate = TRUE)
+```
+
+
+
+##### A plot + a table + 95% CI
+
+```{r}
+ggcoef_table(web_page_txt_corpus_GLM, exponentiate = TRUE)
+```
+
+# Multiple webpages
+
+## Read_html
+
+```{r}
+website <- "https://www.tidyverse.org/packages/" %>% 
+  rvest::read_html()
+website
+```
+
+```{r}
+a_elements <- website %>% 
+  rvest::html_elements(css = "div.package > a")
+a_elements
+```
+
+## Extract headline
+
+```{r}
+links <- a_elements %>%
+  rvest::html_attr(name = "href")
+links
+```
+
+## Extract subpages
+
+```{r}
+pages <- links %>% 
+  map(rvest::read_html)
+pages
+```
+
+The structure seems to be similar across all pages
+
+```{r}
+pages %>% 
+  map(rvest::html_element, css = "a.navbar-brand") %>% 
+  map_chr(rvest::html_text)
+
+```
+
+and extracting version number
+
+```{r}
+pages %>% 
+  map(rvest::html_element, css = "small.nav-text.text-muted.me-auto") %>% 
+  map_chr(rvest::html_text)
+```
+
+and we can also add all into a tibble
+
+## Extract text
+
+```{r}
+pages_table <- tibble(
+  name = pages %>% 
+    map(rvest::html_element, css = "a.navbar-brand") %>% 
+    map_chr(rvest::html_text),
+  version = pages %>% 
+    map(rvest::html_element, css = "small.nav-text.text-muted.me-auto") %>% 
+    map_chr(rvest::html_text),
+  CRAN = pages %>% 
+    map(rvest::html_element, css = "ul.list-unstyled > li:nth-child(1) > a") %>% 
+    map_chr(rvest::html_attr, name = "href"),
+  Learn = pages %>% 
+    map(rvest::html_element, css = "ul.list-unstyled > li:nth-child(4) > a") %>% 
+    map_chr(rvest::html_attr, name = "href"), 
+  text = pages %>%
+    map(rvest::html_element,  css = "body") %>%
+    map_chr(rvest::html_text2)
+)
+pages_table
+```
+
+## Create a corpus
+
+```{r}
+web_pages_txt_corpus <- corpus(pages_table)
+print(web_pages_txt_corpus)
+```
+
+### Summary
+
+```{r}
+summary(web_pages_txt_corpus, 10)
+```
+
+### Accessing parts of corpus
+
+```{r}
+web_pages_txt_corpus[[4]]
+```
+
+### Document-level information
+
+```{r}
+head(docvars(web_pages_txt_corpus))
+
+```
+
+
+## Tokens
+
+`tokens()` segments texts in a corpus into tokens (words or sentences) by word boundaries.
+We can remove punctuations or not
+
+### With punctuations
+
+```{r}
+web_pages_txt_corpus_tok <- tokens(web_pages_txt_corpus)
+web_pages_txt_corpus_tok
+```
+
+### Without punctuations
+
+```{r}
+web_pages_txt_corpus_tok_no_punct <- tokens(web_pages_txt_corpus, remove_punct = TRUE)
+web_pages_txt_corpus_tok_no_punct
+```
+
+
+
+## Stop words
+
+It is best to remove stop words (function/grammatical words) when we use statistical analyses of a corpus. 
+
+```{r}
+web_pages_txt_corpus_tok_no_punct_no_Stop <- tokens_select(web_pages_txt_corpus_tok_no_punct, pattern = stopwords("en", source = "stopwords-iso"), selection = "remove")
+web_pages_txt_corpus_tok_no_punct_no_Stop
+```
+
+
+## Statistical analyses
+
+We can start by providing statistics (whether descriptives or inferential) based on our corpora. 
+
+### Simple frequency analysis
+
+Here we look at obtaining a simple frequency analysis of usage.
+
+#### DFM
+
+We start by generating a DFM (document-feature matrix)
+
+```{r}
+web_pages_txt_corpus_tok_no_punct_no_Stop_dfm <- dfm(web_pages_txt_corpus_tok_no_punct_no_Stop)
+web_pages_txt_corpus_tok_no_punct_no_Stop_dfm
+```
+
+#### Frequencies
+
+```{r}
+web_pages_txt_corpus_tok_no_punct_no_Stop_dfm_freq <- textstat_frequency(web_pages_txt_corpus_tok_no_punct_no_Stop_dfm)
+web_pages_txt_corpus_tok_no_punct_no_Stop_dfm_freq
+```
+
+
+#### Plot
+
+We plot the top 15 most frequent words used in the text. 
+
+
+```{r}
+web_pages_txt_corpus_tok_no_punct_no_Stop_dfm %>% 
+  textstat_frequency(n = 15) %>% 
+  ggplot(aes(x = reorder(feature, frequency), y = frequency)) +
+  geom_point() +
+  coord_flip() +
+  labs(x = NULL, y = "Frequency") +
+  theme_minimal()
+```
+
+### Lexical diversity
+
+We can compute the lexical diversity in a document. This is a measure allowing us to provide a statistical account of diversity in the choice of lexical items in a text. See the different measures implemented [here](https://quanteda.io/reference/textstat_lexdiv.html)
+
+#### TTR (Type-Token Ratio)
+
+##### Computing TTR
+
+```{r}
+web_pages_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr <- textstat_lexdiv(web_pages_txt_corpus_tok_no_punct_no_Stop_dfm, measure = "TTR")
+head(web_pages_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr, 5)
+```
+
+##### Plotting TTR
+
+```{r}
+plot(web_pages_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr$TTR, type = "l", xaxt = "n", xlab = NULL, ylab = "TTR")
+grid()
+axis(1, at = seq_len(nrow(web_pages_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr)), labels = web_pages_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr$document)
+```
+
+
+
+#### CTTR (Corrected Type-Token Ratio)
+
+##### Computing CTTR
+
+```{r}
+web_pages_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr <- textstat_lexdiv(web_pages_txt_corpus_tok_no_punct_no_Stop_dfm, measure = "CTTR")
+head(web_pages_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr, 5)
+```
+
+##### Plotting TTR
+
+```{r}
+plot(web_pages_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr$CTTR, type = "l", xaxt = "n", xlab = NULL, ylab = "CTTR")
+grid()
+axis(1, at = seq_len(nrow(web_pages_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr)), labels = web_pages_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr$document)
+```
+
+
+
+
+#### *K* (Yule's *K*)
+
+##### Computing *K*
+
+```{r}
+web_pages_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K <- textstat_lexdiv(web_pages_txt_corpus_tok_no_punct_no_Stop_dfm, measure = "K")
+head(web_pages_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K, 5)
+```
+
+##### Plotting *K*
+
+```{r}
+plot(web_pages_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K$K, type = "l", xaxt = "n", xlab = NULL, ylab = expression(italic(K)))
+grid()
+axis(1, at = seq_len(nrow(web_pages_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K)), labels = web_pages_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K$document)
+```
+
+
+### Keyness - relative frequency analysis
+
+The relative frequency analysis allows to provide a statistical analysis of frequent words as a function of a target reference level. For this dataset, we do not have a specific target. Hence the comparison is done based on the full dataset.
+
+#### Computing keyness
+
+```{r}
+web_pages_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_key <- textstat_keyness(web_pages_txt_corpus_tok_no_punct_no_Stop_dfm)
+head(web_pages_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_key, 10)
+```
+
+
+#### Plotting
+
+
+```{r}
+textplot_keyness(web_pages_txt_corpus_tok_no_punct_no_Stop_dfm_tstat_key, margin = 0.2)
+```
+
+
+### Collocations - scoring multi-word expressions
+
+A collocation analysis is a way to identify contiguous collocations of words, i.e., multi-word expressions. Depending on the language, these can be identified based on capitalisation (e.g., proper names) as in English texts. However, this is not the same across languages. 
+
+
+We look for capital letters in our text. The result provides Wald's Lamda and z statistics. Usually, any z value higher or equal to 2 is statistically significant. To compute p values, we use the probability of a normal distribution based on a mean of 0 and an SD of 1. This is appended to the table. 
+
+```{r}
+web_pages_txt_corpus_tok_no_punct_no_Stop_tstat_col_caps <- tokens_select(web_pages_txt_corpus_tok_no_punct_no_Stop, pattern = c("^[A-Z]", "^[a-z]"), valuetype = "regex", case_insensitive = FALSE, padding = TRUE) %>%  textstat_collocations(min_count = 10) %>% mutate(p_value = 1 - pnorm(z, 0, 1))
+web_pages_txt_corpus_tok_no_punct_no_Stop_tstat_col_caps
+```
+
+
+### Word clouds
+
+We can use word clouds of the top 100 words
+
+```{r}
+set.seed(132)
+web_pages_txt_corpus_tok_no_punct_no_Stop_dfm %>% 
+  textplot_wordcloud(max_words = 100, color = brewer.pal(8, "Dark2"))
+```
+
+
+### Network analysis
+
+A network analysis allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.
+
+
+
+
+```{r}
+set.seed(144)
+web_pages_txt_corpus_tok_no_punct_no_Stop_dfm %>% 
+  dfm_trim(min_termfreq = 20) %>%
+  textplot_network(min_freq = 0.5)
+
+```
+
+
+
+### Poisson regression
+
+Finally, we run a GLM with a poisson family to evaluate the significance level of our most frequent words.
+
+#### Computing GLM
+
+```{r}
+web_pages_txt_corpus_GLM <- web_pages_txt_corpus_tok_no_punct_no_Stop_dfm_freq %>% 
+  filter(frequency >= 20) %>% 
+  glm(frequency ~ feature, data = ., family = "poisson")
+summary(web_pages_txt_corpus_GLM)
+```
+
+
+#### Visualising coefficients
+
+##### A plot
+
+We use two functions from the package `ggstats`. Because we used a poisson distribution, we obtain the results in IRR (=Incident rate ratios). Usually, we need to exponentiate these to make sense of the results. 
+
+
+```{r}
+ggcoef_model(web_pages_txt_corpus_GLM, exponentiate = TRUE)
+```
+
+
+
+##### A plot + a table + 95% CI
+
+```{r}
+ggcoef_table(web_pages_txt_corpus_GLM, exponentiate = TRUE)
+```
+
+# session info
+
+```{r}
+sessionInfo()
+```

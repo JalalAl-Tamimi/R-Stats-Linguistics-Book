@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3.4 Generalised Linear Models | Statistics for Linguists using R - Quantitative and qualitative approaches</title>
+  <meta name="description" content="This repo contains all material for the book Statistics for Linguists using R - Quantitative and qualitative approaches" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3.4 Generalised Linear Models | Statistics for Linguists using R - Quantitative and qualitative approaches" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This repo contains all material for the book Statistics for Linguists using R - Quantitative and qualitative approaches" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3.4 Generalised Linear Models | Statistics for Linguists using R - Quantitative and qualitative approaches" />
+  
+  <meta name="twitter:description" content="This repo contains all material for the book Statistics for Linguists using R - Quantitative and qualitative approaches" />
+  
+
+<meta name="author" content="Jalal Al-Tamimi" />
+
+
+<meta name="date" content="2025-04-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="3.3-linear-models.html"/>
+<link rel="next" href="3.5-cumulative-logit-link-models.html"/>
+<script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="2-Introduction_Tidyverse_Visualisation.html"><a href="2-Introduction_Tidyverse_Visualisation.html"><i class="fa fa-check"></i><b>2</b> Introduction to R, the Tidyverse - Visualisation</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="2.1-loading-packages.html"><a href="2.1-loading-packages.html"><i class="fa fa-check"></i><b>2.1</b> Loading packages</a></li>
+<li class="chapter" data-level="2.2" data-path="2.2-intro-r-markdown.html"><a href="2.2-intro-r-markdown.html"><i class="fa fa-check"></i><b>2.2</b> Intro R Markdown</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="2.2-intro-r-markdown.html"><a href="2.2-intro-r-markdown.html#general"><i class="fa fa-check"></i><b>2.2.1</b> General</a></li>
+<li class="chapter" data-level="2.2.2" data-path="2.2-intro-r-markdown.html"><a href="2.2-intro-r-markdown.html#knitting-to-other-formats"><i class="fa fa-check"></i><b>2.2.2</b> Knitting to other formats</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="2.3-r-and-r-studio.html"><a href="2.3-r-and-r-studio.html"><i class="fa fa-check"></i><b>2.3</b> R and R Studio</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="2.3-r-and-r-studio.html"><a href="2.3-r-and-r-studio.html#r"><i class="fa fa-check"></i><b>2.3.1</b> R</a></li>
+<li class="chapter" data-level="2.3.2" data-path="2.3-r-and-r-studio.html"><a href="2.3-r-and-r-studio.html#r-studio"><i class="fa fa-check"></i><b>2.3.2</b> R Studio</a></li>
+<li class="chapter" data-level="2.3.3" data-path="2.3-r-and-r-studio.html"><a href="2.3-r-and-r-studio.html#other-options"><i class="fa fa-check"></i><b>2.3.3</b> Other options?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="2.4-am-i-ready-to-use-r-now.html"><a href="2.4-am-i-ready-to-use-r-now.html"><i class="fa fa-check"></i><b>2.4</b> Am I ready to use R now?</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="2.4-am-i-ready-to-use-r-now.html"><a href="2.4-am-i-ready-to-use-r-now.html#setting-working-directory"><i class="fa fa-check"></i><b>2.4.1</b> Setting working directory</a></li>
+<li class="chapter" data-level="2.4.2" data-path="2.4-am-i-ready-to-use-r-now.html"><a href="2.4-am-i-ready-to-use-r-now.html#creating-a-project"><i class="fa fa-check"></i><b>2.4.2</b> Creating a project</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="2.5-how-to-use-packages.html"><a href="2.5-how-to-use-packages.html"><i class="fa fa-check"></i><b>2.5</b> How to use packages?</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="2.5-how-to-use-packages.html"><a href="2.5-how-to-use-packages.html#installation"><i class="fa fa-check"></i><b>2.5.1</b> Installation</a></li>
+<li class="chapter" data-level="2.5.2" data-path="2.5-how-to-use-packages.html"><a href="2.5-how-to-use-packages.html#loading"><i class="fa fa-check"></i><b>2.5.2</b> Loading</a></li>
+<li class="chapter" data-level="2.5.3" data-path="2.5-how-to-use-packages.html"><a href="2.5-how-to-use-packages.html#finding-packages-and-help"><i class="fa fa-check"></i><b>2.5.3</b> Finding packages and help</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html"><i class="fa fa-check"></i><b>2.6</b> Let’s get started with R</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#r-as-a-calculator"><i class="fa fa-check"></i><b>2.6.1</b> R as a calculator</a>
+<ul>
+<li class="chapter" data-level="2.6.1.1" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#simple-calculations"><i class="fa fa-check"></i><b>2.6.1.1</b> Simple calculations</a></li>
+<li class="chapter" data-level="2.6.1.2" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#functions"><i class="fa fa-check"></i><b>2.6.1.2</b> Functions</a>
+<ul>
+<li class="chapter" data-level="2.6.1.2.1" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#basic-functions"><i class="fa fa-check"></i><b>2.6.1.2.1</b> Basic functions</a></li>
+<li class="chapter" data-level="2.6.1.2.2" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#creating-variables"><i class="fa fa-check"></i><b>2.6.1.2.2</b> Creating variables</a></li>
+<li class="chapter" data-level="2.6.1.2.3" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#sequences"><i class="fa fa-check"></i><b>2.6.1.2.3</b> Sequences</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.6.2" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#objects"><i class="fa fa-check"></i><b>2.6.2</b> Objects</a>
+<ul>
+<li class="chapter" data-level="2.6.2.1" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#basic-objects"><i class="fa fa-check"></i><b>2.6.2.1</b> Basic objects</a></li>
+<li class="chapter" data-level="2.6.2.2" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#other-functions-and-objects"><i class="fa fa-check"></i><b>2.6.2.2</b> Other functions and objects</a>
+<ul>
+<li class="chapter" data-level="2.6.2.2.1" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#some-more-calculations"><i class="fa fa-check"></i><b>2.6.2.2.1</b> Some more calculations</a></li>
+<li class="chapter" data-level="2.6.2.2.2" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#referring-to-a-specific-position"><i class="fa fa-check"></i><b>2.6.2.2.2</b> Referring to a specific position</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html"><i class="fa fa-check"></i><b>2.7</b> Matrices and dataframes</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#matrix"><i class="fa fa-check"></i><b>2.7.1</b> Matrix</a>
+<ul>
+<li class="chapter" data-level="2.7.1.1" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#general-1"><i class="fa fa-check"></i><b>2.7.1.1</b> General</a></li>
+<li class="chapter" data-level="2.7.1.2" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#referring-to-specific-location"><i class="fa fa-check"></i><b>2.7.1.2</b> Referring to specific location</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7.2" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#dataframes"><i class="fa fa-check"></i><b>2.7.2</b> Dataframes</a>
+<ul>
+<li class="chapter" data-level="2.7.2.1" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#creating-a-dataframe-from-scratch"><i class="fa fa-check"></i><b>2.7.2.1</b> Creating a dataframe from scratch</a></li>
+<li class="chapter" data-level="2.7.2.2" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#deleting-variables-from-the-environment"><i class="fa fa-check"></i><b>2.7.2.2</b> Deleting variables from the <code>Environment</code></a></li>
+<li class="chapter" data-level="2.7.2.3" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#saving-and-reading-the-dataframe"><i class="fa fa-check"></i><b>2.7.2.3</b> Saving and reading the dataframe</a></li>
+<li class="chapter" data-level="2.7.2.4" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#reading-and-saving-in-.csv"><i class="fa fa-check"></i><b>2.7.2.4</b> Reading and Saving in .csv</a></li>
+<li class="chapter" data-level="2.7.2.5" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#reading-and-saving-other-formats"><i class="fa fa-check"></i><b>2.7.2.5</b> Reading and saving other formats</a></li>
+<li class="chapter" data-level="2.7.2.6" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#checking-the-structure"><i class="fa fa-check"></i><b>2.7.2.6</b> Checking the structure</a></li>
+<li class="chapter" data-level="2.7.2.7" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#changing-the-class-of-a-variable"><i class="fa fa-check"></i><b>2.7.2.7</b> Changing the <code>class</code> of a variable</a></li>
+<li class="chapter" data-level="2.7.2.8" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#referring-to-particular-variables-observations"><i class="fa fa-check"></i><b>2.7.2.8</b> Referring to particular variables, observations</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7.3" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#descriptive-statistics"><i class="fa fa-check"></i><b>2.7.3</b> Descriptive statistics</a>
+<ul>
+<li class="chapter" data-level="2.7.3.1" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#basic-summaries-tables"><i class="fa fa-check"></i><b>2.7.3.1</b> Basic summaries, tables</a></li>
+<li class="chapter" data-level="2.7.3.2" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#basic-manipulations"><i class="fa fa-check"></i><b>2.7.3.2</b> Basic manipulations</a>
+<ul>
+<li class="chapter" data-level="2.7.3.2.1" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#creating-variables-1"><i class="fa fa-check"></i><b>2.7.3.2.1</b> Creating variables</a></li>
+<li class="chapter" data-level="2.7.3.2.2" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#changing-column-names"><i class="fa fa-check"></i><b>2.7.3.2.2</b> Changing column names</a></li>
+<li class="chapter" data-level="2.7.3.2.3" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#deleting-variables"><i class="fa fa-check"></i><b>2.7.3.2.3</b> Deleting variables</a></li>
+<li class="chapter" data-level="2.7.3.2.4" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#changing-names-of-observations"><i class="fa fa-check"></i><b>2.7.3.2.4</b> Changing names of observations</a></li>
+<li class="chapter" data-level="2.7.3.2.5" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#checking-levels-of-factors"><i class="fa fa-check"></i><b>2.7.3.2.5</b> Checking levels of factors</a></li>
+<li class="chapter" data-level="2.7.3.2.6" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#subsetting-the-dataframe"><i class="fa fa-check"></i><b>2.7.3.2.6</b> Subsetting the dataframe</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html"><i class="fa fa-check"></i><b>2.8</b> The <code>Tidyverse</code></a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#introduction-1"><i class="fa fa-check"></i><b>2.8.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.8.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#using-piping"><i class="fa fa-check"></i><b>2.8.2</b> Using piping</a></li>
+<li class="chapter" data-level="2.8.3" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#demo-subsetting"><i class="fa fa-check"></i><b>2.8.3</b> Demo subsetting</a></li>
+<li class="chapter" data-level="2.8.4" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#basic-manipulations-1"><i class="fa fa-check"></i><b>2.8.4</b> Basic manipulations</a>
+<ul>
+<li class="chapter" data-level="2.8.4.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#first-steps"><i class="fa fa-check"></i><b>2.8.4.1</b> First steps</a></li>
+<li class="chapter" data-level="2.8.4.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#loading-dataset"><i class="fa fa-check"></i><b>2.8.4.2</b> Loading dataset</a></li>
+<li class="chapter" data-level="2.8.4.3" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#view"><i class="fa fa-check"></i><b>2.8.4.3</b> View</a></li>
+<li class="chapter" data-level="2.8.4.4" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#structure"><i class="fa fa-check"></i><b>2.8.4.4</b> Structure</a></li>
+<li class="chapter" data-level="2.8.4.5" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#see-first-6-rows"><i class="fa fa-check"></i><b>2.8.4.5</b> See first 6 rows</a></li>
+<li class="chapter" data-level="2.8.4.6" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#see-last-6-rows"><i class="fa fa-check"></i><b>2.8.4.6</b> See last 6 rows</a></li>
+<li class="chapter" data-level="2.8.4.7" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#selecting-variables"><i class="fa fa-check"></i><b>2.8.4.7</b> Selecting variables</a></li>
+<li class="chapter" data-level="2.8.4.8" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#selecting-observations"><i class="fa fa-check"></i><b>2.8.4.8</b> Selecting observations</a></li>
+<li class="chapter" data-level="2.8.4.9" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#changing-order-of-levels"><i class="fa fa-check"></i><b>2.8.4.9</b> Changing order of levels</a></li>
+<li class="chapter" data-level="2.8.4.10" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#changing-reference-value"><i class="fa fa-check"></i><b>2.8.4.10</b> Changing reference value</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.5" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#string-manipulation"><i class="fa fa-check"></i><b>2.8.5</b> String manipulation</a>
+<ul>
+<li class="chapter" data-level="2.8.5.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#str_sub"><i class="fa fa-check"></i><b>2.8.5.1</b> str_sub</a></li>
+<li class="chapter" data-level="2.8.5.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#str_detect"><i class="fa fa-check"></i><b>2.8.5.2</b> str_detect</a></li>
+<li class="chapter" data-level="2.8.5.3" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#str_locate"><i class="fa fa-check"></i><b>2.8.5.3</b> str_locate</a></li>
+<li class="chapter" data-level="2.8.5.4" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#str_locate_all"><i class="fa fa-check"></i><b>2.8.5.4</b> str_locate_all</a></li>
+<li class="chapter" data-level="2.8.5.5" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#str_replace"><i class="fa fa-check"></i><b>2.8.5.5</b> str_replace</a></li>
+<li class="chapter" data-level="2.8.5.6" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#str_replace_all"><i class="fa fa-check"></i><b>2.8.5.6</b> str_replace_all</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.6" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#regular-expressions"><i class="fa fa-check"></i><b>2.8.6</b> Regular expressions</a>
+<ul>
+<li class="chapter" data-level="2.8.6.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#initial-and-final"><i class="fa fa-check"></i><b>2.8.6.1</b> Initial and final</a></li>
+<li class="chapter" data-level="2.8.6.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#other-characters"><i class="fa fa-check"></i><b>2.8.6.2</b> Other characters</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.7" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#advanced-manipulations"><i class="fa fa-check"></i><b>2.8.7</b> Advanced manipulations</a>
+<ul>
+<li class="chapter" data-level="2.8.7.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#columns-to-rows"><i class="fa fa-check"></i><b>2.8.7.1</b> Columns to rows</a></li>
+<li class="chapter" data-level="2.8.7.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#rows-to-columns"><i class="fa fa-check"></i><b>2.8.7.2</b> Rows to columns</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.8" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#basic-descriptive-statistics"><i class="fa fa-check"></i><b>2.8.8</b> Basic descriptive statistics</a>
+<ul>
+<li class="chapter" data-level="2.8.8.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#basic-summaries"><i class="fa fa-check"></i><b>2.8.8.1</b> Basic summaries</a></li>
+<li class="chapter" data-level="2.8.8.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#summary-for-a-specific-variable"><i class="fa fa-check"></i><b>2.8.8.2</b> Summary for a specific variable</a></li>
+<li class="chapter" data-level="2.8.8.3" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#summarise_all"><i class="fa fa-check"></i><b>2.8.8.3</b> Summarise_all</a></li>
+<li class="chapter" data-level="2.8.8.4" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#group_by"><i class="fa fa-check"></i><b>2.8.8.4</b> Group_by</a></li>
+<li class="chapter" data-level="2.8.8.5" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#one-variable"><i class="fa fa-check"></i><b>2.8.8.5</b> One variable</a></li>
+<li class="chapter" data-level="2.8.8.6" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#multiple-variables"><i class="fa fa-check"></i><b>2.8.8.6</b> Multiple variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.9" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#summary-tables"><i class="fa fa-check"></i><b>2.8.9</b> Summary tables</a>
+<ul>
+<li class="chapter" data-level="2.8.9.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#summary-of-full-dataset-with-graphs"><i class="fa fa-check"></i><b>2.8.9.1</b> Summary of full dataset with graphs</a></li>
+<li class="chapter" data-level="2.8.9.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#descriptive-statistics-for-numeric-variables"><i class="fa fa-check"></i><b>2.8.9.2</b> Descriptive statistics for numeric variables</a></li>
+<li class="chapter" data-level="2.8.9.3" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#frequencies-for-non-numeric-variables"><i class="fa fa-check"></i><b>2.8.9.3</b> Frequencies for non-numeric variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.10" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#visualisation"><i class="fa fa-check"></i><b>2.8.10</b> Visualisation</a>
+<ul>
+<li class="chapter" data-level="2.8.10.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#first-steps-1"><i class="fa fa-check"></i><b>2.8.10.1</b> First steps</a>
+<ul>
+<li class="chapter" data-level="2.8.10.1.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#empty-plot-area"><i class="fa fa-check"></i><b>2.8.10.1.1</b> Empty plot area</a></li>
+<li class="chapter" data-level="2.8.10.1.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#adding-x-and-y-values"><i class="fa fa-check"></i><b>2.8.10.1.2</b> Adding x and y values</a></li>
+<li class="chapter" data-level="2.8.10.1.3" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#adding-geoms"><i class="fa fa-check"></i><b>2.8.10.1.3</b> Adding geoms</a></li>
+<li class="chapter" data-level="2.8.10.1.4" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#adding-line-of-best-fit"><i class="fa fa-check"></i><b>2.8.10.1.4</b> Adding line of best fit</a></li>
+<li class="chapter" data-level="2.8.10.1.5" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#by-word-category"><i class="fa fa-check"></i><b>2.8.10.1.5</b> By word category</a></li>
+<li class="chapter" data-level="2.8.10.1.6" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#making-final-touches"><i class="fa fa-check"></i><b>2.8.10.1.6</b> Making final touches</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.10.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#additional-plots"><i class="fa fa-check"></i><b>2.8.10.2</b> Additional plots</a>
+<ul>
+<li class="chapter" data-level="2.8.10.2.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#a-bar-plot"><i class="fa fa-check"></i><b>2.8.10.2.1</b> A bar plot</a></li>
+<li class="chapter" data-level="2.8.10.2.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#a-histogram"><i class="fa fa-check"></i><b>2.8.10.2.2</b> A histogram</a></li>
+<li class="chapter" data-level="2.8.10.2.3" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#a-density-plot"><i class="fa fa-check"></i><b>2.8.10.2.3</b> A density plot</a>
+<ul>
+<li class="chapter" data-level="2.8.10.2.3.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#histogram-and-density-plot"><i class="fa fa-check"></i><b>2.8.10.2.3.1</b> Histogram and density plot</a></li>
+<li class="chapter" data-level="2.8.10.2.3.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#density-plot-only"><i class="fa fa-check"></i><b>2.8.10.2.3.2</b> Density plot only</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.10.2.4" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#a-boxplot"><i class="fa fa-check"></i><b>2.8.10.2.4</b> A boxplot</a></li>
+<li class="chapter" data-level="2.8.10.2.5" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#a-violin-plot"><i class="fa fa-check"></i><b>2.8.10.2.5</b> A Violin plot</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.10.3" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#facet_grid"><i class="fa fa-check"></i><b>2.8.10.3</b> Facet_grid</a>
+<ul>
+<li class="chapter" data-level="2.8.10.3.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#two-categorical-variables"><i class="fa fa-check"></i><b>2.8.10.3.1</b> Two categorical variables</a>
+<ul>
+<li class="chapter" data-level="2.8.10.3.1.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#first-steps-2"><i class="fa fa-check"></i><b>2.8.10.3.1.1</b> First steps</a></li>
+<li class="chapter" data-level="2.8.10.3.1.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#changing-order-of-levels-within-a-variable-and-its-labels"><i class="fa fa-check"></i><b>2.8.10.3.1.2</b> Changing order of levels within a variable and its labels</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.10.3.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#three-or-more-categorical-variables"><i class="fa fa-check"></i><b>2.8.10.3.2</b> Three or more categorical variables</a></li>
+<li class="chapter" data-level="2.8.10.3.3" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#comparing-two-numeric-outcomes"><i class="fa fa-check"></i><b>2.8.10.3.3</b> Comparing two numeric outcomes</a></li>
+<li class="chapter" data-level="2.8.10.3.4" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#exporting-images"><i class="fa fa-check"></i><b>2.8.10.3.4</b> Exporting images</a></li>
+<li class="chapter" data-level="2.8.10.3.5" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#conclusion"><i class="fa fa-check"></i><b>2.8.10.3.5</b> Conclusion</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="2.9-session-info.html"><a href="2.9-session-info.html"><i class="fa fa-check"></i><b>2.9</b> session info</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-Correlation_LM_GLM_STD_CLM.html"><a href="3-Correlation_LM_GLM_STD_CLM.html"><i class="fa fa-check"></i><b>3</b> Correlation plots - LM, GLM, CLM</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="3.1-loading-packages-1.html"><a href="3.1-loading-packages-1.html"><i class="fa fa-check"></i><b>3.1</b> Loading packages</a></li>
+<li class="chapter" data-level="3.2" data-path="3.2-correlation-tests.html"><a href="3.2-correlation-tests.html"><i class="fa fa-check"></i><b>3.2</b> Correlation tests</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="3.2-correlation-tests.html"><a href="3.2-correlation-tests.html#basic-correlations"><i class="fa fa-check"></i><b>3.2.1</b> Basic correlations</a></li>
+<li class="chapter" data-level="3.2.2" data-path="3.2-correlation-tests.html"><a href="3.2-correlation-tests.html#using-the-package-corrplot"><i class="fa fa-check"></i><b>3.2.2</b> Using the package <code>corrplot</code></a>
+<ul>
+<li class="chapter" data-level="3.2.2.1" data-path="3.2-correlation-tests.html"><a href="3.2-correlation-tests.html#correlation-plots"><i class="fa fa-check"></i><b>3.2.2.1</b> Correlation plots</a></li>
+<li class="chapter" data-level="3.2.2.2" data-path="3.2-correlation-tests.html"><a href="3.2-correlation-tests.html#more-advanced"><i class="fa fa-check"></i><b>3.2.2.2</b> More advanced</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html"><i class="fa fa-check"></i><b>3.3</b> Linear Models</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#introduction-2"><i class="fa fa-check"></i><b>3.3.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="3.3.1.1" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#model-estimation"><i class="fa fa-check"></i><b>3.3.1.1</b> Model estimation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3.2" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>3.3.2</b> Role of coding schemes</a>
+<ul>
+<li class="chapter" data-level="3.3.2.1" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#intro"><i class="fa fa-check"></i><b>3.3.2.1</b> Intro</a></li>
+<li class="chapter" data-level="3.3.2.2" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#treatment-coding"><i class="fa fa-check"></i><b>3.3.2.2</b> Treatment coding</a></li>
+<li class="chapter" data-level="3.3.2.3" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>3.3.2.3</b> Contrast (or sum) coding</a>
+<ul>
+<li class="chapter" data-level="3.3.2.3.1" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#default"><i class="fa fa-check"></i><b>3.3.2.3.1</b> Default</a></li>
+<li class="chapter" data-level="3.3.2.3.2" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#modified"><i class="fa fa-check"></i><b>3.3.2.3.2</b> Modified</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.3.3" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#further-steps"><i class="fa fa-check"></i><b>3.3.3</b> Further steps</a>
+<ul>
+<li class="chapter" data-level="3.3.3.1" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#tidying-the-output"><i class="fa fa-check"></i><b>3.3.3.1</b> Tidying the output</a></li>
+<li class="chapter" data-level="3.3.3.2" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>3.3.3.2</b> Nice table of our model summary</a>
+<ul>
+<li class="chapter" data-level="3.3.3.2.1" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#directly-from-model-summary"><i class="fa fa-check"></i><b>3.3.3.2.1</b> Directly from model summary</a></li>
+<li class="chapter" data-level="3.3.3.2.2" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#from-the-tidy-output"><i class="fa fa-check"></i><b>3.3.3.2.2</b> From the <code>tidy</code> output</a></li>
+<li class="chapter" data-level="3.3.3.2.3" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#models-fit"><i class="fa fa-check"></i><b>3.3.3.2.3</b> Model’s fit</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3.3.3" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#dissecting-the-model"><i class="fa fa-check"></i><b>3.3.3.3</b> Dissecting the model</a>
+<ul>
+<li class="chapter" data-level="3.3.3.3.1" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#str-and-coef"><i class="fa fa-check"></i><b>3.3.3.3.1</b> “str” and “coef”</a></li>
+<li class="chapter" data-level="3.3.3.3.2" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#coef-and-coefficients"><i class="fa fa-check"></i><b>3.3.3.3.2</b> “coef” and “coefficients”</a></li>
+<li class="chapter" data-level="3.3.3.3.3" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#residuals"><i class="fa fa-check"></i><b>3.3.3.3.3</b> Residuals</a>
+<ul>
+<li class="chapter" data-level="3.3.3.3.3.1" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#histogram"><i class="fa fa-check"></i><b>3.3.3.3.3.1</b> Histogram</a></li>
+<li class="chapter" data-level="3.3.3.3.3.2" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#qqplots"><i class="fa fa-check"></i><b>3.3.3.3.3.2</b> qqplots</a></li>
+<li class="chapter" data-level="3.3.3.3.3.3" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>3.3.3.3.3.3</b> Residuals vs fitted values</a></li>
+<li class="chapter" data-level="3.3.3.3.3.4" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>3.3.3.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3.3.3.4" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#goodness-of-fit"><i class="fa fa-check"></i><b>3.3.3.3.4</b> Goodness of fit?</a></li>
+<li class="chapter" data-level="3.3.3.3.5" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#significance-testing"><i class="fa fa-check"></i><b>3.3.3.3.5</b> Significance testing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.3.4" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#plotting-fitted-values"><i class="fa fa-check"></i><b>3.3.4</b> Plotting fitted values</a>
+<ul>
+<li class="chapter" data-level="3.3.4.1" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#trend-line"><i class="fa fa-check"></i><b>3.3.4.1</b> Trend line</a></li>
+<li class="chapter" data-level="3.3.4.2" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>3.3.4.2</b> Predicted means and the trend line</a></li>
+<li class="chapter" data-level="3.3.4.3" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>3.3.4.3</b> Raw data, predicted means and the trend line</a></li>
+<li class="chapter" data-level="3.3.4.4" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>3.3.4.4</b> Add significance levels and trend line on a plot?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3.5" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>3.3.5</b> What about pairwise comparison?</a></li>
+<li class="chapter" data-level="3.3.6" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#multiple-predictors"><i class="fa fa-check"></i><b>3.3.6</b> Multiple predictors?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html"><i class="fa fa-check"></i><b>3.4</b> Generalised Linear Models</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#load-and-summaries"><i class="fa fa-check"></i><b>3.4.1</b> Load and summaries</a></li>
+<li class="chapter" data-level="3.4.2" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#glm---categorical-predictors"><i class="fa fa-check"></i><b>3.4.2</b> GLM - Categorical predictors</a>
+<ul>
+<li class="chapter" data-level="3.4.2.1" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#model-estimation-and-results"><i class="fa fa-check"></i><b>3.4.2.1</b> Model estimation and results</a></li>
+<li class="chapter" data-level="3.4.2.2" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#models-fit-1"><i class="fa fa-check"></i><b>3.4.2.2</b> Model’s fit</a></li>
+<li class="chapter" data-level="3.4.2.3" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#logodds-to-odd-ratios"><i class="fa fa-check"></i><b>3.4.2.3</b> Logodds to Odd ratios</a></li>
+<li class="chapter" data-level="3.4.2.4" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#logodds-to-proportions"><i class="fa fa-check"></i><b>3.4.2.4</b> LogOdds to proportions</a></li>
+<li class="chapter" data-level="3.4.2.5" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#plotting"><i class="fa fa-check"></i><b>3.4.2.5</b> Plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4.3" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#glm---numeric-predictors"><i class="fa fa-check"></i><b>3.4.3</b> GLM - Numeric predictors</a>
+<ul>
+<li class="chapter" data-level="3.4.3.1" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#without-z-scoring-of-predictor"><i class="fa fa-check"></i><b>3.4.3.1</b> Without z-scoring of predictor</a>
+<ul>
+<li class="chapter" data-level="3.4.3.1.1" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#model-estimation-1"><i class="fa fa-check"></i><b>3.4.3.1.1</b> Model estimation</a></li>
+<li class="chapter" data-level="3.4.3.1.2" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#models-fit-2"><i class="fa fa-check"></i><b>3.4.3.1.2</b> Model’s fit</a></li>
+<li class="chapter" data-level="3.4.3.1.3" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#logodds-to-proportions-1"><i class="fa fa-check"></i><b>3.4.3.1.3</b> LogOdds to proportions</a></li>
+<li class="chapter" data-level="3.4.3.1.4" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#plotting-1"><i class="fa fa-check"></i><b>3.4.3.1.4</b> Plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4.3.2" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#with-z-scoring-of-predictor"><i class="fa fa-check"></i><b>3.4.3.2</b> With z-scoring of predictor</a>
+<ul>
+<li class="chapter" data-level="3.4.3.2.1" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#model-estimation-2"><i class="fa fa-check"></i><b>3.4.3.2.1</b> Model estimation</a></li>
+<li class="chapter" data-level="3.4.3.2.2" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#models-fit-3"><i class="fa fa-check"></i><b>3.4.3.2.2</b> Model’s fit</a></li>
+<li class="chapter" data-level="3.4.3.2.3" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#logodds-to-proportions-2"><i class="fa fa-check"></i><b>3.4.3.2.3</b> LogOdds to proportions</a></li>
+<li class="chapter" data-level="3.4.3.2.4" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#plotting-2"><i class="fa fa-check"></i><b>3.4.3.2.4</b> Plotting</a>
+<ul>
+<li class="chapter" data-level="3.4.3.2.4.1" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#normal"><i class="fa fa-check"></i><b>3.4.3.2.4.1</b> Normal</a></li>
+<li class="chapter" data-level="3.4.3.2.4.2" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#z-scores"><i class="fa fa-check"></i><b>3.4.3.2.4.2</b> z-scores</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.4.4" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#accuracy-and-signal-detection-theory"><i class="fa fa-check"></i><b>3.4.4</b> Accuracy and Signal Detection Theory</a>
+<ul>
+<li class="chapter" data-level="3.4.4.1" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#rationale"><i class="fa fa-check"></i><b>3.4.4.1</b> Rationale</a></li>
+<li class="chapter" data-level="3.4.4.2" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#running-stats"><i class="fa fa-check"></i><b>3.4.4.2</b> Running stats</a></li>
+<li class="chapter" data-level="3.4.4.3" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#below-we-obtain-multiple-measures"><i class="fa fa-check"></i><b>3.4.4.3</b> Below we obtain multiple measures</a>
+<ul>
+<li class="chapter" data-level="3.4.4.3.1" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#tp-fp-fn-tn"><i class="fa fa-check"></i><b>3.4.4.3.1</b> TP, FP, FN, TN</a></li>
+<li class="chapter" data-level="3.4.4.3.2" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#accuracy-error-sensitivity-specificity-precision-etc."><i class="fa fa-check"></i><b>3.4.4.3.2</b> Accuracy, Error, Sensitivity, Specificity, Precision, etc.</a>
+<ul>
+<li class="chapter" data-level="3.4.4.3.2.1" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#accuracy-and-error"><i class="fa fa-check"></i><b>3.4.4.3.2.1</b> Accuracy and Error</a></li>
+<li class="chapter" data-level="3.4.4.3.2.2" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#sensitivity-specificity-precision-etc."><i class="fa fa-check"></i><b>3.4.4.3.2.2</b> Sensitivity, Specificity, Precision, etc.</a></li>
+<li class="chapter" data-level="3.4.4.3.2.3" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#std-measures"><i class="fa fa-check"></i><b>3.4.4.3.2.3</b> STD measures</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.4.4.4" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#glm-and-d-prime"><i class="fa fa-check"></i><b>3.4.4.4</b> GLM and d prime</a></li>
+<li class="chapter" data-level="3.4.4.5" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#glm-as-a-classification-tool"><i class="fa fa-check"></i><b>3.4.4.5</b> GLM as a classification tool</a></li>
+<li class="chapter" data-level="3.4.4.6" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#glm-other-distributions"><i class="fa fa-check"></i><b>3.4.4.6</b> GLM: Other distributions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html"><i class="fa fa-check"></i><b>3.5</b> Cumulative Logit Link Models</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#ratings-of-percept-of-nasality"><i class="fa fa-check"></i><b>3.5.1</b> Ratings of percept of nasality</a>
+<ul>
+<li class="chapter" data-level="3.5.1.1" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#importing-and-pre-processing"><i class="fa fa-check"></i><b>3.5.1.1</b> Importing and pre-processing</a></li>
+<li class="chapter" data-level="3.5.1.2" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#our-first-model"><i class="fa fa-check"></i><b>3.5.1.2</b> Our first model</a></li>
+<li class="chapter" data-level="3.5.1.3" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#testing-significance"><i class="fa fa-check"></i><b>3.5.1.3</b> Testing significance</a></li>
+<li class="chapter" data-level="3.5.1.4" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#models-fit-4"><i class="fa fa-check"></i><b>3.5.1.4</b> Model’s fit</a></li>
+<li class="chapter" data-level="3.5.1.5" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#interpreting-a-cumulative-model"><i class="fa fa-check"></i><b>3.5.1.5</b> Interpreting a cumulative model</a>
+<ul>
+<li class="chapter" data-level="3.5.1.5.1" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#plotting-3"><i class="fa fa-check"></i><b>3.5.1.5.1</b> Plotting</a></li>
+<li class="chapter" data-level="3.5.1.5.2" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#no-confidence-intervals"><i class="fa fa-check"></i><b>3.5.1.5.2</b> No confidence intervals</a></li>
+<li class="chapter" data-level="3.5.1.5.3" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#with-confidence-intervals"><i class="fa fa-check"></i><b>3.5.1.5.3</b> With confidence intervals</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.5.2" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#subjective-estimates-of-the-weight-of-the-referents-of-81-english-nouns."><i class="fa fa-check"></i><b>3.5.2</b> Subjective estimates of the weight of the referents of 81 English nouns.</a>
+<ul>
+<li class="chapter" data-level="3.5.2.1" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#importing-and-pre-processing-1"><i class="fa fa-check"></i><b>3.5.2.1</b> Importing and pre-processing</a></li>
+<li class="chapter" data-level="3.5.2.2" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#model-specifications"><i class="fa fa-check"></i><b>3.5.2.2</b> Model specifications</a>
+<ul>
+<li class="chapter" data-level="3.5.2.2.1" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#no-random-effects"><i class="fa fa-check"></i><b>3.5.2.2.1</b> No random effects</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5.2.3" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#testing-significance-1"><i class="fa fa-check"></i><b>3.5.2.3</b> Testing significance</a>
+<ul>
+<li class="chapter" data-level="3.5.2.3.1" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#null-vs-no-random"><i class="fa fa-check"></i><b>3.5.2.3.1</b> Null vs no random</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5.2.4" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#models-fit-5"><i class="fa fa-check"></i><b>3.5.2.4</b> Model’s fit</a></li>
+<li class="chapter" data-level="3.5.2.5" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#interpreting-a-cumulative-model-1"><i class="fa fa-check"></i><b>3.5.2.5</b> Interpreting a cumulative model</a></li>
+<li class="chapter" data-level="3.5.2.6" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#plotting-4"><i class="fa fa-check"></i><b>3.5.2.6</b> Plotting</a>
+<ul>
+<li class="chapter" data-level="3.5.2.6.1" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#no-confidence-intervals-1"><i class="fa fa-check"></i><b>3.5.2.6.1</b> No confidence intervals</a></li>
+<li class="chapter" data-level="3.5.2.6.2" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#with-confidence-intervals-1"><i class="fa fa-check"></i><b>3.5.2.6.2</b> With confidence intervals</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="3.6-session-info-1.html"><a href="3.6-session-info-1.html"><i class="fa fa-check"></i><b>3.6</b> session info</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-Random_LMM_GLMM_CLMM_GAMM.html"><a href="4-Random_LMM_GLMM_CLMM_GAMM.html"><i class="fa fa-check"></i><b>4</b> Random effects - LMM, GLMM, CLMM, GAMMs</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="4.1-loading-packages-2.html"><a href="4.1-loading-packages-2.html"><i class="fa fa-check"></i><b>4.1</b> Loading packages</a></li>
+<li class="chapter" data-level="4.2" data-path="4.2-introduction-3.html"><a href="4.2-introduction-3.html"><i class="fa fa-check"></i><b>4.2</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="4.2-introduction-3.html"><a href="4.2-introduction-3.html#fixed-and-random-effects"><i class="fa fa-check"></i><b>4.2.1</b> Fixed and random effects</a>
+<ul>
+<li class="chapter" data-level="4.2.1.1" data-path="4.2-introduction-3.html"><a href="4.2-introduction-3.html#how-to-choose-fixed-and-random-effects"><i class="fa fa-check"></i><b>4.2.1.1</b> How to choose fixed and random effects</a></li>
+<li class="chapter" data-level="4.2.1.2" data-path="4.2-introduction-3.html"><a href="4.2-introduction-3.html#what-about-random-intercepts-and-random-slopes"><i class="fa fa-check"></i><b>4.2.1.2</b> What about Random Intercepts and Random Slopes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><i class="fa fa-check"></i><b>4.3</b> Linear Mixed-effects Models. Why random effects matter</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#dataframe-simulated"><i class="fa fa-check"></i><b>4.3.1</b> Dataframe (simulated)</a>
+<ul>
+<li class="chapter" data-level="4.3.1.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#counts"><i class="fa fa-check"></i><b>4.3.1.1</b> Counts</a>
+<ul>
+<li class="chapter" data-level="4.3.1.1.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subjects"><i class="fa fa-check"></i><b>4.3.1.1.1</b> Subjects</a></li>
+<li class="chapter" data-level="4.3.1.1.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#items"><i class="fa fa-check"></i><b>4.3.1.1.2</b> Items</a></li>
+<li class="chapter" data-level="4.3.1.1.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#age"><i class="fa fa-check"></i><b>4.3.1.1.3</b> Age</a></li>
+<li class="chapter" data-level="4.3.1.1.4" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#cond"><i class="fa fa-check"></i><b>4.3.1.1.4</b> Cond</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3.1.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#visualisations"><i class="fa fa-check"></i><b>4.3.1.2</b> Visualisations</a>
+<ul>
+<li class="chapter" data-level="4.3.1.2.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#condition-by-age"><i class="fa fa-check"></i><b>4.3.1.2.1</b> Condition by Age</a></li>
+<li class="chapter" data-level="4.3.1.2.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-condition"><i class="fa fa-check"></i><b>4.3.1.2.2</b> Subject by Condition</a></li>
+<li class="chapter" data-level="4.3.1.2.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-age"><i class="fa fa-check"></i><b>4.3.1.2.3</b> Subject by Age</a></li>
+<li class="chapter" data-level="4.3.1.2.4" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#item-by-condition"><i class="fa fa-check"></i><b>4.3.1.2.4</b> Item by Condition</a></li>
+<li class="chapter" data-level="4.3.1.2.5" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-age-1"><i class="fa fa-check"></i><b>4.3.1.2.5</b> Subject by Age</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.3.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#modelling-strategy"><i class="fa fa-check"></i><b>4.3.2</b> Modelling strategy</a>
+<ul>
+<li class="chapter" data-level="4.3.2.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#simple-linear-model"><i class="fa fa-check"></i><b>4.3.2.1</b> Simple Linear Model</a></li>
+<li class="chapter" data-level="4.3.2.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#no-interaction"><i class="fa fa-check"></i><b>4.3.2.2</b> No interaction</a>
+<ul>
+<li class="chapter" data-level="4.3.2.2.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts"><i class="fa fa-check"></i><b>4.3.2.2.1</b> Crossed random intercepts</a></li>
+<li class="chapter" data-level="4.3.2.2.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts-by-speaker-random-slopes"><i class="fa fa-check"></i><b>4.3.2.2.2</b> Crossed random intercepts + By-speaker random slopes</a></li>
+<li class="chapter" data-level="4.3.2.2.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts-by-speaker-and-by-item-random-slopes"><i class="fa fa-check"></i><b>4.3.2.2.3</b> Crossed random intercepts + By-speaker and by-item random slopes</a></li>
+<li class="chapter" data-level="4.3.2.2.4" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts-by-speaker-and-by-item-random-slopes-1"><i class="fa fa-check"></i><b>4.3.2.2.4</b> Crossed random intercepts + By-speaker and by-item random slopes</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3.2.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#with-interaction"><i class="fa fa-check"></i><b>4.3.2.3</b> With interaction</a>
+<ul>
+<li class="chapter" data-level="4.3.2.3.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts-interaction"><i class="fa fa-check"></i><b>4.3.2.3.1</b> Crossed random intercepts + Interaction</a></li>
+<li class="chapter" data-level="4.3.2.3.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts-by-speaker-random-slopes-interaction"><i class="fa fa-check"></i><b>4.3.2.3.2</b> Crossed random intercepts + By-speaker random slopes + Interaction</a></li>
+<li class="chapter" data-level="4.3.2.3.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts-by-speaker-and-by-item-random-slopes-interaction"><i class="fa fa-check"></i><b>4.3.2.3.3</b> Crossed random intercepts + By-speaker and by-item random slopes + Interaction</a></li>
+<li class="chapter" data-level="4.3.2.3.4" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts-by-speaker-and-by-item-random-slopes-2"><i class="fa fa-check"></i><b>4.3.2.3.4</b> Crossed random intercepts + By-speaker and by-item random slopes</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3.2.4" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#model-comparison"><i class="fa fa-check"></i><b>4.3.2.4</b> Model comparison</a></li>
+<li class="chapter" data-level="4.3.2.5" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#optimal-model"><i class="fa fa-check"></i><b>4.3.2.5</b> Optimal model</a>
+<ul>
+<li class="chapter" data-level="4.3.2.5.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#model-criticism"><i class="fa fa-check"></i><b>4.3.2.5.1</b> Model criticism</a>
+<ul>
+<li class="chapter" data-level="4.3.2.5.1.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#histogram-1"><i class="fa fa-check"></i><b>4.3.2.5.1.1</b> Histogram</a></li>
+<li class="chapter" data-level="4.3.2.5.1.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#qq-plot"><i class="fa fa-check"></i><b>4.3.2.5.1.2</b> QQ-plot</a></li>
+<li class="chapter" data-level="4.3.2.5.1.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#residuals-vs-fitted"><i class="fa fa-check"></i><b>4.3.2.5.1.3</b> Residuals vs Fitted</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3.2.5.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#summary"><i class="fa fa-check"></i><b>4.3.2.5.2</b> Summary</a></li>
+<li class="chapter" data-level="4.3.2.5.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#anova"><i class="fa fa-check"></i><b>4.3.2.5.3</b> ANOVA</a></li>
+<li class="chapter" data-level="4.3.2.5.4" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#models-fit-6"><i class="fa fa-check"></i><b>4.3.2.5.4</b> Model’s fit</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.3.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#plotting-models-output"><i class="fa fa-check"></i><b>4.3.3</b> Plotting model’s output</a>
+<ul>
+<li class="chapter" data-level="4.3.3.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#with-ggstats"><i class="fa fa-check"></i><b>4.3.3.1</b> With <code>ggstats</code></a>
+<ul>
+<li class="chapter" data-level="4.3.3.1.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#a-plot"><i class="fa fa-check"></i><b>4.3.3.1.1</b> A plot</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3.3.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#a-plot-a-table-95-ci"><i class="fa fa-check"></i><b>4.3.3.2</b> A plot + a table + 95% CI</a></li>
+<li class="chapter" data-level="4.3.3.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#with-ggstatsplot"><i class="fa fa-check"></i><b>4.3.3.3</b> With <code>ggstatsplot</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.3.4" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#exploring-random-effects"><i class="fa fa-check"></i><b>4.3.4</b> Exploring random effects</a>
+<ul>
+<li class="chapter" data-level="4.3.4.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-random-effects"><i class="fa fa-check"></i><b>4.3.4.1</b> Subject random effects</a></li>
+<li class="chapter" data-level="4.3.4.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#items-random-effects"><i class="fa fa-check"></i><b>4.3.4.2</b> Items random effects</a></li>
+<li class="chapter" data-level="4.3.4.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#plots"><i class="fa fa-check"></i><b>4.3.4.3</b> Plots</a>
+<ul>
+<li class="chapter" data-level="4.3.4.3.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#fixed-effects"><i class="fa fa-check"></i><b>4.3.4.3.1</b> Fixed effects</a>
+<ul>
+<li class="chapter" data-level="4.3.4.3.1.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#condition"><i class="fa fa-check"></i><b>4.3.4.3.1.1</b> Condition</a></li>
+<li class="chapter" data-level="4.3.4.3.1.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#age-1"><i class="fa fa-check"></i><b>4.3.4.3.1.2</b> Age</a></li>
+<li class="chapter" data-level="4.3.4.3.1.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#condition-by-age-1"><i class="fa fa-check"></i><b>4.3.4.3.1.3</b> Condition by Age</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3.4.3.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#random-effects"><i class="fa fa-check"></i><b>4.3.4.3.2</b> Random effects</a>
+<ul>
+<li class="chapter" data-level="4.3.4.3.2.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject"><i class="fa fa-check"></i><b>4.3.4.3.2.1</b> Subject</a></li>
+<li class="chapter" data-level="4.3.4.3.2.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-condition-1"><i class="fa fa-check"></i><b>4.3.4.3.2.2</b> Subject by Condition</a></li>
+<li class="chapter" data-level="4.3.4.3.2.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-age-2"><i class="fa fa-check"></i><b>4.3.4.3.2.3</b> Subject by Age</a></li>
+<li class="chapter" data-level="4.3.4.3.2.4" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#item"><i class="fa fa-check"></i><b>4.3.4.3.2.4</b> Item</a></li>
+<li class="chapter" data-level="4.3.4.3.2.5" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#item-by-cond"><i class="fa fa-check"></i><b>4.3.4.3.2.5</b> Item by Cond</a></li>
+<li class="chapter" data-level="4.3.4.3.2.6" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#item-by-age"><i class="fa fa-check"></i><b>4.3.4.3.2.6</b> Item by Age</a></li>
+<li class="chapter" data-level="4.3.4.3.2.7" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#item-by-cond-facetted-by-age"><i class="fa fa-check"></i><b>4.3.4.3.2.7</b> Item by Cond facetted by Age</a></li>
+<li class="chapter" data-level="4.3.4.3.2.8" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-item"><i class="fa fa-check"></i><b>4.3.4.3.2.8</b> Subject by Item</a></li>
+<li class="chapter" data-level="4.3.4.3.2.9" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-item-facetted-by-cond"><i class="fa fa-check"></i><b>4.3.4.3.2.9</b> Subject by Item facetted by Cond</a></li>
+<li class="chapter" data-level="4.3.4.3.2.10" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-item-facetted-by-age"><i class="fa fa-check"></i><b>4.3.4.3.2.10</b> Subject by Item facetted by Age</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3.4.3.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#with-lattice"><i class="fa fa-check"></i><b>4.3.4.3.3</b> With <code>Lattice</code></a>
+<ul>
+<li class="chapter" data-level="4.3.4.3.3.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-intercepts"><i class="fa fa-check"></i><b>4.3.4.3.3.1</b> Subject Intercepts</a></li>
+<li class="chapter" data-level="4.3.4.3.3.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-slopes"><i class="fa fa-check"></i><b>4.3.4.3.3.2</b> Subject Slopes</a></li>
+<li class="chapter" data-level="4.3.4.3.3.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#item-intercepts"><i class="fa fa-check"></i><b>4.3.4.3.3.3</b> Item Intercepts</a></li>
+<li class="chapter" data-level="4.3.4.3.3.4" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#item-slopes-for-cond"><i class="fa fa-check"></i><b>4.3.4.3.3.4</b> Item Slopes for Cond</a></li>
+<li class="chapter" data-level="4.3.4.3.3.5" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#item-slopes-for-age"><i class="fa fa-check"></i><b>4.3.4.3.3.5</b> Item Slopes for Age</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.3.5" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#conclusion-1"><i class="fa fa-check"></i><b>4.3.5</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html"><i class="fa fa-check"></i><b>4.4</b> Generalised Linear Mixed-effects Models</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#glmm---categorical-predictors"><i class="fa fa-check"></i><b>4.4.1</b> GLMM - Categorical predictors</a>
+<ul>
+<li class="chapter" data-level="4.4.1.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#simulating-a-new-dataset"><i class="fa fa-check"></i><b>4.4.1.1</b> Simulating a new dataset</a></li>
+<li class="chapter" data-level="4.4.1.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#manipulations-and-a-table"><i class="fa fa-check"></i><b>4.4.1.2</b> Manipulations and a table</a></li>
+<li class="chapter" data-level="4.4.1.3" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#model-estimation-and-results-1"><i class="fa fa-check"></i><b>4.4.1.3</b> Model estimation and results</a>
+<ul>
+<li class="chapter" data-level="4.4.1.3.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#random-intercepts"><i class="fa fa-check"></i><b>4.4.1.3.1</b> Random Intercepts</a></li>
+<li class="chapter" data-level="4.4.1.3.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#random-slopes"><i class="fa fa-check"></i><b>4.4.1.3.2</b> Random Slopes</a></li>
+<li class="chapter" data-level="4.4.1.3.3" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#random-slopes-decorrelated"><i class="fa fa-check"></i><b>4.4.1.3.3</b> Random Slopes decorrelated</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4.1.4" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#model-comparison-1"><i class="fa fa-check"></i><b>4.4.1.4</b> Model comparison</a></li>
+<li class="chapter" data-level="4.4.1.5" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#getting-results"><i class="fa fa-check"></i><b>4.4.1.5</b> Getting results</a>
+<ul>
+<li class="chapter" data-level="4.4.1.5.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#models-fit-7"><i class="fa fa-check"></i><b>4.4.1.5.1</b> Model’s fit</a></li>
+<li class="chapter" data-level="4.4.1.5.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#fixed-effects-1"><i class="fa fa-check"></i><b>4.4.1.5.2</b> Fixed effects</a></li>
+<li class="chapter" data-level="4.4.1.5.3" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#random-effects-1"><i class="fa fa-check"></i><b>4.4.1.5.3</b> Random effects</a></li>
+<li class="chapter" data-level="4.4.1.5.4" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#logodds-to-odd-ratios-1"><i class="fa fa-check"></i><b>4.4.1.5.4</b> Logodds to Odd ratios</a></li>
+<li class="chapter" data-level="4.4.1.5.5" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#logodds-to-proportions-3"><i class="fa fa-check"></i><b>4.4.1.5.5</b> LogOdds to proportions</a></li>
+<li class="chapter" data-level="4.4.1.5.6" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#plotting-5"><i class="fa fa-check"></i><b>4.4.1.5.6</b> Plotting</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.4.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#glmm---numeric-predictors"><i class="fa fa-check"></i><b>4.4.2</b> GLMM - Numeric predictors</a>
+<ul>
+<li class="chapter" data-level="4.4.2.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#without-z-scoring-of-predictor-1"><i class="fa fa-check"></i><b>4.4.2.1</b> Without z-scoring of predictor</a>
+<ul>
+<li class="chapter" data-level="4.4.2.1.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#model-estimation-3"><i class="fa fa-check"></i><b>4.4.2.1.1</b> Model estimation</a>
+<ul>
+<li class="chapter" data-level="4.4.2.1.1.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#random-intercepts-1"><i class="fa fa-check"></i><b>4.4.2.1.1.1</b> Random Intercepts</a></li>
+<li class="chapter" data-level="4.4.2.1.1.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#random-slopes-1"><i class="fa fa-check"></i><b>4.4.2.1.1.2</b> Random Slopes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.4.2.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#model-comparison-2"><i class="fa fa-check"></i><b>4.4.2.2</b> Model comparison</a></li>
+<li class="chapter" data-level="4.4.2.3" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#gettings-results"><i class="fa fa-check"></i><b>4.4.2.3</b> Gettings results</a>
+<ul>
+<li class="chapter" data-level="4.4.2.3.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#models-fit-8"><i class="fa fa-check"></i><b>4.4.2.3.1</b> Model’s fit</a></li>
+<li class="chapter" data-level="4.4.2.3.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#fixed-effects-2"><i class="fa fa-check"></i><b>4.4.2.3.2</b> Fixed effects</a></li>
+<li class="chapter" data-level="4.4.2.3.3" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#random-effects-2"><i class="fa fa-check"></i><b>4.4.2.3.3</b> Random effects</a></li>
+<li class="chapter" data-level="4.4.2.3.4" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#logodds-to-odd-ratios-2"><i class="fa fa-check"></i><b>4.4.2.3.4</b> Logodds to Odd ratios</a></li>
+<li class="chapter" data-level="4.4.2.3.5" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#logodds-to-proportions-4"><i class="fa fa-check"></i><b>4.4.2.3.5</b> LogOdds to proportions</a></li>
+<li class="chapter" data-level="4.4.2.3.6" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#plotting-6"><i class="fa fa-check"></i><b>4.4.2.3.6</b> Plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4.2.4" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#with-z-scoring-of-predictor-1"><i class="fa fa-check"></i><b>4.4.2.4</b> With z-scoring of predictor</a>
+<ul>
+<li class="chapter" data-level="4.4.2.4.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#model-estimation-4"><i class="fa fa-check"></i><b>4.4.2.4.1</b> Model estimation</a>
+<ul>
+<li class="chapter" data-level="4.4.2.4.1.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#random-intercepts-2"><i class="fa fa-check"></i><b>4.4.2.4.1.1</b> Random Intercepts</a></li>
+<li class="chapter" data-level="4.4.2.4.1.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#random-slopes-2"><i class="fa fa-check"></i><b>4.4.2.4.1.2</b> Random Slopes</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4.2.4.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#model-comparison-3"><i class="fa fa-check"></i><b>4.4.2.4.2</b> Model comparison</a></li>
+<li class="chapter" data-level="4.4.2.4.3" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#gettings-results-1"><i class="fa fa-check"></i><b>4.4.2.4.3</b> Gettings results</a>
+<ul>
+<li class="chapter" data-level="4.4.2.4.3.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#models-fit-9"><i class="fa fa-check"></i><b>4.4.2.4.3.1</b> Model’s fit</a></li>
+<li class="chapter" data-level="4.4.2.4.3.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#fixed-effects-3"><i class="fa fa-check"></i><b>4.4.2.4.3.2</b> Fixed effects</a></li>
+<li class="chapter" data-level="4.4.2.4.3.3" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#random-effects-3"><i class="fa fa-check"></i><b>4.4.2.4.3.3</b> Random effects</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4.2.4.4" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#plotting-7"><i class="fa fa-check"></i><b>4.4.2.4.4</b> Plotting</a>
+<ul>
+<li class="chapter" data-level="4.4.2.4.4.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#normal-1"><i class="fa fa-check"></i><b>4.4.2.4.4.1</b> Normal</a></li>
+<li class="chapter" data-level="4.4.2.4.4.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#z-scores-1"><i class="fa fa-check"></i><b>4.4.2.4.4.2</b> z-scores</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html"><i class="fa fa-check"></i><b>4.5</b> Cumulative Logit Link Mixed-effects Models</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#ratings-of-percept-of-nasality-1"><i class="fa fa-check"></i><b>4.5.1</b> Ratings of percept of nasality</a>
+<ul>
+<li class="chapter" data-level="4.5.1.1" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#importing-and-pre-processing-2"><i class="fa fa-check"></i><b>4.5.1.1</b> Importing and pre-processing</a></li>
+<li class="chapter" data-level="4.5.1.2" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#model-specifications-1"><i class="fa fa-check"></i><b>4.5.1.2</b> Model specifications</a>
+<ul>
+<li class="chapter" data-level="4.5.1.2.1" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#no-random-effects-1"><i class="fa fa-check"></i><b>4.5.1.2.1</b> No random effects</a></li>
+<li class="chapter" data-level="4.5.1.2.2" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#random-effects-1---intercepts-only"><i class="fa fa-check"></i><b>4.5.1.2.2</b> Random effects 1 - Intercepts only</a></li>
+<li class="chapter" data-level="4.5.1.2.3" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#random-effects-2---intercepts-and-slopes"><i class="fa fa-check"></i><b>4.5.1.2.3</b> Random effects 2 - Intercepts and Slopes</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5.1.3" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#testing-significance-2"><i class="fa fa-check"></i><b>4.5.1.3</b> Testing significance</a>
+<ul>
+<li class="chapter" data-level="4.5.1.3.1" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#null-vs-no-random-1"><i class="fa fa-check"></i><b>4.5.1.3.1</b> Null vs no random</a></li>
+<li class="chapter" data-level="4.5.1.3.2" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#no-random-vs-random-intercepts"><i class="fa fa-check"></i><b>4.5.1.3.2</b> No random vs Random Intercepts</a></li>
+<li class="chapter" data-level="4.5.1.3.3" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#no-random-vs-random-intercepts-1"><i class="fa fa-check"></i><b>4.5.1.3.3</b> No random vs Random Intercepts</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5.1.4" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#models-fit-10"><i class="fa fa-check"></i><b>4.5.1.4</b> Model’s fit</a></li>
+<li class="chapter" data-level="4.5.1.5" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#interpreting-a-cumulative-model-2"><i class="fa fa-check"></i><b>4.5.1.5</b> Interpreting a cumulative model</a></li>
+<li class="chapter" data-level="4.5.1.6" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#plotting-8"><i class="fa fa-check"></i><b>4.5.1.6</b> Plotting</a>
+<ul>
+<li class="chapter" data-level="4.5.1.6.1" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#no-confidence-intervals-2"><i class="fa fa-check"></i><b>4.5.1.6.1</b> No confidence intervals</a></li>
+<li class="chapter" data-level="4.5.1.6.2" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#with-confidence-intervals-2"><i class="fa fa-check"></i><b>4.5.1.6.2</b> With confidence intervals</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.5.2" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#subjective-estimates-of-the-weight-of-the-referents-of-81-english-nouns.-1"><i class="fa fa-check"></i><b>4.5.2</b> Subjective estimates of the weight of the referents of 81 English nouns.</a>
+<ul>
+<li class="chapter" data-level="4.5.2.1" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#importing-and-pre-processing-3"><i class="fa fa-check"></i><b>4.5.2.1</b> Importing and pre-processing</a></li>
+<li class="chapter" data-level="4.5.2.2" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#model-specifications-2"><i class="fa fa-check"></i><b>4.5.2.2</b> Model specifications</a>
+<ul>
+<li class="chapter" data-level="4.5.2.2.1" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#no-random-effects-2"><i class="fa fa-check"></i><b>4.5.2.2.1</b> No random effects</a></li>
+<li class="chapter" data-level="4.5.2.2.2" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#random-effects-1---intercepts-only-1"><i class="fa fa-check"></i><b>4.5.2.2.2</b> Random effects 1 - Intercepts only</a></li>
+<li class="chapter" data-level="4.5.2.2.3" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#random-effects-2---intercepts-and-slopes-1"><i class="fa fa-check"></i><b>4.5.2.2.3</b> Random effects 2 - Intercepts and Slopes</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5.2.3" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#testing-significance-3"><i class="fa fa-check"></i><b>4.5.2.3</b> Testing significance</a>
+<ul>
+<li class="chapter" data-level="4.5.2.3.1" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#null-vs-no-random-2"><i class="fa fa-check"></i><b>4.5.2.3.1</b> Null vs no random</a></li>
+<li class="chapter" data-level="4.5.2.3.2" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#no-random-vs-random-intercepts-2"><i class="fa fa-check"></i><b>4.5.2.3.2</b> No random vs Random Intercepts</a></li>
+<li class="chapter" data-level="4.5.2.3.3" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#random-intercepts-vs-random-slope"><i class="fa fa-check"></i><b>4.5.2.3.3</b> Random Intercepts vs Random Slope</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5.2.4" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#models-fit-11"><i class="fa fa-check"></i><b>4.5.2.4</b> Model’s fit</a></li>
+<li class="chapter" data-level="4.5.2.5" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#interpreting-a-cumulative-model-3"><i class="fa fa-check"></i><b>4.5.2.5</b> Interpreting a cumulative model</a></li>
+<li class="chapter" data-level="4.5.2.6" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#plotting-9"><i class="fa fa-check"></i><b>4.5.2.6</b> Plotting</a>
+<ul>
+<li class="chapter" data-level="4.5.2.6.1" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#no-confidence-intervals-3"><i class="fa fa-check"></i><b>4.5.2.6.1</b> No confidence intervals</a></li>
+<li class="chapter" data-level="4.5.2.6.2" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#with-confidence-intervals-3"><i class="fa fa-check"></i><b>4.5.2.6.2</b> With confidence intervals</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html"><i class="fa fa-check"></i><b>4.6</b> Generalised Additive Mixed-effects Models (GAMMs)</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#loading-dataframe"><i class="fa fa-check"></i><b>4.6.1</b> Loading dataframe</a></li>
+<li class="chapter" data-level="4.6.2" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#manipulation"><i class="fa fa-check"></i><b>4.6.2</b> Manipulation</a>
+<ul>
+<li class="chapter" data-level="4.6.2.1" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#wide-to-long-format"><i class="fa fa-check"></i><b>4.6.2.1</b> Wide to Long format</a></li>
+<li class="chapter" data-level="4.6.2.2" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#transforming-and-arranging-dataframe"><i class="fa fa-check"></i><b>4.6.2.2</b> Transforming and arranging dataframe</a></li>
+<li class="chapter" data-level="4.6.2.3" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#ordering-predictors"><i class="fa fa-check"></i><b>4.6.2.3</b> Ordering predictors</a></li>
+<li class="chapter" data-level="4.6.2.4" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#start-value-for-autocorrelation"><i class="fa fa-check"></i><b>4.6.2.4</b> Start value for autocorrelation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6.3" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#model-specifications-3"><i class="fa fa-check"></i><b>4.6.3</b> Model specifications</a>
+<ul>
+<li class="chapter" data-level="4.6.3.1" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#no-ar1-model"><i class="fa fa-check"></i><b>4.6.3.1</b> No AR1 model</a>
+<ul>
+<li class="chapter" data-level="4.6.3.1.1" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#model-estimation-5"><i class="fa fa-check"></i><b>4.6.3.1.1</b> Model estimation</a>
+<ul>
+<li class="chapter" data-level="4.6.3.1.1.1" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#acf-no-ar1"><i class="fa fa-check"></i><b>4.6.3.1.1.1</b> ACF No AR1</a></li>
+<li class="chapter" data-level="4.6.3.1.1.2" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#gam-check"><i class="fa fa-check"></i><b>4.6.3.1.1.2</b> Gam check</a></li>
+<li class="chapter" data-level="4.6.3.1.1.3" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#estimating-rho"><i class="fa fa-check"></i><b>4.6.3.1.1.3</b> Estimating Rho</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.6.3.2" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#ar1-model"><i class="fa fa-check"></i><b>4.6.3.2</b> AR1 model</a>
+<ul>
+<li class="chapter" data-level="4.6.3.2.0.1" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#model-estimation-6"><i class="fa fa-check"></i><b>4.6.3.2.0.1</b> Model estimation</a></li>
+<li class="chapter" data-level="4.6.3.2.0.2" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#acf-ar1"><i class="fa fa-check"></i><b>4.6.3.2.0.2</b> ACF AR1</a></li>
+<li class="chapter" data-level="4.6.3.2.0.3" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#summary-1"><i class="fa fa-check"></i><b>4.6.3.2.0.3</b> Summary</a></li>
+<li class="chapter" data-level="4.6.3.2.0.4" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#models-fit-12"><i class="fa fa-check"></i><b>4.6.3.2.0.4</b> Model’s fit</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.6.4" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#significance-testing-second-autoregressive-gam"><i class="fa fa-check"></i><b>4.6.4</b> Significance testing second Autoregressive GAM</a>
+<ul>
+<li class="chapter" data-level="4.6.4.1" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#models"><i class="fa fa-check"></i><b>4.6.4.1</b> Models</a>
+<ul>
+<li class="chapter" data-level="4.6.4.1.1" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#full-model"><i class="fa fa-check"></i><b>4.6.4.1.1</b> Full Model</a></li>
+<li class="chapter" data-level="4.6.4.1.2" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#model-2-without-convowelint.ord"><i class="fa fa-check"></i><b>4.6.4.1.2</b> Model 2 (without ConVowelInt.ord)</a></li>
+<li class="chapter" data-level="4.6.4.1.3" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#null-model"><i class="fa fa-check"></i><b>4.6.4.1.3</b> Null Model</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6.4.2" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#testing-significance-4"><i class="fa fa-check"></i><b>4.6.4.2</b> Testing significance</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6.5" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#visualising-smooths"><i class="fa fa-check"></i><b>4.6.5</b> Visualising smooths</a>
+<ul>
+<li class="chapter" data-level="4.6.5.1" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#i"><i class="fa fa-check"></i><b>4.6.5.1</b> /i:/</a></li>
+<li class="chapter" data-level="4.6.5.2" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#a"><i class="fa fa-check"></i><b>4.6.5.2</b> /a:/</a></li>
+<li class="chapter" data-level="4.6.5.3" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#u"><i class="fa fa-check"></i><b>4.6.5.3</b> /u:/</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6.6" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#difference-smooths"><i class="fa fa-check"></i><b>4.6.6</b> Difference smooths</a>
+<ul>
+<li class="chapter" data-level="4.6.6.1" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#i-1"><i class="fa fa-check"></i><b>4.6.6.1</b> /i:/</a></li>
+<li class="chapter" data-level="4.6.6.2" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#a-1"><i class="fa fa-check"></i><b>4.6.6.2</b> /a:/</a></li>
+<li class="chapter" data-level="4.6.6.3" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#u-1"><i class="fa fa-check"></i><b>4.6.6.3</b> /u:/</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="4.7-other-distibutions.html"><a href="4.7-other-distibutions.html"><i class="fa fa-check"></i><b>4.7</b> Other distibutions</a></li>
+<li class="chapter" data-level="4.8" data-path="4.8-session-info-2.html"><a href="4.8-session-info-2.html"><i class="fa fa-check"></i><b>4.8</b> session info</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistics for Linguists using R - Quantitative and qualitative approaches</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="generalised-linear-models" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Generalised Linear Models<a href="3.4-generalised-linear-models.html#generalised-linear-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here we will look at an example when the outcome is binary. This
+simulated data is structured as follows. We asked one participant to
+listen to 165 sentences, and to judge whether these are “grammatical” or
+“ungrammatical”. There were 105 sentences that were “grammatical” and 60
+“ungrammatical”. Responses varied, with 110 “yes” responses and 55 “no”
+responses, spread across the grammatical.</p>
+<p>This fictitious example can apply in any other situation. Let’s think
+Geography: 165 lands: 105 “flat” and 60 “non-flat”, etc. This applies to
+any case where you need to “categorise” the outcome into two groups.</p>
+<div id="load-and-summaries" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Load and summaries<a href="3.4-generalised-linear-models.html#load-and-summaries" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s create this dataset from scratch (you can load the
+“grammatical.csv file as well) and do some basic summaries</p>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="3.4-generalised-linear-models.html#cb369-1" tabindex="-1"></a>grammatical <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(</span>
+<span id="cb369-2"><a href="3.4-generalised-linear-models.html#cb369-2" tabindex="-1"></a>  <span class="fu">cbind</span>(<span class="st">&quot;grammaticality&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;grammatical&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;grammatical&quot;</span>, <span class="dv">105</span>),</span>
+<span id="cb369-3"><a href="3.4-generalised-linear-models.html#cb369-3" tabindex="-1"></a>                             <span class="st">&quot;ungrammatical&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;ungrammatical&quot;</span>, <span class="dv">60</span>)),</span>
+<span id="cb369-4"><a href="3.4-generalised-linear-models.html#cb369-4" tabindex="-1"></a>        <span class="st">&quot;response&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;yes&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;yes&quot;</span>, <span class="dv">100</span>),</span>
+<span id="cb369-5"><a href="3.4-generalised-linear-models.html#cb369-5" tabindex="-1"></a>                       <span class="st">&quot;no&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;no&quot;</span>, <span class="dv">5</span>),</span>
+<span id="cb369-6"><a href="3.4-generalised-linear-models.html#cb369-6" tabindex="-1"></a>                       <span class="st">&quot;yes&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;yes&quot;</span>, <span class="dv">10</span>),</span>
+<span id="cb369-7"><a href="3.4-generalised-linear-models.html#cb369-7" tabindex="-1"></a>                       <span class="st">&quot;no&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;no&quot;</span>, <span class="dv">50</span>))),</span>
+<span id="cb369-8"><a href="3.4-generalised-linear-models.html#cb369-8" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb369-9"><a href="3.4-generalised-linear-models.html#cb369-9" tabindex="-1"></a>grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb369-10"><a href="3.4-generalised-linear-models.html#cb369-10" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">20</span>)</span></code></pre></div>
+<pre><code>##    grammaticality response
+## 1     grammatical      yes
+## 2     grammatical      yes
+## 3     grammatical      yes
+## 4     grammatical      yes
+## 5     grammatical      yes
+## 6     grammatical      yes
+## 7     grammatical      yes
+## 8     grammatical      yes
+## 9     grammatical      yes
+## 10    grammatical      yes
+## 11    grammatical      yes
+## 12    grammatical      yes
+## 13    grammatical      yes
+## 14    grammatical      yes
+## 15    grammatical      yes
+## 16    grammatical      yes
+## 17    grammatical      yes
+## 18    grammatical      yes
+## 19    grammatical      yes
+## 20    grammatical      yes</code></pre>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="3.4-generalised-linear-models.html#cb371-1" tabindex="-1"></a><span class="fu">str</span>(grammatical)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    165 obs. of  2 variables:
+##  $ grammaticality: chr  &quot;grammatical&quot; &quot;grammatical&quot; &quot;grammatical&quot; &quot;grammatical&quot; ...
+##  $ response      : chr  &quot;yes&quot; &quot;yes&quot; &quot;yes&quot; &quot;yes&quot; ...</code></pre>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="3.4-generalised-linear-models.html#cb373-1" tabindex="-1"></a><span class="fu">head</span>(grammatical)</span></code></pre></div>
+<pre><code>##   grammaticality response
+## 1    grammatical      yes
+## 2    grammatical      yes
+## 3    grammatical      yes
+## 4    grammatical      yes
+## 5    grammatical      yes
+## 6    grammatical      yes</code></pre>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="3.4-generalised-linear-models.html#cb375-1" tabindex="-1"></a><span class="fu">table</span>(grammatical<span class="sc">$</span>response, grammatical<span class="sc">$</span>grammaticality)</span></code></pre></div>
+<pre><code>##      
+##       grammatical ungrammatical
+##   no            5            50
+##   yes         100            10</code></pre>
+</div>
+<div id="glm---categorical-predictors" class="section level3 hasAnchor" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> GLM - Categorical predictors<a href="3.4-generalised-linear-models.html#glm---categorical-predictors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s run a first GLM (Generalised Linear Model). A GLM uses a special
+family “binomial” as it assumes the outcome has a binomial distribution.
+In general, results from a Logistic Regression are close to what we get
+from SDT (see above).</p>
+<p>To run the results, we will change the reference level for both response
+and grammaticality. The basic assumption about GLM is that we start with
+our reference level being the “no” responses to the “ungrammatical”
+category. Any changes to this reference will be seen in the coefficients
+as “yes” responses to the “grammatical” category.</p>
+<div id="model-estimation-and-results" class="section level4 hasAnchor" number="3.4.2.1">
+<h4><span class="header-section-number">3.4.2.1</span> Model estimation and results<a href="3.4-generalised-linear-models.html#model-estimation-and-results" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The results below show the logodds for our model.</p>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="3.4-generalised-linear-models.html#cb377-1" tabindex="-1"></a>grammatical <span class="ot">&lt;-</span> grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb377-2"><a href="3.4-generalised-linear-models.html#cb377-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">factor</span>(response, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;no&quot;</span>, <span class="st">&quot;yes&quot;</span>)),</span>
+<span id="cb377-3"><a href="3.4-generalised-linear-models.html#cb377-3" tabindex="-1"></a>         <span class="at">grammaticality =</span> <span class="fu">factor</span>(grammaticality, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;ungrammatical&quot;</span>, <span class="st">&quot;grammatical&quot;</span>)))</span>
+<span id="cb377-4"><a href="3.4-generalised-linear-models.html#cb377-4" tabindex="-1"></a></span>
+<span id="cb377-5"><a href="3.4-generalised-linear-models.html#cb377-5" tabindex="-1"></a>grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb377-6"><a href="3.4-generalised-linear-models.html#cb377-6" tabindex="-1"></a>  <span class="fu">group_by</span>(grammaticality, response) <span class="sc">%&gt;%</span> </span>
+<span id="cb377-7"><a href="3.4-generalised-linear-models.html#cb377-7" tabindex="-1"></a>  <span class="fu">table</span>()</span></code></pre></div>
+<pre><code>##                response
+## grammaticality   no yes
+##   ungrammatical  50  10
+##   grammatical     5 100</code></pre>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="3.4-generalised-linear-models.html#cb379-1" tabindex="-1"></a>mdl.glm <span class="ot">&lt;-</span> grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb379-2"><a href="3.4-generalised-linear-models.html#cb379-2" tabindex="-1"></a>  <span class="fu">glm</span>(response <span class="sc">~</span> grammaticality, <span class="at">data =</span> ., <span class="at">family =</span> binomial)</span>
+<span id="cb379-3"><a href="3.4-generalised-linear-models.html#cb379-3" tabindex="-1"></a><span class="fu">summary</span>(mdl.glm)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = response ~ grammaticality, family = binomial, data = .)
+## 
+## Coefficients:
+##                           Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)                -1.6094     0.3464  -4.646 3.38e-06 ***
+## grammaticalitygrammatical   4.6052     0.5744   8.017 1.08e-15 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 210.050  on 164  degrees of freedom
+## Residual deviance:  94.271  on 163  degrees of freedom
+## AIC: 98.271
+## 
+## Number of Fisher Scoring iterations: 5</code></pre>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="3.4-generalised-linear-models.html#cb381-1" tabindex="-1"></a><span class="fu">tidy</span>(mdl.glm) <span class="sc">%&gt;%</span> </span>
+<span id="cb381-2"><a href="3.4-generalised-linear-models.html#cb381-2" tabindex="-1"></a>  <span class="fu">select</span>(term, estimate) <span class="sc">%&gt;%</span> </span>
+<span id="cb381-3"><a href="3.4-generalised-linear-models.html#cb381-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">estimate =</span> <span class="fu">round</span>(estimate, <span class="dv">3</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 2
+##   term                      estimate
+##   &lt;chr&gt;                        &lt;dbl&gt;
+## 1 (Intercept)                  -1.61
+## 2 grammaticalitygrammatical     4.61</code></pre>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="3.4-generalised-linear-models.html#cb383-1" tabindex="-1"></a><span class="co"># to only get the coefficients</span></span>
+<span id="cb383-2"><a href="3.4-generalised-linear-models.html#cb383-2" tabindex="-1"></a>mycoef2 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mdl.glm) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(estimate)</span></code></pre></div>
+</div>
+<div id="models-fit-1" class="section level4 hasAnchor" number="3.4.2.2">
+<h4><span class="header-section-number">3.4.2.2</span> Model’s fit<a href="3.4-generalised-linear-models.html#models-fit-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="3.4-generalised-linear-models.html#cb384-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tab_model</span>(mdl.glm, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.glm.html&quot;</span>)))</span>
+<span id="cb384-2"><a href="3.4-generalised-linear-models.html#cb384-2" tabindex="-1"></a><span class="fu">webshot</span>(<span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.glm.html&quot;</span>), <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.glm.png&quot;</span>))</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-144-1.png" width="672" /></p>
+<div class="float">
+<img src="mdl.glm.png" alt="Model fit: Generalised Linear model - Categorical" />
+<div class="figcaption">Model fit: Generalised Linear model - Categorical</div>
+</div>
+<p>The results show that for one unit increase in the response (i.e., from
+no to yes), the logodds of being “grammatical” is increased by
+4.6051702 (the intercept shows that when the response is “no”, the
+logodds are -1.6094379). The actual logodds for the response “yes”
+to grammatical is 2.9957323</p>
+</div>
+<div id="logodds-to-odd-ratios" class="section level4 hasAnchor" number="3.4.2.3">
+<h4><span class="header-section-number">3.4.2.3</span> Logodds to Odd ratios<a href="3.4-generalised-linear-models.html#logodds-to-odd-ratios" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Logodds can be modified to talk about the odds of an event. For our
+model above, the odds of “grammatical” receiving a “no” response is a
+mere 0.2; the odds of “grammatical” to receive a “yes” is a 20; i.e., 20
+times more likely</p>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="3.4-generalised-linear-models.html#cb385-1" tabindex="-1"></a><span class="fu">exp</span>(mycoef2[<span class="dv">1</span>])</span></code></pre></div>
+<pre><code>## [1] 0.2</code></pre>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="3.4-generalised-linear-models.html#cb387-1" tabindex="-1"></a><span class="fu">exp</span>(mycoef2[<span class="dv">1</span>] <span class="sc">+</span> mycoef2[<span class="dv">2</span>])</span></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+</div>
+<div id="logodds-to-proportions" class="section level4 hasAnchor" number="3.4.2.4">
+<h4><span class="header-section-number">3.4.2.4</span> LogOdds to proportions<a href="3.4-generalised-linear-models.html#logodds-to-proportions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>If you want to talk about the percentage “accuracy” of our model, then
+we can transform our loggodds into proportions. This shows that the
+proportion of “grammatical” receiving a “yes” response increases by 99%
+(or 95% based on our “true” coefficients)</p>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="3.4-generalised-linear-models.html#cb389-1" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>])</span></code></pre></div>
+<pre><code>## [1] 0.1666667</code></pre>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="3.4-generalised-linear-models.html#cb391-1" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>] <span class="sc">+</span> mycoef2[<span class="dv">2</span>])</span></code></pre></div>
+<pre><code>## [1] 0.952381</code></pre>
+</div>
+<div id="plotting" class="section level4 hasAnchor" number="3.4.2.5">
+<h4><span class="header-section-number">3.4.2.5</span> Plotting<a href="3.4-generalised-linear-models.html#plotting" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="3.4-generalised-linear-models.html#cb393-1" tabindex="-1"></a>grammatical <span class="ot">&lt;-</span> grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb393-2"><a href="3.4-generalised-linear-models.html#cb393-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> <span class="fu">predict</span>(mdl.glm, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>))</span>
+<span id="cb393-3"><a href="3.4-generalised-linear-models.html#cb393-3" tabindex="-1"></a>grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb393-4"><a href="3.4-generalised-linear-models.html#cb393-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(grammaticality), <span class="at">y =</span> prob)) <span class="sc">+</span></span>
+<span id="cb393-5"><a href="3.4-generalised-linear-models.html#cb393-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb393-6"><a href="3.4-generalised-linear-models.html#cb393-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;glm&quot;</span>, </span>
+<span id="cb393-7"><a href="3.4-generalised-linear-models.html#cb393-7" tabindex="-1"></a>    <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>), </span>
+<span id="cb393-8"><a href="3.4-generalised-linear-models.html#cb393-8" tabindex="-1"></a>    <span class="at">se =</span> T) <span class="sc">+</span> <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>)<span class="sc">+</span></span>
+<span id="cb393-9"><a href="3.4-generalised-linear-models.html#cb393-9" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>)<span class="sc">+</span></span>
+<span id="cb393-10"><a href="3.4-generalised-linear-models.html#cb393-10" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb393-11"><a href="3.4-generalised-linear-models.html#cb393-11" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">&quot;Ungrammatical&quot;</span>, <span class="st">&quot;Grammatical&quot;</span>))</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-147-1.png" width="672" /></p>
+</div>
+</div>
+<div id="glm---numeric-predictors" class="section level3 hasAnchor" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> GLM - Numeric predictors<a href="3.4-generalised-linear-models.html#glm---numeric-predictors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In this example, we will run a GLM model using a similar technique to
+that used in <code>Al-Tamimi (2017)</code> and <code>Baumann &amp; Winter (2018)</code>. We use
+the package <code>LanguageR</code> and the dataset <code>English</code>.</p>
+<p>In the model above, we used the equation as lm(RTlexdec ~ AgeSubject).
+We were interested in examining the impact of age of subject on reaction
+time in a lexical decision task. In this section, we are interested in
+understanding how reaction time allows to differentiate the participants
+based on their age. We use <code>AgeSubject</code> as our outcome and <code>RTlexdec</code> as
+our predictor using the equation glm(AgeSubject ~ RTlexdec). We usually
+can use <code>RTlexdec</code> as is, but due to a possible quasi separation and the
+fact that we may want to compare coefficients using multiple acoustic
+metrics, we will z-score our predictor. We run below two models, with
+and without z-scoring</p>
+<p>For the glm model, we need to specify <code>family = "binomial"</code>.</p>
+<div id="without-z-scoring-of-predictor" class="section level4 hasAnchor" number="3.4.3.1">
+<h4><span class="header-section-number">3.4.3.1</span> Without z-scoring of predictor<a href="3.4-generalised-linear-models.html#without-z-scoring-of-predictor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="model-estimation-1" class="section level5 hasAnchor" number="3.4.3.1.1">
+<h5><span class="header-section-number">3.4.3.1.1</span> Model estimation<a href="3.4-generalised-linear-models.html#model-estimation-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="3.4-generalised-linear-models.html#cb394-1" tabindex="-1"></a>mdl.glm2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb394-2"><a href="3.4-generalised-linear-models.html#cb394-2" tabindex="-1"></a>  <span class="fu">glm</span>(AgeSubject <span class="sc">~</span> RTlexdec, <span class="at">data =</span> ., <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb394-3"><a href="3.4-generalised-linear-models.html#cb394-3" tabindex="-1"></a></span>
+<span id="cb394-4"><a href="3.4-generalised-linear-models.html#cb394-4" tabindex="-1"></a><span class="fu">tidy</span>(mdl.glm2) <span class="sc">%&gt;%</span> </span>
+<span id="cb394-5"><a href="3.4-generalised-linear-models.html#cb394-5" tabindex="-1"></a>  <span class="fu">select</span>(term, estimate) <span class="sc">%&gt;%</span> </span>
+<span id="cb394-6"><a href="3.4-generalised-linear-models.html#cb394-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">estimate =</span> <span class="fu">round</span>(estimate, <span class="dv">3</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 2
+##   term        estimate
+##   &lt;chr&gt;          &lt;dbl&gt;
+## 1 (Intercept)   -129. 
+## 2 RTlexdec        19.6</code></pre>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="3.4-generalised-linear-models.html#cb396-1" tabindex="-1"></a><span class="co"># to only get the coefficients</span></span>
+<span id="cb396-2"><a href="3.4-generalised-linear-models.html#cb396-2" tabindex="-1"></a>mycoef2 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mdl.glm2) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(estimate)</span></code></pre></div>
+</div>
+<div id="models-fit-2" class="section level5 hasAnchor" number="3.4.3.1.2">
+<h5><span class="header-section-number">3.4.3.1.2</span> Model’s fit<a href="3.4-generalised-linear-models.html#models-fit-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="3.4-generalised-linear-models.html#cb397-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tab_model</span>(mdl.glm2, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.glm2.html&quot;</span>)))</span>
+<span id="cb397-2"><a href="3.4-generalised-linear-models.html#cb397-2" tabindex="-1"></a><span class="fu">webshot</span>(<span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.glm2.html&quot;</span>), <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.glm2.png&quot;</span>))</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-149-1.png" width="672" /></p>
+<div class="float">
+<img src="mdl.glm2.png" alt="Model fit: Generalised Linear model - Numeric" />
+<div class="figcaption">Model fit: Generalised Linear model - Numeric</div>
+</div>
+</div>
+<div id="logodds-to-proportions-1" class="section level5 hasAnchor" number="3.4.3.1.3">
+<h5><span class="header-section-number">3.4.3.1.3</span> LogOdds to proportions<a href="3.4-generalised-linear-models.html#logodds-to-proportions-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>If you want to talk about the percentage “accuracy” of our model, then
+we can transform our loggodds into proportions.</p>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="3.4-generalised-linear-models.html#cb398-1" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>])</span></code></pre></div>
+<pre><code>## [1] 1.368844e-56</code></pre>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="3.4-generalised-linear-models.html#cb400-1" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>] <span class="sc">+</span> mycoef2[<span class="dv">2</span>])</span></code></pre></div>
+<pre><code>## [1] 4.678715e-48</code></pre>
+</div>
+<div id="plotting-1" class="section level5 hasAnchor" number="3.4.3.1.4">
+<h5><span class="header-section-number">3.4.3.1.4</span> Plotting<a href="3.4-generalised-linear-models.html#plotting-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="3.4-generalised-linear-models.html#cb402-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb402-2"><a href="3.4-generalised-linear-models.html#cb402-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> <span class="fu">predict</span>(mdl.glm2, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>))</span>
+<span id="cb402-3"><a href="3.4-generalised-linear-models.html#cb402-3" tabindex="-1"></a>english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb402-4"><a href="3.4-generalised-linear-models.html#cb402-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(AgeSubject), <span class="at">y =</span> prob)) <span class="sc">+</span></span>
+<span id="cb402-5"><a href="3.4-generalised-linear-models.html#cb402-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb402-6"><a href="3.4-generalised-linear-models.html#cb402-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;glm&quot;</span>, </span>
+<span id="cb402-7"><a href="3.4-generalised-linear-models.html#cb402-7" tabindex="-1"></a>    <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>), </span>
+<span id="cb402-8"><a href="3.4-generalised-linear-models.html#cb402-8" tabindex="-1"></a>    <span class="at">se =</span> T) <span class="sc">+</span> <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>)<span class="sc">+</span></span>
+<span id="cb402-9"><a href="3.4-generalised-linear-models.html#cb402-9" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>)<span class="sc">+</span></span>
+<span id="cb402-10"><a href="3.4-generalised-linear-models.html#cb402-10" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb402-11"><a href="3.4-generalised-linear-models.html#cb402-11" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">&quot;Young&quot;</span>, <span class="st">&quot;Old&quot;</span>))</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-151-1.png" width="672" /></p>
+<p>The plot above show how the two groups differ using a glm. The results
+point to an overall increase in the proportion of reaction time when
+moving from the “Young” to the “Old” group. Let’s use z-scoring next</p>
+</div>
+</div>
+<div id="with-z-scoring-of-predictor" class="section level4 hasAnchor" number="3.4.3.2">
+<h4><span class="header-section-number">3.4.3.2</span> With z-scoring of predictor<a href="3.4-generalised-linear-models.html#with-z-scoring-of-predictor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="model-estimation-2" class="section level5 hasAnchor" number="3.4.3.2.1">
+<h5><span class="header-section-number">3.4.3.2.1</span> Model estimation<a href="3.4-generalised-linear-models.html#model-estimation-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="3.4-generalised-linear-models.html#cb403-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb403-2"><a href="3.4-generalised-linear-models.html#cb403-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">RTlexdec_z</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">scale</span>(RTlexdec, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb403-3"><a href="3.4-generalised-linear-models.html#cb403-3" tabindex="-1"></a></span>
+<span id="cb403-4"><a href="3.4-generalised-linear-models.html#cb403-4" tabindex="-1"></a>english2[<span class="st">&#39;RTlexdec_z&#39;</span>] <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">scale</span>(english2<span class="sc">$</span>RTlexdec))</span>
+<span id="cb403-5"><a href="3.4-generalised-linear-models.html#cb403-5" tabindex="-1"></a></span>
+<span id="cb403-6"><a href="3.4-generalised-linear-models.html#cb403-6" tabindex="-1"></a></span>
+<span id="cb403-7"><a href="3.4-generalised-linear-models.html#cb403-7" tabindex="-1"></a></span>
+<span id="cb403-8"><a href="3.4-generalised-linear-models.html#cb403-8" tabindex="-1"></a>mdl.glm3 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb403-9"><a href="3.4-generalised-linear-models.html#cb403-9" tabindex="-1"></a>  <span class="fu">glm</span>(AgeSubject <span class="sc">~</span> RTlexdec_z, <span class="at">data =</span> ., <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb403-10"><a href="3.4-generalised-linear-models.html#cb403-10" tabindex="-1"></a></span>
+<span id="cb403-11"><a href="3.4-generalised-linear-models.html#cb403-11" tabindex="-1"></a><span class="fu">tidy</span>(mdl.glm3) <span class="sc">%&gt;%</span> </span>
+<span id="cb403-12"><a href="3.4-generalised-linear-models.html#cb403-12" tabindex="-1"></a>  <span class="fu">select</span>(term, estimate) <span class="sc">%&gt;%</span> </span>
+<span id="cb403-13"><a href="3.4-generalised-linear-models.html#cb403-13" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">estimate =</span> <span class="fu">round</span>(estimate, <span class="dv">3</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 2
+##   term        estimate
+##   &lt;chr&gt;          &lt;dbl&gt;
+## 1 (Intercept)    0.077
+## 2 RTlexdec_z     3.08</code></pre>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="3.4-generalised-linear-models.html#cb405-1" tabindex="-1"></a><span class="co"># to only get the coefficients</span></span>
+<span id="cb405-2"><a href="3.4-generalised-linear-models.html#cb405-2" tabindex="-1"></a>mycoef2 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mdl.glm3) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(estimate)</span></code></pre></div>
+</div>
+<div id="models-fit-3" class="section level5 hasAnchor" number="3.4.3.2.2">
+<h5><span class="header-section-number">3.4.3.2.2</span> Model’s fit<a href="3.4-generalised-linear-models.html#models-fit-3" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="3.4-generalised-linear-models.html#cb406-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tab_model</span>(mdl.glm3, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.glm3.html&quot;</span>)))</span>
+<span id="cb406-2"><a href="3.4-generalised-linear-models.html#cb406-2" tabindex="-1"></a><span class="fu">webshot</span>(<span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.glm3.html&quot;</span>), <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.glm3.png&quot;</span>))</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-153-1.png" width="672" /></p>
+<div class="float">
+<img src="mdl.glm3.png" alt="Model fit: Generalised Linear model - Numeric - z-scores" />
+<div class="figcaption">Model fit: Generalised Linear model - Numeric - z-scores</div>
+</div>
+</div>
+<div id="logodds-to-proportions-2" class="section level5 hasAnchor" number="3.4.3.2.3">
+<h5><span class="header-section-number">3.4.3.2.3</span> LogOdds to proportions<a href="3.4-generalised-linear-models.html#logodds-to-proportions-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>If you want to talk about the percentage “accuracy” of our model, then
+we can transform our loggodds into proportions.</p>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="3.4-generalised-linear-models.html#cb407-1" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>])</span></code></pre></div>
+<pre><code>## [1] 0.5192147</code></pre>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="3.4-generalised-linear-models.html#cb409-1" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>] <span class="sc">+</span> mycoef2[<span class="dv">2</span>])</span></code></pre></div>
+<pre><code>## [1] 0.959313</code></pre>
+</div>
+<div id="plotting-2" class="section level5 hasAnchor" number="3.4.3.2.4">
+<h5><span class="header-section-number">3.4.3.2.4</span> Plotting<a href="3.4-generalised-linear-models.html#plotting-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="normal" class="section level6 hasAnchor" number="3.4.3.2.4.1">
+<h6><span class="header-section-number">3.4.3.2.4.1</span> Normal<a href="3.4-generalised-linear-models.html#normal" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="3.4-generalised-linear-models.html#cb411-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb411-2"><a href="3.4-generalised-linear-models.html#cb411-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> <span class="fu">predict</span>(mdl.glm3, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>))</span>
+<span id="cb411-3"><a href="3.4-generalised-linear-models.html#cb411-3" tabindex="-1"></a>english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb411-4"><a href="3.4-generalised-linear-models.html#cb411-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(AgeSubject), <span class="at">y =</span> prob)) <span class="sc">+</span></span>
+<span id="cb411-5"><a href="3.4-generalised-linear-models.html#cb411-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb411-6"><a href="3.4-generalised-linear-models.html#cb411-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;glm&quot;</span>, </span>
+<span id="cb411-7"><a href="3.4-generalised-linear-models.html#cb411-7" tabindex="-1"></a>    <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>), </span>
+<span id="cb411-8"><a href="3.4-generalised-linear-models.html#cb411-8" tabindex="-1"></a>    <span class="at">se =</span> T) <span class="sc">+</span> <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>)<span class="sc">+</span></span>
+<span id="cb411-9"><a href="3.4-generalised-linear-models.html#cb411-9" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>)<span class="sc">+</span></span>
+<span id="cb411-10"><a href="3.4-generalised-linear-models.html#cb411-10" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb411-11"><a href="3.4-generalised-linear-models.html#cb411-11" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">&quot;Young&quot;</span>, <span class="st">&quot;Old&quot;</span>))</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-155-1.png" width="672" /></p>
+<p>We obtain the exact same plots, but the model estimations are different.
+Let’s use another type of predictions</p>
+</div>
+<div id="z-scores" class="section level6 hasAnchor" number="3.4.3.2.4.2">
+<h6><span class="header-section-number">3.4.3.2.4.2</span> z-scores<a href="3.4-generalised-linear-models.html#z-scores" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="3.4-generalised-linear-models.html#cb412-1" tabindex="-1"></a>z_vals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">0.01</span>)</span>
+<span id="cb412-2"><a href="3.4-generalised-linear-models.html#cb412-2" tabindex="-1"></a></span>
+<span id="cb412-3"><a href="3.4-generalised-linear-models.html#cb412-3" tabindex="-1"></a>dfPredNew <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">RTlexdec_z =</span> z_vals)</span>
+<span id="cb412-4"><a href="3.4-generalised-linear-models.html#cb412-4" tabindex="-1"></a></span>
+<span id="cb412-5"><a href="3.4-generalised-linear-models.html#cb412-5" tabindex="-1"></a><span class="do">## store the predicted probabilities for each value of RTlexdec_z</span></span>
+<span id="cb412-6"><a href="3.4-generalised-linear-models.html#cb412-6" tabindex="-1"></a>pp <span class="ot">&lt;-</span> <span class="fu">cbind</span>(dfPredNew, <span class="at">prob =</span> <span class="fu">predict</span>(mdl.glm3, <span class="at">newdata =</span> dfPredNew, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>))</span>
+<span id="cb412-7"><a href="3.4-generalised-linear-models.html#cb412-7" tabindex="-1"></a></span>
+<span id="cb412-8"><a href="3.4-generalised-linear-models.html#cb412-8" tabindex="-1"></a>pp <span class="sc">%&gt;%</span> </span>
+<span id="cb412-9"><a href="3.4-generalised-linear-models.html#cb412-9" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> RTlexdec_z, <span class="at">y =</span> prob)) <span class="sc">+</span></span>
+<span id="cb412-10"><a href="3.4-generalised-linear-models.html#cb412-10" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb412-11"><a href="3.4-generalised-linear-models.html#cb412-11" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>)<span class="sc">+</span></span>
+<span id="cb412-12"><a href="3.4-generalised-linear-models.html#cb412-12" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb412-13"><a href="3.4-generalised-linear-models.html#cb412-13" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.1</span>, <span class="fl">1.1</span>), <span class="at">expand =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb412-14"><a href="3.4-generalised-linear-models.html#cb412-14" tabindex="-1"></a>    <span class="fu">scale_y_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Young&quot;</span>, <span class="st">&quot;Old&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb412-15"><a href="3.4-generalised-linear-models.html#cb412-15" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-156-1.png" width="672" /></p>
+<p>We obtain the exact same plots, but the model estimations are different.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="accuracy-and-signal-detection-theory" class="section level3 hasAnchor" number="3.4.4">
+<h3><span class="header-section-number">3.4.4</span> Accuracy and Signal Detection Theory<a href="3.4-generalised-linear-models.html#accuracy-and-signal-detection-theory" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="rationale" class="section level4 hasAnchor" number="3.4.4.1">
+<h4><span class="header-section-number">3.4.4.1</span> Rationale<a href="3.4-generalised-linear-models.html#rationale" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We are generally interested in performance, i.e., whether the we have
+“accurately” categorised the outcome or not and at the same time want to
+evaluate our biases in responses. When deciding on categories, we are
+usually biased in our selection.</p>
+<p>Let’s ask the question: How many of you have a Mac laptop and how many a
+Windows laptop? For those with a Mac, what was the main reason for
+choosing it? Are you biased in anyway by your decision?</p>
+<p>To correct for these biases, we use some variants from Signal Detection
+Theory to obtain the true estimates without being influenced by the
+biases.</p>
+</div>
+<div id="running-stats" class="section level4 hasAnchor" number="3.4.4.2">
+<h4><span class="header-section-number">3.4.4.2</span> Running stats<a href="3.4-generalised-linear-models.html#running-stats" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let’s do some stats on this</p>
+<table>
+<colgroup>
+<col width="30%" />
+<col width="23%" />
+<col width="23%" />
+<col width="23%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Yes</th>
+<th>No</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Grammatical (Yes Actual)</td>
+<td>TP = 100</td>
+<td>FN = 5</td>
+<td>(Yes Actual) 105</td>
+</tr>
+<tr class="even">
+<td>Ungrammatical (No Actual)</td>
+<td>FP = 10</td>
+<td>TN = 50</td>
+<td>(No Actual) 60</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>(Yes Response) 110</td>
+<td>(No Response) 55</td>
+<td>165</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="3.4-generalised-linear-models.html#cb413-1" tabindex="-1"></a>grammatical <span class="ot">&lt;-</span> grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb413-2"><a href="3.4-generalised-linear-models.html#cb413-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">factor</span>(response, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>)),</span>
+<span id="cb413-3"><a href="3.4-generalised-linear-models.html#cb413-3" tabindex="-1"></a>         <span class="at">grammaticality =</span> <span class="fu">factor</span>(grammaticality, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;grammatical&quot;</span>, <span class="st">&quot;ungrammatical&quot;</span>)))</span></code></pre></div>
+</div>
+<div id="below-we-obtain-multiple-measures" class="section level4 hasAnchor" number="3.4.4.3">
+<h4><span class="header-section-number">3.4.4.3</span> Below we obtain multiple measures<a href="3.4-generalised-linear-models.html#below-we-obtain-multiple-measures" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="tp-fp-fn-tn" class="section level5 hasAnchor" number="3.4.4.3.1">
+<h5><span class="header-section-number">3.4.4.3.1</span> TP, FP, FN, TN<a href="3.4-generalised-linear-models.html#tp-fp-fn-tn" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>TP = True Positive (Hit); FP = False Positive; FN = False Negative; TN =
+True Negative</p>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="3.4-generalised-linear-models.html#cb414-1" tabindex="-1"></a>TP <span class="ot">&lt;-</span> <span class="fu">nrow</span>(grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb414-2"><a href="3.4-generalised-linear-models.html#cb414-2" tabindex="-1"></a>             <span class="fu">filter</span>(grammaticality <span class="sc">==</span> <span class="st">&quot;grammatical&quot;</span> <span class="sc">&amp;</span></span>
+<span id="cb414-3"><a href="3.4-generalised-linear-models.html#cb414-3" tabindex="-1"></a>                      response <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>))</span>
+<span id="cb414-4"><a href="3.4-generalised-linear-models.html#cb414-4" tabindex="-1"></a>FN <span class="ot">&lt;-</span> <span class="fu">nrow</span>(grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb414-5"><a href="3.4-generalised-linear-models.html#cb414-5" tabindex="-1"></a>             <span class="fu">filter</span>(grammaticality <span class="sc">==</span> <span class="st">&quot;grammatical&quot;</span> <span class="sc">&amp;</span></span>
+<span id="cb414-6"><a href="3.4-generalised-linear-models.html#cb414-6" tabindex="-1"></a>                      response <span class="sc">==</span> <span class="st">&quot;no&quot;</span>))</span>
+<span id="cb414-7"><a href="3.4-generalised-linear-models.html#cb414-7" tabindex="-1"></a>FP <span class="ot">&lt;-</span> <span class="fu">nrow</span>(grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb414-8"><a href="3.4-generalised-linear-models.html#cb414-8" tabindex="-1"></a>             <span class="fu">filter</span>(grammaticality <span class="sc">==</span> <span class="st">&quot;ungrammatical&quot;</span> <span class="sc">&amp;</span></span>
+<span id="cb414-9"><a href="3.4-generalised-linear-models.html#cb414-9" tabindex="-1"></a>                      response <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>))</span>
+<span id="cb414-10"><a href="3.4-generalised-linear-models.html#cb414-10" tabindex="-1"></a>TN <span class="ot">&lt;-</span> <span class="fu">nrow</span>(grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb414-11"><a href="3.4-generalised-linear-models.html#cb414-11" tabindex="-1"></a>             <span class="fu">filter</span>(grammaticality <span class="sc">==</span> <span class="st">&quot;ungrammatical&quot;</span> <span class="sc">&amp;</span></span>
+<span id="cb414-12"><a href="3.4-generalised-linear-models.html#cb414-12" tabindex="-1"></a>                      response <span class="sc">==</span> <span class="st">&quot;no&quot;</span>))</span>
+<span id="cb414-13"><a href="3.4-generalised-linear-models.html#cb414-13" tabindex="-1"></a>TP</span></code></pre></div>
+<pre><code>## [1] 100</code></pre>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="3.4-generalised-linear-models.html#cb416-1" tabindex="-1"></a>FN</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="3.4-generalised-linear-models.html#cb418-1" tabindex="-1"></a>FP</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="3.4-generalised-linear-models.html#cb420-1" tabindex="-1"></a>TN</span></code></pre></div>
+<pre><code>## [1] 50</code></pre>
+</div>
+<div id="accuracy-error-sensitivity-specificity-precision-etc." class="section level5 hasAnchor" number="3.4.4.3.2">
+<h5><span class="header-section-number">3.4.4.3.2</span> Accuracy, Error, Sensitivity, Specificity, Precision, etc.<a href="3.4-generalised-linear-models.html#accuracy-error-sensitivity-specificity-precision-etc." class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="accuracy-and-error" class="section level6 hasAnchor" number="3.4.4.3.2.1">
+<h6><span class="header-section-number">3.4.4.3.2.1</span> Accuracy and Error<a href="3.4-generalised-linear-models.html#accuracy-and-error" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="3.4-generalised-linear-models.html#cb422-1" tabindex="-1"></a>(TP<span class="sc">+</span>TN)<span class="sc">/</span><span class="fu">nrow</span>(grammatical) <span class="co"># accuracy</span></span></code></pre></div>
+<pre><code>## [1] 0.9090909</code></pre>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="3.4-generalised-linear-models.html#cb424-1" tabindex="-1"></a>(FP<span class="sc">+</span>FN)<span class="sc">/</span><span class="fu">nrow</span>(grammatical) <span class="co"># error, also 1-accuracy</span></span></code></pre></div>
+<pre><code>## [1] 0.09090909</code></pre>
+</div>
+<div id="sensitivity-specificity-precision-etc." class="section level6 hasAnchor" number="3.4.4.3.2.2">
+<h6><span class="header-section-number">3.4.4.3.2.2</span> Sensitivity, Specificity, Precision, etc.<a href="3.4-generalised-linear-models.html#sensitivity-specificity-precision-etc." class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="3.4-generalised-linear-models.html#cb426-1" tabindex="-1"></a><span class="co"># When stimulus = yes, how many times response = yes?</span></span>
+<span id="cb426-2"><a href="3.4-generalised-linear-models.html#cb426-2" tabindex="-1"></a>TP<span class="sc">/</span>(TP<span class="sc">+</span>FN) <span class="co"># also True Positive Rate or Specificity</span></span></code></pre></div>
+<pre><code>## [1] 0.952381</code></pre>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="3.4-generalised-linear-models.html#cb428-1" tabindex="-1"></a><span class="co"># When stimulus = no, how many times response = yes?</span></span>
+<span id="cb428-2"><a href="3.4-generalised-linear-models.html#cb428-2" tabindex="-1"></a>FP<span class="sc">/</span>(FP<span class="sc">+</span>TN) <span class="co"># False Positive Rate, </span></span></code></pre></div>
+<pre><code>## [1] 0.1666667</code></pre>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="3.4-generalised-linear-models.html#cb430-1" tabindex="-1"></a><span class="co"># When stimulus = no, how many times response = no?</span></span>
+<span id="cb430-2"><a href="3.4-generalised-linear-models.html#cb430-2" tabindex="-1"></a>TN<span class="sc">/</span>(FP<span class="sc">+</span>TN) <span class="co"># True Negative Rate or Sensitivity </span></span></code></pre></div>
+<pre><code>## [1] 0.8333333</code></pre>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="3.4-generalised-linear-models.html#cb432-1" tabindex="-1"></a><span class="co"># When subject responds &quot;yes&quot; how many times is (s)he correct?</span></span>
+<span id="cb432-2"><a href="3.4-generalised-linear-models.html#cb432-2" tabindex="-1"></a>TP<span class="sc">/</span>(TP<span class="sc">+</span>FP) <span class="co"># precision</span></span></code></pre></div>
+<pre><code>## [1] 0.9090909</code></pre>
+</div>
+<div id="std-measures" class="section level6 hasAnchor" number="3.4.4.3.2.3">
+<h6><span class="header-section-number">3.4.4.3.2.3</span> STD measures<a href="3.4-generalised-linear-models.html#std-measures" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<p>We can get various measures from Signal Detection Theory. using the
+package <code>psycho</code>.</p>
+<ul>
+<li><p>dprime (or the sensitivity index)</p></li>
+<li><p>beta (bias criterion, 0-1, lower = increase in “yes”)</p></li>
+<li><p>Aprime (estimate of discriminability, 0-1, 1 = good discrimination;
+0 at chance)</p></li>
+<li><p>bppd (b prime prime d, -1 to 1; 0 = no bias, negative = tendency to
+respond “yes”, positive = tendency to respond “no”)</p></li>
+<li><p>c (index of bias, equals to SD)</p></li>
+</ul>
+<p>See
+<a href="https://www.r-bloggers.com/compute-signal-detection-theory-indices-with-r/amp/">here</a>
+for more details</p>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="3.4-generalised-linear-models.html#cb434-1" tabindex="-1"></a>psycho<span class="sc">::</span><span class="fu">dprime</span>(TP, FP, FN, TN, </span>
+<span id="cb434-2"><a href="3.4-generalised-linear-models.html#cb434-2" tabindex="-1"></a>               <span class="at">n_targets =</span> TP<span class="sc">+</span>FN, </span>
+<span id="cb434-3"><a href="3.4-generalised-linear-models.html#cb434-3" tabindex="-1"></a>               <span class="at">n_distractors =</span> FP<span class="sc">+</span>TN,</span>
+<span id="cb434-4"><a href="3.4-generalised-linear-models.html#cb434-4" tabindex="-1"></a>               <span class="at">adjust=</span>F)</span></code></pre></div>
+<pre><code>## $dprime
+## [1] 2.635813
+## 
+## $beta
+## [1] 0.3970026
+## 
+## $aprime
+## [1] 0.9419643
+## 
+## $bppd
+## [1] -0.5076923
+## 
+## $c
+## [1] -0.3504848</code></pre>
+<p>The most important from above, is d-prime. This is modelling the
+difference between the rate of “True Positive” responses and “False
+Positive” responses in standard unit (or z-scores). The formula can be
+written as:</p>
+<p><code>d' (d prime) = Z(True Positive Rate) - Z(False Positive Rate)</code></p>
+</div>
+</div>
+</div>
+<div id="glm-and-d-prime" class="section level4 hasAnchor" number="3.4.4.4">
+<h4><span class="header-section-number">3.4.4.4</span> GLM and d prime<a href="3.4-generalised-linear-models.html#glm-and-d-prime" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The values obtained here match those obtained from SDT. For d prime, the
+difference stems from the use of the logit variant of the Binomial
+family. By using a probit variant, one obtains the same values (<a href="https://stats.idre.ucla.edu/r/dae/probit-regression/">see
+here</a> for more
+details). A probit variant models the z-score differences in the outcome
+and is evaluated in change in 1-standard unit. This is modelling the
+change from “ungrammatical” “no” responses into “grammatical” “yes”
+responses in z-scores. The same conceptual underpinnings of d-prime from
+Signal Detection Theory.</p>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="3.4-generalised-linear-models.html#cb436-1" tabindex="-1"></a><span class="do">## d prime</span></span>
+<span id="cb436-2"><a href="3.4-generalised-linear-models.html#cb436-2" tabindex="-1"></a>psycho<span class="sc">::</span><span class="fu">dprime</span>(TP, FP, FN, TN, </span>
+<span id="cb436-3"><a href="3.4-generalised-linear-models.html#cb436-3" tabindex="-1"></a>               <span class="at">n_targets =</span> TP<span class="sc">+</span>FN, </span>
+<span id="cb436-4"><a href="3.4-generalised-linear-models.html#cb436-4" tabindex="-1"></a>               <span class="at">n_distractors =</span> FP<span class="sc">+</span>TN,</span>
+<span id="cb436-5"><a href="3.4-generalised-linear-models.html#cb436-5" tabindex="-1"></a>               <span class="at">adjust=</span>F)<span class="sc">$</span>dprime</span></code></pre></div>
+<pre><code>## [1] 2.635813</code></pre>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="3.4-generalised-linear-models.html#cb438-1" tabindex="-1"></a><span class="do">## GLM with probit</span></span>
+<span id="cb438-2"><a href="3.4-generalised-linear-models.html#cb438-2" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">glm</span>(response <span class="sc">~</span> grammaticality, <span class="at">data =</span> grammatical, <span class="at">family =</span> <span class="fu">binomial</span>(probit)))[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## grammaticalityungrammatical 
+##                    2.635813</code></pre>
+</div>
+<div id="glm-as-a-classification-tool" class="section level4 hasAnchor" number="3.4.4.5">
+<h4><span class="header-section-number">3.4.4.5</span> GLM as a classification tool<a href="3.4-generalised-linear-models.html#glm-as-a-classification-tool" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The code below demonstrates the links between our GLM model and what we
+had obtained above from SDT. The predictions’ table shows that our GLM
+was successful at obtaining prediction that are identical to our initial
+data setup. Look at the table here and the table above. Once we have
+created our table of outcome, we can compute percent correct, the
+specificity, the sensitivity, the Kappa score, etc.. this yields the
+actual value with the SD that is related to variations in responses.</p>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="3.4-generalised-linear-models.html#cb440-1" tabindex="-1"></a><span class="do">## predict(mdl.glm)&gt;0.5 is identical to </span></span>
+<span id="cb440-2"><a href="3.4-generalised-linear-models.html#cb440-2" tabindex="-1"></a><span class="do">## predict(glm(response~grammaticality,data=grammatical,family = binomial),type=&quot;response&quot;)</span></span>
+<span id="cb440-3"><a href="3.4-generalised-linear-models.html#cb440-3" tabindex="-1"></a>grammatical <span class="ot">&lt;-</span> grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb440-4"><a href="3.4-generalised-linear-models.html#cb440-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">factor</span>(response, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>)),</span>
+<span id="cb440-5"><a href="3.4-generalised-linear-models.html#cb440-5" tabindex="-1"></a>         <span class="at">grammaticality =</span> <span class="fu">factor</span>(grammaticality, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;grammatical&quot;</span>, <span class="st">&quot;ungrammatical&quot;</span>)))</span>
+<span id="cb440-6"><a href="3.4-generalised-linear-models.html#cb440-6" tabindex="-1"></a></span>
+<span id="cb440-7"><a href="3.4-generalised-linear-models.html#cb440-7" tabindex="-1"></a></span>
+<span id="cb440-8"><a href="3.4-generalised-linear-models.html#cb440-8" tabindex="-1"></a></span>
+<span id="cb440-9"><a href="3.4-generalised-linear-models.html#cb440-9" tabindex="-1"></a>mdl.glm.C <span class="ot">&lt;-</span> grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb440-10"><a href="3.4-generalised-linear-models.html#cb440-10" tabindex="-1"></a>  <span class="fu">glm</span>(response <span class="sc">~</span> grammaticality, <span class="at">data =</span> .,<span class="at">family =</span> binomial)</span>
+<span id="cb440-11"><a href="3.4-generalised-linear-models.html#cb440-11" tabindex="-1"></a></span>
+<span id="cb440-12"><a href="3.4-generalised-linear-models.html#cb440-12" tabindex="-1"></a>tbl.glm <span class="ot">&lt;-</span> <span class="fu">table</span>(grammatical<span class="sc">$</span>response, <span class="fu">predict</span>(mdl.glm.C, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)<span class="sc">&gt;</span><span class="fl">0.5</span>)</span>
+<span id="cb440-13"><a href="3.4-generalised-linear-models.html#cb440-13" tabindex="-1"></a><span class="fu">colnames</span>(tbl.glm) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;grammatical&quot;</span>, <span class="st">&quot;ungrammatical&quot;</span>)</span>
+<span id="cb440-14"><a href="3.4-generalised-linear-models.html#cb440-14" tabindex="-1"></a>tbl.glm</span></code></pre></div>
+<pre><code>##      
+##       grammatical ungrammatical
+##   yes         100            10
+##   no            5            50</code></pre>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="3.4-generalised-linear-models.html#cb442-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">pcc</span>(tbl.glm)</span></code></pre></div>
+<pre><code>##         PCC    PCC.sd
+## 1 0.9090909 0.0224484</code></pre>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="3.4-generalised-linear-models.html#cb444-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">specificity</span>(tbl.glm)</span></code></pre></div>
+<pre><code>##   specificity specificity.sd
+## 1   0.8333333     0.04851854</code></pre>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="3.4-generalised-linear-models.html#cb446-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">sensitivity</span>(tbl.glm)</span></code></pre></div>
+<pre><code>##   sensitivity sensitivity.sd
+## 1    0.952381     0.02088233</code></pre>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="3.4-generalised-linear-models.html#cb448-1" tabindex="-1"></a><span class="do">###etc..</span></span></code></pre></div>
+<p>If you look at the results from SDT above, these results are the same as
+the following</p>
+<p>Accuracy: (TP+TN)/Total (0.9090909)</p>
+<p>True Positive Rate (or Specificity) TP/(TP+FN) (0.952381)</p>
+<p>True Negative Rate (or Sensitivity) TN/(FP+TN) (0.8333333)</p>
+</div>
+<div id="glm-other-distributions" class="section level4 hasAnchor" number="3.4.4.6">
+<h4><span class="header-section-number">3.4.4.6</span> GLM: Other distributions<a href="3.4-generalised-linear-models.html#glm-other-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>If your data does not fit a binomial distribution, and is a multinomial
+(i.e., three or more response categories) or poisson (count data), then
+you need to use the glm function with a specific family function.</p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="3.3-linear-models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="3.5-cumulative-logit-link-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": true,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["github", "twitter", "linkedin"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "serif",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

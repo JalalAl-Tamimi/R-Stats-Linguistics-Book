@@ -1,0 +1,1431 @@
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+# Correlation plots - LM, GLM, CLM {#Correlation_LM_GLM_STD_CLM}
+
+## Loading packages
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+## Use the code below to check if you have all required packages installed. If some are not installed already, the code below will install these. If you have all packages installed, then you could load them with the second code.
+requiredPackages = c('tidyverse', 'broom', 'knitr', 'Hmisc', 'corrplot', 'emmeans', 'ggsignif', 'PresenceAbsence', 'languageR', 'psycho', 'ordinal', 'DHARMa', 'sjPlot', 'webshot')
+for(p in requiredPackages){
+  if(!require(p,character.only = TRUE)) install.packages(p)
+  library(p,character.only = TRUE)
+}
+ 
+```
+
+
+
+## Correlation tests
+
+### Basic correlations
+
+Let us start with a basic correlation test. We want to evaluate if two
+numeric variables are correlated with each other.
+
+We use the function `cor` to obtain the pearson correlation and
+`cor.test` to run a basic correlation test on our data with significance
+testing
+
+```{r}
+cor(english$RTlexdec, english$RTnaming, method = "pearson")
+cor.test(english$RTlexdec, english$RTnaming)
+```
+
+What these results are telling us? There is a positive correlation
+between `RTlexdec` and `RTnaming`. The correlation coefficient (R²) is
+0.76 (limits between -1 and 1). This correlation is statistically
+significant with a t value of 78.699, degrees of freedom of 4566 and a
+p-value \< 2.2e-16.
+
+What are the degrees of freedom? These relate to number of total
+observations - number of comparisons. Here we have 4568 observations in
+the dataset, and two comparisons, hence 4568 - 2 = 4566.
+
+For the p value, there is a threshold we usually use. This threshold is
+p = 0.05. This threshold means we have a minimum to consider any
+difference as significant or not. 0.05 means that we have a probability
+to find a significant difference that is at 5% or lower. IN our case,
+the p value is lower that 2.2e-16. How to interpret this number? this
+tells us to add 15 0s before the 2!! i.e., 0.0000000000000002. This
+probability is very (very!!) low. So we conclude that there is a
+statistically significant correlation between the two variables.
+
+The formula to calculate the t value is below.
+
+![](images/t-score.jpg)
+
+x̄ = sample mean μ0 = population mean s = sample standard deviation n =
+sample size
+
+The p value is influenced by various factors, number of observations,
+strength of the difference, mean values, etc.. You should always be
+careful with interpreting p values taking everything else into account.
+
+### Using the package `corrplot`
+
+Above, we did a correlation test on two predictors. What if we want to
+obtain a nice plot of all numeric predictors and add significance
+levels?
+
+#### Correlation plots
+
+```{r fig.height=6}
+corr <- 
+  english %>% 
+  select(where(is.numeric)) %>% 
+  cor()
+corrplot(corr, method = 'ellipse', type = 'upper')
+
+```
+
+#### More advanced
+
+Let's first compute the correlations between all numeric variables and
+plot these with the p values
+
+```{r fig.height=14, fig.width==14}
+## correlation using "corrplot"
+## based on the function `rcorr' from the `Hmisc` package
+## Need to change dataframe into a matrix
+corr <- 
+  english %>% 
+  select(where(is.numeric)) %>% 
+  data.matrix(english) %>% 
+  rcorr(type = "pearson")
+# use corrplot to obtain a nice correlation plot!
+corrplot(corr$r, p.mat = corr$P,
+         addCoef.col = "black", diag = FALSE, type = "upper", tl.srt = 55)
+```
+
+```{r}
+english %>% 
+  group_by(AgeSubject) %>% 
+  summarise(mean = mean(RTlexdec),
+            sd = sd(RTlexdec))
+```
+
+## Linear Models
+
+Up to now, we have looked at descriptive statistics, and evaluated
+summaries, correlations in the data (with p values).
+
+We are now interested in looking at group differences.
+
+### Introduction
+
+The basic assumption of a Linear model is to create a regression
+analysis on the data. We have an outcome (or dependent variable) and a
+predictor (or an independent variable). The formula of a linear model is
+as follows `outcome ~ predictor` that can be read as "outcome as a
+function of the predictor". We can add "1" to specify an intercept, but
+this is by default added to the model
+
+#### Model estimation
+
+```{r}
+english2 <- english %>% 
+  mutate(AgeSubject = factor(AgeSubject, levels = c("young", "old")))
+mdl.lm <- english2 %>% 
+  lm(RTlexdec ~ AgeSubject, data = .)
+#lm(RTlexdec ~ AgeSubject, data = english)
+mdl.lm #also print(mdl.lm)
+summary(mdl.lm)
+```
+
+### Role of coding schemes
+
+#### Intro
+
+There are other coding schemes that can be used. See Schad et al.
+(2020): "How to capitalize on a priori contrasts in linear (mixed)
+models: A tutorial". **Journal of Memory and Language**,vol. 110,
+104038.
+
+We have:
+
+1.  The treatment coding
+2.  The contrast or sum coding
+3.  The polynomial coding
+4.  The Repeated coding
+5.  The helmert coding
+
+The first two are the most commonly used coding schemes, but see the
+paper for why one can use the others.
+
+#### Treatment coding
+
+By default, `R` uses a treatment coding scheme. By this we mean that the
+intercept has the outcome of a specific level in the dataset (usually,
+the first in alphabetical order, unless you have changed that!). In our
+example above, we changed the reference level of the variable
+`AgeSubject` to be "young" vs "old". What we see as an result in our LM
+is the intercept (=Young) vs "AgeSubjectold". This will mean we are
+looking at the difference between the reference level and all other
+levels.
+
+The code below allows you to see what the coding scheme is.
+
+```{r}
+english2$AgeSubject2 <- english2$AgeSubject
+
+contrasts(english2$AgeSubject2) <- contr.treatment(2)
+contrasts(english2$AgeSubject2) 
+mdl.lm.T <- english2 %>% 
+  lm(RTlexdec ~ AgeSubject2, data = .)
+#lm(RTlexdec ~ AgeSubject, data = english)
+mdl.lm.T #also print(mdl.lm)
+summary(mdl.lm.T)
+```
+
+#### Contrast (or sum) coding
+
+##### Default
+
+Let's change the coding scheme and see the difference in the output.
+
+```{r}
+english2 <- english2 %>% 
+  mutate(AgeSubject2 = factor(AgeSubject2, levels = c("old", "young")))
+
+contrasts(english2$AgeSubject2) <- contr.sum(2)
+contrasts(english2$AgeSubject2)
+mdl.lm.C <- english2 %>% 
+  lm(RTlexdec ~ AgeSubject2, data = .)
+#lm(RTlexdec ~ AgeSubject, data = english)
+mdl.lm.C #also print(mdl.lm)
+summary(mdl.lm.C)
+```
+
+With contrast (or sum) coding, the intercept is almost the same as
+before (treatment = 6.439237 vs contrast = 6.550097). The intercept is
+now the average of all of the data points
+
+```{r}
+english2 %>% 
+  mutate(meanRTlexdec = mean(RTlexdec)) %>% 
+  select(meanRTlexdec) %>%
+  head(10)
+```
+
+The coefficient for "old" is different. It is now nearly half of that in
+the treatment coding (0.221721 vs 0.110861). Why is this the case? In
+treatment coding, the distance between old and young was of 1 (1- 0 =
+1), in contrast coding, it is of 2 (1 - -1 = 2). The coefficient of the
+intercept is exactly the same; for the second, it is half of the one
+above (0.221721 / 1 = 0.221721; 0.221721 / 2 = 0.110861)!
+
+How to interpret the coefficient for the level "old"? It is the distance
+from the average!
+
+Let's change slightly the coding scheme
+
+##### Modified
+
+```{r}
+english2 <- english2 %>% 
+  mutate(AgeSubject2 = factor(AgeSubject, levels = c("young", "old")))
+
+contrasts(english2$AgeSubject2) <- c(-0.5, 0.5)
+contrasts(english2$AgeSubject2)
+mdl.lmC.2 <- english2 %>% 
+  lm(RTlexdec ~ AgeSubject2, data = .)
+#lm(RTlexdec ~ AgeSubject, data = english)
+mdl.lmC.2 #also print(mdl.lmC.2)
+summary(mdl.lmC.2)
+```
+
+
+Our intercept is still the average of all datapoints of the dependent
+variable; that of "old" is now at 0.221721 as expected. The distance
+between young and old is of 1 (0.5 - -0.5 = 1).
+
+When and why do we use the different coding schemes? We use it to make
+the intercept more interpretable. This is especially the case when
+having more than two categorical predictors, or interactions between a
+numeric and a categorical predictor. Read the paper and the Bodo
+Winter's book for more details.
+
+### Further steps
+
+#### Tidying the output
+
+We use our original model with treatment coding.
+
+
+```{r}
+# from library(broom)
+tidy(mdl.lm) %>% 
+  select(term, estimate) %>% 
+  mutate(estimate = round(estimate, 3))
+mycoefE <- tidy(mdl.lm) %>% pull(estimate)
+
+```
+
+
+
+Obtaining mean values from our model
+
+
+```{r}
+#old
+mycoefE[1]
+#young
+mycoefE[1] + mycoefE[2]
+```
+
+#### Nice table of our model summary
+
+We can also obtain a nice table of our model summary. We can use the
+package `knitr` or `xtable`
+
+
+##### Directly from model summary
+
+
+
+```{r}
+kable(summary(mdl.lm)$coef, digits = 3)
+```
+
+
+
+##### From the `tidy` output
+
+
+
+```{r}
+mdl.lmT <- tidy(mdl.lm)
+kable(mdl.lmT, digits = 3)
+```
+
+
+
+
+##### Model’s fit
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+print(tab_model(mdl.lm, file = paste0("outputs/mdl.lm.html")))
+webshot(paste0("outputs/mdl.lm.html"), paste0("outputs/mdl.lm.png"))
+```
+
+![Model fit: Linear model](mdl.lm.png)
+
+
+
+#### Dissecting the model
+
+Let us dissect the model. If you use "str", you will be able to see what
+is available under our linear model. To access some info from the model
+
+
+##### "str" and "coef"
+
+```{r}
+str(mdl.lm)
+```
+
+
+
+```{r}
+coef(mdl.lm)
+## same as 
+## mdl.lm$coefficients
+```
+
+
+##### "coef" and "coefficients"
+
+What if I want to obtain the "Intercept"? Or the coefficient for
+distance? What if I want the full row for distance?
+
+
+```{r}
+coef(mdl.lm)[1] # same as mdl.lm$coefficients[1]
+coef(mdl.lm)[2] # same as mdl.lm$coefficients[2]
+```
+
+
+
+```{r}
+summary(mdl.lm)$coefficients[2, ] # full row
+summary(mdl.lm)$coefficients[2, 4] #for p value
+```
+
+
+
+##### Residuals
+
+What about residuals (difference between the observed value and the
+estimated value of the quantity) and fitted values? This allows us to
+evaluate how normal our residuals are and how different they are from a
+normal distribution.
+
+
+###### Histogram
+
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+hist(residuals(mdl.lm))
+```
+
+
+
+###### qqplots
+
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+qqnorm(residuals(mdl.lm)); qqline(residuals(mdl.lm))
+```
+
+
+###### Residuals vs fitted values
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+plot(fitted(mdl.lm), residuals(mdl.lm), cex = 4)
+```
+
+
+
+###### Generating and plotting residual plot with `DHARMa`
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+sim_residuals <- simulateResiduals(mdl.lm)
+plot(sim_residuals)
+```
+
+
+##### Goodness of fit?
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+AIC(mdl.lm)	# Akaike's Information Criterion, lower values are better
+BIC(mdl.lm)	# Bayesian AIC
+logLik(mdl.lm)	# log likelihood
+```
+
+Or use the following from `broom`
+
+```{r}
+glance(mdl.lm)
+```
+
+##### Significance testing
+
+Are the above informative? of course not directly. If we want to test
+for overall significance of model. We run a null model (aka intercept
+only) and compare models.
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+mdl.lm.Null <- english %>% 
+  lm(RTlexdec ~ 1, data = .)
+mdl.comp <- anova(mdl.lm.Null, mdl.lm)
+mdl.comp
+```
+
+The results show that adding the variable "AgeSubject" improves the
+model fit. We can write this as follows: Model comparison showed that
+the addition of AgeSubject improved the model fit when compared with an
+intercept only model ($F$(`r mdl.comp[2,3]`) =
+`r round(mdl.comp[2,5], 2)`, *p* \< `r mdl.comp[2,6]`) (F(1) = 4552 , p
+\< 2.2e-16)
+
+### Plotting fitted values
+
+#### Trend line
+
+Let's plot our fitted values but only for the trend line
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+english %>% 
+  ggplot(aes(x = AgeSubject, y = RTlexdec))+
+  geom_boxplot()+
+  theme_bw() + theme(text = element_text(size = 15))+
+  geom_smooth(aes(x = as.numeric(AgeSubject), y = predict(mdl.lm)), method = "lm", color = "blue") + 
+  labs(x = "Age", y = "RTLexDec", title = "Boxplot and predicted trend line", subtitle = "with ggplot2") 
+```
+
+This allows us to plot the fitted values from our model with the
+predicted linear trend. This is exactly the same as our original data.
+
+#### Predicted means and the trend line
+
+We can also plot the predicted means and linear trend
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+english %>% 
+  ggplot(aes(x = AgeSubject, y = predict(mdl.lm)))+
+  geom_boxplot(color = "blue") +
+  theme_bw() + theme(text = element_text(size = 15)) +
+  geom_smooth(aes(x = as.numeric(AgeSubject), y = predict(mdl.lm)), method = "lm", color = "blue") + 
+    labs(x = "Age", y = "RTLexDec", title = "Predicted means and trend line", subtitle = "with ggplot2") 
+
+```
+
+#### Raw data, predicted means and the trend line
+
+We can also plot the actual data, the predicted means and linear trend
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+english %>% 
+  ggplot(aes(x = AgeSubject, y = RTlexdec))+
+  geom_boxplot() +
+  geom_boxplot(aes(x = AgeSubject, y = predict(mdl.lm)), color = "blue") +
+  theme_bw() + theme(text = element_text(size = 15)) +
+  geom_smooth(aes(x = as.numeric(AgeSubject), y = predict(mdl.lm)), method = "lm", color = "blue") +
+    labs(x = "Species", y = "Length", title = "Boxplot raw data, predicted means (in blue) and trend line", subtitle = "with ggplot2")
+```
+
+#### Add significance levels and trend line on a plot?
+
+We can use the p values generated from either our linear model to add
+significance levels on a plot. We use the code from above and add the
+significance level. We also add a trend line
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+english %>% 
+  ggplot(aes(x = AgeSubject, y = RTlexdec))+
+  geom_boxplot() +
+  geom_boxplot(aes(x = AgeSubject, y = predict(mdl.lm)), color = "blue") +
+  theme_bw() + theme(text = element_text(size = 15)) +
+  geom_smooth(aes(x = as.numeric(AgeSubject), y = predict(mdl.lm)), method = "lm", color = "blue") +
+    labs(x = "Species", y = "Length", title = "Boxplot raw data, predicted means (in blue) and trend line", subtitle = "with significance testing") +
+    geom_signif(comparison = list(c("old", "young")), 
+              map_signif_level = TRUE, test = function(a, b) {
+                list(p.value = summary(mdl.lm)$coefficients[2, 4])})
+
+
+```
+
+### What about pairwise comparison?
+
+When having three of more levels in our predictor, we can use pairwise
+comparisons, with corrections to evaluate differences between each
+level.
+
+```{r}
+summary(mdl.lm)
+```
+
+```{r}
+mdl.lm %>% emmeans(pairwise ~ AgeSubject, adjust = "fdr") -> mdl.emmeans
+mdl.emmeans
+```
+
+How to interpret the output? Discuss with your neighbour and share with
+the group.
+
+Hint... Look at the emmeans values for each level of our factor
+"Species" and the contrasts.
+
+### Multiple predictors?
+
+Linear models require a numeric outcome, but the predictor can be either
+numeric or a factor. We can have more than one predictor. The only issue
+is that this complicates the interpretation of results
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+english %>% 
+  lm(RTlexdec ~ AgeSubject * WordCategory, data = .) %>% 
+  summary()
+```
+
+And with an Anova
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+english %>% 
+  lm(RTlexdec ~ AgeSubject * WordCategory, data = .) %>% 
+  anova()
+```
+
+The results above tell us that all predictors used are significantly
+different.
+
+## Generalised Linear Models
+
+Here we will look at an example when the outcome is binary. This
+simulated data is structured as follows. We asked one participant to
+listen to 165 sentences, and to judge whether these are "grammatical" or
+"ungrammatical". There were 105 sentences that were "grammatical" and 60
+"ungrammatical". Responses varied, with 110 "yes" responses and 55 "no"
+responses, spread across the grammatical.
+
+This fictitious example can apply in any other situation. Let's think
+Geography: 165 lands: 105 "flat" and 60 "non-flat", etc. This applies to
+any case where you need to "categorise" the outcome into two groups.
+
+### Load and summaries
+
+Let's create this dataset from scratch (you can load the
+"grammatical.csv file as well) and do some basic summaries
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+grammatical <- as.data.frame(
+  cbind("grammaticality" = c("grammatical" = rep("grammatical", 105),
+                             "ungrammatical" = rep("ungrammatical", 60)),
+        "response" = c("yes" = rep("yes", 100),
+                       "no" = rep("no", 5),
+                       "yes" = rep("yes", 10),
+                       "no" = rep("no", 50))),
+  row.names = FALSE)
+grammatical %>% 
+  head(20)
+str(grammatical)
+head(grammatical)
+table(grammatical$response, grammatical$grammaticality)
+```
+
+### GLM - Categorical predictors
+
+Let's run a first GLM (Generalised Linear Model). A GLM uses a special
+family "binomial" as it assumes the outcome has a binomial distribution.
+In general, results from a Logistic Regression are close to what we get
+from SDT (see above).
+
+To run the results, we will change the reference level for both response
+and grammaticality. The basic assumption about GLM is that we start with
+our reference level being the "no" responses to the "ungrammatical"
+category. Any changes to this reference will be seen in the coefficients
+as "yes" responses to the "grammatical" category.
+
+#### Model estimation and results
+
+The results below show the logodds for our model.
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+grammatical <- grammatical %>% 
+  mutate(response = factor(response, levels = c("no", "yes")),
+         grammaticality = factor(grammaticality, levels = c("ungrammatical", "grammatical")))
+
+grammatical %>% 
+  group_by(grammaticality, response) %>% 
+  table()
+
+mdl.glm <- grammatical %>% 
+  glm(response ~ grammaticality, data = ., family = binomial)
+summary(mdl.glm)
+
+tidy(mdl.glm) %>% 
+  select(term, estimate) %>% 
+  mutate(estimate = round(estimate, 3))
+# to only get the coefficients
+mycoef2 <- tidy(mdl.glm) %>% pull(estimate)
+```
+
+
+
+
+#### Model’s fit
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+print(tab_model(mdl.glm, file = paste0("outputs/mdl.glm.html")))
+webshot(paste0("outputs/mdl.glm.html"), paste0("outputs/mdl.glm.png"))
+```
+
+![Model fit: Generalised Linear model - Categorical](mdl.glm.png)
+
+
+The results show that for one unit increase in the response (i.e., from
+no to yes), the logodds of being "grammatical" is increased by
+`r mycoef2[2]` (the intercept shows that when the response is "no", the
+logodds are `r mycoef2[1]`). The actual logodds for the response "yes"
+to grammatical is `r mycoef2[1]+mycoef2[2]`
+
+#### Logodds to Odd ratios
+
+Logodds can be modified to talk about the odds of an event. For our
+model above, the odds of "grammatical" receiving a "no" response is a
+mere 0.2; the odds of "grammatical" to receive a "yes" is a 20; i.e., 20
+times more likely
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+exp(mycoef2[1])
+exp(mycoef2[1] + mycoef2[2])
+
+```
+
+#### LogOdds to proportions
+
+If you want to talk about the percentage "accuracy" of our model, then
+we can transform our loggodds into proportions. This shows that the
+proportion of "grammatical" receiving a "yes" response increases by 99%
+(or 95% based on our "true" coefficients)
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+plogis(mycoef2[1])
+plogis(mycoef2[1] + mycoef2[2])
+```
+
+#### Plotting
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+grammatical <- grammatical %>% 
+  mutate(prob = predict(mdl.glm, type = "response"))
+grammatical %>% 
+  ggplot(aes(x = as.numeric(grammaticality), y = prob)) +
+  geom_point() +
+  geom_smooth(method = "glm", 
+    method.args = list(family = "binomial"), 
+    se = T) + theme_bw(base_size = 20)+
+    labs(y = "Probability", x = "")+
+    coord_cartesian(ylim = c(0,1))+
+    scale_x_discrete(limits = c("Ungrammatical", "Grammatical"))
+```
+
+### GLM - Numeric predictors
+
+In this example, we will run a GLM model using a similar technique to
+that used in `Al-Tamimi (2017)` and `Baumann & Winter (2018)`. We use
+the package `LanguageR` and the dataset `English`.
+
+In the model above, we used the equation as lm(RTlexdec \~ AgeSubject).
+We were interested in examining the impact of age of subject on reaction
+time in a lexical decision task. In this section, we are interested in
+understanding how reaction time allows to differentiate the participants
+based on their age. We use `AgeSubject` as our outcome and `RTlexdec` as
+our predictor using the equation glm(AgeSubject \~ RTlexdec). We usually
+can use `RTlexdec` as is, but due to a possible quasi separation and the
+fact that we may want to compare coefficients using multiple acoustic
+metrics, we will z-score our predictor. We run below two models, with
+and without z-scoring
+
+For the glm model, we need to specify `family = "binomial"`.
+
+#### Without z-scoring of predictor
+
+##### Model estimation
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+mdl.glm2 <- english2 %>% 
+  glm(AgeSubject ~ RTlexdec, data = ., family = "binomial")
+
+tidy(mdl.glm2) %>% 
+  select(term, estimate) %>% 
+  mutate(estimate = round(estimate, 3))
+# to only get the coefficients
+mycoef2 <- tidy(mdl.glm2) %>% pull(estimate)
+```
+
+
+
+##### Model’s fit
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+print(tab_model(mdl.glm2, file = paste0("outputs/mdl.glm2.html")))
+webshot(paste0("outputs/mdl.glm2.html"), paste0("outputs/mdl.glm2.png"))
+```
+
+![Model fit: Generalised Linear model - Numeric](mdl.glm2.png)
+
+
+
+##### LogOdds to proportions
+
+If you want to talk about the percentage "accuracy" of our model, then
+we can transform our loggodds into proportions.
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+plogis(mycoef2[1])
+plogis(mycoef2[1] + mycoef2[2])
+```
+
+
+##### Plotting
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+english2 <- english2 %>% 
+  mutate(prob = predict(mdl.glm2, type = "response"))
+english2 %>% 
+  ggplot(aes(x = as.numeric(AgeSubject), y = prob)) +
+  geom_point() +
+  geom_smooth(method = "glm", 
+    method.args = list(family = "binomial"), 
+    se = T) + theme_bw(base_size = 20)+
+    labs(y = "Probability", x = "")+
+    coord_cartesian(ylim = c(0,1))+
+    scale_x_discrete(limits = c("Young", "Old"))
+```
+
+
+
+The plot above show how the two groups differ using a glm. The results
+point to an overall increase in the proportion of reaction time when
+moving from the "Young" to the "Old" group. Let's use z-scoring next
+
+#### With z-scoring of predictor
+
+##### Model estimation
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+english2 <- english2 %>% 
+  mutate(`RTlexdec_z` = scale(RTlexdec, center = TRUE, scale = TRUE))
+
+english2['RTlexdec_z'] <- as.data.frame(scale(english2$RTlexdec))
+
+
+
+mdl.glm3 <- english2 %>% 
+  glm(AgeSubject ~ RTlexdec_z, data = ., family = "binomial")
+
+tidy(mdl.glm3) %>% 
+  select(term, estimate) %>% 
+  mutate(estimate = round(estimate, 3))
+# to only get the coefficients
+mycoef2 <- tidy(mdl.glm3) %>% pull(estimate)
+```
+
+
+
+##### Model’s fit
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+print(tab_model(mdl.glm3, file = paste0("outputs/mdl.glm3.html")))
+webshot(paste0("outputs/mdl.glm3.html"), paste0("outputs/mdl.glm3.png"))
+```
+
+![Model fit: Generalised Linear model - Numeric - z-scores](mdl.glm3.png)
+
+
+
+##### LogOdds to proportions
+
+If you want to talk about the percentage "accuracy" of our model, then
+we can transform our loggodds into proportions.
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+plogis(mycoef2[1])
+plogis(mycoef2[1] + mycoef2[2])
+```
+
+##### Plotting
+
+###### Normal
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+english2 <- english2 %>% 
+  mutate(prob = predict(mdl.glm3, type = "response"))
+english2 %>% 
+  ggplot(aes(x = as.numeric(AgeSubject), y = prob)) +
+  geom_point() +
+  geom_smooth(method = "glm", 
+    method.args = list(family = "binomial"), 
+    se = T) + theme_bw(base_size = 20)+
+    labs(y = "Probability", x = "")+
+    coord_cartesian(ylim = c(0,1))+
+    scale_x_discrete(limits = c("Young", "Old"))
+```
+
+
+
+We obtain the exact same plots, but the model estimations are different.
+Let's use another type of predictions
+
+
+###### z-scores
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+z_vals <- seq(-3, 3, 0.01)
+
+dfPredNew <- data.frame(RTlexdec_z = z_vals)
+
+## store the predicted probabilities for each value of RTlexdec_z
+pp <- cbind(dfPredNew, prob = predict(mdl.glm3, newdata = dfPredNew, type = "response"))
+
+pp %>% 
+  ggplot(aes(x = RTlexdec_z, y = prob)) +
+  geom_point() +
+  theme_bw(base_size = 20)+
+    labs(y = "Probability", x = "") +
+    coord_cartesian(ylim = c(-0.1, 1.1), expand = FALSE) +
+    scale_y_discrete(limits = c(0,1), labels = c("Young", "Old")) +
+  scale_x_continuous(breaks = c(-3, -2, -1, 0, 1, 2, 3))
+```
+
+
+
+We obtain the exact same plots, but the model estimations are different.
+
+
+
+### Accuracy and Signal Detection Theory
+
+#### Rationale
+
+We are generally interested in performance, i.e., whether the we have
+"accurately" categorised the outcome or not and at the same time want to
+evaluate our biases in responses. When deciding on categories, we are
+usually biased in our selection.
+
+Let's ask the question: How many of you have a Mac laptop and how many a
+Windows laptop? For those with a Mac, what was the main reason for
+choosing it? Are you biased in anyway by your decision?
+
+To correct for these biases, we use some variants from Signal Detection
+Theory to obtain the true estimates without being influenced by the
+biases.
+
+#### Running stats
+
+Let's do some stats on this
+
+|   | Yes | No | Total |
+|----------------------|-----------------|-----------------|-----------------|
+| Grammatical (Yes Actual) | TP = 100 | FN = 5 | (Yes Actual) 105 |
+| Ungrammatical (No Actual) | FP = 10 | TN = 50 | (No Actual) 60 |
+| Total | (Yes Response) 110 | (No Response) 55 | 165 |
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+grammatical <- grammatical %>% 
+  mutate(response = factor(response, levels = c("yes", "no")),
+         grammaticality = factor(grammaticality, levels = c("grammatical", "ungrammatical")))
+
+```
+
+#### Below we obtain multiple measures
+
+##### TP, FP, FN, TN
+
+TP = True Positive (Hit); FP = False Positive; FN = False Negative; TN =
+True Negative
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+TP <- nrow(grammatical %>% 
+             filter(grammaticality == "grammatical" &
+                      response == "yes"))
+FN <- nrow(grammatical %>% 
+             filter(grammaticality == "grammatical" &
+                      response == "no"))
+FP <- nrow(grammatical %>% 
+             filter(grammaticality == "ungrammatical" &
+                      response == "yes"))
+TN <- nrow(grammatical %>% 
+             filter(grammaticality == "ungrammatical" &
+                      response == "no"))
+TP
+FN
+FP
+TN
+```
+
+##### Accuracy, Error, Sensitivity, Specificity, Precision, etc.
+
+###### Accuracy and Error
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+(TP+TN)/nrow(grammatical) # accuracy
+(FP+FN)/nrow(grammatical) # error, also 1-accuracy
+```
+
+###### Sensitivity, Specificity, Precision, etc.
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+
+# When stimulus = yes, how many times response = yes?
+TP/(TP+FN) # also True Positive Rate or Specificity
+
+# When stimulus = no, how many times response = yes?
+FP/(FP+TN) # False Positive Rate, 
+
+# When stimulus = no, how many times response = no?
+TN/(FP+TN) # True Negative Rate or Sensitivity 
+
+# When subject responds "yes" how many times is (s)he correct?
+TP/(TP+FP) # precision
+```
+
+###### STD measures
+
+We can get various measures from Signal Detection Theory. using the
+package `psycho`.
+
+-   dprime (or the sensitivity index)
+
+-   beta (bias criterion, 0-1, lower = increase in "yes")
+
+-   Aprime (estimate of discriminability, 0-1, 1 = good discrimination;
+    0 at chance)
+
+-   bppd (b prime prime d, -1 to 1; 0 = no bias, negative = tendency to
+    respond "yes", positive = tendency to respond "no")
+
+-   c (index of bias, equals to SD)
+
+See
+[here](https://www.r-bloggers.com/compute-signal-detection-theory-indices-with-r/amp/)
+for more details
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+psycho::dprime(TP, FP, FN, TN, 
+               n_targets = TP+FN, 
+               n_distractors = FP+TN,
+               adjust=F)
+
+```
+
+The most important from above, is d-prime. This is modelling the
+difference between the rate of "True Positive" responses and "False
+Positive" responses in standard unit (or z-scores). The formula can be
+written as:
+
+`d' (d prime) = Z(True Positive Rate) - Z(False Positive Rate)`
+
+
+#### GLM and d prime
+
+The values obtained here match those obtained from SDT. For d prime, the
+difference stems from the use of the logit variant of the Binomial
+family. By using a probit variant, one obtains the same values ([see
+here](https://stats.idre.ucla.edu/r/dae/probit-regression/) for more
+details). A probit variant models the z-score differences in the outcome
+and is evaluated in change in 1-standard unit. This is modelling the
+change from "ungrammatical" "no" responses into "grammatical" "yes"
+responses in z-scores. The same conceptual underpinnings of d-prime from
+Signal Detection Theory.
+
+```{r}
+## d prime
+psycho::dprime(TP, FP, FN, TN, 
+               n_targets = TP+FN, 
+               n_distractors = FP+TN,
+               adjust=F)$dprime
+
+## GLM with probit
+coef(glm(response ~ grammaticality, data = grammatical, family = binomial(probit)))[2]
+
+```
+
+
+
+#### GLM as a classification tool
+
+The code below demonstrates the links between our GLM model and what we
+had obtained above from SDT. The predictions' table shows that our GLM
+was successful at obtaining prediction that are identical to our initial
+data setup. Look at the table here and the table above. Once we have
+created our table of outcome, we can compute percent correct, the
+specificity, the sensitivity, the Kappa score, etc.. this yields the
+actual value with the SD that is related to variations in responses.
+
+```{r}
+## predict(mdl.glm)>0.5 is identical to 
+## predict(glm(response~grammaticality,data=grammatical,family = binomial),type="response")
+grammatical <- grammatical %>% 
+  mutate(response = factor(response, levels = c("yes", "no")),
+         grammaticality = factor(grammaticality, levels = c("grammatical", "ungrammatical")))
+
+
+
+mdl.glm.C <- grammatical %>% 
+  glm(response ~ grammaticality, data = .,family = binomial)
+
+tbl.glm <- table(grammatical$response, predict(mdl.glm.C, type = "response")>0.5)
+colnames(tbl.glm) <- c("grammatical", "ungrammatical")
+tbl.glm
+PresenceAbsence::pcc(tbl.glm)
+PresenceAbsence::specificity(tbl.glm)
+PresenceAbsence::sensitivity(tbl.glm)
+###etc..
+```
+
+If you look at the results from SDT above, these results are the same as
+the following
+
+Accuracy: (TP+TN)/Total (`r (TP+TN)/nrow(grammatical)`)
+
+True Positive Rate (or Specificity) TP/(TP+FN) (`r TP/(TP+FN)`)
+
+True Negative Rate (or Sensitivity) TN/(FP+TN) (`r TN/(FP+TN)`)
+
+
+#### GLM: Other distributions
+
+If your data does not fit a binomial distribution, and is a multinomial
+(i.e., three or more response categories) or poisson (count data), then
+you need to use the glm function with a specific family function.
+
+```{r warning=FALSE, message=FALSE, error=FALSE, echo=FALSE}
+## For a multinomial (3 or more response categories), see below and use the following specification
+## https://stats.idre.ucla.edu/r/dae/multinomial-logistic-regression/
+## mdl.multi <- nnet::multinom(outcome~predictor, data=data)
+
+## For a poisson (count data), see below and use the following specification
+## https://stats.idre.ucla.edu/r/dae/poisson-regression/
+
+## mdl.poisson <- glm(outcome~predictor, data = data, family = "poisson")
+
+
+```
+
+
+## Cumulative Logit Link Models
+
+These models work perfectly with rating data. Ratings are inherently ordered, 1, 2, ... n, and expect to observe an increase (or decrease) in overall ratings from 1 to n. To demonstrate this, we will use an example using the package "ordinal". 
+
+We use two datasets. We previously ran these two models, however, in this subset of the full dataset, we did not take into account the fact that there were multiple producing speakers and items. 
+
+### Ratings of percept of nasality
+
+The first comes from a likert-scale a rating experiment where six participants rated the percept of nasality in the production of particular consonants in Arabic. The data came from nine producing subjects. The ratings were from 1 to 5, with 1 reflecting an `oral` percept; 5 a `nasal` percept.
+
+#### Importing and pre-processing
+
+We start by importing the data and process it. We change the reference
+level in the predictor
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+rating <- read_csv("data/rating.csv")[-1]
+rating
+rating <- rating %>% 
+  mutate(Response = factor(Response),
+         Context = factor(Context)) %>% 
+  mutate(Context = relevel(Context, "isolation"))
+rating
+```
+
+#### Our first model
+
+We run our first clm model as a simple, i.e., with no random effects
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+mdl.clm <- rating %>% 
+  clm(Response ~ Context, data = .)
+summary(mdl.clm)
+```
+
+#### Testing significance
+
+We can evaluate whether "Context" improves the model fit, by comparing a
+null model with our model. Of course "Context" is improving the model
+fit.
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+mdl.clm.Null <- rating %>% 
+  clm(Response ~ 1, data = .)
+anova(mdl.clm, mdl.clm.Null)
+
+```
+
+
+
+#### Model’s fit
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+print(tab_model(mdl.clm, file = paste0("outputs/mdl.clm.html")))
+webshot(paste0("outputs/mdl.clm.html"), paste0("outputs/mdl.clm.png"))
+```
+
+![Model fit: Cumulative Logit model](mdl.clm.png)
+
+
+
+
+#### Interpreting a cumulative model
+
+As a way to interpret the model, we can look at the coefficients and
+make sense of the results. A CLM model is a Logistic model with a
+cumulative effect. The "Coefficients" are the estimates for each level
+of the fixed effect; the "Threshold coefficients" are those of the
+response. For the former, a negative coefficient indicates a negative
+association with the response; and a positive is positively associated
+with the response. The p values are indicating the significance of each
+level. For the "Threshold coefficients", we can see the cumulative
+effects of ratings 1\|2, 2\|3, 3\|4 and 4\|5 which indicate an overall
+increase in the ratings from 1 to 5.
+
+##### Plotting
+
+##### No confidence intervals
+
+We use a modified version of a plotting function that allows us to
+visualise the effects. For this, we use the base R plotting functions.
+The version below is without confidence intervals.
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+par(oma=c(1, 0, 0, 3),mgp=c(2, 1, 0))
+xlimNas = c(min(mdl.clm$beta), max(mdl.clm$beta))
+ylimNas = c(0,1)
+plot(0,0,xlim=xlimNas, ylim=ylimNas, type="n", ylab=expression(Probability), xlab="", xaxt = "n",main="Predicted curves - Nasalisation",cex=2,cex.lab=1.5,cex.main=1.5,cex.axis=1.5)
+axis(side = 1, at = c(0,mdl.clm$beta),labels = levels(rating$Context), las=2,cex=2,cex.lab=1.5,cex.axis=1.5)
+xsNas = seq(xlimNas[1], xlimNas[2], length.out=100)
+lines(xsNas, plogis(mdl.clm$Theta[1] - xsNas), col='black')
+lines(xsNas, plogis(mdl.clm$Theta[2] - xsNas)-plogis(mdl.clm$Theta[1] - xsNas), col='red')
+lines(xsNas, plogis(mdl.clm$Theta[3] - xsNas)-plogis(mdl.clm$Theta[2] - xsNas), col='green')
+lines(xsNas, plogis(mdl.clm$Theta[4] - xsNas)-plogis(mdl.clm$Theta[3] - xsNas), col='orange')
+lines(xsNas, 1-(plogis(mdl.clm$Theta[4] - xsNas)), col='blue')
+abline(v=c(0,mdl.clm$beta),lty=3)
+abline(h=0, lty="dashed")
+abline(h=0.2, lty="dashed")
+abline(h=0.4, lty="dashed")
+abline(h=0.6, lty="dashed")
+abline(h=0.8, lty="dashed")
+abline(h=1, lty="dashed")
+
+legend(par('usr')[2], par('usr')[4], bty='n', xpd=NA,lty=1, col=c("black", "red", "green", "orange", "blue"), 
+       legend=c("Oral", "2", "3", "4", "Nasal"),cex=0.75)
+
+```
+
+##### With confidence intervals
+
+Here is an attempt to add the 97.5% confidence intervals to these plots.
+This is an experimental attempt and any feedback is welcome!
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+par(oma=c(1, 0, 0, 3),mgp=c(2, 1, 0))
+xlimNas = c(min(mdl.clm$beta), max(mdl.clm$beta))
+ylimNas = c(0,1)
+plot(0,0,xlim=xlimNas, ylim=ylimNas, type="n", ylab=expression(Probability), xlab="", xaxt = "n",main="Predicted curves - Nasalisation",cex=2,cex.lab=1.5,cex.main=1.5,cex.axis=1.5)
+axis(side = 1, at = c(0,mdl.clm$beta),labels = levels(rating$Context), las=2,cex=2,cex.lab=1.5,cex.axis=1.5)
+xsNas = seq(xlimNas[1], xlimNas[2], length.out=100)
+
+
+#+CI 
+lines(xsNas, plogis(mdl.clm$Theta[1]+(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xsNas), col='black')
+lines(xsNas, plogis(mdl.clm$Theta[2]+(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xsNas)-plogis(mdl.clm$Theta[1]+(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xsNas), col='red')
+lines(xsNas, plogis(mdl.clm$Theta[3]+(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xsNas)-plogis(mdl.clm$Theta[2]+(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xsNas), col='green')
+lines(xsNas, plogis(mdl.clm$Theta[4]+(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xsNas)-plogis(mdl.clm$Theta[3]+(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xsNas), col='orange')
+lines(xsNas, 1-(plogis(mdl.clm$Theta[4]+(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xsNas)), col='blue')
+
+#-CI 
+lines(xsNas, plogis(mdl.clm$Theta[1]-(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xsNas), col='black')
+lines(xsNas, plogis(mdl.clm$Theta[2]-(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xsNas)-plogis(mdl.clm$Theta[1]-(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xsNas), col='red')
+lines(xsNas, plogis(mdl.clm$Theta[3]-(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xsNas)-plogis(mdl.clm$Theta[2]-(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xsNas), col='green')
+lines(xsNas, plogis(mdl.clm$Theta[4]-(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xsNas)-plogis(mdl.clm$Theta[3]-(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xsNas), col='orange')
+lines(xsNas, 1-(plogis(mdl.clm$Theta[4]-(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xsNas)), col='blue')
+
+# fill area around CI using c(x, rev(x)), c(y2, rev(y1))
+polygon(c(xsNas, rev(xsNas)),
+        c(plogis(mdl.clm$Theta[1]+(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xsNas), rev(plogis(mdl.clm$Theta[1]-(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xsNas))), col = "gray90")
+
+polygon(c(xsNas, rev(xsNas)),
+        c(plogis(mdl.clm$Theta[2]+(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xsNas)-plogis(mdl.clm$Theta[1]+(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xsNas), rev(plogis(mdl.clm$Theta[2]-(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xsNas)-plogis(mdl.clm$Theta[1]-(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xsNas))), col = "gray90")
+
+
+polygon(c(xsNas, rev(xsNas)),
+        c(plogis(mdl.clm$Theta[3]+(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xsNas)-plogis(mdl.clm$Theta[2]+(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xsNas), rev(plogis(mdl.clm$Theta[3]-(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xsNas)-plogis(mdl.clm$Theta[2]-(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xsNas))), col = "gray90")
+
+polygon(c(xsNas, rev(xsNas)),
+        c(plogis(mdl.clm$Theta[4]+(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xsNas)-plogis(mdl.clm$Theta[3]+(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xsNas), rev(plogis(mdl.clm$Theta[4]-(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xsNas)-plogis(mdl.clm$Theta[3]-(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xsNas))), col = "gray90")
+
+        
+polygon(c(xsNas, rev(xsNas)),
+        c(1-(plogis(mdl.clm$Theta[4]-(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xsNas)), rev(1-(plogis(mdl.clm$Theta[4]+(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xsNas)))), col = "gray90")       
+
+lines(xsNas, plogis(mdl.clm$Theta[1] - xsNas), col='black')
+lines(xsNas, plogis(mdl.clm$Theta[2] - xsNas)-plogis(mdl.clm$Theta[1] - xsNas), col='red')
+lines(xsNas, plogis(mdl.clm$Theta[3] - xsNas)-plogis(mdl.clm$Theta[2] - xsNas), col='green')
+lines(xsNas, plogis(mdl.clm$Theta[4] - xsNas)-plogis(mdl.clm$Theta[3] - xsNas), col='orange')
+lines(xsNas, 1-(plogis(mdl.clm$Theta[4] - xsNas)), col='blue')
+abline(v=c(0,mdl.clm$beta),lty=3)
+
+abline(h=0, lty="dashed")
+abline(h=0.2, lty="dashed")
+abline(h=0.4, lty="dashed")
+abline(h=0.6, lty="dashed")
+abline(h=0.8, lty="dashed")
+abline(h=1, lty="dashed")
+
+
+legend(par('usr')[2], par('usr')[4], bty='n', xpd=NA,lty=1, col=c("black", "red", "green", "orange", "blue"), 
+       legend=c("Oral", "2", "3", "4", "Nasal"),cex=0.75)
+
+```
+
+### Subjective estimates of the weight of the referents of 81 English nouns.
+
+This dataset comes from the `LanguageR` package. It contains the subjective estimates of the weight of the referents of 81 English nouns. 
+This dataset is a little complex. Data comes from multiple subjects who rated 81 nouns. The nouns are from a a class of animals and plants. The subjects are either males or females.
+
+We can model it in various ways. Here we decided to explore whether the ratings given to a particular word are different, when the class is either animal or a plant and if males rated the nouns differently from males.
+
+
+#### Importing and pre-processing
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+weightRatings <- weightRatings %>%
+  mutate(Rating = factor(Rating),
+         Sex = factor(Sex),
+         Class = factor(Class))
+weightRatings %>% 
+  head(10)
+```
+
+#### Model specifications
+
+##### No random effects
+
+We run our first clm model as a simple, i.e., with no random effects
+
+```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
+system.time(mdl.clm <- weightRatings %>% 
+  clm(Rating ~ Class * Sex  * Frequency, data = .))
+summary(mdl.clm)
+```
+
+
+#### Testing significance 
+
+We can evaluate whether "Context" improves the model fit, by comparing a null model with our model. Of course "Context" is improving the model fit.
+
+```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
+mdl.clm.Null <- weightRatings %>% 
+  clm(Rating ~ 1, data = .)
+```
+
+
+##### Null vs no random
+
+```{r}
+anova(mdl.clm, mdl.clm.Null)
+```
+
+
+The model comparison above shows that our full model is enough. 
+
+
+#### Model’s fit
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+print(tab_model(mdl.clm, file = paste0("outputs/mdl.clm.html")))
+webshot(paste0("outputs/mdl.clm.html"), paste0("outputs/mdl.clm.png"))
+```
+
+![Model fit: Cumulative Logit model](mdl.clm.png)
+
+#### Interpreting a cumulative model
+
+As a way to interpret the model, we can look at the coefficients and make sense of the results. A CLM model is a Logistic model with a cumulative effect. The "Coefficients" are the estimates for each level of the fixed effect; the "Threshold coefficients" are those of the response. For the former, a negative coefficient indicates a negative association with the response; and a positive is positively associated with the response. The p values are indicating the significance of each level. For the "Threshold coefficients", we can see the cumulative effects of ratings 1|2, 2|3, 3|4 and 4|5 which indicate an overall increase in the ratings from 1 to 5. 
+
+#### Plotting 
+
+##### No confidence intervals
+
+We use a modified version of a plotting function that allows us to visualise the effects. For this, we use the base R plotting functions. The version below is without confidence intervals.
+
+```{r warning = FALSE, message = FALSE, error = FALSE}
+par(oma = c(4, 0, 0, 3), mgp = c(2, 1, 0))
+xlim  =  c(min(mdl.clm$beta), max(mdl.clm$beta))
+ylim  =  c(0, 1)
+plot(0, 0, xlim = xlim, ylim = ylim, type = "n", ylab = expression(Probability), xlab = "", xaxt = "n", main = "Predicted curves", cex = 2, cex.lab = 1.5, cex.main = 1.5, cex.axis = 1.5)
+axis(side = 1, at = mdl.clm$beta, labels = names(mdl.clm$beta), las = 2, cex = 0.75, cex.lab = 0.75, cex.axis = 0.75)
+xs  =  seq(xlim[1], xlim[2], length.out = 100)
+lines(xs, plogis(mdl.clm$Theta[1] - xs), col = 'black')
+lines(xs, plogis(mdl.clm$Theta[2] - xs) - plogis(mdl.clm$Theta[1] - xs), col = 'red')
+lines(xs, plogis(mdl.clm$Theta[3] - xs) - plogis(mdl.clm$Theta[2] - xs), col = 'green')
+lines(xs, plogis(mdl.clm$Theta[4] - xs) - plogis(mdl.clm$Theta[3] - xs), col = 'orange')
+lines(xs, plogis(mdl.clm$Theta[5] - xs) - plogis(mdl.clm$Theta[4] - xs), col = 'yellow')
+lines(xs, plogis(mdl.clm$Theta[6] - xs) - plogis(mdl.clm$Theta[5] - xs), col = 'grey')
+lines(xs, 1 - (plogis(mdl.clm$Theta[6] - xs)), col = 'blue')
+abline(v = c(0,mdl.clm$beta),lty = 3)
+abline(h = 0, lty = "dashed")
+abline(h = 0.2, lty = "dashed")
+abline(h = 0.4, lty = "dashed")
+abline(h = 0.6, lty = "dashed")
+abline(h = 0.8, lty = "dashed")
+abline(h = 1, lty = "dashed")
+
+legend(par('usr')[2], par('usr')[4], bty = 'n', xpd = NA, lty = 1, 
+       col = c("black", "red", "green", "orange", "yellow", "grey", "blue"), 
+       legend = c("1", "2", "3", "4", "5", "6", "7"), cex = 0.75)
+```
+
+
+##### With confidence intervals
+
+Here is an attempt to add the 97.5% confidence intervals to these plots. This is an experimental attempt and any feedback is welcome!
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+par(oma = c(4, 0, 0, 3), mgp = c(2, 1, 0))
+xlim  =  c(min(mdl.clm$beta), max(mdl.clm$beta))
+ylim  =  c(0, 1)
+plot(0, 0, xlim = xlim, ylim = ylim, type = "n", ylab = expression(Probability), xlab = "", xaxt = "n", main = "Predicted curves", cex = 2, cex.lab = 1.5, cex.main = 1.5, cex.axis = 1.5)
+axis(side = 1, at = mdl.clm$beta, labels = names(mdl.clm$beta), las = 2, cex = 0.75, cex.lab = 0.75, cex.axis = 0.75)
+xs  =  seq(xlim[1], xlim[2], length.out = 100)
+
+
+#+CI 
+lines(xs, plogis(mdl.clm$Theta[1]+(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xs), col='black')
+lines(xs, plogis(mdl.clm$Theta[2]+(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clm$Theta[1]+(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xs), col='red')
+lines(xs, plogis(mdl.clm$Theta[3]+(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clm$Theta[2]+(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xs), col='green')
+lines(xs, plogis(mdl.clm$Theta[4]+(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clm$Theta[3]+(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xs), col='orange')
+lines(xs, plogis(mdl.clm$Theta[5]-(summary(mdl.clm)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clm$Theta[4]-(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xs), col='yellow')
+lines(xs, plogis(mdl.clm$Theta[6]-(summary(mdl.clm)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clm$Theta[5]-(summary(mdl.clm)$coefficient[,2][[5]]/1.96) - xs), col='grey')
+lines(xs, 1-(plogis(mdl.clm$Theta[6]-(summary(mdl.clm)$coefficient[,2][[6]]/1.96) - xs)), col='blue')
+
+#-CI 
+lines(xs, plogis(mdl.clm$Theta[1]-(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xs), col='black')
+lines(xs, plogis(mdl.clm$Theta[2]-(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clm$Theta[1]-(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xs), col='red')
+lines(xs, plogis(mdl.clm$Theta[3]-(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clm$Theta[2]-(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xs), col='green')
+lines(xs, plogis(mdl.clm$Theta[4]-(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clm$Theta[3]-(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xs), col='orange')
+lines(xs, plogis(mdl.clm$Theta[5]-(summary(mdl.clm)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clm$Theta[4]-(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xs), col='yellow')
+lines(xs, plogis(mdl.clm$Theta[6]-(summary(mdl.clm)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clm$Theta[5]-(summary(mdl.clm)$coefficient[,2][[5]]/1.96) - xs), col='grey')
+lines(xs, 1-(plogis(mdl.clm$Theta[6]-(summary(mdl.clm)$coefficient[,2][[6]]/1.96) - xs)), col='blue')
+
+## fill area around CI using c(x, rev(x)), c(y2, rev(y1))
+polygon(c(xs, rev(xs)),
+        c(plogis(mdl.clm$Theta[1]+(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xs), rev(plogis(mdl.clm$Theta[1]-(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xs))), col = "gray90")
+
+polygon(c(xs, rev(xs)),
+        c(plogis(mdl.clm$Theta[2]+(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clm$Theta[1]+(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xs), rev(plogis(mdl.clm$Theta[2]-(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clm$Theta[1]-(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xs))), col = "gray90")
+
+
+polygon(c(xs, rev(xs)),
+        c(plogis(mdl.clm$Theta[3]+(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clm$Theta[2]+(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xs), rev(plogis(mdl.clm$Theta[3]-(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clm$Theta[2]-(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xs))), col = "gray90")
+
+polygon(c(xs, rev(xs)),
+        c(plogis(mdl.clm$Theta[4]+(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clm$Theta[3]+(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xs), rev(plogis(mdl.clm$Theta[4]-(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clm$Theta[3]-(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xs))), col = "gray90")
+
+polygon(c(xs, rev(xs)),
+        c(plogis(mdl.clm$Theta[5]+(summary(mdl.clm)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clm$Theta[4]+(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xs), rev(plogis(mdl.clm$Theta[5]-(summary(mdl.clm)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clm$Theta[4]-(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xs))), col = "gray90")
+
+polygon(c(xs, rev(xs)),
+        c(plogis(mdl.clm$Theta[6]+(summary(mdl.clm)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clm$Theta[5]+(summary(mdl.clm)$coefficient[,2][[5]]/1.96) - xs), rev(plogis(mdl.clm$Theta[6]-(summary(mdl.clm)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clm$Theta[5]-(summary(mdl.clm)$coefficient[,2][[5]]/1.96) - xs))), col = "gray90")
+
+        
+polygon(c(xs, rev(xs)),
+        c(1-(plogis(mdl.clm$Theta[6]-(summary(mdl.clm)$coefficient[,2][[6]]/1.96) - xs)), rev(1-(plogis(mdl.clm$Theta[6]+(summary(mdl.clm)$coefficient[,2][[6]]/1.96) - xs)))), col = "gray90")     
+
+
+
+lines(xs, plogis(mdl.clm$Theta[1] - xs), col = 'black')
+lines(xs, plogis(mdl.clm$Theta[2] - xs) - plogis(mdl.clm$Theta[1] - xs), col = 'red')
+lines(xs, plogis(mdl.clm$Theta[3] - xs) - plogis(mdl.clm$Theta[2] - xs), col = 'green')
+lines(xs, plogis(mdl.clm$Theta[4] - xs) - plogis(mdl.clm$Theta[3] - xs), col = 'orange')
+lines(xs, plogis(mdl.clm$Theta[5] - xs) - plogis(mdl.clm$Theta[4] - xs), col = 'yellow')
+lines(xs, plogis(mdl.clm$Theta[6] - xs) - plogis(mdl.clm$Theta[5] - xs), col = 'grey')
+lines(xs, 1 - (plogis(mdl.clm$Theta[6] - xs)), col = 'blue')
+abline(v = c(0,mdl.clm$beta),lty = 3)
+abline(h = 0, lty = "dashed")
+abline(h = 0.2, lty = "dashed")
+abline(h = 0.4, lty = "dashed")
+abline(h = 0.6, lty = "dashed")
+abline(h = 0.8, lty = "dashed")
+abline(h = 1, lty = "dashed")
+
+legend(par('usr')[2], par('usr')[4], bty = 'n', xpd = NA, lty = 1, 
+       col = c("black", "red", "green", "orange", "yellow", "grey", "blue"), 
+       legend = c("1", "2", "3", "4", "5", "6", "7"), cex = 0.75)
+```
+
+
+## session info
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+sessionInfo()
+```

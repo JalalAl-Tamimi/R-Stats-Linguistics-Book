@@ -1,0 +1,5 @@
+book_filename: "Statistics-for-Linguists-using-R"
+output_dir: "docs"
+language:
+  ui:
+    chapter_name: "Chapter "

@@ -1,0 +1,30 @@
+---
+title: "Statistics for Linguists using R - Quantitative and qualitative approaches"
+author: "Jalal Al-Tamimi"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "This repo contains all material for the book `Statistics for Linguists using R - Quantitative and qualitative approaches`"
+---
+
+# Introduction
+
+***This is still work in progress, with additional chapters being added.***
+
+This book covers the basics of statistics and R programming for linguists. It is designed to be accessible to those with little or no prior experience in statistics or programming. The book is divided into two main parts: the first part covers the basics of statistics, including descriptive statistics, inferential statistics, and hypothesis testing; the second part covers the basics of R programming, including data manipulation, data visualization, and statistical modelling.
+
+The book applies these concepts to real-world examples from linguistics, including phonetics, syntax, and semantics. The book also includes exercises and solutions to help readers practice and reinforce their understanding of the material.
+
+The book then adds more advanced topics, including linear regression, logistic regression, cumulative logit link models and signal detection theory. It moves to mixed-effects regressions (linear, logistic, cumulative, and additive). These topics are presented in a way that is accessible to those with little or no prior experience in statistics or programming.
+
+The book then moves to topics covered in qualitative research, including qualitative data analysis, coding, and thematic analysis. The book also includes examples of how to conduct qualitative research using R, including how to use R for text analysis and qualitative data visualization.
+
+Towards the end, an introduction to basics of machine learning is provided, including supervised and unsupervised learning, classification, and clustering. The book also includes examples of how to use R for machine learning, including how to use R for text classification and clustering.
+
+The structure is organised with each chapter being dedicated to a specific topic and can normally be covered in 1 or 2 sessions.
+
+It is hoped that this book allows students to specialise in the field of statistical analyses applied to linguistic data and to be able to use R for their own research. The book is designed to be a practical guide that can be used in the classroom or for self-study. It is hoped that this book will help students to develop the skills they need to conduct their own research and to understand the research of others.

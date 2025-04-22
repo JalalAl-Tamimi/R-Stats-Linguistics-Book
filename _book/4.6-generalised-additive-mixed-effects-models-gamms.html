@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4.6 Generalised Additive Mixed-effects Models (GAMMs) | Statistics for Linguists using R - Quantitative and qualitative approaches</title>
+  <meta name="description" content="This repo contains all material for the book Statistics for Linguists using R - Quantitative and qualitative approaches" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4.6 Generalised Additive Mixed-effects Models (GAMMs) | Statistics for Linguists using R - Quantitative and qualitative approaches" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This repo contains all material for the book Statistics for Linguists using R - Quantitative and qualitative approaches" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4.6 Generalised Additive Mixed-effects Models (GAMMs) | Statistics for Linguists using R - Quantitative and qualitative approaches" />
+  
+  <meta name="twitter:description" content="This repo contains all material for the book Statistics for Linguists using R - Quantitative and qualitative approaches" />
+  
+
+<meta name="author" content="Jalal Al-Tamimi" />
+
+
+<meta name="date" content="2025-04-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="4.5-cumulative-logit-link-mixed-effects-models.html"/>
+<link rel="next" href="4.7-other-distibutions.html"/>
+<script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="2-Introduction_Tidyverse_Visualisation.html"><a href="2-Introduction_Tidyverse_Visualisation.html"><i class="fa fa-check"></i><b>2</b> Introduction to R, the Tidyverse - Visualisation</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="2.1-loading-packages.html"><a href="2.1-loading-packages.html"><i class="fa fa-check"></i><b>2.1</b> Loading packages</a></li>
+<li class="chapter" data-level="2.2" data-path="2.2-intro-r-markdown.html"><a href="2.2-intro-r-markdown.html"><i class="fa fa-check"></i><b>2.2</b> Intro R Markdown</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="2.2-intro-r-markdown.html"><a href="2.2-intro-r-markdown.html#general"><i class="fa fa-check"></i><b>2.2.1</b> General</a></li>
+<li class="chapter" data-level="2.2.2" data-path="2.2-intro-r-markdown.html"><a href="2.2-intro-r-markdown.html#knitting-to-other-formats"><i class="fa fa-check"></i><b>2.2.2</b> Knitting to other formats</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="2.3-r-and-r-studio.html"><a href="2.3-r-and-r-studio.html"><i class="fa fa-check"></i><b>2.3</b> R and R Studio</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="2.3-r-and-r-studio.html"><a href="2.3-r-and-r-studio.html#r"><i class="fa fa-check"></i><b>2.3.1</b> R</a></li>
+<li class="chapter" data-level="2.3.2" data-path="2.3-r-and-r-studio.html"><a href="2.3-r-and-r-studio.html#r-studio"><i class="fa fa-check"></i><b>2.3.2</b> R Studio</a></li>
+<li class="chapter" data-level="2.3.3" data-path="2.3-r-and-r-studio.html"><a href="2.3-r-and-r-studio.html#other-options"><i class="fa fa-check"></i><b>2.3.3</b> Other options?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="2.4-am-i-ready-to-use-r-now.html"><a href="2.4-am-i-ready-to-use-r-now.html"><i class="fa fa-check"></i><b>2.4</b> Am I ready to use R now?</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="2.4-am-i-ready-to-use-r-now.html"><a href="2.4-am-i-ready-to-use-r-now.html#setting-working-directory"><i class="fa fa-check"></i><b>2.4.1</b> Setting working directory</a></li>
+<li class="chapter" data-level="2.4.2" data-path="2.4-am-i-ready-to-use-r-now.html"><a href="2.4-am-i-ready-to-use-r-now.html#creating-a-project"><i class="fa fa-check"></i><b>2.4.2</b> Creating a project</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="2.5-how-to-use-packages.html"><a href="2.5-how-to-use-packages.html"><i class="fa fa-check"></i><b>2.5</b> How to use packages?</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="2.5-how-to-use-packages.html"><a href="2.5-how-to-use-packages.html#installation"><i class="fa fa-check"></i><b>2.5.1</b> Installation</a></li>
+<li class="chapter" data-level="2.5.2" data-path="2.5-how-to-use-packages.html"><a href="2.5-how-to-use-packages.html#loading"><i class="fa fa-check"></i><b>2.5.2</b> Loading</a></li>
+<li class="chapter" data-level="2.5.3" data-path="2.5-how-to-use-packages.html"><a href="2.5-how-to-use-packages.html#finding-packages-and-help"><i class="fa fa-check"></i><b>2.5.3</b> Finding packages and help</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html"><i class="fa fa-check"></i><b>2.6</b> Let’s get started with R</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#r-as-a-calculator"><i class="fa fa-check"></i><b>2.6.1</b> R as a calculator</a>
+<ul>
+<li class="chapter" data-level="2.6.1.1" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#simple-calculations"><i class="fa fa-check"></i><b>2.6.1.1</b> Simple calculations</a></li>
+<li class="chapter" data-level="2.6.1.2" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#functions"><i class="fa fa-check"></i><b>2.6.1.2</b> Functions</a>
+<ul>
+<li class="chapter" data-level="2.6.1.2.1" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#basic-functions"><i class="fa fa-check"></i><b>2.6.1.2.1</b> Basic functions</a></li>
+<li class="chapter" data-level="2.6.1.2.2" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#creating-variables"><i class="fa fa-check"></i><b>2.6.1.2.2</b> Creating variables</a></li>
+<li class="chapter" data-level="2.6.1.2.3" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#sequences"><i class="fa fa-check"></i><b>2.6.1.2.3</b> Sequences</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.6.2" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#objects"><i class="fa fa-check"></i><b>2.6.2</b> Objects</a>
+<ul>
+<li class="chapter" data-level="2.6.2.1" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#basic-objects"><i class="fa fa-check"></i><b>2.6.2.1</b> Basic objects</a></li>
+<li class="chapter" data-level="2.6.2.2" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#other-functions-and-objects"><i class="fa fa-check"></i><b>2.6.2.2</b> Other functions and objects</a>
+<ul>
+<li class="chapter" data-level="2.6.2.2.1" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#some-more-calculations"><i class="fa fa-check"></i><b>2.6.2.2.1</b> Some more calculations</a></li>
+<li class="chapter" data-level="2.6.2.2.2" data-path="2.6-lets-get-started-with-r.html"><a href="2.6-lets-get-started-with-r.html#referring-to-a-specific-position"><i class="fa fa-check"></i><b>2.6.2.2.2</b> Referring to a specific position</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html"><i class="fa fa-check"></i><b>2.7</b> Matrices and dataframes</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#matrix"><i class="fa fa-check"></i><b>2.7.1</b> Matrix</a>
+<ul>
+<li class="chapter" data-level="2.7.1.1" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#general-1"><i class="fa fa-check"></i><b>2.7.1.1</b> General</a></li>
+<li class="chapter" data-level="2.7.1.2" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#referring-to-specific-location"><i class="fa fa-check"></i><b>2.7.1.2</b> Referring to specific location</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7.2" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#dataframes"><i class="fa fa-check"></i><b>2.7.2</b> Dataframes</a>
+<ul>
+<li class="chapter" data-level="2.7.2.1" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#creating-a-dataframe-from-scratch"><i class="fa fa-check"></i><b>2.7.2.1</b> Creating a dataframe from scratch</a></li>
+<li class="chapter" data-level="2.7.2.2" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#deleting-variables-from-the-environment"><i class="fa fa-check"></i><b>2.7.2.2</b> Deleting variables from the <code>Environment</code></a></li>
+<li class="chapter" data-level="2.7.2.3" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#saving-and-reading-the-dataframe"><i class="fa fa-check"></i><b>2.7.2.3</b> Saving and reading the dataframe</a></li>
+<li class="chapter" data-level="2.7.2.4" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#reading-and-saving-in-.csv"><i class="fa fa-check"></i><b>2.7.2.4</b> Reading and Saving in .csv</a></li>
+<li class="chapter" data-level="2.7.2.5" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#reading-and-saving-other-formats"><i class="fa fa-check"></i><b>2.7.2.5</b> Reading and saving other formats</a></li>
+<li class="chapter" data-level="2.7.2.6" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#checking-the-structure"><i class="fa fa-check"></i><b>2.7.2.6</b> Checking the structure</a></li>
+<li class="chapter" data-level="2.7.2.7" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#changing-the-class-of-a-variable"><i class="fa fa-check"></i><b>2.7.2.7</b> Changing the <code>class</code> of a variable</a></li>
+<li class="chapter" data-level="2.7.2.8" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#referring-to-particular-variables-observations"><i class="fa fa-check"></i><b>2.7.2.8</b> Referring to particular variables, observations</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7.3" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#descriptive-statistics"><i class="fa fa-check"></i><b>2.7.3</b> Descriptive statistics</a>
+<ul>
+<li class="chapter" data-level="2.7.3.1" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#basic-summaries-tables"><i class="fa fa-check"></i><b>2.7.3.1</b> Basic summaries, tables</a></li>
+<li class="chapter" data-level="2.7.3.2" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#basic-manipulations"><i class="fa fa-check"></i><b>2.7.3.2</b> Basic manipulations</a>
+<ul>
+<li class="chapter" data-level="2.7.3.2.1" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#creating-variables-1"><i class="fa fa-check"></i><b>2.7.3.2.1</b> Creating variables</a></li>
+<li class="chapter" data-level="2.7.3.2.2" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#changing-column-names"><i class="fa fa-check"></i><b>2.7.3.2.2</b> Changing column names</a></li>
+<li class="chapter" data-level="2.7.3.2.3" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#deleting-variables"><i class="fa fa-check"></i><b>2.7.3.2.3</b> Deleting variables</a></li>
+<li class="chapter" data-level="2.7.3.2.4" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#changing-names-of-observations"><i class="fa fa-check"></i><b>2.7.3.2.4</b> Changing names of observations</a></li>
+<li class="chapter" data-level="2.7.3.2.5" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#checking-levels-of-factors"><i class="fa fa-check"></i><b>2.7.3.2.5</b> Checking levels of factors</a></li>
+<li class="chapter" data-level="2.7.3.2.6" data-path="2.7-matrices-and-dataframes.html"><a href="2.7-matrices-and-dataframes.html#subsetting-the-dataframe"><i class="fa fa-check"></i><b>2.7.3.2.6</b> Subsetting the dataframe</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html"><i class="fa fa-check"></i><b>2.8</b> The <code>Tidyverse</code></a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#introduction-1"><i class="fa fa-check"></i><b>2.8.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.8.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#using-piping"><i class="fa fa-check"></i><b>2.8.2</b> Using piping</a></li>
+<li class="chapter" data-level="2.8.3" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#demo-subsetting"><i class="fa fa-check"></i><b>2.8.3</b> Demo subsetting</a></li>
+<li class="chapter" data-level="2.8.4" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#basic-manipulations-1"><i class="fa fa-check"></i><b>2.8.4</b> Basic manipulations</a>
+<ul>
+<li class="chapter" data-level="2.8.4.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#first-steps"><i class="fa fa-check"></i><b>2.8.4.1</b> First steps</a></li>
+<li class="chapter" data-level="2.8.4.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#loading-dataset"><i class="fa fa-check"></i><b>2.8.4.2</b> Loading dataset</a></li>
+<li class="chapter" data-level="2.8.4.3" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#view"><i class="fa fa-check"></i><b>2.8.4.3</b> View</a></li>
+<li class="chapter" data-level="2.8.4.4" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#structure"><i class="fa fa-check"></i><b>2.8.4.4</b> Structure</a></li>
+<li class="chapter" data-level="2.8.4.5" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#see-first-6-rows"><i class="fa fa-check"></i><b>2.8.4.5</b> See first 6 rows</a></li>
+<li class="chapter" data-level="2.8.4.6" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#see-last-6-rows"><i class="fa fa-check"></i><b>2.8.4.6</b> See last 6 rows</a></li>
+<li class="chapter" data-level="2.8.4.7" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#selecting-variables"><i class="fa fa-check"></i><b>2.8.4.7</b> Selecting variables</a></li>
+<li class="chapter" data-level="2.8.4.8" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#selecting-observations"><i class="fa fa-check"></i><b>2.8.4.8</b> Selecting observations</a></li>
+<li class="chapter" data-level="2.8.4.9" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#changing-order-of-levels"><i class="fa fa-check"></i><b>2.8.4.9</b> Changing order of levels</a></li>
+<li class="chapter" data-level="2.8.4.10" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#changing-reference-value"><i class="fa fa-check"></i><b>2.8.4.10</b> Changing reference value</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.5" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#string-manipulation"><i class="fa fa-check"></i><b>2.8.5</b> String manipulation</a>
+<ul>
+<li class="chapter" data-level="2.8.5.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#str_sub"><i class="fa fa-check"></i><b>2.8.5.1</b> str_sub</a></li>
+<li class="chapter" data-level="2.8.5.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#str_detect"><i class="fa fa-check"></i><b>2.8.5.2</b> str_detect</a></li>
+<li class="chapter" data-level="2.8.5.3" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#str_locate"><i class="fa fa-check"></i><b>2.8.5.3</b> str_locate</a></li>
+<li class="chapter" data-level="2.8.5.4" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#str_locate_all"><i class="fa fa-check"></i><b>2.8.5.4</b> str_locate_all</a></li>
+<li class="chapter" data-level="2.8.5.5" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#str_replace"><i class="fa fa-check"></i><b>2.8.5.5</b> str_replace</a></li>
+<li class="chapter" data-level="2.8.5.6" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#str_replace_all"><i class="fa fa-check"></i><b>2.8.5.6</b> str_replace_all</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.6" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#regular-expressions"><i class="fa fa-check"></i><b>2.8.6</b> Regular expressions</a>
+<ul>
+<li class="chapter" data-level="2.8.6.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#initial-and-final"><i class="fa fa-check"></i><b>2.8.6.1</b> Initial and final</a></li>
+<li class="chapter" data-level="2.8.6.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#other-characters"><i class="fa fa-check"></i><b>2.8.6.2</b> Other characters</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.7" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#advanced-manipulations"><i class="fa fa-check"></i><b>2.8.7</b> Advanced manipulations</a>
+<ul>
+<li class="chapter" data-level="2.8.7.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#columns-to-rows"><i class="fa fa-check"></i><b>2.8.7.1</b> Columns to rows</a></li>
+<li class="chapter" data-level="2.8.7.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#rows-to-columns"><i class="fa fa-check"></i><b>2.8.7.2</b> Rows to columns</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.8" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#basic-descriptive-statistics"><i class="fa fa-check"></i><b>2.8.8</b> Basic descriptive statistics</a>
+<ul>
+<li class="chapter" data-level="2.8.8.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#basic-summaries"><i class="fa fa-check"></i><b>2.8.8.1</b> Basic summaries</a></li>
+<li class="chapter" data-level="2.8.8.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#summary-for-a-specific-variable"><i class="fa fa-check"></i><b>2.8.8.2</b> Summary for a specific variable</a></li>
+<li class="chapter" data-level="2.8.8.3" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#summarise_all"><i class="fa fa-check"></i><b>2.8.8.3</b> Summarise_all</a></li>
+<li class="chapter" data-level="2.8.8.4" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#group_by"><i class="fa fa-check"></i><b>2.8.8.4</b> Group_by</a></li>
+<li class="chapter" data-level="2.8.8.5" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#one-variable"><i class="fa fa-check"></i><b>2.8.8.5</b> One variable</a></li>
+<li class="chapter" data-level="2.8.8.6" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#multiple-variables"><i class="fa fa-check"></i><b>2.8.8.6</b> Multiple variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.9" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#summary-tables"><i class="fa fa-check"></i><b>2.8.9</b> Summary tables</a>
+<ul>
+<li class="chapter" data-level="2.8.9.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#summary-of-full-dataset-with-graphs"><i class="fa fa-check"></i><b>2.8.9.1</b> Summary of full dataset with graphs</a></li>
+<li class="chapter" data-level="2.8.9.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#descriptive-statistics-for-numeric-variables"><i class="fa fa-check"></i><b>2.8.9.2</b> Descriptive statistics for numeric variables</a></li>
+<li class="chapter" data-level="2.8.9.3" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#frequencies-for-non-numeric-variables"><i class="fa fa-check"></i><b>2.8.9.3</b> Frequencies for non-numeric variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.10" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#visualisation"><i class="fa fa-check"></i><b>2.8.10</b> Visualisation</a>
+<ul>
+<li class="chapter" data-level="2.8.10.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#first-steps-1"><i class="fa fa-check"></i><b>2.8.10.1</b> First steps</a>
+<ul>
+<li class="chapter" data-level="2.8.10.1.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#empty-plot-area"><i class="fa fa-check"></i><b>2.8.10.1.1</b> Empty plot area</a></li>
+<li class="chapter" data-level="2.8.10.1.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#adding-x-and-y-values"><i class="fa fa-check"></i><b>2.8.10.1.2</b> Adding x and y values</a></li>
+<li class="chapter" data-level="2.8.10.1.3" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#adding-geoms"><i class="fa fa-check"></i><b>2.8.10.1.3</b> Adding geoms</a></li>
+<li class="chapter" data-level="2.8.10.1.4" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#adding-line-of-best-fit"><i class="fa fa-check"></i><b>2.8.10.1.4</b> Adding line of best fit</a></li>
+<li class="chapter" data-level="2.8.10.1.5" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#by-word-category"><i class="fa fa-check"></i><b>2.8.10.1.5</b> By word category</a></li>
+<li class="chapter" data-level="2.8.10.1.6" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#making-final-touches"><i class="fa fa-check"></i><b>2.8.10.1.6</b> Making final touches</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.10.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#additional-plots"><i class="fa fa-check"></i><b>2.8.10.2</b> Additional plots</a>
+<ul>
+<li class="chapter" data-level="2.8.10.2.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#a-bar-plot"><i class="fa fa-check"></i><b>2.8.10.2.1</b> A bar plot</a></li>
+<li class="chapter" data-level="2.8.10.2.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#a-histogram"><i class="fa fa-check"></i><b>2.8.10.2.2</b> A histogram</a></li>
+<li class="chapter" data-level="2.8.10.2.3" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#a-density-plot"><i class="fa fa-check"></i><b>2.8.10.2.3</b> A density plot</a>
+<ul>
+<li class="chapter" data-level="2.8.10.2.3.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#histogram-and-density-plot"><i class="fa fa-check"></i><b>2.8.10.2.3.1</b> Histogram and density plot</a></li>
+<li class="chapter" data-level="2.8.10.2.3.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#density-plot-only"><i class="fa fa-check"></i><b>2.8.10.2.3.2</b> Density plot only</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.10.2.4" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#a-boxplot"><i class="fa fa-check"></i><b>2.8.10.2.4</b> A boxplot</a></li>
+<li class="chapter" data-level="2.8.10.2.5" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#a-violin-plot"><i class="fa fa-check"></i><b>2.8.10.2.5</b> A Violin plot</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.10.3" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#facet_grid"><i class="fa fa-check"></i><b>2.8.10.3</b> Facet_grid</a>
+<ul>
+<li class="chapter" data-level="2.8.10.3.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#two-categorical-variables"><i class="fa fa-check"></i><b>2.8.10.3.1</b> Two categorical variables</a>
+<ul>
+<li class="chapter" data-level="2.8.10.3.1.1" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#first-steps-2"><i class="fa fa-check"></i><b>2.8.10.3.1.1</b> First steps</a></li>
+<li class="chapter" data-level="2.8.10.3.1.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#changing-order-of-levels-within-a-variable-and-its-labels"><i class="fa fa-check"></i><b>2.8.10.3.1.2</b> Changing order of levels within a variable and its labels</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.10.3.2" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#three-or-more-categorical-variables"><i class="fa fa-check"></i><b>2.8.10.3.2</b> Three or more categorical variables</a></li>
+<li class="chapter" data-level="2.8.10.3.3" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#comparing-two-numeric-outcomes"><i class="fa fa-check"></i><b>2.8.10.3.3</b> Comparing two numeric outcomes</a></li>
+<li class="chapter" data-level="2.8.10.3.4" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#exporting-images"><i class="fa fa-check"></i><b>2.8.10.3.4</b> Exporting images</a></li>
+<li class="chapter" data-level="2.8.10.3.5" data-path="2.8-the-tidyverse.html"><a href="2.8-the-tidyverse.html#conclusion"><i class="fa fa-check"></i><b>2.8.10.3.5</b> Conclusion</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="2.9-session-info.html"><a href="2.9-session-info.html"><i class="fa fa-check"></i><b>2.9</b> session info</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-Correlation_LM_GLM_STD_CLM.html"><a href="3-Correlation_LM_GLM_STD_CLM.html"><i class="fa fa-check"></i><b>3</b> Correlation plots - LM, GLM, CLM</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="3.1-loading-packages-1.html"><a href="3.1-loading-packages-1.html"><i class="fa fa-check"></i><b>3.1</b> Loading packages</a></li>
+<li class="chapter" data-level="3.2" data-path="3.2-correlation-tests.html"><a href="3.2-correlation-tests.html"><i class="fa fa-check"></i><b>3.2</b> Correlation tests</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="3.2-correlation-tests.html"><a href="3.2-correlation-tests.html#basic-correlations"><i class="fa fa-check"></i><b>3.2.1</b> Basic correlations</a></li>
+<li class="chapter" data-level="3.2.2" data-path="3.2-correlation-tests.html"><a href="3.2-correlation-tests.html#using-the-package-corrplot"><i class="fa fa-check"></i><b>3.2.2</b> Using the package <code>corrplot</code></a>
+<ul>
+<li class="chapter" data-level="3.2.2.1" data-path="3.2-correlation-tests.html"><a href="3.2-correlation-tests.html#correlation-plots"><i class="fa fa-check"></i><b>3.2.2.1</b> Correlation plots</a></li>
+<li class="chapter" data-level="3.2.2.2" data-path="3.2-correlation-tests.html"><a href="3.2-correlation-tests.html#more-advanced"><i class="fa fa-check"></i><b>3.2.2.2</b> More advanced</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html"><i class="fa fa-check"></i><b>3.3</b> Linear Models</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#introduction-2"><i class="fa fa-check"></i><b>3.3.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="3.3.1.1" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#model-estimation"><i class="fa fa-check"></i><b>3.3.1.1</b> Model estimation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3.2" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>3.3.2</b> Role of coding schemes</a>
+<ul>
+<li class="chapter" data-level="3.3.2.1" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#intro"><i class="fa fa-check"></i><b>3.3.2.1</b> Intro</a></li>
+<li class="chapter" data-level="3.3.2.2" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#treatment-coding"><i class="fa fa-check"></i><b>3.3.2.2</b> Treatment coding</a></li>
+<li class="chapter" data-level="3.3.2.3" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>3.3.2.3</b> Contrast (or sum) coding</a>
+<ul>
+<li class="chapter" data-level="3.3.2.3.1" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#default"><i class="fa fa-check"></i><b>3.3.2.3.1</b> Default</a></li>
+<li class="chapter" data-level="3.3.2.3.2" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#modified"><i class="fa fa-check"></i><b>3.3.2.3.2</b> Modified</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.3.3" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#further-steps"><i class="fa fa-check"></i><b>3.3.3</b> Further steps</a>
+<ul>
+<li class="chapter" data-level="3.3.3.1" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#tidying-the-output"><i class="fa fa-check"></i><b>3.3.3.1</b> Tidying the output</a></li>
+<li class="chapter" data-level="3.3.3.2" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>3.3.3.2</b> Nice table of our model summary</a>
+<ul>
+<li class="chapter" data-level="3.3.3.2.1" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#directly-from-model-summary"><i class="fa fa-check"></i><b>3.3.3.2.1</b> Directly from model summary</a></li>
+<li class="chapter" data-level="3.3.3.2.2" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#from-the-tidy-output"><i class="fa fa-check"></i><b>3.3.3.2.2</b> From the <code>tidy</code> output</a></li>
+<li class="chapter" data-level="3.3.3.2.3" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#models-fit"><i class="fa fa-check"></i><b>3.3.3.2.3</b> Model’s fit</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3.3.3" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#dissecting-the-model"><i class="fa fa-check"></i><b>3.3.3.3</b> Dissecting the model</a>
+<ul>
+<li class="chapter" data-level="3.3.3.3.1" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#str-and-coef"><i class="fa fa-check"></i><b>3.3.3.3.1</b> “str” and “coef”</a></li>
+<li class="chapter" data-level="3.3.3.3.2" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#coef-and-coefficients"><i class="fa fa-check"></i><b>3.3.3.3.2</b> “coef” and “coefficients”</a></li>
+<li class="chapter" data-level="3.3.3.3.3" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#residuals"><i class="fa fa-check"></i><b>3.3.3.3.3</b> Residuals</a>
+<ul>
+<li class="chapter" data-level="3.3.3.3.3.1" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#histogram"><i class="fa fa-check"></i><b>3.3.3.3.3.1</b> Histogram</a></li>
+<li class="chapter" data-level="3.3.3.3.3.2" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#qqplots"><i class="fa fa-check"></i><b>3.3.3.3.3.2</b> qqplots</a></li>
+<li class="chapter" data-level="3.3.3.3.3.3" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>3.3.3.3.3.3</b> Residuals vs fitted values</a></li>
+<li class="chapter" data-level="3.3.3.3.3.4" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>3.3.3.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3.3.3.4" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#goodness-of-fit"><i class="fa fa-check"></i><b>3.3.3.3.4</b> Goodness of fit?</a></li>
+<li class="chapter" data-level="3.3.3.3.5" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#significance-testing"><i class="fa fa-check"></i><b>3.3.3.3.5</b> Significance testing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.3.4" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#plotting-fitted-values"><i class="fa fa-check"></i><b>3.3.4</b> Plotting fitted values</a>
+<ul>
+<li class="chapter" data-level="3.3.4.1" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#trend-line"><i class="fa fa-check"></i><b>3.3.4.1</b> Trend line</a></li>
+<li class="chapter" data-level="3.3.4.2" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>3.3.4.2</b> Predicted means and the trend line</a></li>
+<li class="chapter" data-level="3.3.4.3" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>3.3.4.3</b> Raw data, predicted means and the trend line</a></li>
+<li class="chapter" data-level="3.3.4.4" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>3.3.4.4</b> Add significance levels and trend line on a plot?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3.5" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>3.3.5</b> What about pairwise comparison?</a></li>
+<li class="chapter" data-level="3.3.6" data-path="3.3-linear-models.html"><a href="3.3-linear-models.html#multiple-predictors"><i class="fa fa-check"></i><b>3.3.6</b> Multiple predictors?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html"><i class="fa fa-check"></i><b>3.4</b> Generalised Linear Models</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#load-and-summaries"><i class="fa fa-check"></i><b>3.4.1</b> Load and summaries</a></li>
+<li class="chapter" data-level="3.4.2" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#glm---categorical-predictors"><i class="fa fa-check"></i><b>3.4.2</b> GLM - Categorical predictors</a>
+<ul>
+<li class="chapter" data-level="3.4.2.1" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#model-estimation-and-results"><i class="fa fa-check"></i><b>3.4.2.1</b> Model estimation and results</a></li>
+<li class="chapter" data-level="3.4.2.2" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#models-fit-1"><i class="fa fa-check"></i><b>3.4.2.2</b> Model’s fit</a></li>
+<li class="chapter" data-level="3.4.2.3" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#logodds-to-odd-ratios"><i class="fa fa-check"></i><b>3.4.2.3</b> Logodds to Odd ratios</a></li>
+<li class="chapter" data-level="3.4.2.4" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#logodds-to-proportions"><i class="fa fa-check"></i><b>3.4.2.4</b> LogOdds to proportions</a></li>
+<li class="chapter" data-level="3.4.2.5" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#plotting"><i class="fa fa-check"></i><b>3.4.2.5</b> Plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4.3" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#glm---numeric-predictors"><i class="fa fa-check"></i><b>3.4.3</b> GLM - Numeric predictors</a>
+<ul>
+<li class="chapter" data-level="3.4.3.1" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#without-z-scoring-of-predictor"><i class="fa fa-check"></i><b>3.4.3.1</b> Without z-scoring of predictor</a>
+<ul>
+<li class="chapter" data-level="3.4.3.1.1" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#model-estimation-1"><i class="fa fa-check"></i><b>3.4.3.1.1</b> Model estimation</a></li>
+<li class="chapter" data-level="3.4.3.1.2" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#models-fit-2"><i class="fa fa-check"></i><b>3.4.3.1.2</b> Model’s fit</a></li>
+<li class="chapter" data-level="3.4.3.1.3" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#logodds-to-proportions-1"><i class="fa fa-check"></i><b>3.4.3.1.3</b> LogOdds to proportions</a></li>
+<li class="chapter" data-level="3.4.3.1.4" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#plotting-1"><i class="fa fa-check"></i><b>3.4.3.1.4</b> Plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4.3.2" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#with-z-scoring-of-predictor"><i class="fa fa-check"></i><b>3.4.3.2</b> With z-scoring of predictor</a>
+<ul>
+<li class="chapter" data-level="3.4.3.2.1" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#model-estimation-2"><i class="fa fa-check"></i><b>3.4.3.2.1</b> Model estimation</a></li>
+<li class="chapter" data-level="3.4.3.2.2" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#models-fit-3"><i class="fa fa-check"></i><b>3.4.3.2.2</b> Model’s fit</a></li>
+<li class="chapter" data-level="3.4.3.2.3" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#logodds-to-proportions-2"><i class="fa fa-check"></i><b>3.4.3.2.3</b> LogOdds to proportions</a></li>
+<li class="chapter" data-level="3.4.3.2.4" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#plotting-2"><i class="fa fa-check"></i><b>3.4.3.2.4</b> Plotting</a>
+<ul>
+<li class="chapter" data-level="3.4.3.2.4.1" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#normal"><i class="fa fa-check"></i><b>3.4.3.2.4.1</b> Normal</a></li>
+<li class="chapter" data-level="3.4.3.2.4.2" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#z-scores"><i class="fa fa-check"></i><b>3.4.3.2.4.2</b> z-scores</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.4.4" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#accuracy-and-signal-detection-theory"><i class="fa fa-check"></i><b>3.4.4</b> Accuracy and Signal Detection Theory</a>
+<ul>
+<li class="chapter" data-level="3.4.4.1" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#rationale"><i class="fa fa-check"></i><b>3.4.4.1</b> Rationale</a></li>
+<li class="chapter" data-level="3.4.4.2" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#running-stats"><i class="fa fa-check"></i><b>3.4.4.2</b> Running stats</a></li>
+<li class="chapter" data-level="3.4.4.3" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#below-we-obtain-multiple-measures"><i class="fa fa-check"></i><b>3.4.4.3</b> Below we obtain multiple measures</a>
+<ul>
+<li class="chapter" data-level="3.4.4.3.1" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#tp-fp-fn-tn"><i class="fa fa-check"></i><b>3.4.4.3.1</b> TP, FP, FN, TN</a></li>
+<li class="chapter" data-level="3.4.4.3.2" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#accuracy-error-sensitivity-specificity-precision-etc."><i class="fa fa-check"></i><b>3.4.4.3.2</b> Accuracy, Error, Sensitivity, Specificity, Precision, etc.</a>
+<ul>
+<li class="chapter" data-level="3.4.4.3.2.1" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#accuracy-and-error"><i class="fa fa-check"></i><b>3.4.4.3.2.1</b> Accuracy and Error</a></li>
+<li class="chapter" data-level="3.4.4.3.2.2" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#sensitivity-specificity-precision-etc."><i class="fa fa-check"></i><b>3.4.4.3.2.2</b> Sensitivity, Specificity, Precision, etc.</a></li>
+<li class="chapter" data-level="3.4.4.3.2.3" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#std-measures"><i class="fa fa-check"></i><b>3.4.4.3.2.3</b> STD measures</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.4.4.4" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#glm-and-d-prime"><i class="fa fa-check"></i><b>3.4.4.4</b> GLM and d prime</a></li>
+<li class="chapter" data-level="3.4.4.5" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#glm-as-a-classification-tool"><i class="fa fa-check"></i><b>3.4.4.5</b> GLM as a classification tool</a></li>
+<li class="chapter" data-level="3.4.4.6" data-path="3.4-generalised-linear-models.html"><a href="3.4-generalised-linear-models.html#glm-other-distributions"><i class="fa fa-check"></i><b>3.4.4.6</b> GLM: Other distributions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html"><i class="fa fa-check"></i><b>3.5</b> Cumulative Logit Link Models</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#ratings-of-percept-of-nasality"><i class="fa fa-check"></i><b>3.5.1</b> Ratings of percept of nasality</a>
+<ul>
+<li class="chapter" data-level="3.5.1.1" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#importing-and-pre-processing"><i class="fa fa-check"></i><b>3.5.1.1</b> Importing and pre-processing</a></li>
+<li class="chapter" data-level="3.5.1.2" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#our-first-model"><i class="fa fa-check"></i><b>3.5.1.2</b> Our first model</a></li>
+<li class="chapter" data-level="3.5.1.3" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#testing-significance"><i class="fa fa-check"></i><b>3.5.1.3</b> Testing significance</a></li>
+<li class="chapter" data-level="3.5.1.4" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#models-fit-4"><i class="fa fa-check"></i><b>3.5.1.4</b> Model’s fit</a></li>
+<li class="chapter" data-level="3.5.1.5" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#interpreting-a-cumulative-model"><i class="fa fa-check"></i><b>3.5.1.5</b> Interpreting a cumulative model</a>
+<ul>
+<li class="chapter" data-level="3.5.1.5.1" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#plotting-3"><i class="fa fa-check"></i><b>3.5.1.5.1</b> Plotting</a></li>
+<li class="chapter" data-level="3.5.1.5.2" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#no-confidence-intervals"><i class="fa fa-check"></i><b>3.5.1.5.2</b> No confidence intervals</a></li>
+<li class="chapter" data-level="3.5.1.5.3" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#with-confidence-intervals"><i class="fa fa-check"></i><b>3.5.1.5.3</b> With confidence intervals</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.5.2" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#subjective-estimates-of-the-weight-of-the-referents-of-81-english-nouns."><i class="fa fa-check"></i><b>3.5.2</b> Subjective estimates of the weight of the referents of 81 English nouns.</a>
+<ul>
+<li class="chapter" data-level="3.5.2.1" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#importing-and-pre-processing-1"><i class="fa fa-check"></i><b>3.5.2.1</b> Importing and pre-processing</a></li>
+<li class="chapter" data-level="3.5.2.2" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#model-specifications"><i class="fa fa-check"></i><b>3.5.2.2</b> Model specifications</a>
+<ul>
+<li class="chapter" data-level="3.5.2.2.1" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#no-random-effects"><i class="fa fa-check"></i><b>3.5.2.2.1</b> No random effects</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5.2.3" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#testing-significance-1"><i class="fa fa-check"></i><b>3.5.2.3</b> Testing significance</a>
+<ul>
+<li class="chapter" data-level="3.5.2.3.1" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#null-vs-no-random"><i class="fa fa-check"></i><b>3.5.2.3.1</b> Null vs no random</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5.2.4" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#models-fit-5"><i class="fa fa-check"></i><b>3.5.2.4</b> Model’s fit</a></li>
+<li class="chapter" data-level="3.5.2.5" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#interpreting-a-cumulative-model-1"><i class="fa fa-check"></i><b>3.5.2.5</b> Interpreting a cumulative model</a></li>
+<li class="chapter" data-level="3.5.2.6" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#plotting-4"><i class="fa fa-check"></i><b>3.5.2.6</b> Plotting</a>
+<ul>
+<li class="chapter" data-level="3.5.2.6.1" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#no-confidence-intervals-1"><i class="fa fa-check"></i><b>3.5.2.6.1</b> No confidence intervals</a></li>
+<li class="chapter" data-level="3.5.2.6.2" data-path="3.5-cumulative-logit-link-models.html"><a href="3.5-cumulative-logit-link-models.html#with-confidence-intervals-1"><i class="fa fa-check"></i><b>3.5.2.6.2</b> With confidence intervals</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="3.6-session-info-1.html"><a href="3.6-session-info-1.html"><i class="fa fa-check"></i><b>3.6</b> session info</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-Random_LMM_GLMM_CLMM_GAMM.html"><a href="4-Random_LMM_GLMM_CLMM_GAMM.html"><i class="fa fa-check"></i><b>4</b> Random effects - LMM, GLMM, CLMM, GAMMs</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="4.1-loading-packages-2.html"><a href="4.1-loading-packages-2.html"><i class="fa fa-check"></i><b>4.1</b> Loading packages</a></li>
+<li class="chapter" data-level="4.2" data-path="4.2-introduction-3.html"><a href="4.2-introduction-3.html"><i class="fa fa-check"></i><b>4.2</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="4.2-introduction-3.html"><a href="4.2-introduction-3.html#fixed-and-random-effects"><i class="fa fa-check"></i><b>4.2.1</b> Fixed and random effects</a>
+<ul>
+<li class="chapter" data-level="4.2.1.1" data-path="4.2-introduction-3.html"><a href="4.2-introduction-3.html#how-to-choose-fixed-and-random-effects"><i class="fa fa-check"></i><b>4.2.1.1</b> How to choose fixed and random effects</a></li>
+<li class="chapter" data-level="4.2.1.2" data-path="4.2-introduction-3.html"><a href="4.2-introduction-3.html#what-about-random-intercepts-and-random-slopes"><i class="fa fa-check"></i><b>4.2.1.2</b> What about Random Intercepts and Random Slopes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><i class="fa fa-check"></i><b>4.3</b> Linear Mixed-effects Models. Why random effects matter</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#dataframe-simulated"><i class="fa fa-check"></i><b>4.3.1</b> Dataframe (simulated)</a>
+<ul>
+<li class="chapter" data-level="4.3.1.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#counts"><i class="fa fa-check"></i><b>4.3.1.1</b> Counts</a>
+<ul>
+<li class="chapter" data-level="4.3.1.1.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subjects"><i class="fa fa-check"></i><b>4.3.1.1.1</b> Subjects</a></li>
+<li class="chapter" data-level="4.3.1.1.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#items"><i class="fa fa-check"></i><b>4.3.1.1.2</b> Items</a></li>
+<li class="chapter" data-level="4.3.1.1.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#age"><i class="fa fa-check"></i><b>4.3.1.1.3</b> Age</a></li>
+<li class="chapter" data-level="4.3.1.1.4" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#cond"><i class="fa fa-check"></i><b>4.3.1.1.4</b> Cond</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3.1.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#visualisations"><i class="fa fa-check"></i><b>4.3.1.2</b> Visualisations</a>
+<ul>
+<li class="chapter" data-level="4.3.1.2.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#condition-by-age"><i class="fa fa-check"></i><b>4.3.1.2.1</b> Condition by Age</a></li>
+<li class="chapter" data-level="4.3.1.2.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-condition"><i class="fa fa-check"></i><b>4.3.1.2.2</b> Subject by Condition</a></li>
+<li class="chapter" data-level="4.3.1.2.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-age"><i class="fa fa-check"></i><b>4.3.1.2.3</b> Subject by Age</a></li>
+<li class="chapter" data-level="4.3.1.2.4" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#item-by-condition"><i class="fa fa-check"></i><b>4.3.1.2.4</b> Item by Condition</a></li>
+<li class="chapter" data-level="4.3.1.2.5" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-age-1"><i class="fa fa-check"></i><b>4.3.1.2.5</b> Subject by Age</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.3.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#modelling-strategy"><i class="fa fa-check"></i><b>4.3.2</b> Modelling strategy</a>
+<ul>
+<li class="chapter" data-level="4.3.2.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#simple-linear-model"><i class="fa fa-check"></i><b>4.3.2.1</b> Simple Linear Model</a></li>
+<li class="chapter" data-level="4.3.2.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#no-interaction"><i class="fa fa-check"></i><b>4.3.2.2</b> No interaction</a>
+<ul>
+<li class="chapter" data-level="4.3.2.2.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts"><i class="fa fa-check"></i><b>4.3.2.2.1</b> Crossed random intercepts</a></li>
+<li class="chapter" data-level="4.3.2.2.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts-by-speaker-random-slopes"><i class="fa fa-check"></i><b>4.3.2.2.2</b> Crossed random intercepts + By-speaker random slopes</a></li>
+<li class="chapter" data-level="4.3.2.2.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts-by-speaker-and-by-item-random-slopes"><i class="fa fa-check"></i><b>4.3.2.2.3</b> Crossed random intercepts + By-speaker and by-item random slopes</a></li>
+<li class="chapter" data-level="4.3.2.2.4" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts-by-speaker-and-by-item-random-slopes-1"><i class="fa fa-check"></i><b>4.3.2.2.4</b> Crossed random intercepts + By-speaker and by-item random slopes</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3.2.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#with-interaction"><i class="fa fa-check"></i><b>4.3.2.3</b> With interaction</a>
+<ul>
+<li class="chapter" data-level="4.3.2.3.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts-interaction"><i class="fa fa-check"></i><b>4.3.2.3.1</b> Crossed random intercepts + Interaction</a></li>
+<li class="chapter" data-level="4.3.2.3.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts-by-speaker-random-slopes-interaction"><i class="fa fa-check"></i><b>4.3.2.3.2</b> Crossed random intercepts + By-speaker random slopes + Interaction</a></li>
+<li class="chapter" data-level="4.3.2.3.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts-by-speaker-and-by-item-random-slopes-interaction"><i class="fa fa-check"></i><b>4.3.2.3.3</b> Crossed random intercepts + By-speaker and by-item random slopes + Interaction</a></li>
+<li class="chapter" data-level="4.3.2.3.4" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts-by-speaker-and-by-item-random-slopes-2"><i class="fa fa-check"></i><b>4.3.2.3.4</b> Crossed random intercepts + By-speaker and by-item random slopes</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3.2.4" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#model-comparison"><i class="fa fa-check"></i><b>4.3.2.4</b> Model comparison</a></li>
+<li class="chapter" data-level="4.3.2.5" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#optimal-model"><i class="fa fa-check"></i><b>4.3.2.5</b> Optimal model</a>
+<ul>
+<li class="chapter" data-level="4.3.2.5.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#model-criticism"><i class="fa fa-check"></i><b>4.3.2.5.1</b> Model criticism</a>
+<ul>
+<li class="chapter" data-level="4.3.2.5.1.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#histogram-1"><i class="fa fa-check"></i><b>4.3.2.5.1.1</b> Histogram</a></li>
+<li class="chapter" data-level="4.3.2.5.1.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#qq-plot"><i class="fa fa-check"></i><b>4.3.2.5.1.2</b> QQ-plot</a></li>
+<li class="chapter" data-level="4.3.2.5.1.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#residuals-vs-fitted"><i class="fa fa-check"></i><b>4.3.2.5.1.3</b> Residuals vs Fitted</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3.2.5.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#summary"><i class="fa fa-check"></i><b>4.3.2.5.2</b> Summary</a></li>
+<li class="chapter" data-level="4.3.2.5.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#anova"><i class="fa fa-check"></i><b>4.3.2.5.3</b> ANOVA</a></li>
+<li class="chapter" data-level="4.3.2.5.4" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#models-fit-6"><i class="fa fa-check"></i><b>4.3.2.5.4</b> Model’s fit</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.3.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#plotting-models-output"><i class="fa fa-check"></i><b>4.3.3</b> Plotting model’s output</a>
+<ul>
+<li class="chapter" data-level="4.3.3.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#with-ggstats"><i class="fa fa-check"></i><b>4.3.3.1</b> With <code>ggstats</code></a>
+<ul>
+<li class="chapter" data-level="4.3.3.1.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#a-plot"><i class="fa fa-check"></i><b>4.3.3.1.1</b> A plot</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3.3.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#a-plot-a-table-95-ci"><i class="fa fa-check"></i><b>4.3.3.2</b> A plot + a table + 95% CI</a></li>
+<li class="chapter" data-level="4.3.3.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#with-ggstatsplot"><i class="fa fa-check"></i><b>4.3.3.3</b> With <code>ggstatsplot</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.3.4" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#exploring-random-effects"><i class="fa fa-check"></i><b>4.3.4</b> Exploring random effects</a>
+<ul>
+<li class="chapter" data-level="4.3.4.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-random-effects"><i class="fa fa-check"></i><b>4.3.4.1</b> Subject random effects</a></li>
+<li class="chapter" data-level="4.3.4.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#items-random-effects"><i class="fa fa-check"></i><b>4.3.4.2</b> Items random effects</a></li>
+<li class="chapter" data-level="4.3.4.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#plots"><i class="fa fa-check"></i><b>4.3.4.3</b> Plots</a>
+<ul>
+<li class="chapter" data-level="4.3.4.3.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#fixed-effects"><i class="fa fa-check"></i><b>4.3.4.3.1</b> Fixed effects</a>
+<ul>
+<li class="chapter" data-level="4.3.4.3.1.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#condition"><i class="fa fa-check"></i><b>4.3.4.3.1.1</b> Condition</a></li>
+<li class="chapter" data-level="4.3.4.3.1.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#age-1"><i class="fa fa-check"></i><b>4.3.4.3.1.2</b> Age</a></li>
+<li class="chapter" data-level="4.3.4.3.1.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#condition-by-age-1"><i class="fa fa-check"></i><b>4.3.4.3.1.3</b> Condition by Age</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3.4.3.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#random-effects"><i class="fa fa-check"></i><b>4.3.4.3.2</b> Random effects</a>
+<ul>
+<li class="chapter" data-level="4.3.4.3.2.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject"><i class="fa fa-check"></i><b>4.3.4.3.2.1</b> Subject</a></li>
+<li class="chapter" data-level="4.3.4.3.2.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-condition-1"><i class="fa fa-check"></i><b>4.3.4.3.2.2</b> Subject by Condition</a></li>
+<li class="chapter" data-level="4.3.4.3.2.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-age-2"><i class="fa fa-check"></i><b>4.3.4.3.2.3</b> Subject by Age</a></li>
+<li class="chapter" data-level="4.3.4.3.2.4" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#item"><i class="fa fa-check"></i><b>4.3.4.3.2.4</b> Item</a></li>
+<li class="chapter" data-level="4.3.4.3.2.5" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#item-by-cond"><i class="fa fa-check"></i><b>4.3.4.3.2.5</b> Item by Cond</a></li>
+<li class="chapter" data-level="4.3.4.3.2.6" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#item-by-age"><i class="fa fa-check"></i><b>4.3.4.3.2.6</b> Item by Age</a></li>
+<li class="chapter" data-level="4.3.4.3.2.7" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#item-by-cond-facetted-by-age"><i class="fa fa-check"></i><b>4.3.4.3.2.7</b> Item by Cond facetted by Age</a></li>
+<li class="chapter" data-level="4.3.4.3.2.8" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-item"><i class="fa fa-check"></i><b>4.3.4.3.2.8</b> Subject by Item</a></li>
+<li class="chapter" data-level="4.3.4.3.2.9" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-item-facetted-by-cond"><i class="fa fa-check"></i><b>4.3.4.3.2.9</b> Subject by Item facetted by Cond</a></li>
+<li class="chapter" data-level="4.3.4.3.2.10" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-item-facetted-by-age"><i class="fa fa-check"></i><b>4.3.4.3.2.10</b> Subject by Item facetted by Age</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3.4.3.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#with-lattice"><i class="fa fa-check"></i><b>4.3.4.3.3</b> With <code>Lattice</code></a>
+<ul>
+<li class="chapter" data-level="4.3.4.3.3.1" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-intercepts"><i class="fa fa-check"></i><b>4.3.4.3.3.1</b> Subject Intercepts</a></li>
+<li class="chapter" data-level="4.3.4.3.3.2" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-slopes"><i class="fa fa-check"></i><b>4.3.4.3.3.2</b> Subject Slopes</a></li>
+<li class="chapter" data-level="4.3.4.3.3.3" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#item-intercepts"><i class="fa fa-check"></i><b>4.3.4.3.3.3</b> Item Intercepts</a></li>
+<li class="chapter" data-level="4.3.4.3.3.4" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#item-slopes-for-cond"><i class="fa fa-check"></i><b>4.3.4.3.3.4</b> Item Slopes for Cond</a></li>
+<li class="chapter" data-level="4.3.4.3.3.5" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#item-slopes-for-age"><i class="fa fa-check"></i><b>4.3.4.3.3.5</b> Item Slopes for Age</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.3.5" data-path="4.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="4.3-linear-mixed-effects-models.-why-random-effects-matter.html#conclusion-1"><i class="fa fa-check"></i><b>4.3.5</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html"><i class="fa fa-check"></i><b>4.4</b> Generalised Linear Mixed-effects Models</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#glmm---categorical-predictors"><i class="fa fa-check"></i><b>4.4.1</b> GLMM - Categorical predictors</a>
+<ul>
+<li class="chapter" data-level="4.4.1.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#simulating-a-new-dataset"><i class="fa fa-check"></i><b>4.4.1.1</b> Simulating a new dataset</a></li>
+<li class="chapter" data-level="4.4.1.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#manipulations-and-a-table"><i class="fa fa-check"></i><b>4.4.1.2</b> Manipulations and a table</a></li>
+<li class="chapter" data-level="4.4.1.3" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#model-estimation-and-results-1"><i class="fa fa-check"></i><b>4.4.1.3</b> Model estimation and results</a>
+<ul>
+<li class="chapter" data-level="4.4.1.3.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#random-intercepts"><i class="fa fa-check"></i><b>4.4.1.3.1</b> Random Intercepts</a></li>
+<li class="chapter" data-level="4.4.1.3.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#random-slopes"><i class="fa fa-check"></i><b>4.4.1.3.2</b> Random Slopes</a></li>
+<li class="chapter" data-level="4.4.1.3.3" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#random-slopes-decorrelated"><i class="fa fa-check"></i><b>4.4.1.3.3</b> Random Slopes decorrelated</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4.1.4" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#model-comparison-1"><i class="fa fa-check"></i><b>4.4.1.4</b> Model comparison</a></li>
+<li class="chapter" data-level="4.4.1.5" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#getting-results"><i class="fa fa-check"></i><b>4.4.1.5</b> Getting results</a>
+<ul>
+<li class="chapter" data-level="4.4.1.5.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#models-fit-7"><i class="fa fa-check"></i><b>4.4.1.5.1</b> Model’s fit</a></li>
+<li class="chapter" data-level="4.4.1.5.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#fixed-effects-1"><i class="fa fa-check"></i><b>4.4.1.5.2</b> Fixed effects</a></li>
+<li class="chapter" data-level="4.4.1.5.3" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#random-effects-1"><i class="fa fa-check"></i><b>4.4.1.5.3</b> Random effects</a></li>
+<li class="chapter" data-level="4.4.1.5.4" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#logodds-to-odd-ratios-1"><i class="fa fa-check"></i><b>4.4.1.5.4</b> Logodds to Odd ratios</a></li>
+<li class="chapter" data-level="4.4.1.5.5" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#logodds-to-proportions-3"><i class="fa fa-check"></i><b>4.4.1.5.5</b> LogOdds to proportions</a></li>
+<li class="chapter" data-level="4.4.1.5.6" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#plotting-5"><i class="fa fa-check"></i><b>4.4.1.5.6</b> Plotting</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.4.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#glmm---numeric-predictors"><i class="fa fa-check"></i><b>4.4.2</b> GLMM - Numeric predictors</a>
+<ul>
+<li class="chapter" data-level="4.4.2.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#without-z-scoring-of-predictor-1"><i class="fa fa-check"></i><b>4.4.2.1</b> Without z-scoring of predictor</a>
+<ul>
+<li class="chapter" data-level="4.4.2.1.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#model-estimation-3"><i class="fa fa-check"></i><b>4.4.2.1.1</b> Model estimation</a>
+<ul>
+<li class="chapter" data-level="4.4.2.1.1.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#random-intercepts-1"><i class="fa fa-check"></i><b>4.4.2.1.1.1</b> Random Intercepts</a></li>
+<li class="chapter" data-level="4.4.2.1.1.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#random-slopes-1"><i class="fa fa-check"></i><b>4.4.2.1.1.2</b> Random Slopes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.4.2.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#model-comparison-2"><i class="fa fa-check"></i><b>4.4.2.2</b> Model comparison</a></li>
+<li class="chapter" data-level="4.4.2.3" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#gettings-results"><i class="fa fa-check"></i><b>4.4.2.3</b> Gettings results</a>
+<ul>
+<li class="chapter" data-level="4.4.2.3.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#models-fit-8"><i class="fa fa-check"></i><b>4.4.2.3.1</b> Model’s fit</a></li>
+<li class="chapter" data-level="4.4.2.3.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#fixed-effects-2"><i class="fa fa-check"></i><b>4.4.2.3.2</b> Fixed effects</a></li>
+<li class="chapter" data-level="4.4.2.3.3" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#random-effects-2"><i class="fa fa-check"></i><b>4.4.2.3.3</b> Random effects</a></li>
+<li class="chapter" data-level="4.4.2.3.4" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#logodds-to-odd-ratios-2"><i class="fa fa-check"></i><b>4.4.2.3.4</b> Logodds to Odd ratios</a></li>
+<li class="chapter" data-level="4.4.2.3.5" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#logodds-to-proportions-4"><i class="fa fa-check"></i><b>4.4.2.3.5</b> LogOdds to proportions</a></li>
+<li class="chapter" data-level="4.4.2.3.6" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#plotting-6"><i class="fa fa-check"></i><b>4.4.2.3.6</b> Plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4.2.4" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#with-z-scoring-of-predictor-1"><i class="fa fa-check"></i><b>4.4.2.4</b> With z-scoring of predictor</a>
+<ul>
+<li class="chapter" data-level="4.4.2.4.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#model-estimation-4"><i class="fa fa-check"></i><b>4.4.2.4.1</b> Model estimation</a>
+<ul>
+<li class="chapter" data-level="4.4.2.4.1.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#random-intercepts-2"><i class="fa fa-check"></i><b>4.4.2.4.1.1</b> Random Intercepts</a></li>
+<li class="chapter" data-level="4.4.2.4.1.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#random-slopes-2"><i class="fa fa-check"></i><b>4.4.2.4.1.2</b> Random Slopes</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4.2.4.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#model-comparison-3"><i class="fa fa-check"></i><b>4.4.2.4.2</b> Model comparison</a></li>
+<li class="chapter" data-level="4.4.2.4.3" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#gettings-results-1"><i class="fa fa-check"></i><b>4.4.2.4.3</b> Gettings results</a>
+<ul>
+<li class="chapter" data-level="4.4.2.4.3.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#models-fit-9"><i class="fa fa-check"></i><b>4.4.2.4.3.1</b> Model’s fit</a></li>
+<li class="chapter" data-level="4.4.2.4.3.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#fixed-effects-3"><i class="fa fa-check"></i><b>4.4.2.4.3.2</b> Fixed effects</a></li>
+<li class="chapter" data-level="4.4.2.4.3.3" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#random-effects-3"><i class="fa fa-check"></i><b>4.4.2.4.3.3</b> Random effects</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4.2.4.4" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#plotting-7"><i class="fa fa-check"></i><b>4.4.2.4.4</b> Plotting</a>
+<ul>
+<li class="chapter" data-level="4.4.2.4.4.1" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#normal-1"><i class="fa fa-check"></i><b>4.4.2.4.4.1</b> Normal</a></li>
+<li class="chapter" data-level="4.4.2.4.4.2" data-path="4.4-generalised-linear-mixed-effects-models.html"><a href="4.4-generalised-linear-mixed-effects-models.html#z-scores-1"><i class="fa fa-check"></i><b>4.4.2.4.4.2</b> z-scores</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html"><i class="fa fa-check"></i><b>4.5</b> Cumulative Logit Link Mixed-effects Models</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#ratings-of-percept-of-nasality-1"><i class="fa fa-check"></i><b>4.5.1</b> Ratings of percept of nasality</a>
+<ul>
+<li class="chapter" data-level="4.5.1.1" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#importing-and-pre-processing-2"><i class="fa fa-check"></i><b>4.5.1.1</b> Importing and pre-processing</a></li>
+<li class="chapter" data-level="4.5.1.2" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#model-specifications-1"><i class="fa fa-check"></i><b>4.5.1.2</b> Model specifications</a>
+<ul>
+<li class="chapter" data-level="4.5.1.2.1" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#no-random-effects-1"><i class="fa fa-check"></i><b>4.5.1.2.1</b> No random effects</a></li>
+<li class="chapter" data-level="4.5.1.2.2" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#random-effects-1---intercepts-only"><i class="fa fa-check"></i><b>4.5.1.2.2</b> Random effects 1 - Intercepts only</a></li>
+<li class="chapter" data-level="4.5.1.2.3" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#random-effects-2---intercepts-and-slopes"><i class="fa fa-check"></i><b>4.5.1.2.3</b> Random effects 2 - Intercepts and Slopes</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5.1.3" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#testing-significance-2"><i class="fa fa-check"></i><b>4.5.1.3</b> Testing significance</a>
+<ul>
+<li class="chapter" data-level="4.5.1.3.1" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#null-vs-no-random-1"><i class="fa fa-check"></i><b>4.5.1.3.1</b> Null vs no random</a></li>
+<li class="chapter" data-level="4.5.1.3.2" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#no-random-vs-random-intercepts"><i class="fa fa-check"></i><b>4.5.1.3.2</b> No random vs Random Intercepts</a></li>
+<li class="chapter" data-level="4.5.1.3.3" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#no-random-vs-random-intercepts-1"><i class="fa fa-check"></i><b>4.5.1.3.3</b> No random vs Random Intercepts</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5.1.4" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#models-fit-10"><i class="fa fa-check"></i><b>4.5.1.4</b> Model’s fit</a></li>
+<li class="chapter" data-level="4.5.1.5" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#interpreting-a-cumulative-model-2"><i class="fa fa-check"></i><b>4.5.1.5</b> Interpreting a cumulative model</a></li>
+<li class="chapter" data-level="4.5.1.6" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#plotting-8"><i class="fa fa-check"></i><b>4.5.1.6</b> Plotting</a>
+<ul>
+<li class="chapter" data-level="4.5.1.6.1" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#no-confidence-intervals-2"><i class="fa fa-check"></i><b>4.5.1.6.1</b> No confidence intervals</a></li>
+<li class="chapter" data-level="4.5.1.6.2" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#with-confidence-intervals-2"><i class="fa fa-check"></i><b>4.5.1.6.2</b> With confidence intervals</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.5.2" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#subjective-estimates-of-the-weight-of-the-referents-of-81-english-nouns.-1"><i class="fa fa-check"></i><b>4.5.2</b> Subjective estimates of the weight of the referents of 81 English nouns.</a>
+<ul>
+<li class="chapter" data-level="4.5.2.1" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#importing-and-pre-processing-3"><i class="fa fa-check"></i><b>4.5.2.1</b> Importing and pre-processing</a></li>
+<li class="chapter" data-level="4.5.2.2" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#model-specifications-2"><i class="fa fa-check"></i><b>4.5.2.2</b> Model specifications</a>
+<ul>
+<li class="chapter" data-level="4.5.2.2.1" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#no-random-effects-2"><i class="fa fa-check"></i><b>4.5.2.2.1</b> No random effects</a></li>
+<li class="chapter" data-level="4.5.2.2.2" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#random-effects-1---intercepts-only-1"><i class="fa fa-check"></i><b>4.5.2.2.2</b> Random effects 1 - Intercepts only</a></li>
+<li class="chapter" data-level="4.5.2.2.3" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#random-effects-2---intercepts-and-slopes-1"><i class="fa fa-check"></i><b>4.5.2.2.3</b> Random effects 2 - Intercepts and Slopes</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5.2.3" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#testing-significance-3"><i class="fa fa-check"></i><b>4.5.2.3</b> Testing significance</a>
+<ul>
+<li class="chapter" data-level="4.5.2.3.1" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#null-vs-no-random-2"><i class="fa fa-check"></i><b>4.5.2.3.1</b> Null vs no random</a></li>
+<li class="chapter" data-level="4.5.2.3.2" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#no-random-vs-random-intercepts-2"><i class="fa fa-check"></i><b>4.5.2.3.2</b> No random vs Random Intercepts</a></li>
+<li class="chapter" data-level="4.5.2.3.3" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#random-intercepts-vs-random-slope"><i class="fa fa-check"></i><b>4.5.2.3.3</b> Random Intercepts vs Random Slope</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5.2.4" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#models-fit-11"><i class="fa fa-check"></i><b>4.5.2.4</b> Model’s fit</a></li>
+<li class="chapter" data-level="4.5.2.5" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#interpreting-a-cumulative-model-3"><i class="fa fa-check"></i><b>4.5.2.5</b> Interpreting a cumulative model</a></li>
+<li class="chapter" data-level="4.5.2.6" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#plotting-9"><i class="fa fa-check"></i><b>4.5.2.6</b> Plotting</a>
+<ul>
+<li class="chapter" data-level="4.5.2.6.1" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#no-confidence-intervals-3"><i class="fa fa-check"></i><b>4.5.2.6.1</b> No confidence intervals</a></li>
+<li class="chapter" data-level="4.5.2.6.2" data-path="4.5-cumulative-logit-link-mixed-effects-models.html"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#with-confidence-intervals-3"><i class="fa fa-check"></i><b>4.5.2.6.2</b> With confidence intervals</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html"><i class="fa fa-check"></i><b>4.6</b> Generalised Additive Mixed-effects Models (GAMMs)</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#loading-dataframe"><i class="fa fa-check"></i><b>4.6.1</b> Loading dataframe</a></li>
+<li class="chapter" data-level="4.6.2" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#manipulation"><i class="fa fa-check"></i><b>4.6.2</b> Manipulation</a>
+<ul>
+<li class="chapter" data-level="4.6.2.1" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#wide-to-long-format"><i class="fa fa-check"></i><b>4.6.2.1</b> Wide to Long format</a></li>
+<li class="chapter" data-level="4.6.2.2" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#transforming-and-arranging-dataframe"><i class="fa fa-check"></i><b>4.6.2.2</b> Transforming and arranging dataframe</a></li>
+<li class="chapter" data-level="4.6.2.3" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#ordering-predictors"><i class="fa fa-check"></i><b>4.6.2.3</b> Ordering predictors</a></li>
+<li class="chapter" data-level="4.6.2.4" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#start-value-for-autocorrelation"><i class="fa fa-check"></i><b>4.6.2.4</b> Start value for autocorrelation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6.3" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#model-specifications-3"><i class="fa fa-check"></i><b>4.6.3</b> Model specifications</a>
+<ul>
+<li class="chapter" data-level="4.6.3.1" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#no-ar1-model"><i class="fa fa-check"></i><b>4.6.3.1</b> No AR1 model</a>
+<ul>
+<li class="chapter" data-level="4.6.3.1.1" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#model-estimation-5"><i class="fa fa-check"></i><b>4.6.3.1.1</b> Model estimation</a>
+<ul>
+<li class="chapter" data-level="4.6.3.1.1.1" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#acf-no-ar1"><i class="fa fa-check"></i><b>4.6.3.1.1.1</b> ACF No AR1</a></li>
+<li class="chapter" data-level="4.6.3.1.1.2" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#gam-check"><i class="fa fa-check"></i><b>4.6.3.1.1.2</b> Gam check</a></li>
+<li class="chapter" data-level="4.6.3.1.1.3" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#estimating-rho"><i class="fa fa-check"></i><b>4.6.3.1.1.3</b> Estimating Rho</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.6.3.2" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#ar1-model"><i class="fa fa-check"></i><b>4.6.3.2</b> AR1 model</a>
+<ul>
+<li class="chapter" data-level="4.6.3.2.0.1" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#model-estimation-6"><i class="fa fa-check"></i><b>4.6.3.2.0.1</b> Model estimation</a></li>
+<li class="chapter" data-level="4.6.3.2.0.2" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#acf-ar1"><i class="fa fa-check"></i><b>4.6.3.2.0.2</b> ACF AR1</a></li>
+<li class="chapter" data-level="4.6.3.2.0.3" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#summary-1"><i class="fa fa-check"></i><b>4.6.3.2.0.3</b> Summary</a></li>
+<li class="chapter" data-level="4.6.3.2.0.4" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#models-fit-12"><i class="fa fa-check"></i><b>4.6.3.2.0.4</b> Model’s fit</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.6.4" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#significance-testing-second-autoregressive-gam"><i class="fa fa-check"></i><b>4.6.4</b> Significance testing second Autoregressive GAM</a>
+<ul>
+<li class="chapter" data-level="4.6.4.1" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#models"><i class="fa fa-check"></i><b>4.6.4.1</b> Models</a>
+<ul>
+<li class="chapter" data-level="4.6.4.1.1" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#full-model"><i class="fa fa-check"></i><b>4.6.4.1.1</b> Full Model</a></li>
+<li class="chapter" data-level="4.6.4.1.2" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#model-2-without-convowelint.ord"><i class="fa fa-check"></i><b>4.6.4.1.2</b> Model 2 (without ConVowelInt.ord)</a></li>
+<li class="chapter" data-level="4.6.4.1.3" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#null-model"><i class="fa fa-check"></i><b>4.6.4.1.3</b> Null Model</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6.4.2" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#testing-significance-4"><i class="fa fa-check"></i><b>4.6.4.2</b> Testing significance</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6.5" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#visualising-smooths"><i class="fa fa-check"></i><b>4.6.5</b> Visualising smooths</a>
+<ul>
+<li class="chapter" data-level="4.6.5.1" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#i"><i class="fa fa-check"></i><b>4.6.5.1</b> /i:/</a></li>
+<li class="chapter" data-level="4.6.5.2" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#a"><i class="fa fa-check"></i><b>4.6.5.2</b> /a:/</a></li>
+<li class="chapter" data-level="4.6.5.3" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#u"><i class="fa fa-check"></i><b>4.6.5.3</b> /u:/</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6.6" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#difference-smooths"><i class="fa fa-check"></i><b>4.6.6</b> Difference smooths</a>
+<ul>
+<li class="chapter" data-level="4.6.6.1" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#i-1"><i class="fa fa-check"></i><b>4.6.6.1</b> /i:/</a></li>
+<li class="chapter" data-level="4.6.6.2" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#a-1"><i class="fa fa-check"></i><b>4.6.6.2</b> /a:/</a></li>
+<li class="chapter" data-level="4.6.6.3" data-path="4.6-generalised-additive-mixed-effects-models-gamms.html"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#u-1"><i class="fa fa-check"></i><b>4.6.6.3</b> /u:/</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="4.7-other-distibutions.html"><a href="4.7-other-distibutions.html"><i class="fa fa-check"></i><b>4.7</b> Other distibutions</a></li>
+<li class="chapter" data-level="4.8" data-path="4.8-session-info-2.html"><a href="4.8-session-info-2.html"><i class="fa fa-check"></i><b>4.8</b> session info</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistics for Linguists using R - Quantitative and qualitative approaches</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="generalised-additive-mixed-effects-models-gamms" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Generalised Additive Mixed-effects Models (GAMMs)<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#generalised-additive-mixed-effects-models-gamms" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Generalised Additive Mixed-effects Models (GAMMs) are currently used for dynamic data. By dynamic data we mean, where the “time” component is accounted for. These can be vowel formants or <em>f</em>0 obtained at 11 intervals; dynamic tongue contours obtained at multiple time points, etc.</p>
+<p>We first use GAMMs (with random effects) to demonstrate its usage</p>
+<div id="loading-dataframe" class="section level3 hasAnchor" number="4.6.1">
+<h3><span class="header-section-number">4.6.1</span> Loading dataframe<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#loading-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb670-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb670-1" tabindex="-1"></a>dynamicDF <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/dynamicData.csv&quot;</span>)</span>
+<span id="cb670-2"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb670-2" tabindex="-1"></a>dynamicDF <span class="sc">%&gt;%</span> </span>
+<span id="cb670-3"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb670-3" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 19
+##    Speaker Sex   Word  repetition context vowel Label Duration F2_01 F2_02 F2_03
+##    &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 SP01    Male  2aat… rep01      Plain   a:    V2        176. 1500. 1526. 1498.
+##  2 SP01    Male  2aat… rep02      Plain   a:    V2        143. 1518. 1520. 1512.
+##  3 SP01    Male  2aat… rep03      Plain   a:    V2        108. 1539. 1553. 1556.
+##  4 SP01    Male  2aaT… rep01      Pharyn… a:    V2        145. 1046. 1107. 1127.
+##  5 SP01    Male  2aaT… rep02      Pharyn… a:    V2        141. 1229. 1242. 1261.
+##  6 SP01    Male  2aaT… rep03      Pharyn… a:    V2        108. 1156. 1165. 1171.
+##  7 SP01    Male  2iit… rep01      Plain   i:    V2        184. 2269. 2244. 2281.
+##  8 SP01    Male  2iit… rep02      Plain   i:    V2        192. 2218. 2197. 2219.
+##  9 SP01    Male  2iit… rep03      Plain   i:    V2        172. 2140. 2152. 2182.
+## 10 SP01    Male  2iiT… rep01      Pharyn… i:    V2        212. 1337. 1442. 1592.
+## # ℹ 8 more variables: F2_04 &lt;dbl&gt;, F2_05 &lt;dbl&gt;, F2_06 &lt;dbl&gt;, F2_07 &lt;dbl&gt;,
+## #   F2_08 &lt;dbl&gt;, F2_09 &lt;dbl&gt;, F2_10 &lt;dbl&gt;, F2_11 &lt;dbl&gt;</code></pre>
+<p>The dataframe was extracted from a Praat script and comes in a wide format. For it to work properly with GAMMs, we convert it to a long format</p>
+</div>
+<div id="manipulation" class="section level3 hasAnchor" number="4.6.2">
+<h3><span class="header-section-number">4.6.2</span> Manipulation<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#manipulation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="wide-to-long-format" class="section level4 hasAnchor" number="4.6.2.1">
+<h4><span class="header-section-number">4.6.2.1</span> Wide to Long format<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#wide-to-long-format" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb672-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb672-1" tabindex="-1"></a>dynamicDF <span class="ot">&lt;-</span> dynamicDF <span class="sc">%&gt;%</span> </span>
+<span id="cb672-2"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb672-2" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>), </span>
+<span id="cb672-3"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb672-3" tabindex="-1"></a>               <span class="at">names_sep =</span> <span class="st">&quot;_&quot;</span>,               </span>
+<span id="cb672-4"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb672-4" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;Correlate&quot;</span>, <span class="st">&quot;Interval&quot;</span>),</span>
+<span id="cb672-5"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb672-5" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;Vals&quot;</span>,</span>
+<span id="cb672-6"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb672-6" tabindex="-1"></a>               <span class="at">names_repair =</span> <span class="st">&quot;minimal&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb672-7"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb672-7" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">&quot;Correlate&quot;</span>, </span>
+<span id="cb672-8"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb672-8" tabindex="-1"></a>              <span class="at">values_from =</span> <span class="st">&quot;Vals&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb672-9"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb672-9" tabindex="-1"></a>  <span class="fu">unnest</span>() </span>
+<span id="cb672-10"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb672-10" tabindex="-1"></a>dynamicDF <span class="sc">%&gt;%</span> </span>
+<span id="cb672-11"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb672-11" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 10
+##    Speaker Sex   Word   repetition context vowel Label Duration Interval    F2
+##    &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;
+##  1 SP01    Male  2aataa rep01      Plain   a:    V2        176. 01       1500.
+##  2 SP01    Male  2aataa rep01      Plain   a:    V2        176. 02       1526.
+##  3 SP01    Male  2aataa rep01      Plain   a:    V2        176. 03       1498.
+##  4 SP01    Male  2aataa rep01      Plain   a:    V2        176. 04       1462.
+##  5 SP01    Male  2aataa rep01      Plain   a:    V2        176. 05       1433.
+##  6 SP01    Male  2aataa rep01      Plain   a:    V2        176. 06       1421.
+##  7 SP01    Male  2aataa rep01      Plain   a:    V2        176. 07       1419.
+##  8 SP01    Male  2aataa rep01      Plain   a:    V2        176. 08       1411.
+##  9 SP01    Male  2aataa rep01      Plain   a:    V2        176. 09       1401.
+## 10 SP01    Male  2aataa rep01      Plain   a:    V2        176. 10       1428.</code></pre>
+</div>
+<div id="transforming-and-arranging-dataframe" class="section level4 hasAnchor" number="4.6.2.2">
+<h4><span class="header-section-number">4.6.2.2</span> Transforming and arranging dataframe<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#transforming-and-arranging-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb674"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb674-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb674-1" tabindex="-1"></a>dynamicDF <span class="ot">&lt;-</span> dynamicDF <span class="sc">%&gt;%</span> </span>
+<span id="cb674-2"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb674-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Speaker =</span> <span class="fu">as.factor</span>(Speaker),</span>
+<span id="cb674-3"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb674-3" tabindex="-1"></a>         <span class="at">Sex =</span> <span class="fu">as.factor</span>(Sex),</span>
+<span id="cb674-4"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb674-4" tabindex="-1"></a>         <span class="at">Word =</span> <span class="fu">as.factor</span>(Word),</span>
+<span id="cb674-5"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb674-5" tabindex="-1"></a>         <span class="at">repetition =</span> <span class="fu">as.factor</span>(repetition),</span>
+<span id="cb674-6"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb674-6" tabindex="-1"></a>         <span class="at">context =</span> <span class="fu">as.factor</span>(context),</span>
+<span id="cb674-7"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb674-7" tabindex="-1"></a>         <span class="at">vowel =</span> <span class="fu">as.factor</span>(vowel),</span>
+<span id="cb674-8"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb674-8" tabindex="-1"></a>         <span class="at">Interval =</span> <span class="fu">as.numeric</span>(Interval)) <span class="sc">%&gt;%</span> </span>
+<span id="cb674-9"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb674-9" tabindex="-1"></a>  <span class="fu">arrange</span>(Speaker, Word, context, vowel)</span>
+<span id="cb674-10"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb674-10" tabindex="-1"></a>dynamicDF <span class="sc">%&gt;%</span> </span>
+<span id="cb674-11"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb674-11" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 10
+##    Speaker Sex   Word   repetition context vowel Label Duration Interval    F2
+##    &lt;fct&gt;   &lt;fct&gt; &lt;fct&gt;  &lt;fct&gt;      &lt;fct&gt;   &lt;fct&gt; &lt;chr&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
+##  1 SP01    Male  2aataa rep01      Plain   a:    V2        176.        1 1500.
+##  2 SP01    Male  2aataa rep01      Plain   a:    V2        176.        2 1526.
+##  3 SP01    Male  2aataa rep01      Plain   a:    V2        176.        3 1498.
+##  4 SP01    Male  2aataa rep01      Plain   a:    V2        176.        4 1462.
+##  5 SP01    Male  2aataa rep01      Plain   a:    V2        176.        5 1433.
+##  6 SP01    Male  2aataa rep01      Plain   a:    V2        176.        6 1421.
+##  7 SP01    Male  2aataa rep01      Plain   a:    V2        176.        7 1419.
+##  8 SP01    Male  2aataa rep01      Plain   a:    V2        176.        8 1411.
+##  9 SP01    Male  2aataa rep01      Plain   a:    V2        176.        9 1401.
+## 10 SP01    Male  2aataa rep01      Plain   a:    V2        176.       10 1428.</code></pre>
+</div>
+<div id="ordering-predictors" class="section level4 hasAnchor" number="4.6.2.3">
+<h4><span class="header-section-number">4.6.2.3</span> Ordering predictors<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#ordering-predictors" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>It is important to use an ordered predictor in GAMs. By default, GAMs provides computations similar to an ANOVA (with sum coding). Here, we use a treatment coding to allow for an increase in power. Also, we create an interaction factor; the results are to be modelled as a function of the interaction between the context and the vowel</p>
+<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb676-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb676-1" tabindex="-1"></a>dynamicDF<span class="sc">$</span>ContVowInt <span class="ot">&lt;-</span> <span class="fu">interaction</span>(dynamicDF<span class="sc">$</span>context, dynamicDF<span class="sc">$</span>vowel)</span>
+<span id="cb676-2"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb676-2" tabindex="-1"></a></span>
+<span id="cb676-3"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb676-3" tabindex="-1"></a>dynamicDF<span class="sc">$</span>ContVowInt.ord <span class="ot">&lt;-</span>  <span class="fu">as.ordered</span>(dynamicDF<span class="sc">$</span>ContVowInt)  </span>
+<span id="cb676-4"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb676-4" tabindex="-1"></a><span class="fu">contrasts</span>(dynamicDF<span class="sc">$</span>ContVowInt.ord) <span class="ot">&lt;-</span> <span class="st">&quot;contr.treatment&quot;</span></span>
+<span id="cb676-5"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb676-5" tabindex="-1"></a></span>
+<span id="cb676-6"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb676-6" tabindex="-1"></a>dynamicDF<span class="sc">$</span>Sex.ord <span class="ot">&lt;-</span> <span class="fu">as.ordered</span>(dynamicDF<span class="sc">$</span>Sex)</span>
+<span id="cb676-7"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb676-7" tabindex="-1"></a><span class="fu">contrasts</span>(dynamicDF<span class="sc">$</span>Sex.ord) <span class="ot">&lt;-</span> <span class="st">&quot;contr.treatment&quot;</span></span></code></pre></div>
+</div>
+<div id="start-value-for-autocorrelation" class="section level4 hasAnchor" number="4.6.2.4">
+<h4><span class="header-section-number">4.6.2.4</span> Start value for autocorrelation<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#start-value-for-autocorrelation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Given that time series are heavily correlated, we need to account for this autocorrelation in any analyses. We add a variable “start” to indicate when the Interval == 1</p>
+<div class="sourceCode" id="cb677"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb677-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb677-1" tabindex="-1"></a>dynamicDF<span class="sc">$</span>start <span class="ot">&lt;-</span>dynamicDF<span class="sc">$</span>Interval <span class="sc">==</span> <span class="dv">1</span></span></code></pre></div>
+</div>
+</div>
+<div id="model-specifications-3" class="section level3 hasAnchor" number="4.6.3">
+<h3><span class="header-section-number">4.6.3</span> Model specifications<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#model-specifications-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="no-ar1-model" class="section level4 hasAnchor" number="4.6.3.1">
+<h4><span class="header-section-number">4.6.3.1</span> No AR1 model<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#no-ar1-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="model-estimation-5" class="section level5 hasAnchor" number="4.6.3.1.1">
+<h5><span class="header-section-number">4.6.3.1.1</span> Model estimation<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#model-estimation-5" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb678-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb678-1" tabindex="-1"></a><span class="fu">system.time</span>(mdl.gamm.F2.noAR <span class="ot">&lt;-</span> <span class="fu">bam</span>(F2 <span class="sc">~</span> ContVowInt.ord <span class="sc">*</span> Sex.ord <span class="sc">+</span></span>
+<span id="cb678-2"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb678-2" tabindex="-1"></a>                                      <span class="do">### 1d smooths</span></span>
+<span id="cb678-3"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb678-3" tabindex="-1"></a>                                      <span class="fu">s</span>(Interval, <span class="at">bs =</span> <span class="st">&quot;cr&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>) <span class="sc">+</span></span>
+<span id="cb678-4"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb678-4" tabindex="-1"></a>                                      <span class="do">### 1d smooths * factor</span></span>
+<span id="cb678-5"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb678-5" tabindex="-1"></a>                                      <span class="fu">s</span>(Interval, <span class="at">bs =</span> <span class="st">&quot;cr&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">by =</span> ContVowInt.ord) <span class="sc">+</span></span>
+<span id="cb678-6"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb678-6" tabindex="-1"></a>                                      <span class="fu">s</span>(Interval, <span class="at">bs =</span> <span class="st">&quot;cr&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">by =</span> Sex.ord) <span class="sc">+</span></span>
+<span id="cb678-7"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb678-7" tabindex="-1"></a>                                      <span class="do">### random smooths by speaker</span></span>
+<span id="cb678-8"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb678-8" tabindex="-1"></a>                                                                                <span class="fu">s</span>(Interval, Speaker, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>)) <span class="sc">+</span>            <span class="fu">s</span>(Interval, Speaker, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>), <span class="at">by =</span> ContVowInt.ord) <span class="sc">+</span></span>
+<span id="cb678-9"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb678-9" tabindex="-1"></a>                                     <span class="do">### random smooths by word</span></span>
+<span id="cb678-10"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb678-10" tabindex="-1"></a><span class="fu">s</span>(Interval, Word, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>)) <span class="sc">+</span>             <span class="fu">s</span>(Interval, Word, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>), <span class="at">by =</span> Sex.ord),</span>
+<span id="cb678-11"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb678-11" tabindex="-1"></a>                                      <span class="at">data =</span> dynamicDF, <span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">nthreads =</span> <span class="dv">2</span>))</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+##    2.48    0.61    2.48</code></pre>
+<div id="acf-no-ar1" class="section level6 hasAnchor" number="4.6.3.1.1.1">
+<h6><span class="header-section-number">4.6.3.1.1.1</span> ACF No AR1<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#acf-no-ar1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb680-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb680-1" tabindex="-1"></a><span class="fu">acf_resid</span>(mdl.gamm.F2.noAR, <span class="at">main =</span> <span class="st">&quot;Average ACF No.AR F2&quot;</span>,<span class="at">cex.lab=</span><span class="fl">1.5</span>,<span class="at">cex.axis=</span><span class="fl">1.5</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-291-1.png" width="672" /></p>
+</div>
+<div id="gam-check" class="section level6 hasAnchor" number="4.6.3.1.1.2">
+<h6><span class="header-section-number">4.6.3.1.1.2</span> Gam check<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#gam-check" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<div class="sourceCode" id="cb681"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb681-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb681-1" tabindex="-1"></a><span class="fu">gam.check</span>(mdl.gamm.F2.noAR)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-292-1.png" width="672" /></p>
+<pre><code>## 
+## Method: fREML   Optimizer: perf chol
+## $grad
+##  [1] -3.197442e-14 -2.717826e-13 -2.042810e-14 -1.760814e-13  1.976197e-14
+##  [6]  3.552714e-15  1.132427e-14 -1.967253e-06 -2.553513e-15 -3.167531e-06
+## [11]  8.881784e-16  5.329071e-15  4.440892e-15 -3.165860e-06 -1.110223e-16
+## [16] -1.110223e-13 -5.107026e-15 -6.195044e-14 -6.439294e-15 -2.561403e-06
+## [21]  1.332268e-15 -3.476698e-06 -6.661338e-15  1.610374e-10
+## 
+## $hess
+##            [,1]          [,2]          [,3]          [,4]          [,5]
+##    1.003880e+00 -9.361499e-02  9.867539e-03 -1.773653e-01  1.813204e-02
+##   -9.361499e-02  1.638108e-01  2.307914e-02 -6.348586e-02 -4.914258e-02
+##    9.867539e-03  2.307914e-02  1.193923e+00  1.370215e-02  2.170922e-02
+##   -1.773653e-01 -6.348586e-02  1.370215e-02  3.473970e-01 -4.569094e-03
+##    1.813204e-02 -4.914258e-02  2.170922e-02 -4.569094e-03  1.105819e+00
+##    1.869996e-02 -4.161598e-02  1.925866e-02 -1.293336e-03 -5.549452e-02
+##   -2.506757e-01 -9.568044e-03  2.012076e-03  3.342137e-02 -3.534940e-02
+##    1.835864e-06 -2.041012e-08 -6.795749e-08 -4.024643e-07  2.384429e-07
+##   -2.730578e-27 -6.756815e-29  8.193394e-28 -6.226779e-28 -1.634415e-28
+##    4.388010e-08  2.222766e-07  2.794168e-08 -5.336235e-08 -8.684646e-08
+##    9.693161e-29 -1.761694e-28 -5.650937e-30  1.941036e-29  1.500761e-29
+##   -2.094426e-02 -3.873479e-03  6.382315e-02  4.224116e-03 -8.042748e-03
+##   -2.162922e-29  7.500641e-30  2.859547e-28 -3.748008e-30  5.800040e-30
+##    2.724867e-08 -2.343219e-08  2.858970e-09  1.451438e-07  2.394565e-08
+##   -2.261934e-28  1.530476e-28 -9.640589e-30 -4.665672e-28  7.628354e-29
+##   -2.111491e-02  5.202241e-03 -8.566203e-04  1.013440e-03  7.873933e-02
+##    1.053291e-29 -4.541828e-30 -1.572611e-30  7.415223e-31  7.794641e-29
+##   -2.067744e-02  3.927096e-03 -9.736665e-04  7.681664e-04  3.362567e-03
+##   -1.553246e-30 -9.641952e-31 -9.931864e-31  1.288670e-30  7.046425e-32
+##    1.666934e-06  1.956228e-06 -3.382783e-07  1.774858e-06  7.445482e-07
+##   -5.594164e-27 -5.564185e-27  3.659382e-27 -4.671394e-27 -2.151430e-27
+##    3.217140e-08  1.535342e-07 -5.404928e-08  2.378842e-07 -1.894141e-07
+##   -3.240826e-28 -3.739453e-28  2.584415e-28 -8.183831e-28 -7.830517e-29
+## d -1.050806e+00 -3.614705e-01 -1.228224e+00 -5.976267e-01 -1.231656e+00
+##            [,6]          [,7]          [,8]          [,9]         [,10]
+##    1.869996e-02 -2.506757e-01  1.835864e-06 -2.901173e-27  4.388010e-08
+##   -4.161598e-02 -9.568044e-03 -2.041012e-08 -8.780368e-29  2.222766e-07
+##    1.925866e-02  2.012076e-03 -6.795749e-08  3.489766e-28  2.794168e-08
+##   -1.293336e-03  3.342137e-02 -4.024643e-07 -6.408959e-28 -5.336235e-08
+##   -5.549452e-02 -3.534940e-02  2.384429e-07 -2.515398e-28 -8.684646e-08
+##    1.608696e+00 -3.333043e-02  1.906263e-07 -4.690757e-28 -7.452219e-08
+##   -3.333043e-02  7.405700e-01  2.946194e-06 -6.535006e-28  7.542137e-08
+##    1.906263e-07  2.946194e-06  1.967272e-06  1.266704e-32  8.682268e-13
+##   -4.945848e-28 -6.192442e-28  1.183267e-32  2.553513e-15  1.990942e-33
+##   -7.452219e-08  7.542137e-08  8.682268e-13 -4.773871e-34  3.167528e-06
+##    1.254846e-29  3.595956e-29 -4.385281e-34 -5.456039e-30  2.103533e-33
+##   -7.722929e-03 -1.301421e-01 -1.302448e-06  1.108195e-27  9.333260e-08
+##    1.033146e-29  3.216104e-29 -3.800040e-35 -1.533357e-29  1.144946e-34
+##    2.308512e-08  2.387087e-07 -2.472654e-14 -1.109391e-33 -1.729391e-12
+##    5.574158e-29  8.955897e-30  7.140931e-34 -2.047134e-29  3.381071e-33
+##    3.106205e-03  4.813115e-02  7.265923e-07  1.074583e-27  2.598147e-07
+##    2.375362e-31 -5.368325e-30  2.524986e-35 -4.333108e-30 -8.118414e-35
+##    3.593009e-02  1.859382e-02  2.987398e-07  3.229019e-28  5.042282e-07
+##    2.631607e-29 -3.613058e-30  6.840752e-35 -3.312588e-30 -1.654635e-35
+##    4.889666e-07 -2.577409e-07  1.250788e-12  1.107362e-32  2.557888e-12
+##   -1.999660e-27 -8.026339e-28 -1.731001e-33 -6.181632e-29  1.847844e-34
+##   -1.251857e-07  8.775859e-08  2.813470e-13  3.039944e-34 -1.753342e-12
+##   -2.091530e-28 -2.551649e-28 -1.354550e-33 -2.902629e-29 -3.446669e-34
+## d -1.564357e+00 -1.031287e+00 -8.032182e-06 -9.425570e-24 -2.306632e-06
+##           [,11]         [,12]         [,13]         [,14]         [,15]
+##    9.963755e-29 -2.094426e-02 -2.790592e-29  2.724867e-08 -2.248571e-28
+##   -1.705466e-28 -3.873479e-03  4.982743e-30 -2.343219e-08  1.510254e-28
+##   -6.311658e-30  6.382315e-02  1.674089e-28  2.858970e-09 -9.951013e-30
+##    1.924186e-29  4.224116e-03 -8.494566e-30  1.451438e-07 -4.646620e-28
+##    1.561495e-29 -8.042748e-03  6.935882e-30  2.394565e-08  7.518078e-29
+##    1.261533e-29 -7.722929e-03  3.971410e-30  2.308512e-08  5.476712e-29
+##    3.644381e-29 -1.301421e-01  2.610475e-29  2.387087e-07  2.932461e-30
+##   -6.551478e-34 -1.302448e-06 -1.395738e-34 -2.472654e-14  8.851660e-34
+##   -5.456039e-30  1.060046e-27 -1.533357e-29 -1.632496e-33 -2.047134e-29
+##    1.949499e-33  9.333260e-08  3.717677e-35 -1.729391e-12  3.328055e-33
+##   -6.661338e-16 -3.945992e-29 -8.231077e-34 -2.092597e-34 -1.356658e-35
+##   -4.014206e-29  5.713580e+00  2.122227e-28 -1.406852e-07  1.487500e-28
+##   -8.231077e-34  2.531269e-28 -4.662937e-15  1.118899e-35 -1.964088e-35
+##   -2.076291e-34 -1.406852e-07 -4.950595e-36  3.165853e-06 -2.821366e-33
+##   -1.356658e-35  1.588115e-28 -1.964088e-35 -2.547836e-33  1.110223e-16
+##    1.668849e-28  7.439112e-02 -1.366255e-29  1.100026e-07 -6.271786e-28
+##   -5.042019e-35 -4.332341e-30 -5.848313e-34 -1.607665e-35 -7.637864e-34
+##    1.919109e-28  3.620299e-02 -9.014722e-30  3.157134e-08 -6.962854e-28
+##   -1.592668e-35  2.977759e-30 -6.033908e-35  1.439979e-35 -2.218691e-34
+##   -1.587002e-33 -2.180195e-07 -7.178574e-35  9.876859e-13 -1.466288e-33
+##   -3.842188e-29  9.107497e-29 -9.621897e-30 -1.724096e-33 -1.765279e-29
+##    9.237031e-34  1.061986e-07  7.894592e-36 -3.065580e-12  9.212337e-35
+##   -1.467374e-29  7.729009e-28 -2.367519e-30 -3.154249e-33 -6.113924e-29
+## d -4.503816e-26 -6.080384e+00 -9.293502e-25 -1.694360e-06 -7.649261e-25
+##           [,16]         [,17]         [,18]         [,19]         [,20]
+##   -2.111491e-02  7.921045e-30 -2.067744e-02  4.461691e-31  1.666934e-06
+##    5.202241e-03 -6.041730e-30  3.927096e-03 -1.520265e-30  1.956228e-06
+##   -8.566203e-04 -1.475335e-30 -9.736665e-04 -1.000132e-30 -3.382783e-07
+##    1.013440e-03 -5.363083e-31  7.681664e-04  7.712075e-31  1.774858e-06
+##    7.873933e-02  6.900138e-29  3.362567e-03  1.167471e-31  7.445482e-07
+##    3.106205e-03 -7.618732e-33  3.593009e-02  2.767466e-29  4.889666e-07
+##    4.813115e-02 -6.729529e-30  1.859382e-02 -3.981380e-30 -2.577409e-07
+##    7.265923e-07  8.754422e-35  2.987398e-07  3.195273e-35  1.250788e-12
+##    1.304289e-27 -4.333108e-30  2.774213e-28 -3.312588e-30  5.580084e-33
+##    2.598147e-07 -5.164212e-35  5.042282e-07 -9.255486e-36  2.557888e-12
+##    1.641776e-28 -5.042019e-35  1.883513e-28 -1.592668e-35 -1.596458e-33
+##    7.439112e-02 -3.368927e-30  3.620299e-02  3.623521e-30 -2.180195e-07
+##   -8.966407e-30 -5.848313e-34 -1.760296e-29 -6.033908e-35  7.933611e-36
+##    1.100026e-07 -1.362678e-35  3.157134e-08  1.552336e-35  9.876859e-13
+##   -6.779262e-28 -7.637864e-34 -7.022423e-28 -2.218691e-34 -5.540741e-34
+##    9.728958e-01 -1.787055e-28 -1.056477e-01 -3.262309e-30 -1.796839e-07
+##   -1.900524e-28  5.218048e-15  1.477781e-29 -2.428310e-34  2.961089e-35
+##   -1.056477e-01  1.074100e-29  1.681829e+00  5.621969e-29 -1.688652e-07
+##   -5.007378e-30 -2.428310e-34  4.323387e-29  6.439294e-15 -1.436057e-35
+##   -1.796839e-07  1.140911e-35 -1.688652e-07 -7.370104e-36  2.561441e-06
+##    2.397782e-28 -6.577979e-30  2.935087e-28 -5.194243e-29 -8.874990e-32
+##    3.614614e-07 -1.283231e-34  6.800200e-07  4.467465e-35  2.983844e-12
+##   -7.477437e-28 -2.758765e-29 -8.403796e-28 -1.958260e-29 -1.612945e-32
+## d -1.725493e+00 -1.430855e-26 -1.827487e+00 -9.258074e-27 -1.206302e-05
+##           [,21]         [,22]         [,23]         [,24]
+##   -5.804970e-27  3.217140e-08 -3.135621e-28 -1.050806e+00
+##   -5.413711e-27  1.535342e-07 -3.089810e-28 -3.614705e-01
+##    1.199695e-27 -5.404928e-08  3.960844e-28 -1.228224e+00
+##   -4.757450e-27  2.378842e-07 -8.173344e-28 -5.976267e-01
+##   -2.151895e-27 -1.894141e-07 -9.844908e-29 -1.231656e+00
+##   -1.719631e-27 -1.251857e-07 -1.116546e-28 -1.564357e+00
+##   -9.610266e-28  8.775859e-08 -2.566855e-28 -1.031287e+00
+##   -2.257838e-33  2.813470e-13  4.615262e-34 -8.032182e-06
+##   -6.181632e-29  6.883788e-34 -2.902629e-29 -9.425570e-24
+##   -8.141127e-33 -1.753342e-12 -1.549712e-33 -2.306632e-06
+##   -3.842188e-29  8.859451e-34 -1.467374e-29 -4.503816e-26
+##   -2.860253e-28  1.061986e-07  3.589715e-28 -6.080384e+00
+##   -9.621897e-30 -2.119291e-35 -2.367519e-30 -9.293502e-25
+##   -5.320247e-34 -3.065580e-12 -3.132259e-33 -1.694360e-06
+##   -1.765279e-29  2.866126e-34 -6.113924e-29 -7.649261e-25
+##    3.006186e-28  3.614614e-07 -6.347548e-28 -1.725493e+00
+##   -6.577979e-30 -1.108896e-34 -2.758765e-29 -1.430855e-26
+##    7.132233e-29  6.800200e-07 -7.400983e-28 -1.827487e+00
+##   -5.194243e-29  1.232255e-35 -1.958260e-29 -9.258074e-27
+##   -8.253479e-32  2.983844e-12 -1.585811e-32 -1.206302e-05
+##   -1.332268e-15 -6.195006e-33 -7.863392e-29 -2.514588e-23
+##   -9.074055e-33  3.476696e-06 -2.481320e-33 -2.851468e-06
+##   -7.863392e-29 -1.859022e-33  6.661338e-15 -2.848608e-24
+## d -2.514588e-23 -2.851468e-06 -2.848608e-24  1.885000e+02
+## 
+## Model rank =  346 / 346 
+## 
+## Basis dimension (k) checking results. Low p-value (k-index&lt;1) may
+## indicate that k is too low, especially if edf is close to k&#39;.
+## 
+##                                                           k&#39;      edf k-index
+## s(Interval)                                         1.00e+01 3.10e+00    1.29
+## s(Interval):ContVowInt.ordPlain.a:                  1.00e+01 1.72e+00    1.29
+## s(Interval):ContVowInt.ordPharyngealised.i:         1.00e+01 3.46e+00    1.29
+## s(Interval):ContVowInt.ordPlain.i:                  1.00e+01 2.20e+00    1.29
+## s(Interval):ContVowInt.ordPharyngealised.u:         1.00e+01 3.46e+00    1.29
+## s(Interval):ContVowInt.ordPlain.u:                  1.00e+01 4.13e+00    1.29
+## s(Interval):Sex.ordMale                             1.00e+01 3.06e+00    1.29
+## s(Interval,Speaker)                                 2.20e+01 2.00e-05    1.29
+## s(Interval,Speaker):ContVowInt.ordPlain.a:          2.20e+01 1.10e-05    1.29
+## s(Interval,Speaker):ContVowInt.ordPharyngealised.i: 2.20e+01 1.22e+01    1.29
+## s(Interval,Speaker):ContVowInt.ordPlain.i:          2.20e+01 9.72e-06    1.29
+## s(Interval,Speaker):ContVowInt.ordPharyngealised.u: 2.20e+01 3.45e+00    1.29
+## s(Interval,Speaker):ContVowInt.ordPlain.u:          2.20e+01 3.65e+00    1.29
+## s(Interval,Word)                                    6.60e+01 2.92e-05    1.29
+## s(Interval,Word):Sex.ordMale                        6.60e+01 1.27e-05    1.29
+##                                                     p-value
+## s(Interval)                                               1
+## s(Interval):ContVowInt.ordPlain.a:                        1
+## s(Interval):ContVowInt.ordPharyngealised.i:               1
+## s(Interval):ContVowInt.ordPlain.i:                        1
+## s(Interval):ContVowInt.ordPharyngealised.u:               1
+## s(Interval):ContVowInt.ordPlain.u:                        1
+## s(Interval):Sex.ordMale                                   1
+## s(Interval,Speaker)                                       1
+## s(Interval,Speaker):ContVowInt.ordPlain.a:                1
+## s(Interval,Speaker):ContVowInt.ordPharyngealised.i:       1
+## s(Interval,Speaker):ContVowInt.ordPlain.i:                1
+## s(Interval,Speaker):ContVowInt.ordPharyngealised.u:       1
+## s(Interval,Speaker):ContVowInt.ordPlain.u:                1
+## s(Interval,Word)                                          1
+## s(Interval,Word):Sex.ordMale                              1</code></pre>
+</div>
+<div id="estimating-rho" class="section level6 hasAnchor" number="4.6.3.1.1.3">
+<h6><span class="header-section-number">4.6.3.1.1.3</span> Estimating Rho<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#estimating-rho" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb683-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb683-1" tabindex="-1"></a>rho_est <span class="ot">&lt;-</span> <span class="fu">start_value_rho</span>(mdl.gamm.F2.noAR)</span>
+<span id="cb683-2"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb683-2" tabindex="-1"></a>rho_est</span></code></pre></div>
+<pre><code>## [1] 0.715958</code></pre>
+</div>
+</div>
+</div>
+<div id="ar1-model" class="section level4 hasAnchor" number="4.6.3.2">
+<h4><span class="header-section-number">4.6.3.2</span> AR1 model<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#ar1-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="model-estimation-6" class="section level6 hasAnchor" number="4.6.3.2.0.1">
+<h6><span class="header-section-number">4.6.3.2.0.1</span> Model estimation<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#model-estimation-6" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<div class="sourceCode" id="cb685"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb685-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb685-1" tabindex="-1"></a><span class="fu">system.time</span>(mdl.gamm.F2.AR <span class="ot">&lt;-</span> <span class="fu">bam</span>(F2 <span class="sc">~</span> ContVowInt.ord <span class="sc">*</span> Sex.ord <span class="sc">+</span></span>
+<span id="cb685-2"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb685-2" tabindex="-1"></a>                                      <span class="do">### 1d smooths</span></span>
+<span id="cb685-3"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb685-3" tabindex="-1"></a>                                      <span class="fu">s</span>(Interval, <span class="at">bs =</span> <span class="st">&quot;cr&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>) <span class="sc">+</span></span>
+<span id="cb685-4"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb685-4" tabindex="-1"></a>                                      <span class="do">### 1d smooths * factor</span></span>
+<span id="cb685-5"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb685-5" tabindex="-1"></a>                                      <span class="fu">s</span>(Interval, <span class="at">bs =</span> <span class="st">&quot;cr&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">by =</span> ContVowInt.ord) <span class="sc">+</span></span>
+<span id="cb685-6"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb685-6" tabindex="-1"></a>                                      <span class="fu">s</span>(Interval, <span class="at">bs =</span> <span class="st">&quot;cr&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">by =</span> Sex.ord) <span class="sc">+</span></span>
+<span id="cb685-7"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb685-7" tabindex="-1"></a>                                      <span class="do">### random smooths by speaker</span></span>
+<span id="cb685-8"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb685-8" tabindex="-1"></a>                                                                                <span class="fu">s</span>(Interval, Speaker, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>)) <span class="sc">+</span>            <span class="fu">s</span>(Interval, Speaker, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>), <span class="at">by =</span> ContVowInt.ord) <span class="sc">+</span></span>
+<span id="cb685-9"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb685-9" tabindex="-1"></a>                                     <span class="do">### random smooths by word</span></span>
+<span id="cb685-10"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb685-10" tabindex="-1"></a><span class="fu">s</span>(Interval, Word, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>)) <span class="sc">+</span>             <span class="fu">s</span>(Interval, Word, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>), <span class="at">by =</span> Sex.ord), <span class="at">data =</span> dynamicDF, <span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">nthreads =</span> <span class="dv">2</span>, <span class="at">AR.start =</span> dynamicDF<span class="sc">$</span>start, <span class="at">rho =</span> rho_est))</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+##    1.66    0.58    1.68</code></pre>
+</div>
+<div id="acf-ar1" class="section level6 hasAnchor" number="4.6.3.2.0.2">
+<h6><span class="header-section-number">4.6.3.2.0.2</span> ACF AR1<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#acf-ar1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<div class="sourceCode" id="cb687"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb687-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb687-1" tabindex="-1"></a><span class="fu">acf_resid</span>(mdl.gamm.F2.AR, <span class="at">main =</span> <span class="st">&quot;Average ACF AR F2&quot;</span>,<span class="at">cex.lab=</span><span class="fl">1.5</span>,<span class="at">cex.axis=</span><span class="fl">1.5</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-295-1.png" width="672" /></p>
+</div>
+<div id="summary-1" class="section level6 hasAnchor" number="4.6.3.2.0.3">
+<h6><span class="header-section-number">4.6.3.2.0.3</span> Summary<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#summary-1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb688-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.gamm.F2.AR)</span></code></pre></div>
+<p>Family: gaussian
+Link function: identity</p>
+<p>Formula:
+F2 ~ ContVowInt.ord * Sex.ord + s(Interval, bs = “cr”, k = 11) +
+s(Interval, bs = “cr”, k = 11, by = ContVowInt.ord) + s(Interval,
+bs = “cr”, k = 11, by = Sex.ord) + s(Interval, Speaker, bs = “fs”,
+k = 11, m = 1, xt = list(bs = “tp”)) + s(Interval, Speaker,
+bs = “fs”, k = 11, m = 1, xt = list(bs = “tp”), by = ContVowInt.ord) +
+s(Interval, Word, bs = “fs”, k = 11, m = 1, xt = list(bs = “tp”)) +
+s(Interval, Word, bs = “fs”, k = 11, m = 1, xt = list(bs = “tp”),
+by = Sex.ord)</p>
+<p>Parametric coefficients:
+Estimate Std. Error t value
+(Intercept) 1318.57 17.74 74.322
+ContVowInt.ordPlain.a: 259.70 27.35 9.496
+ContVowInt.ordPharyngealised.i: 999.04 27.59 36.204
+ContVowInt.ordPlain.i: 1244.99 27.44 45.364
+ContVowInt.ordPharyngealised.u: -399.49 27.45 -14.553
+ContVowInt.ordPlain.u: -266.02 27.50 -9.673
+Sex.ordMale -147.62 24.95 -5.916
+ContVowInt.ordPlain.a::Sex.ordMale 70.77 38.41 1.842
+ContVowInt.ordPharyngealised.i::Sex.ordMale -226.37 38.93 -5.815
+ContVowInt.ordPlain.i::Sex.ordMale -135.40 38.59 -3.509
+ContVowInt.ordPharyngealised.u::Sex.ordMale 78.25 38.52 2.031
+ContVowInt.ordPlain.u::Sex.ordMale 42.06 38.66 1.088
+Pr(&gt;|t|)<br />
+(Intercept) &lt; 2e-16 <strong><em>
+ContVowInt.ordPlain.a: &lt; 2e-16 </em></strong>
+ContVowInt.ordPharyngealised.i: &lt; 2e-16 <strong><em>
+ContVowInt.ordPlain.i: &lt; 2e-16 </em></strong>
+ContVowInt.ordPharyngealised.u: &lt; 2e-16 <strong><em>
+ContVowInt.ordPlain.u: &lt; 2e-16 </em></strong>
+Sex.ordMale 8.34e-09 <strong><em>
+ContVowInt.ordPlain.a::Sex.ordMale 0.066332 .<br />
+ContVowInt.ordPharyngealised.i::Sex.ordMale 1.44e-08 </em></strong>
+ContVowInt.ordPlain.i::Sex.ordMale 0.000513 **<em>
+ContVowInt.ordPharyngealised.u::Sex.ordMale 0.043038 </em><br />
+ContVowInt.ordPlain.u::Sex.ordMale 0.277405<br />
+—
+Signif. codes: 0 ‘<em><strong>’ 0.001 ’</strong>’ 0.01 ’</em>’ 0.05 ‘.’ 0.1 ’ ’ 1</p>
+<p>Approximate significance of smooth terms:
+edf Ref.df F
+s(Interval) 4.524e+00 5.638 12.737
+s(Interval):ContVowInt.ordPlain.a: 2.434e+00 3.185 2.310
+s(Interval):ContVowInt.ordPharyngealised.i: 3.507e+00 3.582 11.934
+s(Interval):ContVowInt.ordPlain.i: 2.884e+00 3.567 10.334
+s(Interval):ContVowInt.ordPharyngealised.u: 5.193e+00 6.419 10.664
+s(Interval):ContVowInt.ordPlain.u: 5.735e+00 6.684 19.337
+s(Interval):Sex.ordMale 5.009e+00 6.197 14.079
+s(Interval,Speaker) 1.242e-05 18.000 0.000
+s(Interval,Speaker):ContVowInt.ordPlain.a: 7.557e-06 21.000 0.000
+s(Interval,Speaker):ContVowInt.ordPharyngealised.i: 1.547e+01 19.000 13.759
+s(Interval,Speaker):ContVowInt.ordPlain.i: 4.679e+00 19.000 0.332
+s(Interval,Speaker):ContVowInt.ordPharyngealised.u: 2.548e+00 19.000 0.164
+s(Interval,Speaker):ContVowInt.ordPlain.u: 5.691e+00 19.000 0.573
+s(Interval,Word) 1.378e-05 60.000 0.000
+s(Interval,Word):Sex.ordMale 1.132e-05 62.000 0.000
+p-value<br />
+s(Interval) &lt; 2e-16 <strong><em>
+s(Interval):ContVowInt.ordPlain.a: 0.0661 .<br />
+s(Interval):ContVowInt.ordPharyngealised.i: &lt; 2e-16 </em></strong>
+s(Interval):ContVowInt.ordPlain.i: 7.13e-07 <strong><em>
+s(Interval):ContVowInt.ordPharyngealised.u: &lt; 2e-16 </em></strong>
+s(Interval):ContVowInt.ordPlain.u: &lt; 2e-16 <strong><em>
+s(Interval):Sex.ordMale &lt; 2e-16 </em></strong>
+s(Interval,Speaker) 0.2584<br />
+s(Interval,Speaker):ContVowInt.ordPlain.a: 0.8747<br />
+s(Interval,Speaker):ContVowInt.ordPharyngealised.i: &lt; 2e-16 *<strong>
+s(Interval,Speaker):ContVowInt.ordPlain.i: 0.0910 .<br />
+s(Interval,Speaker):ContVowInt.ordPharyngealised.u: 0.1405<br />
+s(Interval,Speaker):ContVowInt.ordPlain.u: 0.0073 </strong>
+s(Interval,Word) 0.7046<br />
+s(Interval,Word):Sex.ordMale 0.5256<br />
+—
+Signif. codes: 0 ‘<em><strong>’ 0.001 ’</strong>’ 0.01 ’</em>’ 0.05 ‘.’ 0.1 ’ ’ 1</p>
+<p>R-sq.(adj) = 0.993 Deviance explained = 99.4%
+fREML = 1856.4 Scale est. = 1469.1 n = 396</p>
+</div>
+<div id="models-fit-12" class="section level6 hasAnchor" number="4.6.3.2.0.4">
+<h6><span class="header-section-number">4.6.3.2.0.4</span> Model’s fit<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#models-fit-12" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<div class="sourceCode" id="cb689"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb689-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb689-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tab_model</span>(mdl.gamm.F2.AR, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.gamm.F2.AR.html&quot;</span>)))</span>
+<span id="cb689-2"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb689-2" tabindex="-1"></a><span class="fu">webshot</span>(<span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.gamm.F2.AR.html&quot;</span>), <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.gamm.F2.AR.png&quot;</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-297-1.png" width="672" /></p>
+<div class="float">
+<img src="mdl.gamm.F2.AR.png" alt="Model fit: Generalised Additive Mixed effects model" />
+<div class="figcaption">Model fit: Generalised Additive Mixed effects model</div>
+</div>
+</div>
+</div>
+</div>
+<div id="significance-testing-second-autoregressive-gam" class="section level3 hasAnchor" number="4.6.4">
+<h3><span class="header-section-number">4.6.4</span> Significance testing second Autoregressive GAM<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#significance-testing-second-autoregressive-gam" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To test for significance of context, we run a model with a ML as method and evaluate significance through a maximum likelihood estimate.</p>
+<div id="models" class="section level4 hasAnchor" number="4.6.4.1">
+<h4><span class="header-section-number">4.6.4.1</span> Models<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#models" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We run two models</p>
+<ol style="list-style-type: decimal">
+<li>A full model with all predictors (mdl.gamm.F2.AR.ML)</li>
+<li>A reduced model without any terms associated with the predictor “context” (mdl.gamm.F2.AR.Min.ContVowInt.ord.ML)</li>
+<li>An intercept only model (=Null) without any terms associated with the predictor “vowel” (mdl.gamm.F2.AR.Min.ContVowInt.ord.Sex.ord.ML)</li>
+</ol>
+<div id="full-model" class="section level5 hasAnchor" number="4.6.4.1.1">
+<h5><span class="header-section-number">4.6.4.1.1</span> Full Model<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#full-model" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb690-1" tabindex="-1"></a><span class="fu">system.time</span>(mdl.gamm.F2.AR.ML <span class="ot">&lt;-</span> <span class="fu">bam</span>(F2 <span class="sc">~</span> ContVowInt.ord <span class="sc">*</span> Sex.ord <span class="sc">+</span></span>
+<span id="cb690-2"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb690-2" tabindex="-1"></a>                                      <span class="do">### 1d smooths</span></span>
+<span id="cb690-3"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb690-3" tabindex="-1"></a>                                      <span class="fu">s</span>(Interval, <span class="at">bs =</span> <span class="st">&quot;cr&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>) <span class="sc">+</span></span>
+<span id="cb690-4"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb690-4" tabindex="-1"></a>                                      <span class="do">### 1d smooths * factor</span></span>
+<span id="cb690-5"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb690-5" tabindex="-1"></a>                                      <span class="fu">s</span>(Interval, <span class="at">bs =</span> <span class="st">&quot;cr&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">by =</span> ContVowInt.ord) <span class="sc">+</span></span>
+<span id="cb690-6"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb690-6" tabindex="-1"></a>                                      <span class="fu">s</span>(Interval, <span class="at">bs =</span> <span class="st">&quot;cr&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">by =</span> Sex.ord) <span class="sc">+</span></span>
+<span id="cb690-7"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb690-7" tabindex="-1"></a>                                      <span class="do">### random smooths by speaker</span></span>
+<span id="cb690-8"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb690-8" tabindex="-1"></a>                                                                                <span class="fu">s</span>(Interval, Speaker, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>)) <span class="sc">+</span>            <span class="fu">s</span>(Interval, Speaker, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>), <span class="at">by =</span> ContVowInt.ord) <span class="sc">+</span></span>
+<span id="cb690-9"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb690-9" tabindex="-1"></a>                                     <span class="do">### random smooths by word</span></span>
+<span id="cb690-10"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb690-10" tabindex="-1"></a><span class="fu">s</span>(Interval, Word, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>)) <span class="sc">+</span>             <span class="fu">s</span>(Interval, Word, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>), <span class="at">by =</span> Sex.ord), <span class="at">data =</span> dynamicDF, <span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">nthreads =</span> <span class="dv">2</span>, <span class="at">AR.start =</span> dynamicDF<span class="sc">$</span>start, <span class="at">rho =</span> rho_est, <span class="at">method=</span><span class="st">&quot;ML&quot;</span>))</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+##   98.23   31.64   59.37</code></pre>
+</div>
+<div id="model-2-without-convowelint.ord" class="section level5 hasAnchor" number="4.6.4.1.2">
+<h5><span class="header-section-number">4.6.4.1.2</span> Model 2 (without ConVowelInt.ord)<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#model-2-without-convowelint.ord" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb692-1" tabindex="-1"></a><span class="fu">system.time</span>(mdl.gamm.F2.AR.Min.ContVowInt.ord.ML <span class="ot">&lt;-</span> <span class="fu">bam</span>(F2 <span class="sc">~</span> Sex.ord <span class="sc">+</span></span>
+<span id="cb692-2"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb692-2" tabindex="-1"></a>                                      <span class="do">### 1d smooths</span></span>
+<span id="cb692-3"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb692-3" tabindex="-1"></a>                                      <span class="fu">s</span>(Interval, <span class="at">bs =</span> <span class="st">&quot;cr&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>) <span class="sc">+</span></span>
+<span id="cb692-4"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb692-4" tabindex="-1"></a>                                      <span class="do">### 1d smooths * factor</span></span>
+<span id="cb692-5"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb692-5" tabindex="-1"></a>                                      <span class="fu">s</span>(Interval, <span class="at">bs =</span> <span class="st">&quot;cr&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">by =</span> Sex.ord) <span class="sc">+</span></span>
+<span id="cb692-6"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb692-6" tabindex="-1"></a>                                      <span class="do">### random smooths by speaker</span></span>
+<span id="cb692-7"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb692-7" tabindex="-1"></a>                                                                                <span class="fu">s</span>(Interval, Speaker, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>)) <span class="sc">+</span>   </span>
+<span id="cb692-8"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb692-8" tabindex="-1"></a>                                     <span class="do">### random smooths by word</span></span>
+<span id="cb692-9"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb692-9" tabindex="-1"></a><span class="fu">s</span>(Interval, Word, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>)) <span class="sc">+</span>             <span class="fu">s</span>(Interval, Word, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>), <span class="at">by =</span> Sex.ord), <span class="at">data =</span> dynamicDF, <span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">nthreads =</span> <span class="dv">2</span>, <span class="at">AR.start =</span> dynamicDF<span class="sc">$</span>start, <span class="at">rho =</span> rho_est, <span class="at">method=</span><span class="st">&quot;ML&quot;</span>))</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+##   14.27    5.31   15.06</code></pre>
+</div>
+<div id="null-model" class="section level5 hasAnchor" number="4.6.4.1.3">
+<h5><span class="header-section-number">4.6.4.1.3</span> Null Model<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#null-model" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb694-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb694-1" tabindex="-1"></a><span class="fu">system.time</span>(mdl.gamm.F2.AR.Min.ContVowInt.ord.Sex.ord.ML <span class="ot">&lt;-</span> <span class="fu">bam</span>(F2 <span class="sc">~</span> </span>
+<span id="cb694-2"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb694-2" tabindex="-1"></a>                                      <span class="do">### 1d smooths</span></span>
+<span id="cb694-3"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb694-3" tabindex="-1"></a>                                      <span class="fu">s</span>(Interval, <span class="at">bs =</span> <span class="st">&quot;cr&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>) <span class="sc">+</span></span>
+<span id="cb694-4"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb694-4" tabindex="-1"></a>                                      <span class="do">### 1d smooths * factor</span></span>
+<span id="cb694-5"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb694-5" tabindex="-1"></a>                                      <span class="do">### random smooths by speaker</span></span>
+<span id="cb694-6"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb694-6" tabindex="-1"></a>                                                                                <span class="fu">s</span>(Interval, Speaker, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>)) <span class="sc">+</span>    </span>
+<span id="cb694-7"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb694-7" tabindex="-1"></a>                                     <span class="do">### random smooths by word</span></span>
+<span id="cb694-8"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb694-8" tabindex="-1"></a><span class="fu">s</span>(Interval, Word, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>)), <span class="at">data =</span> dynamicDF, <span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">nthreads =</span> <span class="dv">2</span>, <span class="at">AR.start =</span> dynamicDF<span class="sc">$</span>start, <span class="at">rho =</span> rho_est, <span class="at">method=</span><span class="st">&quot;ML&quot;</span>))</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+##    5.06    2.86    8.46</code></pre>
+</div>
+</div>
+<div id="testing-significance-4" class="section level4 hasAnchor" number="4.6.4.2">
+<h4><span class="header-section-number">4.6.4.2</span> Testing significance<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#testing-significance-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb696-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb696-1" tabindex="-1"></a><span class="fu">compareML</span>(mdl.gamm.F2.AR.ML, mdl.gamm.F2.AR.Min.ContVowInt.ord.ML)</span></code></pre></div>
+<pre><code>## mdl.gamm.F2.AR.ML: F2 ~ ContVowInt.ord * Sex.ord + s(Interval, bs = &quot;cr&quot;, k = 11) + 
+##     s(Interval, bs = &quot;cr&quot;, k = 11, by = ContVowInt.ord) + s(Interval, 
+##     bs = &quot;cr&quot;, k = 11, by = Sex.ord) + s(Interval, Speaker, bs = &quot;fs&quot;, 
+##     k = 11, m = 1, xt = list(bs = &quot;tp&quot;)) + s(Interval, Speaker, 
+##     bs = &quot;fs&quot;, k = 11, m = 1, xt = list(bs = &quot;tp&quot;), by = ContVowInt.ord) + 
+##     s(Interval, Word, bs = &quot;fs&quot;, k = 11, m = 1, xt = list(bs = &quot;tp&quot;)) + 
+##     s(Interval, Word, bs = &quot;fs&quot;, k = 11, m = 1, xt = list(bs = &quot;tp&quot;), 
+##         by = Sex.ord)
+## 
+## mdl.gamm.F2.AR.Min.ContVowInt.ord.ML: F2 ~ Sex.ord + s(Interval, bs = &quot;cr&quot;, k = 11) + s(Interval, bs = &quot;cr&quot;, 
+##     k = 11, by = Sex.ord) + s(Interval, Speaker, bs = &quot;fs&quot;, k = 11, 
+##     m = 1, xt = list(bs = &quot;tp&quot;)) + s(Interval, Word, bs = &quot;fs&quot;, 
+##     k = 11, m = 1, xt = list(bs = &quot;tp&quot;)) + s(Interval, Word, 
+##     bs = &quot;fs&quot;, k = 11, m = 1, xt = list(bs = &quot;tp&quot;), by = Sex.ord)
+## 
+## Chi-square test of ML scores
+## -----
+##                                  Model    Score Edf Difference     Df  p.value
+## 1 mdl.gamm.F2.AR.Min.ContVowInt.ord.ML 2082.786  12                           
+## 2                    mdl.gamm.F2.AR.ML 1930.850  42    151.936 30.000  &lt; 2e-16
+##   Sig.
+## 1     
+## 2  ***
+## 
+## AIC difference: -57.04, model mdl.gamm.F2.AR.ML has lower AIC.</code></pre>
+<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb698-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb698-1" tabindex="-1"></a><span class="fu">compareML</span>(mdl.gamm.F2.AR.ML, mdl.gamm.F2.AR.Min.ContVowInt.ord.Sex.ord.ML)</span></code></pre></div>
+<pre><code>## mdl.gamm.F2.AR.ML: F2 ~ ContVowInt.ord * Sex.ord + s(Interval, bs = &quot;cr&quot;, k = 11) + 
+##     s(Interval, bs = &quot;cr&quot;, k = 11, by = ContVowInt.ord) + s(Interval, 
+##     bs = &quot;cr&quot;, k = 11, by = Sex.ord) + s(Interval, Speaker, bs = &quot;fs&quot;, 
+##     k = 11, m = 1, xt = list(bs = &quot;tp&quot;)) + s(Interval, Speaker, 
+##     bs = &quot;fs&quot;, k = 11, m = 1, xt = list(bs = &quot;tp&quot;), by = ContVowInt.ord) + 
+##     s(Interval, Word, bs = &quot;fs&quot;, k = 11, m = 1, xt = list(bs = &quot;tp&quot;)) + 
+##     s(Interval, Word, bs = &quot;fs&quot;, k = 11, m = 1, xt = list(bs = &quot;tp&quot;), 
+##         by = Sex.ord)
+## 
+## mdl.gamm.F2.AR.Min.ContVowInt.ord.Sex.ord.ML: F2 ~ s(Interval, bs = &quot;cr&quot;, k = 11) + s(Interval, Speaker, bs = &quot;fs&quot;, 
+##     k = 11, m = 1, xt = list(bs = &quot;tp&quot;)) + s(Interval, Word, 
+##     bs = &quot;fs&quot;, k = 11, m = 1, xt = list(bs = &quot;tp&quot;))
+## 
+## Chi-square test of ML scores
+## -----
+##                                          Model    Score Edf Difference     Df
+## 1 mdl.gamm.F2.AR.Min.ContVowInt.ord.Sex.ord.ML 2150.455   7                  
+## 2                            mdl.gamm.F2.AR.ML 1930.850  42    219.605 35.000
+##    p.value Sig.
+## 1              
+## 2  &lt; 2e-16  ***
+## 
+## AIC difference: -327.87, model mdl.gamm.F2.AR.ML has lower AIC.</code></pre>
+</div>
+</div>
+<div id="visualising-smooths" class="section level3 hasAnchor" number="4.6.5">
+<h3><span class="header-section-number">4.6.5</span> Visualising smooths<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#visualising-smooths" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="i" class="section level4 hasAnchor" number="4.6.5.1">
+<h4><span class="header-section-number">4.6.5.1</span> /i:/<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#i" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb700-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb700-1" tabindex="-1"></a><span class="fu">plot_smooth</span>(mdl.gamm.F2.AR, <span class="at">view =</span> <span class="st">&quot;Interval&quot;</span>, <span class="at">cond =</span> <span class="fu">list</span>(<span class="at">ContVowInt.ord =</span> <span class="st">&quot;Plain.i:&quot;</span>), <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">main =</span> <span class="st">&quot;GAMM smooths in /i:/ &quot;</span>, <span class="at">hide.label =</span> <span class="cn">TRUE</span>, <span class="at">cex.axis =</span> <span class="fl">1.3</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1700</span>, <span class="dv">2800</span>), <span class="at">rm.ranef =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## Summary:
+##  * ContVowInt.ord : factor; set to the value(s): Plain.i:. 
+##  * Sex.ord : factor; set to the value(s): Female. 
+##  * Interval : numeric predictor; with 30 values ranging from 1.000000 to 11.000000. 
+##  * Speaker : factor; set to the value(s): SP01. (Might be canceled as random effect, check below.) 
+##  * Word : factor; set to the value(s): 2aataa. (Might be canceled as random effect, check below.) 
+##  * NOTE : The following random effects columns are canceled: s(Interval,Speaker),s(Interval,Speaker):ContVowInt.ordPlain.a:,s(Interval,Speaker):ContVowInt.ordPharyngealised.i:,s(Interval,Speaker):ContVowInt.ordPlain.i:,s(Interval,Speaker):ContVowInt.ordPharyngealised.u:,s(Interval,Speaker):ContVowInt.ordPlain.u:,s(Interval,Word),s(Interval,Word):Sex.ordMale
+## </code></pre>
+<pre><code>## Note: Selection of grouping predictors does not seem to appear in data. Rug of all data is being added.</code></pre>
+<div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb703-1" tabindex="-1"></a><span class="fu">plot_smooth</span>(mdl.gamm.F2.AR, <span class="at">view =</span> <span class="st">&quot;Interval&quot;</span>, <span class="at">cond =</span> <span class="fu">list</span>(<span class="at">ContVowInt.ord =</span> <span class="st">&quot;Pharyngealised.i:&quot;</span>), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">hide.label =</span> <span class="cn">TRUE</span>, <span class="at">cex.axis =</span> <span class="fl">1.3</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1700</span>, <span class="dv">2800</span>), <span class="at">rm.ranef =</span> <span class="cn">TRUE</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-303-1.png" width="672" /></p>
+<pre><code>## Summary:
+##  * ContVowInt.ord : factor; set to the value(s): Pharyngealised.i:. 
+##  * Sex.ord : factor; set to the value(s): Female. 
+##  * Interval : numeric predictor; with 30 values ranging from 1.000000 to 11.000000. 
+##  * Speaker : factor; set to the value(s): SP01. (Might be canceled as random effect, check below.) 
+##  * Word : factor; set to the value(s): 2aataa. (Might be canceled as random effect, check below.) 
+##  * NOTE : The following random effects columns are canceled: s(Interval,Speaker),s(Interval,Speaker):ContVowInt.ordPlain.a:,s(Interval,Speaker):ContVowInt.ordPharyngealised.i:,s(Interval,Speaker):ContVowInt.ordPlain.i:,s(Interval,Speaker):ContVowInt.ordPharyngealised.u:,s(Interval,Speaker):ContVowInt.ordPlain.u:,s(Interval,Word),s(Interval,Word):Sex.ordMale
+##  
+## Note: Selection of grouping predictors does not seem to appear in data. Rug of all data is being added.</code></pre>
+</div>
+<div id="a" class="section level4 hasAnchor" number="4.6.5.2">
+<h4><span class="header-section-number">4.6.5.2</span> /a:/<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#a" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb705-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb705-1" tabindex="-1"></a><span class="fu">plot_smooth</span>(mdl.gamm.F2.AR, <span class="at">view =</span> <span class="st">&quot;Interval&quot;</span>, <span class="at">cond =</span> <span class="fu">list</span>(<span class="at">ContVowInt.ord =</span> <span class="st">&quot;Plain.a:&quot;</span>), <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">main =</span> <span class="st">&quot;GAMM smooths in /a:/ &quot;</span>, <span class="at">hide.label =</span> <span class="cn">TRUE</span>, <span class="at">cex.axis =</span> <span class="fl">1.3</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">1800</span>), <span class="at">rm.ranef =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## Summary:
+##  * ContVowInt.ord : factor; set to the value(s): Plain.a:. 
+##  * Sex.ord : factor; set to the value(s): Female. 
+##  * Interval : numeric predictor; with 30 values ranging from 1.000000 to 11.000000. 
+##  * Speaker : factor; set to the value(s): SP01. (Might be canceled as random effect, check below.) 
+##  * Word : factor; set to the value(s): 2aataa. (Might be canceled as random effect, check below.) 
+##  * NOTE : The following random effects columns are canceled: s(Interval,Speaker),s(Interval,Speaker):ContVowInt.ordPlain.a:,s(Interval,Speaker):ContVowInt.ordPharyngealised.i:,s(Interval,Speaker):ContVowInt.ordPlain.i:,s(Interval,Speaker):ContVowInt.ordPharyngealised.u:,s(Interval,Speaker):ContVowInt.ordPlain.u:,s(Interval,Word),s(Interval,Word):Sex.ordMale
+## </code></pre>
+<pre><code>## Note: Selection of grouping predictors does not seem to appear in data. Rug of all data is being added.</code></pre>
+<div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb708-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb708-1" tabindex="-1"></a><span class="fu">plot_smooth</span>(mdl.gamm.F2.AR, <span class="at">view =</span> <span class="st">&quot;Interval&quot;</span>, <span class="at">cond =</span> <span class="fu">list</span>(<span class="at">ContVowInt.ord =</span> <span class="st">&quot;Pharyngealised.a:&quot;</span>), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">hide.label =</span> <span class="cn">TRUE</span>, <span class="at">cex.axis =</span> <span class="fl">1.3</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">1800</span>), <span class="at">rm.ranef =</span> <span class="cn">TRUE</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-304-1.png" width="672" /></p>
+<pre><code>## Summary:
+##  * ContVowInt.ord : factor; set to the value(s): Pharyngealised.a:. 
+##  * Sex.ord : factor; set to the value(s): Female. 
+##  * Interval : numeric predictor; with 30 values ranging from 1.000000 to 11.000000. 
+##  * Speaker : factor; set to the value(s): SP01. (Might be canceled as random effect, check below.) 
+##  * Word : factor; set to the value(s): 2aataa. (Might be canceled as random effect, check below.) 
+##  * NOTE : The following random effects columns are canceled: s(Interval,Speaker),s(Interval,Speaker):ContVowInt.ordPlain.a:,s(Interval,Speaker):ContVowInt.ordPharyngealised.i:,s(Interval,Speaker):ContVowInt.ordPlain.i:,s(Interval,Speaker):ContVowInt.ordPharyngealised.u:,s(Interval,Speaker):ContVowInt.ordPlain.u:,s(Interval,Word),s(Interval,Word):Sex.ordMale
+##  
+## Note: Selection of grouping predictors does not seem to appear in data. Rug of all data is being added.</code></pre>
+</div>
+<div id="u" class="section level4 hasAnchor" number="4.6.5.3">
+<h4><span class="header-section-number">4.6.5.3</span> /u:/<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#u" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb710-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb710-1" tabindex="-1"></a><span class="fu">plot_smooth</span>(mdl.gamm.F2.AR, <span class="at">view =</span> <span class="st">&quot;Interval&quot;</span>, <span class="at">cond =</span> <span class="fu">list</span>(<span class="at">ContVowInt.ord =</span> <span class="st">&quot;Plain.u:&quot;</span>), <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">main =</span> <span class="st">&quot;GAMM smooths in /u:/ &quot;</span>, <span class="at">hide.label =</span> <span class="cn">TRUE</span>, <span class="at">cex.axis =</span> <span class="fl">1.3</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">700</span>, <span class="dv">1500</span>), <span class="at">rm.ranef =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## Summary:
+##  * ContVowInt.ord : factor; set to the value(s): Plain.u:. 
+##  * Sex.ord : factor; set to the value(s): Female. 
+##  * Interval : numeric predictor; with 30 values ranging from 1.000000 to 11.000000. 
+##  * Speaker : factor; set to the value(s): SP01. (Might be canceled as random effect, check below.) 
+##  * Word : factor; set to the value(s): 2aataa. (Might be canceled as random effect, check below.) 
+##  * NOTE : The following random effects columns are canceled: s(Interval,Speaker),s(Interval,Speaker):ContVowInt.ordPlain.a:,s(Interval,Speaker):ContVowInt.ordPharyngealised.i:,s(Interval,Speaker):ContVowInt.ordPlain.i:,s(Interval,Speaker):ContVowInt.ordPharyngealised.u:,s(Interval,Speaker):ContVowInt.ordPlain.u:,s(Interval,Word),s(Interval,Word):Sex.ordMale
+## </code></pre>
+<pre><code>## Note: Selection of grouping predictors does not seem to appear in data. Rug of all data is being added.</code></pre>
+<div class="sourceCode" id="cb713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb713-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb713-1" tabindex="-1"></a><span class="fu">plot_smooth</span>(mdl.gamm.F2.AR, <span class="at">view =</span> <span class="st">&quot;Interval&quot;</span>, <span class="at">cond =</span> <span class="fu">list</span>(<span class="at">ContVowInt.ord =</span> <span class="st">&quot;Pharyngealised.u:&quot;</span>), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">hide.label =</span> <span class="cn">TRUE</span>, <span class="at">cex.axis =</span> <span class="fl">1.3</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">700</span>, <span class="dv">1500</span>), <span class="at">rm.ranef =</span> <span class="cn">TRUE</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-305-1.png" width="672" /></p>
+<pre><code>## Summary:
+##  * ContVowInt.ord : factor; set to the value(s): Pharyngealised.u:. 
+##  * Sex.ord : factor; set to the value(s): Female. 
+##  * Interval : numeric predictor; with 30 values ranging from 1.000000 to 11.000000. 
+##  * Speaker : factor; set to the value(s): SP01. (Might be canceled as random effect, check below.) 
+##  * Word : factor; set to the value(s): 2aataa. (Might be canceled as random effect, check below.) 
+##  * NOTE : The following random effects columns are canceled: s(Interval,Speaker),s(Interval,Speaker):ContVowInt.ordPlain.a:,s(Interval,Speaker):ContVowInt.ordPharyngealised.i:,s(Interval,Speaker):ContVowInt.ordPlain.i:,s(Interval,Speaker):ContVowInt.ordPharyngealised.u:,s(Interval,Speaker):ContVowInt.ordPlain.u:,s(Interval,Word),s(Interval,Word):Sex.ordMale
+##  
+## Note: Selection of grouping predictors does not seem to appear in data. Rug of all data is being added.</code></pre>
+</div>
+</div>
+<div id="difference-smooths" class="section level3 hasAnchor" number="4.6.6">
+<h3><span class="header-section-number">4.6.6</span> Difference smooths<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#difference-smooths" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="i-1" class="section level4 hasAnchor" number="4.6.6.1">
+<h4><span class="header-section-number">4.6.6.1</span> /i:/<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#i-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb715"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb715-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb715-1" tabindex="-1"></a><span class="fu">plot_diff</span>(mdl.gamm.F2.AR, <span class="at">view =</span> <span class="st">&quot;Interval&quot;</span>, <span class="at">comp =</span> <span class="fu">list</span>(<span class="at">ContVowInt.ord =</span> <span class="fu">c</span>(<span class="st">&quot;Pharyngealised.i:&quot;</span>,<span class="st">&quot;Plain.i:&quot;</span>)),</span>
+<span id="cb715-2"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb715-2" tabindex="-1"></a>          <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb715-3"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb715-3" tabindex="-1"></a>          <span class="at">col =</span> <span class="st">&#39;red&#39;</span>, <span class="at">mark.diff =</span>  <span class="cn">TRUE</span>, <span class="at">col.diff =</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb715-4"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb715-4" tabindex="-1"></a>          <span class="at">hide.label =</span> <span class="cn">TRUE</span>, <span class="at">rm.ranef =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## Summary:
+##  * Sex.ord : factor; set to the value(s): Female. 
+##  * Interval : numeric predictor; with 100 values ranging from 1.000000 to 11.000000. 
+##  * Speaker : factor; set to the value(s): SP01. (Might be canceled as random effect, check below.) 
+##  * Word : factor; set to the value(s): 2aataa. (Might be canceled as random effect, check below.) 
+##  * NOTE : The following random effects columns are canceled: s(Interval,Speaker),s(Interval,Speaker):ContVowInt.ordPlain.a:,s(Interval,Speaker):ContVowInt.ordPharyngealised.i:,s(Interval,Speaker):ContVowInt.ordPlain.i:,s(Interval,Speaker):ContVowInt.ordPharyngealised.u:,s(Interval,Speaker):ContVowInt.ordPlain.u:,s(Interval,Word),s(Interval,Word):Sex.ordMale
+## </code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-306-1.png" width="672" /></p>
+<pre><code>## 
+## Interval window(s) of significant difference(s):
+##  1.000000 - 6.555556</code></pre>
+</div>
+<div id="a-1" class="section level4 hasAnchor" number="4.6.6.2">
+<h4><span class="header-section-number">4.6.6.2</span> /a:/<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#a-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb718-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb718-1" tabindex="-1"></a><span class="fu">plot_diff</span>(mdl.gamm.F2.AR, <span class="at">view =</span> <span class="st">&quot;Interval&quot;</span>, <span class="at">comp =</span> <span class="fu">list</span>(<span class="at">ContVowInt.ord =</span> <span class="fu">c</span>(<span class="st">&quot;Pharyngealised.a:&quot;</span>,<span class="st">&quot;Plain.a:&quot;</span>)),</span>
+<span id="cb718-2"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb718-2" tabindex="-1"></a>          <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb718-3"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb718-3" tabindex="-1"></a>          <span class="at">col =</span> <span class="st">&#39;red&#39;</span>, <span class="at">mark.diff =</span>  <span class="cn">TRUE</span>, <span class="at">col.diff =</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb718-4"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb718-4" tabindex="-1"></a>          <span class="at">hide.label =</span> <span class="cn">TRUE</span>, <span class="at">rm.ranef =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## Summary:
+##  * Sex.ord : factor; set to the value(s): Female. 
+##  * Interval : numeric predictor; with 100 values ranging from 1.000000 to 11.000000. 
+##  * Speaker : factor; set to the value(s): SP01. (Might be canceled as random effect, check below.) 
+##  * Word : factor; set to the value(s): 2aataa. (Might be canceled as random effect, check below.) 
+##  * NOTE : The following random effects columns are canceled: s(Interval,Speaker),s(Interval,Speaker):ContVowInt.ordPlain.a:,s(Interval,Speaker):ContVowInt.ordPharyngealised.i:,s(Interval,Speaker):ContVowInt.ordPlain.i:,s(Interval,Speaker):ContVowInt.ordPharyngealised.u:,s(Interval,Speaker):ContVowInt.ordPlain.u:,s(Interval,Word),s(Interval,Word):Sex.ordMale
+## </code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-307-1.png" width="672" /></p>
+<pre><code>## 
+## Interval window(s) of significant difference(s):
+##  1.000000 - 11.000000</code></pre>
+</div>
+<div id="u-1" class="section level4 hasAnchor" number="4.6.6.3">
+<h4><span class="header-section-number">4.6.6.3</span> /u:/<a href="4.6-generalised-additive-mixed-effects-models-gamms.html#u-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb721-1"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb721-1" tabindex="-1"></a><span class="fu">plot_diff</span>(mdl.gamm.F2.AR, <span class="at">view =</span> <span class="st">&quot;Interval&quot;</span>, <span class="at">comp =</span> <span class="fu">list</span>(<span class="at">ContVowInt.ord =</span> <span class="fu">c</span>(<span class="st">&quot;Pharyngealised.u:&quot;</span>,<span class="st">&quot;Plain.u:&quot;</span>)),</span>
+<span id="cb721-2"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb721-2" tabindex="-1"></a>          <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb721-3"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb721-3" tabindex="-1"></a>          <span class="at">col =</span> <span class="st">&#39;red&#39;</span>, <span class="at">mark.diff =</span>  <span class="cn">TRUE</span>, <span class="at">col.diff =</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb721-4"><a href="4.6-generalised-additive-mixed-effects-models-gamms.html#cb721-4" tabindex="-1"></a>          <span class="at">hide.label =</span> <span class="cn">TRUE</span>, <span class="at">rm.ranef =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## Summary:
+##  * Sex.ord : factor; set to the value(s): Female. 
+##  * Interval : numeric predictor; with 100 values ranging from 1.000000 to 11.000000. 
+##  * Speaker : factor; set to the value(s): SP01. (Might be canceled as random effect, check below.) 
+##  * Word : factor; set to the value(s): 2aataa. (Might be canceled as random effect, check below.) 
+##  * NOTE : The following random effects columns are canceled: s(Interval,Speaker),s(Interval,Speaker):ContVowInt.ordPlain.a:,s(Interval,Speaker):ContVowInt.ordPharyngealised.i:,s(Interval,Speaker):ContVowInt.ordPlain.i:,s(Interval,Speaker):ContVowInt.ordPharyngealised.u:,s(Interval,Speaker):ContVowInt.ordPlain.u:,s(Interval,Word),s(Interval,Word):Sex.ordMale
+## </code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-308-1.png" width="672" /></p>
+<pre><code>## 
+## Interval window(s) of significant difference(s):
+##  1.000000 - 10.595960</code></pre>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="4.5-cumulative-logit-link-mixed-effects-models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="4.7-other-distibutions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": true,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["github", "twitter", "linkedin"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "serif",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,620 @@
+---
+title: "Tutorial: Exploring Random Effects: What Do Participants and Items Tell us Beyond the Fixed Effects?"
+author:
+  name: "Jalal Al-Tamimi"
+  affiliation: Université Paris Cité
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_notebook:
+    highlight: pygments
+    number_sections: yes
+    toc: yes
+    toc_depth: 6
+    toc_float:
+      collapsed: yes
+      fig_crop: no
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+
+# Loading packages 
+
+We start by loading the required packages. If they are not already installed, then the code below will first install them, before loading them. The package `faux` is not available on CRAN for R version 4.4.2, hence we will install it via github. See details [here](https://debruine.github.io/faux/)
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+requiredPackages = c('tidyverse', 'knitr', 'lme4', 'ggstats', 'ggstatsplot', 'sjPlot', 'paletteer', 'lattice', 'car')
+
+for(p in requiredPackages){
+  if(!require(p,character.only = TRUE)) install.packages(p, dependencies = TRUE)
+  library(p,character.only = TRUE)
+}
+```
+
+Specific to the `faux` package
+
+First install the package devtools, and then install the package `faux` via the github install. 
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+# install.packages("devtools")
+# devtools::install_github("debruine/faux")
+library(faux)
+```
+
+
+# Data set
+
+Our experiment has the following structure: we asked 40 subjects to respond to 40 items in a fully crossed design. There were two IVs: Condition with `congruent` and `incongruent` and Age with `young` and `old`. The Condition is a within subject variable; age is a between subject. However, Condition and Age were both within item variables. The dependant variable was LookingTime. 
+
+This meant that we used items within each of the `young` and the `old` subjects in addition to items within each of the `congurent` and `incongruent` conditions.  
+
+Our research question is as follows: `Age` of subject will impact the `Looking Time` in the two conditions. 
+Our hypothesis is: The older a subject is, the more the looking time it is to the incongruent condition. 
+
+We will use the package `faux` to simulate a dataframe. This step is crucial in assessing contributions of particular predictors and for testing ideas as we already know the distribution of the data and what to expect as an outcome when it comes to the fixed effect in question.
+
+
+The simulated data has the following parameters
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+set.seed(42)
+# define parameters
+Subj_n = 40  # number of subjects
+Item_n = 40  # number of items
+b0 = 100       # intercept
+b1 = 2.5 * b0   # fixed effect of condition
+u0s_sd = 300   # random intercept SD for subjects
+u0i_sd = 200   # random intercept SD for items
+u1s_sd = 100   # random b1 slope SD for subjects
+u1i_sd = 50   # random b1 slope SD for items
+r01s = -0.3     # correlation between random effects 0 and 1 for subjects
+r01i = 0.2     # correlation between random effects 0 and 1 for items
+sigma_sd = 150 # error SD
+
+# set up data structure
+dataCong <- add_random(Subj = Subj_n, Item = Item_n) %>%
+  # add within categorical variable for subject
+  add_within("Subj", Cond = c("Congruent", "Incongruent")) %>%
+  add_recode("Cond", "Cond.Incongruent", Congruent = 0, Incongruent = 1) %>%
+  # add between categorical variable for subject
+  add_between("Subj", Age = c("Young", "Old")) %>%
+  add_recode("Age", "Age.Old", Young = 0, Old = 1) %>%
+  # add random effects 
+  add_ranef("Subj", u0s = u0s_sd, u1s = u1s_sd, .cors = r01s) %>%
+  add_ranef("Item", u0i = u0i_sd, u1i = u1i_sd, .cors = r01i) %>%
+  ##add_ranef(c("Subj", "Item"), u0si = u0s_sd + u0i_sd) %>%
+  ##add_ranef(c("Subj", "Item"), u1si = u1s_sd + u1i_sd) %>%
+  add_ranef(sigma = sigma_sd) %>%
+  # calculate DV
+  mutate(LookingTime = b0 + b1 + u0s + u0i + #u0si + u1si +
+           (((b1 + u1s) + 0.5) * Cond.Incongruent) + (((b1 + u1s) + 0.9) * Age.Old) + # subject specific variation
+           (((b1 + u1i) - 0.3) * Cond.Incongruent) + (((b1 + u1i) - 0.25) * Age.Old) + # item specific variation  
+           sigma)
+write.csv(dataCong, "dataCong.csv")
+```
+
+
+If you were not able to install the `faux` package, simply uncomment the following line of code below to import the dataset
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+#dataCong <- read.csv("dataCong.csv")[-1]
+```
+
+# Verify dataframe
+
+## Tibble
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+dataCong <- dataCong %>% 
+  mutate(Subj = factor(Subj),
+         Item = factor(Item))
+dataCong
+```
+
+
+## Counts
+
+### Subjects
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+dataCong %>% 
+  group_by(Cond, Age, Subj) %>% 
+  summarise(count = n())
+```
+
+
+
+### Items
+
+#### Age
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+dataCong %>% 
+  group_by(Age, Item) %>% 
+  summarise(count = n())
+```
+
+
+#### Cond
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+dataCong %>% 
+  group_by(Cond, Item) %>% 
+  summarise(count = n())
+```
+
+
+
+# Visualisations
+
+## Condition by Age
+
+The figure below confirms this, where we see an increase in LookingTime in the `incongruent` condition and oevrall, `older` participants show an increase in LookingTime
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+dataCong %>% 
+  ggplot(aes(x = Cond,
+             y = LookingTime,
+             colour = Age)) +
+  theme_bw() + 
+  geom_boxplot() +
+  geom_smooth(aes(as.numeric(Cond)), method = "lm")
+```
+
+## Subject by Condition
+
+This figure shows that subjects are variable in how they responded to this task
+
+
+```{r echo=TRUE, error=FALSE, message=FALSE, warning=FALSE}
+dataCong %>% 
+  ggplot(aes(x = Cond,
+             y = LookingTime,
+             colour = Subj)) +
+  theme_bw() + 
+  geom_point() +
+  geom_smooth(aes(as.numeric(Cond)), method = "lm", se = FALSE) +
+  scale_colour_manual(values = paletteer_c("grDevices::rainbow", length(unique(dataCong$Subj))))
+```
+
+
+## Subject by Age
+
+This figure shows that subjects had an impact on the LookingTime in both age groups, simply due to their variable responses to the different items
+
+
+```{r echo=TRUE, error=FALSE, message=FALSE, warning=FALSE}
+dataCong %>% 
+  ggplot(aes(x = Age,
+             y = LookingTime,
+             colour = Subj)) +
+  theme_bw() + 
+  geom_point() +
+  geom_smooth(aes(as.numeric(Cond)), method = "lm", se = FALSE) +
+  scale_colour_manual(values = paletteer_c("grDevices::rainbow", length(unique(dataCong$Subj))))
+```
+
+
+
+## Item by Condition
+
+This figure shows that items had an impact on the LookingTime in both conditions
+
+
+```{r echo=TRUE, error=FALSE, message=FALSE, warning=FALSE}
+dataCong %>% 
+  ggplot(aes(x = Cond,
+             y = LookingTime,
+             colour = Item)) +
+  theme_bw() + 
+  geom_point() +
+  geom_smooth(aes(as.numeric(Cond)), method = "lm", se = FALSE) +
+  scale_colour_manual(values = paletteer_c("grDevices::rainbow", length(unique(dataCong$Item))))
+```
+
+
+## Subject by Age
+
+This figure shows that items had an impact on the LookingTime in both age groups
+
+
+```{r echo=TRUE, error=FALSE, message=FALSE, warning=FALSE}
+dataCong %>% 
+  ggplot(aes(x = Age,
+             y = LookingTime,
+             colour = Item)) +
+  theme_bw() + 
+  geom_point() +
+  geom_smooth(aes(as.numeric(Cond)), method = "lm", se = FALSE) +
+  scale_colour_manual(values = paletteer_c("grDevices::rainbow", length(unique(dataCong$Item))))
+```
+
+# Modelling strategy
+
+We use an LMER model with a crossed random effect. To choose our optimal model, we start first by a simple model with only random intercepts, increasing complexity by accounting for random slopes for both subjects and items. It is clear from our visualisation above, that there is no interaction between the two predictors. However, for demonstration purposes, we do test for this
+
+
+# Simple Linear Model
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+mdl.lm <- dataCong %>% 
+  lm(LookingTime ~ Cond + Age, data = .)
+summary(mdl.lm)
+hist(residuals(mdl.lm))
+qqnorm(residuals(mdl.lm)); qqline(residuals(mdl.lm))
+plot(fitted(mdl.lm), residuals(mdl.lm), cex = 4)
+```
+
+## No interaction
+
+### Crossed random intercepts
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+xmdl.rand.Interc <- dataCong %>% 
+  lmer(LookingTime ~ Cond + Age + 
+         (1 | Subj) + 
+         (1 | Item), data = ., REML = FALSE,
+       control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 1e5)))
+```
+
+
+### Crossed random intercepts + By-speaker random slopes
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+xmdl.rand.Slope1 <- dataCong %>% 
+  lmer(LookingTime ~ Cond + Age + 
+         (1 + Cond | Subj) + 
+         (1 | Item), data = ., REML = FALSE,
+       control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 1e5)))
+```
+
+### Crossed random intercepts + By-speaker and by-item random slopes
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+xmdl.rand.Slope2 <- dataCong %>% 
+  lmer(LookingTime ~ Cond + Age + 
+         (1 + Cond | Subj) + 
+         (1 + Cond | Item), data = ., REML = FALSE,
+       control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 1e5)))
+```
+
+
+### Crossed random intercepts + By-speaker and by-item random slopes
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+xmdl.rand.Slope3 <- dataCong %>% 
+  lmer(LookingTime ~ Cond + Age + 
+         (1 + Cond | Subj) + 
+         (1 + Cond + Age| Item), data = ., REML = FALSE,
+       control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 1e5)))
+```
+
+
+## With interaction
+
+### Crossed random intercepts + Interaction
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+xmdl.rand.Interc.Int <- dataCong %>% 
+  lmer(LookingTime ~ Cond * Age + 
+         (1 | Subj) + 
+         (1 | Item), data = ., REML = FALSE,
+       control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 1e5)))
+```
+
+
+### Crossed random intercepts + By-speaker random slopes + Interaction
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+xmdl.rand.Slope1.Int <- dataCong %>% 
+  lmer(LookingTime ~ Cond * Age + 
+         (1 + Cond | Subj) + 
+         (1 | Item), data = ., REML = FALSE,
+       control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 1e5)))
+```
+
+### Crossed random intercepts + By-speaker and by-item random slopes + Interaction
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+xmdl.rand.Slope2.Int <- dataCong %>% 
+  lmer(LookingTime ~ Cond * Age + 
+         (1 + Cond | Subj) + 
+         (1 + Cond | Item), data = ., REML = FALSE,
+       control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 1e5)))
+```
+
+
+### Crossed random intercepts + By-speaker and by-item random slopes
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+xmdl.rand.Slope3.Int <- dataCong %>% 
+  lmer(LookingTime ~ Cond * Age + 
+         (1 + Cond | Subj) + 
+         (1 + Cond * Age| Item), data = ., REML = FALSE,
+       control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 1e5)))
+```
+
+
+## Model comparison
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+anova(xmdl.rand.Interc, xmdl.rand.Slope1, xmdl.rand.Slope2, xmdl.rand.Slope3, xmdl.rand.Interc.Int, xmdl.rand.Slope1.Int, xmdl.rand.Slope2.Int, xmdl.rand.Slope3.Int)
+```
+
+
+The results above highlight that the model accounting for both by-subject and by-item random intercepts and random slopes for Condition are improving the model fit in comparison to a more complex model. We rerun the model with `REML = False`
+
+# Optimal model
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+xmdl.Optimal <- dataCong %>% 
+  lmer(LookingTime ~ Cond + Age + 
+         (1 + Cond | Subj) + 
+         (1 + Cond + Age | Item), data = ., REML = TRUE,
+       control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 1e5)))
+```
+
+
+## Model criticism
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+hist(residuals(xmdl.Optimal))
+qqnorm(residuals(xmdl.Optimal)); qqline(residuals(xmdl.Optimal))
+plot(fitted(xmdl.Optimal), residuals(xmdl.Optimal), cex = 4)
+```
+
+## Summary
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+xmdl.Optimal %>% 
+  summary()
+```
+
+## ANOVA
+```{r warning=FALSE, message=FALSE, error=FALSE}
+Anova(xmdl.Optimal)
+```
+
+
+## Plotting model's output
+
+### With `ggstats`
+
+We use two functions from the package `ggstats`. 
+
+#### A plot
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+ggcoef_model(xmdl.Optimal)
+```
+
+
+
+### A plot + a table + 95% CI
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+ggcoef_table(xmdl.Optimal)
+```
+
+
+
+### With `ggstatsplot`
+
+```{r}
+ggcoefstats(xmdl.Optimal, point.args = list(color = paletteer_c("grDevices::rainbow", 13), stats.label.color = paletteer_c("grDevices::rainbow", 13)))
+
+```
+
+
+## Exploring random effects
+
+
+### Subject random effects
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+random_effects <- ranef(xmdl.Optimal) %>%
+  pluck(1) %>%
+  rownames_to_column() %>%
+  rename(Subject = rowname, Intercept = "(Intercept)") 
+ 
+random_effects %>%
+  knitr::kable()
+
+```
+
+
+
+
+### Items random effects
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+random_effects <- ranef(xmdl.Optimal) %>%
+  pluck(2) %>%
+  rownames_to_column() %>%
+  rename(Items = rowname, Intercept = "(Intercept)") 
+ 
+random_effects %>%
+  knitr::kable()
+
+```
+
+
+### Plots
+
+#### sjPlot
+
+##### Fixed effects
+
+###### Condition
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Cond"), ci.lvl = NA, dodge = 0) + theme_bw() + geom_line()
+
+```
+
+###### Age
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Age"), ci.lvl = NA, dodge = 0) + theme_bw() + geom_line()
+
+```
+
+
+###### Condition by Age
+
+```{r}
+plot_model(xmdl.Optimal, type="emm", terms=c("Cond", "Age"), ci.lvl = NA, dodge = 0) + theme_bw() + geom_line()
+
+```
+
+##### Random effects
+
+###### Subject
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Subj"), pred.type="re", ci.lvl = NA, dodge = 0) + theme_bw() + geom_line()
+
+```
+
+###### Subject by Condition
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Cond", "Subj"), pred.type="re", ci.lvl = NA, dodge = 0, colors = paletteer_c("grDevices::rainbow", length(unique(dataCong$Subj)))) + theme_bw() + geom_line() 
+
+```
+
+###### Subject by Age
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Age", "Subj"), pred.type="re", ci.lvl = NA, dodge = 0, colors = paletteer_c("grDevices::rainbow", length(unique(dataCong$Subj)))) + theme_bw() + geom_line()
+
+```
+
+
+
+###### Item
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Item"), pred.type="re", ci.lvl = NA, dodge = 0) + theme_bw() + geom_line()
+
+```
+
+
+
+
+
+###### Item by Cond
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Cond", "Item"), pred.type="re", ci.lvl = NA, dodge = 0, colors = paletteer_c("grDevices::rainbow", length(unique(dataCong$Item)))) + theme_bw() + geom_line()
+
+```
+
+
+
+
+###### Item by Age
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Age", "Item"), pred.type="re", ci.lvl = NA, dodge = 0, colors = paletteer_c("grDevices::rainbow", length(unique(dataCong$Item)))) + theme_bw() + geom_line()
+
+```
+
+
+
+###### Item by Cond facetted by Age
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Cond", "Item", "Age"), pred.type="re", ci.lvl = NA, dodge = 0, colors = paletteer_c("grDevices::rainbow", length(unique(dataCong$Item)))) + theme_bw() + geom_line()
+
+```
+
+
+###### Subject by Item
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Subj", "Item"), pred.type="re", ci.lvl = NA, dodge = 0, colors = paletteer_c("grDevices::rainbow", length(unique(dataCong$Subj)))) + theme_bw() + geom_line()
+
+```
+
+###### Subject by Item facetted by Cond
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Subj", "Item", "Cond"), pred.type="re", ci.lvl = NA, dodge = 0, colors = paletteer_c("grDevices::rainbow", length(unique(dataCong$Subj)))) + theme_bw() + geom_line()
+
+```
+
+
+###### Subject by Item facetted by Age
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Subj", "Item", "Age"), pred.type="re", ci.lvl = NA, dodge = 0, colors = paletteer_c("grDevices::rainbow", length(unique(dataCong$Subj)))) + theme_bw() + geom_line()
+
+```
+
+#### Lattice
+
+##### Subject Intercepts
+
+```{r}
+dotplot(ranef(xmdl.Optimal))$Subj[1]
+```
+
+
+##### Subject Slopes
+
+```{r}
+dotplot(ranef(xmdl.Optimal), xlim = c(-350, 350))$Subj[2]
+```
+
+
+
+
+##### Item Intercepts
+
+```{r}
+dotplot(ranef(xmdl.Optimal))$Item[1]
+```
+
+
+##### Item Slopes for Cond
+
+```{r}
+dotplot(ranef(xmdl.Optimal), xlim = c(-150, 150))$Item[2]
+```
+
+
+##### Item Slopes for Age
+
+```{r}
+dotplot(ranef(xmdl.Optimal), xlim = c(-150, 150))$Item[3]
+```
+
+
+
+
+# Conclusion
+
+This tutorial showed how one can explore random effects and formally assess the need for Random slopes
+
+As a rule of thumb: Any within-subject (or within-item) should be tested for a potential inclusion as a random slope
+
+Fixed effects provides averages over all observations, even when using mixed effects regressions; we need to explore what random effects (intercepts and slopes) tell us.
+
+In this example, we see that many subjects vary beyond the fixed effect; Standard Errors are not enough to quantify this type of variation. The same is true for items that are not explored routinely!
+
+
+I hope this tutorial helped you to uncover the role of participants and items and what they can tell us beyond the fixed effect!
+
+# session info
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+sessionInfo()
+```
+

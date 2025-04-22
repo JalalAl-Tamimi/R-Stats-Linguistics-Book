@@ -1,0 +1,1854 @@
+# Random effects - LMM, GLMM, CLMM, GAMMs {#Random_LMM_GLMM_CLMM_GAMM}
+
+
+## Loading packages 
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+### Use the code below to check if you have all required packages installed. If some are not installed already, the code below will install these. If you have all packages installed, then you could load them with the second code.
+requiredPackages = c('tidyverse', 'broom', 'knitr', 'Hmisc', 'corrplot', 'lme4', 'lmerTest', 'emmeans', 'ggsignif', 'PresenceAbsence', 'languageR', 'ordinal', 'mgcv', 'itsadug', 'ggstats', 'ggstatsplot', 'sjPlot', 'paletteer', 'lattice', 'car', 'webshot')
+for(p in requiredPackages){
+  if(!require(p,character.only = TRUE)) install.packages(p, dependencies = TRUE)
+  library(p,character.only = TRUE)
+}
+
+detach("package:lmerTest", unload = TRUE)
+```
+
+
+## Introduction
+
+When looking at any study in Linguistics (and beyond), we rarely use productions of one vowel, from one speaker and from one item. If this were the case, we are unable to quantify changes in specific languages. To be able to generalise our results, we go for data collected from:
+
+1. Multiple speakers
+2. Multiple vowels and consonants
+3. Multiple Items (words)
+4. Multiple utterances where words are embedded
+5. Multiple listeners in perception experiments.
+
+In the last case, when designing our perception experiment, we can sometimes use multiple items, coming from multiple utterances and from multiple speakers!
+
+If we do not account for these inter-dependencies in our dataset, we are increasing Type I Error. 
+
+Type I error, is when you easily find statistical differences when they are not there. Type II error is when you fail to find statistical difference when it is there. There are other types of errors [see this reference for more details](https://github.com/msonderegger/rmld-v1.1?s=09).
+
+### Fixed and random effects
+
+#### How to choose fixed and random effects
+
+Fixed effects are those that are part of the experimental conditions. If you have exhausted all levels of an experimental condition, then this goes into fixed effects. 
+Random effects are random selections of the population you have and you want to generalise over them.
+
+E.g., Speakers, listeners, items, utterances are all random effects because you are not using all the population of speakers, listeners, items, or utterances in your data! 
+
+BUT.. Can Speakers, listeners, items, or utterances be included as fixed effects? Yes!! When you do this, it means you are interested in this specific population and want to evaluate differences specific to the population!!
+
+#### What about Random Intercepts and Random Slopes
+
+Random Intercepts are used to obtain averages of your population and these are used in your statistical model to estimate variations. 
+
+Random Slopes are adjustments to your participants' observations as a function of your variables of interest. Usually, any within-subject (or within-item) variable is to be included as a random slope, but you need to use model comparison to evaluate the need to use it.
+
+
+## Linear Mixed-effects Models. Why random effects matter
+
+Let's generate a new dataframe that we will use later on for our mixed models
+
+We will use the `faux` package. It is not available on CRAN, but you can install it via github. First install the package `devtools`, and then install the package `faux` using the function `devtools::install_github`. 
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+# install.packages("devtools")
+# devtools::install_github("debruine/faux")
+library(faux)
+```
+
+
+
+
+### Dataframe (simulated)
+
+Our experiment has the following structure: we asked 40 subjects to respond to 40 items in a fully crossed design. There were two IVs: Condition with `congruent` and `incongruent` and Age with `young` and `old`. The Condition is a within subject variable; age is a between subject. However, Condition and Age were both within item variables. The dependant variable was LookingTime. 
+
+This meant that we used items within each of the `young` and the `old` subjects in addition to items within each of the `congurent` and `incongruent` conditions.  
+
+Our research question is as follows: `Age` of subject will impact the `Looking Time` in the two conditions. 
+Our hypothesis is: The older a subject is, the more the looking time it is to the incongruent condition. 
+
+We will use the package `faux` to simulate a dataframe. This step is crucial in assessing contributions of particular predictors and for testing ideas as we already know the distribution of the data and what to expect as an outcome when it comes to the fixed effect in question.
+
+
+The simulated data has the following parameters
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+set.seed(42)
+# define parameters
+Subj_n = 40  # number of subjects
+Item_n = 40  # number of items
+b0 = 100       # intercept
+b1 = 2.5 * b0   # fixed effect of condition
+u0s_sd = 300   # random intercept SD for subjects
+u0i_sd = 200   # random intercept SD for items
+u1s_sd = 100   # random b1 slope SD for subjects
+u1i_sd = 50   # random b1 slope SD for items
+r01s = -0.3     # correlation between random effects 0 and 1 for subjects
+r01i = 0.2     # correlation between random effects 0 and 1 for items
+sigma_sd = 150 # error SD
+
+# set up data structure
+dataCong <- add_random(Subj = Subj_n, Item = Item_n) %>%
+  # add within categorical variable for subject
+  add_within("Subj", Cond = c("Congruent", "Incongruent")) %>%
+  add_recode("Cond", "Cond.Incongruent", Congruent = 0, Incongruent = 1) %>%
+  # add between categorical variable for subject
+  add_between("Subj", Age = c("Young", "Old")) %>%
+  add_recode("Age", "Age.Old", Young = 0, Old = 1) %>%
+  # add random effects 
+  add_ranef("Subj", u0s = u0s_sd, u1s = u1s_sd, .cors = r01s) %>%
+  add_ranef("Item", u0i = u0i_sd, u1i = u1i_sd, .cors = r01i) %>%
+  ##add_ranef(c("Subj", "Item"), u0si = u0s_sd + u0i_sd) %>%
+  ##add_ranef(c("Subj", "Item"), u1si = u1s_sd + u1i_sd) %>%
+  add_ranef(sigma = sigma_sd) %>%
+  # calculate DV
+  mutate(LookingTime = b0 + b1 + u0s + u0i + #u0si + u1si +
+           (((b1 + u1s) + 0.5) * Cond.Incongruent) + (((b1 + u1s) + 0.9) * Age.Old) + # subject specific variation
+           (((b1 + u1i) - 0.3) * Cond.Incongruent) + (((b1 + u1i) - 0.25) * Age.Old) + # item specific variation  
+           sigma)
+write.csv(dataCong, "data/dataCong.csv")
+```
+
+
+If you were not able to install the `faux` package, simply uncomment the following line of code below to import the dataset
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+#dataCong <- read.csv("dataCong.csv")[-1]
+```
+
+
+#### Counts
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+dataCong <- dataCong %>% 
+  mutate(Subj = factor(Subj),
+         Item = factor(Item))
+dataCong
+```
+
+
+
+##### Subjects
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+dataCong %>% 
+  group_by(Cond, Age, Subj) %>% 
+  summarise(count = n())
+```
+
+
+
+##### Items
+
+##### Age
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+dataCong %>% 
+  group_by(Age, Item) %>% 
+  summarise(count = n())
+```
+
+
+##### Cond
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+dataCong %>% 
+  group_by(Cond, Item) %>% 
+  summarise(count = n())
+```
+
+
+
+#### Visualisations
+
+##### Condition by Age
+
+The figure below confirms this, where we see an increase in LookingTime in the `incongruent` condition and oevrall, `older` participants show an increase in LookingTime
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+dataCong %>% 
+  ggplot(aes(x = Cond,
+             y = LookingTime,
+             colour = Age)) +
+  theme_bw() + 
+  geom_boxplot() +
+  geom_smooth(aes(as.numeric(Cond)), method = "lm")
+```
+
+##### Subject by Condition
+
+This figure shows that subjects are variable in how they responded to this task
+
+
+```{r echo=TRUE, error=FALSE, message=FALSE, warning=FALSE}
+dataCong %>% 
+  ggplot(aes(x = Cond,
+             y = LookingTime,
+             colour = Subj)) +
+  theme_bw() + 
+  geom_point() +
+  geom_smooth(aes(as.numeric(Cond)), method = "lm", se = FALSE) +
+  scale_colour_manual(values = paletteer_c("grDevices::rainbow", length(unique(dataCong$Subj))))
+```
+
+
+##### Subject by Age
+
+This figure shows that subjects had an impact on the LookingTime in both age groups, simply due to their variable responses to the different items
+
+
+```{r echo=TRUE, error=FALSE, message=FALSE, warning=FALSE}
+dataCong %>% 
+  ggplot(aes(x = Age,
+             y = LookingTime,
+             colour = Subj)) +
+  theme_bw() + 
+  geom_point() +
+  geom_smooth(aes(as.numeric(Cond)), method = "lm", se = FALSE) +
+  scale_colour_manual(values = paletteer_c("grDevices::rainbow", length(unique(dataCong$Subj))))
+```
+
+
+
+##### Item by Condition
+
+This figure shows that items had an impact on the LookingTime in both conditions
+
+
+```{r echo=TRUE, error=FALSE, message=FALSE, warning=FALSE}
+dataCong %>% 
+  ggplot(aes(x = Cond,
+             y = LookingTime,
+             colour = Item)) +
+  theme_bw() + 
+  geom_point() +
+  geom_smooth(aes(as.numeric(Cond)), method = "lm", se = FALSE) +
+  scale_colour_manual(values = paletteer_c("grDevices::rainbow", length(unique(dataCong$Item))))
+```
+
+
+##### Subject by Age
+
+This figure shows that items had an impact on the LookingTime in both age groups
+
+
+```{r echo=TRUE, error=FALSE, message=FALSE, warning=FALSE}
+dataCong %>% 
+  ggplot(aes(x = Age,
+             y = LookingTime,
+             colour = Item)) +
+  theme_bw() + 
+  geom_point() +
+  geom_smooth(aes(as.numeric(Cond)), method = "lm", se = FALSE) +
+  scale_colour_manual(values = paletteer_c("grDevices::rainbow", length(unique(dataCong$Item))))
+```
+
+
+
+
+### Modelling strategy
+
+We use an LMER model with a crossed random effect. To choose our optimal model, we start first by a simple model with only random intercepts, increasing complexity by accounting for random slopes for both subjects and items. It is clear from our visualisation above, that there is no interaction between the two predictors. However, for demonstration purposes, we do test for this
+
+
+#### Simple Linear Model
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+mdl.lm <- dataCong %>% 
+  lm(LookingTime ~ Cond + Age, data = .)
+summary(mdl.lm)
+hist(residuals(mdl.lm))
+qqnorm(residuals(mdl.lm)); qqline(residuals(mdl.lm))
+plot(fitted(mdl.lm), residuals(mdl.lm), cex = 4)
+```
+
+#### No interaction
+
+##### Crossed random intercepts
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+xmdl.rand.Interc <- dataCong %>% 
+  lmer(LookingTime ~ Cond + Age + 
+         (1 | Subj) + 
+         (1 | Item), data = ., REML = FALSE,
+       control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 1e5)))
+```
+
+
+##### Crossed random intercepts + By-speaker random slopes
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+xmdl.rand.Slope1 <- dataCong %>% 
+  lmer(LookingTime ~ Cond + Age + 
+         (1 + Cond | Subj) + 
+         (1 | Item), data = ., REML = FALSE,
+       control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 1e5)))
+```
+
+##### Crossed random intercepts + By-speaker and by-item random slopes
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+xmdl.rand.Slope2 <- dataCong %>% 
+  lmer(LookingTime ~ Cond + Age + 
+         (1 + Cond | Subj) + 
+         (1 + Cond | Item), data = ., REML = FALSE,
+       control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 1e5)))
+```
+
+
+##### Crossed random intercepts + By-speaker and by-item random slopes
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+xmdl.rand.Slope3 <- dataCong %>% 
+  lmer(LookingTime ~ Cond + Age + 
+         (1 + Cond | Subj) + 
+         (1 + Cond + Age| Item), data = ., REML = FALSE,
+       control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 1e5)))
+```
+
+
+#### With interaction
+
+##### Crossed random intercepts + Interaction
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+xmdl.rand.Interc.Int <- dataCong %>% 
+  lmer(LookingTime ~ Cond * Age + 
+         (1 | Subj) + 
+         (1 | Item), data = ., REML = FALSE,
+       control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 1e5)))
+```
+
+
+##### Crossed random intercepts + By-speaker random slopes + Interaction
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+xmdl.rand.Slope1.Int <- dataCong %>% 
+  lmer(LookingTime ~ Cond * Age + 
+         (1 + Cond | Subj) + 
+         (1 | Item), data = ., REML = FALSE,
+       control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 1e5)))
+```
+
+##### Crossed random intercepts + By-speaker and by-item random slopes + Interaction
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+xmdl.rand.Slope2.Int <- dataCong %>% 
+  lmer(LookingTime ~ Cond * Age + 
+         (1 + Cond | Subj) + 
+         (1 + Cond | Item), data = ., REML = FALSE,
+       control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 1e5)))
+```
+
+
+##### Crossed random intercepts + By-speaker and by-item random slopes
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+xmdl.rand.Slope3.Int <- dataCong %>% 
+  lmer(LookingTime ~ Cond * Age + 
+         (1 + Cond | Subj) + 
+         (1 + Cond * Age| Item), data = ., REML = FALSE,
+       control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 1e5)))
+```
+
+
+#### Model comparison
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+anova(xmdl.rand.Interc, xmdl.rand.Slope1, xmdl.rand.Slope2, xmdl.rand.Slope3, xmdl.rand.Interc.Int, xmdl.rand.Slope1.Int, xmdl.rand.Slope2.Int, xmdl.rand.Slope3.Int)
+```
+
+
+The results above highlight that the model accounting for both by-subject and by-item random intercepts and random slopes for Condition are improving the model fit in comparison to a more complex model. We rerun the model with `REML = False`
+
+#### Optimal model
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+xmdl.Optimal <- dataCong %>% 
+  lmer(LookingTime ~ Cond + Age + 
+         (1 + Cond | Subj) + 
+         (1 + Cond + Age | Item), data = ., REML = TRUE,
+       control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 1e5)))
+```
+
+
+##### Model criticism
+
+###### Histogram
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+hist(residuals(xmdl.Optimal))
+```
+
+
+
+###### QQ-plot
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+qqnorm(residuals(xmdl.Optimal)); qqline(residuals(xmdl.Optimal))
+```
+
+
+###### Residuals vs Fitted
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+plot(fitted(xmdl.Optimal), residuals(xmdl.Optimal), cex = 4)
+```
+
+##### Summary
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+xmdl.Optimal %>% 
+  summary()
+```
+
+
+##### ANOVA
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+Anova(xmdl.Optimal)
+```
+
+
+##### Model’s fit
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+print(tab_model(xmdl.Optimal, file = paste0("outputs/xmdl.Optimal.html")))
+webshot(paste0("outputs/xmdl.Optimal.html"), paste0("outputs/xmdl.Optimal.png"))
+```
+
+![Model fit: Linear Mixed effects model](xmdl.Optimal.png)
+
+### Plotting model's output
+
+#### With `ggstats`
+
+We use two functions from the package `ggstats`. 
+
+##### A plot
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+ggcoef_model(xmdl.Optimal)
+```
+
+
+
+#### A plot + a table + 95% CI
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+ggcoef_table(xmdl.Optimal)
+```
+
+
+
+#### With `ggstatsplot`
+
+```{r}
+ggcoefstats(xmdl.Optimal, point.args = list(color = paletteer_c("grDevices::rainbow", 13), stats.label.color = paletteer_c("grDevices::rainbow", 13)))
+
+```
+
+
+
+### Exploring random effects
+
+
+#### Subject random effects
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+random_effects <- ranef(xmdl.Optimal) %>%
+  pluck(1) %>%
+  rownames_to_column() %>%
+  rename(Subject = rowname, Intercept = "(Intercept)") 
+ 
+random_effects %>%
+  knitr::kable()
+
+```
+
+
+
+
+#### Items random effects
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+random_effects <- ranef(xmdl.Optimal) %>%
+  pluck(2) %>%
+  rownames_to_column() %>%
+  rename(Items = rowname, Intercept = "(Intercept)") 
+ 
+random_effects %>%
+  knitr::kable()
+
+```
+
+
+#### Plots
+
+These plots below are produced with the `sjPlot` package.
+
+
+##### Fixed effects
+
+###### Condition
+
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Cond"), ci.lvl = NA, dodge = 0) + theme_bw() + geom_line()
+
+```
+
+
+###### Age
+
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Age"), ci.lvl = NA, dodge = 0) + theme_bw() + geom_line()
+```
+
+
+###### Condition by Age
+
+
+```{r}
+plot_model(xmdl.Optimal, type="emm", terms=c("Cond", "Age"), ci.lvl = NA, dodge = 0) + theme_bw() + geom_line()
+
+```
+
+
+##### Random effects
+
+###### Subject
+
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Subj"), pred.type="re", ci.lvl = NA, dodge = 0) + theme_bw() + geom_line()
+```
+
+
+###### Subject by Condition
+
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Cond", "Subj"), pred.type="re", ci.lvl = NA, dodge = 0, colors = paletteer_c("grDevices::rainbow", length(unique(dataCong$Subj)))) + theme_bw() + geom_line() 
+```
+
+
+###### Subject by Age
+
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Age", "Subj"), pred.type="re", ci.lvl = NA, dodge = 0, colors = paletteer_c("grDevices::rainbow", length(unique(dataCong$Subj)))) + theme_bw() + geom_line()
+```
+
+
+###### Item
+
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Item"), pred.type="re", ci.lvl = NA, dodge = 0) + theme_bw() + geom_line()
+```
+
+
+###### Item by Cond
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Cond", "Item"), pred.type="re", ci.lvl = NA, dodge = 0, colors = paletteer_c("grDevices::rainbow", length(unique(dataCong$Item)))) + theme_bw() + geom_line()
+```
+
+
+###### Item by Age
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Age", "Item"), pred.type="re", ci.lvl = NA, dodge = 0, colors = paletteer_c("grDevices::rainbow", length(unique(dataCong$Item)))) + theme_bw() + geom_line()
+```
+
+
+###### Item by Cond facetted by Age
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Cond", "Item", "Age"), pred.type="re", ci.lvl = NA, dodge = 0, colors = paletteer_c("grDevices::rainbow", length(unique(dataCong$Item)))) + theme_bw() + geom_line()
+```
+
+
+###### Subject by Item
+
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Subj", "Item"), pred.type="re", ci.lvl = NA, dodge = 0, colors = paletteer_c("grDevices::rainbow", length(unique(dataCong$Subj)))) + theme_bw() + geom_line()
+```
+
+
+###### Subject by Item facetted by Cond
+
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Subj", "Item", "Cond"), pred.type="re", ci.lvl = NA, dodge = 0, colors = paletteer_c("grDevices::rainbow", length(unique(dataCong$Subj)))) + theme_bw() + geom_line()
+```
+
+
+###### Subject by Item facetted by Age
+
+
+```{r}
+plot_model(xmdl.Optimal, type="pred", terms=c("Subj", "Item", "Age"), pred.type="re", ci.lvl = NA, dodge = 0, colors = paletteer_c("grDevices::rainbow", length(unique(dataCong$Subj)))) + theme_bw() + geom_line()
+```
+
+
+
+##### With `Lattice`
+
+###### Subject Intercepts
+
+
+```{r}
+dotplot(ranef(xmdl.Optimal))$Subj[1]
+```
+
+
+###### Subject Slopes
+
+```{r}
+dotplot(ranef(xmdl.Optimal), xlim = c(-350, 350))$Subj[2]
+```
+
+
+###### Item Intercepts
+
+```{r}
+dotplot(ranef(xmdl.Optimal))$Item[1]
+```
+
+
+###### Item Slopes for Cond
+
+
+```{r}
+dotplot(ranef(xmdl.Optimal), xlim = c(-150, 150))$Item[2]
+```
+
+###### Item Slopes for Age
+
+```{r}
+dotplot(ranef(xmdl.Optimal), xlim = c(-150, 150))$Item[3]
+```
+
+
+
+
+
+
+I hope this tutorial helped you to uncover the role of participants and items and what they can tell us beyond the fixed effect!
+
+
+
+### Conclusion
+
+In this simulated dataset, we showed how to use Linear Mixed-effects Models, and used a specific approach, named "maximal specification model". This maximal specification model uses both random intercepts and random slopes. Usually, on any dataset, you are required to formally assess the need for Random slopes.
+
+As a rule of thumb: Any within-subject (or within-item) should be tested for a potential inclusion as a random slope.
+
+Fixed effects provide averages over all observations, even when using mixed effects regressions; we need to explore what random effects (intercepts and slopes) tell us.
+
+In this example, we see that many subjects vary beyond the fixed effect; Standard Errors are not enough to quantify this type of variation. The same is true for items that are not explored routinely!
+
+The approach above used a maximal specification model. This of course depends on the dataset you are working on and requires formal testing. See the package [RePsychLing](https://github.com/dmbates/RePsychLing) that is on github. The function `RePCA` is part of the package `lme4`. You can use it to verify if the model structure is appropriate. However, `lme4` will give you directly a warning "is singular" that you can interpret as "over specified model".
+
+
+## Generalised Linear Mixed-effects Models
+
+Here we will look at an example when the outcome is binary. This simulated data is structured as follows. We asked one participant to listen to 165 sentences, and to judge whether these are "grammatical" or "ungrammatical". There were 105 sentences that were "grammatical" and 60 "ungrammatical". This fictitious example can apply in any other situation. Let's think Geography: 165 lands: 105 "flat" and 60 "non-flat", etc. This applies to any case where you need to "categorise" the outcome into two groups. 
+
+
+### GLMM - Categorical predictors
+
+Let's run a first GLMM (Generalised Linear Model). 
+
+#### Simulating a new dataset
+
+
+```{r}
+grammatical2 <- as.data.frame(
+  cbind("participant" = c("participant" = rep("p1", 165), rep("p2", 165)),
+    "grammaticality" = c("grammatical" = rep("grammatical", 105), 
+ "ungrammatical" = rep("ungrammatical", 60),
+ "grammatical" = rep("grammatical", 105), 
+ "ungrammatical" = rep("ungrammatical", 60)),
+        "response" = c("yes" = rep("yes", 100), 
+                       "no" = rep("no", 5),
+                       "yes" = rep("yes", 10),
+                       "no" = rep("no", 50),
+    "yes" = rep("yes", 90), 
+                       "no" = rep("no", 15),
+                       "yes" = rep("yes", 30),
+                       "no" = rep("no", 30))),
+  row.names = FALSE)
+grammatical2 %>% 
+  head(10)
+```
+
+
+#### Manipulations and a table
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+grammatical2 <- grammatical2 %>% 
+  mutate(response = factor(response, levels = c("no", "yes")),
+         grammaticality = factor(grammaticality, levels = c("ungrammatical", "grammatical")))
+
+grammatical2 %>% 
+  select(response, grammaticality) %>% 
+  group_by(response, grammaticality) %>% 
+  table()
+
+```
+
+
+#### Model estimation and results
+
+##### Random Intercepts
+
+The results below show the logodds for our model. 
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+mdl.glmm <- grammatical2 %>% 
+  glmer(response ~ grammaticality + (1|participant), data = ., family = binomial)
+summary(mdl.glmm)
+```
+
+
+##### Random Slopes
+
+The results below show the logodds for our model. 
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+mdl.glmmSlope <- grammatical2 %>% 
+  glmer(response ~ grammaticality + (grammaticality|participant), data = ., family = binomial)
+summary(mdl.glmmSlope)
+```
+
+
+
+##### Random Slopes decorrelated
+
+The results below show the logodds for our model. 
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+mdl.glmmSlopeDec <- grammatical2 %>% 
+  glmer(response ~ grammaticality + (grammaticality||participant), data = ., family = binomial)
+summary(mdl.glmmSlopeDec)
+```
+
+
+#### Model comparison
+
+
+```{r}
+anova(mdl.glmm, mdl.glmmSlope)
+```
+
+
+```{r}
+anova(mdl.glmmSlope, mdl.glmmSlopeDec)
+```
+
+
+The model comparisons show that the model with both random intercepts and random slopes is improving the model fit. The `Is.Singular` message tells us that there is a chance there is a complete separation in the model.
+
+
+#### Getting results
+
+
+##### Model’s fit
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+print(tab_model(mdl.glmmSlope, file = paste0("outputs/mdl.glmmSlope.html")))
+webshot(paste0("outputs/mdl.glmmSlope.html"), paste0("outputs/mdl.glmmSlope.png"))
+```
+
+![Model fit: Generalised Linear Mixed effects model - Categorical](mdl.glmmSlope.png)
+
+
+##### Fixed effects
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+fixef(mdl.glmmSlope)
+fixef(mdl.glmmSlope)[1]
+fixef(mdl.glmmSlope)[2]
+```
+
+
+##### Random effects
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+coef(mdl.glmmSlope)$`participant`[1]
+coef(mdl.glmmSlope)$`participant`[2]
+```
+
+
+##### Logodds to Odd ratios
+
+Logodds can be modified to talk about the odds of an event. 
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+exp(fixef(mdl.glmmSlope)[1])
+exp(fixef(mdl.glmmSlope)[1] + fixef(mdl.glmmSlope)[2])
+```
+
+
+##### LogOdds to proportions
+
+If you want to talk about the percentage "accuracy" of our model, then we can transform our loggodds into proportions. This shows that the proportion of "grammatical" receiving a "yes" response increases by 99% (or 95% based on our "true" coefficients).
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+plogis(fixef(mdl.glmmSlope)[1])
+plogis(fixef(mdl.glmmSlope)[1] + fixef(mdl.glmmSlope)[2])
+```
+
+
+##### Plotting
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+grammatical2 <- grammatical2 %>% 
+  mutate(prob = predict(mdl.glmmSlope, type = "response"))
+grammatical2 %>% 
+  ggplot(aes(x = as.numeric(grammaticality), y = prob)) +
+  geom_point() +
+  geom_smooth(method = "glm", 
+    method.args = list(family = "binomial"), 
+    se = T) + theme_bw(base_size = 20)+
+    labs(y = "Probability", x = "")+
+    coord_cartesian(ylim = c(0,1))+
+    scale_x_discrete(limits = c("Ungrammatical", "Grammatical")) +
+  facet_grid(~ participant, margins = TRUE, scales = "free")
+```
+
+
+### GLMM - Numeric predictors
+
+In this example, we will run a GLM model using a similar technique to that used in `Al-Tamimi (2017)` and `Baumann & Winter (2018)`. We use the package `LanguageR` and the dataset `English`.
+
+
+In the model above, we used the equation as lm(RTlexdec ~ AgeSubject). We were interested in examining the impact of age of subject on reaction time in a lexical decision task. In this section, we are interested in understanding how reaction time allows to differentiate the participants based on their age. We use `AgeSubject` as our outcome and `RTlexdec` as our predictor using the equation glm(AgeSubject ~ RTlexdec). We usually can use `RTlexdec` as is, but due to a possible quasi separation and the fact that we may want to compare coefficients using multiple acoustic metrics, we will z-score our predictor. We run below two models, with and without z-scoring
+
+For the glm model, we need to specify `family = "binomial"`.
+
+#### Without z-scoring of predictor
+
+##### Model estimation
+
+In the `english` dataset, we have a random factor: "Word". We include it here.
+
+###### Random Intercepts
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+english2 <- english %>% 
+  mutate(AgeSubject = factor(AgeSubject, levels = c("young", "old")))
+
+mdl.glmm2 <- english2 %>% 
+  glmer(AgeSubject ~ RTlexdec + (1|Word), data = ., family = "binomial")
+summary(mdl.glmm2)
+```
+
+
+###### Random Slopes
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+mdl.glmmSlope2 <- english2 %>% 
+  glmer(AgeSubject ~ RTlexdec + (RTlexdec|Word), data = ., family = "binomial")
+summary(mdl.glmmSlope2)
+```
+
+
+#### Model comparison
+
+
+```{r}
+anova(mdl.glmm2, mdl.glmmSlope2)
+```
+
+
+The model comparisons show that the model with both random intercepts and random slopes is improving the model fit. The `Is.Singular` message tells us that there is a chance there is a complete separation in the model.
+
+
+
+#### Gettings results
+
+
+##### Model’s fit
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+print(tab_model(mdl.glmmSlope2, file = paste0("outputs/mdl.glmmSlope2.html")))
+webshot(paste0("outputs/mdl.glmmSlope2.html"), paste0("outputs/mdl.glmmSlope2.png"))
+```
+
+![Model fit: Generalised Linear Mixed effects model - Numeric](mdl.glmmSlope2.png)
+
+
+##### Fixed effects
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+fixef(mdl.glmmSlope2)
+fixef(mdl.glmmSlope2)[1]
+fixef(mdl.glmmSlope2)[2]
+```
+
+
+##### Random effects
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+coef(mdl.glmmSlope2)$`Word`[1]
+coef(mdl.glmmSlope2)$`Word`[2]
+```
+
+
+##### Logodds to Odd ratios
+
+Logodds can be modified to talk about the odds of an event. 
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+exp(fixef(mdl.glmmSlope2)[1])
+exp(fixef(mdl.glmmSlope2)[1] + fixef(mdl.glmmSlope2)[2])
+```
+
+
+##### LogOdds to proportions
+
+If you want to talk about the percentage "accuracy" of our model, then we can transform our loggodds into proportions. This shows that the proportion of "grammatical" receiving a "yes" response increases by 99% (or 95% based on our "true" coefficients)
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+plogis(fixef(mdl.glmmSlope2)[1])
+plogis(fixef(mdl.glmmSlope2)[1] + fixef(mdl.glmmSlope2)[2])
+```
+
+
+
+##### Plotting
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+english2 <- english2 %>% 
+  mutate(prob2 = predict(mdl.glmmSlope2, type = "response"))
+english2 %>% 
+  ggplot(aes(x = as.numeric(AgeSubject), y = prob2)) +
+  geom_point() +
+  geom_smooth(method = "glm", 
+    method.args = list(family = "binomial"), 
+    se = T) + theme_bw(base_size = 20)+
+    labs(y = "Probability", x = "")+
+    coord_cartesian(ylim = c(0,1))+
+    scale_x_discrete(limits = c("Young", "Old"))
+```
+ 
+ 
+The plot above shows how the two groups differ using a glmm. The results point to an overall increase in the proportion of reaction time when moving from the "Young" to the "Old" group.
+
+Let's use z-scoring next
+
+
+#### With z-scoring of predictor
+
+##### Model estimation
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+english2 <- english2 %>% 
+  mutate(`RTlexdec_z` = scale(RTlexdec, center = TRUE, scale = TRUE))
+
+english2['RTlexdec_z'] <- as.data.frame(scale(english2$RTlexdec))
+```
+
+
+###### Random Intercepts
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+mdl.glmm3 <- english2 %>% 
+  glmer(AgeSubject ~ RTlexdec_z + (1|Word), data = ., family = "binomial")
+summary(mdl.glmm3)
+```
+
+
+
+###### Random Slopes
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+mdl.glmmSlope3 <- english2 %>% 
+  glmer(AgeSubject ~ RTlexdec_z + (RTlexdec_z|Word), data = ., family = "binomial")
+summary(mdl.glmmSlope3)
+```
+
+
+##### Model comparison
+
+```{r}
+anova(mdl.glmm3, mdl.glmmSlope3)
+```
+
+
+The model comparisons show that the model with both random intercepts and random slopes is improving the model fit. The `Is.Singular` message tells us that there is a chance there is a complete separation in the model.
+
+
+##### Gettings results
+
+
+###### Model’s fit
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+print(tab_model(mdl.glmmSlope3, file = paste0("outputs/mdl.glmmSlope3.html")))
+webshot(paste0("outputs/mdl.glmmSlope3.html"), paste0("outputs/mdl.glmmSlope3.png"))
+```
+
+![Model fit: Generalised Linear Mixed effects model - Numeric - z scores](mdl.glmmSlope3.png)
+
+
+###### Fixed effects
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+fixef(mdl.glmmSlope3)
+fixef(mdl.glmmSlope3)[1]
+fixef(mdl.glmmSlope3)[2]
+```
+
+
+###### Random effects
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+coef(mdl.glmmSlope3)$`Word`[1]
+coef(mdl.glmmSlope3)$`Word`[2]
+```
+
+
+##### Plotting
+
+###### Normal
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+english2 <- english2 %>% 
+  mutate(prob3 = predict(mdl.glmmSlope3, type = "response"))
+english2 %>% 
+  ggplot(aes(x = as.numeric(AgeSubject), y = prob3)) +
+  geom_point() +
+  geom_smooth(method = "glm", 
+    method.args = list(family = "binomial"), 
+    se = T) + theme_bw(base_size = 20)+
+    labs(y = "Probability", x = "")+
+    coord_cartesian(ylim = c(0,1))+
+    scale_x_discrete(limits = c("Young", "Old"))
+```
+ 
+ 
+We obtain the exact same plots, but the model estimations are different. Let's use another type of predictions
+
+
+###### z-scores
+
+```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
+z_vals <- seq(-3, 3, 0.01)
+n = nrow(english2)
+
+dfPredNew <- data.frame(RTlexdec_z = z_vals)
+
+### store the predicted probabilities for each value of RTlexdec_z
+pp <- cbind(dfPredNew, prob = predict(mdl.glmmSlope3, newdata = dfPredNew, type = "response", re.form = NA))#re.form is used to cancel random effects
+
+pp %>% 
+  ggplot(aes(x = RTlexdec_z, y = prob)) +
+  geom_point() +
+  theme_bw(base_size = 20)+
+    labs(y = "Probability", x = "")+
+    coord_cartesian(ylim = c(-0.1, 1.1), expand = FALSE) +
+    scale_y_discrete(limits = c(0,1), labels = c("Young", "Old")) +
+  scale_x_continuous(breaks = c(-3, -2, -1, 0, 1, 2, 3)) + 
+  annotate("rect", xmin = -0.5, xmax = 0.5, ymin = -Inf, ymax = Inf, show.legend = FALSE, alpha=0.15)
+```
+ 
+ 
+We obtain the exact same plots, but the model estimations are different. 
+
+
+
+## Cumulative Logit Link Mixed-effects Models
+
+These models work perfectly with rating data. Ratings are inherently ordered, 1, 2, ... n, and expect to observe an increase (or decrease) in overall ratings from 1 to n. To demonstrate this, we will use an example using the package "ordinal". 
+
+We use two datasets. We previously ran these two models, however, in this subset of the full dataset, we did not take into account the fact that there were multiple producing speakers and items. 
+
+### Ratings of percept of nasality
+
+The first comes from a likert-scale a rating experiment where six participants rated the percept of nasality in the production of particular consonants in Arabic. The data came from nine producing subjects. The ratings were from 1 to 5, with 1 reflecting an `oral` percept; 5 a `nasal` percept.
+
+#### Importing and pre-processing
+
+We start by importing the data and process it. We change the reference level in the predictor
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+rating <- read_csv("data/rating.csv")[-1]
+rating
+rating <- rating %>% 
+  mutate(Response = factor(Response),
+         Context = factor(Context),
+         Subject = factor(Subject),
+         Item = factor(Item)) %>% 
+  mutate(Context = relevel(Context, "isolation"))
+rating %>% 
+  head(10)
+```
+
+#### Model specifications
+
+##### No random effects
+
+We run our first clm model as a simple, i.e., with no random effects
+
+```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
+system.time(mdl.clm <- rating %>% 
+  clm(Response ~ Context, data = .))
+summary(mdl.clm)
+```
+
+
+##### Random effects 1 - Intercepts only
+
+We run our first clmm model as a simple, i.e., with random intercepts
+
+```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
+system.time(mdl.clmm.Int <- rating %>% 
+  clmm(Response ~ Context + (1|Subject) + (1|Item), data = .))
+summary(mdl.clmm.Int)
+```
+
+
+
+##### Random effects 2 - Intercepts and Slopes
+
+We run our second clmm model as a simple, i.e., with random intercepts and random slopes. Because the model will run for a while, we added an if condition to say f the model was run previously, simply load the rds file rather than running it.
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
+system.time(mdl.clmm.Slope <- rating %>% 
+                                       clmm(Response ~ Context + (Context|Subject) + (1|Item), data = .))
+summary(mdl.clmm.Slope)
+```
+
+
+
+#### Testing significance 
+
+We can evaluate whether "Context" improves the model fit, by comparing a null model with our model. Of course "Context" is improving the model fit.
+
+```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
+mdl.clm.Null <- rating %>% 
+  clm(Response ~ 1, data = .)
+```
+
+
+##### Null vs no random
+
+```{r}
+anova(mdl.clm, mdl.clm.Null)
+```
+
+
+##### No random vs Random Intercepts
+
+```{r}
+anova(mdl.clm, mdl.clmm.Int)
+```
+
+
+##### No random vs Random Intercepts
+
+```{r}
+anova(mdl.clmm.Int, mdl.clmm.Slope)
+```
+
+
+The model comparison above shows that using random intercepts is enough in our case. By subject Random Slopes are not needed; subjects "seem" to show similarities in how they produced the items. 
+In our publication, by Rater Random Slopes for context were needed.
+
+
+
+#### Model’s fit
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+print(tab_model(mdl.clmm.Int, file = paste0("outputs/mdl.clmm.Int.html")))
+webshot(paste0("outputs/mdl.clmm.Int.html"), paste0("outputs/mdl.clmm.Int.png"))
+```
+
+![Model fit: Cumulative Logit Mixed effects model](mdl.clmm.Int.png)
+
+
+#### Interpreting a cumulative model
+
+As a way to interpret the model, we can look at the coefficients and make sense of the results. A CLM model is a Logistic model with a cumulative effect. The "Coefficients" are the estimates for each level of the fixed effect; the "Threshold coefficients" are those of the response. For the former, a negative coefficient indicates a negative association with the response; and a positive is positively associated with the response. The p values are indicating the significance of each level. For the "Threshold coefficients", we can see the cumulative effects of ratings 1|2, 2|3, 3|4 and 4|5 which indicate an overall increase in the ratings from 1 to 5. 
+
+#### Plotting 
+
+##### No confidence intervals
+
+We use a modified version of a plotting function that allows us to visualise the effects. For this, we use the base R plotting functions. The version below is without confidence intervals.
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+par(oma=c(1, 0, 0, 3),mgp=c(2, 1, 0))
+xlimNas = c(min(mdl.clmm.Int$beta), max(mdl.clmm.Int$beta))
+ylimNas = c(0,1)
+plot(0,0,xlim=xlimNas, ylim=ylimNas, type="n", ylab=expression(Probability), xlab="", xaxt = "n",main="Predicted curves - Nasalisation",cex=2,cex.lab=1.5,cex.main=1.5,cex.axis=1.5)
+axis(side = 1, at = c(0,mdl.clmm.Int$beta),labels = levels(rating$Context), las=2,cex=2,cex.lab=1.5,cex.axis=1.5)
+xsNas = seq(xlimNas[1], xlimNas[2], length.out=100)
+lines(xsNas, plogis(mdl.clmm.Int$Theta[1] - xsNas), col='black')
+lines(xsNas, plogis(mdl.clmm.Int$Theta[2] - xsNas)-plogis(mdl.clmm.Int$Theta[1] - xsNas), col='red')
+lines(xsNas, plogis(mdl.clmm.Int$Theta[3] - xsNas)-plogis(mdl.clmm.Int$Theta[2] - xsNas), col='green')
+lines(xsNas, plogis(mdl.clmm.Int$Theta[4] - xsNas)-plogis(mdl.clmm.Int$Theta[3] - xsNas), col='orange')
+lines(xsNas, 1-(plogis(mdl.clmm.Int$Theta[4] - xsNas)), col='blue')
+abline(v=c(0,mdl.clmm.Int$beta),lty=3)
+abline(h=0, lty="dashed")
+abline(h=0.2, lty="dashed")
+abline(h=0.4, lty="dashed")
+abline(h=0.6, lty="dashed")
+abline(h=0.8, lty="dashed")
+abline(h=1, lty="dashed")
+
+legend(par('usr')[2], par('usr')[4], bty='n', xpd=NA,lty=1, col=c("black", "red", "green", "orange", "blue"), 
+       legend=c("Oral", "2", "3", "4", "Nasal"),cex=0.75)
+
+```
+
+
+##### With confidence intervals
+
+Here is an attempt to add the 97.5% confidence intervals to these plots. This is an experimental attempt and any feedback is welcome!
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+par(oma=c(1, 0, 0, 3),mgp=c(2, 1, 0))
+xlimNas = c(min(mdl.clmm.Int$beta), max(mdl.clmm.Int$beta))
+ylimNas = c(0,1)
+plot(0,0,xlim=xlimNas, ylim=ylimNas, type="n", ylab=expression(Probability), xlab="", xaxt = "n",main="Predicted curves - Nasalisation",cex=2,cex.lab=1.5,cex.main=1.5,cex.axis=1.5)
+axis(side = 1, at = c(0,mdl.clmm.Int$beta),labels = levels(rating$Context), las=2,cex=2,cex.lab=1.5,cex.axis=1.5)
+xsNas = seq(xlimNas[1], xlimNas[2], length.out=100)
+
+
+#+CI 
+lines(xsNas, plogis(mdl.clmm.Int$Theta[1]+(summary(mdl.clmm.Int)$coefficient[,2][[1]]/1.96) - xsNas), col='black')
+lines(xsNas, plogis(mdl.clmm.Int$Theta[2]+(summary(mdl.clmm.Int)$coefficient[,2][[2]]/1.96) - xsNas)-plogis(mdl.clmm.Int$Theta[1]+(summary(mdl.clmm.Int)$coefficient[,2][[1]]/1.96) - xsNas), col='red')
+lines(xsNas, plogis(mdl.clmm.Int$Theta[3]+(summary(mdl.clmm.Int)$coefficient[,2][[3]]/1.96) - xsNas)-plogis(mdl.clmm.Int$Theta[2]+(summary(mdl.clmm.Int)$coefficient[,2][[2]]/1.96) - xsNas), col='green')
+lines(xsNas, plogis(mdl.clmm.Int$Theta[4]+(summary(mdl.clmm.Int)$coefficient[,2][[4]]/1.96) - xsNas)-plogis(mdl.clmm.Int$Theta[3]+(summary(mdl.clmm.Int)$coefficient[,2][[3]]/1.96) - xsNas), col='orange')
+lines(xsNas, 1-(plogis(mdl.clmm.Int$Theta[4]+(summary(mdl.clmm.Int)$coefficient[,2][[4]]/1.96) - xsNas)), col='blue')
+
+#-CI 
+lines(xsNas, plogis(mdl.clmm.Int$Theta[1]-(summary(mdl.clmm.Int)$coefficient[,2][[1]]/1.96) - xsNas), col='black')
+lines(xsNas, plogis(mdl.clmm.Int$Theta[2]-(summary(mdl.clmm.Int)$coefficient[,2][[2]]/1.96) - xsNas)-plogis(mdl.clmm.Int$Theta[1]-(summary(mdl.clmm.Int)$coefficient[,2][[1]]/1.96) - xsNas), col='red')
+lines(xsNas, plogis(mdl.clmm.Int$Theta[3]-(summary(mdl.clmm.Int)$coefficient[,2][[3]]/1.96) - xsNas)-plogis(mdl.clmm.Int$Theta[2]-(summary(mdl.clmm.Int)$coefficient[,2][[2]]/1.96) - xsNas), col='green')
+lines(xsNas, plogis(mdl.clmm.Int$Theta[4]-(summary(mdl.clmm.Int)$coefficient[,2][[4]]/1.96) - xsNas)-plogis(mdl.clmm.Int$Theta[3]-(summary(mdl.clmm.Int)$coefficient[,2][[3]]/1.96) - xsNas), col='orange')
+lines(xsNas, 1-(plogis(mdl.clmm.Int$Theta[4]-(summary(mdl.clmm.Int)$coefficient[,2][[4]]/1.96) - xsNas)), col='blue')
+
+## fill area around CI using c(x, rev(x)), c(y2, rev(y1))
+polygon(c(xsNas, rev(xsNas)),
+        c(plogis(mdl.clmm.Int$Theta[1]+(summary(mdl.clmm.Int)$coefficient[,2][[1]]/1.96) - xsNas), rev(plogis(mdl.clmm.Int$Theta[1]-(summary(mdl.clmm.Int)$coefficient[,2][[1]]/1.96) - xsNas))), col = "gray90")
+
+polygon(c(xsNas, rev(xsNas)),
+        c(plogis(mdl.clmm.Int$Theta[2]+(summary(mdl.clmm.Int)$coefficient[,2][[2]]/1.96) - xsNas)-plogis(mdl.clmm.Int$Theta[1]+(summary(mdl.clmm.Int)$coefficient[,2][[1]]/1.96) - xsNas), rev(plogis(mdl.clmm.Int$Theta[2]-(summary(mdl.clmm.Int)$coefficient[,2][[2]]/1.96) - xsNas)-plogis(mdl.clmm.Int$Theta[1]-(summary(mdl.clmm.Int)$coefficient[,2][[1]]/1.96) - xsNas))), col = "gray90")
+
+
+polygon(c(xsNas, rev(xsNas)),
+        c(plogis(mdl.clmm.Int$Theta[3]+(summary(mdl.clmm.Int)$coefficient[,2][[3]]/1.96) - xsNas)-plogis(mdl.clmm.Int$Theta[2]+(summary(mdl.clmm.Int)$coefficient[,2][[2]]/1.96) - xsNas), rev(plogis(mdl.clmm.Int$Theta[3]-(summary(mdl.clmm.Int)$coefficient[,2][[3]]/1.96) - xsNas)-plogis(mdl.clmm.Int$Theta[2]-(summary(mdl.clmm.Int)$coefficient[,2][[2]]/1.96) - xsNas))), col = "gray90")
+
+polygon(c(xsNas, rev(xsNas)),
+        c(plogis(mdl.clmm.Int$Theta[4]+(summary(mdl.clmm.Int)$coefficient[,2][[4]]/1.96) - xsNas)-plogis(mdl.clmm.Int$Theta[3]+(summary(mdl.clmm.Int)$coefficient[,2][[3]]/1.96) - xsNas), rev(plogis(mdl.clmm.Int$Theta[4]-(summary(mdl.clmm.Int)$coefficient[,2][[4]]/1.96) - xsNas)-plogis(mdl.clmm.Int$Theta[3]-(summary(mdl.clmm.Int)$coefficient[,2][[3]]/1.96) - xsNas))), col = "gray90")
+
+        
+polygon(c(xsNas, rev(xsNas)),
+        c(1-(plogis(mdl.clmm.Int$Theta[4]-(summary(mdl.clmm.Int)$coefficient[,2][[4]]/1.96) - xsNas)), rev(1-(plogis(mdl.clmm.Int$Theta[4]+(summary(mdl.clmm.Int)$coefficient[,2][[4]]/1.96) - xsNas)))), col = "gray90")       
+
+lines(xsNas, plogis(mdl.clmm.Int$Theta[1] - xsNas), col='black')
+lines(xsNas, plogis(mdl.clmm.Int$Theta[2] - xsNas)-plogis(mdl.clmm.Int$Theta[1] - xsNas), col='red')
+lines(xsNas, plogis(mdl.clmm.Int$Theta[3] - xsNas)-plogis(mdl.clmm.Int$Theta[2] - xsNas), col='green')
+lines(xsNas, plogis(mdl.clmm.Int$Theta[4] - xsNas)-plogis(mdl.clmm.Int$Theta[3] - xsNas), col='orange')
+lines(xsNas, 1-(plogis(mdl.clmm.Int$Theta[4] - xsNas)), col='blue')
+abline(v=c(0,mdl.clmm.Int$beta),lty=3)
+
+abline(h=0, lty="dashed")
+abline(h=0.2, lty="dashed")
+abline(h=0.4, lty="dashed")
+abline(h=0.6, lty="dashed")
+abline(h=0.8, lty="dashed")
+abline(h=1, lty="dashed")
+
+
+legend(par('usr')[2], par('usr')[4], bty='n', xpd=NA,lty=1, col=c("black", "red", "green", "orange", "blue"), 
+       legend=c("Oral", "2", "3", "4", "Nasal"),cex=0.75)
+
+```
+
+
+Check if the results are different between our initial model (with clm) and our new model (with clmm).
+
+
+### Subjective estimates of the weight of the referents of 81 English nouns.
+
+This dataset comes from the `LanguageR` package. It contains the subjective estimates of the weight of the referents of 81 English nouns. 
+This dataset is a little complex. Data comes from multiple subjects who rated 81 nouns. The nouns are from a a class of animals and plants. The subjects are either males or females.
+
+We can model it in various ways. Here we decided to explore whether the ratings given to a particular word are different, when the class is either animal or a plant and if males rated the nouns differently from males. We will only use subject as a random effect. We also model the contribution of frequency. 
+
+
+#### Importing and pre-processing
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+weightRatings <- weightRatings %>%
+  mutate(Rating = factor(Rating),
+         Subject = factor(Subject),
+         Sex = factor(Sex),
+         Word = factor(Word),
+         Class = factor(Class))
+weightRatings %>% 
+  head(10)
+```
+
+#### Model specifications
+
+##### No random effects
+
+We run our first clm model as a simple, i.e., with no random effects
+
+```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
+system.time(mdl.clm.1 <- weightRatings %>% 
+  clm(Rating ~ Class * Sex  * Frequency, data = .))
+summary(mdl.clm)
+```
+
+
+##### Random effects 1 - Intercepts only
+
+We run our first model as a simple, i.e., with random intercepts
+
+```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
+system.time(mdl.clmm.Int.1 <- weightRatings %>% 
+  clmm(Rating ~ Class * Sex  * Frequency + (1|Subject:Word), data = .))
+summary(mdl.clmm.Int)
+```
+
+
+
+##### Random effects 2 - Intercepts and Slopes
+
+We run our second model as a simple, i.e., with random intercepts and random slopes for subject by class.
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
+system.time(mdl.clmm.Slope.1 <- weightRatings %>% 
+  clmm(Rating ~ Class * Sex  * Frequency + (Class|Subject:Word), data = .))
+summary(mdl.clmm.Slope)
+```
+
+
+
+
+#### Testing significance 
+
+We can evaluate whether "Context" improves the model fit, by comparing a null model with our model. Of course "Context" is improving the model fit.
+
+```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
+mdl.clm.Null.1 <- weightRatings %>% 
+  clm(Rating ~ 1, data = .)
+```
+
+
+##### Null vs no random
+
+```{r}
+anova(mdl.clm.1, mdl.clm.Null.1)
+```
+
+
+##### No random vs Random Intercepts
+
+```{r}
+anova(mdl.clm.1, mdl.clmm.Int.1)
+```
+
+
+##### Random Intercepts vs Random Slope
+
+```{r}
+anova(mdl.clmm.Int.1, mdl.clmm.Slope.1)
+```
+
+The model comparison above shows that using random intercepts is enough in our case. By subject Random Slopes are not needed; subjects "seem" to show similarities in how they produced the items. 
+
+
+#### Model’s fit
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+print(tab_model(mdl.clmm.Int.1, file = paste0("outputs/mdl.clmm.Int.1.html")))
+webshot(paste0("outputs/mdl.clmm.Int.1.html"), paste0("outputs/mdl.clmm.Int.1.png"))
+```
+
+![Model fit: Cumulative Logit Mixed effects model](mdl.clmm.Int.1.png)
+
+
+#### Interpreting a cumulative model
+
+As a way to interpret the model, we can look at the coefficients and make sense of the results. A CLM model is a Logistic model with a cumulative effect. The "Coefficients" are the estimates for each level of the fixed effect; the "Threshold coefficients" are those of the response. For the former, a negative coefficient indicates a negative association with the response; and a positive is positively associated with the response. The p values are indicating the significance of each level. For the "Threshold coefficients", we can see the cumulative effects of ratings 1|2, 2|3, 3|4 and 4|5 which indicate an overall increase in the ratings from 1 to 5. 
+
+#### Plotting 
+
+##### No confidence intervals
+
+We use a modified version of a plotting function that allows us to visualise the effects. For this, we use the base R plotting functions. The version below is without confidence intervals.
+
+```{r warning = FALSE, message = FALSE, error = FALSE}
+par(oma = c(4, 0, 0, 3), mgp = c(2, 1, 0))
+xlim  =  c(min(mdl.clmm.Int.1$beta), max(mdl.clmm.Int.1$beta))
+ylim  =  c(0, 1)
+plot(0, 0, xlim = xlim, ylim = ylim, type = "n", ylab = expression(Probability), xlab = "", xaxt = "n", main = "Predicted curves", cex = 2, cex.lab = 1.5, cex.main = 1.5, cex.axis = 1.5)
+axis(side = 1, at = mdl.clmm.Int.1$beta, labels = names(mdl.clmm.Int.1$beta), las = 2, cex = 0.75, cex.lab = 0.75, cex.axis = 0.75)
+xs  =  seq(xlim[1], xlim[2], length.out = 100)
+lines(xs, plogis(mdl.clmm.Int.1$Theta[1] - xs), col = 'black')
+lines(xs, plogis(mdl.clmm.Int.1$Theta[2] - xs) - plogis(mdl.clmm.Int.1$Theta[1] - xs), col = 'red')
+lines(xs, plogis(mdl.clmm.Int.1$Theta[3] - xs) - plogis(mdl.clmm.Int.1$Theta[2] - xs), col = 'green')
+lines(xs, plogis(mdl.clmm.Int.1$Theta[4] - xs) - plogis(mdl.clmm.Int.1$Theta[3] - xs), col = 'orange')
+lines(xs, plogis(mdl.clmm.Int.1$Theta[5] - xs) - plogis(mdl.clmm.Int.1$Theta[4] - xs), col = 'yellow')
+lines(xs, plogis(mdl.clmm.Int.1$Theta[6] - xs) - plogis(mdl.clmm.Int.1$Theta[5] - xs), col = 'grey')
+lines(xs, 1 - (plogis(mdl.clmm.Int.1$Theta[6] - xs)), col = 'blue')
+abline(v = c(0,mdl.clmm.Int.1$beta),lty = 3)
+abline(h = 0, lty = "dashed")
+abline(h = 0.2, lty = "dashed")
+abline(h = 0.4, lty = "dashed")
+abline(h = 0.6, lty = "dashed")
+abline(h = 0.8, lty = "dashed")
+abline(h = 1, lty = "dashed")
+
+legend(par('usr')[2], par('usr')[4], bty = 'n', xpd = NA, lty = 1, 
+       col = c("black", "red", "green", "orange", "yellow", "grey", "blue"), 
+       legend = c("1", "2", "3", "4", "5", "6", "7"), cex = 0.75)
+```
+
+
+##### With confidence intervals
+
+Here is an attempt to add the 97.5% confidence intervals to these plots. This is an experimental attempt and any feedback is welcome!
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+par(oma = c(4, 0, 0, 3), mgp = c(2, 1, 0))
+xlim  =  c(min(mdl.clmm.Int.1$beta), max(mdl.clmm.Int.1$beta))
+ylim  =  c(0, 1)
+plot(0, 0, xlim = xlim, ylim = ylim, type = "n", ylab = expression(Probability), xlab = "", xaxt = "n", main = "Predicted curves", cex = 2, cex.lab = 1.5, cex.main = 1.5, cex.axis = 1.5)
+axis(side = 1, at = mdl.clmm.Int.1$beta, labels = names(mdl.clmm.Int.1$beta), las = 2, cex = 0.75, cex.lab = 0.75, cex.axis = 0.75)
+xs  =  seq(xlim[1], xlim[2], length.out = 100)
+
+
+#+CI 
+lines(xs, plogis(mdl.clmm.Int.1$Theta[1]+(summary(mdl.clmm.Int.1)$coefficient[,2][[1]]/1.96) - xs), col='black')
+lines(xs, plogis(mdl.clmm.Int.1$Theta[2]+(summary(mdl.clmm.Int.1)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[1]+(summary(mdl.clmm.Int.1)$coefficient[,2][[1]]/1.96) - xs), col='red')
+lines(xs, plogis(mdl.clmm.Int.1$Theta[3]+(summary(mdl.clmm.Int.1)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[2]+(summary(mdl.clmm.Int.1)$coefficient[,2][[2]]/1.96) - xs), col='green')
+lines(xs, plogis(mdl.clmm.Int.1$Theta[4]+(summary(mdl.clmm.Int.1)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[3]+(summary(mdl.clmm.Int.1)$coefficient[,2][[3]]/1.96) - xs), col='orange')
+lines(xs, plogis(mdl.clmm.Int.1$Theta[5]-(summary(mdl.clmm.Int.1)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[4]-(summary(mdl.clmm.Int.1)$coefficient[,2][[4]]/1.96) - xs), col='yellow')
+lines(xs, plogis(mdl.clmm.Int.1$Theta[6]-(summary(mdl.clmm.Int.1)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[5]-(summary(mdl.clmm.Int.1)$coefficient[,2][[5]]/1.96) - xs), col='grey')
+lines(xs, 1-(plogis(mdl.clmm.Int.1$Theta[6]-(summary(mdl.clmm.Int.1)$coefficient[,2][[6]]/1.96) - xs)), col='blue')
+
+#-CI 
+lines(xs, plogis(mdl.clmm.Int.1$Theta[1]-(summary(mdl.clmm.Int.1)$coefficient[,2][[1]]/1.96) - xs), col='black')
+lines(xs, plogis(mdl.clmm.Int.1$Theta[2]-(summary(mdl.clmm.Int.1)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[1]-(summary(mdl.clmm.Int.1)$coefficient[,2][[1]]/1.96) - xs), col='red')
+lines(xs, plogis(mdl.clmm.Int.1$Theta[3]-(summary(mdl.clmm.Int.1)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[2]-(summary(mdl.clmm.Int.1)$coefficient[,2][[2]]/1.96) - xs), col='green')
+lines(xs, plogis(mdl.clmm.Int.1$Theta[4]-(summary(mdl.clmm.Int.1)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[3]-(summary(mdl.clmm.Int.1)$coefficient[,2][[3]]/1.96) - xs), col='orange')
+lines(xs, plogis(mdl.clmm.Int.1$Theta[5]-(summary(mdl.clmm.Int.1)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[4]-(summary(mdl.clmm.Int.1)$coefficient[,2][[4]]/1.96) - xs), col='yellow')
+lines(xs, plogis(mdl.clmm.Int.1$Theta[6]-(summary(mdl.clmm.Int.1)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[5]-(summary(mdl.clmm.Int.1)$coefficient[,2][[5]]/1.96) - xs), col='grey')
+lines(xs, 1-(plogis(mdl.clmm.Int.1$Theta[6]-(summary(mdl.clmm.Int.1)$coefficient[,2][[6]]/1.96) - xs)), col='blue')
+
+## fill area around CI using c(x, rev(x)), c(y2, rev(y1))
+polygon(c(xs, rev(xs)),
+        c(plogis(mdl.clmm.Int.1$Theta[1]+(summary(mdl.clmm.Int.1)$coefficient[,2][[1]]/1.96) - xs), rev(plogis(mdl.clmm.Int.1$Theta[1]-(summary(mdl.clmm.Int.1)$coefficient[,2][[1]]/1.96) - xs))), col = "gray90")
+
+polygon(c(xs, rev(xs)),
+        c(plogis(mdl.clmm.Int.1$Theta[2]+(summary(mdl.clmm.Int.1)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[1]+(summary(mdl.clmm.Int.1)$coefficient[,2][[1]]/1.96) - xs), rev(plogis(mdl.clmm.Int.1$Theta[2]-(summary(mdl.clmm.Int.1)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[1]-(summary(mdl.clmm.Int.1)$coefficient[,2][[1]]/1.96) - xs))), col = "gray90")
+
+
+polygon(c(xs, rev(xs)),
+        c(plogis(mdl.clmm.Int.1$Theta[3]+(summary(mdl.clmm.Int.1)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[2]+(summary(mdl.clmm.Int.1)$coefficient[,2][[2]]/1.96) - xs), rev(plogis(mdl.clmm.Int.1$Theta[3]-(summary(mdl.clmm.Int.1)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[2]-(summary(mdl.clmm.Int.1)$coefficient[,2][[2]]/1.96) - xs))), col = "gray90")
+
+polygon(c(xs, rev(xs)),
+        c(plogis(mdl.clmm.Int.1$Theta[4]+(summary(mdl.clmm.Int.1)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[3]+(summary(mdl.clmm.Int.1)$coefficient[,2][[3]]/1.96) - xs), rev(plogis(mdl.clmm.Int.1$Theta[4]-(summary(mdl.clmm.Int.1)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[3]-(summary(mdl.clmm.Int.1)$coefficient[,2][[3]]/1.96) - xs))), col = "gray90")
+
+polygon(c(xs, rev(xs)),
+        c(plogis(mdl.clmm.Int.1$Theta[5]+(summary(mdl.clmm.Int.1)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[4]+(summary(mdl.clmm.Int.1)$coefficient[,2][[4]]/1.96) - xs), rev(plogis(mdl.clmm.Int.1$Theta[5]-(summary(mdl.clmm.Int.1)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[4]-(summary(mdl.clmm.Int.1)$coefficient[,2][[4]]/1.96) - xs))), col = "gray90")
+
+polygon(c(xs, rev(xs)),
+        c(plogis(mdl.clmm.Int.1$Theta[6]+(summary(mdl.clmm.Int.1)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[5]+(summary(mdl.clmm.Int.1)$coefficient[,2][[5]]/1.96) - xs), rev(plogis(mdl.clmm.Int.1$Theta[6]-(summary(mdl.clmm.Int.1)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[5]-(summary(mdl.clmm.Int.1)$coefficient[,2][[5]]/1.96) - xs))), col = "gray90")
+
+        
+polygon(c(xs, rev(xs)),
+        c(1-(plogis(mdl.clmm.Int.1$Theta[6]-(summary(mdl.clmm.Int.1)$coefficient[,2][[6]]/1.96) - xs)), rev(1-(plogis(mdl.clmm.Int.1$Theta[6]+(summary(mdl.clmm.Int.1)$coefficient[,2][[6]]/1.96) - xs)))), col = "gray90")     
+
+
+
+lines(xs, plogis(mdl.clmm.Int.1$Theta[1] - xs), col = 'black')
+lines(xs, plogis(mdl.clmm.Int.1$Theta[2] - xs) - plogis(mdl.clmm.Int.1$Theta[1] - xs), col = 'red')
+lines(xs, plogis(mdl.clmm.Int.1$Theta[3] - xs) - plogis(mdl.clmm.Int.1$Theta[2] - xs), col = 'green')
+lines(xs, plogis(mdl.clmm.Int.1$Theta[4] - xs) - plogis(mdl.clmm.Int.1$Theta[3] - xs), col = 'orange')
+lines(xs, plogis(mdl.clmm.Int.1$Theta[5] - xs) - plogis(mdl.clmm.Int.1$Theta[4] - xs), col = 'yellow')
+lines(xs, plogis(mdl.clmm.Int.1$Theta[6] - xs) - plogis(mdl.clmm.Int.1$Theta[5] - xs), col = 'grey')
+lines(xs, 1 - (plogis(mdl.clmm.Int.1$Theta[6] - xs)), col = 'blue')
+abline(v = c(0,mdl.clmm.Int.1$beta),lty = 3)
+abline(h = 0, lty = "dashed")
+abline(h = 0.2, lty = "dashed")
+abline(h = 0.4, lty = "dashed")
+abline(h = 0.6, lty = "dashed")
+abline(h = 0.8, lty = "dashed")
+abline(h = 1, lty = "dashed")
+
+legend(par('usr')[2], par('usr')[4], bty = 'n', xpd = NA, lty = 1, 
+       col = c("black", "red", "green", "orange", "yellow", "grey", "blue"), 
+       legend = c("1", "2", "3", "4", "5", "6", "7"), cex = 0.75)
+```
+
+
+Check if the results are different between our initial model (with clm) and our new model (with clmm).
+
+
+
+## Generalised Additive Mixed-effects Models (GAMMs)
+
+Generalised Additive Mixed-effects Models (GAMMs) are currently used for dynamic data. By dynamic data we mean, where the "time" component is accounted for. These can be vowel formants or *f*0 obtained at 11 intervals; dynamic tongue contours obtained at multiple time points, etc. 
+
+We first use GAMMs (with random effects) to demonstrate its usage
+
+### Loading dataframe
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+dynamicDF <- read_csv("data/dynamicData.csv")
+dynamicDF %>% 
+  head(10)
+```
+
+
+The dataframe was extracted from a Praat script and comes in a wide format. For it to work properly with GAMMs, we convert it to a long format
+
+### Manipulation
+
+#### Wide to Long format
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+dynamicDF <- dynamicDF %>% 
+  pivot_longer(-c(1:8), 
+               names_sep = "_",               
+               names_to = c("Correlate", "Interval"),
+               values_to = "Vals",
+               names_repair = "minimal") %>% 
+  pivot_wider(names_from = "Correlate", 
+              values_from = "Vals") %>% 
+  unnest() 
+dynamicDF %>% 
+  head(10)
+```
+
+
+#### Transforming and arranging dataframe
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+dynamicDF <- dynamicDF %>% 
+  mutate(Speaker = as.factor(Speaker),
+         Sex = as.factor(Sex),
+         Word = as.factor(Word),
+         repetition = as.factor(repetition),
+         context = as.factor(context),
+         vowel = as.factor(vowel),
+         Interval = as.numeric(Interval)) %>% 
+  arrange(Speaker, Word, context, vowel)
+dynamicDF %>% 
+  head(10)
+```
+
+
+#### Ordering predictors
+
+It is important to use an ordered predictor in GAMs. By default, GAMs provides computations similar to an ANOVA (with sum coding). Here, we use a treatment coding to allow for an increase in power. Also, we create an interaction factor; the results are to be modelled as a function of the interaction between the context and the vowel
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+dynamicDF$ContVowInt <- interaction(dynamicDF$context, dynamicDF$vowel)
+
+dynamicDF$ContVowInt.ord <-  as.ordered(dynamicDF$ContVowInt)  
+contrasts(dynamicDF$ContVowInt.ord) <- "contr.treatment"
+
+dynamicDF$Sex.ord <- as.ordered(dynamicDF$Sex)
+contrasts(dynamicDF$Sex.ord) <- "contr.treatment"
+```
+
+
+#### Start value for autocorrelation
+
+Given that time series are heavily correlated, we need to account for this autocorrelation in any analyses. We add a variable "start" to indicate when the Interval == 1
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+dynamicDF$start <-dynamicDF$Interval == 1
+```
+
+
+### Model specifications
+
+#### No AR1 model
+
+##### Model estimation
+
+```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
+system.time(mdl.gamm.F2.noAR <- bam(F2 ~ ContVowInt.ord * Sex.ord +
+                                      ### 1d smooths
+                                      s(Interval, bs = "cr", k = 11) +
+                                      ### 1d smooths * factor
+                                      s(Interval, bs = "cr", k = 11, by = ContVowInt.ord) +
+                                      s(Interval, bs = "cr", k = 11, by = Sex.ord) +
+                                      ### random smooths by speaker
+                                                                                s(Interval, Speaker, bs = "fs", k = 11, m = 1, xt=list(bs = "tp")) +            s(Interval, Speaker, bs = "fs", k = 11, m = 1, xt=list(bs = "tp"), by = ContVowInt.ord) +
+                                     ### random smooths by word
+s(Interval, Word, bs = "fs", k = 11, m = 1, xt=list(bs = "tp")) +             s(Interval, Word, bs = "fs", k = 11, m = 1, xt=list(bs = "tp"), by = Sex.ord),
+                                      data = dynamicDF, discrete = TRUE, nthreads = 2))
+```
+
+
+###### ACF No AR1
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+acf_resid(mdl.gamm.F2.noAR, main = "Average ACF No.AR F2",cex.lab=1.5,cex.axis=1.5)
+```
+
+
+###### Gam check
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+gam.check(mdl.gamm.F2.noAR)
+```
+
+###### Estimating Rho
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+rho_est <- start_value_rho(mdl.gamm.F2.noAR)
+rho_est
+```
+
+
+#### AR1 model
+
+###### Model estimation
+
+```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
+system.time(mdl.gamm.F2.AR <- bam(F2 ~ ContVowInt.ord * Sex.ord +
+                                      ### 1d smooths
+                                      s(Interval, bs = "cr", k = 11) +
+                                      ### 1d smooths * factor
+                                      s(Interval, bs = "cr", k = 11, by = ContVowInt.ord) +
+                                      s(Interval, bs = "cr", k = 11, by = Sex.ord) +
+                                      ### random smooths by speaker
+                                                                                s(Interval, Speaker, bs = "fs", k = 11, m = 1, xt=list(bs = "tp")) +            s(Interval, Speaker, bs = "fs", k = 11, m = 1, xt=list(bs = "tp"), by = ContVowInt.ord) +
+                                     ### random smooths by word
+s(Interval, Word, bs = "fs", k = 11, m = 1, xt=list(bs = "tp")) +             s(Interval, Word, bs = "fs", k = 11, m = 1, xt=list(bs = "tp"), by = Sex.ord), data = dynamicDF, discrete = TRUE, nthreads = 2, AR.start = dynamicDF$start, rho = rho_est))
+```
+
+
+###### ACF AR1
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+acf_resid(mdl.gamm.F2.AR, main = "Average ACF AR F2",cex.lab=1.5,cex.axis=1.5)
+```
+
+
+###### Summary
+
+```{r warning=FALSE, message=FALSE, error=FALSE, results='asis'}
+summary(mdl.gamm.F2.AR)
+```
+
+
+
+###### Model’s fit
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+print(tab_model(mdl.gamm.F2.AR, file = paste0("outputs/mdl.gamm.F2.AR.html")))
+webshot(paste0("outputs/mdl.gamm.F2.AR.html"), paste0("outputs/mdl.gamm.F2.AR.png"))
+```
+
+![Model fit: Generalised Additive Mixed effects model](mdl.gamm.F2.AR.png)
+
+
+
+### Significance testing second Autoregressive GAM
+
+To test for significance of context, we run a model with a ML as method and evaluate significance through a maximum likelihood estimate. 
+
+#### Models
+
+We run two models
+
+1. A full model with all predictors (mdl.gamm.F2.AR.ML)
+2. A reduced model without any terms associated with the predictor "context" (mdl.gamm.F2.AR.Min.ContVowInt.ord.ML)
+3. An intercept only model (=Null) without any terms associated with the predictor "vowel" (mdl.gamm.F2.AR.Min.ContVowInt.ord.Sex.ord.ML)
+
+##### Full Model
+
+```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
+system.time(mdl.gamm.F2.AR.ML <- bam(F2 ~ ContVowInt.ord * Sex.ord +
+                                      ### 1d smooths
+                                      s(Interval, bs = "cr", k = 11) +
+                                      ### 1d smooths * factor
+                                      s(Interval, bs = "cr", k = 11, by = ContVowInt.ord) +
+                                      s(Interval, bs = "cr", k = 11, by = Sex.ord) +
+                                      ### random smooths by speaker
+                                                                                s(Interval, Speaker, bs = "fs", k = 11, m = 1, xt=list(bs = "tp")) +            s(Interval, Speaker, bs = "fs", k = 11, m = 1, xt=list(bs = "tp"), by = ContVowInt.ord) +
+                                     ### random smooths by word
+s(Interval, Word, bs = "fs", k = 11, m = 1, xt=list(bs = "tp")) +             s(Interval, Word, bs = "fs", k = 11, m = 1, xt=list(bs = "tp"), by = Sex.ord), data = dynamicDF, discrete = TRUE, nthreads = 2, AR.start = dynamicDF$start, rho = rho_est, method="ML"))
+```
+
+##### Model 2 (without ConVowelInt.ord)
+
+```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
+system.time(mdl.gamm.F2.AR.Min.ContVowInt.ord.ML <- bam(F2 ~ Sex.ord +
+                                      ### 1d smooths
+                                      s(Interval, bs = "cr", k = 11) +
+                                      ### 1d smooths * factor
+                                      s(Interval, bs = "cr", k = 11, by = Sex.ord) +
+                                      ### random smooths by speaker
+                                                                                s(Interval, Speaker, bs = "fs", k = 11, m = 1, xt=list(bs = "tp")) +   
+                                     ### random smooths by word
+s(Interval, Word, bs = "fs", k = 11, m = 1, xt=list(bs = "tp")) +             s(Interval, Word, bs = "fs", k = 11, m = 1, xt=list(bs = "tp"), by = Sex.ord), data = dynamicDF, discrete = TRUE, nthreads = 2, AR.start = dynamicDF$start, rho = rho_est, method="ML"))
+```
+
+
+##### Null Model
+
+```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
+system.time(mdl.gamm.F2.AR.Min.ContVowInt.ord.Sex.ord.ML <- bam(F2 ~ 
+                                      ### 1d smooths
+                                      s(Interval, bs = "cr", k = 11) +
+                                      ### 1d smooths * factor
+                                      ### random smooths by speaker
+                                                                                s(Interval, Speaker, bs = "fs", k = 11, m = 1, xt=list(bs = "tp")) +    
+                                     ### random smooths by word
+s(Interval, Word, bs = "fs", k = 11, m = 1, xt=list(bs = "tp")), data = dynamicDF, discrete = TRUE, nthreads = 2, AR.start = dynamicDF$start, rho = rho_est, method="ML"))
+```
+
+
+#### Testing significance
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+compareML(mdl.gamm.F2.AR.ML, mdl.gamm.F2.AR.Min.ContVowInt.ord.ML)
+```
+
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+compareML(mdl.gamm.F2.AR.ML, mdl.gamm.F2.AR.Min.ContVowInt.ord.Sex.ord.ML)
+```
+
+
+### Visualising smooths
+
+#### /i:/
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+plot_smooth(mdl.gamm.F2.AR, view = "Interval", cond = list(ContVowInt.ord = "Plain.i:"), col = "blue", ylab = "", xlab = "", main = "GAMM smooths in /i:/ ", hide.label = TRUE, cex.axis = 1.3, ylim = c(1700, 2800), rm.ranef = TRUE)
+
+plot_smooth(mdl.gamm.F2.AR, view = "Interval", cond = list(ContVowInt.ord = "Pharyngealised.i:"), col = "red", ylab = "", xlab = "", hide.label = TRUE, cex.axis = 1.3, ylim = c(1700, 2800), rm.ranef = TRUE, add = TRUE)
+```
+
+
+#### /a:/
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+plot_smooth(mdl.gamm.F2.AR, view = "Interval", cond = list(ContVowInt.ord = "Plain.a:"), col = "blue", ylab = "", xlab = "", main = "GAMM smooths in /a:/ ", hide.label = TRUE, cex.axis = 1.3, ylim = c(1000, 1800), rm.ranef = TRUE)
+
+plot_smooth(mdl.gamm.F2.AR, view = "Interval", cond = list(ContVowInt.ord = "Pharyngealised.a:"), col = "red", ylab = "", xlab = "", hide.label = TRUE, cex.axis = 1.3, ylim = c(1000, 1800), rm.ranef = TRUE, add = TRUE)
+```
+
+
+#### /u:/
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+plot_smooth(mdl.gamm.F2.AR, view = "Interval", cond = list(ContVowInt.ord = "Plain.u:"), col = "blue", ylab = "", xlab = "", main = "GAMM smooths in /u:/ ", hide.label = TRUE, cex.axis = 1.3, ylim = c(700, 1500), rm.ranef = TRUE)
+
+plot_smooth(mdl.gamm.F2.AR, view = "Interval", cond = list(ContVowInt.ord = "Pharyngealised.u:"), col = "red", ylab = "", xlab = "", hide.label = TRUE, cex.axis = 1.3, ylim = c(700, 1500), rm.ranef = TRUE, add = TRUE)
+```
+
+
+
+### Difference smooths
+
+#### /i:/
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+plot_diff(mdl.gamm.F2.AR, view = "Interval", comp = list(ContVowInt.ord = c("Pharyngealised.i:","Plain.i:")),
+          xlab = "",
+          col = 'red', mark.diff =  TRUE, col.diff = "red",
+          hide.label = TRUE, rm.ranef = TRUE)
+```
+
+#### /a:/
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+plot_diff(mdl.gamm.F2.AR, view = "Interval", comp = list(ContVowInt.ord = c("Pharyngealised.a:","Plain.a:")),
+          xlab = "",
+          col = 'red', mark.diff =  TRUE, col.diff = "red",
+          hide.label = TRUE, rm.ranef = TRUE)
+```
+
+#### /u:/
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+plot_diff(mdl.gamm.F2.AR, view = "Interval", comp = list(ContVowInt.ord = c("Pharyngealised.u:","Plain.u:")),
+          xlab = "",
+          col = 'red', mark.diff =  TRUE, col.diff = "red",
+          hide.label = TRUE, rm.ranef = TRUE)
+```
+
+
+## Other distibutions
+
+The code above was using a Linear Mixed Effects Modelling. The outcome was a numeric object. We also used it in the case of Generalised Linear Models with a Binomial distribution and a Cumulative function. In some cases (as we have seen above), we may have: 
+
+1. Count data (poisson), 
+2. Multi-category outcome (multinomial)
+
+The code below gives you an idea of how to specify these models
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+
+
+### Poisson family
+### lme4::glmer(outcome~predictor(s)+(1|subject)+(1|items)..., data=data, family=poisson)
+
+### Multinomial family
+### a bit complicated as there is a need to use Bayesian approaches, see e.g., 
+### glmmADMB
+### mixcat
+### MCMCglmm
+### see https://gist.github.com/casallas/8263818
+
+```
+
+
+
+## session info
+
+```{r warning=FALSE, message=FALSE, error=FALSE}
+sessionInfo()
+```
+
