@@ -861,7 +861,7 @@ We obtain the exact same plots, but the model estimations are different.
 
 
 
-### Accuracy and Signal Detection Theory
+### Signal Detection Theory {#STD}
 
 #### Rationale
 

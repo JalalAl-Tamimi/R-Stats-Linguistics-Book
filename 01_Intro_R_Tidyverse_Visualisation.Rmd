@@ -108,7 +108,8 @@ Look at the top-right hand where you can see `Projects (none)`. You can create a
 
 ## How to use packages?
 
-Base R comes with many packages already installed. Look at `packages` to see which ones are already installed. There are currently 18377 packages on Cran (repository for all packages). No one uses all packages so do not try to install all of them. Simply install what you need!! RMarkdown will let you know if you are running a specific code that lacks a package and asks you to download it.  
+Base R comes with many packages already installed. Look at `packages` to see which ones are already installed. There are currently ``r nrow(available.packages(filters = "duplicates"))`` packages on Cran: see [here](https://cran.r-project.org/web/checks/check_summary.html) (to check all packages and their status) 
+ (repository for all packages). No one uses all packages so do not try to install all of them. Simply install what you need!! RMarkdown will let you know if you are running a specific code that lacks a package and asks you to download it.  
 
 ### Installation
 
