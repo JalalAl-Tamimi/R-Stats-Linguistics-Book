@@ -1,0 +1,1609 @@
+# Creating a corpus and basic manipulations {#Corpus_Basic}
+
+## Introduction
+
+In this chapter, we will continue using `R` for the qualitative analyses of textual corpora.
+
+After importing textual data, we will use various packages to create a corpus, and start manipulating it. We will use various functions to select portions of the files, transform the dataframes and segment the corpus into tokens and types. We ill also use stop words and wordstemming. 
+
+
+## Loading packages
+
+```{r}
+## Use the code below to check if you have all required packages installed. If some are not installed already, the code below will install these. If you have all packages installed, then you could load them with the second code.
+requiredPackages = c('tidyverse', 'tidytext', 'rvest', 'janeaustenr', 'proustr', 'textdata', 'gutenbergr', 'quanteda', 'readtext', 'tm', 'SnowballC', 'stopwords', 'quanteda.textplots')
+for(p in requiredPackages){
+  if(!require(p,character.only = TRUE)) install.packages(p)
+  library(p,character.only = TRUE)
+}
+```
+
+There are various sources where one can easily find textual corpora. You can look here [link](https://github.com/EmilHvitfeldt/R-text-data). 
+
+This session is inspired by data manipulations from the [Quanteda Tutorials](https://tutorials.quanteda.io/)
+
+## janeaustenr
+
+### Import into `Global Environment`
+
+Adding data from the first book into the `Global Environment`
+
+```{r}
+data(sensesensibility)
+#data(prideprejudice)
+#data(mansfieldpark)
+#data(emma)
+#data(northangerabbey)
+#data(persuasion)
+```
+
+
+### Look into data
+
+And we can get the top 60 rows from "sensesensibility"
+
+```{r}
+sensesensibility %>% 
+  head(n = 60)
+```
+
+
+### Transform to a dataframe 
+
+
+```{r}
+sensesensibility_DF <- sensesensibility %>% 
+  data.frame()
+sensesensibility_DF
+sensesensibility_DF <- sensesensibility_DF[-c(1:12),]
+sensesensibility_DF
+```
+
+
+
+### Create a corpus
+
+```{r}
+sensesensibility_corpus <- corpus(sensesensibility_DF)
+print(sensesensibility_corpus)
+```
+
+Given that we have many empty lines in this corpus, we clean it by excluding any empty line.
+
+```{r}
+sensesensibility_corpus <- corpus_subset(sensesensibility_corpus, ntoken(sensesensibility_corpus) >= 1)
+```
+
+#### Summary
+
+```{r}
+summary(sensesensibility_corpus, 10)
+```
+
+#### Accessing parts of corpus
+
+```{r}
+ndoc(sensesensibility_corpus)
+sensesensibility_corpus[[1]]
+```
+
+
+### Basic manipulations
+
+By default, a corpus is created based on the "documents" (= lines). We can reshape it to show "sentences" or "paragraphs".
+
+#### Sentences
+
+##### Transform
+
+```{r}
+sensesensibility_corpus_sent <- corpus_reshape(sensesensibility_corpus, to = "sentences")
+sensesensibility_corpus_sent
+```
+
+##### Summary
+
+```{r}
+summary(sensesensibility_corpus_sent)
+```
+
+##### Subset
+
+We can subset sentences with 10 or more words
+
+```{r}
+sensesensibility_corpus_sent_long <- corpus_subset(sensesensibility_corpus_sent, ntoken(sensesensibility_corpus_sent) >= 10)
+ndoc(sensesensibility_corpus_sent_long)
+summary(sensesensibility_corpus_sent_long)
+```
+
+
+#### Paragraphs
+
+##### Transform
+
+```{r}
+sensesensibility_corpus_para <- corpus_reshape(sensesensibility_corpus, to = "paragraphs")
+sensesensibility_corpus_para
+```
+
+##### Summary
+
+```{r}
+summary(sensesensibility_corpus_para)
+```
+
+
+##### Subset
+
+We can subset sentences with 10 or more words
+
+```{r}
+sensesensibility_corpus_para_long <- corpus_subset(sensesensibility_corpus_para, ntoken(sensesensibility_corpus_para) >= 10)
+ndoc(sensesensibility_corpus_para_long)
+summary(sensesensibility_corpus_para_long)
+```
+
+
+#### Tokens
+
+`tokens()` segments texts in a corpus into tokens (words or sentences) by word boundaries. We can remove punctuations or not
+
+##### With punctuations
+
+```{r}
+sensesensibility_corpus_tok <- tokens(sensesensibility_corpus)
+sensesensibility_corpus_tok
+```
+
+##### Without punctuations
+
+```{r}
+sensesensibility_corpus_tok_no_punct <- tokens(sensesensibility_corpus, remove_punct = TRUE)
+sensesensibility_corpus_tok_no_punct
+```
+
+#### Types
+
+We can also generate `types` on the tokenised corpus (without punctuations)
+
+```{r}
+sensesensibility_corpus_types <- types(sensesensibility_corpus_tok_no_punct)
+sensesensibility_corpus_types
+```
+
+
+#### Keyword-in-contexts (kwic)
+
+##### Pattern
+
+You can see how keywords are used in the actual contexts in a concordance view produced by `kwic()`. `Pattern` is used to search for the pattern we are interested in (with * as a wildcard). `Window` used to display number of words/tokens around it.
+
+```{r}
+sensesensibility_corpus_tok_no_punct_hus <- kwic(sensesensibility_corpus_tok_no_punct, pattern =  "hus*", window = 6)
+head(sensesensibility_corpus_tok_no_punct_hus, 10)
+```
+
+
+##### Phrase
+
+
+```{r}
+sensesensibility_corpus_tok_no_punct_phrase <- kwic(sensesensibility_corpus_tok_no_punct, pattern =  phrase("the house"), window = 6)
+head(sensesensibility_corpus_tok_no_punct_phrase, 10)
+```
+
+
+#### stopwords
+
+`stopwords` are function words (or grammatical words). We can search for these and remove them (if not necessary). This step is often useful because we are not interested in these stop_words.
+
+`tokens_remove()` is an alias to `tokens_select(selection = "remove")`
+
+```{r}
+sensesensibility_corpus_tok_no_punct_no_Stop <- tokens_select(sensesensibility_corpus_tok_no_punct, pattern = stopwords("en", source = "stopwords-iso"), selection = "remove")
+sensesensibility_corpus_tok_no_punct_no_Stop
+```
+
+#### wordstem
+
+To be able to extract the stems of each of the given words, we use the function `tokens_wordstem`, `char_wordstem` or `dfm_wordstem`
+
+
+##### Simple example
+
+Here is a simple example (obtained from the manual: type `?tokens_wordstem`)
+
+```{r}
+txt <- c(one = "eating eater eaters eats ate",
+         two = "taxing taxes taxed my tax return")
+th <- tokens(txt)
+tokens_wordstem(th)
+
+## simple example
+char_wordstem(c("win", "winning", "wins", "won", "winner"))
+
+## example applied to a dfm
+(origdfm <- dfm(tokens(txt)))
+
+dfm_wordstem(origdfm)
+```
+
+
+
+##### `tokens_wordstem`
+
+```{r}
+sensesensibility_corpus_tok_no_punct_no_Stop_stem <- tokens_wordstem(sensesensibility_corpus_tok_no_punct_no_Stop)
+sensesensibility_corpus_tok_no_punct_no_Stop_stem
+```
+
+
+##### `dfm_wordstem`
+
+Here we can use the `dfm` (for Document Feature Matrix) to obtain details of the  wordstems used in each of the texts
+
+```{r}
+sensesensibility_corpus_tok_no_punct_no_Stop_dfm <- dfm(sensesensibility_corpus_tok_no_punct_no_Stop)
+dfm_wordstem(sensesensibility_corpus_tok_no_punct_no_Stop_dfm)
+```
+
+
+
+## proustr
+
+### Import into `Global Environment`
+
+Adding data from the first book into the Global environment
+
+```{r}
+data(ducotedechezswann)
+#data(alombredesjeunesfillesenfleurs)
+#data(lecotedeguermantes)
+#data(sodomeetgomorrhe)
+#data(laprisonniere)
+#data(albertinedisparue)
+#data(letempretrouve)
+```
+
+
+### Look into data
+
+And we can get the top 60 rows from the first one 
+
+```{r}
+ducotedechezswann %>%
+  head(n = 60)
+```
+
+
+### Create a corpus
+
+```{r}
+ducotedechezswann_corpus <- corpus(ducotedechezswann, text_field = "text")
+print(ducotedechezswann_corpus)
+```
+
+
+#### Summary
+
+```{r}
+summary(ducotedechezswann_corpus, 10)
+```
+
+#### Accessing parts of corpus
+
+```{r}
+ducotedechezswann_corpus[[1]]
+```
+
+
+#### Document-level information
+
+
+```{r}
+head(docvars(ducotedechezswann_corpus))
+
+```
+
+
+#### Unique variable names (for volume)
+
+```{r}
+unique(docvars(ducotedechezswann_corpus, field = "volume"))
+
+```
+
+### Basic manipulations
+
+By default, a corpus is created based on the "documents" (= lines). We can reshape it to show "sentences" or "paragraphs".
+
+#### Sentences
+
+##### Transform
+
+```{r}
+ducotedechezswann_corpus_sent <- corpus_reshape(ducotedechezswann_corpus, to = "sentences")
+ducotedechezswann_corpus_sent
+```
+
+##### Summary
+
+```{r}
+summary(ducotedechezswann_corpus_sent)
+```
+
+##### Subset
+
+We can subset sentences with 10 or more words
+
+```{r}
+ducotedechezswann_corpus_sent_long <- corpus_subset(ducotedechezswann_corpus_sent, ntoken(ducotedechezswann_corpus_sent) >= 10)
+ndoc(ducotedechezswann_corpus_sent_long)
+summary(ducotedechezswann_corpus_sent_long)
+```
+
+
+#### Paragraphs
+
+##### Transform
+
+```{r}
+ducotedechezswann_corpus_para <- corpus_reshape(ducotedechezswann_corpus, to = "paragraphs")
+ducotedechezswann_corpus_para
+```
+
+
+##### Summary
+
+```{r}
+summary(ducotedechezswann_corpus_para)
+```
+
+
+##### Subset
+
+We can subset sentences with 10 or more words
+
+```{r}
+ducotedechezswann_corpus_para_long <- corpus_subset(ducotedechezswann_corpus_para, ntoken(ducotedechezswann_corpus_para) >= 10)
+ndoc(ducotedechezswann_corpus_para_long)
+summary(ducotedechezswann_corpus_para_long)
+```
+
+
+
+#### Tokens
+
+`tokens()` segments texts in a corpus into tokens (words or sentences) by word boundaries. We can remove punctuations or not
+
+##### With punctuations
+
+```{r}
+ducotedechezswann_corpus_tok <- tokens(ducotedechezswann_corpus)
+ducotedechezswann_corpus_tok
+```
+
+##### Without punctuations
+
+```{r}
+ducotedechezswann_corpus_tok_no_punct <- tokens(ducotedechezswann_corpus, remove_punct = TRUE)
+ducotedechezswann_corpus_tok_no_punct
+```
+
+#### Types
+
+We can also generate `types` on the tokenised corpus (without punctuations)
+
+```{r}
+ducotedechezswann_corpus_types <- types(ducotedechezswann_corpus_tok_no_punct)
+ducotedechezswann_corpus_types
+```
+
+
+#### Keyword-in-contexts (kwic)
+
+##### Pattern
+
+You can see how keywords are used in the actual contexts in a concordance view produced by `kwic()`. `Pattern` is used to search for the pattern we are interested in (with * as a wildcard). `Window` used to display number of words/tokens around it.
+
+```{r}
+ducotedechezswann_corpus_tok_no_punct_hus <- kwic(ducotedechezswann_corpus_tok_no_punct, pattern =  "hom*", window = 6)
+head(ducotedechezswann_corpus_tok_no_punct_hus, 10)
+```
+
+
+##### Phrase
+
+
+```{r}
+ducotedechezswann_corpus_tok_no_punct_phrase <- kwic(ducotedechezswann_corpus_tok_no_punct, pattern =  phrase("un homme"), window = 6)
+head(ducotedechezswann_corpus_tok_no_punct_phrase, 10)
+```
+
+
+#### stopwords
+
+`stopwords` are function words (or grammatical words). We can search for these and remove them (if not necessary). This step is often useful because we are not interested in these stop_words.
+
+`tokens_remove()` is an alias to `tokens_select(selection = "remove")`
+
+```{r}
+ducotedechezswann_corpus_tok_no_punct_no_Stop <- tokens_select(ducotedechezswann_corpus_tok_no_punct, pattern = stopwords("fr", source = "stopwords-iso"), selection = "remove")
+ducotedechezswann_corpus_tok_no_punct_no_Stop
+```
+
+#### wordstem
+
+To be able to extract the stems of each of the given words, we use the function `tokens_wordstem`, `char_wordstem` or `dfm_wordstem`
+
+
+##### `tokens_wordstem`
+
+```{r}
+ducotedechezswann_corpus_tok_no_punct_no_Stop_stem <- tokens_wordstem(ducotedechezswann_corpus_tok_no_punct_no_Stop)
+ducotedechezswann_corpus_tok_no_punct_no_Stop_stem
+```
+
+
+##### `dfm_wordstem`
+
+Here we can use the `dfm` (for Document Feature Matrix) to obtain details of the  wordstems used in each of the texts
+
+```{r}
+ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm <- dfm(ducotedechezswann_corpus_tok_no_punct_no_Stop)
+dfm_wordstem(ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm)
+```
+
+
+
+
+## Inaugural Corpus USA
+
+The readtext package comes with various datasets. We specify the path to where to find the datasets and upload them
+
+```{r}
+Data_Dir <- system.file("extdata/", package = "readtext")
+```
+
+
+### Importing data
+
+```{r}
+dat_inaug <- read.csv(paste0(Data_Dir, "/csv/inaugCorpus.csv"))
+```
+
+
+### Create a corpus
+
+```{r}
+dat_inaug_corpus <- corpus(dat_inaug, text_field = "texts")
+print(dat_inaug_corpus)
+```
+
+
+#### Summary
+
+```{r}
+summary(dat_inaug_corpus, 10)
+```
+
+
+
+#### Editing docnames
+
+```{r}
+docid <- paste(dat_inaug$Year, 
+               dat_inaug$FirstName, 
+               dat_inaug$President, sep = " ")
+docnames(dat_inaug_corpus) <- docid
+print(dat_inaug_corpus)
+```
+
+
+#### Accessing parts of corpus
+
+```{r}
+dat_inaug_corpus[[1]]
+```
+
+
+```{r}
+dat_inaug_corpus[["1789 George Washington"]]
+```
+
+
+
+
+
+#### Document-level information
+
+
+```{r}
+head(docvars(dat_inaug_corpus))
+
+```
+
+
+#### Unique variable names (for volume)
+
+```{r}
+unique(docvars(dat_inaug_corpus, field = "Year"))
+
+```
+
+
+
+### Basic manipulations
+
+By default, a corpus is created based on the "documents" (= lines). We can reshape it to show "sentences" or "paragraphs".
+
+#### Sentences
+
+##### Transform
+
+```{r}
+dat_inaug_corpus_sent <- corpus_reshape(dat_inaug_corpus, to = "sentences")
+dat_inaug_corpus_sent
+```
+
+##### Summary
+
+```{r}
+summary(dat_inaug_corpus_sent)
+```
+
+##### Subset
+
+We can subset sentences with 10 or more words
+
+```{r}
+dat_inaug_corpus_sent_long <- corpus_subset(dat_inaug_corpus_sent, ntoken(dat_inaug_corpus_sent) >= 10)
+ndoc(dat_inaug_corpus_sent_long)
+summary(dat_inaug_corpus_sent_long)
+```
+
+
+#### Paragraphs
+
+##### Transform
+
+```{r}
+dat_inaug_corpus_para <- corpus_reshape(dat_inaug_corpus, to = "paragraphs")
+dat_inaug_corpus_para
+```
+
+
+##### Summary
+
+```{r}
+summary(dat_inaug_corpus_para)
+```
+
+
+##### Subset
+
+We can subset sentences with 10 or more words
+
+```{r}
+dat_inaug_corpus_para_long <- corpus_subset(dat_inaug_corpus_para, ntoken(dat_inaug_corpus_para) >= 10)
+ndoc(dat_inaug_corpus_para_long)
+summary(dat_inaug_corpus_para_long)
+```
+
+
+
+#### Tokens
+
+`tokens()` segments texts in a corpus into tokens (words or sentences) by word boundaries. We can remove punctuations or not
+
+##### With punctuations
+
+```{r}
+dat_inaug_corpus_tok <- tokens(dat_inaug_corpus)
+dat_inaug_corpus_tok
+```
+
+##### Without punctuations
+
+```{r}
+dat_inaug_corpus_tok_no_punct <- tokens(dat_inaug_corpus, remove_punct = TRUE)
+dat_inaug_corpus_tok_no_punct
+```
+
+#### Types
+
+We can also generate `types` on the tokenised corpus (without punctuations)
+
+```{r}
+dat_inaug_corpus_tok_no_punct_types <- types(dat_inaug_corpus_tok_no_punct)
+dat_inaug_corpus_tok_no_punct_types
+```
+
+
+#### Keyword-in-contexts (kwic)
+
+##### Pattern
+
+You can see how keywords are used in the actual contexts in a concordance view produced by `kwic()`. `Pattern` is used to search for the pattern we are interested in (with * as a wildcard). `Window` used to display number of words/tokens around it.
+
+```{r}
+dat_inaug_corpus_tok_no_punct_hus <- kwic(dat_inaug_corpus_tok_no_punct, pattern =  "pres*", window = 6)
+head(dat_inaug_corpus_tok_no_punct_hus, 10)
+```
+
+
+##### Phrase
+
+
+```{r}
+dat_inaug_corpus_tok_no_punct_phrase <- kwic(dat_inaug_corpus_tok_no_punct, pattern =  phrase("the Constitution"), window = 6)
+head(dat_inaug_corpus_tok_no_punct_phrase, 10)
+```
+
+
+#### stopwords
+
+`stopwords` are function words (or grammatical words). We can search for these and remove them (if not necessary). This step is often useful because we are not interested in these stop_words.
+
+`tokens_remove()` is an alias to `tokens_select(selection = "remove")`
+
+```{r}
+dat_inaug_corpus_tok_no_punct_no_Stop <- tokens_select(dat_inaug_corpus_tok_no_punct, pattern = stopwords("en", source = "stopwords-iso"), selection = "remove")
+dat_inaug_corpus_tok_no_punct_no_Stop
+```
+
+#### wordstem
+
+To be able to extract the stems of each of the given words, we use the function `tokens_wordstem`, `char_wordstem` or `dfm_wordstem`
+
+
+##### `tokens_wordstem`
+
+```{r}
+dat_inaug_corpus_tok_no_punct_no_Stop_stem <- tokens_wordstem(dat_inaug_corpus_tok_no_punct_no_Stop)
+dat_inaug_corpus_tok_no_punct_no_Stop_stem
+```
+
+
+##### `dfm_wordstem`
+
+Here we can use the `dfm` (for Document Feature Matrix) to obtain details of the  wordstems used in each of the texts
+
+```{r}
+dat_inaug_corpus_tok_no_punct_no_Stop_dfm <- dfm(dat_inaug_corpus_tok_no_punct_no_Stop)
+dfm_wordstem(dat_inaug_corpus_tok_no_punct_no_Stop_dfm)
+```
+
+
+
+
+
+
+## Universal Declaration of Human Rights
+
+We import multiple files containing the Universal Declaration of Human Rights in 13 languages. There are 13 different textfiles
+
+
+### Importing data
+
+```{r}
+dat_udhr <- readtext(paste0(Data_Dir, "/txt/UDHR/*"),
+                      docvarsfrom = "filenames", 
+                      docvarnames = c("document", "language"))
+```
+
+
+### Create a corpus
+
+```{r}
+dat_udhr_corpus <- corpus(dat_udhr)
+print(dat_udhr_corpus)
+```
+
+#### Summary
+
+```{r}
+summary(dat_udhr_corpus, 13)
+```
+
+
+
+
+#### Accessing parts of corpus
+
+```{r}
+dat_udhr_corpus[[4]]
+```
+
+
+
+#### Document-level information
+
+
+```{r}
+head(docvars(dat_udhr_corpus))
+
+```
+
+
+
+
+
+### Basic manipulations
+
+By default, a corpus is created based on the "documents" (= lines). We can reshape it to show "sentences" or "paragraphs".
+
+#### Sentences
+
+##### Transform
+
+```{r}
+dat_udhr_corpus_sent <- corpus_reshape(dat_udhr_corpus, to = "sentences")
+dat_udhr_corpus_sent
+```
+
+##### Summary
+
+```{r}
+summary(dat_udhr_corpus_sent)
+```
+
+##### Subset
+
+We can subset sentences with 10 or more words
+
+```{r}
+dat_udhr_corpus_sent_long <- corpus_subset(dat_udhr_corpus_sent, ntoken(dat_udhr_corpus_sent) >= 10)
+ndoc(dat_udhr_corpus_sent_long)
+summary(dat_udhr_corpus_sent_long)
+```
+
+
+#### Paragraphs
+
+##### Transform
+
+```{r}
+dat_udhr_corpus_para <- corpus_reshape(dat_udhr_corpus, to = "paragraphs")
+dat_udhr_corpus_para
+```
+
+
+##### Summary
+
+```{r}
+summary(dat_udhr_corpus_para)
+```
+
+
+##### Subset
+
+We can subset sentences with 10 or more words
+
+```{r}
+dat_udhr_corpus_para_long <- corpus_subset(dat_udhr_corpus_para, ntoken(dat_udhr_corpus_para) >= 10)
+ndoc(dat_udhr_corpus_para_long)
+summary(dat_udhr_corpus_para_long)
+```
+
+
+
+#### Tokens
+
+`tokens()` segments texts in a corpus into tokens (words or sentences) by word boundaries. We can remove punctuations or not
+
+##### With punctuations
+
+```{r}
+dat_udhr_corpus_tok <- tokens(dat_udhr_corpus)
+dat_udhr_corpus_tok
+```
+
+##### Without punctuations
+
+```{r}
+dat_udhr_corpus_tok_no_punct <- tokens(dat_udhr_corpus, remove_punct = TRUE)
+dat_udhr_corpus_tok_no_punct
+```
+
+#### Types
+
+We can also generate `types` on the tokenised corpus (without punctuations)
+
+```{r}
+dat_udhr_corpus_tok_no_punct_types <- types(dat_udhr_corpus_tok_no_punct)
+dat_udhr_corpus_tok_no_punct_types
+```
+
+
+#### Keyword-in-contexts (kwic)
+
+##### Pattern
+
+You can see how keywords are used in the actual contexts in a concordance view produced by `kwic()`. `Pattern` is used to search for the pattern we are interested in (with * as a wildcard). `Window` used to display number of words/tokens around it.
+
+```{r}
+dat_udhr_corpus_tok_no_punct_pond <- kwic(dat_udhr_corpus_tok_no_punct, pattern =  "*pond*", window = 6)
+head(dat_udhr_corpus_tok_no_punct_pond, 10)
+```
+
+
+##### Phrase
+
+
+```{r}
+dat_udhr_corpus_tok_no_punct_phrase <- kwic(dat_udhr_corpus_tok_no_punct, pattern =  phrase("Human Rights"), window = 6)
+head(dat_udhr_corpus_tok_no_punct_phrase, 10)
+```
+
+
+#### stopwords
+
+`stopwords` are function words (or grammatical words). We can search for these and remove them (if not necessary). This step is often useful because we are not interested in these stop_words.
+
+`tokens_remove()` is an alias to `tokens_select(selection = "remove")`
+
+##### Single language
+
+Unfortunately, we cannot use stopwords on multilingual corpora. What you need to do is either run the stop words on each language you are interested in (by rewriting the object and changing the language's ISO name ([see here](https://cran.r-project.org/web/packages/stopwords/readme/README.html))) 
+
+```{r}
+dat_udhr_corpus_tok_no_punct_no_Stop <- tokens_select(dat_udhr_corpus_tok_no_punct, pattern = stopwords("en", source = "stopwords-iso"), selection = "remove")
+dat_udhr_corpus_tok_no_punct_no_Stop
+```
+
+##### Multiple language
+
+An alternative, is following [this link](https://stackoverflow.com/a/58670223), to use a function that allows the mapping of the multiple languages we have, and then to use stopword and specifying `source = "stopwords-iso"`. This allows to remove the stops words from multiple languages
+
+```{r}
+## language assignment function
+setlang <- Vectorize(
+  vectorize.args = "language",
+  FUN = function(language) {
+    switch(language,
+      "chinese" = "zh",#no stopwords defined for this language
+      "czech" = "cs",#no stopwords defined for this language
+      "danish" = "da",
+      "english" = "en",
+      "french" = "fr",
+      "georgian" = "en",#we do not have Georgian in the list of languages with stopwords!
+      "greek" = "el",#no stopwords defined for this language
+      "hungarian" = "hu",
+      "icelandic" = "en",#we do not have Icelandic in the list of languages with stopwords!
+      "irish" = "ga",#no stopwords defined for this language
+      "japanese" = "ja",#no stopwords defined for this language
+      "russian" = "ru",
+      "vietnamese" = "vi"#no stopwords defined for this language
+    )
+  }
+)
+
+## set a language docvar
+docvars(dat_udhr_corpus, "lang") <- setlang(docvars(dat_udhr_corpus, "language"))
+summary(dat_udhr_corpus)
+```
+
+```{r}
+dat_udhr_corpus_toks <- tokens(dat_udhr_corpus, remove_punct = TRUE)
+
+dat_udhr_corpus_toks_no_stop <- NULL
+for (l in unique(docvars(dat_udhr_corpus_toks, "lang"))) {
+  toksthislang <- tokens_subset(dat_udhr_corpus_toks, lang == l) %>%
+    tokens_remove(stopwords(language = l, source = "stopwords-iso"), padding = TRUE)
+  dat_udhr_corpus_toks_no_stop <- if (!is.null(dat_udhr_corpus_toks_no_stop)) c(dat_udhr_corpus_toks_no_stop, toksthislang) else toksthislang
+}
+dat_udhr_corpus_toks_no_stop
+```
+
+
+#### wordstem
+
+To be able to extract the stems of each of the given words, we use the function `tokens_wordstem`, `char_wordstem` or `dfm_wordstem`
+
+
+##### `tokens_wordstem`
+
+```{r}
+dat_udhr_corpus_toks_no_stop_stem <- tokens_wordstem(dat_udhr_corpus_toks_no_stop)
+dat_udhr_corpus_toks_no_stop_stem
+```
+
+
+##### `dfm_wordstem`
+
+Here we can use the `dfm` (for Document Feature Matrix) to obtain details of the  wordstems used in each of the texts
+
+```{r}
+dat_udhr_corpus_toks_no_stop_stem_dfm <- dfm(dat_udhr_corpus_toks_no_stop)
+dfm_wordstem(dat_udhr_corpus_toks_no_stop_stem_dfm)
+```
+
+
+
+
+
+## Twitter data
+
+We the twitter.json data accessed from [here](https://github.com/quanteda/tutorials.quanteda.io/blob/master/content/data/twitter.json). This is a JSON file (.json) downloaded from the Twitter stream API.
+
+### Importing data
+
+```{r}
+dat_twitter <- readtext("data/twitter.json", source = "twitter")
+```
+
+
+### Create a corpus
+
+```{r}
+dat_twitter_corpus <- corpus(dat_twitter)
+print(dat_twitter_corpus)
+```
+
+
+#### Summary
+
+```{r}
+summary(dat_twitter_corpus, 10)
+```
+
+
+
+
+#### Accessing parts of corpus
+
+```{r}
+dat_twitter_corpus[,1]
+```
+
+
+
+
+#### Document-level information
+
+
+```{r}
+head(docvars(dat_twitter_corpus))
+
+```
+
+
+#### Unique variable names (for volume)
+
+```{r}
+unique(docvars(dat_twitter_corpus, field = "lang"))
+
+```
+
+
+
+
+### Basic manipulations
+
+By default, a corpus is created based on the "documents" (= lines). We can reshape it to show "sentences" or "paragraphs".
+
+#### Sentences
+
+##### Transform
+
+```{r}
+dat_twitter_corpus_sent <- corpus_reshape(dat_twitter_corpus, to = "sentences")
+dat_twitter_corpus_sent
+```
+
+##### Summary
+
+```{r}
+summary(dat_twitter_corpus_sent)
+```
+
+##### Subset
+
+We can subset sentences with 10 or more words
+
+```{r}
+dat_twitter_corpus_sent_long <- corpus_subset(dat_twitter_corpus_sent, ntoken(dat_twitter_corpus_sent) >= 10)
+ndoc(dat_twitter_corpus_sent_long)
+summary(dat_twitter_corpus_sent_long)
+```
+
+
+#### Paragraphs
+
+##### Transform
+
+```{r}
+dat_twitter_corpus_para <- corpus_reshape(dat_twitter_corpus, to = "paragraphs")
+dat_twitter_corpus_para
+```
+
+
+##### Summary
+
+```{r}
+summary(dat_twitter_corpus_para)
+```
+
+
+##### Subset
+
+We can subset sentences with 10 or more words
+
+```{r}
+dat_twitter_corpus_para_long <- corpus_subset(dat_twitter_corpus_para, ntoken(dat_twitter_corpus_para) >= 10)
+ndoc(dat_twitter_corpus_para_long)
+summary(dat_twitter_corpus_para_long)
+```
+
+
+
+#### Tokens
+
+`tokens()` segments texts in a corpus into tokens (words or sentences) by word boundaries. We can remove punctuations or not
+
+##### With punctuations
+
+```{r}
+dat_twitter_corpus_tok <- tokens(dat_twitter_corpus)
+dat_twitter_corpus_tok
+```
+
+##### Without punctuations
+
+```{r}
+dat_twitter_corpus_tok_no_punct <- tokens(dat_twitter_corpus, remove_punct = TRUE)
+dat_twitter_corpus_tok_no_punct
+```
+
+#### Types
+
+We can also generate `types` on the tokenised corpus (without punctuations)
+
+```{r}
+dat_twitter_corpus_tok_no_punct_types <- types(dat_twitter_corpus_tok_no_punct)
+dat_twitter_corpus_tok_no_punct_types
+```
+
+
+#### Keyword-in-contexts (kwic)
+
+##### Pattern
+
+You can see how keywords are used in the actual contexts in a concordance view produced by `kwic()`. `Pattern` is used to search for the pattern we are interested in (with * as a wildcard). `Window` used to display number of words/tokens around it.
+
+```{r}
+dat_twitter_corpus_tok_no_punct_pres <- kwic(dat_twitter_corpus_tok_no_punct, pattern =  "pres*", window = 6)
+head(dat_twitter_corpus_tok_no_punct_pres, 10)
+```
+
+
+##### Phrase
+
+
+```{r}
+dat_twitter_corpus_tok_no_punct_phrase <- kwic(dat_twitter_corpus_tok_no_punct, pattern =  phrase("the tory"), window = 6)
+head(dat_twitter_corpus_tok_no_punct_phrase, 10)
+```
+
+
+#### stopwords
+
+`stopwords` are function words (or grammatical words). We can search for these and remove them (if not necessary). This step is often useful because we are not interested in these stop_words.
+
+`tokens_remove()` is an alias to `tokens_select(selection = "remove")`
+
+```{r}
+dat_twitter_corpus_tok_no_punct_no_Stop <- tokens_select(dat_twitter_corpus_tok_no_punct, pattern = stopwords("en", source = "stopwords-iso"), selection = "remove")
+dat_twitter_corpus_tok_no_punct_no_Stop
+```
+
+#### wordstem
+
+To be able to extract the stems of each of the given words, we use the function `tokens_wordstem`, `char_wordstem` or `dfm_wordstem`
+
+
+##### `tokens_wordstem`
+
+```{r}
+dat_twitter_corpus_tok_no_punct_no_Stop_stem <- tokens_wordstem(dat_twitter_corpus_tok_no_punct_no_Stop)
+dat_twitter_corpus_tok_no_punct_no_Stop_stem
+```
+
+
+##### `dfm_wordstem`
+
+Here we can use the `dfm` (for Document Feature Matrix) to obtain details of the  wordstems used in each of the texts
+
+```{r}
+dat_twitter_corpus_tok_no_punct_no_Stop_stem_dfm <- dfm(dat_twitter_corpus_tok_no_punct_no_Stop)
+dfm_wordstem(dat_twitter_corpus_tok_no_punct_no_Stop_stem_dfm)
+```
+
+
+
+
+We use the `rvest` package to obtain data from a specific URL. See [here](https://ladal.edu.au/webcrawling.html) for advanced webscrapping. Look at this [link](https://jakobtures.github.io/web-scraping/index.html) as well for a more straightforward way.
+
+## Single web page
+
+### Read_html
+
+```{r}
+web_page <- rvest::read_html("https://www.tidyverse.org/packages/")
+web_page
+```
+
+Because the downloaded file contains a unnecessary information. We process the data to extract only the text from the webpage.
+
+### Extract headline
+
+```{r}
+header_web_page <- web_page %>%
+  ## extract paragraphs
+  rvest::html_nodes("h1") %>%
+  ## extract text
+  rvest::html_text() 
+head(header_web_page)
+```
+
+
+
+### Extract text
+
+```{r}
+web_page_txt <- web_page %>%
+  ## extract paragraphs
+  rvest::html_nodes("p") %>%
+  ## extract text
+  rvest::html_text()
+head(web_page_txt)
+```
+
+
+
+### Create a corpus
+
+```{r}
+web_page_txt_corpus <- corpus(web_page_txt)
+print(web_page_txt_corpus)
+```
+
+
+#### Summary
+
+```{r}
+summary(web_page_txt_corpus, 10)
+```
+
+
+
+
+#### Accessing parts of corpus
+
+```{r}
+web_page_txt_corpus[[4]]
+```
+
+
+
+#### Document-level information
+
+
+```{r}
+head(docvars(web_page_txt_corpus))
+
+```
+
+
+
+
+### Basic manipulations
+
+By default, a corpus is created based on the "documents" (= lines). We can reshape it to show "sentences" or "paragraphs".
+
+#### Sentences
+
+##### Transform
+
+```{r}
+web_page_txt_corpus_sent <- corpus_reshape(web_page_txt_corpus, to = "sentences")
+web_page_txt_corpus_sent
+```
+
+##### Summary
+
+```{r}
+summary(web_page_txt_corpus_sent)
+```
+
+##### Subset
+
+We can subset sentences with 10 or more words
+
+```{r}
+web_page_txt_corpus_sent_long <- corpus_subset(web_page_txt_corpus_sent, ntoken(web_page_txt_corpus_sent) >= 10)
+ndoc(web_page_txt_corpus_sent_long)
+summary(web_page_txt_corpus_sent_long)
+```
+
+
+#### Paragraphs
+
+##### Transform
+
+```{r}
+web_page_txt_corpus_para <- corpus_reshape(web_page_txt_corpus, to = "paragraphs")
+web_page_txt_corpus_para
+```
+
+
+##### Summary
+
+```{r}
+summary(web_page_txt_corpus_para)
+```
+
+
+##### Subset
+
+We can subset sentences with 10 or more words
+
+```{r}
+web_page_txt_corpus_para_long <- corpus_subset(web_page_txt_corpus_para, ntoken(web_page_txt_corpus_para) >= 10)
+ndoc(web_page_txt_corpus_para_long)
+summary(web_page_txt_corpus_para_long)
+```
+
+
+
+#### Tokens
+
+`tokens()` segments texts in a corpus into tokens (words or sentences) by word boundaries. We can remove punctuations or not
+
+##### With punctuations
+
+```{r}
+web_page_txt_corpus_tok <- tokens(web_page_txt_corpus)
+web_page_txt_corpus_tok
+```
+
+##### Without punctuations
+
+```{r}
+web_page_txt_corpus_tok_no_punct <- tokens(web_page_txt_corpus, remove_punct = TRUE)
+web_page_txt_corpus_tok_no_punct
+```
+
+#### Types
+
+We can also generate `types` on the tokenised corpus (without punctuations)
+
+```{r}
+web_page_txt_corpus_tok_no_punct_types <- types(web_page_txt_corpus_tok_no_punct)
+web_page_txt_corpus_tok_no_punct_types
+```
+
+
+#### Keyword-in-contexts (kwic)
+
+##### Pattern
+
+You can see how keywords are used in the actual contexts in a concordance view produced by `kwic()`. `Pattern` is used to search for the pattern we are interested in (with * as a wildcard). `Window` used to display number of words/tokens around it.
+
+```{r}
+web_page_txt_corpus_tok_no_punct_types_tidy <- kwic(web_page_txt_corpus_tok_no_punct, pattern =  "tidy*", window = 6)
+head(web_page_txt_corpus_tok_no_punct_types_tidy, 10)
+```
+
+
+##### Phrase
+
+
+```{r}
+web_page_txt_corpus_tok_no_punct_phrase <- kwic(web_page_txt_corpus_tok_no_punct, pattern =  phrase("the tidy*"), window = 6)
+head(web_page_txt_corpus_tok_no_punct_phrase, 10)
+```
+
+
+#### stopwords
+
+`stopwords` are function words (or grammatical words). We can search for these and remove them (if not necessary). This step is often useful because we are not interested in these stop_words.
+
+`tokens_remove()` is an alias to `tokens_select(selection = "remove")`
+
+```{r}
+web_page_txt_corpus_tok_no_punct_no_Stop <- tokens_select(web_page_txt_corpus_tok_no_punct, pattern = stopwords("en", source = "stopwords-iso"), selection = "remove")
+web_page_txt_corpus_tok_no_punct_no_Stop
+```
+
+#### wordstem
+
+To be able to extract the stems of each of the given words, we use the function `tokens_wordstem`, `char_wordstem` or `dfm_wordstem`
+
+
+##### `tokens_wordstem`
+
+```{r}
+web_page_txt_corpus_tok_no_punct_no_Stop_stem <- tokens_wordstem(web_page_txt_corpus_tok_no_punct_no_Stop)
+web_page_txt_corpus_tok_no_punct_no_Stop_stem
+```
+
+
+##### `dfm_wordstem`
+
+Here we can use the `dfm` (for Document Feature Matrix) to obtain details of the  wordstems used in each of the texts
+
+```{r}
+web_page_txt_corpus_tok_no_punct_no_Stop_stem_dfm <- dfm(web_page_txt_corpus_tok_no_punct_no_Stop)
+dfm_wordstem(web_page_txt_corpus_tok_no_punct_no_Stop_stem_dfm)
+```
+ 
+
+
+
+## Multiple webpages
+
+
+
+### Read_html
+
+```{r}
+website <- "https://www.tidyverse.org/packages/" %>% 
+  rvest::read_html()
+website
+```
+
+```{r}
+a_elements <- website %>% 
+  rvest::html_elements(css = "div.package > a")
+a_elements
+```
+
+
+### Extract headline
+
+```{r}
+links <- a_elements %>%
+  rvest::html_attr(name = "href")
+links
+```
+
+
+
+### Extract subpages
+
+```{r}
+pages <- links %>% 
+  map(rvest::read_html)
+pages
+```
+
+
+The structure seems to be similar across all pages
+
+```{r}
+pages %>% 
+  map(rvest::html_element, css = "a.navbar-brand") %>% 
+  map_chr(rvest::html_text)
+
+```
+
+and extracting version number
+
+```{r}
+pages %>% 
+  map(rvest::html_element, css = "small.nav-text.text-muted.me-auto") %>% 
+  map_chr(rvest::html_text)
+```
+
+and we can also add all into a tibble
+
+### Extract text
+
+```{r}
+pages_table <- tibble(
+  name = pages %>% 
+    map(rvest::html_element, css = "a.navbar-brand") %>% 
+    map_chr(rvest::html_text),
+  version = pages %>% 
+    map(rvest::html_element, css = "small.nav-text.text-muted.me-auto") %>% 
+    map_chr(rvest::html_text),
+  CRAN = pages %>% 
+    map(rvest::html_element, css = "ul.list-unstyled > li:nth-child(1) > a") %>% 
+    map_chr(rvest::html_attr, name = "href"),
+  Learn = pages %>% 
+    map(rvest::html_element, css = "ul.list-unstyled > li:nth-child(4) > a") %>% 
+    map_chr(rvest::html_attr, name = "href"), 
+  text = pages %>%
+    map(rvest::html_element,  css = "body") %>%
+    map_chr(rvest::html_text2)
+)
+pages_table
+```
+
+
+### Create a corpus
+
+```{r}
+web_pages_txt_corpus <- corpus(pages_table)
+print(web_pages_txt_corpus)
+```
+
+
+#### Summary
+
+```{r}
+summary(web_pages_txt_corpus, 10)
+```
+
+
+
+
+#### Accessing parts of corpus
+
+```{r}
+web_pages_txt_corpus[[4]]
+```
+
+
+
+#### Document-level information
+
+
+```{r}
+head(docvars(web_pages_txt_corpus))
+
+```
+
+
+### Basic manipulations
+
+By default, a corpus is created based on the "documents" (= lines). We can reshape it to show "sentences" or "paragraphs".
+
+#### Sentences
+
+##### Transform
+
+```{r}
+web_pages_txt_corpus_sent <- corpus_reshape(web_pages_txt_corpus, to = "sentences")
+web_pages_txt_corpus_sent
+```
+
+##### Summary
+
+```{r}
+summary(web_pages_txt_corpus_sent)
+```
+
+##### Subset
+
+We can subset sentences with 10 or more words
+
+```{r}
+web_pages_txt_corpus_sent_long <- corpus_subset(web_pages_txt_corpus_sent, ntoken(web_pages_txt_corpus_sent) >= 10)
+ndoc(web_pages_txt_corpus_sent_long)
+summary(web_pages_txt_corpus_sent_long)
+```
+
+
+#### Paragraphs
+
+##### Transform
+
+```{r}
+web_pages_txt_corpus_para <- corpus_reshape(web_pages_txt_corpus, to = "paragraphs")
+web_pages_txt_corpus_para
+```
+
+
+##### Summary
+
+```{r}
+summary(web_pages_txt_corpus)
+```
+
+
+##### Subset
+
+We can subset sentences with 10 or more words
+
+```{r}
+web_pages_txt_corpus_para_long <- corpus_subset(web_pages_txt_corpus_para, ntoken(web_pages_txt_corpus_para) >= 10)
+ndoc(web_pages_txt_corpus_para_long)
+summary(web_pages_txt_corpus_para_long)
+```
+
+
+
+#### Tokens
+
+`tokens()` segments texts in a corpus into tokens (words or sentences) by word boundaries. We can remove punctuations or not
+
+##### With punctuations
+
+```{r}
+web_pages_txt_corpus_tok <- tokens(web_pages_txt_corpus)
+web_pages_txt_corpus_tok
+```
+
+##### Without punctuations
+
+```{r}
+web_pages_txt_corpus_tok_no_punct <- tokens(web_pages_txt_corpus, remove_punct = TRUE)
+web_pages_txt_corpus_tok_no_punct
+```
+
+#### Types
+
+We can also generate `types` on the tokenised corpus (without punctuations)
+
+```{r}
+web_pages_txt_corpus_tok_no_punct_types <- types(web_pages_txt_corpus_tok_no_punct)
+web_pages_txt_corpus_tok_no_punct_types
+```
+
+
+#### Keyword-in-contexts (kwic)
+
+##### Pattern
+
+You can see how keywords are used in the actual contexts in a concordance view produced by `kwic()`. `Pattern` is used to search for the pattern we are interested in (with * as a wildcard). `Window` used to display number of words/tokens around it.
+
+```{r}
+web_pages_txt_corpus_tok_no_punct_types_tidy <- kwic(web_pages_txt_corpus_tok_no_punct, pattern =  "tidy*", window = 6)
+head(web_pages_txt_corpus_tok_no_punct_types_tidy, 10)
+```
+
+
+##### Phrase
+
+
+```{r}
+web_pages_txt_corpus_tok_no_punct_phrase <- kwic(web_pages_txt_corpus_tok_no_punct, pattern =  phrase("the tidy*"), window = 6)
+head(web_pages_txt_corpus_tok_no_punct_phrase, 10)
+```
+
+
+#### stopwords
+
+`stopwords` are function words (or grammatical words). We can search for these and remove them (if not necessary). This step is often useful because we are not interested in these stop_words.
+
+`tokens_remove()` is an alias to `tokens_select(selection = "remove")`
+
+```{r}
+web_pages_txt_corpus_tok_no_punct_no_Stop <- tokens_select(web_pages_txt_corpus_tok_no_punct, pattern = stopwords("en", source = "stopwords-iso"), selection = "remove")
+web_pages_txt_corpus_tok_no_punct_no_Stop
+```
+
+#### wordstem
+
+To be able to extract the stems of each of the given words, we use the function `tokens_wordstem`, `char_wordstem` or `dfm_wordstem`
+
+
+##### `tokens_wordstem`
+
+```{r}
+web_pages_txt_corpus_tok_no_punct_no_Stop_stem <- tokens_wordstem(web_pages_txt_corpus_tok_no_punct_no_Stop)
+web_pages_txt_corpus_tok_no_punct_no_Stop_stem
+```
+
+
+##### `dfm_wordstem`
+
+Here we can use the `dfm` (for Document Feature Matrix) to obtain details of the  wordstems used in each of the texts
+
+```{r}
+web_pages_txt_corpus_tok_no_punct_no_Stop_stem_dfm <- dfm(web_pages_txt_corpus_tok_no_punct_no_Stop)
+dfm_wordstem(web_pages_txt_corpus_tok_no_punct_no_Stop_stem_dfm)
+```
+
+
+
+
+## session info
+
+```{r}
+sessionInfo()
+```
