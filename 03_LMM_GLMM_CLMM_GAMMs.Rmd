@@ -428,7 +428,7 @@ print(tab_model(xmdl.Optimal, file = paste0("outputs/xmdl.Optimal.html")))
 webshot(paste0("outputs/xmdl.Optimal.html"), paste0("outputs/xmdl.Optimal.png"))
 ```
 
-![Model fit: Linear Mixed effects model](xmdl.Optimal.png)
+![Model fit: Linear Mixed effects model](outputs/xmdl.Optimal.png)
 
 ### Plotting model's output
 
@@ -781,7 +781,7 @@ print(tab_model(mdl.glmmSlope, file = paste0("outputs/mdl.glmmSlope.html")))
 webshot(paste0("outputs/mdl.glmmSlope.html"), paste0("outputs/mdl.glmmSlope.png"))
 ```
 
-![Model fit: Generalised Linear Mixed effects model - Categorical](mdl.glmmSlope.png)
+![Model fit: Generalised Linear Mixed effects model - Categorical](outputs/mdl.glmmSlope.png)
 
 
 ##### Fixed effects
@@ -901,7 +901,7 @@ print(tab_model(mdl.glmmSlope2, file = paste0("outputs/mdl.glmmSlope2.html")))
 webshot(paste0("outputs/mdl.glmmSlope2.html"), paste0("outputs/mdl.glmmSlope2.png"))
 ```
 
-![Model fit: Generalised Linear Mixed effects model - Numeric](mdl.glmmSlope2.png)
+![Model fit: Generalised Linear Mixed effects model - Numeric](outputs/mdl.glmmSlope2.png)
 
 
 ##### Fixed effects
@@ -1018,7 +1018,7 @@ print(tab_model(mdl.glmmSlope3, file = paste0("outputs/mdl.glmmSlope3.html")))
 webshot(paste0("outputs/mdl.glmmSlope3.html"), paste0("outputs/mdl.glmmSlope3.png"))
 ```
 
-![Model fit: Generalised Linear Mixed effects model - Numeric - z scores](mdl.glmmSlope3.png)
+![Model fit: Generalised Linear Mixed effects model - Numeric - z scores](outputs/mdl.glmmSlope3.png)
 
 
 ###### Fixed effects
@@ -1195,7 +1195,7 @@ print(tab_model(mdl.clmm.Int, file = paste0("outputs/mdl.clmm.Int.html")))
 webshot(paste0("outputs/mdl.clmm.Int.html"), paste0("outputs/mdl.clmm.Int.png"))
 ```
 
-![Model fit: Cumulative Logit Mixed effects model](mdl.clmm.Int.png)
+![Model fit: Cumulative Logit Mixed effects model](outputs/mdl.clmm.Int.png)
 
 
 #### Interpreting a cumulative model
@@ -1405,7 +1405,7 @@ print(tab_model(mdl.clmm.Int.1, file = paste0("outputs/mdl.clmm.Int.1.html")))
 webshot(paste0("outputs/mdl.clmm.Int.1.html"), paste0("outputs/mdl.clmm.Int.1.png"))
 ```
 
-![Model fit: Cumulative Logit Mixed effects model](mdl.clmm.Int.1.png)
+![Model fit: Cumulative Logit Mixed effects model](outputs/mdl.clmm.Int.1.png)
 
 
 #### Interpreting a cumulative model
@@ -1688,7 +1688,7 @@ print(tab_model(mdl.gamm.F2.AR, file = paste0("outputs/mdl.gamm.F2.AR.html")))
 webshot(paste0("outputs/mdl.gamm.F2.AR.html"), paste0("outputs/mdl.gamm.F2.AR.png"))
 ```
 
-![Model fit: Generalised Additive Mixed effects model](mdl.gamm.F2.AR.png)
+![Model fit: Generalised Additive Mixed effects model](outputs/mdl.gamm.F2.AR.png)
 
 
 

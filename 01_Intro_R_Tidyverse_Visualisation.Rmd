@@ -4,7 +4,7 @@
 
 ```{r}
 ###Use the code below to check if you have all required packages installed. If some are not installed already, the code below will install these. If you have all packages installed, then you could load them with the second code.
-requiredPackages = c('tidyverse', 'languageR', 'phonR', 'summarytools')
+requiredPackages = c('tidyverse', 'languageR', 'phonR', 'summarytools', 'webshot')
 for(p in requiredPackages){
   if(!require(p,character.only = TRUE)) install.packages(p)
   library(p,character.only = TRUE)
@@ -1125,9 +1125,12 @@ Using the package `summarytools` you can obtain nice table ready for publication
 
 ```{r}
 english %>% 
-  dfSummary(graph.col = TRUE, style = "grid", graph.magnif = 0.75) %>% 
-  stview(method = "render")
+  dfSummary(graph.col = TRUE, style = "grid") %>% 
+  stview(file = paste0("outputs/dfSummary.html"))
+webshot(paste0("outputs/dfSummary.html"), paste0("outputs/dfSummary.png"))
 ```
+
+![Model fit: Linear model](outputs/dfSummary.png)
 
 
 #### Descriptive statistics for numeric variables
@@ -1135,8 +1138,12 @@ english %>%
 ```{r}
 english %>% 
   descr() %>% 
-  stview(method = "render")
+  stview(file = paste0("outputs/descr.html"))
+webshot(paste0("outputs/descr.html"), paste0("outputs/descr.png"))
 ```
+
+
+![Model fit: Linear model](outputs/descr.png)
 
 
 #### Frequencies for non-numeric variables
@@ -1144,8 +1151,14 @@ english %>%
 ```{r}
 english %>% 
   freq() %>% 
-  stview(method = "render")
+  
+    stview(file = paste0("outputs/freq.html"))
+webshot(paste0("outputs/freq.html"), paste0("outputs/freq.png"))
 ```
+
+
+![Model fit: Linear model](outputs/freq.png)
+
 
 
 ### Visualisation

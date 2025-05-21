@@ -313,7 +313,7 @@ print(tab_model(mdl.lm, file = paste0("outputs/mdl.lm.html")))
 webshot(paste0("outputs/mdl.lm.html"), paste0("outputs/mdl.lm.png"))
 ```
 
-![Model fit: Linear model](mdl.lm.png)
+![Model fit: Linear model](outputs/mdl.lm.png)
 
 
 
@@ -630,7 +630,7 @@ print(tab_model(mdl.glm, file = paste0("outputs/mdl.glm.html")))
 webshot(paste0("outputs/mdl.glm.html"), paste0("outputs/mdl.glm.png"))
 ```
 
-![Model fit: Generalised Linear model - Categorical](mdl.glm.png)
+![Model fit: Generalised Linear model - Categorical](outputs/mdl.glm.png)
 
 
 The results show that for one unit increase in the response (i.e., from
@@ -723,7 +723,7 @@ print(tab_model(mdl.glm2, file = paste0("outputs/mdl.glm2.html")))
 webshot(paste0("outputs/mdl.glm2.html"), paste0("outputs/mdl.glm2.png"))
 ```
 
-![Model fit: Generalised Linear model - Numeric](mdl.glm2.png)
+![Model fit: Generalised Linear model - Numeric](ouputs/mdl.glm2.png)
 
 
 
@@ -794,7 +794,7 @@ print(tab_model(mdl.glm3, file = paste0("outputs/mdl.glm3.html")))
 webshot(paste0("outputs/mdl.glm3.html"), paste0("outputs/mdl.glm3.png"))
 ```
 
-![Model fit: Generalised Linear model - Numeric - z-scores](mdl.glm3.png)
+![Model fit: Generalised Linear model - Numeric - z-scores](ouputs/mdl.glm3.png)
 
 
 
@@ -1128,7 +1128,7 @@ print(tab_model(mdl.clm, file = paste0("outputs/mdl.clm.html")))
 webshot(paste0("outputs/mdl.clm.html"), paste0("outputs/mdl.clm.png"))
 ```
 
-![Model fit: Cumulative Logit model](mdl.clm.png)
+![Model fit: Cumulative Logit model](ouputs/mdl.clm.png)
 
 
 
@@ -1305,7 +1305,7 @@ print(tab_model(mdl.clm, file = paste0("outputs/mdl.clm.html")))
 webshot(paste0("outputs/mdl.clm.html"), paste0("outputs/mdl.clm.png"))
 ```
 
-![Model fit: Cumulative Logit model](mdl.clm.png)
+![Model fit: Cumulative Logit model](ouputs/mdl.clm.png)
 
 #### Interpreting a cumulative model
 

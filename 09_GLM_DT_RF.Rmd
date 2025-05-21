@@ -31,7 +31,7 @@ for(p in requiredPackages){
   if(!require(p,character.only = TRUE)) install.packages(p, dependencies = TRUE)
   library(p,character.only = TRUE)
 }
-
+options(ggrepel.max.overlaps = Inf)
 ```
 
 
@@ -83,6 +83,9 @@ plogis(mycoef2[1])
 plogis(mycoef2[1] + mycoef2[2])
 ```
 
+The `plogis` function provides the probability of being in the `guttural` class. The intercept (non-guttural) is 0.5, and the `guttural` class is 0.41. This means that the model predicts that a unit increase in `Z2-Z1` yields a decrease of 9% in the probability of being in the `guttural` class.
+This is a small effect, but it is statistically significant. The model also provides the logodds associated with the predictor. The logodds are the natural logarithm of the odds ratio, which is the ratio of the probability of being in one class over the other.
+The logodds are not easy to interpret, but they can be used to evaluate the effect of the predictor on the outcome. The logodds for `Z2-Z1` is -0.1, which means that a unit increase in `Z2-Z1` yields a decrease of 10% in the odds of being in the `guttural` class. This is a small effect, but it is statistically significant.
 
 This shows that `Z2-Z1` is able to explain the difference in the `guttural` class with an accuracy of 59%. Let's continue with this model further.
 
@@ -107,7 +110,7 @@ pROC::plot.roc(roc.glm.Z2mnZ1, legacy.axes = TRUE)
 ```
 
 
-The model above was able to explain the difference between the two classes with an accuracy of 67.7%. It has a slightly low specificity (``r specificity(tbl.glm.Z2mnZ1)``) to detect `gutturals`, but a sightly high sensitivity (``r sensitivity(tbl.glm.Z2mnZ1)``) to reject the `non-gutturals`. Looking at the confusion matrix, we observe that both groups were relatively accurately identified, but we have relatively large errors (or confusions). The AUC is at ``r roc.glm.Z2mnZ1``, which is not too high. 
+The model above was able to explain the difference between the two classes with an accuracy of 67.7%. It has a slightly low specificity (0.583) to detect `gutturals`, but a sightly high sensitivity (0.752) to reject the `non-gutturals`. Looking at the confusion matrix, we observe that both groups were relatively accurately identified, but we have relatively large errors (or confusions). The AUC is at 0.6678 which is not too high. 
 
 Let's continue with GLM to evaluate it further. We start by running a correlation test to evaluate issues with GLM.
 
@@ -273,9 +276,10 @@ roc.ctree
 pROC::plot.roc(roc.ctree, legacy.axes = TRUE)
 ```
 
-This full model has a classification accuracy of ``r pcc(tbl.ctree)``%. This is not bad!! It has a relatively moderate specificity at ``r specificity(tbl.ctree)`` (at detecting the gutturals) but a high sensitivity at ``r sensitivity(tbl.ctree)`` (at detecting the non-gutturals). The ROC curve shows the relationship between the two with an AUC of ``r roc.ctree``
-This is a good model, but it is not perfect. The confusion matrix shows that the model was able to detect 80% of the gutturals, but 20% were misclassified as non-gutturals. The opposite is true for the non-gutturals: 80% were detected, but 20% were misclassified as gutturals.
 
+This full model has a classification accuracy of 82.8%. This is not bad!! It has a relatively moderate specificity at 0.772 (at detecting the gutturals) but a high sensitivity at 0.874 (at detecting the non-gutturals). The ROC curve shows the relationship between the two with an AUC of 0.823.
+This is a good model, but it is not perfect. The confusion matrix shows that the model was able to detect 80% of the gutturals, but 20% were misclassified as non-gutturals. The opposite is true for the non-gutturals: 80% were detected, but 20% were misclassified as gutturals.
+The AUC is at 0.823, which is not too bad. 
 ### Random selection
 
 One important issue is that the trees we grew above are biased. They are based on the full dataset, which means they are very likely to overfit the data. We did not add any random selection and we only grew one tree each time. If you think about it, is it possible that we obtained such results simply by chance? 
@@ -373,10 +377,8 @@ roc.cforest
 pROC::plot.roc(roc.cforest, legacy.axes = TRUE)
 ```
 
-Compared with the ``r pcc(tbl.ctree)``% classification accuracy we obtained using `ctree` using our full dataset above (model 1), here we obtain ``r pcc(tbl.cforest)``; a ``r pcc(tbl.cforest)-pcc(tbl.ctree)``% increase in classification accuracy. The specificity is slightly lower at ``r specificity(tbl.cforest)`` (at detecting the gutturals), but the sensitivity is higher at ``r sensitivity(tbl.cforest)`` (at detecting the non-gutturals). The ROC curve shows the relationship between the two with an AUC of ``r roc.cforest``.
+Compared with the 82.8% classification accuracy we obtained using `ctree` using our full dataset above (model 1), here we obtain 84.8%; a 2% increase in classification accuracy. The specificity is slightly lower at 0.761 (at detecting the gutturals), but the sensitivity is higher at 0.919 (at detecting the non-gutturals). The ROC curve shows the relationship between the two with an AUC of 0.84.
 
-
-86.3% with a 3.5% increase. Compared with the ``r pcc(tbl.ctree1)``% from model 2 from `ctree` with random selection of predictors, we have an ``r pcc(tbl.cforest)-pcc(tbl.ctree)``% increase in classification accuracy!
 
 We could test whether there is statistically significant difference between our `ctree` and `cforest` models. Using the ROC curves, the `roc.test` conducts a non-parametric Z test of significance on the correlated ROC curves. The results show a statistically significant improvement using the `cforest` model. This is normal because we are growing 100 different trees, with random selection of both predictors and samples and provide an `averaged` prediction. 
 
@@ -536,7 +538,7 @@ pROC::plot.roc(roc.ranger, legacy.axes = TRUE)
 ```
 
 
-The classification rate based on the testing set is ``r pcc(tbl.ranger2)``%. This is comparable to the one we obtained with `cforest`. The changes in the settings allow for similarities in the predictions obtained from both `party` and `ranger`. 
+The classification rate based on the testing set is 91.1%. This is comparable to the one we obtained with `cforest`. The changes in the settings allow for similarities in the predictions obtained from both `party` and `ranger`. 
 
 ##### Variable Importance Scores
 
@@ -636,10 +638,12 @@ recipe <-
   train_tbl %>%
   recipe(context ~ .) %>%
   step_center(all_predictors(), -all_outcomes()) %>%
-  step_scale(all_predictors(), -all_outcomes()) %>% 
+  step_scale(all_predictors(), -all_outcomes())
+
+trainData_prep <- recipe %>% 
   prep()
 
-trainData_baked <- bake(recipe, new_data = train_tbl) ## convert to the train data to the newly imputed data
+trainData_baked <- bake(trainData_prep, new_data = train_tbl) ## convert to the train data to the newly imputed data
 trainData_baked
 
 ```
