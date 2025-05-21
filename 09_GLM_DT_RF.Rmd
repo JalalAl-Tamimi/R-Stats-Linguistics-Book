@@ -640,10 +640,17 @@ recipe <-
   step_center(all_predictors(), -all_outcomes()) %>%
   step_scale(all_predictors(), -all_outcomes())
 
+<<<<<<< HEAD
 recipePrep <- recipe %>% 
   prep()
 
 trainData_baked <- bake(recipePrep, new_data = train_tbl) ## convert to the train data to the newly imputed data
+=======
+trainData_prep <- recipe %>% 
+  prep()
+
+trainData_baked <- bake(trainData_prep, new_data = train_tbl) ## convert to the train data to the newly imputed data
+>>>>>>> 6a3a2e45ed9e37be0971a3c4cea38ebdc5322533
 trainData_baked
 
 ```
