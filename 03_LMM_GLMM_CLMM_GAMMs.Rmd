@@ -1,11 +1,12 @@
 # Random effects - LMM, GLMM, CLMM, GAMMs {#Random_LMM_GLMM_CLMM_GAMM}
 
+This chapter introduces the reader to the basics of mixed-effects regressions. We explore what random effects are and how they contribute to our models. It demonstrates how what additional information we gain from a mixed effects model beyond the fixed effects. We heaviliy explore random effects using a Linear Mixed-Effects Regression model (LMM) using the package `lme4`. We also explore how to use the `ggstats` and `ggstatsplot` packages to visualise the results of our models. We also use the `sjPlot` package to visualise the results of our models. We explore other family distributions using Generalised Linear Mixed-effects Models (GLMMs) using the `lme4` package. Here we use various types of predictors: categorical predictors and numeric predictors. For the latter case, we look at how to use z-scored numeric predictors. We also explore how to use the `emmeans` package to visualise the results of our models. We then move to a cumulative link mixed-effects models (CLMMs). Towards the end, we introduce the user to Generalised Additive Mixed-effects Regressions (GAMMs). We use the package `mgcv` to explore how to use GAMMs. We also explore how to use the `itsadug` package to visualise the results of our models.
 
 ## Loading packages 
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 ### Use the code below to check if you have all required packages installed. If some are not installed already, the code below will install these. If you have all packages installed, then you could load them with the second code.
-requiredPackages = c('tidyverse', 'broom', 'knitr', 'Hmisc', 'corrplot', 'lme4', 'lmerTest', 'emmeans', 'ggsignif', 'PresenceAbsence', 'languageR', 'ordinal', 'mgcv', 'itsadug', 'ggstats', 'ggstatsplot', 'sjPlot', 'paletteer', 'lattice', 'car', 'webshot')
+requiredPackages = c('faux', 'tidyverse', 'broom', 'knitr', 'Hmisc', 'corrplot', 'lme4', 'lmerTest', 'emmeans', 'ggsignif', 'PresenceAbsence', 'languageR', 'ordinal', 'mgcv', 'itsadug', 'ggstats', 'ggstatsplot', 'sjPlot', 'paletteer', 'lattice', 'car')
 for(p in requiredPackages){
   if(!require(p,character.only = TRUE)) install.packages(p, dependencies = TRUE)
   library(p,character.only = TRUE)
@@ -15,7 +16,7 @@ detach("package:lmerTest", unload = TRUE)
 ```
 
 
-## Introduction
+## Random effects?
 
 When looking at any study in Linguistics (and beyond), we rarely use productions of one vowel, from one speaker and from one item. If this were the case, we are unable to quantify changes in specific languages. To be able to generalise our results, we go for data collected from:
 
@@ -31,9 +32,7 @@ If we do not account for these inter-dependencies in our dataset, we are increas
 
 Type I error, is when you easily find statistical differences when they are not there. Type II error is when you fail to find statistical difference when it is there. There are other types of errors [see this reference for more details](https://github.com/msonderegger/rmld-v1.1?s=09).
 
-### Fixed and random effects
-
-#### How to choose fixed and random effects
+### How to choose fixed and random effects
 
 Fixed effects are those that are part of the experimental conditions. If you have exhausted all levels of an experimental condition, then this goes into fixed effects. 
 Random effects are random selections of the population you have and you want to generalise over them.
@@ -42,7 +41,7 @@ E.g., Speakers, listeners, items, utterances are all random effects because you 
 
 BUT.. Can Speakers, listeners, items, or utterances be included as fixed effects? Yes!! When you do this, it means you are interested in this specific population and want to evaluate differences specific to the population!!
 
-#### What about Random Intercepts and Random Slopes
+### What about Random Intercepts and Random Slopes
 
 Random Intercepts are used to obtain averages of your population and these are used in your statistical model to estimate variations. 
 
@@ -53,15 +52,16 @@ Random Slopes are adjustments to your participants' observations as a function o
 
 Let's generate a new dataframe that we will use later on for our mixed models
 
-We will use the `faux` package. It is not available on CRAN, but you can install it via github. First install the package `devtools`, and then install the package `faux` using the function `devtools::install_github`. 
+We will use the `faux` package. It is available on CRAN, but it is possible that it is not available for your version of R (I used version 4.5). In this case, you need to install it via github. The package `faux` is a package that allows you to simulate data for your experiments. It is a very useful package to test your ideas and to assess the impact of particular predictors on your dependant variable.
+
+To install it, you will first need to install the package `devtools`, and then install the package `faux` using the function `devtools::install_github`. Uncomment the code chunk below
 
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 # install.packages("devtools")
 # devtools::install_github("debruine/faux")
-library(faux)
+# library(faux)
 ```
-
 
 
 
@@ -424,11 +424,9 @@ Anova(xmdl.Optimal)
 ##### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(xmdl.Optimal, file = paste0("outputs/xmdl.Optimal.html")))
-webshot(paste0("outputs/xmdl.Optimal.html"), paste0("outputs/xmdl.Optimal.png"))
+print(tab_model(xmdl.Optimal))
 ```
 
-![Model fit: Linear Mixed effects model](outputs/xmdl.Optimal.png)
 
 ### Plotting model's output
 
@@ -777,11 +775,9 @@ The model comparisons show that the model with both random intercepts and random
 ##### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.glmmSlope, file = paste0("outputs/mdl.glmmSlope.html")))
-webshot(paste0("outputs/mdl.glmmSlope.html"), paste0("outputs/mdl.glmmSlope.png"))
+print(tab_model(mdl.glmmSlope))
 ```
 
-![Model fit: Generalised Linear Mixed effects model - Categorical](outputs/mdl.glmmSlope.png)
 
 
 ##### Fixed effects
@@ -897,11 +893,9 @@ The model comparisons show that the model with both random intercepts and random
 ##### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.glmmSlope2, file = paste0("outputs/mdl.glmmSlope2.html")))
-webshot(paste0("outputs/mdl.glmmSlope2.html"), paste0("outputs/mdl.glmmSlope2.png"))
+print(tab_model(mdl.glmmSlope2))
 ```
 
-![Model fit: Generalised Linear Mixed effects model - Numeric](outputs/mdl.glmmSlope2.png)
 
 
 ##### Fixed effects
@@ -1014,11 +1008,9 @@ The model comparisons show that the model with both random intercepts and random
 ###### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.glmmSlope3, file = paste0("outputs/mdl.glmmSlope3.html")))
-webshot(paste0("outputs/mdl.glmmSlope3.html"), paste0("outputs/mdl.glmmSlope3.png"))
+print(tab_model(mdl.glmmSlope3))
 ```
 
-![Model fit: Generalised Linear Mixed effects model - Numeric - z scores](outputs/mdl.glmmSlope3.png)
 
 
 ###### Fixed effects
@@ -1191,11 +1183,9 @@ In our publication, by Rater Random Slopes for context were needed.
 #### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.clmm.Int, file = paste0("outputs/mdl.clmm.Int.html")))
-webshot(paste0("outputs/mdl.clmm.Int.html"), paste0("outputs/mdl.clmm.Int.png"))
+print(tab_model(mdl.clmm.Int))
 ```
 
-![Model fit: Cumulative Logit Mixed effects model](outputs/mdl.clmm.Int.png)
 
 
 #### Interpreting a cumulative model
@@ -1401,11 +1391,9 @@ The model comparison above shows that using random intercepts is enough in our c
 #### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.clmm.Int.1, file = paste0("outputs/mdl.clmm.Int.1.html")))
-webshot(paste0("outputs/mdl.clmm.Int.1.html"), paste0("outputs/mdl.clmm.Int.1.png"))
+print(tab_model(mdl.clmm.Int.1))
 ```
 
-![Model fit: Cumulative Logit Mixed effects model](outputs/mdl.clmm.Int.1.png)
 
 
 #### Interpreting a cumulative model
@@ -1684,11 +1672,9 @@ summary(mdl.gamm.F2.AR)
 ###### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.gamm.F2.AR, file = paste0("outputs/mdl.gamm.F2.AR.html")))
-webshot(paste0("outputs/mdl.gamm.F2.AR.html"), paste0("outputs/mdl.gamm.F2.AR.png"))
+print(tab_model(mdl.gamm.F2.AR))
 ```
 
-![Model fit: Generalised Additive Mixed effects model](outputs/mdl.gamm.F2.AR.png)
 
 
 

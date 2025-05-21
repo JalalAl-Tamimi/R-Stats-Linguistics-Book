@@ -1,7 +1,5 @@
 # Advanced manipulations of corpora {#Corpus_Advanced}
 
-## Introduction
-
 In this chapter, we will continue using `R` for the qualitative analyses of textual corpora.
 
 After importing textual datasets, we will look at how to manipulate these datasets. We will introduce some new notions, including kwics (key-words in context), compound words, n-grams, dictionaries, part-of-speech tagging, and feature co-occurrence matrices (FCM). We will also look at how to visualise these datasets.
@@ -198,7 +196,7 @@ This section borrows many features from [here](https://ladal.edu.au/tagging.html
 Part-of-Speech tagging (or PoS-Tagging) is used to distinguish different part of speech, e.g., the sentence: "Jane likes the girl" can be tagged as "Jane/NNP likes/VBZ the/DT girl/NN", where NNP = proper noun (singular), VBZ = 3rd person singular present tense verb, DT = determiner, and NN = noun (singular or mass).
 We will use the [udpipe](https://cran.r-project.org/web/packages/udpipe/index.html) package
 
-![](PoS-tag.png){width="700"}
+![](images/PoS-tag.png){width="700"}
 
 
 ##### Download and load language model

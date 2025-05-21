@@ -1,10 +1,15 @@
 # Introduction to R, the Tidyverse - Visualisation {#Introduction_Tidyverse_Visualisation}
 
+This chapter introduces you to the `R` programming language and its basics. We use it to create a dataframe, manipulate data, perform statistical analyses, and create visualisations. 
+
+We then move to the `Tidyverse` and how to visualise data using `ggplot2`. We will use the dataset `english` from the package `languageR`. This dataset contains reaction times for lexical decision and naming tasks, as well as familiarity ratings for 4568 English words. We use it to demonstrate how to manipulate data and create visualisations. We also obtain various descriptive statistics.
+
+
 ## Loading packages 
 
 ```{r}
 ###Use the code below to check if you have all required packages installed. If some are not installed already, the code below will install these. If you have all packages installed, then you could load them with the second code.
-requiredPackages = c('tidyverse', 'languageR', 'phonR', 'summarytools', 'webshot')
+requiredPackages = c('tidyverse', 'languageR', 'phonR', 'summarytools')
 for(p in requiredPackages){
   if(!require(p,character.only = TRUE)) install.packages(p)
   library(p,character.only = TRUE)
@@ -1126,11 +1131,9 @@ Using the package `summarytools` you can obtain nice table ready for publication
 ```{r}
 english %>% 
   dfSummary(graph.col = TRUE, style = "grid") %>% 
-  stview(file = paste0("outputs/dfSummary.html"))
-webshot(paste0("outputs/dfSummary.html"), paste0("outputs/dfSummary.png"))
+  stview(method = "render")
 ```
 
-![Model fit: Linear model](outputs/dfSummary.png)
 
 
 #### Descriptive statistics for numeric variables
@@ -1138,12 +1141,9 @@ webshot(paste0("outputs/dfSummary.html"), paste0("outputs/dfSummary.png"))
 ```{r}
 english %>% 
   descr() %>% 
-  stview(file = paste0("outputs/descr.html"))
-webshot(paste0("outputs/descr.html"), paste0("outputs/descr.png"))
+  stview(method = "render")
 ```
 
-
-![Model fit: Linear model](outputs/descr.png)
 
 
 #### Frequencies for non-numeric variables
@@ -1151,13 +1151,8 @@ webshot(paste0("outputs/descr.html"), paste0("outputs/descr.png"))
 ```{r}
 english %>% 
   freq() %>% 
-  
-    stview(file = paste0("outputs/freq.html"))
-webshot(paste0("outputs/freq.html"), paste0("outputs/freq.png"))
+    stview(method = "render")
 ```
-
-
-![Model fit: Linear model](outputs/freq.png)
 
 
 

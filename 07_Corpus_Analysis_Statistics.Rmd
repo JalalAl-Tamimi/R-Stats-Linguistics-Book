@@ -1,7 +1,5 @@
 # Corpus analysis and statistics {#Corpus_Stats}
 
-## Introduction
-
 In this chapter, we will continue using `R` for the qualitative analyses of textual corpora.
 
 After manipulating the various corpora, we use statistical analyses to provide a statistical account of the corpora. We will use the `quanteda` package to compute various statistics, including simple frequency analyses, lexical diversity, keyness, collocations, word clouds, network analyses and we will end with Poisson regression that is adapted for count data. 

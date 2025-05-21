@@ -1,6 +1,13 @@
 # Reducing Dimensionality: Correlations, Principal Component Analysis, cluster analysis and Multidimensional scaling {#Corr_PCA_Cluster_MDS}
 
 
+In this chapter, we will look at how to reduce dimensionality of our dataset. This is important when you have a large number of predictors and you want to reduce the number of predictors to a smaller set. This is particularly important when you have a large number of predictors and you want to reduce the number of predictors to a smaller set.
+
+When you have multiple predictors (numeric or categorical) that are related to the outcome, you will need a way to assess whether all the predictors are needed. One solution is to use a Generalised Linear Model with all predictors added to the model. This technique, while easy to implement has several drawbacks. We'll see this in more details next week, but usually, when two predictors (or more!) are correlated to various levels, they will cancel each other, and we cannot be sure of how to interpret the results. 
+
+We'll use the correlation plots again to verify the correlation level of our predictors and then employ Principal Component Analysis to first reduce dimensionality and then for clustering of outcomes. We then use an alternative approach, a non-supervised cluster analysis and Multidimensional Scaling that allows us to look at our predictors in relation to the outcome. We'll examine how these approaches can help us tackle issues of multicollinearity and of reducing dimensionality. 
+
+
 ## Loading packages 
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
@@ -14,19 +21,6 @@ for(p in requiredPackages){
 ```
 
 
-## Interim-summary
-
-
-So far, we looked at how to use various types of confirmatory data analyses. The aim was to test a specific hypothesis and to see how well the data fit the model. We also looked at how to use linear regression to predict a continuous outcome from one or more predictors. We looked at logistic regression to predict a binary outcome from one or more predictors. We also looked at Cumulative Link Models to predict an ordinal outcome from one or more predictors. 
-Then we looked at how to use mixed effects regressions, with linear, generalised linear and cumulative link models using mixed effects regressions. We explored generalised additive models to predict a continuous outcome from one or more predictors, with or without random effects.
-
-## Introduction
-
-In this section, we will look at how to reduce dimensionality of our dataset. This is important when you have a large number of predictors and you want to reduce the number of predictors to a smaller set. This is particularly important when you have a large number of predictors and you want to reduce the number of predictors to a smaller set.
-
-When you have multiple predictors (numeric or categorical) that are related to the outcome, you will need a way to assess whether all the predictors are needed. One solution is to use a Generalised Linear Model with all predictors added to the model. This technique, while easy to implement has several drawbacks. We'll see this in more details next week, but usually, when two predictors (or more!) are correlated to various levels, they will cancel each other, and we cannot be sure of how to interpret the results. 
-
-We'll use the correlation plots again to verify the correlation level of our predictors and then employ Principal Component Analysis to first reduce dimensionality and then for clustering of outcomes. We then use an alternative approach, a non-supervised cluster analysis and Multidimensional Scaling that allows us to look at our predictors in relation to the outcome. We'll examine how these approaches can help us tackle issues of multicollinearity and of reducing dimensionality. 
 
 ## Read dataset
 

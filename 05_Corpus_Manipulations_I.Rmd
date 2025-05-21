@@ -1,7 +1,5 @@
 # Creating a corpus and basic manipulations {#Corpus_Basic}
 
-## Introduction
-
 In this chapter, we will continue using `R` for the qualitative analyses of textual corpora.
 
 After importing textual data, we will use various packages to create a corpus, and start manipulating it. We will use various functions to select portions of the files, transform the dataframes and segment the corpus into tokens and types. We ill also use stop words and wordstemming. 

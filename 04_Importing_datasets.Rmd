@@ -1,8 +1,6 @@
 # Accessing textual datasets {#Text_Data}
 
-## Introduction
-
-The following chapters will introduce you to qualitative analyses of textual corpora using `R`. 
+The following four chapters will introduce you to qualitative analyses of textual corpora using `R`. 
 
 We start in this chapter by looking at how to access textual datasets. We will use various packages to access textual datasets. We will use corpora in French and English. We will also import multiple text files, convert PDF files, use X data (ex-twitter), in addition to webscrapping. 
 

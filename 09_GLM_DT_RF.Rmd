@@ -1,11 +1,9 @@
 # Decision trees and Random Forests {#DT_RF}
 
 
-## Introduction
+This chapter provides details of how to grow Random Forests for phonetic data. This is not exclusive to phonetic data and can be used for any other type of data. 
 
-This notebook provides details of how to grow Random Forests for phonetic data. This is not exclusive to phonetic data and can be used for any other type of data. 
-
-We will start by looking at the basics of predictive modelling. We will look at some issues with logistic regression related to multicollinearity. In chapter~\@ref(Correlation_LM_GLM_STD_CLM), we looked at various notions obtained from Signal Detection Theory~\@ref(SDT). We will use these to evaluate the performance of our models. We introduce decision trees to understand how they work, before attempting to replicate how Random Forests work. We then grow our first Random Forests using the `party` and the `ranger` packages and try to capture as much information as possible from it. At the end, we look at the approach advocated by  `tidymodels`.
+We will start by looking at the basics of predictive modelling. We will look at some issues with logistic regression related to multicollinearity. In chapter~\@nref(Correlation_LM_GLM_STD_CLM), we looked at various notions obtained from Signal Detection Theory~\@nref(SDT). We will use these to evaluate the performance of our models. We introduce decision trees to understand how they work, before attempting to replicate how Random Forests work. We then grow our first Random Forests using the `party` and the `ranger` packages and try to capture as much information as possible from it. At the end, we look at the approach advocated by  `tidymodels`.
 
 ## What is predictive modelling
 
@@ -640,10 +638,17 @@ recipe <-
   step_center(all_predictors(), -all_outcomes()) %>%
   step_scale(all_predictors(), -all_outcomes())
 
+<<<<<<< HEAD
 recipePrep <- recipe %>% 
   prep()
 
 trainData_baked <- bake(recipePrep, new_data = train_tbl) ## convert to the train data to the newly imputed data
+=======
+trainData_prep <- recipe %>% 
+  prep()
+
+trainData_baked <- bake(trainData_prep, new_data = train_tbl) ## convert to the train data to the newly imputed data
+>>>>>>> 6a3a2e45ed9e37be0971a3c4cea38ebdc5322533
 trainData_baked
 
 ```
@@ -855,7 +860,7 @@ vip(pull_workflow_fit(wkfl_tidym_final$.workflow[[1]]), num_features = 23)
 testData_baked <- bake(recipePrep, new_data = test_tbl) ## convert  the test data to the newly imputed data
 
 set.seed(42)
-system.time(VarImp.pval <- wkfl_tidym_final %>% extract_fit_engine() %>%  importance_pvalues(method = "altmann", formula = context ~., data = testData_baked, num.permutations = 500, num.threads = ncores))
+system.time(VarImp.pval <- wkfl_tidym_final %>% extract_fit_engine() %>%  importance_pvalues(method = "altmann", formula = context ~., data = testData_baked, num.permutations = 2000, num.threads = ncores))
 VarImp.pvaldf <- VarImp.pval %>% 
   as.data.frame() %>% 
   rownames_to_column(var = "correlate") %>% 

@@ -6,11 +6,14 @@ editor_options:
 
 # Correlation plots - LM, GLM, CLM {#Correlation_LM_GLM_STD_CLM}
 
+This chapter introduces you to the basics of inferential statistics. We cover correlation tests to identify specific patterns in the data. We then use linear models to evaluate group differences, and generalised linear models to evaluate binary outcomes. We also introduce the basics of signal detection theory (SDT) to evaluate the accuracy of our models. At the end of this chapter, we introduce the basics of cumulative link models (CLM) to evaluate ordinal (likert) outcomes on two datasets.
+
+
 ## Loading packages
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 ## Use the code below to check if you have all required packages installed. If some are not installed already, the code below will install these. If you have all packages installed, then you could load them with the second code.
-requiredPackages = c('tidyverse', 'broom', 'knitr', 'Hmisc', 'corrplot', 'emmeans', 'ggsignif', 'PresenceAbsence', 'languageR', 'psycho', 'ordinal', 'DHARMa', 'sjPlot', 'webshot')
+requiredPackages = c('tidyverse', 'broom', 'knitr', 'Hmisc', 'corrplot', 'emmeans', 'ggsignif', 'PresenceAbsence', 'languageR', 'psycho', 'ordinal', 'DHARMa', 'sjPlot')
 for(p in requiredPackages){
   if(!require(p,character.only = TRUE)) install.packages(p)
   library(p,character.only = TRUE)
@@ -309,12 +312,8 @@ kable(mdl.lmT, digits = 3)
 ##### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.lm, file = paste0("outputs/mdl.lm.html")))
-webshot(paste0("outputs/mdl.lm.html"), paste0("outputs/mdl.lm.png"))
+print(tab_model(mdl.lm))
 ```
-
-![Model fit: Linear model](outputs/mdl.lm.png)
-
 
 
 #### Dissecting the model
@@ -626,11 +625,9 @@ mycoef2 <- tidy(mdl.glm) %>% pull(estimate)
 #### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.glm, file = paste0("outputs/mdl.glm.html")))
-webshot(paste0("outputs/mdl.glm.html"), paste0("outputs/mdl.glm.png"))
+print(tab_model(mdl.glm))
 ```
 
-![Model fit: Generalised Linear model - Categorical](outputs/mdl.glm.png)
 
 
 The results show that for one unit increase in the response (i.e., from
@@ -719,11 +716,8 @@ mycoef2 <- tidy(mdl.glm2) %>% pull(estimate)
 ##### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.glm2, file = paste0("outputs/mdl.glm2.html")))
-webshot(paste0("outputs/mdl.glm2.html"), paste0("outputs/mdl.glm2.png"))
+print(tab_model(mdl.glm2))
 ```
-
-![Model fit: Generalised Linear model - Numeric](ouputs/mdl.glm2.png)
 
 
 
@@ -790,11 +784,8 @@ mycoef2 <- tidy(mdl.glm3) %>% pull(estimate)
 ##### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.glm3, file = paste0("outputs/mdl.glm3.html")))
-webshot(paste0("outputs/mdl.glm3.html"), paste0("outputs/mdl.glm3.png"))
+print(tab_model(mdl.glm3))
 ```
-
-![Model fit: Generalised Linear model - Numeric - z-scores](ouputs/mdl.glm3.png)
 
 
 
@@ -1124,11 +1115,8 @@ anova(mdl.clm, mdl.clm.Null)
 #### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.clm, file = paste0("outputs/mdl.clm.html")))
-webshot(paste0("outputs/mdl.clm.html"), paste0("outputs/mdl.clm.png"))
+print(tab_model(mdl.clm))
 ```
-
-![Model fit: Cumulative Logit model](ouputs/mdl.clm.png)
 
 
 
@@ -1301,11 +1289,9 @@ The model comparison above shows that our full model is enough.
 #### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.clm, file = paste0("outputs/mdl.clm.html")))
-webshot(paste0("outputs/mdl.clm.html"), paste0("outputs/mdl.clm.png"))
+print(tab_model(mdl.clm))
 ```
 
-![Model fit: Cumulative Logit model](ouputs/mdl.clm.png)
 
 #### Interpreting a cumulative model
 
