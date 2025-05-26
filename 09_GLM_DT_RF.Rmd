@@ -416,7 +416,7 @@ The Variable Importance Scores via non-conditional permutation tests showed that
 
 On this relatively small dataset, the conditional permutation tests were relatively fast. Be careful with larger datasets.
 
-```{r}
+```{r, cache=TRUE}
 set.seed(42)
 VarImp.cforest <- varImp::varImpAUC(mdl.cforest, conditional = TRUE)
 lattice::barchart(sort(VarImp.cforest))
@@ -561,7 +561,7 @@ A clear difference between the packages `party` and `ranger` is that the former 
 
 ###### With p values
 
-```{r}
+```{r, cache=TRUE}
 set.seed(42)
 VarImp.pval <- importance_pvalues(mdl.ranger2, method = "altmann",
                                   num.permutations = 500, 
@@ -638,17 +638,15 @@ recipe <-
   step_center(all_predictors(), -all_outcomes()) %>%
   step_scale(all_predictors(), -all_outcomes())
 
-<<<<<<< HEAD
 recipePrep <- recipe %>% 
   prep()
 
 trainData_baked <- bake(recipePrep, new_data = train_tbl) ## convert to the train data to the newly imputed data
-=======
+
 trainData_prep <- recipe %>% 
   prep()
 
 trainData_baked <- bake(trainData_prep, new_data = train_tbl) ## convert to the train data to the newly imputed data
->>>>>>> 6a3a2e45ed9e37be0971a3c4cea38ebdc5322533
 trainData_baked
 
 ```
@@ -714,7 +712,7 @@ Of course, you could use a larger size to grow more trees, with this will take l
 The model will run for about 2-3 minutes with an 8 cores machine and 32GB of RAMs. For demonstration purposes, the tuning of number of trees is restricted to between 1000 and 2000 trees. This can of course be increased to 5000 trees (or more) depending on the size of the dataset
  
 
-```{r}
+```{r, cache=TRUE}
 set.seed(42)
 system.time(grid_tidym <- 
   tune_grid(wkfl_tidym, 
@@ -856,7 +854,7 @@ vip(pull_workflow_fit(wkfl_tidym_final$.workflow[[1]]), num_features = 23)
 
 ###### P-values computed with permutation importance (PIMP)
 
-```{r}
+```{r, cache=TRUE}
 testData_baked <- bake(recipePrep, new_data = test_tbl) ## convert  the test data to the newly imputed data
 
 set.seed(42)

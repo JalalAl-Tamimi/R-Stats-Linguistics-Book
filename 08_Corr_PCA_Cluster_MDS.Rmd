@@ -376,7 +376,7 @@ km.resdat1_10
 
 #### Dendograms
 
-```{r}
+```{r, cache=TRUE}
 fviz_dend(km.resdat1_2, show_labels = TRUE, rect = TRUE, repel = TRUE, main = "Cluster Dendrogram - 2 clusters")
 
 fviz_dend(km.resdat1_3, show_labels = TRUE, rect = TRUE, repel = TRUE, main = "Cluster Dendrogram - 3 clusters")
@@ -468,52 +468,52 @@ fviz_cluster(km.resdat1_10, data = dat1Clust,
 
 #### Individual Clusters
 
-```{r}
+```{r, cache=TRUE}
 sort(km.resdat1_2$cluster)
 ```
 
 
-```{r}
+```{r, cache=TRUE}
 sort(km.resdat1_3$cluster)
 ```
 
 
-```{r}
+```{r, cache=TRUE}
 sort(km.resdat1_4$cluster)
 ```
 
 
 
-```{r}
+```{r, cache=TRUE}
 sort(km.resdat1_5$cluster)
 ```
 
 
 
-```{r}
+```{r, cache=TRUE}
 sort(km.resdat1_6$cluster)
 ```
 
 
 
-```{r}
+```{r, cache=TRUE}
 sort(km.resdat1_7$cluster)
 ```
 
 
 
-```{r}
+```{r, cache=TRUE}
 sort(km.resdat1_8$cluster)
 ```
 
 
 
-```{r}
+```{r, cache=TRUE}
 sort(km.resdat1_9$cluster)
 ```
 
 
-```{r}
+```{r, cache=TRUE}
 sort(km.resdat1_10$cluster)
 ```
 
@@ -549,7 +549,7 @@ mds.resdat1 %>% head(10)
 
 ### Kmeans clustering
 
-```{r}
+```{r, cache=TRUE}
 ## K-means clustering
 clust <- kmeans(mds.resdat1, 2)$cluster %>%
   as.factor()
@@ -561,7 +561,7 @@ mds.resdat1$context <- dat1MDS$context
 
 ### Plot
 
-```{r}
+```{r, cache=TRUE}
 ## Plot and color by groups
 ggscatter(mds.resdat1, x = "Dim.1", y = "Dim.2", col = "context",
           label = NULL,

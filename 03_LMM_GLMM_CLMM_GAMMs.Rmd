@@ -424,7 +424,8 @@ Anova(xmdl.Optimal)
 ##### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(xmdl.Optimal))
+print(tab_model(xmdl.Optimal, file = paste0("outputs/xmdl.Optimal.html")))
+htmltools::includeHTML("outputs/xmdl.Optimal.html")
 ```
 
 
@@ -775,7 +776,8 @@ The model comparisons show that the model with both random intercepts and random
 ##### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.glmmSlope))
+print(tab_model(mdl.glmmSlope, file = paste0("outputs/mdl.glmmSlope.html")))
+htmltools::includeHTML("outputs/mdl.glmmSlope.html")
 ```
 
 
@@ -893,7 +895,8 @@ The model comparisons show that the model with both random intercepts and random
 ##### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.glmmSlope2))
+print(tab_model(mdl.glmmSlope2, file = paste0("outputs/mdl.glmmSlope2.html")))
+htmltools::includeHTML("outputs/mdl.glmmSlope2.html")
 ```
 
 
@@ -1008,7 +1011,8 @@ The model comparisons show that the model with both random intercepts and random
 ###### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.glmmSlope3))
+print(tab_model(mdl.glmmSlope3, file = paste0("outputs/mdl.glmmSlope3.html")))
+htmltools::includeHTML("outputs/mdl.glmmSlope3.html")
 ```
 
 
@@ -1183,7 +1187,8 @@ In our publication, by Rater Random Slopes for context were needed.
 #### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.clmm.Int))
+print(tab_model(mdl.clmm.Int, file = paste0("outputs/mdl.clmm.Int.html")))
+htmltools::includeHTML("outputs/mdl.clmm.Int.html")
 ```
 
 
@@ -1391,7 +1396,8 @@ The model comparison above shows that using random intercepts is enough in our c
 #### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.clmm.Int.1))
+print(tab_model(mdl.clmm.Int.1, file = paste0("outputs/mdl.clmm.Int.1.html")))
+htmltools::includeHTML("outputs/mdl.clmm.Int.1.html")
 ```
 
 
@@ -1672,7 +1678,8 @@ summary(mdl.gamm.F2.AR)
 ###### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.gamm.F2.AR))
+print(tab_model(mdl.gamm.F2.AR, file = paste0("outputs/mdl.gamm.F2.AR.html")))
+htmltools::includeHTML("outputs/mdl.gamm.F2.AR.html")
 ```
 
 

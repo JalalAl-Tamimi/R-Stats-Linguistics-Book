@@ -13,7 +13,7 @@ This chapter introduces you to the basics of inferential statistics. We cover co
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 ## Use the code below to check if you have all required packages installed. If some are not installed already, the code below will install these. If you have all packages installed, then you could load them with the second code.
-requiredPackages = c('tidyverse', 'broom', 'knitr', 'Hmisc', 'corrplot', 'emmeans', 'ggsignif', 'PresenceAbsence', 'languageR', 'psycho', 'ordinal', 'DHARMa', 'sjPlot')
+requiredPackages = c('tidyverse', 'broom', 'knitr', 'Hmisc', 'corrplot', 'emmeans', 'ggsignif', 'PresenceAbsence', 'languageR', 'psycho', 'ordinal', 'DHARMa', 'sjPlot', 'htmltools')
 for(p in requiredPackages){
   if(!require(p,character.only = TRUE)) install.packages(p)
   library(p,character.only = TRUE)
@@ -312,7 +312,8 @@ kable(mdl.lmT, digits = 3)
 ##### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.lm))
+print(tab_model(mdl.lm, file = paste0("outputs/mdl_lm.html")))
+htmltools::includeHTML("outputs/mdl_lm.html")
 ```
 
 
@@ -625,7 +626,8 @@ mycoef2 <- tidy(mdl.glm) %>% pull(estimate)
 #### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.glm))
+print(tab_model(mdl.glm, file = paste0("outputs/mdl.glm.html")))
+htmltools::includeHTML("outputs/mdl.glm.html")
 ```
 
 
@@ -716,7 +718,8 @@ mycoef2 <- tidy(mdl.glm2) %>% pull(estimate)
 ##### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.glm2))
+print(tab_model(mdl.glm2, file = paste0("outputs/mdl.glm2.html")))
+htmltools::includeHTML("outputs/mdl.glm2.html")
 ```
 
 
@@ -784,7 +787,8 @@ mycoef2 <- tidy(mdl.glm3) %>% pull(estimate)
 ##### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.glm3))
+print(tab_model(mdl.glm3, file = paste0("outputs/mdl.glm3.html")))
+htmltools::includeHTML("outputs/mdl.glm3.html")
 ```
 
 
@@ -1115,7 +1119,8 @@ anova(mdl.clm, mdl.clm.Null)
 #### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.clm))
+print(tab_model(mdl.clm, file = paste0("outputs/mdl.clm.html")))
+htmltools::includeHTML("outputs/mdl.clm.html")
 ```
 
 
@@ -1233,6 +1238,7 @@ legend(par('usr')[2], par('usr')[4], bty='n', xpd=NA,lty=1, col=c("black", "red"
 
 ```
 
+
 ### Subjective estimates of the weight of the referents of 81 English nouns.
 
 This dataset comes from the `LanguageR` package. It contains the subjective estimates of the weight of the referents of 81 English nouns. 
@@ -1260,9 +1266,9 @@ weightRatings %>%
 We run our first clm model as a simple, i.e., with no random effects
 
 ```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
-system.time(mdl.clm <- weightRatings %>% 
+system.time(mdl.clm2 <- weightRatings %>% 
   clm(Rating ~ Class * Sex  * Frequency, data = .))
-summary(mdl.clm)
+summary(mdl.clm2)
 ```
 
 
@@ -1271,7 +1277,7 @@ summary(mdl.clm)
 We can evaluate whether "Context" improves the model fit, by comparing a null model with our model. Of course "Context" is improving the model fit.
 
 ```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
-mdl.clm.Null <- weightRatings %>% 
+mdl.clm.Null2 <- weightRatings %>% 
   clm(Rating ~ 1, data = .)
 ```
 
@@ -1279,7 +1285,7 @@ mdl.clm.Null <- weightRatings %>%
 ##### Null vs no random
 
 ```{r}
-anova(mdl.clm, mdl.clm.Null)
+anova(mdl.clm2, mdl.clm.Null2)
 ```
 
 
@@ -1289,7 +1295,8 @@ The model comparison above shows that our full model is enough.
 #### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.clm))
+print(tab_model(mdl.clm2, file = paste0("outputs/mdl.clm2.html")))
+htmltools::includeHTML("outputs/mdl.clm2.html")
 ```
 
 
@@ -1305,19 +1312,19 @@ We use a modified version of a plotting function that allows us to visualise the
 
 ```{r warning = FALSE, message = FALSE, error = FALSE}
 par(oma = c(4, 0, 0, 3), mgp = c(2, 1, 0))
-xlim  =  c(min(mdl.clm$beta), max(mdl.clm$beta))
+xlim  =  c(min(mdl.clm2$beta), max(mdl.clm2$beta))
 ylim  =  c(0, 1)
 plot(0, 0, xlim = xlim, ylim = ylim, type = "n", ylab = expression(Probability), xlab = "", xaxt = "n", main = "Predicted curves", cex = 2, cex.lab = 1.5, cex.main = 1.5, cex.axis = 1.5)
-axis(side = 1, at = mdl.clm$beta, labels = names(mdl.clm$beta), las = 2, cex = 0.75, cex.lab = 0.75, cex.axis = 0.75)
+axis(side = 1, at = mdl.clm2$beta, labels = names(mdl.clm2$beta), las = 2, cex = 0.75, cex.lab = 0.75, cex.axis = 0.75)
 xs  =  seq(xlim[1], xlim[2], length.out = 100)
-lines(xs, plogis(mdl.clm$Theta[1] - xs), col = 'black')
-lines(xs, plogis(mdl.clm$Theta[2] - xs) - plogis(mdl.clm$Theta[1] - xs), col = 'red')
-lines(xs, plogis(mdl.clm$Theta[3] - xs) - plogis(mdl.clm$Theta[2] - xs), col = 'green')
-lines(xs, plogis(mdl.clm$Theta[4] - xs) - plogis(mdl.clm$Theta[3] - xs), col = 'orange')
-lines(xs, plogis(mdl.clm$Theta[5] - xs) - plogis(mdl.clm$Theta[4] - xs), col = 'yellow')
-lines(xs, plogis(mdl.clm$Theta[6] - xs) - plogis(mdl.clm$Theta[5] - xs), col = 'grey')
-lines(xs, 1 - (plogis(mdl.clm$Theta[6] - xs)), col = 'blue')
-abline(v = c(0,mdl.clm$beta),lty = 3)
+lines(xs, plogis(mdl.clm2$Theta[1] - xs), col = 'black')
+lines(xs, plogis(mdl.clm2$Theta[2] - xs) - plogis(mdl.clm2$Theta[1] - xs), col = 'red')
+lines(xs, plogis(mdl.clm2$Theta[3] - xs) - plogis(mdl.clm2$Theta[2] - xs), col = 'green')
+lines(xs, plogis(mdl.clm2$Theta[4] - xs) - plogis(mdl.clm2$Theta[3] - xs), col = 'orange')
+lines(xs, plogis(mdl.clm2$Theta[5] - xs) - plogis(mdl.clm2$Theta[4] - xs), col = 'yellow')
+lines(xs, plogis(mdl.clm2$Theta[6] - xs) - plogis(mdl.clm2$Theta[5] - xs), col = 'grey')
+lines(xs, 1 - (plogis(mdl.clm2$Theta[6] - xs)), col = 'blue')
+abline(v = c(0,mdl.clm2$beta),lty = 3)
 abline(h = 0, lty = "dashed")
 abline(h = 0.2, lty = "dashed")
 abline(h = 0.4, lty = "dashed")
@@ -1338,65 +1345,65 @@ Here is an attempt to add the 97.5% confidence intervals to these plots. This is
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 par(oma = c(4, 0, 0, 3), mgp = c(2, 1, 0))
-xlim  =  c(min(mdl.clm$beta), max(mdl.clm$beta))
+xlim  =  c(min(mdl.clm2$beta), max(mdl.clm2$beta))
 ylim  =  c(0, 1)
 plot(0, 0, xlim = xlim, ylim = ylim, type = "n", ylab = expression(Probability), xlab = "", xaxt = "n", main = "Predicted curves", cex = 2, cex.lab = 1.5, cex.main = 1.5, cex.axis = 1.5)
-axis(side = 1, at = mdl.clm$beta, labels = names(mdl.clm$beta), las = 2, cex = 0.75, cex.lab = 0.75, cex.axis = 0.75)
+axis(side = 1, at = mdl.clm2$beta, labels = names(mdl.clm2$beta), las = 2, cex = 0.75, cex.lab = 0.75, cex.axis = 0.75)
 xs  =  seq(xlim[1], xlim[2], length.out = 100)
 
 
 #+CI 
-lines(xs, plogis(mdl.clm$Theta[1]+(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xs), col='black')
-lines(xs, plogis(mdl.clm$Theta[2]+(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clm$Theta[1]+(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xs), col='red')
-lines(xs, plogis(mdl.clm$Theta[3]+(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clm$Theta[2]+(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xs), col='green')
-lines(xs, plogis(mdl.clm$Theta[4]+(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clm$Theta[3]+(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xs), col='orange')
-lines(xs, plogis(mdl.clm$Theta[5]-(summary(mdl.clm)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clm$Theta[4]-(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xs), col='yellow')
-lines(xs, plogis(mdl.clm$Theta[6]-(summary(mdl.clm)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clm$Theta[5]-(summary(mdl.clm)$coefficient[,2][[5]]/1.96) - xs), col='grey')
-lines(xs, 1-(plogis(mdl.clm$Theta[6]-(summary(mdl.clm)$coefficient[,2][[6]]/1.96) - xs)), col='blue')
+lines(xs, plogis(mdl.clm2$Theta[1]+(summary(mdl.clm2)$coefficient[,2][[1]]/1.96) - xs), col='black')
+lines(xs, plogis(mdl.clm2$Theta[2]+(summary(mdl.clm2)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clm2$Theta[1]+(summary(mdl.clm2)$coefficient[,2][[1]]/1.96) - xs), col='red')
+lines(xs, plogis(mdl.clm2$Theta[3]+(summary(mdl.clm2)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clm2$Theta[2]+(summary(mdl.clm2)$coefficient[,2][[2]]/1.96) - xs), col='green')
+lines(xs, plogis(mdl.clm2$Theta[4]+(summary(mdl.clm2)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clm2$Theta[3]+(summary(mdl.clm2)$coefficient[,2][[3]]/1.96) - xs), col='orange')
+lines(xs, plogis(mdl.clm2$Theta[5]-(summary(mdl.clm2)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clm2$Theta[4]-(summary(mdl.clm2)$coefficient[,2][[4]]/1.96) - xs), col='yellow')
+lines(xs, plogis(mdl.clm2$Theta[6]-(summary(mdl.clm2)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clm2$Theta[5]-(summary(mdl.clm2)$coefficient[,2][[5]]/1.96) - xs), col='grey')
+lines(xs, 1-(plogis(mdl.clm2$Theta[6]-(summary(mdl.clm2)$coefficient[,2][[6]]/1.96) - xs)), col='blue')
 
 #-CI 
-lines(xs, plogis(mdl.clm$Theta[1]-(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xs), col='black')
-lines(xs, plogis(mdl.clm$Theta[2]-(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clm$Theta[1]-(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xs), col='red')
-lines(xs, plogis(mdl.clm$Theta[3]-(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clm$Theta[2]-(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xs), col='green')
-lines(xs, plogis(mdl.clm$Theta[4]-(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clm$Theta[3]-(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xs), col='orange')
-lines(xs, plogis(mdl.clm$Theta[5]-(summary(mdl.clm)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clm$Theta[4]-(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xs), col='yellow')
-lines(xs, plogis(mdl.clm$Theta[6]-(summary(mdl.clm)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clm$Theta[5]-(summary(mdl.clm)$coefficient[,2][[5]]/1.96) - xs), col='grey')
-lines(xs, 1-(plogis(mdl.clm$Theta[6]-(summary(mdl.clm)$coefficient[,2][[6]]/1.96) - xs)), col='blue')
+lines(xs, plogis(mdl.clm2$Theta[1]-(summary(mdl.clm2)$coefficient[,2][[1]]/1.96) - xs), col='black')
+lines(xs, plogis(mdl.clm2$Theta[2]-(summary(mdl.clm2)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clm2$Theta[1]-(summary(mdl.clm2)$coefficient[,2][[1]]/1.96) - xs), col='red')
+lines(xs, plogis(mdl.clm2$Theta[3]-(summary(mdl.clm2)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clm2$Theta[2]-(summary(mdl.clm2)$coefficient[,2][[2]]/1.96) - xs), col='green')
+lines(xs, plogis(mdl.clm2$Theta[4]-(summary(mdl.clm2)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clm2$Theta[3]-(summary(mdl.clm2)$coefficient[,2][[3]]/1.96) - xs), col='orange')
+lines(xs, plogis(mdl.clm2$Theta[5]-(summary(mdl.clm2)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clm2$Theta[4]-(summary(mdl.clm2)$coefficient[,2][[4]]/1.96) - xs), col='yellow')
+lines(xs, plogis(mdl.clm2$Theta[6]-(summary(mdl.clm2)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clm2$Theta[5]-(summary(mdl.clm2)$coefficient[,2][[5]]/1.96) - xs), col='grey')
+lines(xs, 1-(plogis(mdl.clm2$Theta[6]-(summary(mdl.clm2)$coefficient[,2][[6]]/1.96) - xs)), col='blue')
 
 ## fill area around CI using c(x, rev(x)), c(y2, rev(y1))
 polygon(c(xs, rev(xs)),
-        c(plogis(mdl.clm$Theta[1]+(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xs), rev(plogis(mdl.clm$Theta[1]-(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xs))), col = "gray90")
+        c(plogis(mdl.clm2$Theta[1]+(summary(mdl.clm2)$coefficient[,2][[1]]/1.96) - xs), rev(plogis(mdl.clm2$Theta[1]-(summary(mdl.clm2)$coefficient[,2][[1]]/1.96) - xs))), col = "gray90")
 
 polygon(c(xs, rev(xs)),
-        c(plogis(mdl.clm$Theta[2]+(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clm$Theta[1]+(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xs), rev(plogis(mdl.clm$Theta[2]-(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clm$Theta[1]-(summary(mdl.clm)$coefficient[,2][[1]]/1.96) - xs))), col = "gray90")
+        c(plogis(mdl.clm2$Theta[2]+(summary(mdl.clm2)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clm2$Theta[1]+(summary(mdl.clm2)$coefficient[,2][[1]]/1.96) - xs), rev(plogis(mdl.clm2$Theta[2]-(summary(mdl.clm2)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clm2$Theta[1]-(summary(mdl.clm2)$coefficient[,2][[1]]/1.96) - xs))), col = "gray90")
 
 
 polygon(c(xs, rev(xs)),
-        c(plogis(mdl.clm$Theta[3]+(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clm$Theta[2]+(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xs), rev(plogis(mdl.clm$Theta[3]-(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clm$Theta[2]-(summary(mdl.clm)$coefficient[,2][[2]]/1.96) - xs))), col = "gray90")
+        c(plogis(mdl.clm2$Theta[3]+(summary(mdl.clm2)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clm2$Theta[2]+(summary(mdl.clm2)$coefficient[,2][[2]]/1.96) - xs), rev(plogis(mdl.clm2$Theta[3]-(summary(mdl.clm2)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clm2$Theta[2]-(summary(mdl.clm2)$coefficient[,2][[2]]/1.96) - xs))), col = "gray90")
 
 polygon(c(xs, rev(xs)),
-        c(plogis(mdl.clm$Theta[4]+(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clm$Theta[3]+(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xs), rev(plogis(mdl.clm$Theta[4]-(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clm$Theta[3]-(summary(mdl.clm)$coefficient[,2][[3]]/1.96) - xs))), col = "gray90")
+        c(plogis(mdl.clm2$Theta[4]+(summary(mdl.clm2)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clm2$Theta[3]+(summary(mdl.clm2)$coefficient[,2][[3]]/1.96) - xs), rev(plogis(mdl.clm2$Theta[4]-(summary(mdl.clm2)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clm2$Theta[3]-(summary(mdl.clm2)$coefficient[,2][[3]]/1.96) - xs))), col = "gray90")
 
 polygon(c(xs, rev(xs)),
-        c(plogis(mdl.clm$Theta[5]+(summary(mdl.clm)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clm$Theta[4]+(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xs), rev(plogis(mdl.clm$Theta[5]-(summary(mdl.clm)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clm$Theta[4]-(summary(mdl.clm)$coefficient[,2][[4]]/1.96) - xs))), col = "gray90")
+        c(plogis(mdl.clm2$Theta[5]+(summary(mdl.clm2)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clm2$Theta[4]+(summary(mdl.clm2)$coefficient[,2][[4]]/1.96) - xs), rev(plogis(mdl.clm2$Theta[5]-(summary(mdl.clm2)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clm2$Theta[4]-(summary(mdl.clm2)$coefficient[,2][[4]]/1.96) - xs))), col = "gray90")
 
 polygon(c(xs, rev(xs)),
-        c(plogis(mdl.clm$Theta[6]+(summary(mdl.clm)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clm$Theta[5]+(summary(mdl.clm)$coefficient[,2][[5]]/1.96) - xs), rev(plogis(mdl.clm$Theta[6]-(summary(mdl.clm)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clm$Theta[5]-(summary(mdl.clm)$coefficient[,2][[5]]/1.96) - xs))), col = "gray90")
+        c(plogis(mdl.clm2$Theta[6]+(summary(mdl.clm2)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clm2$Theta[5]+(summary(mdl.clm2)$coefficient[,2][[5]]/1.96) - xs), rev(plogis(mdl.clm2$Theta[6]-(summary(mdl.clm2)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clm2$Theta[5]-(summary(mdl.clm2)$coefficient[,2][[5]]/1.96) - xs))), col = "gray90")
 
         
 polygon(c(xs, rev(xs)),
-        c(1-(plogis(mdl.clm$Theta[6]-(summary(mdl.clm)$coefficient[,2][[6]]/1.96) - xs)), rev(1-(plogis(mdl.clm$Theta[6]+(summary(mdl.clm)$coefficient[,2][[6]]/1.96) - xs)))), col = "gray90")     
+        c(1-(plogis(mdl.clm2$Theta[6]-(summary(mdl.clm2)$coefficient[,2][[6]]/1.96) - xs)), rev(1-(plogis(mdl.clm2$Theta[6]+(summary(mdl.clm2)$coefficient[,2][[6]]/1.96) - xs)))), col = "gray90")     
 
 
 
-lines(xs, plogis(mdl.clm$Theta[1] - xs), col = 'black')
-lines(xs, plogis(mdl.clm$Theta[2] - xs) - plogis(mdl.clm$Theta[1] - xs), col = 'red')
-lines(xs, plogis(mdl.clm$Theta[3] - xs) - plogis(mdl.clm$Theta[2] - xs), col = 'green')
-lines(xs, plogis(mdl.clm$Theta[4] - xs) - plogis(mdl.clm$Theta[3] - xs), col = 'orange')
-lines(xs, plogis(mdl.clm$Theta[5] - xs) - plogis(mdl.clm$Theta[4] - xs), col = 'yellow')
-lines(xs, plogis(mdl.clm$Theta[6] - xs) - plogis(mdl.clm$Theta[5] - xs), col = 'grey')
-lines(xs, 1 - (plogis(mdl.clm$Theta[6] - xs)), col = 'blue')
-abline(v = c(0,mdl.clm$beta),lty = 3)
+lines(xs, plogis(mdl.clm2$Theta[1] - xs), col = 'black')
+lines(xs, plogis(mdl.clm2$Theta[2] - xs) - plogis(mdl.clm2$Theta[1] - xs), col = 'red')
+lines(xs, plogis(mdl.clm2$Theta[3] - xs) - plogis(mdl.clm2$Theta[2] - xs), col = 'green')
+lines(xs, plogis(mdl.clm2$Theta[4] - xs) - plogis(mdl.clm2$Theta[3] - xs), col = 'orange')
+lines(xs, plogis(mdl.clm2$Theta[5] - xs) - plogis(mdl.clm2$Theta[4] - xs), col = 'yellow')
+lines(xs, plogis(mdl.clm2$Theta[6] - xs) - plogis(mdl.clm2$Theta[5] - xs), col = 'grey')
+lines(xs, 1 - (plogis(mdl.clm2$Theta[6] - xs)), col = 'blue')
+abline(v = c(0,mdl.clm2$beta),lty = 3)
 abline(h = 0, lty = "dashed")
 abline(h = 0.2, lty = "dashed")
 abline(h = 0.4, lty = "dashed")
