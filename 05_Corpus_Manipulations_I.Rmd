@@ -52,9 +52,9 @@ sensesensibility %>%
 ```{r}
 sensesensibility_DF <- sensesensibility %>% 
   data.frame()
-sensesensibility_DF
 sensesensibility_DF <- sensesensibility_DF[-c(1:12),]
-sensesensibility_DF
+sensesensibility_DF %>% 
+  head(60)
 ```
 
 
