@@ -12,7 +12,7 @@
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This repo contains all material for the book Statistics for Linguists using R - Quantitative and qualitative approaches" />
-  
+  <meta name="github-repo" content="JalalAl-Tamimi/R-Stats-Linguistics-Book" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="10.7 Random Forests | Statistics for Linguists using R - Quantitative and qualitative approaches" />
@@ -2560,7 +2560,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2174-7"><a href="10.7-random-forests.html#cb2174-7" tabindex="-1"></a>            <span class="at">control =</span> <span class="fu">control_grid</span>(<span class="at">save_pred =</span> <span class="cn">TRUE</span>, <span class="at">parallel_over =</span> <span class="cn">NULL</span>))</span>
 <span id="cb2174-8"><a href="10.7-random-forests.html#cb2174-8" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    5.77    1.95   50.46</code></pre>
+##    5.85    1.69   46.32</code></pre>
 <div class="sourceCode" id="cb2176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2176-1"><a href="10.7-random-forests.html#cb2176-1" tabindex="-1"></a><span class="fu">print</span>(grid_tidym)</span></code></pre></div>
 <pre><code>## # Tuning results
 ## # 10-fold cross-validation using stratification 
@@ -2714,7 +2714,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2207-3"><a href="10.7-random-forests.html#cb2207-3" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb2207-4"><a href="10.7-random-forests.html#cb2207-4" tabindex="-1"></a><span class="fu">system.time</span>(VarImp.pval <span class="ot">&lt;-</span> wkfl_tidym_final <span class="sc">%&gt;%</span> <span class="fu">extract_fit_engine</span>() <span class="sc">%&gt;%</span>  <span class="fu">importance_pvalues</span>(<span class="at">method =</span> <span class="st">&quot;altmann&quot;</span>, <span class="at">formula =</span> context <span class="sc">~</span>., <span class="at">data =</span> testData_baked, <span class="at">num.permutations =</span> <span class="dv">2000</span>, <span class="at">num.threads =</span> ncores))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##  314.33  262.91   95.73</code></pre>
+##  305.29  262.50   85.87</code></pre>
 <div class="sourceCode" id="cb2209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2209-1"><a href="10.7-random-forests.html#cb2209-1" tabindex="-1"></a>VarImp.pvaldf <span class="ot">&lt;-</span> VarImp.pval <span class="sc">%&gt;%</span> </span>
 <span id="cb2209-2"><a href="10.7-random-forests.html#cb2209-2" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb2209-3"><a href="10.7-random-forests.html#cb2209-3" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">&quot;correlate&quot;</span>) <span class="sc">%&gt;%</span> </span>
