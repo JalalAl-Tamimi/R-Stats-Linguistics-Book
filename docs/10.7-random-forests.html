@@ -2397,6 +2397,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2163-3"><a href="10.7-random-forests.html#cb2163-3" tabindex="-1"></a>                                  <span class="at">num.permutations =</span> <span class="dv">2000</span>, </span>
 <span id="cb2163-4"><a href="10.7-random-forests.html#cb2163-4" tabindex="-1"></a>                                  <span class="at">formula =</span> context <span class="sc">~</span> ., <span class="at">data =</span> gutt.train,</span>
 <span id="cb2163-5"><a href="10.7-random-forests.html#cb2163-5" tabindex="-1"></a>                                  <span class="at">num.threads =</span> ncores)</span>
+<<<<<<< HEAD
 <span id="cb2163-6"><a href="10.7-random-forests.html#cb2163-6" tabindex="-1"></a>VarImp.pvaldf <span class="ot">&lt;-</span> VarImp.pval <span class="sc">%&gt;%</span> </span>
 <span id="cb2163-7"><a href="10.7-random-forests.html#cb2163-7" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb2163-8"><a href="10.7-random-forests.html#cb2163-8" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">&quot;correlate&quot;</span>) <span class="sc">%&gt;%</span> </span>
@@ -2427,6 +2428,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 22     HNR05 0.008707071 0.0064967516
 ## 23       CPP 0.005373737 0.0364817591</code></pre>
 <p>Of course, the output above shows variable p values. The lowest is at 0.0004997501 for all predictors; one at 0.0364817591 for CPP. Recall that CPP received the lowest variable importance score within <code>ranger</code> and <code>cforest</code>.</p>
+=======
+<span id="cb2163-6"><a href="10.7-random-forests.html#cb2163-6" tabindex="-1"></a>VarImp.pval</span></code></pre></div>
+<pre><code>##          importance       pvalue
+## CPP     0.005373737 0.0364817591
+## Energy  0.016929293 0.0009995002
+## H1A1c   0.013838384 0.0019990005
+## H1A2c   0.021535354 0.0004997501
+## H1A3c   0.029151515 0.0004997501
+## H1H2c   0.015535354 0.0004997501
+## H2H4c   0.013191919 0.0004997501
+## H2KH5Kc 0.021232323 0.0009995002
+## H42Kc   0.013595960 0.0014992504
+## HNR05   0.008707071 0.0064967516
+## HNR15   0.015232323 0.0004997501
+## HNR25   0.013212121 0.0014992504
+## HNR35   0.013494949 0.0004997501
+## SHR     0.014525253 0.0019990005
+## soe     0.008888889 0.0084957521
+## Z1mnZ0  0.033777778 0.0004997501
+## Z2mnZ1  0.064323232 0.0004997501
+## Z3mnZ2  0.043313131 0.0004997501
+## Z4mnZ3  0.049898990 0.0004997501
+## F0Bark  0.012323232 0.0024987506
+## A1mnA2  0.011232323 0.0019990005
+## A1mnA3  0.030747475 0.0004997501
+## A2mnA3  0.038585859 0.0004997501</code></pre>
+<p>Of course, the output above shows variable p values. The lowest is at 0.009 for all predictors; one at 0.09 for CPP. Recall that CPP received the lowest variable importance score within <code>ranger</code> and <code>cforest</code>. If you increase permutations to 200 or 500, you will get more confidence in your results and can report the p values</p>
+>>>>>>> ed2a20fabc417b32855bf3f3e9cb3d9384094a4a
 <p>In the next part, we look at the <code>tidymodels</code> and introduce their philosophy.</p>
 </div>
 </div>
