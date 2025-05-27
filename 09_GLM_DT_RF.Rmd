@@ -564,14 +564,18 @@ A clear difference between the packages `party` and `ranger` is that the former 
 ```{r, cache=TRUE}
 set.seed(42)
 VarImp.pval <- importance_pvalues(mdl.ranger2, method = "altmann",
-                                  num.permutations = 500, 
+                                  num.permutations = 2000, 
                                   formula = context ~ ., data = gutt.train,
                                   num.threads = ncores)
-VarImp.pval
+VarImp.pvaldf <- VarImp.pval %>% 
+  as.data.frame() %>% 
+  rownames_to_column(var = "correlate") %>% 
+  arrange(desc(importance))
+VarImp.pvaldf
 ```
 
 
-Of course, the output above shows variable p values. The lowest is at 0.009 for all predictors; one at 0.09 for CPP. Recall that CPP received the lowest variable importance score within `ranger` and `cforest`. If you increase permutations to 200 or 500, you will get more confidence in your results and can report the p values
+Of course, the output above shows variable p values. The lowest is at 0.0004997501 for all predictors; one at 0.0364817591 for CPP. Recall that CPP received the lowest variable importance score within `ranger` and `cforest`. 
 
 
 In the next part, we look at the `tidymodels` and introduce their philosophy. 
@@ -862,7 +866,7 @@ system.time(VarImp.pval <- wkfl_tidym_final %>% extract_fit_engine() %>%  import
 VarImp.pvaldf <- VarImp.pval %>% 
   as.data.frame() %>% 
   rownames_to_column(var = "correlate") %>% 
-  arrange(pvalue)
+  arrange(desc(importance))
 VarImp.pvaldf
 ```
 
