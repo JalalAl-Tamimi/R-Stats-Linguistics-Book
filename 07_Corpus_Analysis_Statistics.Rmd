@@ -254,9 +254,9 @@ sensesensibility_corpus_tok_no_punct_no_Stop_dfm %>%
 ```
 
 
-#### Network analysis
+#### Network of feature co-occurrences
 
-A network analysis allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.
+A Network of feature co-occurrences allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.
 
 
 
@@ -541,9 +541,9 @@ ducotedechezswann_corpus_tok_no_punct_no_Stop_dfm %>%
 ```
 
 
-#### Network analysis
+#### Network of feature co-occurrences
 
-A network analysis allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.
+A Network of feature co-occurrences allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.
 
 
 
@@ -823,9 +823,9 @@ dat_inaug_corpus_tok_no_punct_no_Stop_dfm %>%
 ```
 
 
-#### Network analysis
+#### Network of feature co-occurrences
 
-A network analysis allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.
+A Network of feature co-occurrences allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.
 
 
 
@@ -1090,9 +1090,9 @@ dat_udhr_corpus_tok_no_punct_no_Stop_dfm %>%
 ```
 
 
-#### Network analysis
+#### Network of feature co-occurrences
 
-A network analysis allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.
+A Network of feature co-occurrences allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.
 
 
 
@@ -1361,9 +1361,9 @@ dat_twitter_corpus_tok_no_punct_no_Stop_dfm %>%
 ```
 
 
-#### Network analysis
+#### Network of feature co-occurrences
 
-A network analysis allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.
+A Network of feature co-occurrences allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.
 
 
 
@@ -1652,9 +1652,9 @@ web_page_txt_corpus_tok_no_punct_no_Stop_dfm %>%
 ```
 
 
-#### Network analysis
+#### Network of feature co-occurrences
 
-A network analysis allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.
+A Network of feature co-occurrences allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.
 
 
 
@@ -1979,9 +1979,9 @@ web_pages_txt_corpus_tok_no_punct_no_Stop_dfm %>%
 ```
 
 
-#### Network analysis
+#### Network of feature co-occurrences
 
-A network analysis allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.
+A Network of feature co-occurrences allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.
 
 
 

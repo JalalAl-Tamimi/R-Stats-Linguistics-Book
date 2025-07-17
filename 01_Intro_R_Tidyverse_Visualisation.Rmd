@@ -9,7 +9,7 @@ We then move to the `Tidyverse` and how to visualise data using `ggplot2`. We wi
 
 ```{r}
 ###Use the code below to check if you have all required packages installed. If some are not installed already, the code below will install these. If you have all packages installed, then you could load them with the second code.
-requiredPackages = c('tidyverse', 'languageR', 'phonR', 'summarytools')
+requiredPackages = c('tidyverse', 'languageR', 'phonR', 'summarytools', 'ggdist', 'gtsummary', 'cardx')
 for(p in requiredPackages){
   if(!require(p,character.only = TRUE)) install.packages(p)
   library(p,character.only = TRUE)
@@ -1124,11 +1124,13 @@ dfMeans
 
 ### Summary tables
 
+#### Using `summarytools`
+
 Using the package `summarytools` you can obtain nice table ready for publications!
 
-#### Summary of full dataset with graphs
+##### Summary of full dataset with graphs
 
-```{r}
+```{r, fig.width = 8}
 english %>% 
   dfSummary(graph.col = TRUE, style = "grid") %>% 
   stview(method = "render")
@@ -1136,9 +1138,9 @@ english %>%
 
 
 
-#### Descriptive statistics for numeric variables
+##### Descriptive statistics for numeric variables
 
-```{r}
+```{r, fig.width = 8}
 english %>% 
   descr() %>% 
   stview(method = "render")
@@ -1146,14 +1148,45 @@ english %>%
 
 
 
-#### Frequencies for non-numeric variables
+##### Frequencies for non-numeric variables
 
-```{r}
+```{r, fig.width = 8}
 english %>% 
   freq() %>% 
     stview(method = "render")
 ```
 
+
+
+#### Using `gtsummary`
+
+We use the `gtsummary` package to create nice tables for publication. This package is very useful for creating publication ready tables with descriptive statistics, regression models, etc. See [this link](https://www.danieldsjoberg.com/gtsummary/index.html) for more details on the various options possible with this package.
+
+
+##### Basic summaries
+
+```{r}
+english %>%  
+  tbl_summary(include = c(AgeSubject, RTlexdec, Familiarity, WordCategory, Voice))
+```
+
+
+
+##### With statistics (comparing means)
+
+We use the two `numeric outcomes` and assess differences between the two groups. 
+
+```{r}
+english %>%  
+  tbl_summary(include = c(RTlexdec, RTnaming),
+              by = AgeSubject, # split table by AgeSubject
+              missing = "no" # don't list missing data separately
+  ) %>%  
+  add_n() %>%  # add column with total number of non-missing observations
+  add_p() %>%  # test for a difference between groups
+  modify_header(label = "**Variable**") %>%  # update the column header
+  bold_labels()
+```
 
 
 ### Visualisation
@@ -1381,6 +1414,89 @@ english %>%
 
 
 
+#### Advanced plots
+
+We will use the package `ggdist` [see here](https://mjskay.github.io/ggdist/)which allows us to obtain various plots adding the distributions. 
+
+##### A dotplot
+
+This dotplot allow to display the distribution of the dataframe showing their density
+
+```{r}
+english %>%
+  ggplot(aes(x = AgeSubject, 
+             y = RTlexdec)) +
+  theme_bw() +
+  stat_dotsinterval() 
+```
+
+
+##### Rain cloud plots
+
+Rain clouds are used to combine both a density plot with dotplots in the same figure. These can be informative as to the overall distribution of the dataset.
+
+```{r}
+english %>%
+  ggplot(aes(x = AgeSubject, 
+             y = RTlexdec,
+             fill = AgeSubject)) +
+  theme_bw() +
+  stat_slab(aes(thickness = after_stat(pdf*n)), scale = 0.7) +
+  stat_dotsinterval(side = "bottom", scale = 0.7, slab_linewidth = NA) +
+  scale_fill_brewer(palette = "Set2")
+  
+```
+
+
+##### Eye plots and half-eye plots
+
+We can also obtain density plots with eye plots and half-eye plots. These are similar to rain clouds but allow you to see the distribution of the data in a different way. For these plots, using `stat_slabinterval()` with `side = "both", "top", "bottom", "right", or "left"` you can adjust positions of the eye plots. Note that with `"top", or "bottom"`,  the `y` value is a categorical predictor and the `x` is a numeric outcome.
+
+###### Eye plot
+
+We can use `stat_eye()` or `stat_slabinterval(side = "both")` to obtain eye plots. 
+
+```{r}
+english %>%
+  ggplot(aes(x = AgeSubject, 
+             y = RTlexdec,
+             fill = AgeSubject)) +
+  theme_bw() +
+  stat_eye() 
+  
+
+english %>%
+  ggplot(aes(x = AgeSubject, 
+             y = RTlexdec,
+             fill = AgeSubject)) +
+  theme_bw() +
+  stat_slabinterval(side = "both") 
+
+```
+
+
+###### Half-eye plot
+
+We can use `stat_halfeye()` or `stat_slabinterval()` to obtain half-eye plots. Use `stat_slabinterval(side = "left")` or `stat_slabinterval(side = "right")` to obtain half-eye plots on the left or right side of the plot, respectively.
+
+
+```{r}
+english %>%
+  ggplot(aes(x = AgeSubject, 
+             y = RTlexdec,
+             fill = AgeSubject)) +
+  theme_bw() +
+  stat_halfeye() 
+  
+
+english %>%
+  ggplot(aes(x = AgeSubject, 
+             y = RTlexdec,
+             fill = AgeSubject)) +
+  theme_bw() +
+  stat_slabinterval() 
+
+```
 
 #### Facet_grid
 

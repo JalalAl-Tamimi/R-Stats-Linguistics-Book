@@ -1058,7 +1058,7 @@ We obtain the exact same plots, but the model estimations are different. Let's u
 
 ###### z-scores
 
-```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
+```{r cache=TRUE}
 z_vals <- seq(-3, 3, 0.01)
 n = nrow(english2)
 
@@ -1070,12 +1070,11 @@ pp <- cbind(dfPredNew, prob = predict(mdl.glmmSlope3, newdata = dfPredNew, type 
 pp %>% 
   ggplot(aes(x = RTlexdec_z, y = prob)) +
   geom_point() +
-  theme_bw(base_size = 20)+
-    labs(y = "Probability", x = "")+
-    coord_cartesian(ylim = c(-0.1, 1.1), expand = FALSE) +
-    scale_y_discrete(limits = c(0,1), labels = c("Young", "Old")) +
-  scale_x_continuous(breaks = c(-3, -2, -1, 0, 1, 2, 3)) + 
-  annotate("rect", xmin = -0.5, xmax = 0.5, ymin = -Inf, ymax = Inf, show.legend = FALSE, alpha=0.15)
+  theme_bw(base_size = 20) +
+  labs(y = "Probability", x = "") +
+  coord_cartesian(ylim = c(-0.1, 1.1), expand = FALSE) +
+  scale_y_discrete(limits = c(0,1), labels = c("Young", "Old")) +
+  scale_x_continuous(breaks = c(-3, -2, -1, 0, 1, 2, 3)) 
 ```
  
  
