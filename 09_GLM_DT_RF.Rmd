@@ -3,11 +3,11 @@
 
 This chapter provides details of how to grow Random Forests for phonetic data. This is not exclusive to phonetic data and can be used for any other type of data. 
 
-We will start by looking at the basics of predictive modelling. We will look at some issues with logistic regression related to multicollinearity. In chapter~\@nref(Correlation_LM_GLM_STD_CLM), we looked at various notions obtained from Signal Detection Theory~\@nref(SDT). We will use these to evaluate the performance of our models. We introduce decision trees to understand how they work, before attempting to replicate how Random Forests work. We then grow our first Random Forests using the `party` and the `ranger` packages and try to capture as much information as possible from it. At the end, we look at the approach advocated by  `tidymodels`.
+We will start by looking at the basics of predictive modelling. We will look at some issues with logistic regression related to collinearity and multicollinearity. In chapter 3, we looked at various notions obtained from Signal Detection Theory (section 3.4.4). We will use these to evaluate the performance of our models. We introduce decision trees to understand how they work, before attempting to replicate how Random Forests work. We then grow our first Random Forests using the `party` and the `ranger` packages and try to capture as much information as possible from it. At the end, we look at the approach advocated by  `tidymodels`.
 
 ## What is predictive modelling
 
-The majority of research in phonetics and linguistics looks at traditional statistical techniques to evaluate group differences, using either frequentest or Bayesian frameworks. What is important in these frameworks is to assess whether a particular outcome can be explained by the potential differences that exist in a predictor. For example, we may want to examine if the differences observed in F2 frequency at the vowel midpoint can be explained by place of articulation, or age or gender. For this we use a linear regression (with or without mixed effects modelling) with the following formula: `lm(F2 ~ place + age + gender)`. 
+The majority of research in phonetics and linguistics looks at traditional statistical techniques to evaluate group differences, using either frequentist or Bayesian frameworks. What is important in these frameworks is to assess whether a particular outcome can be explained by the potential differences that exist in a predictor. For example, we may want to examine if the differences observed in F2 frequency at the vowel midpoint can be explained by place of articulation, or age or gender. For this we use a linear regression (with or without mixed effects modelling) with the following formula: `lm(F2 ~ place + age + gender)`. 
 
 This approach can potentially explain the differences associated with the predictors, i.e., we evaluate their influence on the outcome. But let's ask the following question: can the observed differences on F2 frequency at the vowel midpoint be predictive of group differences associated with gender? Let's put it differently: can we predict gender differences based on F2 frequencies? What would happen in the future? This is where predictive modelling comes to the rescue.
 
@@ -24,7 +24,7 @@ To understand this further, we will start with a simple Generalised Linear Model
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 ### Use the code below to check if you have all required packages installed. If some are not installed already, the code below will install these. If you have all packages installed, then you could load them with the second code.
-requiredPackages = c('tidyverse', 'broom', 'knitr', 'party', 'ranger','doFuture', 'tidymodels', 'pROC', 'varImp', 'lattice', 'vip',  'PresenceAbsence', 'cowplot')
+requiredPackages = c('tidyverse', 'broom', 'knitr', 'party', 'ranger','doFuture', 'tidymodels', 'pROC', 'varImp', 'lattice', 'vip',  'PresenceAbsence', 'cowplot', 'car', 'performance')
 for(p in requiredPackages){
   if(!require(p,character.only = TRUE)) install.packages(p, dependencies = TRUE)
   library(p,character.only = TRUE)
@@ -71,7 +71,7 @@ mycoef2 <- tidy(mdl.glm.Z2mnZ1) %>% pull(estimate)
 
 ### Plogis
 
-The result above shows that when moving from the `non-guttural` (intercept), a unit increase (i.e., `guttural`) yields a statistically significant decrease in the logodds associated with `Z2-Z1`. We can evaluate this further from a classification point of view, using `plogis`.
+The result above shows that when moving from the `non-guttural` (intercept), a unit increase (i.e., `guttural`) yields a statistically significant decrease in the log odds associated with `Z2-Z1`. We can evaluate this further from a classification point of view, using `plogis`.
 
 
 ```{r}
@@ -82,8 +82,8 @@ plogis(mycoef2[1] + mycoef2[2])
 ```
 
 The `plogis` function provides the probability of being in the `guttural` class. The intercept (non-guttural) is 0.5, and the `guttural` class is 0.41. This means that the model predicts that a unit increase in `Z2-Z1` yields a decrease of 9% in the probability of being in the `guttural` class.
-This is a small effect, but it is statistically significant. The model also provides the logodds associated with the predictor. The logodds are the natural logarithm of the odds ratio, which is the ratio of the probability of being in one class over the other.
-The logodds are not easy to interpret, but they can be used to evaluate the effect of the predictor on the outcome. The logodds for `Z2-Z1` is -0.1, which means that a unit increase in `Z2-Z1` yields a decrease of 10% in the odds of being in the `guttural` class. This is a small effect, but it is statistically significant.
+This is a small effect, but it is statistically significant. The model also provides the log odds associated with the predictor. The log odds are the natural logarithm of the odds ratio, which is the ratio of the probability of being in one class over the other.
+The log odds are not easy to interpret, but they can be used to evaluate the effect of the predictor on the outcome. The log odds for `Z2-Z1` is -0.1, which means that a unit increase in `Z2-Z1` yields a decrease of 10% in the odds of being in the `guttural` class. This is a small effect, but it is statistically significant.
 
 This shows that `Z2-Z1` is able to explain the difference in the `guttural` class with an accuracy of 59%. Let's continue with this model further.
 
@@ -134,11 +134,13 @@ cor.test(dfPharV2$Z3mnZ2, dfPharV2$A2mnA3)
 ```{r}
 dfPharV2 %>% 
   ggplot(aes(x = context, y = Z3mnZ2)) + 
-  geom_boxplot()
+  geom_boxplot() +
+  theme_bw()
 
 dfPharV2 %>% 
   ggplot(aes(x = context, y = A2mnA3)) + 
-  geom_boxplot()  
+  geom_boxplot() +
+  theme_bw()  
 ```
 
 
@@ -148,6 +150,8 @@ As we see from the plot, `Z3-Z2` is higher in the guttural, whereas  `A2*-A3*` i
 ### GLM on correlated data
 
 
+#### Model specifications and issues
+
 Let's run a logistic regression as a classification tool to predict the  context as a function of each predictor separately and then combined. 
 
 ```{r}
@@ -156,13 +160,77 @@ dfPharV2 %>% glm(context ~ Z3mnZ2, data = ., family = binomial) %>% summary()
 dfPharV2 %>% glm(context ~ A2mnA3, data = ., family = binomial) %>% summary()
 
 dfPharV2 %>% glm(context ~ Z3mnZ2 + A2mnA3, data = ., family = binomial) %>% summary()
+
+dfPharV2 %>% glm(context ~ Z3mnZ2 * A2mnA3, data = ., family = binomial) %>% summary()
+
 ```
 
 
+When looking at the three models above, it is clear that the log odd value for `Z3-Z2` is positive, whereas it is negative for `A2*-A3*`. When adding the two predictors together, there is clear **suppression**: the coefficients for both predictors are now negative. The relatively high correlation between the predictors affected the coefficients and changed the direction of the slope; collinearity is harmful for any regression analysis. When we use an interaction term, the coefficients are all negative, leading to confusions in interpreting the results.
 
-When looking at the three models above, it is clear that the logodd value for `Z3-Z2` is positive, whereas it is negative for `A2*-A3*`. When adding the two predictors together, there is clear **suppression**: the coefficients for both predictors are now negative. The relatively high correlation between the predictors affected the coefficients and changed the direction of the slope; collinearity is harmful for any regression analysis. 
 
-In the following, we introduce decision trees followed by Random Forest as a way to deal with collinearity and to make sense of multivariate predictors. 
+#### Checking collinearity
+
+To check for collinearity, we can use the `vif` function from the `car` package. The `vif` stands for the "Variance Inflation Factor (VIF)". This is a measure of how much the variance of a regression coefficient is increased due to collinearity. A VIF value below 5 indicates that there is low level of collinearity; between 5 and 10, that there a moderate level of collinearity and above 10 indicates potential collinearity issues.
+
+##### Simple model 
+
+```{r}
+dfPharV2 %>% glm(context ~ Z3mnZ2 + A2mnA3, data = ., family = binomial) %>% 
+  vif()
+```
+
+The values here are close to 5, which indicates a moderate level of collinearity. This is appropriate , but it is not ideal either.
+
+
+##### Interaction model 
+
+```{r}
+dfPharV2 %>% glm(context ~ Z3mnZ2 * A2mnA3, data = ., family = binomial) %>% 
+  vif()
+```
+
+When using interaction, the `vif` values no increase to more than 5 for the individual predictors, and to 11 for the interaction
+
+We use the function `check_collinearity()`
+
+```{r}
+dfPharV2 %>% glm(context ~ Z3mnZ2 * A2mnA3, data = ., family = binomial) %>% 
+  check_collinearity()
+dfPharV2 %>% glm(context ~ Z3mnZ2 * A2mnA3, data = ., family = binomial) %>% 
+  check_collinearity() %>% plot()
+```
+
+
+#### Full dataset
+
+We run the logistic regression on the full dataset to evaluate the levels of collinearity
+
+##### `vif()`
+
+
+```{r}
+dfPharV2 %>% glm(context ~ ., data = ., family = binomial) %>% 
+  vif()
+```
+
+
+##### `check_collinearity()`
+
+
+```{r}
+dfPharV2 %>% glm(context ~ ., data = ., family = binomial) %>% 
+  check_collinearity()
+dfPharV2 %>% glm(context ~ ., data = ., family = binomial) %>% 
+  check_collinearity() %>% plot
+```
+
+### Conclusion
+
+The more complex your regression model becomes, the higher level of collinearity one can see. This is a known issue in regression analyses, and without applying appropriate approaches, e.g., verifying the collinearity in the data; choosing non-correlated predictors, etc.., the models become inflated and the confidence in the results becomes reduced.
+
+There are various solutions to this issue, such as removing collinear predictors, using PCA to obtain orthogonal dimension (i.e., non-correlated dimensions), etc.. Another solution is to use decision trees and Random Forest. Both are very well known to deal with collinearity and to make sense of multivariate predictors. 
+
 
 
 ## Decision Trees {.tabset .tabset-fade .tabset-pills}
@@ -249,7 +317,7 @@ dfPharV2 %>%
 
 We started with `context` as our outcome, and all 23 acoustic measures as predictors. A total of 8 terminal nodes were identified with multiple binary splits in their leaves, allowing separation of the two categories. Looking specifically at the output, we observe a few things.
 
-The first node was based on `A2*-A3*`, detecting a difference between non-gutturals and gutturals. For the first binary split, a threshold of -13.78 Bark was used (mean non guttural = -7.86; mean guttural = -14.58), then for values lower of equal to this threshold, a second split was performed using `Z4-Z3` (mean non guttural = 1.67; mean guttural = 1.43) with any value smaller and equal to 1.59, then another binary split using `H2*-H4*`, etc...
+The first node was based on `A2*-A3*`, detecting a difference between non-gutturals and gutturals. For the first binary split, a threshold of -13.78 Bark was used (mean non guttural = -7.86; mean guttural = -14.58), then for values lower of equal to this threshold, a second split was performed using `Z4-Z3` (mean non guttural = 1.67; mean guttural = 1.43) with any value smaller and equal to 1.59, then another binary split using `H2*-H4*`, etc....
 
 Once done, the `ctree` provides multiple binary splits into guttural or non-guttural. 
 

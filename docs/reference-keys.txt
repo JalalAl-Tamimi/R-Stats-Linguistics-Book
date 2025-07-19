@@ -1198,6 +1198,14 @@ issues-with-glm-and-regression-analyses-in-general
 correlation-tests-2
 plots-to-visualise-the-data
 glm-on-correlated-data
+model-specifications-and-issues
+checking-collinearity
+simple-model
+interaction-model
+full-dataset
+vif
+check_collinearity
+conclusion-3
 decision-trees
 individual-trees
 tree-1
@@ -1212,7 +1220,7 @@ predictions
 variable-importance-scores
 non-conditional-permutation-tests
 conditional-permutation-tests
-conclusion-3
+conclusion-4
 ranger
 declare-parallel-computing
 model-specification-4
