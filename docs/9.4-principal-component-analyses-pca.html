@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-07-25" />
+<meta name="date" content="2025-07-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -4154,25 +4154,25 @@ It should be noted that “<em>This interpretation of the results was carried ou
 <div class="sourceCode" id="cb1980"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1980-1"><a href="9.4-principal-component-analyses-pca.html#cb1980-1" tabindex="-1"></a><span class="fu">Investigate</span>(pcaDat1, <span class="at">file =</span> <span class="st">&quot;outputs/Investigate.Rmd&quot;</span>, <span class="at">language =</span> <span class="st">&quot;en&quot;</span>)</span></code></pre></div>
 <pre><code>## -- creation of the .Rmd file (time spent : 0s) --
 ## 
-## -- detection of outliers (time spent : 0.02s) --
+## -- detection of outliers (time spent : 0.01s) --
 ## 0 outlier(s) terminated 
 ## 
-## -- analysis of the inertia (time spent : 0.07s) --
+## -- analysis of the inertia (time spent : 0.03s) --
 ## 4 component(s) carrying information : total inertia of 83.3% 
 ## 
-## -- components description (time spent : 4.52s) --
+## -- components description (time spent : 4.4s) --
 ## plane 1:2 
 ## plane 3:4 
 ## 
-## -- classification (time spent : 5.14s) --
+## -- classification (time spent : 4.92s) --
 ## 3 clusters 
 ## 
-## -- annexes writing (time spent : 5.4s) --
+## -- annexes writing (time spent : 5.1s) --
 ## 
-## -- saving data (time spent : 5.63s) --
+## -- saving data (time spent : 5.25s) --
 ## 
-## -- outputs compilation (time spent : 5.63s) --</code></pre>
-<pre><code>## -- task completed (time spent : 13.1s) --
+## -- outputs compilation (time spent : 5.25s) --</code></pre>
+<pre><code>## -- task completed (time spent : 13.33s) --
 ## This interpretation of the results was carried out automatically, 
 ## it cannot match the quality of a personal interpretation</code></pre>
 <div class="sourceCode" id="cb1983"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1983-1"><a href="9.4-principal-component-analyses-pca.html#cb1983-1" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">&quot;outputs/Investigate.html&quot;</span>)</span></code></pre></div>
@@ -4540,10 +4540,10 @@ of the total dataset inertia ; that means that 63.16% of the individuals
 (or variables) cloud total variability is explained by the plane. This
 percentage is relatively high and thus the first plane well represents
 the data variability. This value is strongly greater than the reference
-value that equals <strong>12.79%</strong>, the variability explained by
+value that equals <strong>12.78%</strong>, the variability explained by
 this plane is thus highly significant (the reference value is the
 0.95-quantile of the inertia percentages distribution obtained by
-simulating 854 data tables of equivalent size on the basis of a normal
+simulating 1014 data tables of equivalent size on the basis of a normal
 distribution).</p>
 <p>From these observations, it should be better to also interpret the
 dimensions greater or equal to the third one.</p>
@@ -4552,7 +4552,7 @@ dimensions greater or equal to the third one.</p>
 <p>An estimation of the right number of axis to interpret suggests to
 restrict the analysis to the description of the first 4 axis. These axis
 present an amount of inertia greater than those obtained by the
-0.95-quantile of random distributions (83.35% against 24.31%). This
+0.95-quantile of random distributions (83.35% against 24.26%). This
 observation suggests that only these axis are carrying a real
 information. As a consequence, the description will stand to these
 axis.</p>

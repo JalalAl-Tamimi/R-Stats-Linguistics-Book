@@ -23,7 +23,7 @@ We'll examine how these approaches can help us tackle issues of multicollinearit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 ### Use the code below to check if you have all required packages installed. If some are not installed already, the code below will install these. If you have all packages installed, then you could load them with the second code.
-requiredPackages = c('tidyverse', 'knitr', 'Hmisc', 'corrplot', 'FactoMineR', 'factoextra', 'FactoInvestigate', 'htmltools', 'RColorBrewer', 'scatterplot3d', 'recipes', 'cluster', 'cowplot', 'GGally', 'ggpubr', 'ggrepel', 'zoo')
+requiredPackages = c('tidyverse', 'knitr', 'Hmisc', 'corrplot', 'FactoMineR', 'factoextra', 'FactoInvestigate', 'pdftools', 'RColorBrewer', 'scatterplot3d', 'recipes', 'cluster', 'cowplot', 'GGally', 'ggpubr', 'ggrepel', 'zoo')
 for(p in requiredPackages){
   if(!require(p,character.only = TRUE)) install.packages(p, dependencies = TRUE)
   library(p,character.only = TRUE)
@@ -335,8 +335,13 @@ Investigate(pcaDat1, file = "outputs/Investigate.Rmd", language = "en")
 
 ```{r}
 htmltools::includeHTML("outputs/Investigate.html")
-
 ```
+
+
+
+\newpage
+
+
 
 #### Extracting coordinates
 

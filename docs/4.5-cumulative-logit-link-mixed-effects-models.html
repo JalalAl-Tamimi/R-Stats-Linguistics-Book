@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-07-25" />
+<meta name="date" content="2025-07-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -2228,7 +2228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb639-1"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#cb639-1" tabindex="-1"></a><span class="fu">system.time</span>(mdl.clm <span class="ot">&lt;-</span> rating <span class="sc">%&gt;%</span> </span>
 <span id="cb639-2"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#cb639-2" tabindex="-1"></a>  <span class="fu">clm</span>(Response <span class="sc">~</span> Context, <span class="at">data =</span> .))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    0.01    0.00    0.00</code></pre>
+##    0.01    0.00    0.02</code></pre>
 <div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb641-1"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#cb641-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.clm)</span></code></pre></div>
 <pre><code>## formula: Response ~ Context
 ## data:    .
@@ -2267,7 +2267,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#cb643-1" tabindex="-1"></a><span class="fu">system.time</span>(mdl.clmm.Int <span class="ot">&lt;-</span> rating <span class="sc">%&gt;%</span> </span>
 <span id="cb643-2"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#cb643-2" tabindex="-1"></a>  <span class="fu">clmm</span>(Response <span class="sc">~</span> Context <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Subject) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Item), <span class="at">data =</span> .))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    2.97    0.13    3.18</code></pre>
+##    9.51    0.47   12.16</code></pre>
 <div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb645-1"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#cb645-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.clmm.Int)</span></code></pre></div>
 <pre><code>## Cumulative Link Mixed Model fitted with the Laplace approximation
 ## 
@@ -2314,7 +2314,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb647-1"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#cb647-1" tabindex="-1"></a><span class="fu">system.time</span>(mdl.clmm.Slope <span class="ot">&lt;-</span> rating <span class="sc">%&gt;%</span> </span>
 <span id="cb647-2"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#cb647-2" tabindex="-1"></a>                                       <span class="fu">clmm</span>(Response <span class="sc">~</span> Context <span class="sc">+</span> (Context<span class="sc">|</span>Subject) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Item), <span class="at">data =</span> .))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##  719.67   29.11  754.31</code></pre>
+## 1201.60   73.25 1339.53</code></pre>
 <div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb649-1"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#cb649-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.clmm.Slope)</span></code></pre></div>
 <pre><code>## Cumulative Link Mixed Model fitted with the Laplace approximation
 ## 
@@ -2722,7 +2722,7 @@ This dataset is a little complex. Data comes from multiple subjects who rated 81
 <div class="sourceCode" id="cb663"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb663-1"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#cb663-1" tabindex="-1"></a><span class="fu">system.time</span>(mdl.clm<span class="fl">.1</span> <span class="ot">&lt;-</span> weightRatings <span class="sc">%&gt;%</span> </span>
 <span id="cb663-2"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#cb663-2" tabindex="-1"></a>  <span class="fu">clm</span>(Rating <span class="sc">~</span> Class <span class="sc">*</span> Sex  <span class="sc">*</span> Frequency, <span class="at">data =</span> .))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    0.01    0.00    0.01</code></pre>
+##    0.03    0.00    0.03</code></pre>
 <div class="sourceCode" id="cb665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb665-1"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#cb665-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.clm)</span></code></pre></div>
 <pre><code>## formula: Response ~ Context
 ## data:    .
@@ -2761,7 +2761,7 @@ This dataset is a little complex. Data comes from multiple subjects who rated 81
 <div class="sourceCode" id="cb667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb667-1"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#cb667-1" tabindex="-1"></a><span class="fu">system.time</span>(mdl.clmm.Int<span class="fl">.1</span> <span class="ot">&lt;-</span> weightRatings <span class="sc">%&gt;%</span> </span>
 <span id="cb667-2"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#cb667-2" tabindex="-1"></a>  <span class="fu">clmm</span>(Rating <span class="sc">~</span> Class <span class="sc">*</span> Sex  <span class="sc">*</span> Frequency <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Subject<span class="sc">:</span>Word), <span class="at">data =</span> .))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   14.61    0.13   14.80</code></pre>
+##   10.75    0.08   11.43</code></pre>
 <div class="sourceCode" id="cb669"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb669-1"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#cb669-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.clmm.Int)</span></code></pre></div>
 <pre><code>## Cumulative Link Mixed Model fitted with the Laplace approximation
 ## 
@@ -2808,7 +2808,7 @@ This dataset is a little complex. Data comes from multiple subjects who rated 81
 <div class="sourceCode" id="cb671"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb671-1"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#cb671-1" tabindex="-1"></a><span class="fu">system.time</span>(mdl.clmm.Slope<span class="fl">.1</span> <span class="ot">&lt;-</span> weightRatings <span class="sc">%&gt;%</span> </span>
 <span id="cb671-2"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#cb671-2" tabindex="-1"></a>  <span class="fu">clmm</span>(Rating <span class="sc">~</span> Class <span class="sc">*</span> Sex  <span class="sc">*</span> Frequency <span class="sc">+</span> (Class<span class="sc">|</span>Subject<span class="sc">:</span>Word), <span class="at">data =</span> .))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   42.14    1.61   44.05</code></pre>
+##   34.16    1.71   36.72</code></pre>
 <div class="sourceCode" id="cb673"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb673-1"><a href="4.5-cumulative-logit-link-mixed-effects-models.html#cb673-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.clmm.Slope)</span></code></pre></div>
 <pre><code>## Cumulative Link Mixed Model fitted with the Laplace approximation
 ## 

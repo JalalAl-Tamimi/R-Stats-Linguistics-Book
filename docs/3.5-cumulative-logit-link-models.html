@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-07-25" />
+<meta name="date" content="2025-07-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -2546,7 +2546,7 @@ This dataset is a little complex. Data comes from multiple subjects who rated 81
 <div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="3.5-cumulative-logit-link-models.html#cb476-1" tabindex="-1"></a><span class="fu">system.time</span>(mdl.clm2 <span class="ot">&lt;-</span> weightRatings <span class="sc">%&gt;%</span> </span>
 <span id="cb476-2"><a href="3.5-cumulative-logit-link-models.html#cb476-2" tabindex="-1"></a>  <span class="fu">clm</span>(Rating <span class="sc">~</span> Class <span class="sc">*</span> Sex  <span class="sc">*</span> Frequency, <span class="at">data =</span> .))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    0.07    0.00    0.09</code></pre>
+##    0.04    0.01    0.04</code></pre>
 <div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="3.5-cumulative-logit-link-models.html#cb478-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.clm2)</span></code></pre></div>
 <pre><code>## formula: Rating ~ Class * Sex * Frequency
 ## data:    .

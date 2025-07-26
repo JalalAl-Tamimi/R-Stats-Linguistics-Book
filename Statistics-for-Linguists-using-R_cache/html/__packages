@@ -60,6 +60,8 @@ wordcloud
 quanteda.textstats
 FactoMineR
 factoextra
+FactoInvestigate
+pdftools
 scatterplot3d
 recipes
 cluster
@@ -93,4 +95,3 @@ measures
 varImp
 vip
 performance
-FactoInvestigate
