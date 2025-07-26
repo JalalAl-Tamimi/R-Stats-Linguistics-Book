@@ -7,7 +7,7 @@ editor_options:
 # Correlation plots - LM, GLM, CLM {#Correlation_LM_GLM_STD_CLM}
 
 This chapter introduces you to the basics of inferential statistics. We cover correlation tests to identify specific patterns in the data. We then use linear models to evaluate group differences, and generalised linear models to evaluate binary outcomes. We also introduce the basics of signal detection theory (SDT) to evaluate the accuracy of our models. At the end of this chapter, we introduce the basics of cumulative link models (CLM) to evaluate ordinal (likert) outcomes on two datasets.
-
+ 
 
 ## Loading packages
 

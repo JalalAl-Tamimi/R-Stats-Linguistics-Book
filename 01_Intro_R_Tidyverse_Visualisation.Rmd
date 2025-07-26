@@ -6,7 +6,7 @@ We then move to the `Tidyverse` and how to visualise data using `ggplot2`. We wi
 
 
 ## Loading packages 
-
+ 
 ```{r}
 ###Use the code below to check if you have all required packages installed. If some are not installed already, the code below will install these. If you have all packages installed, then you could load them with the second code.
 requiredPackages = c('tidyverse', 'languageR', 'phonR', 'summarytools', 'ggdist', 'gtsummary', 'cardx')
