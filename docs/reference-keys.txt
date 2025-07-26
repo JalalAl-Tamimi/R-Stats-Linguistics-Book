@@ -1119,7 +1119,7 @@ r²-0.75
 r²-0.5
 r²-0.25
 r²-0.1
-principal-component-analyses-pca
+principal-component-analyses---pca
 model-specification
 scree-plot
 results

@@ -3,7 +3,7 @@ editor_options:
   markdown: 
     wrap: sentence
 ---
- 
+
 # Reducing Dimensionality: Correlations, Principal Component Analysis, cluster analysis and Multidimensional scaling {#Corr_PCA_Cluster_MDS}
 
 In this chapter, we will look at how to reduce dimensionality of our dataset.
@@ -31,8 +31,6 @@ for(p in requiredPackages){
 ## below to change maximum overlap for the PCA, Cluster and MDS to draw all information. 
 options(ggrepel.max.overlaps = Inf)
 ```
-
-
 
 ## Read dataset
 
@@ -162,7 +160,7 @@ The problem with this approach is that it depends on the decision of what to con
 The second solution is to use PCA to reduce dimensionality.
 This is a more robust approach as it allows us to reduce the number of predictors without having to make arbitrary decisions on what R² value to use.
 
-## Principal Component Analyses (PCA)
+## Principal Component Analyses - PCA
 
 For this next step, we use PCA to first reduce dimensionality.
 PCA works by choosing a maximum number of dimensions that is always close to number of predictors - 1.
@@ -174,7 +172,6 @@ The dimensions are all decorrelated from each other.
 
 We use the package `FactoMineR` to run our PCA.
 We use all acoustic measures as predictors and our qualitative variable as the `context`.
-
 
 ```{r}
 dfPharPCA <- dfPharV2 %>% 
@@ -328,20 +325,18 @@ It should be noted that "*This interpretation of the results was carried out aut
 Investigate(pcaDat1, file = "outputs/Investigate.Rmd", language = "en")
 ```
 
-
 ```{r}
-htmltools::includeHTML("outputs/Investigate.html")
+webshot::webshot(url = "outputs/Investigate.html", file = "outputs/Investigate.png", vwidth = 1000, vheight = 275)
 ```
 
-
-
-
+![](outputs/Investigate.png){width="16cm"}
 
 ### Extracting coordinates
 
-The PCA analysis we used above allowed us to reduce dimensionality from 23 acoustic measures into 5 dimensions. These top five dimensions are orthogonal to each other, i.e., they are not correlated with each other, and hence we can easily reduce the collinearity levels. 
+The PCA analysis we used above allowed us to reduce dimensionality from 23 acoustic measures into 5 dimensions.
+These top five dimensions are orthogonal to each other, i.e., they are not correlated with each other, and hence we can easily reduce the collinearity levels.
 
-What we can do next is to export the coordinates of the PCA analysis and save them on the original dataframe, which we can use further in a linear mixed effects regression or any other tools. 
+What we can do next is to export the coordinates of the PCA analysis and save them on the original dataframe, which we can use further in a linear mixed effects regression or any other tools.
 
 ##### Saving coordinates
 
@@ -354,11 +349,9 @@ dfPharPCAFull %>%
   head(10)
 ```
 
-
 ##### Linear regression
 
 In our case, and given that the data comes from one participant, we use a simple linear regression analysis on each of the five dimension.
-
 
 ###### Dimension 1
 
@@ -368,7 +361,6 @@ dfPharPCAFull %>%
   summary()
 ```
 
-
 ###### Dimension 2
 
 ```{r}
@@ -376,7 +368,6 @@ dfPharPCAFull %>%
   lm(Dim.2 ~ context, data = .) %>%
   summary()
 ```
-
 
 ###### Dimension 3
 
@@ -386,7 +377,6 @@ dfPharPCAFull %>%
   summary()
 ```
 
-
 ###### Dimension 4
 
 ```{r}
@@ -394,7 +384,6 @@ dfPharPCAFull %>%
   lm(Dim.4 ~ context, data = .) %>%
   summary()
 ```
-
 
 ###### Dimension 5
 
@@ -404,11 +393,10 @@ dfPharPCAFull %>%
   summary()
 ```
 
-
 ##### Conclusion
 
-From the analysis above, it is interesting to note that dimensions 2, 3, and 4 allowed to appropriately distinguish between the two contexts, while dimensions 1 and 5 did not. We can explore the data further by examining the contribution of the various variables to each dimension and what they can tell us. 
-
+From the analysis above, it is interesting to note that dimensions 2, 3, and 4 allowed to appropriately distinguish between the two contexts, while dimensions 1 and 5 did not.
+We can explore the data further by examining the contribution of the various variables to each dimension and what they can tell us.
 
 ## Kmeans Clustering
 
