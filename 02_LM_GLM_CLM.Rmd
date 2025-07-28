@@ -6,8 +6,13 @@ editor_options:
 
 # Correlation plots - LM, GLM, CLM {#Correlation_LM_GLM_STD_CLM}
 
-This chapter introduces you to the basics of inferential statistics. We cover correlation tests to identify specific patterns in the data. We then use linear models to evaluate group differences, and generalised linear models to evaluate binary outcomes. We also introduce the basics of signal detection theory (SDT) to evaluate the accuracy of our models. At the end of this chapter, we introduce the basics of cumulative link models (CLM) to evaluate ordinal (likert) outcomes on two datasets.
- 
+This chapter introduces you to the basics of inferential statistics. We
+cover correlation tests to identify specific patterns in the data. We
+then use linear models to evaluate group differences, and generalised
+linear models to evaluate binary outcomes. We also introduce the basics
+of signal detection theory (SDT) to evaluate the accuracy of our models.
+At the end of this chapter, we introduce the basics of cumulative link
+models (CLM) to evaluate ordinal (likert) outcomes on two datasets.
 
 ## Loading packages
 
@@ -21,9 +26,121 @@ for(p in requiredPackages){
  
 ```
 
+## Inferential statistics
+
+### Introduction
+
+What do we mean by inferential statistics?
+
+We want to evaluate if there are differences observed between two groups
+of datapoints and if these differences are statistically significant.
+
+For this, we need to pay attention to the format of our outcome and
+predictors. An outcome is the response variable (or dependent variable);
+a predictor is our independent variable(s). This is fed into our
+equation
+
+$y = x\beta + \varepsilon$
+
+where:
+
+\- $y$ $\rightarrow$ outcome (DV) $\Rightarrow$ known
+
+\- $x$ $\rightarrow$ fixed effect (IV) $\Rightarrow$ known
+
+\- $\beta$ $\rightarrow$ coefficient of fixed effect $\Rightarrow$
+unknown
+
+\- $\varepsilon$ $\rightarrow$ random error term $\Rightarrow$ unknown
+
+### Hypothesis testing
+
+In the approach that this book follows, we use a frequentist approach to
+hypothesis testing. By frequentist we mean when modelling the
+relationship between an outcome and a predictor, we are interested in
+testing if the predictor has a clear and statistically significant
+influence on the outcome. When evaluating this, we try to reject the
+null hypothesis (*H*$_0$) in favour of the alternative hypothesis
+(*H*$_1$). 
+
+The null hypothesis (*H*$_0$) is the hypothesis we make that there is no statistical evidence in favour of an effect nor of a difference between the groups. The alternative hypothesis (*H*$_1$) is the hypothesis we make to reject the null hypothesis and there is indeed a statistical evidence in favour of an effect or a difference between the groups. 
+
+
+### Type of outcomes
+
+It is important to know the class of the outcome before doing any
+pre-data analyses or inferential statistics. Outcome classes can be one
+of:
+
+1.  `Numeric`: As an example, we have length/width of leaf; height of
+    mountain; fundamental frequency of the voice; etc. These are
+    generally modelled with a `Gaussian` distribution These are `true`
+    numbers and we can use summaries, t-tests, linear models, etc.
+    Integers are a family of numeric variables and can still be
+    considered as a normal numeric variable. Count data are numbers
+    related to a category. In general, these are related to the second
+    type of outcomes, and should be analysed using a poisson logistic
+    regression
+
+2.  `Categorical` (Unordered): Observations for two or more categories.
+    As an example, we can have gender of a speaker (male or female);
+    responses to a True vs False perception tests; Colour (unordered)
+    categorisation, e.g., red, blue, yellow, orange, etc.. For these we
+    can use a Generalised Linear Model (binomial or multinomial) or a
+    simple chi-square test.
+
+3.  `Categorical` (Ordered): When you run a rating experiment, where the
+    outcome is either `numeric` (i.e., 1, 2, 3, 4, 5) or `categories`
+    (i.e., disagree, neutral, agree). The `numeric` option is NOT a true
+    number as for the participant, these are categories. Cumulative
+    Logit models (or Generalised Linear Model with a cumulative
+    function) are used. The mean is meaningless here, and the median is
+    a preferred descriptive statistic.
+
+### Types of Errors?
+
+In the literature, we discuss various types of errors in statistical
+models. There are four different types, and the excellent Sonderegger
+(2023) book (Sonderegger, M. (2023). *Regression Modeling for Linguistic
+Data*. The MIT Press.) summarises these nicely. Here are the four types:
+
+1.  **Type I** (or "false positive" or error $\alpha$) $\Rightarrow$
+    falsely concluding there is an effect when none exists. (generally
+    due to inaccurate modelling strategies)
+
+2.  **Type II** (or "false negative" or error $\beta$)) $\Rightarrow$
+    falsely concluding there is no effect when one in fact exists
+    (generally due to inaccurate modelling strategies)
+
+![](images/type_I_II_errors.png){width="674"}
+
+3.  **Type S** $\Rightarrow$ Inaccurate sign (generally due to *hidden*
+    multicollinearity and low power = 1- $\beta$)
+
+4.  **Type M** $\Rightarrow$ Inaccurate magnitude (generally due to
+    *hidden* multicollinearity and low power = 1- $\beta$)
+
+
+It is important to note that the **Type I** and **Type II** errors are the most commonly discussed in the literature and are related to each other. Modelling is an art, and depending on model specifications, we can easily increase **Type I** and/or **Type II** errors. **Type I** is usually increased in the case of using inaccuratley specified model, e.g., not using a random effects structure when the data comes from multiple speakers and/or multiple items. **Type II** error is usually increased when there is an over specification of the model and/or not accounting for dependencies in the data. **Type S** and **Type M** are generally caused due to collinearity in the data, which causes instability in the model and leads to cases of suppression; a point discussed in chapter 9.   
+
 
 
 ## Correlation tests
+
+### Correlation does not imply causation!
+
+There is a general misconception that when one conducts a correlation
+test (see below), we can explain causation. An excellent example is
+borrowed from
+[wikipedia](https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation#).
+It is not because two variables are correlated (positively or
+negatively) that one explains the reasons behind the second!
+
+If you want to evaluate the cause of an effect then inferential
+statistics that we cover after the correlation tests are the ones to go
+for.
+
+![](images/Illiterate_Dinos.jpg)
 
 ### Basic correlations
 
@@ -242,7 +359,6 @@ mdl.lmC.2 #also print(mdl.lmC.2)
 summary(mdl.lmC.2)
 ```
 
-
 Our intercept is still the average of all datapoints of the dependent
 variable; that of "old" is now at 0.221721 as expected. The distance
 between young and old is of 1 (0.5 - -0.5 = 1).
@@ -259,7 +375,6 @@ Winter's book for more details.
 
 We use our original model with treatment coding.
 
-
 ```{r}
 # from library(broom)
 tidy(mdl.lm) %>% 
@@ -269,10 +384,7 @@ mycoefE <- tidy(mdl.lm) %>% pull(estimate)
 
 ```
 
-
-
 Obtaining mean values from our model
-
 
 ```{r}
 #old
@@ -286,28 +398,18 @@ mycoefE[1] + mycoefE[2]
 We can also obtain a nice table of our model summary. We can use the
 package `knitr` or `xtable`
 
-
 ##### Directly from model summary
-
-
 
 ```{r}
 kable(summary(mdl.lm)$coef, digits = 3)
 ```
 
-
-
 ##### From the `tidy` output
-
-
 
 ```{r}
 mdl.lmT <- tidy(mdl.lm)
 kable(mdl.lmT, digits = 3)
 ```
-
-
-
 
 ##### Model’s fit
 
@@ -316,12 +418,10 @@ print(tab_model(mdl.lm, file = paste0("outputs/mdl_lm.html")))
 htmltools::includeHTML("outputs/mdl_lm.html")
 ```
 
-
 #### Dissecting the model
 
 Let us dissect the model. If you use "str", you will be able to see what
 is available under our linear model. To access some info from the model
-
 
 ##### "str" and "coef"
 
@@ -329,34 +429,26 @@ is available under our linear model. To access some info from the model
 str(mdl.lm)
 ```
 
-
-
 ```{r}
 coef(mdl.lm)
 ## same as 
 ## mdl.lm$coefficients
 ```
 
-
 ##### "coef" and "coefficients"
 
 What if I want to obtain the "Intercept"? Or the coefficient for
 distance? What if I want the full row for distance?
-
 
 ```{r}
 coef(mdl.lm)[1] # same as mdl.lm$coefficients[1]
 coef(mdl.lm)[2] # same as mdl.lm$coefficients[2]
 ```
 
-
-
 ```{r}
 summary(mdl.lm)$coefficients[2, ] # full row
 summary(mdl.lm)$coefficients[2, 4] #for p value
 ```
-
-
 
 ##### Residuals
 
@@ -365,46 +457,32 @@ estimated value of the quantity) and fitted values? This allows us to
 evaluate how normal our residuals are and how different they are from a
 normal distribution.
 
-
 ###### Histogram
-
-
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 hist(residuals(mdl.lm))
 ```
 
-
-
 ###### qqplots
-
-
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 qqnorm(residuals(mdl.lm)); qqline(residuals(mdl.lm))
 ```
 
-
 ###### Residuals vs fitted values
-
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 plot(fitted(mdl.lm), residuals(mdl.lm), cex = 4)
 ```
 
-
-
 ###### Generating and plotting residual plot with `DHARMa`
-
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 sim_residuals <- simulateResiduals(mdl.lm)
 plot(sim_residuals)
 ```
 
-
 ##### Goodness of fit?
-
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 AIC(mdl.lm)	# Akaike's Information Criterion, lower values are better
@@ -620,17 +698,12 @@ tidy(mdl.glm) %>%
 mycoef2 <- tidy(mdl.glm) %>% pull(estimate)
 ```
 
-
-
-
 #### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 print(tab_model(mdl.glm, file = paste0("outputs/mdl.glm.html")))
 htmltools::includeHTML("outputs/mdl.glm.html")
 ```
-
-
 
 The results show that for one unit increase in the response (i.e., from
 no to yes), the logodds of being "grammatical" is increased by
@@ -713,8 +786,6 @@ tidy(mdl.glm2) %>%
 mycoef2 <- tidy(mdl.glm2) %>% pull(estimate)
 ```
 
-
-
 ##### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
@@ -722,22 +793,17 @@ print(tab_model(mdl.glm2, file = paste0("outputs/mdl.glm2.html")))
 htmltools::includeHTML("outputs/mdl.glm2.html")
 ```
 
-
-
 ##### LogOdds to proportions
 
 If you want to talk about the percentage "accuracy" of our model, then
 we can transform our loggodds into proportions.
-
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 plogis(mycoef2[1])
 plogis(mycoef2[1] + mycoef2[2])
 ```
 
-
 ##### Plotting
-
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 english2 <- english2 %>% 
@@ -753,8 +819,6 @@ english2 %>%
     scale_x_discrete(limits = c("Young", "Old"))
 ```
 
-
-
 The plot above show how the two groups differ using a glm. The results
 point to an overall increase in the proportion of reaction time when
 moving from the "Young" to the "Old" group. Let's use z-scoring next
@@ -762,7 +826,6 @@ moving from the "Young" to the "Old" group. Let's use z-scoring next
 #### With z-scoring of predictor
 
 ##### Model estimation
-
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 english2 <- english2 %>% 
@@ -782,8 +845,6 @@ tidy(mdl.glm3) %>%
 mycoef2 <- tidy(mdl.glm3) %>% pull(estimate)
 ```
 
-
-
 ##### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
@@ -791,13 +852,10 @@ print(tab_model(mdl.glm3, file = paste0("outputs/mdl.glm3.html")))
 htmltools::includeHTML("outputs/mdl.glm3.html")
 ```
 
-
-
 ##### LogOdds to proportions
 
 If you want to talk about the percentage "accuracy" of our model, then
 we can transform our loggodds into proportions.
-
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 plogis(mycoef2[1])
@@ -807,7 +865,6 @@ plogis(mycoef2[1] + mycoef2[2])
 ##### Plotting
 
 ###### Normal
-
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 english2 <- english2 %>% 
@@ -823,14 +880,10 @@ english2 %>%
     scale_x_discrete(limits = c("Young", "Old"))
 ```
 
-
-
 We obtain the exact same plots, but the model estimations are different.
 Let's use another type of predictions
 
-
 ###### z-scores
-
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 z_vals <- seq(-3, 3, 0.01)
@@ -850,11 +903,7 @@ pp %>%
   scale_x_continuous(breaks = c(-3, -2, -1, 0, 1, 2, 3))
 ```
 
-
-
 We obtain the exact same plots, but the model estimations are different.
-
-
 
 ### Signal Detection Theory {#STD}
 
@@ -878,7 +927,7 @@ biases.
 Let's do some stats on this
 
 |   | Yes | No | Total |
-|----------------------|-----------------|-----------------|-----------------|
+|-------------------|------------------|------------------|------------------|
 | Grammatical (Yes Actual) | TP = 100 | FN = 5 | (Yes Actual) 105 |
 | Ungrammatical (No Actual) | FP = 10 | TN = 50 | (No Actual) 60 |
 | Total | (Yes Response) 110 | (No Response) 55 | 165 |
@@ -978,7 +1027,6 @@ written as:
 
 `d' (d prime) = Z(True Positive Rate) - Z(False Positive Rate)`
 
-
 #### GLM and d prime
 
 The values obtained here match those obtained from SDT. For d prime, the
@@ -1002,8 +1050,6 @@ psycho::dprime(TP, FP, FN, TN,
 coef(glm(response ~ grammaticality, data = grammatical, family = binomial(probit)))[2]
 
 ```
-
-
 
 #### GLM as a classification tool
 
@@ -1045,7 +1091,6 @@ True Positive Rate (or Specificity) TP/(TP+FN) (`r TP/(TP+FN)`)
 
 True Negative Rate (or Sensitivity) TN/(FP+TN) (`r TN/(FP+TN)`)
 
-
 #### GLM: Other distributions
 
 If your data does not fit a binomial distribution, and is a multinomial
@@ -1065,16 +1110,24 @@ you need to use the glm function with a specific family function.
 
 ```
 
-
 ## Cumulative Logit Link Models
 
-These models work perfectly with rating data. Ratings are inherently ordered, 1, 2, ... n, and expect to observe an increase (or decrease) in overall ratings from 1 to n. To demonstrate this, we will use an example using the package "ordinal". 
+These models work perfectly with rating data. Ratings are inherently
+ordered, 1, 2, ... n, and expect to observe an increase (or decrease) in
+overall ratings from 1 to n. To demonstrate this, we will use an example
+using the package "ordinal".
 
-We use two datasets. We previously ran these two models, however, in this subset of the full dataset, we did not take into account the fact that there were multiple producing speakers and items. 
+We use two datasets. We previously ran these two models, however, in
+this subset of the full dataset, we did not take into account the fact
+that there were multiple producing speakers and items.
 
 ### Ratings of percept of nasality
 
-The first comes from a likert-scale a rating experiment where six participants rated the percept of nasality in the production of particular consonants in Arabic. The data came from nine producing subjects. The ratings were from 1 to 5, with 1 reflecting an `oral` percept; 5 a `nasal` percept.
+The first comes from a likert-scale a rating experiment where six
+participants rated the percept of nasality in the production of
+particular consonants in Arabic. The data came from nine producing
+subjects. The ratings were from 1 to 5, with 1 reflecting an `oral`
+percept; 5 a `nasal` percept.
 
 #### Importing and pre-processing
 
@@ -1114,17 +1167,12 @@ anova(mdl.clm, mdl.clm.Null)
 
 ```
 
-
-
 #### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 print(tab_model(mdl.clm, file = paste0("outputs/mdl.clm.html")))
 htmltools::includeHTML("outputs/mdl.clm.html")
 ```
-
-
-
 
 #### Interpreting a cumulative model
 
@@ -1238,17 +1286,20 @@ legend(par('usr')[2], par('usr')[4], bty='n', xpd=NA,lty=1, col=c("black", "red"
 
 ```
 
-
 ### Subjective estimates of the weight of the referents of 81 English nouns.
 
-This dataset comes from the `LanguageR` package. It contains the subjective estimates of the weight of the referents of 81 English nouns. 
-This dataset is a little complex. Data comes from multiple subjects who rated 81 nouns. The nouns are from a a class of animals and plants. The subjects are either males or females.
+This dataset comes from the `LanguageR` package. It contains the
+subjective estimates of the weight of the referents of 81 English nouns.
+This dataset is a little complex. Data comes from multiple subjects who
+rated 81 nouns. The nouns are from a a class of animals and plants. The
+subjects are either males or females.
 
-We can model it in various ways. Here we decided to explore whether the ratings given to a particular word are different, when the class is either animal or a plant and if males rated the nouns differently from males.
-
+We can model it in various ways. Here we decided to explore whether the
+ratings given to a particular word are different, when the class is
+either animal or a plant and if males rated the nouns differently from
+males.
 
 #### Importing and pre-processing
-
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 weightRatings <- weightRatings %>%
@@ -1271,16 +1322,16 @@ system.time(mdl.clm2 <- weightRatings %>%
 summary(mdl.clm2)
 ```
 
+#### Testing significance
 
-#### Testing significance 
-
-We can evaluate whether "Context" improves the model fit, by comparing a null model with our model. Of course "Context" is improving the model fit.
+We can evaluate whether "Context" improves the model fit, by comparing a
+null model with our model. Of course "Context" is improving the model
+fit.
 
 ```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
 mdl.clm.Null2 <- weightRatings %>% 
   clm(Rating ~ 1, data = .)
 ```
-
 
 ##### Null vs no random
 
@@ -1288,9 +1339,7 @@ mdl.clm.Null2 <- weightRatings %>%
 anova(mdl.clm2, mdl.clm.Null2)
 ```
 
-
-The model comparison above shows that our full model is enough. 
-
+The model comparison above shows that our full model is enough.
 
 #### Model’s fit
 
@@ -1299,16 +1348,26 @@ print(tab_model(mdl.clm2, file = paste0("outputs/mdl.clm2.html")))
 htmltools::includeHTML("outputs/mdl.clm2.html")
 ```
 
-
 #### Interpreting a cumulative model
 
-As a way to interpret the model, we can look at the coefficients and make sense of the results. A CLM model is a Logistic model with a cumulative effect. The "Coefficients" are the estimates for each level of the fixed effect; the "Threshold coefficients" are those of the response. For the former, a negative coefficient indicates a negative association with the response; and a positive is positively associated with the response. The p values are indicating the significance of each level. For the "Threshold coefficients", we can see the cumulative effects of ratings 1|2, 2|3, 3|4 and 4|5 which indicate an overall increase in the ratings from 1 to 5. 
+As a way to interpret the model, we can look at the coefficients and
+make sense of the results. A CLM model is a Logistic model with a
+cumulative effect. The "Coefficients" are the estimates for each level
+of the fixed effect; the "Threshold coefficients" are those of the
+response. For the former, a negative coefficient indicates a negative
+association with the response; and a positive is positively associated
+with the response. The p values are indicating the significance of each
+level. For the "Threshold coefficients", we can see the cumulative
+effects of ratings 1\|2, 2\|3, 3\|4 and 4\|5 which indicate an overall
+increase in the ratings from 1 to 5.
 
-#### Plotting 
+#### Plotting
 
 ##### No confidence intervals
 
-We use a modified version of a plotting function that allows us to visualise the effects. For this, we use the base R plotting functions. The version below is without confidence intervals.
+We use a modified version of a plotting function that allows us to
+visualise the effects. For this, we use the base R plotting functions.
+The version below is without confidence intervals.
 
 ```{r warning = FALSE, message = FALSE, error = FALSE}
 par(oma = c(4, 0, 0, 3), mgp = c(2, 1, 0))
@@ -1337,11 +1396,10 @@ legend(par('usr')[2], par('usr')[4], bty = 'n', xpd = NA, lty = 1,
        legend = c("1", "2", "3", "4", "5", "6", "7"), cex = 0.75)
 ```
 
-
 ##### With confidence intervals
 
-Here is an attempt to add the 97.5% confidence intervals to these plots. This is an experimental attempt and any feedback is welcome!
-
+Here is an attempt to add the 97.5% confidence intervals to these plots.
+This is an experimental attempt and any feedback is welcome!
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 par(oma = c(4, 0, 0, 3), mgp = c(2, 1, 0))
@@ -1415,7 +1473,6 @@ legend(par('usr')[2], par('usr')[4], bty = 'n', xpd = NA, lty = 1,
        col = c("black", "red", "green", "orange", "yellow", "grey", "blue"), 
        legend = c("1", "2", "3", "4", "5", "6", "7"), cex = 0.75)
 ```
-
 
 ## session info
 

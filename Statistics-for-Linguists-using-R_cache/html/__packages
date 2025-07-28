@@ -61,7 +61,7 @@ quanteda.textstats
 FactoMineR
 factoextra
 FactoInvestigate
-pdftools
+webshot
 scatterplot3d
 recipes
 cluster

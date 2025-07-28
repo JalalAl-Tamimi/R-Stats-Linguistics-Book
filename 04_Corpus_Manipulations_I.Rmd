@@ -1,4 +1,4 @@
- # Creating a corpus and basic manipulations {#Corpus_Basic}
+# Creating a corpus and basic manipulations {#Corpus_Basic}
 
 In this chapter, we will continue using `R` for the qualitative analyses of textual corpora.
 
