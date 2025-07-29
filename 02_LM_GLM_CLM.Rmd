@@ -44,14 +44,14 @@ $y = x\beta + \varepsilon$
 
 where:
 
-\- $y$ $\rightarrow$ outcome (DV) $\Rightarrow$ known
+-   $y$ $\rightarrow$ outcome (DV) $\Rightarrow$ known
 
-\- $x$ $\rightarrow$ fixed effect (IV) $\Rightarrow$ known
+-   $x$ $\rightarrow$ fixed effect (IV) $\Rightarrow$ known
 
-\- $\beta$ $\rightarrow$ coefficient of fixed effect $\Rightarrow$
+-   $\beta$ $\rightarrow$ coefficient of fixed effect $\Rightarrow$
 unknown
 
-\- $\varepsilon$ $\rightarrow$ random error term $\Rightarrow$ unknown
+-   $\varepsilon$ $\rightarrow$ random error term $\Rightarrow$ unknown
 
 ### Hypothesis testing
 
