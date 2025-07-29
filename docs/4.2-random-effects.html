@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-07-28" />
+<meta name="date" content="2025-07-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -2143,7 +2143,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In the last case, when designing our perception experiment, we can sometimes use multiple items, coming from multiple utterances and from multiple subjects!</p>
 <p>When the data comes from multiple subjects, items, etc.., there is a clear inter-dependency in the data. Without appropriately accounting for these, inter-dependencies, we are at a greater risk of increasing <strong>Type I</strong> Error and in some cases <strong>Type 2</strong> error (see chapter 3 on the various types of errors).</p>
 <p>This is the equation that represents the error term associated with random effects:</p>
-<p><span class="math inline">\(y = x\beta + \varepsilon\)</span> + Zu$</p>
+<p><span class="math inline">\(y = x\beta + \varepsilon  + Zu\)</span></p>
 <p>where:</p>
 <ul>
 <li><span class="math inline">\(y\)</span> <span class="math inline">\(\rightarrow\)</span> outcome (DV) <span class="math inline">\(\Rightarrow\)</span> known</li>
@@ -2192,7 +2192,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb489-11"><a href="4.2-random-effects.html#cb489-11" tabindex="-1"></a>                                                        <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Subj))), </span>
 <span id="cb489-12"><a href="4.2-random-effects.html#cb489-12" tabindex="-1"></a>           <span class="at">show.legend =</span> <span class="cn">FALSE</span>, <span class="at">title =</span> <span class="st">&quot;C. Subject Slopes of LookingTime&quot;</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
 <span id="cb489-13"><a href="4.2-random-effects.html#cb489-13" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">275</span>, <span class="dv">2000</span>))</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-187-1.png" width="672" /></p>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-187-1.png" width="960" /></p>
 <p>In the next section, we start by demonstrating the use of Linear Mixed-effects Models.</p>
 </div>
 </div>

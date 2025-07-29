@@ -34,7 +34,7 @@ When the data comes from multiple subjects, items, etc.., there is a clear inter
 This is the equation that represents the error term associated with random effects:
 
 
-$y = x\beta + \varepsilon$  + Zu$
+$y = x\beta + \varepsilon  + Zu$
 
 where:
 
@@ -136,7 +136,7 @@ When using Random Intercepts and Random Slopes, we mean that we allowed for aver
 Random slopes are adjustments to the subjects' observations as a function of the variable(s) of interest. Usually, any within-subject (or within-item) variable(s) is(are) to be included as a random slope(s), but you need to use model comparison to evaluate the need to use it.
 
 
-```{r fig.height = 3.325, echo = TRUE, warning = FALSE, message = FALSE, error = FALSE}
+```{r fig.height = 5, fig.width=10, echo = TRUE, warning = FALSE, message = FALSE, error = FALSE}
 plot_model(xmdl.Optimal, type = "pred", terms = "Cond", ci.lvl = 0.95, dodge = 0, 
            show.legend = FALSE, title = "A. Predicted average LookingTime") + theme_bw() + 
   geom_line() + coord_cartesian(ylim = c(-275, 2000)) +
