@@ -12,9 +12,10 @@ github-repo: JalalAl-Tamimi/R-Stats-Linguistics-Book
 description: "This repo contains all material for the book `Statistics for Linguists using R - Quantitative and qualitative approaches`"
 ---
 
-# Introduction
+# Introduction {#Introduction}
 
-This book covers the basics of statistics and R programming for linguists. It is based on various courses I have taught at both Newcastle University, Newcastle, UK and the Université Paris Cité, Paris, France. The courses were at various levels (undergraduates, postgraduates, doctoral and researchers). 
+
+This book covers the basics of statistics and R programming for linguists. It is based on various courses I have taught at both Newcastle University, Newcastle, UK during various workshops and mainly at the Université Paris Cité, Paris, France during my teaching at undergraduate and postgraduate levels. 
 
 It is designed to be accessible to those with little or no prior experience in statistics or programming. The book is divided into two main parts: the first part covers the basics of statistics, including descriptive statistics, inferential statistics, and hypothesis testing; the second part covers the basics of R programming, including data manipulation, data visualization, and statistical modelling.
 
