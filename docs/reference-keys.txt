@@ -1,5 +1,4 @@
-Introduction
-Introduction_Tidyverse_Visualisation
+chap:IntroTidyverseVisualisation
 loading-packages
 intro-r-markdown
 general
@@ -50,7 +49,7 @@ changing-names-of-observations
 checking-levels-of-factors
 subsetting-the-dataframe
 the-tidyverse
-introduction
+introduction-1
 using-piping
 demo-subsetting
 basic-manipulations-1
@@ -131,13 +130,14 @@ token-means
 ellipses-and-areas
 linking-vowels
 session-info
-Correlation_LM_GLM_STD_CLM
+chap:Corr-LM-GLM-STD-CLM
 loading-packages-1
 inferential-statistics
-introduction-1
+introduction-2
 hypothesis-testing
 type-of-outcomes
 types-of-errors
+power-analysis-and-effect-size
 correlation-tests
 correlation-does-not-imply-causation
 basic-correlations
@@ -145,7 +145,7 @@ using-the-package-corrplot
 correlation-plots
 more-advanced
 linear-models
-introduction-2
+introduction-3
 model-estimation
 role-of-coding-schemes
 intro-1
@@ -197,7 +197,7 @@ logodds-to-proportions-2
 plotting-2
 normal
 z-scores
-STD
+section:Corr-LM-GLM-STD-CLM-STD
 rationale
 running-stats
 below-we-obtain-multiple-measures
@@ -231,7 +231,7 @@ plotting-4
 no-confidence-intervals-1
 with-confidence-intervals-1
 session-info-1
-Random_LMM_GLMM_CLMM_GAMM
+chap:Random-LMM-GLMM-CLMM-GAMM
 loading-packages-2
 random-effects
 how-to-choose-fixed-and-random-effects
@@ -411,7 +411,7 @@ a-1
 u-1
 other-distibutions
 session-info-2
-Corpus_Basic
+chap:Corpus-Basic
 loading-packages-3
 janeaustenr
 look-at-books
@@ -631,7 +631,7 @@ wordstem-6
 tokens_wordstem-6
 dfm_wordstem-6
 session-info-3
-Corpus_Advanced
+chap:Corpus-Advanced
 loading-packages-4
 janeaustenr-1
 import-into-global-environment-2
@@ -860,7 +860,7 @@ feature-co-occurrence-matrix-fcm-6
 computing-number-of-co-occurrences-6
 features-co-occurrences-6
 session-info-4
-Corpus_Stats
+chap:Corpus-Stats
 loading-packages-5
 janeaustenr-2
 import-into-global-environment-4
@@ -1125,7 +1125,7 @@ visualising-coefficients-6
 a-plot-7
 a-plot-a-table-95-ci-7
 session-info-5
-Corr_PCA_Cluster_MDS
+chap:Corr-PCA-Cluster-MDS
 loading-packages-6
 read-dataset
 correlation-tests-1
@@ -1179,7 +1179,7 @@ computing-mds
 kmeans-clustering-1
 plot-7
 session-info-6
-DT_RF
+chap:DT-RF
 what-is-predictive-modelling
 loading-packages-7
 read-dataset-1
