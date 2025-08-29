@@ -1,5 +1,5 @@
 # (PART) Overview and basics of the R programming language {-}
-# Introduction to R, the Tidyverse - Visualisation {#chap:IntroTidyverseVisualisation}
+# Introduction to R, the Tidyverse - Visualisation {#IntroTidyverseVisualisation}
 
 
 This chapter introduces you to the `R` programming language and its basics. We use it to create a dataframe, manipulate data, perform statistical analyses, and create visualisations. 

@@ -1,5 +1,5 @@
 # (PART) Data reduction techniques and machine learning {-}
-# Reducing Dimensionality: Correlations, Principal Component Analysis, cluster analysis and Multidimensional scaling {#chap:Corr-PCA-Cluster-MDS}
+# Reducing Dimensionality: Correlations, Principal Component Analysis, cluster analysis and Multidimensional scaling {#Corr-PCA-Cluster-MDS}
 
 In this chapter, we will look at how to reduce dimensionality of our dataset.
 This is important when you have a large number of predictors and you want to reduce the number of predictors to a smaller set.

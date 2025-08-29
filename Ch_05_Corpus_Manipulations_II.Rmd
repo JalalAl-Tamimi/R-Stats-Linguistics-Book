@@ -1,4 +1,4 @@
-# Advanced manipulations of corpora {#chap:Corpus-Advanced}
+# Advanced manipulations of corpora {#Corpus-Advanced}
 
 In this chapter, we will continue using `R` for the qualitative analyses of textual corpora.
 

@@ -1,5 +1,5 @@
 # (PART) Statistical analyses using R {-}
-# Correlation, LM, GLM, STD and CLM {#chap:Corr-LM-GLM-STD-CLM}
+# Correlation, LM, GLM, STD and CLM {#Corr-LM-GLM-STD-CLM}
 
 This chapter introduces you to the basics of inferential statistics. We
 cover correlation tests to identify specific patterns in the data. We
@@ -904,7 +904,7 @@ pp %>%
 
 We obtain the exact same plots, but the model estimations are different.
 
-### Signal Detection Theory {#section:Corr-LM-GLM-STD-CLM-STD}
+### Signal Detection Theory {#STD}
 
 #### Rationale
 

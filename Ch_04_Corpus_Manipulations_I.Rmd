@@ -1,5 +1,5 @@
 # (PART) Qualitative data analysis and corpora {-}
-# Creating a corpus and basic manipulations {#chap:Corpus-Basic}
+# Creating a corpus and basic manipulations {#Corpus-Basic}
 
 In this chapter, we will continue using `R` for the qualitative analyses of textual corpora.
 

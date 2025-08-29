@@ -1,4 +1,4 @@
-# Corpus analysis and statistics {#chap:Corpus-Stats}
+# Corpus analysis and statistics {#Corpus-Stats}
 
 In this chapter, we will continue using `R` for the qualitative analyses of textual corpora.
 
