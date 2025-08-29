@@ -3,7 +3,7 @@
  
 This chapter provides details of how to grow Random Forests for phonetic data. This is not exclusive to phonetic data and can be used for any other type of data. 
 
-We will start by looking at the basics of predictive modelling. We will look at some issues with logistic regression related to collinearity and multicollinearity. In chapter \@ref(Corr-LM-GLM-STD-CLM), we looked at various notions obtained from Signal Detection Theory (section \@ref(STD)). We will use these to evaluate the performance of our models. We introduce decision trees to understand how they work, before attempting to replicate how Random Forests work. We then grow our first Random Forests using the `party` and the `ranger` packages and try to capture as much information as possible from it. At the end, we look at the approach advocated by  `tidymodels`.
+We will start by looking at the basics of predictive modelling. We will look at some issues with logistic regression related to collinearity and multicollinearity. In **chapter \@ref(Corr-LM-GLM-STD-CLM)**, we looked at various notions obtained from Signal Detection Theory in **section \@ref(STD)**. We will use these to evaluate the performance of our models. We introduce decision trees to understand how they work, before attempting to replicate how Random Forests work. We then grow our first Random Forests using the `party` and the `ranger` packages and try to capture as much information as possible from it. At the end, we look at the approach advocated by  `tidymodels`.
 
 ## What is predictive modelling
 

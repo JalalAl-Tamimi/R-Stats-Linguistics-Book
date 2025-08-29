@@ -1,4 +1,11 @@
-# (PART) Statistical analyses using R {-}
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+# (PART) Statistical analyses using R {.unnumbered}
+
 # Correlation, LM, GLM, STD and CLM {#Corr-LM-GLM-STD-CLM}
 
 This chapter introduces you to the basics of inferential statistics. We
@@ -44,7 +51,7 @@ where:
 -   $x$ $\rightarrow$ fixed effect (IV) $\Rightarrow$ known
 
 -   $\beta$ $\rightarrow$ coefficient of fixed effect $\Rightarrow$
-unknown
+    unknown
 
 -   $\varepsilon$ $\rightarrow$ random error term $\Rightarrow$ unknown
 
@@ -56,10 +63,13 @@ relationship between an outcome and a predictor, we are interested in
 testing if the predictor has a clear and statistically significant
 influence on the outcome. When evaluating this, we try to reject the
 null hypothesis (*H*$_0$) in favour of the alternative hypothesis
-(*H*$_1$). 
+(*H*$_1$).
 
-The null hypothesis (*H*$_0$) is the hypothesis we make that there is no statistical evidence in favour of an effect nor of a difference between the groups. The alternative hypothesis (*H*$_1$) is the hypothesis we make to reject the null hypothesis and there is indeed a statistical evidence in favour of an effect or a difference between the groups. 
-
+The null hypothesis (*H*$_0$) is the hypothesis we make that there is no
+statistical evidence in favour of an effect nor of a difference between
+the groups. The alternative hypothesis (*H*$_1$) is the hypothesis we
+make to reject the null hypothesis and there is indeed a statistical
+evidence in favour of an effect or a difference between the groups.
 
 ### Type of outcomes
 
@@ -115,14 +125,22 @@ Data*. The MIT Press.) summarises these nicely. Here are the four types:
 4.  **Type M** $\Rightarrow$ Inaccurate magnitude (generally due to
     *hidden* multicollinearity and low power = 1- $\beta$)
 
-
-It is important to note that the **Type I** and **Type II** errors are the most commonly discussed in the literature and are related to each other. Modelling is an art, and depending on model specifications, we can easily increase **Type I** and/or **Type II** errors. **Type I** is usually increased in the case of using inaccuratley specified model, e.g., not using a random effects structure when the data comes from multiple speakers and/or multiple items. **Type II** error is usually increased when there is an over specification of the model and/or not accounting for dependencies in the data. **Type S** and **Type M** are generally caused due to collinearity in the data, which causes instability in the model and leads to cases of suppression; a point discussed in chapter \@ref(chap:DT-RF).   
-
+It is important to note that the **Type I** and **Type II** errors are
+the most commonly discussed in the literature and are related to each
+other. Modelling is an art, and depending on model specifications, we
+can easily increase **Type I** and/or **Type II** errors. **Type I** is
+usually increased in the case of using inaccurately specified model,
+e.g., not using a random effects structure when the data comes from
+multiple speakers and/or multiple items. **Type II** error is usually
+increased when there is an over specification of the model and/or not
+accounting for dependencies in the data. **Type S** and **Type M** are
+generally caused due to collinearity in the data, which causes
+instability in the model and leads to cases of suppression; a point
+discussed in **chapter \@ref(DT-RF)**.
 
 ## Power analysis and effect size
 
 to come...
-
 
 ## Correlation tests
 
