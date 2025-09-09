@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7.5 Kmeans Clustering | Statistics for Linguists using R - Quantitative and qualitative approaches</title>
   <meta name="description" content="This repo contains all material for the book Statistics for Linguists using R - Quantitative and qualitative approaches" />
-  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7.5 Kmeans Clustering | Statistics for Linguists using R - Quantitative and qualitative approaches" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-08-29" />
+<meta name="date" content="2025-09-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -346,156 +346,199 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.1" data-path="2.2-inferential-statistics.html"><a href="2.2-inferential-statistics.html#introduction-2"><i class="fa fa-check"></i><b>2.2.1</b> Introduction</a></li>
 <li class="chapter" data-level="2.2.2" data-path="2.2-inferential-statistics.html"><a href="2.2-inferential-statistics.html#hypothesis-testing"><i class="fa fa-check"></i><b>2.2.2</b> Hypothesis testing</a></li>
 <li class="chapter" data-level="2.2.3" data-path="2.2-inferential-statistics.html"><a href="2.2-inferential-statistics.html#type-of-outcomes"><i class="fa fa-check"></i><b>2.2.3</b> Type of outcomes</a></li>
-<li class="chapter" data-level="2.2.4" data-path="2.2-inferential-statistics.html"><a href="2.2-inferential-statistics.html#types-of-errors"><i class="fa fa-check"></i><b>2.2.4</b> Types of Errors?</a></li>
+<li class="chapter" data-level="2.2.4" data-path="2.2-inferential-statistics.html"><a href="2.2-inferential-statistics.html#errors"><i class="fa fa-check"></i><b>2.2.4</b> Types of Errors?</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="2.3-power-analysis-and-effect-size.html"><a href="2.3-power-analysis-and-effect-size.html"><i class="fa fa-check"></i><b>2.3</b> Power analysis and effect size</a></li>
-<li class="chapter" data-level="2.4" data-path="2.4-correlation-tests.html"><a href="2.4-correlation-tests.html"><i class="fa fa-check"></i><b>2.4</b> Correlation tests</a>
+<li class="chapter" data-level="2.3" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html"><i class="fa fa-check"></i><b>2.3</b> Effect size and power analysis</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="2.4-correlation-tests.html"><a href="2.4-correlation-tests.html#correlation-does-not-imply-causation"><i class="fa fa-check"></i><b>2.4.1</b> Correlation does not imply causation!</a></li>
-<li class="chapter" data-level="2.4.2" data-path="2.4-correlation-tests.html"><a href="2.4-correlation-tests.html#basic-correlations"><i class="fa fa-check"></i><b>2.4.2</b> Basic correlations</a></li>
-<li class="chapter" data-level="2.4.3" data-path="2.4-correlation-tests.html"><a href="2.4-correlation-tests.html#using-the-package-corrplot"><i class="fa fa-check"></i><b>2.4.3</b> Using the package <code>corrplot</code></a>
+<li class="chapter" data-level="2.3.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#effect-size"><i class="fa fa-check"></i><b>2.3.1</b> Effect size</a>
 <ul>
-<li class="chapter" data-level="2.4.3.1" data-path="2.4-correlation-tests.html"><a href="2.4-correlation-tests.html#correlation-plots"><i class="fa fa-check"></i><b>2.4.3.1</b> Correlation plots</a></li>
-<li class="chapter" data-level="2.4.3.2" data-path="2.4-correlation-tests.html"><a href="2.4-correlation-tests.html#more-advanced"><i class="fa fa-check"></i><b>2.4.3.2</b> More advanced</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2.5" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html"><i class="fa fa-check"></i><b>2.5</b> Linear Models</a>
+<li class="chapter" data-level="2.3.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#what-is-the-purpose-of-effect-size"><i class="fa fa-check"></i><b>2.3.1.1</b> What is the purpose of Effect Size?</a></li>
+<li class="chapter" data-level="2.3.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#what-is-the-relationship-between-effect-size-and-significance"><i class="fa fa-check"></i><b>2.3.1.2</b> What is the relationship between Effect Size and Significance?</a></li>
+<li class="chapter" data-level="2.3.1.3" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#what-is-confidence-interval"><i class="fa fa-check"></i><b>2.3.1.3</b> What is Confidence Interval?</a></li>
+<li class="chapter" data-level="2.3.1.4" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#which-effect-size-measure-to-use"><i class="fa fa-check"></i><b>2.3.1.4</b> Which Effect Size measure to use?</a></li>
+<li class="chapter" data-level="2.3.1.5" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#how-to-compute-these-in-r"><i class="fa fa-check"></i><b>2.3.1.5</b> How to compute these in <code>R</code></a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#introduction-3"><i class="fa fa-check"></i><b>2.5.1</b> Introduction</a>
+<li class="chapter" data-level="2.3.1.5.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#standardised-effect-sizes-cohens-d"><i class="fa fa-check"></i><b>2.3.1.5.1</b> Standardised effect sizes (Cohen’s <em>d</em>)</a>
 <ul>
-<li class="chapter" data-level="2.5.1.1" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#model-estimation"><i class="fa fa-check"></i><b>2.5.1.1</b> Model estimation</a></li>
+<li class="chapter" data-level="2.3.1.5.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model"><i class="fa fa-check"></i><b>2.3.1.5.1.1</b> Linear model</a></li>
+<li class="chapter" data-level="2.3.1.5.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d"><i class="fa fa-check"></i><b>2.3.1.5.1.2</b> Cohen’s <em>d</em></a></li>
+<li class="chapter" data-level="2.3.1.5.1.3" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#standardised-coefficients"><i class="fa fa-check"></i><b>2.3.1.5.1.3</b> Standardised coefficients</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.2" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.2</b> Role of coding schemes</a>
+<li class="chapter" data-level="2.3.1.5.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#strength-of-association-effect-sizes"><i class="fa fa-check"></i><b>2.3.1.5.2</b> Strength of association effect sizes</a>
 <ul>
-<li class="chapter" data-level="2.5.2.1" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#intro-1"><i class="fa fa-check"></i><b>2.5.2.1</b> Intro</a></li>
-<li class="chapter" data-level="2.5.2.2" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.2.2</b> Treatment coding</a></li>
-<li class="chapter" data-level="2.5.2.3" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.2.3</b> Contrast (or sum) coding</a>
+<li class="chapter" data-level="2.3.1.5.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#r2"><i class="fa fa-check"></i><b>2.3.1.5.2.1</b> <span class="math inline">\(R^{2}\)</span></a></li>
+<li class="chapter" data-level="2.3.1.5.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#eta2-eta-squared"><i class="fa fa-check"></i><b>2.3.1.5.2.2</b> <span class="math inline">\(\eta^{2}\)</span> (eta squared)</a></li>
+<li class="chapter" data-level="2.3.1.5.2.3" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#eta2p-partial-eta-squared"><i class="fa fa-check"></i><b>2.3.1.5.2.3</b> <span class="math inline">\(\eta^{2}p\)</span> (partial eta squared)</a></li>
+<li class="chapter" data-level="2.3.1.5.2.4" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#omega2-omega-squared"><i class="fa fa-check"></i><b>2.3.1.5.2.4</b> <span class="math inline">\(\omega^{2}\)</span> (omega squared)</a></li>
+<li class="chapter" data-level="2.3.1.5.2.5" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#partial-omega2-partial-omega-squared"><i class="fa fa-check"></i><b>2.3.1.5.2.5</b> Partial <span class="math inline">\(\omega^{2}\)</span> (partial omega squared)</a></li>
+<li class="chapter" data-level="2.3.1.5.2.6" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#odds-ratio"><i class="fa fa-check"></i><b>2.3.1.5.2.6</b> Odds ratio</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="2.4-power-analysis-and-sample-size.html"><a href="2.4-power-analysis-and-sample-size.html"><i class="fa fa-check"></i><b>2.4</b> Power analysis and sample size</a>
 <ul>
-<li class="chapter" data-level="2.5.2.3.1" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#default"><i class="fa fa-check"></i><b>2.5.2.3.1</b> Default</a></li>
-<li class="chapter" data-level="2.5.2.3.2" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#modified"><i class="fa fa-check"></i><b>2.5.2.3.2</b> Modified</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#further-steps"><i class="fa fa-check"></i><b>2.5.3</b> Further steps</a>
+<li class="chapter" data-level="2.4.1" data-path="2.4-power-analysis-and-sample-size.html"><a href="2.4-power-analysis-and-sample-size.html#linear-model-1"><i class="fa fa-check"></i><b>2.4.1</b> Linear model</a>
 <ul>
-<li class="chapter" data-level="2.5.3.1" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.3.1</b> Tidying the output</a></li>
-<li class="chapter" data-level="2.5.3.2" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.3.2</b> Nice table of our model summary</a>
+<li class="chapter" data-level="2.4.1.1" data-path="2.4-power-analysis-and-sample-size.html"><a href="2.4-power-analysis-and-sample-size.html#general-example"><i class="fa fa-check"></i><b>2.4.1.1</b> General example</a>
 <ul>
-<li class="chapter" data-level="2.5.3.2.1" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.3.2.1</b> Directly from model summary</a></li>
-<li class="chapter" data-level="2.5.3.2.2" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.3.2.2</b> From the <code>tidy</code> output</a></li>
-<li class="chapter" data-level="2.5.3.2.3" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#models-fit"><i class="fa fa-check"></i><b>2.5.3.2.3</b> Model’s fit</a></li>
+<li class="chapter" data-level="2.4.1.1.1" data-path="2.4-power-analysis-and-sample-size.html"><a href="2.4-power-analysis-and-sample-size.html#power-of-the-test"><i class="fa fa-check"></i><b>2.4.1.1.1</b> Power of the test</a></li>
+<li class="chapter" data-level="2.4.1.1.2" data-path="2.4-power-analysis-and-sample-size.html"><a href="2.4-power-analysis-and-sample-size.html#sample-size"><i class="fa fa-check"></i><b>2.4.1.1.2</b> Sample size</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.3.3" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.3.3</b> Dissecting the model</a>
+<li class="chapter" data-level="2.4.1.2" data-path="2.4-power-analysis-and-sample-size.html"><a href="2.4-power-analysis-and-sample-size.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.4.1.2</b> Using our LM model</a>
 <ul>
-<li class="chapter" data-level="2.5.3.3.1" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.3.3.1</b> “str” and “coef”</a></li>
-<li class="chapter" data-level="2.5.3.3.2" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.3.3.2</b> “coef” and “coefficients”</a></li>
-<li class="chapter" data-level="2.5.3.3.3" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#residuals"><i class="fa fa-check"></i><b>2.5.3.3.3</b> Residuals</a>
+<li class="chapter" data-level="2.4.1.2.1" data-path="2.4-power-analysis-and-sample-size.html"><a href="2.4-power-analysis-and-sample-size.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.4.1.2.1</b> Power analysis from our model</a></li>
+<li class="chapter" data-level="2.4.1.2.2" data-path="2.4-power-analysis-and-sample-size.html"><a href="2.4-power-analysis-and-sample-size.html#sample-size-1"><i class="fa fa-check"></i><b>2.4.1.2.2</b> Sample size</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="2.5-correlation-tests.html"><a href="2.5-correlation-tests.html"><i class="fa fa-check"></i><b>2.5</b> Correlation tests</a>
 <ul>
-<li class="chapter" data-level="2.5.3.3.3.1" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#histogram"><i class="fa fa-check"></i><b>2.5.3.3.3.1</b> Histogram</a></li>
-<li class="chapter" data-level="2.5.3.3.3.2" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#qqplots"><i class="fa fa-check"></i><b>2.5.3.3.3.2</b> qqplots</a></li>
-<li class="chapter" data-level="2.5.3.3.3.3" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.3.3.3.3</b> Residuals vs fitted values</a></li>
-<li class="chapter" data-level="2.5.3.3.3.4" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.3.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3.4" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.3.3.4</b> Goodness of fit?</a></li>
-<li class="chapter" data-level="2.5.3.3.5" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#significance-testing"><i class="fa fa-check"></i><b>2.5.3.3.5</b> Significance testing</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2.5.4" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.4</b> Plotting fitted values</a>
+<li class="chapter" data-level="2.5.1" data-path="2.5-correlation-tests.html"><a href="2.5-correlation-tests.html#correlation-does-not-imply-causation"><i class="fa fa-check"></i><b>2.5.1</b> Correlation does not imply causation!</a></li>
+<li class="chapter" data-level="2.5.2" data-path="2.5-correlation-tests.html"><a href="2.5-correlation-tests.html#basic-correlations"><i class="fa fa-check"></i><b>2.5.2</b> Basic correlations</a></li>
+<li class="chapter" data-level="2.5.3" data-path="2.5-correlation-tests.html"><a href="2.5-correlation-tests.html#using-the-package-corrplot"><i class="fa fa-check"></i><b>2.5.3</b> Using the package <code>corrplot</code></a>
 <ul>
-<li class="chapter" data-level="2.5.4.1" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#trend-line"><i class="fa fa-check"></i><b>2.5.4.1</b> Trend line</a></li>
-<li class="chapter" data-level="2.5.4.2" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.2</b> Predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.3" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.3</b> Raw data, predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.4" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.4.4</b> Add significance levels and trend line on a plot?</a></li>
+<li class="chapter" data-level="2.5.3.1" data-path="2.5-correlation-tests.html"><a href="2.5-correlation-tests.html#correlation-plots"><i class="fa fa-check"></i><b>2.5.3.1</b> Correlation plots</a></li>
+<li class="chapter" data-level="2.5.3.2" data-path="2.5-correlation-tests.html"><a href="2.5-correlation-tests.html#more-advanced"><i class="fa fa-check"></i><b>2.5.3.2</b> More advanced</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.5" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.5</b> What about pairwise comparison?</a></li>
-<li class="chapter" data-level="2.5.6" data-path="2.5-linear-models.html"><a href="2.5-linear-models.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.6</b> Multiple predictors?</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html"><i class="fa fa-check"></i><b>2.6</b> Generalised Linear Models</a>
+<li class="chapter" data-level="2.6" data-path="2.6-LM.html"><a href="2.6-LM.html"><i class="fa fa-check"></i><b>2.6</b> Linear Models</a>
 <ul>
-<li class="chapter" data-level="2.6.1" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#load-and-summaries"><i class="fa fa-check"></i><b>2.6.1</b> Load and summaries</a></li>
-<li class="chapter" data-level="2.6.2" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#glm---categorical-predictors"><i class="fa fa-check"></i><b>2.6.2</b> GLM - Categorical predictors</a>
+<li class="chapter" data-level="2.6.1" data-path="2.6-LM.html"><a href="2.6-LM.html#introduction-3"><i class="fa fa-check"></i><b>2.6.1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="2.6.2.1" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#model-estimation-and-results"><i class="fa fa-check"></i><b>2.6.2.1</b> Model estimation and results</a></li>
-<li class="chapter" data-level="2.6.2.2" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#models-fit-1"><i class="fa fa-check"></i><b>2.6.2.2</b> Model’s fit</a></li>
-<li class="chapter" data-level="2.6.2.3" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#logodds-to-odd-ratios"><i class="fa fa-check"></i><b>2.6.2.3</b> Logodds to Odd ratios</a></li>
-<li class="chapter" data-level="2.6.2.4" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#logodds-to-proportions"><i class="fa fa-check"></i><b>2.6.2.4</b> LogOdds to proportions</a></li>
-<li class="chapter" data-level="2.6.2.5" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#plotting"><i class="fa fa-check"></i><b>2.6.2.5</b> Plotting</a></li>
+<li class="chapter" data-level="2.6.1.1" data-path="2.6-LM.html"><a href="2.6-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.6.1.1</b> Model estimation</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6.3" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#glm---numeric-predictors"><i class="fa fa-check"></i><b>2.6.3</b> GLM - Numeric predictors</a>
+<li class="chapter" data-level="2.6.2" data-path="2.6-LM.html"><a href="2.6-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.6.2</b> Role of coding schemes</a>
 <ul>
-<li class="chapter" data-level="2.6.3.1" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#without-z-scoring-of-predictor"><i class="fa fa-check"></i><b>2.6.3.1</b> Without z-scoring of predictor</a>
+<li class="chapter" data-level="2.6.2.1" data-path="2.6-LM.html"><a href="2.6-LM.html#intro-1"><i class="fa fa-check"></i><b>2.6.2.1</b> Intro</a></li>
+<li class="chapter" data-level="2.6.2.2" data-path="2.6-LM.html"><a href="2.6-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.6.2.2</b> Treatment coding</a></li>
+<li class="chapter" data-level="2.6.2.3" data-path="2.6-LM.html"><a href="2.6-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.6.2.3</b> Contrast (or sum) coding</a>
 <ul>
-<li class="chapter" data-level="2.6.3.1.1" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#model-estimation-1"><i class="fa fa-check"></i><b>2.6.3.1.1</b> Model estimation</a></li>
-<li class="chapter" data-level="2.6.3.1.2" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#models-fit-2"><i class="fa fa-check"></i><b>2.6.3.1.2</b> Model’s fit</a></li>
-<li class="chapter" data-level="2.6.3.1.3" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#logodds-to-proportions-1"><i class="fa fa-check"></i><b>2.6.3.1.3</b> LogOdds to proportions</a></li>
-<li class="chapter" data-level="2.6.3.1.4" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#plotting-1"><i class="fa fa-check"></i><b>2.6.3.1.4</b> Plotting</a></li>
+<li class="chapter" data-level="2.6.2.3.1" data-path="2.6-LM.html"><a href="2.6-LM.html#default"><i class="fa fa-check"></i><b>2.6.2.3.1</b> Default</a></li>
+<li class="chapter" data-level="2.6.2.3.2" data-path="2.6-LM.html"><a href="2.6-LM.html#modified"><i class="fa fa-check"></i><b>2.6.2.3.2</b> Modified</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6.3.2" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#with-z-scoring-of-predictor"><i class="fa fa-check"></i><b>2.6.3.2</b> With z-scoring of predictor</a>
+</ul></li>
+<li class="chapter" data-level="2.6.3" data-path="2.6-LM.html"><a href="2.6-LM.html#further-steps"><i class="fa fa-check"></i><b>2.6.3</b> Further steps</a>
 <ul>
-<li class="chapter" data-level="2.6.3.2.1" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#model-estimation-2"><i class="fa fa-check"></i><b>2.6.3.2.1</b> Model estimation</a></li>
-<li class="chapter" data-level="2.6.3.2.2" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#models-fit-3"><i class="fa fa-check"></i><b>2.6.3.2.2</b> Model’s fit</a></li>
-<li class="chapter" data-level="2.6.3.2.3" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#logodds-to-proportions-2"><i class="fa fa-check"></i><b>2.6.3.2.3</b> LogOdds to proportions</a></li>
-<li class="chapter" data-level="2.6.3.2.4" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#plotting-2"><i class="fa fa-check"></i><b>2.6.3.2.4</b> Plotting</a>
+<li class="chapter" data-level="2.6.3.1" data-path="2.6-LM.html"><a href="2.6-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.6.3.1</b> Tidying the output</a></li>
+<li class="chapter" data-level="2.6.3.2" data-path="2.6-LM.html"><a href="2.6-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.6.3.2</b> Nice table of our model summary</a>
 <ul>
-<li class="chapter" data-level="2.6.3.2.4.1" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#normal"><i class="fa fa-check"></i><b>2.6.3.2.4.1</b> Normal</a></li>
-<li class="chapter" data-level="2.6.3.2.4.2" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#z-scores"><i class="fa fa-check"></i><b>2.6.3.2.4.2</b> z-scores</a></li>
+<li class="chapter" data-level="2.6.3.2.1" data-path="2.6-LM.html"><a href="2.6-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.6.3.2.1</b> Directly from model summary</a></li>
+<li class="chapter" data-level="2.6.3.2.2" data-path="2.6-LM.html"><a href="2.6-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.6.3.2.2</b> From the <code>tidy</code> output</a></li>
+<li class="chapter" data-level="2.6.3.2.3" data-path="2.6-LM.html"><a href="2.6-LM.html#models-fit"><i class="fa fa-check"></i><b>2.6.3.2.3</b> Model’s fit</a></li>
 </ul></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2.6.4" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#STD"><i class="fa fa-check"></i><b>2.6.4</b> Signal Detection Theory</a>
+<li class="chapter" data-level="2.6.3.3" data-path="2.6-LM.html"><a href="2.6-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.6.3.3</b> Dissecting the model</a>
 <ul>
-<li class="chapter" data-level="2.6.4.1" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#rationale"><i class="fa fa-check"></i><b>2.6.4.1</b> Rationale</a></li>
-<li class="chapter" data-level="2.6.4.2" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#running-stats"><i class="fa fa-check"></i><b>2.6.4.2</b> Running stats</a></li>
-<li class="chapter" data-level="2.6.4.3" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#below-we-obtain-multiple-measures"><i class="fa fa-check"></i><b>2.6.4.3</b> Below we obtain multiple measures</a>
+<li class="chapter" data-level="2.6.3.3.1" data-path="2.6-LM.html"><a href="2.6-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.6.3.3.1</b> “str” and “coef”</a></li>
+<li class="chapter" data-level="2.6.3.3.2" data-path="2.6-LM.html"><a href="2.6-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.6.3.3.2</b> “coef” and “coefficients”</a></li>
+<li class="chapter" data-level="2.6.3.3.3" data-path="2.6-LM.html"><a href="2.6-LM.html#residuals"><i class="fa fa-check"></i><b>2.6.3.3.3</b> Residuals</a>
 <ul>
-<li class="chapter" data-level="2.6.4.3.1" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#tp-fp-fn-tn"><i class="fa fa-check"></i><b>2.6.4.3.1</b> TP, FP, FN, TN</a></li>
-<li class="chapter" data-level="2.6.4.3.2" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#accuracy-error-sensitivity-specificity-precision-etc."><i class="fa fa-check"></i><b>2.6.4.3.2</b> Accuracy, Error, Sensitivity, Specificity, Precision, etc.</a>
+<li class="chapter" data-level="2.6.3.3.3.1" data-path="2.6-LM.html"><a href="2.6-LM.html#histogram"><i class="fa fa-check"></i><b>2.6.3.3.3.1</b> Histogram</a></li>
+<li class="chapter" data-level="2.6.3.3.3.2" data-path="2.6-LM.html"><a href="2.6-LM.html#qqplots"><i class="fa fa-check"></i><b>2.6.3.3.3.2</b> qqplots</a></li>
+<li class="chapter" data-level="2.6.3.3.3.3" data-path="2.6-LM.html"><a href="2.6-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.6.3.3.3.3</b> Residuals vs fitted values</a></li>
+<li class="chapter" data-level="2.6.3.3.3.4" data-path="2.6-LM.html"><a href="2.6-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.6.3.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.6.3.3.4" data-path="2.6-LM.html"><a href="2.6-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.6.3.3.4</b> Goodness of fit?</a></li>
+<li class="chapter" data-level="2.6.3.3.5" data-path="2.6-LM.html"><a href="2.6-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.6.3.3.5</b> Significance testing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.6.4" data-path="2.6-LM.html"><a href="2.6-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.6.4</b> Plotting fitted values</a>
 <ul>
-<li class="chapter" data-level="2.6.4.3.2.1" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#accuracy-and-error"><i class="fa fa-check"></i><b>2.6.4.3.2.1</b> Accuracy and Error</a></li>
-<li class="chapter" data-level="2.6.4.3.2.2" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#sensitivity-specificity-precision-etc."><i class="fa fa-check"></i><b>2.6.4.3.2.2</b> Sensitivity, Specificity, Precision, etc.</a></li>
-<li class="chapter" data-level="2.6.4.3.2.3" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#std-measures"><i class="fa fa-check"></i><b>2.6.4.3.2.3</b> STD measures</a></li>
+<li class="chapter" data-level="2.6.4.1" data-path="2.6-LM.html"><a href="2.6-LM.html#trend-line"><i class="fa fa-check"></i><b>2.6.4.1</b> Trend line</a></li>
+<li class="chapter" data-level="2.6.4.2" data-path="2.6-LM.html"><a href="2.6-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.6.4.2</b> Predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.6.4.3" data-path="2.6-LM.html"><a href="2.6-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.6.4.3</b> Raw data, predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.6.4.4" data-path="2.6-LM.html"><a href="2.6-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.6.4.4</b> Add significance levels and trend line on a plot?</a></li>
 </ul></li>
+<li class="chapter" data-level="2.6.5" data-path="2.6-LM.html"><a href="2.6-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.6.5</b> What about pairwise comparison?</a></li>
+<li class="chapter" data-level="2.6.6" data-path="2.6-LM.html"><a href="2.6-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.6.6</b> Multiple predictors?</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6.4.4" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#glm-and-d-prime"><i class="fa fa-check"></i><b>2.6.4.4</b> GLM and d prime</a></li>
-<li class="chapter" data-level="2.6.4.5" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#glm-as-a-classification-tool"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
-<li class="chapter" data-level="2.6.4.6" data-path="2.6-generalised-linear-models.html"><a href="2.6-generalised-linear-models.html#glm-other-distributions"><i class="fa fa-check"></i><b>2.6.4.6</b> GLM: Other distributions</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2.7" data-path="2.7-cumulative-logit-link-models.html"><a href="2.7-cumulative-logit-link-models.html"><i class="fa fa-check"></i><b>2.7</b> Cumulative Logit Link Models</a>
+<li class="chapter" data-level="2.7" data-path="2.7-GLM.html"><a href="2.7-GLM.html"><i class="fa fa-check"></i><b>2.7</b> Generalised Linear Models</a>
 <ul>
-<li class="chapter" data-level="2.7.1" data-path="2.7-cumulative-logit-link-models.html"><a href="2.7-cumulative-logit-link-models.html#ratings-of-percept-of-nasality"><i class="fa fa-check"></i><b>2.7.1</b> Ratings of percept of nasality</a>
+<li class="chapter" data-level="2.7.1" data-path="2.7-GLM.html"><a href="2.7-GLM.html#load-and-summaries"><i class="fa fa-check"></i><b>2.7.1</b> Load and summaries</a></li>
+<li class="chapter" data-level="2.7.2" data-path="2.7-GLM.html"><a href="2.7-GLM.html#glm---categorical-predictors"><i class="fa fa-check"></i><b>2.7.2</b> GLM - Categorical predictors</a>
 <ul>
-<li class="chapter" data-level="2.7.1.1" data-path="2.7-cumulative-logit-link-models.html"><a href="2.7-cumulative-logit-link-models.html#importing-and-pre-processing"><i class="fa fa-check"></i><b>2.7.1.1</b> Importing and pre-processing</a></li>
-<li class="chapter" data-level="2.7.1.2" data-path="2.7-cumulative-logit-link-models.html"><a href="2.7-cumulative-logit-link-models.html#our-first-model"><i class="fa fa-check"></i><b>2.7.1.2</b> Our first model</a></li>
-<li class="chapter" data-level="2.7.1.3" data-path="2.7-cumulative-logit-link-models.html"><a href="2.7-cumulative-logit-link-models.html#testing-significance"><i class="fa fa-check"></i><b>2.7.1.3</b> Testing significance</a></li>
-<li class="chapter" data-level="2.7.1.4" data-path="2.7-cumulative-logit-link-models.html"><a href="2.7-cumulative-logit-link-models.html#models-fit-4"><i class="fa fa-check"></i><b>2.7.1.4</b> Model’s fit</a></li>
-<li class="chapter" data-level="2.7.1.5" data-path="2.7-cumulative-logit-link-models.html"><a href="2.7-cumulative-logit-link-models.html#interpreting-a-cumulative-model"><i class="fa fa-check"></i><b>2.7.1.5</b> Interpreting a cumulative model</a>
+<li class="chapter" data-level="2.7.2.1" data-path="2.7-GLM.html"><a href="2.7-GLM.html#model-estimation-and-results"><i class="fa fa-check"></i><b>2.7.2.1</b> Model estimation and results</a></li>
+<li class="chapter" data-level="2.7.2.2" data-path="2.7-GLM.html"><a href="2.7-GLM.html#models-fit-1"><i class="fa fa-check"></i><b>2.7.2.2</b> Model’s fit</a></li>
+<li class="chapter" data-level="2.7.2.3" data-path="2.7-GLM.html"><a href="2.7-GLM.html#logodds-to-odd-ratios"><i class="fa fa-check"></i><b>2.7.2.3</b> Logodds to Odd ratios</a></li>
+<li class="chapter" data-level="2.7.2.4" data-path="2.7-GLM.html"><a href="2.7-GLM.html#logodds-to-proportions"><i class="fa fa-check"></i><b>2.7.2.4</b> LogOdds to proportions</a></li>
+<li class="chapter" data-level="2.7.2.5" data-path="2.7-GLM.html"><a href="2.7-GLM.html#plotting"><i class="fa fa-check"></i><b>2.7.2.5</b> Plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7.3" data-path="2.7-GLM.html"><a href="2.7-GLM.html#glm---numeric-predictors"><i class="fa fa-check"></i><b>2.7.3</b> GLM - Numeric predictors</a>
 <ul>
-<li class="chapter" data-level="2.7.1.5.1" data-path="2.7-cumulative-logit-link-models.html"><a href="2.7-cumulative-logit-link-models.html#plotting-3"><i class="fa fa-check"></i><b>2.7.1.5.1</b> Plotting</a></li>
-<li class="chapter" data-level="2.7.1.5.2" data-path="2.7-cumulative-logit-link-models.html"><a href="2.7-cumulative-logit-link-models.html#no-confidence-intervals"><i class="fa fa-check"></i><b>2.7.1.5.2</b> No confidence intervals</a></li>
-<li class="chapter" data-level="2.7.1.5.3" data-path="2.7-cumulative-logit-link-models.html"><a href="2.7-cumulative-logit-link-models.html#with-confidence-intervals"><i class="fa fa-check"></i><b>2.7.1.5.3</b> With confidence intervals</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2.7.2" data-path="2.7-cumulative-logit-link-models.html"><a href="2.7-cumulative-logit-link-models.html#subjective-estimates-of-the-weight-of-the-referents-of-81-english-nouns."><i class="fa fa-check"></i><b>2.7.2</b> Subjective estimates of the weight of the referents of 81 English nouns.</a>
+<li class="chapter" data-level="2.7.3.1" data-path="2.7-GLM.html"><a href="2.7-GLM.html#without-z-scoring-of-predictor"><i class="fa fa-check"></i><b>2.7.3.1</b> Without z-scoring of predictor</a>
 <ul>
-<li class="chapter" data-level="2.7.2.1" data-path="2.7-cumulative-logit-link-models.html"><a href="2.7-cumulative-logit-link-models.html#importing-and-pre-processing-1"><i class="fa fa-check"></i><b>2.7.2.1</b> Importing and pre-processing</a></li>
-<li class="chapter" data-level="2.7.2.2" data-path="2.7-cumulative-logit-link-models.html"><a href="2.7-cumulative-logit-link-models.html#model-specifications"><i class="fa fa-check"></i><b>2.7.2.2</b> Model specifications</a>
+<li class="chapter" data-level="2.7.3.1.1" data-path="2.7-GLM.html"><a href="2.7-GLM.html#model-estimation-1"><i class="fa fa-check"></i><b>2.7.3.1.1</b> Model estimation</a></li>
+<li class="chapter" data-level="2.7.3.1.2" data-path="2.7-GLM.html"><a href="2.7-GLM.html#models-fit-2"><i class="fa fa-check"></i><b>2.7.3.1.2</b> Model’s fit</a></li>
+<li class="chapter" data-level="2.7.3.1.3" data-path="2.7-GLM.html"><a href="2.7-GLM.html#logodds-to-proportions-1"><i class="fa fa-check"></i><b>2.7.3.1.3</b> LogOdds to proportions</a></li>
+<li class="chapter" data-level="2.7.3.1.4" data-path="2.7-GLM.html"><a href="2.7-GLM.html#plotting-1"><i class="fa fa-check"></i><b>2.7.3.1.4</b> Plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7.3.2" data-path="2.7-GLM.html"><a href="2.7-GLM.html#with-z-scoring-of-predictor"><i class="fa fa-check"></i><b>2.7.3.2</b> With z-scoring of predictor</a>
 <ul>
-<li class="chapter" data-level="2.7.2.2.1" data-path="2.7-cumulative-logit-link-models.html"><a href="2.7-cumulative-logit-link-models.html#no-random-effects"><i class="fa fa-check"></i><b>2.7.2.2.1</b> No random effects</a></li>
-</ul></li>
-<li class="chapter" data-level="2.7.2.3" data-path="2.7-cumulative-logit-link-models.html"><a href="2.7-cumulative-logit-link-models.html#testing-significance-1"><i class="fa fa-check"></i><b>2.7.2.3</b> Testing significance</a>
+<li class="chapter" data-level="2.7.3.2.1" data-path="2.7-GLM.html"><a href="2.7-GLM.html#model-estimation-2"><i class="fa fa-check"></i><b>2.7.3.2.1</b> Model estimation</a></li>
+<li class="chapter" data-level="2.7.3.2.2" data-path="2.7-GLM.html"><a href="2.7-GLM.html#models-fit-3"><i class="fa fa-check"></i><b>2.7.3.2.2</b> Model’s fit</a></li>
+<li class="chapter" data-level="2.7.3.2.3" data-path="2.7-GLM.html"><a href="2.7-GLM.html#logodds-to-proportions-2"><i class="fa fa-check"></i><b>2.7.3.2.3</b> LogOdds to proportions</a></li>
+<li class="chapter" data-level="2.7.3.2.4" data-path="2.7-GLM.html"><a href="2.7-GLM.html#plotting-2"><i class="fa fa-check"></i><b>2.7.3.2.4</b> Plotting</a>
 <ul>
-<li class="chapter" data-level="2.7.2.3.1" data-path="2.7-cumulative-logit-link-models.html"><a href="2.7-cumulative-logit-link-models.html#null-vs-no-random"><i class="fa fa-check"></i><b>2.7.2.3.1</b> Null vs no random</a></li>
+<li class="chapter" data-level="2.7.3.2.4.1" data-path="2.7-GLM.html"><a href="2.7-GLM.html#normal"><i class="fa fa-check"></i><b>2.7.3.2.4.1</b> Normal</a></li>
+<li class="chapter" data-level="2.7.3.2.4.2" data-path="2.7-GLM.html"><a href="2.7-GLM.html#z-scores"><i class="fa fa-check"></i><b>2.7.3.2.4.2</b> z-scores</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7.2.4" data-path="2.7-cumulative-logit-link-models.html"><a href="2.7-cumulative-logit-link-models.html#models-fit-5"><i class="fa fa-check"></i><b>2.7.2.4</b> Model’s fit</a></li>
-<li class="chapter" data-level="2.7.2.5" data-path="2.7-cumulative-logit-link-models.html"><a href="2.7-cumulative-logit-link-models.html#interpreting-a-cumulative-model-1"><i class="fa fa-check"></i><b>2.7.2.5</b> Interpreting a cumulative model</a></li>
-<li class="chapter" data-level="2.7.2.6" data-path="2.7-cumulative-logit-link-models.html"><a href="2.7-cumulative-logit-link-models.html#plotting-4"><i class="fa fa-check"></i><b>2.7.2.6</b> Plotting</a>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.7.4" data-path="2.7-GLM.html"><a href="2.7-GLM.html#STD"><i class="fa fa-check"></i><b>2.7.4</b> Signal Detection Theory</a>
 <ul>
-<li class="chapter" data-level="2.7.2.6.1" data-path="2.7-cumulative-logit-link-models.html"><a href="2.7-cumulative-logit-link-models.html#no-confidence-intervals-1"><i class="fa fa-check"></i><b>2.7.2.6.1</b> No confidence intervals</a></li>
-<li class="chapter" data-level="2.7.2.6.2" data-path="2.7-cumulative-logit-link-models.html"><a href="2.7-cumulative-logit-link-models.html#with-confidence-intervals-1"><i class="fa fa-check"></i><b>2.7.2.6.2</b> With confidence intervals</a></li>
+<li class="chapter" data-level="2.7.4.1" data-path="2.7-GLM.html"><a href="2.7-GLM.html#rationale"><i class="fa fa-check"></i><b>2.7.4.1</b> Rationale</a></li>
+<li class="chapter" data-level="2.7.4.2" data-path="2.7-GLM.html"><a href="2.7-GLM.html#running-stats"><i class="fa fa-check"></i><b>2.7.4.2</b> Running stats</a></li>
+<li class="chapter" data-level="2.7.4.3" data-path="2.7-GLM.html"><a href="2.7-GLM.html#below-we-obtain-multiple-measures"><i class="fa fa-check"></i><b>2.7.4.3</b> Below we obtain multiple measures</a>
+<ul>
+<li class="chapter" data-level="2.7.4.3.1" data-path="2.7-GLM.html"><a href="2.7-GLM.html#tp-fp-fn-tn"><i class="fa fa-check"></i><b>2.7.4.3.1</b> TP, FP, FN, TN</a></li>
+<li class="chapter" data-level="2.7.4.3.2" data-path="2.7-GLM.html"><a href="2.7-GLM.html#accuracy-error-sensitivity-specificity-precision-etc."><i class="fa fa-check"></i><b>2.7.4.3.2</b> Accuracy, Error, Sensitivity, Specificity, Precision, etc.</a>
+<ul>
+<li class="chapter" data-level="2.7.4.3.2.1" data-path="2.7-GLM.html"><a href="2.7-GLM.html#accuracy-and-error"><i class="fa fa-check"></i><b>2.7.4.3.2.1</b> Accuracy and Error</a></li>
+<li class="chapter" data-level="2.7.4.3.2.2" data-path="2.7-GLM.html"><a href="2.7-GLM.html#sensitivity-specificity-precision-etc."><i class="fa fa-check"></i><b>2.7.4.3.2.2</b> Sensitivity, Specificity, Precision, etc.</a></li>
+<li class="chapter" data-level="2.7.4.3.2.3" data-path="2.7-GLM.html"><a href="2.7-GLM.html#std-measures"><i class="fa fa-check"></i><b>2.7.4.3.2.3</b> STD measures</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.7.4.4" data-path="2.7-GLM.html"><a href="2.7-GLM.html#glm-and-d-prime"><i class="fa fa-check"></i><b>2.7.4.4</b> GLM and d prime</a></li>
+<li class="chapter" data-level="2.7.4.5" data-path="2.7-GLM.html"><a href="2.7-GLM.html#glm-as-a-classification-tool"><i class="fa fa-check"></i><b>2.7.4.5</b> GLM as a classification tool</a></li>
+<li class="chapter" data-level="2.7.4.6" data-path="2.7-GLM.html"><a href="2.7-GLM.html#glm-other-distributions"><i class="fa fa-check"></i><b>2.7.4.6</b> GLM: Other distributions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="2.8-CLM.html"><a href="2.8-CLM.html"><i class="fa fa-check"></i><b>2.8</b> Cumulative Logit Link Models</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="2.8-CLM.html"><a href="2.8-CLM.html#ratings-of-percept-of-nasality"><i class="fa fa-check"></i><b>2.8.1</b> Ratings of percept of nasality</a>
+<ul>
+<li class="chapter" data-level="2.8.1.1" data-path="2.8-CLM.html"><a href="2.8-CLM.html#importing-and-pre-processing"><i class="fa fa-check"></i><b>2.8.1.1</b> Importing and pre-processing</a></li>
+<li class="chapter" data-level="2.8.1.2" data-path="2.8-CLM.html"><a href="2.8-CLM.html#our-first-model"><i class="fa fa-check"></i><b>2.8.1.2</b> Our first model</a></li>
+<li class="chapter" data-level="2.8.1.3" data-path="2.8-CLM.html"><a href="2.8-CLM.html#testing-significance"><i class="fa fa-check"></i><b>2.8.1.3</b> Testing significance</a></li>
+<li class="chapter" data-level="2.8.1.4" data-path="2.8-CLM.html"><a href="2.8-CLM.html#models-fit-4"><i class="fa fa-check"></i><b>2.8.1.4</b> Model’s fit</a></li>
+<li class="chapter" data-level="2.8.1.5" data-path="2.8-CLM.html"><a href="2.8-CLM.html#interpreting-a-cumulative-model"><i class="fa fa-check"></i><b>2.8.1.5</b> Interpreting a cumulative model</a>
+<ul>
+<li class="chapter" data-level="2.8.1.5.1" data-path="2.8-CLM.html"><a href="2.8-CLM.html#plotting-3"><i class="fa fa-check"></i><b>2.8.1.5.1</b> Plotting</a></li>
+<li class="chapter" data-level="2.8.1.5.2" data-path="2.8-CLM.html"><a href="2.8-CLM.html#no-confidence-intervals"><i class="fa fa-check"></i><b>2.8.1.5.2</b> No confidence intervals</a></li>
+<li class="chapter" data-level="2.8.1.5.3" data-path="2.8-CLM.html"><a href="2.8-CLM.html#with-confidence-intervals"><i class="fa fa-check"></i><b>2.8.1.5.3</b> With confidence intervals</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.8.2" data-path="2.8-CLM.html"><a href="2.8-CLM.html#subjective-estimates-of-the-weight-of-the-referents-of-81-english-nouns."><i class="fa fa-check"></i><b>2.8.2</b> Subjective estimates of the weight of the referents of 81 English nouns.</a>
+<ul>
+<li class="chapter" data-level="2.8.2.1" data-path="2.8-CLM.html"><a href="2.8-CLM.html#importing-and-pre-processing-1"><i class="fa fa-check"></i><b>2.8.2.1</b> Importing and pre-processing</a></li>
+<li class="chapter" data-level="2.8.2.2" data-path="2.8-CLM.html"><a href="2.8-CLM.html#model-specifications"><i class="fa fa-check"></i><b>2.8.2.2</b> Model specifications</a>
+<ul>
+<li class="chapter" data-level="2.8.2.2.1" data-path="2.8-CLM.html"><a href="2.8-CLM.html#no-random-effects"><i class="fa fa-check"></i><b>2.8.2.2.1</b> No random effects</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.2.3" data-path="2.8-CLM.html"><a href="2.8-CLM.html#testing-significance-1"><i class="fa fa-check"></i><b>2.8.2.3</b> Testing significance</a>
+<ul>
+<li class="chapter" data-level="2.8.2.3.1" data-path="2.8-CLM.html"><a href="2.8-CLM.html#null-vs-no-random"><i class="fa fa-check"></i><b>2.8.2.3.1</b> Null vs no random</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8.2.4" data-path="2.8-CLM.html"><a href="2.8-CLM.html#models-fit-5"><i class="fa fa-check"></i><b>2.8.2.4</b> Model’s fit</a></li>
+<li class="chapter" data-level="2.8.2.5" data-path="2.8-CLM.html"><a href="2.8-CLM.html#interpreting-a-cumulative-model-1"><i class="fa fa-check"></i><b>2.8.2.5</b> Interpreting a cumulative model</a></li>
+<li class="chapter" data-level="2.8.2.6" data-path="2.8-CLM.html"><a href="2.8-CLM.html#plotting-4"><i class="fa fa-check"></i><b>2.8.2.6</b> Plotting</a>
+<ul>
+<li class="chapter" data-level="2.8.2.6.1" data-path="2.8-CLM.html"><a href="2.8-CLM.html#no-confidence-intervals-1"><i class="fa fa-check"></i><b>2.8.2.6.1</b> No confidence intervals</a></li>
+<li class="chapter" data-level="2.8.2.6.2" data-path="2.8-CLM.html"><a href="2.8-CLM.html#with-confidence-intervals-1"><i class="fa fa-check"></i><b>2.8.2.6.2</b> With confidence intervals</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="2.8-session-info-1.html"><a href="2.8-session-info-1.html"><i class="fa fa-check"></i><b>2.8</b> session info</a></li>
+<li class="chapter" data-level="2.9" data-path="2.9-session-info-1.html"><a href="2.9-session-info-1.html"><i class="fa fa-check"></i><b>2.9</b> session info</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="3-Random-LMM-GLMM-CLMM-GAMM.html"><a href="3-Random-LMM-GLMM-CLMM-GAMM.html"><i class="fa fa-check"></i><b>3</b> Random effects - LMM, GLMM, CLMM, GAMMs</a>
 <ul>
@@ -513,267 +556,267 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.2.2" data-path="3.2-random-effects.html"><a href="3.2-random-effects.html#random-intercepts-and-random-slopes"><i class="fa fa-check"></i><b>3.2.2.2</b> Random Intercepts and Random Slopes</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><i class="fa fa-check"></i><b>3.3</b> Linear Mixed-effects Models. Why random effects matter</a>
+<li class="chapter" data-level="3.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html"><i class="fa fa-check"></i><b>3.3</b> Linear Mixed-effects Models. Why random effects matter</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#dataframe-simulated"><i class="fa fa-check"></i><b>3.3.1</b> Dataframe (simulated)</a>
+<li class="chapter" data-level="3.3.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#dataframe-simulated"><i class="fa fa-check"></i><b>3.3.1</b> Dataframe (simulated)</a>
 <ul>
-<li class="chapter" data-level="3.3.1.1" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#counts"><i class="fa fa-check"></i><b>3.3.1.1</b> Counts</a>
+<li class="chapter" data-level="3.3.1.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#counts"><i class="fa fa-check"></i><b>3.3.1.1</b> Counts</a>
 <ul>
-<li class="chapter" data-level="3.3.1.1.1" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#subjects"><i class="fa fa-check"></i><b>3.3.1.1.1</b> Subjects</a></li>
-<li class="chapter" data-level="3.3.1.1.2" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#items"><i class="fa fa-check"></i><b>3.3.1.1.2</b> Items</a></li>
-<li class="chapter" data-level="3.3.1.1.3" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#age"><i class="fa fa-check"></i><b>3.3.1.1.3</b> Age</a></li>
-<li class="chapter" data-level="3.3.1.1.4" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#cond"><i class="fa fa-check"></i><b>3.3.1.1.4</b> Cond</a></li>
+<li class="chapter" data-level="3.3.1.1.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subjects"><i class="fa fa-check"></i><b>3.3.1.1.1</b> Subjects</a></li>
+<li class="chapter" data-level="3.3.1.1.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#items"><i class="fa fa-check"></i><b>3.3.1.1.2</b> Items</a></li>
+<li class="chapter" data-level="3.3.1.1.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#age"><i class="fa fa-check"></i><b>3.3.1.1.3</b> Age</a></li>
+<li class="chapter" data-level="3.3.1.1.4" data-path="3.3-LMM.html"><a href="3.3-LMM.html#cond"><i class="fa fa-check"></i><b>3.3.1.1.4</b> Cond</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3.1.2" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#visualisations"><i class="fa fa-check"></i><b>3.3.1.2</b> Visualisations</a>
+<li class="chapter" data-level="3.3.1.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#visualisations"><i class="fa fa-check"></i><b>3.3.1.2</b> Visualisations</a>
 <ul>
-<li class="chapter" data-level="3.3.1.2.1" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#condition-by-age"><i class="fa fa-check"></i><b>3.3.1.2.1</b> Condition by Age</a></li>
-<li class="chapter" data-level="3.3.1.2.2" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-condition"><i class="fa fa-check"></i><b>3.3.1.2.2</b> Subject by Condition</a></li>
-<li class="chapter" data-level="3.3.1.2.3" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-age"><i class="fa fa-check"></i><b>3.3.1.2.3</b> Subject by Age</a></li>
-<li class="chapter" data-level="3.3.1.2.4" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#item-by-condition"><i class="fa fa-check"></i><b>3.3.1.2.4</b> Item by Condition</a></li>
-<li class="chapter" data-level="3.3.1.2.5" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-age-1"><i class="fa fa-check"></i><b>3.3.1.2.5</b> Subject by Age</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="3.3.2" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#modelling-strategy"><i class="fa fa-check"></i><b>3.3.2</b> Modelling strategy</a>
-<ul>
-<li class="chapter" data-level="3.3.2.1" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#simple-linear-model"><i class="fa fa-check"></i><b>3.3.2.1</b> Simple Linear Model</a></li>
-<li class="chapter" data-level="3.3.2.2" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#no-interaction"><i class="fa fa-check"></i><b>3.3.2.2</b> No interaction</a>
-<ul>
-<li class="chapter" data-level="3.3.2.2.1" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts"><i class="fa fa-check"></i><b>3.3.2.2.1</b> Crossed random intercepts</a></li>
-<li class="chapter" data-level="3.3.2.2.2" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts-by-speaker-random-slopes"><i class="fa fa-check"></i><b>3.3.2.2.2</b> Crossed random intercepts + By-speaker random slopes</a></li>
-<li class="chapter" data-level="3.3.2.2.3" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts-by-speaker-and-by-item-random-slopes"><i class="fa fa-check"></i><b>3.3.2.2.3</b> Crossed random intercepts + By-speaker and by-item random slopes</a></li>
-<li class="chapter" data-level="3.3.2.2.4" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts-by-speaker-and-by-item-random-slopes-1"><i class="fa fa-check"></i><b>3.3.2.2.4</b> Crossed random intercepts + By-speaker and by-item random slopes</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3.2.3" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#with-interaction"><i class="fa fa-check"></i><b>3.3.2.3</b> With interaction</a>
-<ul>
-<li class="chapter" data-level="3.3.2.3.1" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts-interaction"><i class="fa fa-check"></i><b>3.3.2.3.1</b> Crossed random intercepts + Interaction</a></li>
-<li class="chapter" data-level="3.3.2.3.2" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts-by-speaker-random-slopes-interaction"><i class="fa fa-check"></i><b>3.3.2.3.2</b> Crossed random intercepts + By-speaker random slopes + Interaction</a></li>
-<li class="chapter" data-level="3.3.2.3.3" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts-by-speaker-and-by-item-random-slopes-interaction"><i class="fa fa-check"></i><b>3.3.2.3.3</b> Crossed random intercepts + By-speaker and by-item random slopes + Interaction</a></li>
-<li class="chapter" data-level="3.3.2.3.4" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#crossed-random-intercepts-by-speaker-and-by-item-random-slopes-2"><i class="fa fa-check"></i><b>3.3.2.3.4</b> Crossed random intercepts + By-speaker and by-item random slopes</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3.2.4" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#model-comparison"><i class="fa fa-check"></i><b>3.3.2.4</b> Model comparison</a></li>
-<li class="chapter" data-level="3.3.2.5" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#optimal-model"><i class="fa fa-check"></i><b>3.3.2.5</b> Optimal model</a>
-<ul>
-<li class="chapter" data-level="3.3.2.5.1" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#model-criticism"><i class="fa fa-check"></i><b>3.3.2.5.1</b> Model criticism</a>
-<ul>
-<li class="chapter" data-level="3.3.2.5.1.1" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#histogram-1"><i class="fa fa-check"></i><b>3.3.2.5.1.1</b> Histogram</a></li>
-<li class="chapter" data-level="3.3.2.5.1.2" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#qq-plot"><i class="fa fa-check"></i><b>3.3.2.5.1.2</b> QQ-plot</a></li>
-<li class="chapter" data-level="3.3.2.5.1.3" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#residuals-vs-fitted"><i class="fa fa-check"></i><b>3.3.2.5.1.3</b> Residuals vs Fitted</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3.2.5.2" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#summary"><i class="fa fa-check"></i><b>3.3.2.5.2</b> Summary</a></li>
-<li class="chapter" data-level="3.3.2.5.3" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#anova"><i class="fa fa-check"></i><b>3.3.2.5.3</b> ANOVA</a></li>
-<li class="chapter" data-level="3.3.2.5.4" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#models-fit-6"><i class="fa fa-check"></i><b>3.3.2.5.4</b> Model’s fit</a></li>
+<li class="chapter" data-level="3.3.1.2.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#condition-by-age"><i class="fa fa-check"></i><b>3.3.1.2.1</b> Condition by Age</a></li>
+<li class="chapter" data-level="3.3.1.2.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-by-condition"><i class="fa fa-check"></i><b>3.3.1.2.2</b> Subject by Condition</a></li>
+<li class="chapter" data-level="3.3.1.2.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-by-age"><i class="fa fa-check"></i><b>3.3.1.2.3</b> Subject by Age</a></li>
+<li class="chapter" data-level="3.3.1.2.4" data-path="3.3-LMM.html"><a href="3.3-LMM.html#item-by-condition"><i class="fa fa-check"></i><b>3.3.1.2.4</b> Item by Condition</a></li>
+<li class="chapter" data-level="3.3.1.2.5" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-by-age-1"><i class="fa fa-check"></i><b>3.3.1.2.5</b> Subject by Age</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3.3.3" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#plotting-models-output"><i class="fa fa-check"></i><b>3.3.3</b> Plotting model’s output</a>
+<li class="chapter" data-level="3.3.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#modelling-strategy"><i class="fa fa-check"></i><b>3.3.2</b> Modelling strategy</a>
 <ul>
-<li class="chapter" data-level="3.3.3.1" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#with-ggstats"><i class="fa fa-check"></i><b>3.3.3.1</b> With <code>ggstats</code></a>
+<li class="chapter" data-level="3.3.2.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#simple-linear-model"><i class="fa fa-check"></i><b>3.3.2.1</b> Simple Linear Model</a></li>
+<li class="chapter" data-level="3.3.2.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#no-interaction"><i class="fa fa-check"></i><b>3.3.2.2</b> No interaction</a>
 <ul>
-<li class="chapter" data-level="3.3.3.1.1" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#a-plot"><i class="fa fa-check"></i><b>3.3.3.1.1</b> A plot</a></li>
+<li class="chapter" data-level="3.3.2.2.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#crossed-random-intercepts"><i class="fa fa-check"></i><b>3.3.2.2.1</b> Crossed random intercepts</a></li>
+<li class="chapter" data-level="3.3.2.2.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#crossed-random-intercepts-by-speaker-random-slopes"><i class="fa fa-check"></i><b>3.3.2.2.2</b> Crossed random intercepts + By-speaker random slopes</a></li>
+<li class="chapter" data-level="3.3.2.2.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#crossed-random-intercepts-by-speaker-and-by-item-random-slopes"><i class="fa fa-check"></i><b>3.3.2.2.3</b> Crossed random intercepts + By-speaker and by-item random slopes</a></li>
+<li class="chapter" data-level="3.3.2.2.4" data-path="3.3-LMM.html"><a href="3.3-LMM.html#crossed-random-intercepts-by-speaker-and-by-item-random-slopes-1"><i class="fa fa-check"></i><b>3.3.2.2.4</b> Crossed random intercepts + By-speaker and by-item random slopes</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3.3.2" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#a-plot-a-table-95-ci"><i class="fa fa-check"></i><b>3.3.3.2</b> A plot + a table + 95% CI</a></li>
-<li class="chapter" data-level="3.3.3.3" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#with-ggstatsplot"><i class="fa fa-check"></i><b>3.3.3.3</b> With <code>ggstatsplot</code></a></li>
+<li class="chapter" data-level="3.3.2.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#with-interaction"><i class="fa fa-check"></i><b>3.3.2.3</b> With interaction</a>
+<ul>
+<li class="chapter" data-level="3.3.2.3.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#crossed-random-intercepts-interaction"><i class="fa fa-check"></i><b>3.3.2.3.1</b> Crossed random intercepts + Interaction</a></li>
+<li class="chapter" data-level="3.3.2.3.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#crossed-random-intercepts-by-speaker-random-slopes-interaction"><i class="fa fa-check"></i><b>3.3.2.3.2</b> Crossed random intercepts + By-speaker random slopes + Interaction</a></li>
+<li class="chapter" data-level="3.3.2.3.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#crossed-random-intercepts-by-speaker-and-by-item-random-slopes-interaction"><i class="fa fa-check"></i><b>3.3.2.3.3</b> Crossed random intercepts + By-speaker and by-item random slopes + Interaction</a></li>
+<li class="chapter" data-level="3.3.2.3.4" data-path="3.3-LMM.html"><a href="3.3-LMM.html#crossed-random-intercepts-by-speaker-and-by-item-random-slopes-2"><i class="fa fa-check"></i><b>3.3.2.3.4</b> Crossed random intercepts + By-speaker and by-item random slopes</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3.4" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#exploring-random-effects"><i class="fa fa-check"></i><b>3.3.4</b> Exploring random effects</a>
+<li class="chapter" data-level="3.3.2.4" data-path="3.3-LMM.html"><a href="3.3-LMM.html#model-comparison"><i class="fa fa-check"></i><b>3.3.2.4</b> Model comparison</a></li>
+<li class="chapter" data-level="3.3.2.5" data-path="3.3-LMM.html"><a href="3.3-LMM.html#optimal-model"><i class="fa fa-check"></i><b>3.3.2.5</b> Optimal model</a>
 <ul>
-<li class="chapter" data-level="3.3.4.1" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-random-effects"><i class="fa fa-check"></i><b>3.3.4.1</b> Subject random effects</a></li>
-<li class="chapter" data-level="3.3.4.2" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#items-random-effects"><i class="fa fa-check"></i><b>3.3.4.2</b> Items random effects</a></li>
-<li class="chapter" data-level="3.3.4.3" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#plots"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
+<li class="chapter" data-level="3.3.2.5.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#model-criticism"><i class="fa fa-check"></i><b>3.3.2.5.1</b> Model criticism</a>
 <ul>
-<li class="chapter" data-level="3.3.4.3.1" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#fixed-effects-1"><i class="fa fa-check"></i><b>3.3.4.3.1</b> Fixed effects</a>
-<ul>
-<li class="chapter" data-level="3.3.4.3.1.1" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#condition"><i class="fa fa-check"></i><b>3.3.4.3.1.1</b> Condition</a></li>
-<li class="chapter" data-level="3.3.4.3.1.2" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#age-1"><i class="fa fa-check"></i><b>3.3.4.3.1.2</b> Age</a></li>
-<li class="chapter" data-level="3.3.4.3.1.3" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#condition-by-age-1"><i class="fa fa-check"></i><b>3.3.4.3.1.3</b> Condition by Age</a></li>
+<li class="chapter" data-level="3.3.2.5.1.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#histogram-1"><i class="fa fa-check"></i><b>3.3.2.5.1.1</b> Histogram</a></li>
+<li class="chapter" data-level="3.3.2.5.1.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#qq-plot"><i class="fa fa-check"></i><b>3.3.2.5.1.2</b> QQ-plot</a></li>
+<li class="chapter" data-level="3.3.2.5.1.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#residuals-vs-fitted"><i class="fa fa-check"></i><b>3.3.2.5.1.3</b> Residuals vs Fitted</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3.4.3.2" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#random-effects-2"><i class="fa fa-check"></i><b>3.3.4.3.2</b> Random effects</a>
-<ul>
-<li class="chapter" data-level="3.3.4.3.2.1" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject"><i class="fa fa-check"></i><b>3.3.4.3.2.1</b> Subject</a></li>
-<li class="chapter" data-level="3.3.4.3.2.2" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-condition-1"><i class="fa fa-check"></i><b>3.3.4.3.2.2</b> Subject by Condition</a></li>
-<li class="chapter" data-level="3.3.4.3.2.3" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-age-2"><i class="fa fa-check"></i><b>3.3.4.3.2.3</b> Subject by Age</a></li>
-<li class="chapter" data-level="3.3.4.3.2.4" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#item"><i class="fa fa-check"></i><b>3.3.4.3.2.4</b> Item</a></li>
-<li class="chapter" data-level="3.3.4.3.2.5" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#item-by-cond"><i class="fa fa-check"></i><b>3.3.4.3.2.5</b> Item by Cond</a></li>
-<li class="chapter" data-level="3.3.4.3.2.6" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#item-by-age"><i class="fa fa-check"></i><b>3.3.4.3.2.6</b> Item by Age</a></li>
-<li class="chapter" data-level="3.3.4.3.2.7" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#item-by-cond-facetted-by-age"><i class="fa fa-check"></i><b>3.3.4.3.2.7</b> Item by Cond facetted by Age</a></li>
-<li class="chapter" data-level="3.3.4.3.2.8" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-item"><i class="fa fa-check"></i><b>3.3.4.3.2.8</b> Subject by Item</a></li>
-<li class="chapter" data-level="3.3.4.3.2.9" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-item-facetted-by-cond"><i class="fa fa-check"></i><b>3.3.4.3.2.9</b> Subject by Item facetted by Cond</a></li>
-<li class="chapter" data-level="3.3.4.3.2.10" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-by-item-facetted-by-age"><i class="fa fa-check"></i><b>3.3.4.3.2.10</b> Subject by Item facetted by Age</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3.4.3.3" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#with-lattice"><i class="fa fa-check"></i><b>3.3.4.3.3</b> With <code>Lattice</code></a>
-<ul>
-<li class="chapter" data-level="3.3.4.3.3.1" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-intercepts"><i class="fa fa-check"></i><b>3.3.4.3.3.1</b> Subject Intercepts</a></li>
-<li class="chapter" data-level="3.3.4.3.3.2" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#subject-slopes"><i class="fa fa-check"></i><b>3.3.4.3.3.2</b> Subject Slopes</a></li>
-<li class="chapter" data-level="3.3.4.3.3.3" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#item-intercepts"><i class="fa fa-check"></i><b>3.3.4.3.3.3</b> Item Intercepts</a></li>
-<li class="chapter" data-level="3.3.4.3.3.4" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#item-slopes-for-cond"><i class="fa fa-check"></i><b>3.3.4.3.3.4</b> Item Slopes for Cond</a></li>
-<li class="chapter" data-level="3.3.4.3.3.5" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#item-slopes-for-age"><i class="fa fa-check"></i><b>3.3.4.3.3.5</b> Item Slopes for Age</a></li>
+<li class="chapter" data-level="3.3.2.5.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#summary"><i class="fa fa-check"></i><b>3.3.2.5.2</b> Summary</a></li>
+<li class="chapter" data-level="3.3.2.5.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#anova"><i class="fa fa-check"></i><b>3.3.2.5.3</b> ANOVA</a></li>
+<li class="chapter" data-level="3.3.2.5.4" data-path="3.3-LMM.html"><a href="3.3-LMM.html#models-fit-6"><i class="fa fa-check"></i><b>3.3.2.5.4</b> Model’s fit</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="3.3.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plotting-models-output"><i class="fa fa-check"></i><b>3.3.3</b> Plotting model’s output</a>
+<ul>
+<li class="chapter" data-level="3.3.3.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#with-ggstats"><i class="fa fa-check"></i><b>3.3.3.1</b> With <code>ggstats</code></a>
+<ul>
+<li class="chapter" data-level="3.3.3.1.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#a-plot"><i class="fa fa-check"></i><b>3.3.3.1.1</b> A plot</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3.5" data-path="3.3-linear-mixed-effects-models.-why-random-effects-matter.html"><a href="3.3-linear-mixed-effects-models.-why-random-effects-matter.html#conclusion-1"><i class="fa fa-check"></i><b>3.3.5</b> Conclusion</a></li>
+<li class="chapter" data-level="3.3.3.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#a-plot-a-table-95-ci"><i class="fa fa-check"></i><b>3.3.3.2</b> A plot + a table + 95% CI</a></li>
+<li class="chapter" data-level="3.3.3.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#with-ggstatsplot"><i class="fa fa-check"></i><b>3.3.3.3</b> With <code>ggstatsplot</code></a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html"><i class="fa fa-check"></i><b>3.4</b> Generalised Linear Mixed-effects Models</a>
+<li class="chapter" data-level="3.3.4" data-path="3.3-LMM.html"><a href="3.3-LMM.html#exploring-random-effects"><i class="fa fa-check"></i><b>3.3.4</b> Exploring random effects</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#glmm---categorical-predictors"><i class="fa fa-check"></i><b>3.4.1</b> GLMM - Categorical predictors</a>
+<li class="chapter" data-level="3.3.4.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-random-effects"><i class="fa fa-check"></i><b>3.3.4.1</b> Subject random effects</a></li>
+<li class="chapter" data-level="3.3.4.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#items-random-effects"><i class="fa fa-check"></i><b>3.3.4.2</b> Items random effects</a></li>
+<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
 <ul>
-<li class="chapter" data-level="3.4.1.1" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#simulating-a-new-dataset"><i class="fa fa-check"></i><b>3.4.1.1</b> Simulating a new dataset</a></li>
-<li class="chapter" data-level="3.4.1.2" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#manipulations-and-a-table"><i class="fa fa-check"></i><b>3.4.1.2</b> Manipulations and a table</a></li>
-<li class="chapter" data-level="3.4.1.3" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#model-estimation-and-results-1"><i class="fa fa-check"></i><b>3.4.1.3</b> Model estimation and results</a>
+<li class="chapter" data-level="3.3.4.3.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#fixed-effects-1"><i class="fa fa-check"></i><b>3.3.4.3.1</b> Fixed effects</a>
 <ul>
-<li class="chapter" data-level="3.4.1.3.1" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#random-intercepts-1"><i class="fa fa-check"></i><b>3.4.1.3.1</b> Random Intercepts</a></li>
-<li class="chapter" data-level="3.4.1.3.2" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#random-slopes"><i class="fa fa-check"></i><b>3.4.1.3.2</b> Random Slopes</a></li>
-<li class="chapter" data-level="3.4.1.3.3" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#random-slopes-decorrelated"><i class="fa fa-check"></i><b>3.4.1.3.3</b> Random Slopes decorrelated</a></li>
+<li class="chapter" data-level="3.3.4.3.1.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#condition"><i class="fa fa-check"></i><b>3.3.4.3.1.1</b> Condition</a></li>
+<li class="chapter" data-level="3.3.4.3.1.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#age-1"><i class="fa fa-check"></i><b>3.3.4.3.1.2</b> Age</a></li>
+<li class="chapter" data-level="3.3.4.3.1.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#condition-by-age-1"><i class="fa fa-check"></i><b>3.3.4.3.1.3</b> Condition by Age</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4.1.4" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#model-comparison-1"><i class="fa fa-check"></i><b>3.4.1.4</b> Model comparison</a></li>
-<li class="chapter" data-level="3.4.1.5" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#getting-results"><i class="fa fa-check"></i><b>3.4.1.5</b> Getting results</a>
+<li class="chapter" data-level="3.3.4.3.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#random-effects-2"><i class="fa fa-check"></i><b>3.3.4.3.2</b> Random effects</a>
 <ul>
-<li class="chapter" data-level="3.4.1.5.1" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#models-fit-7"><i class="fa fa-check"></i><b>3.4.1.5.1</b> Model’s fit</a></li>
-<li class="chapter" data-level="3.4.1.5.2" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#fixed-effects-2"><i class="fa fa-check"></i><b>3.4.1.5.2</b> Fixed effects</a></li>
-<li class="chapter" data-level="3.4.1.5.3" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#random-effects-3"><i class="fa fa-check"></i><b>3.4.1.5.3</b> Random effects</a></li>
-<li class="chapter" data-level="3.4.1.5.4" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#logodds-to-odd-ratios-1"><i class="fa fa-check"></i><b>3.4.1.5.4</b> Logodds to Odd ratios</a></li>
-<li class="chapter" data-level="3.4.1.5.5" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#logodds-to-proportions-3"><i class="fa fa-check"></i><b>3.4.1.5.5</b> LogOdds to proportions</a></li>
-<li class="chapter" data-level="3.4.1.5.6" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#plotting-5"><i class="fa fa-check"></i><b>3.4.1.5.6</b> Plotting</a></li>
+<li class="chapter" data-level="3.3.4.3.2.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject"><i class="fa fa-check"></i><b>3.3.4.3.2.1</b> Subject</a></li>
+<li class="chapter" data-level="3.3.4.3.2.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-by-condition-1"><i class="fa fa-check"></i><b>3.3.4.3.2.2</b> Subject by Condition</a></li>
+<li class="chapter" data-level="3.3.4.3.2.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-by-age-2"><i class="fa fa-check"></i><b>3.3.4.3.2.3</b> Subject by Age</a></li>
+<li class="chapter" data-level="3.3.4.3.2.4" data-path="3.3-LMM.html"><a href="3.3-LMM.html#item"><i class="fa fa-check"></i><b>3.3.4.3.2.4</b> Item</a></li>
+<li class="chapter" data-level="3.3.4.3.2.5" data-path="3.3-LMM.html"><a href="3.3-LMM.html#item-by-cond"><i class="fa fa-check"></i><b>3.3.4.3.2.5</b> Item by Cond</a></li>
+<li class="chapter" data-level="3.3.4.3.2.6" data-path="3.3-LMM.html"><a href="3.3-LMM.html#item-by-age"><i class="fa fa-check"></i><b>3.3.4.3.2.6</b> Item by Age</a></li>
+<li class="chapter" data-level="3.3.4.3.2.7" data-path="3.3-LMM.html"><a href="3.3-LMM.html#item-by-cond-facetted-by-age"><i class="fa fa-check"></i><b>3.3.4.3.2.7</b> Item by Cond facetted by Age</a></li>
+<li class="chapter" data-level="3.3.4.3.2.8" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-by-item"><i class="fa fa-check"></i><b>3.3.4.3.2.8</b> Subject by Item</a></li>
+<li class="chapter" data-level="3.3.4.3.2.9" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-by-item-facetted-by-cond"><i class="fa fa-check"></i><b>3.3.4.3.2.9</b> Subject by Item facetted by Cond</a></li>
+<li class="chapter" data-level="3.3.4.3.2.10" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-by-item-facetted-by-age"><i class="fa fa-check"></i><b>3.3.4.3.2.10</b> Subject by Item facetted by Age</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="3.4.2" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#glmm---numeric-predictors"><i class="fa fa-check"></i><b>3.4.2</b> GLMM - Numeric predictors</a>
+<li class="chapter" data-level="3.3.4.3.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#with-lattice"><i class="fa fa-check"></i><b>3.3.4.3.3</b> With <code>Lattice</code></a>
 <ul>
-<li class="chapter" data-level="3.4.2.1" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#without-z-scoring-of-predictor-1"><i class="fa fa-check"></i><b>3.4.2.1</b> Without z-scoring of predictor</a>
-<ul>
-<li class="chapter" data-level="3.4.2.1.1" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#model-estimation-3"><i class="fa fa-check"></i><b>3.4.2.1.1</b> Model estimation</a>
-<ul>
-<li class="chapter" data-level="3.4.2.1.1.1" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#random-intercepts-2"><i class="fa fa-check"></i><b>3.4.2.1.1.1</b> Random Intercepts</a></li>
-<li class="chapter" data-level="3.4.2.1.1.2" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#random-slopes-1"><i class="fa fa-check"></i><b>3.4.2.1.1.2</b> Random Slopes</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="3.4.2.2" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#model-comparison-2"><i class="fa fa-check"></i><b>3.4.2.2</b> Model comparison</a></li>
-<li class="chapter" data-level="3.4.2.3" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#gettings-results"><i class="fa fa-check"></i><b>3.4.2.3</b> Gettings results</a>
-<ul>
-<li class="chapter" data-level="3.4.2.3.1" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#models-fit-8"><i class="fa fa-check"></i><b>3.4.2.3.1</b> Model’s fit</a></li>
-<li class="chapter" data-level="3.4.2.3.2" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#fixed-effects-3"><i class="fa fa-check"></i><b>3.4.2.3.2</b> Fixed effects</a></li>
-<li class="chapter" data-level="3.4.2.3.3" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#random-effects-4"><i class="fa fa-check"></i><b>3.4.2.3.3</b> Random effects</a></li>
-<li class="chapter" data-level="3.4.2.3.4" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#logodds-to-odd-ratios-2"><i class="fa fa-check"></i><b>3.4.2.3.4</b> Logodds to Odd ratios</a></li>
-<li class="chapter" data-level="3.4.2.3.5" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#logodds-to-proportions-4"><i class="fa fa-check"></i><b>3.4.2.3.5</b> LogOdds to proportions</a></li>
-<li class="chapter" data-level="3.4.2.3.6" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#plotting-6"><i class="fa fa-check"></i><b>3.4.2.3.6</b> Plotting</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4.2.4" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#with-z-scoring-of-predictor-1"><i class="fa fa-check"></i><b>3.4.2.4</b> With z-scoring of predictor</a>
-<ul>
-<li class="chapter" data-level="3.4.2.4.1" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#model-estimation-4"><i class="fa fa-check"></i><b>3.4.2.4.1</b> Model estimation</a>
-<ul>
-<li class="chapter" data-level="3.4.2.4.1.1" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#random-intercepts-3"><i class="fa fa-check"></i><b>3.4.2.4.1.1</b> Random Intercepts</a></li>
-<li class="chapter" data-level="3.4.2.4.1.2" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#random-slopes-2"><i class="fa fa-check"></i><b>3.4.2.4.1.2</b> Random Slopes</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4.2.4.2" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#model-comparison-3"><i class="fa fa-check"></i><b>3.4.2.4.2</b> Model comparison</a></li>
-<li class="chapter" data-level="3.4.2.4.3" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#gettings-results-1"><i class="fa fa-check"></i><b>3.4.2.4.3</b> Gettings results</a>
-<ul>
-<li class="chapter" data-level="3.4.2.4.3.1" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#models-fit-9"><i class="fa fa-check"></i><b>3.4.2.4.3.1</b> Model’s fit</a></li>
-<li class="chapter" data-level="3.4.2.4.3.2" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#fixed-effects-4"><i class="fa fa-check"></i><b>3.4.2.4.3.2</b> Fixed effects</a></li>
-<li class="chapter" data-level="3.4.2.4.3.3" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#random-effects-5"><i class="fa fa-check"></i><b>3.4.2.4.3.3</b> Random effects</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4.2.4.4" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#plotting-7"><i class="fa fa-check"></i><b>3.4.2.4.4</b> Plotting</a>
-<ul>
-<li class="chapter" data-level="3.4.2.4.4.1" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#normal-1"><i class="fa fa-check"></i><b>3.4.2.4.4.1</b> Normal</a></li>
-<li class="chapter" data-level="3.4.2.4.4.2" data-path="3.4-generalised-linear-mixed-effects-models.html"><a href="3.4-generalised-linear-mixed-effects-models.html#z-scores-1"><i class="fa fa-check"></i><b>3.4.2.4.4.2</b> z-scores</a></li>
+<li class="chapter" data-level="3.3.4.3.3.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-intercepts"><i class="fa fa-check"></i><b>3.3.4.3.3.1</b> Subject Intercepts</a></li>
+<li class="chapter" data-level="3.3.4.3.3.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-slopes"><i class="fa fa-check"></i><b>3.3.4.3.3.2</b> Subject Slopes</a></li>
+<li class="chapter" data-level="3.3.4.3.3.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#item-intercepts"><i class="fa fa-check"></i><b>3.3.4.3.3.3</b> Item Intercepts</a></li>
+<li class="chapter" data-level="3.3.4.3.3.4" data-path="3.3-LMM.html"><a href="3.3-LMM.html#item-slopes-for-cond"><i class="fa fa-check"></i><b>3.3.4.3.3.4</b> Item Slopes for Cond</a></li>
+<li class="chapter" data-level="3.3.4.3.3.5" data-path="3.3-LMM.html"><a href="3.3-LMM.html#item-slopes-for-age"><i class="fa fa-check"></i><b>3.3.4.3.3.5</b> Item Slopes for Age</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="3.3.5" data-path="3.3-LMM.html"><a href="3.3-LMM.html#conclusion-1"><i class="fa fa-check"></i><b>3.3.5</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html"><i class="fa fa-check"></i><b>3.5</b> Cumulative Logit Link Mixed-effects Models</a>
+<li class="chapter" data-level="3.4" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html"><i class="fa fa-check"></i><b>3.4</b> Generalised Linear Mixed-effects Models</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#ratings-of-percept-of-nasality-1"><i class="fa fa-check"></i><b>3.5.1</b> Ratings of percept of nasality</a>
+<li class="chapter" data-level="3.4.1" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#glmm---categorical-predictors"><i class="fa fa-check"></i><b>3.4.1</b> GLMM - Categorical predictors</a>
 <ul>
-<li class="chapter" data-level="3.5.1.1" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#importing-and-pre-processing-2"><i class="fa fa-check"></i><b>3.5.1.1</b> Importing and pre-processing</a></li>
-<li class="chapter" data-level="3.5.1.2" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#model-specifications-1"><i class="fa fa-check"></i><b>3.5.1.2</b> Model specifications</a>
+<li class="chapter" data-level="3.4.1.1" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#simulating-a-new-dataset"><i class="fa fa-check"></i><b>3.4.1.1</b> Simulating a new dataset</a></li>
+<li class="chapter" data-level="3.4.1.2" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#manipulations-and-a-table"><i class="fa fa-check"></i><b>3.4.1.2</b> Manipulations and a table</a></li>
+<li class="chapter" data-level="3.4.1.3" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#model-estimation-and-results-1"><i class="fa fa-check"></i><b>3.4.1.3</b> Model estimation and results</a>
 <ul>
-<li class="chapter" data-level="3.5.1.2.1" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#no-random-effects-1"><i class="fa fa-check"></i><b>3.5.1.2.1</b> No random effects</a></li>
-<li class="chapter" data-level="3.5.1.2.2" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#random-effects-1---intercepts-only"><i class="fa fa-check"></i><b>3.5.1.2.2</b> Random effects 1 - Intercepts only</a></li>
-<li class="chapter" data-level="3.5.1.2.3" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#random-effects-2---intercepts-and-slopes"><i class="fa fa-check"></i><b>3.5.1.2.3</b> Random effects 2 - Intercepts and Slopes</a></li>
+<li class="chapter" data-level="3.4.1.3.1" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#random-intercepts-1"><i class="fa fa-check"></i><b>3.4.1.3.1</b> Random Intercepts</a></li>
+<li class="chapter" data-level="3.4.1.3.2" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#random-slopes"><i class="fa fa-check"></i><b>3.4.1.3.2</b> Random Slopes</a></li>
+<li class="chapter" data-level="3.4.1.3.3" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#random-slopes-decorrelated"><i class="fa fa-check"></i><b>3.4.1.3.3</b> Random Slopes decorrelated</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5.1.3" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#testing-significance-2"><i class="fa fa-check"></i><b>3.5.1.3</b> Testing significance</a>
+<li class="chapter" data-level="3.4.1.4" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#model-comparison-1"><i class="fa fa-check"></i><b>3.4.1.4</b> Model comparison</a></li>
+<li class="chapter" data-level="3.4.1.5" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#getting-results"><i class="fa fa-check"></i><b>3.4.1.5</b> Getting results</a>
 <ul>
-<li class="chapter" data-level="3.5.1.3.1" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#null-vs-no-random-1"><i class="fa fa-check"></i><b>3.5.1.3.1</b> Null vs no random</a></li>
-<li class="chapter" data-level="3.5.1.3.2" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#no-random-vs-random-intercepts"><i class="fa fa-check"></i><b>3.5.1.3.2</b> No random vs Random Intercepts</a></li>
-<li class="chapter" data-level="3.5.1.3.3" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#no-random-vs-random-intercepts-1"><i class="fa fa-check"></i><b>3.5.1.3.3</b> No random vs Random Intercepts</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5.1.4" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#models-fit-10"><i class="fa fa-check"></i><b>3.5.1.4</b> Model’s fit</a></li>
-<li class="chapter" data-level="3.5.1.5" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#interpreting-a-cumulative-model-2"><i class="fa fa-check"></i><b>3.5.1.5</b> Interpreting a cumulative model</a></li>
-<li class="chapter" data-level="3.5.1.6" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#plotting-8"><i class="fa fa-check"></i><b>3.5.1.6</b> Plotting</a>
-<ul>
-<li class="chapter" data-level="3.5.1.6.1" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#no-confidence-intervals-2"><i class="fa fa-check"></i><b>3.5.1.6.1</b> No confidence intervals</a></li>
-<li class="chapter" data-level="3.5.1.6.2" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#with-confidence-intervals-2"><i class="fa fa-check"></i><b>3.5.1.6.2</b> With confidence intervals</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="3.5.2" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#subjective-estimates-of-the-weight-of-the-referents-of-81-english-nouns.-1"><i class="fa fa-check"></i><b>3.5.2</b> Subjective estimates of the weight of the referents of 81 English nouns.</a>
-<ul>
-<li class="chapter" data-level="3.5.2.1" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#importing-and-pre-processing-3"><i class="fa fa-check"></i><b>3.5.2.1</b> Importing and pre-processing</a></li>
-<li class="chapter" data-level="3.5.2.2" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#model-specifications-2"><i class="fa fa-check"></i><b>3.5.2.2</b> Model specifications</a>
-<ul>
-<li class="chapter" data-level="3.5.2.2.1" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#no-random-effects-2"><i class="fa fa-check"></i><b>3.5.2.2.1</b> No random effects</a></li>
-<li class="chapter" data-level="3.5.2.2.2" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#random-effects-1---intercepts-only-1"><i class="fa fa-check"></i><b>3.5.2.2.2</b> Random effects 1 - Intercepts only</a></li>
-<li class="chapter" data-level="3.5.2.2.3" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#random-effects-2---intercepts-and-slopes-1"><i class="fa fa-check"></i><b>3.5.2.2.3</b> Random effects 2 - Intercepts and Slopes</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5.2.3" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#testing-significance-3"><i class="fa fa-check"></i><b>3.5.2.3</b> Testing significance</a>
-<ul>
-<li class="chapter" data-level="3.5.2.3.1" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#null-vs-no-random-2"><i class="fa fa-check"></i><b>3.5.2.3.1</b> Null vs no random</a></li>
-<li class="chapter" data-level="3.5.2.3.2" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#no-random-vs-random-intercepts-2"><i class="fa fa-check"></i><b>3.5.2.3.2</b> No random vs Random Intercepts</a></li>
-<li class="chapter" data-level="3.5.2.3.3" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#random-intercepts-vs-random-slope"><i class="fa fa-check"></i><b>3.5.2.3.3</b> Random Intercepts vs Random Slope</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5.2.4" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#models-fit-11"><i class="fa fa-check"></i><b>3.5.2.4</b> Model’s fit</a></li>
-<li class="chapter" data-level="3.5.2.5" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#interpreting-a-cumulative-model-3"><i class="fa fa-check"></i><b>3.5.2.5</b> Interpreting a cumulative model</a></li>
-<li class="chapter" data-level="3.5.2.6" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#plotting-9"><i class="fa fa-check"></i><b>3.5.2.6</b> Plotting</a>
-<ul>
-<li class="chapter" data-level="3.5.2.6.1" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#no-confidence-intervals-3"><i class="fa fa-check"></i><b>3.5.2.6.1</b> No confidence intervals</a></li>
-<li class="chapter" data-level="3.5.2.6.2" data-path="3.5-cumulative-logit-link-mixed-effects-models.html"><a href="3.5-cumulative-logit-link-mixed-effects-models.html#with-confidence-intervals-3"><i class="fa fa-check"></i><b>3.5.2.6.2</b> With confidence intervals</a></li>
+<li class="chapter" data-level="3.4.1.5.1" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#models-fit-7"><i class="fa fa-check"></i><b>3.4.1.5.1</b> Model’s fit</a></li>
+<li class="chapter" data-level="3.4.1.5.2" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#fixed-effects-2"><i class="fa fa-check"></i><b>3.4.1.5.2</b> Fixed effects</a></li>
+<li class="chapter" data-level="3.4.1.5.3" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#random-effects-3"><i class="fa fa-check"></i><b>3.4.1.5.3</b> Random effects</a></li>
+<li class="chapter" data-level="3.4.1.5.4" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#logodds-to-odd-ratios-1"><i class="fa fa-check"></i><b>3.4.1.5.4</b> Logodds to Odd ratios</a></li>
+<li class="chapter" data-level="3.4.1.5.5" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#logodds-to-proportions-3"><i class="fa fa-check"></i><b>3.4.1.5.5</b> LogOdds to proportions</a></li>
+<li class="chapter" data-level="3.4.1.5.6" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#plotting-5"><i class="fa fa-check"></i><b>3.4.1.5.6</b> Plotting</a></li>
 </ul></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="3.6" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html"><i class="fa fa-check"></i><b>3.6</b> Generalised Additive Mixed-effects Models (GAMMs)</a>
+<li class="chapter" data-level="3.4.2" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#glmm---numeric-predictors"><i class="fa fa-check"></i><b>3.4.2</b> GLMM - Numeric predictors</a>
 <ul>
-<li class="chapter" data-level="3.6.1" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#loading-dataframe"><i class="fa fa-check"></i><b>3.6.1</b> Loading dataframe</a></li>
-<li class="chapter" data-level="3.6.2" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#manipulation"><i class="fa fa-check"></i><b>3.6.2</b> Manipulation</a>
+<li class="chapter" data-level="3.4.2.1" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#without-z-scoring-of-predictor-1"><i class="fa fa-check"></i><b>3.4.2.1</b> Without z-scoring of predictor</a>
 <ul>
-<li class="chapter" data-level="3.6.2.1" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#wide-to-long-format"><i class="fa fa-check"></i><b>3.6.2.1</b> Wide to Long format</a></li>
-<li class="chapter" data-level="3.6.2.2" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#transforming-and-arranging-dataframe"><i class="fa fa-check"></i><b>3.6.2.2</b> Transforming and arranging dataframe</a></li>
-<li class="chapter" data-level="3.6.2.3" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#ordering-predictors"><i class="fa fa-check"></i><b>3.6.2.3</b> Ordering predictors</a></li>
-<li class="chapter" data-level="3.6.2.4" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#start-value-for-autocorrelation"><i class="fa fa-check"></i><b>3.6.2.4</b> Start value for autocorrelation</a></li>
-</ul></li>
-<li class="chapter" data-level="3.6.3" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#model-specifications-3"><i class="fa fa-check"></i><b>3.6.3</b> Model specifications</a>
+<li class="chapter" data-level="3.4.2.1.1" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#model-estimation-3"><i class="fa fa-check"></i><b>3.4.2.1.1</b> Model estimation</a>
 <ul>
-<li class="chapter" data-level="3.6.3.1" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#no-ar1-model"><i class="fa fa-check"></i><b>3.6.3.1</b> No AR1 model</a>
-<ul>
-<li class="chapter" data-level="3.6.3.1.1" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#model-estimation-5"><i class="fa fa-check"></i><b>3.6.3.1.1</b> Model estimation</a>
-<ul>
-<li class="chapter" data-level="3.6.3.1.1.1" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#acf-no-ar1"><i class="fa fa-check"></i><b>3.6.3.1.1.1</b> ACF No AR1</a></li>
-<li class="chapter" data-level="3.6.3.1.1.2" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#gam-check"><i class="fa fa-check"></i><b>3.6.3.1.1.2</b> Gam check</a></li>
-<li class="chapter" data-level="3.6.3.1.1.3" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#estimating-rho"><i class="fa fa-check"></i><b>3.6.3.1.1.3</b> Estimating Rho</a></li>
+<li class="chapter" data-level="3.4.2.1.1.1" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#random-intercepts-2"><i class="fa fa-check"></i><b>3.4.2.1.1.1</b> Random Intercepts</a></li>
+<li class="chapter" data-level="3.4.2.1.1.2" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#random-slopes-1"><i class="fa fa-check"></i><b>3.4.2.1.1.2</b> Random Slopes</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3.6.3.2" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#ar1-model"><i class="fa fa-check"></i><b>3.6.3.2</b> AR1 model</a>
+<li class="chapter" data-level="3.4.2.2" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#model-comparison-2"><i class="fa fa-check"></i><b>3.4.2.2</b> Model comparison</a></li>
+<li class="chapter" data-level="3.4.2.3" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#gettings-results"><i class="fa fa-check"></i><b>3.4.2.3</b> Gettings results</a>
 <ul>
-<li class="chapter" data-level="3.6.3.2.0.1" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#model-estimation-6"><i class="fa fa-check"></i><b>3.6.3.2.0.1</b> Model estimation</a></li>
-<li class="chapter" data-level="3.6.3.2.0.2" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#acf-ar1"><i class="fa fa-check"></i><b>3.6.3.2.0.2</b> ACF AR1</a></li>
-<li class="chapter" data-level="3.6.3.2.0.3" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#summary-1"><i class="fa fa-check"></i><b>3.6.3.2.0.3</b> Summary</a></li>
-<li class="chapter" data-level="3.6.3.2.0.4" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#models-fit-12"><i class="fa fa-check"></i><b>3.6.3.2.0.4</b> Model’s fit</a></li>
+<li class="chapter" data-level="3.4.2.3.1" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#models-fit-8"><i class="fa fa-check"></i><b>3.4.2.3.1</b> Model’s fit</a></li>
+<li class="chapter" data-level="3.4.2.3.2" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#fixed-effects-3"><i class="fa fa-check"></i><b>3.4.2.3.2</b> Fixed effects</a></li>
+<li class="chapter" data-level="3.4.2.3.3" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#random-effects-4"><i class="fa fa-check"></i><b>3.4.2.3.3</b> Random effects</a></li>
+<li class="chapter" data-level="3.4.2.3.4" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#logodds-to-odd-ratios-2"><i class="fa fa-check"></i><b>3.4.2.3.4</b> Logodds to Odd ratios</a></li>
+<li class="chapter" data-level="3.4.2.3.5" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#logodds-to-proportions-4"><i class="fa fa-check"></i><b>3.4.2.3.5</b> LogOdds to proportions</a></li>
+<li class="chapter" data-level="3.4.2.3.6" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#plotting-6"><i class="fa fa-check"></i><b>3.4.2.3.6</b> Plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4.2.4" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#with-z-scoring-of-predictor-1"><i class="fa fa-check"></i><b>3.4.2.4</b> With z-scoring of predictor</a>
+<ul>
+<li class="chapter" data-level="3.4.2.4.1" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#model-estimation-4"><i class="fa fa-check"></i><b>3.4.2.4.1</b> Model estimation</a>
+<ul>
+<li class="chapter" data-level="3.4.2.4.1.1" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#random-intercepts-3"><i class="fa fa-check"></i><b>3.4.2.4.1.1</b> Random Intercepts</a></li>
+<li class="chapter" data-level="3.4.2.4.1.2" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#random-slopes-2"><i class="fa fa-check"></i><b>3.4.2.4.1.2</b> Random Slopes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4.2.4.2" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#model-comparison-3"><i class="fa fa-check"></i><b>3.4.2.4.2</b> Model comparison</a></li>
+<li class="chapter" data-level="3.4.2.4.3" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#gettings-results-1"><i class="fa fa-check"></i><b>3.4.2.4.3</b> Gettings results</a>
+<ul>
+<li class="chapter" data-level="3.4.2.4.3.1" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#models-fit-9"><i class="fa fa-check"></i><b>3.4.2.4.3.1</b> Model’s fit</a></li>
+<li class="chapter" data-level="3.4.2.4.3.2" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#fixed-effects-4"><i class="fa fa-check"></i><b>3.4.2.4.3.2</b> Fixed effects</a></li>
+<li class="chapter" data-level="3.4.2.4.3.3" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#random-effects-5"><i class="fa fa-check"></i><b>3.4.2.4.3.3</b> Random effects</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4.2.4.4" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#plotting-7"><i class="fa fa-check"></i><b>3.4.2.4.4</b> Plotting</a>
+<ul>
+<li class="chapter" data-level="3.4.2.4.4.1" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#normal-1"><i class="fa fa-check"></i><b>3.4.2.4.4.1</b> Normal</a></li>
+<li class="chapter" data-level="3.4.2.4.4.2" data-path="3.4-GLMM.html"><a href="3.4-GLMM.html#z-scores-1"><i class="fa fa-check"></i><b>3.4.2.4.4.2</b> z-scores</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3.6.4" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#significance-testing-second-autoregressive-gam"><i class="fa fa-check"></i><b>3.6.4</b> Significance testing second Autoregressive GAM</a>
-<ul>
-<li class="chapter" data-level="3.6.4.1" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#models"><i class="fa fa-check"></i><b>3.6.4.1</b> Models</a>
-<ul>
-<li class="chapter" data-level="3.6.4.1.1" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#full-model"><i class="fa fa-check"></i><b>3.6.4.1.1</b> Full Model</a></li>
-<li class="chapter" data-level="3.6.4.1.2" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#model-2-without-convowelint.ord"><i class="fa fa-check"></i><b>3.6.4.1.2</b> Model 2 (without ConVowelInt.ord)</a></li>
-<li class="chapter" data-level="3.6.4.1.3" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#null-model"><i class="fa fa-check"></i><b>3.6.4.1.3</b> Null Model</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6.4.2" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#testing-significance-4"><i class="fa fa-check"></i><b>3.6.4.2</b> Testing significance</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6.5" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#visualising-smooths"><i class="fa fa-check"></i><b>3.6.5</b> Visualising smooths</a>
+<li class="chapter" data-level="3.5" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html"><i class="fa fa-check"></i><b>3.5</b> Cumulative Logit Link Mixed-effects Models</a>
 <ul>
-<li class="chapter" data-level="3.6.5.1" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#i"><i class="fa fa-check"></i><b>3.6.5.1</b> /i:/</a></li>
-<li class="chapter" data-level="3.6.5.2" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#a"><i class="fa fa-check"></i><b>3.6.5.2</b> /a:/</a></li>
-<li class="chapter" data-level="3.6.5.3" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#u"><i class="fa fa-check"></i><b>3.6.5.3</b> /u:/</a></li>
+<li class="chapter" data-level="3.5.1" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#ratings-of-percept-of-nasality-1"><i class="fa fa-check"></i><b>3.5.1</b> Ratings of percept of nasality</a>
+<ul>
+<li class="chapter" data-level="3.5.1.1" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#importing-and-pre-processing-2"><i class="fa fa-check"></i><b>3.5.1.1</b> Importing and pre-processing</a></li>
+<li class="chapter" data-level="3.5.1.2" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#model-specifications-1"><i class="fa fa-check"></i><b>3.5.1.2</b> Model specifications</a>
+<ul>
+<li class="chapter" data-level="3.5.1.2.1" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#no-random-effects-1"><i class="fa fa-check"></i><b>3.5.1.2.1</b> No random effects</a></li>
+<li class="chapter" data-level="3.5.1.2.2" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#random-effects-1---intercepts-only"><i class="fa fa-check"></i><b>3.5.1.2.2</b> Random effects 1 - Intercepts only</a></li>
+<li class="chapter" data-level="3.5.1.2.3" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#random-effects-2---intercepts-and-slopes"><i class="fa fa-check"></i><b>3.5.1.2.3</b> Random effects 2 - Intercepts and Slopes</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6.6" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#difference-smooths"><i class="fa fa-check"></i><b>3.6.6</b> Difference smooths</a>
+<li class="chapter" data-level="3.5.1.3" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#testing-significance-2"><i class="fa fa-check"></i><b>3.5.1.3</b> Testing significance</a>
 <ul>
-<li class="chapter" data-level="3.6.6.1" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#i-1"><i class="fa fa-check"></i><b>3.6.6.1</b> /i:/</a></li>
-<li class="chapter" data-level="3.6.6.2" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#a-1"><i class="fa fa-check"></i><b>3.6.6.2</b> /a:/</a></li>
-<li class="chapter" data-level="3.6.6.3" data-path="3.6-generalised-additive-mixed-effects-models-gamms.html"><a href="3.6-generalised-additive-mixed-effects-models-gamms.html#u-1"><i class="fa fa-check"></i><b>3.6.6.3</b> /u:/</a></li>
+<li class="chapter" data-level="3.5.1.3.1" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#null-vs-no-random-1"><i class="fa fa-check"></i><b>3.5.1.3.1</b> Null vs no random</a></li>
+<li class="chapter" data-level="3.5.1.3.2" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#no-random-vs-random-intercepts"><i class="fa fa-check"></i><b>3.5.1.3.2</b> No random vs Random Intercepts</a></li>
+<li class="chapter" data-level="3.5.1.3.3" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#no-random-vs-random-intercepts-1"><i class="fa fa-check"></i><b>3.5.1.3.3</b> No random vs Random Intercepts</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5.1.4" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#models-fit-10"><i class="fa fa-check"></i><b>3.5.1.4</b> Model’s fit</a></li>
+<li class="chapter" data-level="3.5.1.5" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#interpreting-a-cumulative-model-2"><i class="fa fa-check"></i><b>3.5.1.5</b> Interpreting a cumulative model</a></li>
+<li class="chapter" data-level="3.5.1.6" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#plotting-8"><i class="fa fa-check"></i><b>3.5.1.6</b> Plotting</a>
+<ul>
+<li class="chapter" data-level="3.5.1.6.1" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#no-confidence-intervals-2"><i class="fa fa-check"></i><b>3.5.1.6.1</b> No confidence intervals</a></li>
+<li class="chapter" data-level="3.5.1.6.2" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#with-confidence-intervals-2"><i class="fa fa-check"></i><b>3.5.1.6.2</b> With confidence intervals</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.5.2" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#subjective-estimates-of-the-weight-of-the-referents-of-81-english-nouns.-1"><i class="fa fa-check"></i><b>3.5.2</b> Subjective estimates of the weight of the referents of 81 English nouns.</a>
+<ul>
+<li class="chapter" data-level="3.5.2.1" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#importing-and-pre-processing-3"><i class="fa fa-check"></i><b>3.5.2.1</b> Importing and pre-processing</a></li>
+<li class="chapter" data-level="3.5.2.2" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#model-specifications-2"><i class="fa fa-check"></i><b>3.5.2.2</b> Model specifications</a>
+<ul>
+<li class="chapter" data-level="3.5.2.2.1" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#no-random-effects-2"><i class="fa fa-check"></i><b>3.5.2.2.1</b> No random effects</a></li>
+<li class="chapter" data-level="3.5.2.2.2" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#random-effects-1---intercepts-only-1"><i class="fa fa-check"></i><b>3.5.2.2.2</b> Random effects 1 - Intercepts only</a></li>
+<li class="chapter" data-level="3.5.2.2.3" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#random-effects-2---intercepts-and-slopes-1"><i class="fa fa-check"></i><b>3.5.2.2.3</b> Random effects 2 - Intercepts and Slopes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5.2.3" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#testing-significance-3"><i class="fa fa-check"></i><b>3.5.2.3</b> Testing significance</a>
+<ul>
+<li class="chapter" data-level="3.5.2.3.1" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#null-vs-no-random-2"><i class="fa fa-check"></i><b>3.5.2.3.1</b> Null vs no random</a></li>
+<li class="chapter" data-level="3.5.2.3.2" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#no-random-vs-random-intercepts-2"><i class="fa fa-check"></i><b>3.5.2.3.2</b> No random vs Random Intercepts</a></li>
+<li class="chapter" data-level="3.5.2.3.3" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#random-intercepts-vs-random-slope"><i class="fa fa-check"></i><b>3.5.2.3.3</b> Random Intercepts vs Random Slope</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5.2.4" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#models-fit-11"><i class="fa fa-check"></i><b>3.5.2.4</b> Model’s fit</a></li>
+<li class="chapter" data-level="3.5.2.5" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#interpreting-a-cumulative-model-3"><i class="fa fa-check"></i><b>3.5.2.5</b> Interpreting a cumulative model</a></li>
+<li class="chapter" data-level="3.5.2.6" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#plotting-9"><i class="fa fa-check"></i><b>3.5.2.6</b> Plotting</a>
+<ul>
+<li class="chapter" data-level="3.5.2.6.1" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#no-confidence-intervals-3"><i class="fa fa-check"></i><b>3.5.2.6.1</b> No confidence intervals</a></li>
+<li class="chapter" data-level="3.5.2.6.2" data-path="3.5-CLMM.html"><a href="3.5-CLMM.html#with-confidence-intervals-3"><i class="fa fa-check"></i><b>3.5.2.6.2</b> With confidence intervals</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html"><i class="fa fa-check"></i><b>3.6</b> Generalised Additive Mixed-effects Models (GAMMs)</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#loading-dataframe"><i class="fa fa-check"></i><b>3.6.1</b> Loading dataframe</a></li>
+<li class="chapter" data-level="3.6.2" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#manipulation"><i class="fa fa-check"></i><b>3.6.2</b> Manipulation</a>
+<ul>
+<li class="chapter" data-level="3.6.2.1" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#wide-to-long-format"><i class="fa fa-check"></i><b>3.6.2.1</b> Wide to Long format</a></li>
+<li class="chapter" data-level="3.6.2.2" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#transforming-and-arranging-dataframe"><i class="fa fa-check"></i><b>3.6.2.2</b> Transforming and arranging dataframe</a></li>
+<li class="chapter" data-level="3.6.2.3" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#ordering-predictors"><i class="fa fa-check"></i><b>3.6.2.3</b> Ordering predictors</a></li>
+<li class="chapter" data-level="3.6.2.4" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#start-value-for-autocorrelation"><i class="fa fa-check"></i><b>3.6.2.4</b> Start value for autocorrelation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6.3" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#model-specifications-3"><i class="fa fa-check"></i><b>3.6.3</b> Model specifications</a>
+<ul>
+<li class="chapter" data-level="3.6.3.1" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#no-ar1-model"><i class="fa fa-check"></i><b>3.6.3.1</b> No AR1 model</a>
+<ul>
+<li class="chapter" data-level="3.6.3.1.1" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#model-estimation-5"><i class="fa fa-check"></i><b>3.6.3.1.1</b> Model estimation</a>
+<ul>
+<li class="chapter" data-level="3.6.3.1.1.1" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#acf-no-ar1"><i class="fa fa-check"></i><b>3.6.3.1.1.1</b> ACF No AR1</a></li>
+<li class="chapter" data-level="3.6.3.1.1.2" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#gam-check"><i class="fa fa-check"></i><b>3.6.3.1.1.2</b> Gam check</a></li>
+<li class="chapter" data-level="3.6.3.1.1.3" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#estimating-rho"><i class="fa fa-check"></i><b>3.6.3.1.1.3</b> Estimating Rho</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.6.3.2" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#ar1-model"><i class="fa fa-check"></i><b>3.6.3.2</b> AR1 model</a>
+<ul>
+<li class="chapter" data-level="3.6.3.2.0.1" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#model-estimation-6"><i class="fa fa-check"></i><b>3.6.3.2.0.1</b> Model estimation</a></li>
+<li class="chapter" data-level="3.6.3.2.0.2" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#acf-ar1"><i class="fa fa-check"></i><b>3.6.3.2.0.2</b> ACF AR1</a></li>
+<li class="chapter" data-level="3.6.3.2.0.3" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#summary-1"><i class="fa fa-check"></i><b>3.6.3.2.0.3</b> Summary</a></li>
+<li class="chapter" data-level="3.6.3.2.0.4" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#models-fit-12"><i class="fa fa-check"></i><b>3.6.3.2.0.4</b> Model’s fit</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.6.4" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#significance-testing-second-autoregressive-gam"><i class="fa fa-check"></i><b>3.6.4</b> Significance testing second Autoregressive GAM</a>
+<ul>
+<li class="chapter" data-level="3.6.4.1" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#models"><i class="fa fa-check"></i><b>3.6.4.1</b> Models</a>
+<ul>
+<li class="chapter" data-level="3.6.4.1.1" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#full-model"><i class="fa fa-check"></i><b>3.6.4.1.1</b> Full Model</a></li>
+<li class="chapter" data-level="3.6.4.1.2" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#model-2-without-convowelint.ord"><i class="fa fa-check"></i><b>3.6.4.1.2</b> Model 2 (without ConVowelInt.ord)</a></li>
+<li class="chapter" data-level="3.6.4.1.3" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#null-model"><i class="fa fa-check"></i><b>3.6.4.1.3</b> Null Model</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6.4.2" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#testing-significance-4"><i class="fa fa-check"></i><b>3.6.4.2</b> Testing significance</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6.5" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#visualising-smooths"><i class="fa fa-check"></i><b>3.6.5</b> Visualising smooths</a>
+<ul>
+<li class="chapter" data-level="3.6.5.1" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#i"><i class="fa fa-check"></i><b>3.6.5.1</b> /i:/</a></li>
+<li class="chapter" data-level="3.6.5.2" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#a"><i class="fa fa-check"></i><b>3.6.5.2</b> /a:/</a></li>
+<li class="chapter" data-level="3.6.5.3" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#u"><i class="fa fa-check"></i><b>3.6.5.3</b> /u:/</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6.6" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#difference-smooths"><i class="fa fa-check"></i><b>3.6.6</b> Difference smooths</a>
+<ul>
+<li class="chapter" data-level="3.6.6.1" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#i-1"><i class="fa fa-check"></i><b>3.6.6.1</b> /i:/</a></li>
+<li class="chapter" data-level="3.6.6.2" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#a-1"><i class="fa fa-check"></i><b>3.6.6.2</b> /a:/</a></li>
+<li class="chapter" data-level="3.6.6.3" data-path="3.6-GAMM.html"><a href="3.6-GAMM.html#u-1"><i class="fa fa-check"></i><b>3.6.6.3</b> /u:/</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="3.7-other-distibutions.html"><a href="3.7-other-distibutions.html"><i class="fa fa-check"></i><b>3.7</b> Other distibutions</a></li>
@@ -2156,12 +2199,12 @@ Here, we let the algorithm decide how many clusters there are.</p>
 <h3><span class="header-section-number">7.5.1</span> Nb Clusters<a href="7.5-kmeans-clustering.html#nb-clusters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We compute number of clusters via hierarchical clustering, after applying 500 Monte Carlo (“bootstrap”) samples.
 We specify 10 as our maximum number of clusters</p>
-<div class="sourceCode" id="cb1965"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1965-1"><a href="7.5-kmeans-clustering.html#cb1965-1" tabindex="-1"></a>dat1Clust <span class="ot">&lt;-</span> dfPharPCA[<span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb1965-2"><a href="7.5-kmeans-clustering.html#cb1965-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb1965-3"><a href="7.5-kmeans-clustering.html#cb1965-3" tabindex="-1"></a></span>
-<span id="cb1965-4"><a href="7.5-kmeans-clustering.html#cb1965-4" tabindex="-1"></a></span>
-<span id="cb1965-5"><a href="7.5-kmeans-clustering.html#cb1965-5" tabindex="-1"></a>gap_stat <span class="ot">&lt;-</span> <span class="fu">clusGap</span>(dat1Clust, <span class="at">FUN =</span> hcut, <span class="at">nstart =</span> <span class="dv">20</span>, <span class="at">K.max =</span> <span class="dv">10</span>, <span class="at">B =</span> <span class="dv">500</span>, <span class="at">spaceH0 =</span> <span class="st">&quot;scaledPCA&quot;</span>)</span>
-<span id="cb1965-6"><a href="7.5-kmeans-clustering.html#cb1965-6" tabindex="-1"></a><span class="fu">print</span>(gap_stat, <span class="at">method =</span> <span class="st">&quot;Tibs2001SEmax&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1999"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1999-1"><a href="7.5-kmeans-clustering.html#cb1999-1" tabindex="-1"></a>dat1Clust <span class="ot">&lt;-</span> dfPharPCA[<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb1999-2"><a href="7.5-kmeans-clustering.html#cb1999-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb1999-3"><a href="7.5-kmeans-clustering.html#cb1999-3" tabindex="-1"></a></span>
+<span id="cb1999-4"><a href="7.5-kmeans-clustering.html#cb1999-4" tabindex="-1"></a></span>
+<span id="cb1999-5"><a href="7.5-kmeans-clustering.html#cb1999-5" tabindex="-1"></a>gap_stat <span class="ot">&lt;-</span> <span class="fu">clusGap</span>(dat1Clust, <span class="at">FUN =</span> hcut, <span class="at">nstart =</span> <span class="dv">20</span>, <span class="at">K.max =</span> <span class="dv">10</span>, <span class="at">B =</span> <span class="dv">500</span>, <span class="at">spaceH0 =</span> <span class="st">&quot;scaledPCA&quot;</span>)</span>
+<span id="cb1999-6"><a href="7.5-kmeans-clustering.html#cb1999-6" tabindex="-1"></a><span class="fu">print</span>(gap_stat, <span class="at">method =</span> <span class="st">&quot;Tibs2001SEmax&quot;</span>)</span></code></pre></div>
 <pre><code>## Clustering Gap statistic [&quot;clusGap&quot;] from call:
 ## clusGap(x = dat1Clust, FUNcluster = hcut, K.max = 10, B = 500, spaceH0 = &quot;scaledPCA&quot;, nstart = 20)
 ## B=500 simulated reference sets, k = 1..10; spaceH0=&quot;scaledPCA&quot;
@@ -2177,8 +2220,8 @@ We specify 10 as our maximum number of clusters</p>
 ##  [8,] 7.533120 8.226987 0.6938672 0.009925265
 ##  [9,] 7.503556 8.205583 0.7020276 0.009794064
 ## [10,] 7.467433 8.186055 0.7186212 0.009604244</code></pre>
-<div class="sourceCode" id="cb1967"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1967-1"><a href="7.5-kmeans-clustering.html#cb1967-1" tabindex="-1"></a><span class="fu">fviz_gap_stat</span>(gap_stat)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-922-1.png" width="672" /></p>
+<div class="sourceCode" id="cb2001"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2001-1"><a href="7.5-kmeans-clustering.html#cb2001-1" tabindex="-1"></a><span class="fu">fviz_gap_stat</span>(gap_stat)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-936-1.png" width="672" /></p>
 <p>The results in the plot above show that the optimal number of clusters is 10!
 This is not helpful at all; for the moment, this is for demonstration.</p>
 <div id="computing-clusters" class="section level4 hasAnchor" number="7.5.1.1">
@@ -2189,18 +2232,18 @@ The aim is to evaluate how close (or far) our groups are, and whether the the tw
 This will compute Hierarchical Clustering and Cut the Tree into k clusters.
 By default, it uses hc_method = “ward.D2”, hc_metric = “euclidean”.
 stand = TRUE allows for the data to be normalised (z-scored)</p>
-<div class="sourceCode" id="cb1968"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1968-1"><a href="7.5-kmeans-clustering.html#cb1968-1" tabindex="-1"></a>km.resdat1_2 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">2</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1968-2"><a href="7.5-kmeans-clustering.html#cb1968-2" tabindex="-1"></a>km.resdat1_3 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">3</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1968-3"><a href="7.5-kmeans-clustering.html#cb1968-3" tabindex="-1"></a>km.resdat1_4 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">4</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1968-4"><a href="7.5-kmeans-clustering.html#cb1968-4" tabindex="-1"></a>km.resdat1_5 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">5</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1968-5"><a href="7.5-kmeans-clustering.html#cb1968-5" tabindex="-1"></a>km.resdat1_6 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">6</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1968-6"><a href="7.5-kmeans-clustering.html#cb1968-6" tabindex="-1"></a>km.resdat1_7 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">7</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1968-7"><a href="7.5-kmeans-clustering.html#cb1968-7" tabindex="-1"></a>km.resdat1_8 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">8</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1968-8"><a href="7.5-kmeans-clustering.html#cb1968-8" tabindex="-1"></a>km.resdat1_9 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">9</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1968-9"><a href="7.5-kmeans-clustering.html#cb1968-9" tabindex="-1"></a>km.resdat1_10 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">10</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1968-10"><a href="7.5-kmeans-clustering.html#cb1968-10" tabindex="-1"></a></span>
-<span id="cb1968-11"><a href="7.5-kmeans-clustering.html#cb1968-11" tabindex="-1"></a></span>
-<span id="cb1968-12"><a href="7.5-kmeans-clustering.html#cb1968-12" tabindex="-1"></a>km.resdat1_2</span></code></pre></div>
+<div class="sourceCode" id="cb2002"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2002-1"><a href="7.5-kmeans-clustering.html#cb2002-1" tabindex="-1"></a>km.resdat1_2 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">2</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2002-2"><a href="7.5-kmeans-clustering.html#cb2002-2" tabindex="-1"></a>km.resdat1_3 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">3</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2002-3"><a href="7.5-kmeans-clustering.html#cb2002-3" tabindex="-1"></a>km.resdat1_4 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">4</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2002-4"><a href="7.5-kmeans-clustering.html#cb2002-4" tabindex="-1"></a>km.resdat1_5 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">5</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2002-5"><a href="7.5-kmeans-clustering.html#cb2002-5" tabindex="-1"></a>km.resdat1_6 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">6</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2002-6"><a href="7.5-kmeans-clustering.html#cb2002-6" tabindex="-1"></a>km.resdat1_7 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">7</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2002-7"><a href="7.5-kmeans-clustering.html#cb2002-7" tabindex="-1"></a>km.resdat1_8 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">8</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2002-8"><a href="7.5-kmeans-clustering.html#cb2002-8" tabindex="-1"></a>km.resdat1_9 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">9</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2002-9"><a href="7.5-kmeans-clustering.html#cb2002-9" tabindex="-1"></a>km.resdat1_10 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">10</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2002-10"><a href="7.5-kmeans-clustering.html#cb2002-10" tabindex="-1"></a></span>
+<span id="cb2002-11"><a href="7.5-kmeans-clustering.html#cb2002-11" tabindex="-1"></a></span>
+<span id="cb2002-12"><a href="7.5-kmeans-clustering.html#cb2002-12" tabindex="-1"></a>km.resdat1_2</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## stats::hclust(d = x, method = hc_method)
@@ -2208,7 +2251,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ## Cluster method   : ward.D2 
 ## Distance         : euclidean 
 ## Number of objects: 402</code></pre>
-<div class="sourceCode" id="cb1970"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1970-1"><a href="7.5-kmeans-clustering.html#cb1970-1" tabindex="-1"></a>km.resdat1_3</span></code></pre></div>
+<div class="sourceCode" id="cb2004"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2004-1"><a href="7.5-kmeans-clustering.html#cb2004-1" tabindex="-1"></a>km.resdat1_3</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## stats::hclust(d = x, method = hc_method)
@@ -2216,7 +2259,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ## Cluster method   : ward.D2 
 ## Distance         : euclidean 
 ## Number of objects: 402</code></pre>
-<div class="sourceCode" id="cb1972"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1972-1"><a href="7.5-kmeans-clustering.html#cb1972-1" tabindex="-1"></a>km.resdat1_4</span></code></pre></div>
+<div class="sourceCode" id="cb2006"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2006-1"><a href="7.5-kmeans-clustering.html#cb2006-1" tabindex="-1"></a>km.resdat1_4</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## stats::hclust(d = x, method = hc_method)
@@ -2224,7 +2267,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ## Cluster method   : ward.D2 
 ## Distance         : euclidean 
 ## Number of objects: 402</code></pre>
-<div class="sourceCode" id="cb1974"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1974-1"><a href="7.5-kmeans-clustering.html#cb1974-1" tabindex="-1"></a>km.resdat1_5</span></code></pre></div>
+<div class="sourceCode" id="cb2008"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2008-1"><a href="7.5-kmeans-clustering.html#cb2008-1" tabindex="-1"></a>km.resdat1_5</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## stats::hclust(d = x, method = hc_method)
@@ -2232,7 +2275,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ## Cluster method   : ward.D2 
 ## Distance         : euclidean 
 ## Number of objects: 402</code></pre>
-<div class="sourceCode" id="cb1976"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1976-1"><a href="7.5-kmeans-clustering.html#cb1976-1" tabindex="-1"></a>km.resdat1_6</span></code></pre></div>
+<div class="sourceCode" id="cb2010"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2010-1"><a href="7.5-kmeans-clustering.html#cb2010-1" tabindex="-1"></a>km.resdat1_6</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## stats::hclust(d = x, method = hc_method)
@@ -2240,7 +2283,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ## Cluster method   : ward.D2 
 ## Distance         : euclidean 
 ## Number of objects: 402</code></pre>
-<div class="sourceCode" id="cb1978"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1978-1"><a href="7.5-kmeans-clustering.html#cb1978-1" tabindex="-1"></a>km.resdat1_7</span></code></pre></div>
+<div class="sourceCode" id="cb2012"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2012-1"><a href="7.5-kmeans-clustering.html#cb2012-1" tabindex="-1"></a>km.resdat1_7</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## stats::hclust(d = x, method = hc_method)
@@ -2248,7 +2291,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ## Cluster method   : ward.D2 
 ## Distance         : euclidean 
 ## Number of objects: 402</code></pre>
-<div class="sourceCode" id="cb1980"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1980-1"><a href="7.5-kmeans-clustering.html#cb1980-1" tabindex="-1"></a>km.resdat1_8</span></code></pre></div>
+<div class="sourceCode" id="cb2014"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2014-1"><a href="7.5-kmeans-clustering.html#cb2014-1" tabindex="-1"></a>km.resdat1_8</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## stats::hclust(d = x, method = hc_method)
@@ -2256,7 +2299,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ## Cluster method   : ward.D2 
 ## Distance         : euclidean 
 ## Number of objects: 402</code></pre>
-<div class="sourceCode" id="cb1982"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1982-1"><a href="7.5-kmeans-clustering.html#cb1982-1" tabindex="-1"></a>km.resdat1_9</span></code></pre></div>
+<div class="sourceCode" id="cb2016"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2016-1"><a href="7.5-kmeans-clustering.html#cb2016-1" tabindex="-1"></a>km.resdat1_9</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## stats::hclust(d = x, method = hc_method)
@@ -2264,7 +2307,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ## Cluster method   : ward.D2 
 ## Distance         : euclidean 
 ## Number of objects: 402</code></pre>
-<div class="sourceCode" id="cb1984"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1984-1"><a href="7.5-kmeans-clustering.html#cb1984-1" tabindex="-1"></a>km.resdat1_10</span></code></pre></div>
+<div class="sourceCode" id="cb2018"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2018-1"><a href="7.5-kmeans-clustering.html#cb2018-1" tabindex="-1"></a>km.resdat1_10</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## stats::hclust(d = x, method = hc_method)
@@ -2275,94 +2318,94 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 </div>
 <div id="dendograms" class="section level4 hasAnchor" number="7.5.1.2">
 <h4><span class="header-section-number">7.5.1.2</span> Dendograms<a href="7.5-kmeans-clustering.html#dendograms" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1986"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1986-1"><a href="7.5-kmeans-clustering.html#cb1986-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_2, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 2 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-924-1.png" width="672" /></p>
-<div class="sourceCode" id="cb1987"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1987-1"><a href="7.5-kmeans-clustering.html#cb1987-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_3, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 3 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-924-2.png" width="672" /></p>
-<div class="sourceCode" id="cb1988"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1988-1"><a href="7.5-kmeans-clustering.html#cb1988-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_4, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 4 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-924-3.png" width="672" /></p>
-<div class="sourceCode" id="cb1989"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1989-1"><a href="7.5-kmeans-clustering.html#cb1989-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_5, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 5 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-924-4.png" width="672" /></p>
-<div class="sourceCode" id="cb1990"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1990-1"><a href="7.5-kmeans-clustering.html#cb1990-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_6, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 6 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-924-5.png" width="672" /></p>
-<div class="sourceCode" id="cb1991"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1991-1"><a href="7.5-kmeans-clustering.html#cb1991-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_7, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 7 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-924-6.png" width="672" /></p>
-<div class="sourceCode" id="cb1992"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1992-1"><a href="7.5-kmeans-clustering.html#cb1992-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_8, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 8 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-924-7.png" width="672" /></p>
-<div class="sourceCode" id="cb1993"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1993-1"><a href="7.5-kmeans-clustering.html#cb1993-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_9, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 9 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-924-8.png" width="672" /></p>
-<div class="sourceCode" id="cb1994"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1994-1"><a href="7.5-kmeans-clustering.html#cb1994-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_10, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 10 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-924-9.png" width="672" /></p>
+<div class="sourceCode" id="cb2020"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2020-1"><a href="7.5-kmeans-clustering.html#cb2020-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_2, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 2 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-938-1.png" width="672" /></p>
+<div class="sourceCode" id="cb2021"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2021-1"><a href="7.5-kmeans-clustering.html#cb2021-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_3, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 3 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-938-2.png" width="672" /></p>
+<div class="sourceCode" id="cb2022"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2022-1"><a href="7.5-kmeans-clustering.html#cb2022-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_4, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 4 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-938-3.png" width="672" /></p>
+<div class="sourceCode" id="cb2023"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2023-1"><a href="7.5-kmeans-clustering.html#cb2023-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_5, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 5 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-938-4.png" width="672" /></p>
+<div class="sourceCode" id="cb2024"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2024-1"><a href="7.5-kmeans-clustering.html#cb2024-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_6, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 6 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-938-5.png" width="672" /></p>
+<div class="sourceCode" id="cb2025"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2025-1"><a href="7.5-kmeans-clustering.html#cb2025-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_7, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 7 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-938-6.png" width="672" /></p>
+<div class="sourceCode" id="cb2026"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2026-1"><a href="7.5-kmeans-clustering.html#cb2026-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_8, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 8 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-938-7.png" width="672" /></p>
+<div class="sourceCode" id="cb2027"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2027-1"><a href="7.5-kmeans-clustering.html#cb2027-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_9, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 9 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-938-8.png" width="672" /></p>
+<div class="sourceCode" id="cb2028"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2028-1"><a href="7.5-kmeans-clustering.html#cb2028-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_10, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 10 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-938-9.png" width="672" /></p>
 </div>
 <div id="plots-2" class="section level4 hasAnchor" number="7.5.1.3">
 <h4><span class="header-section-number">7.5.1.3</span> Plots<a href="7.5-kmeans-clustering.html#plots-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1995"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1995-1"><a href="7.5-kmeans-clustering.html#cb1995-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_2, <span class="at">data =</span> dat1Clust,</span>
-<span id="cb1995-2"><a href="7.5-kmeans-clustering.html#cb1995-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
-<span id="cb1995-3"><a href="7.5-kmeans-clustering.html#cb1995-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
-<span id="cb1995-4"><a href="7.5-kmeans-clustering.html#cb1995-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
-<span id="cb1995-5"><a href="7.5-kmeans-clustering.html#cb1995-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb1995-6"><a href="7.5-kmeans-clustering.html#cb1995-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 2 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-925-1.png" width="672" /></p>
-<div class="sourceCode" id="cb1996"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1996-1"><a href="7.5-kmeans-clustering.html#cb1996-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_3, <span class="at">data =</span> dat1Clust,</span>
-<span id="cb1996-2"><a href="7.5-kmeans-clustering.html#cb1996-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
-<span id="cb1996-3"><a href="7.5-kmeans-clustering.html#cb1996-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
-<span id="cb1996-4"><a href="7.5-kmeans-clustering.html#cb1996-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
-<span id="cb1996-5"><a href="7.5-kmeans-clustering.html#cb1996-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb1996-6"><a href="7.5-kmeans-clustering.html#cb1996-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 3 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-925-2.png" width="672" /></p>
-<div class="sourceCode" id="cb1997"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1997-1"><a href="7.5-kmeans-clustering.html#cb1997-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_4, <span class="at">data =</span> dat1Clust,</span>
-<span id="cb1997-2"><a href="7.5-kmeans-clustering.html#cb1997-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
-<span id="cb1997-3"><a href="7.5-kmeans-clustering.html#cb1997-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
-<span id="cb1997-4"><a href="7.5-kmeans-clustering.html#cb1997-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
-<span id="cb1997-5"><a href="7.5-kmeans-clustering.html#cb1997-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb1997-6"><a href="7.5-kmeans-clustering.html#cb1997-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 4 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-925-3.png" width="672" /></p>
-<div class="sourceCode" id="cb1998"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1998-1"><a href="7.5-kmeans-clustering.html#cb1998-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_5, <span class="at">data =</span> dat1Clust,</span>
-<span id="cb1998-2"><a href="7.5-kmeans-clustering.html#cb1998-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
-<span id="cb1998-3"><a href="7.5-kmeans-clustering.html#cb1998-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
-<span id="cb1998-4"><a href="7.5-kmeans-clustering.html#cb1998-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
-<span id="cb1998-5"><a href="7.5-kmeans-clustering.html#cb1998-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb1998-6"><a href="7.5-kmeans-clustering.html#cb1998-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 5 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-925-4.png" width="672" /></p>
-<div class="sourceCode" id="cb1999"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1999-1"><a href="7.5-kmeans-clustering.html#cb1999-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_6, <span class="at">data =</span> dat1Clust,</span>
-<span id="cb1999-2"><a href="7.5-kmeans-clustering.html#cb1999-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
-<span id="cb1999-3"><a href="7.5-kmeans-clustering.html#cb1999-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
-<span id="cb1999-4"><a href="7.5-kmeans-clustering.html#cb1999-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
-<span id="cb1999-5"><a href="7.5-kmeans-clustering.html#cb1999-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb1999-6"><a href="7.5-kmeans-clustering.html#cb1999-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 6 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-925-5.png" width="672" /></p>
-<div class="sourceCode" id="cb2000"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2000-1"><a href="7.5-kmeans-clustering.html#cb2000-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_7, <span class="at">data =</span> dat1Clust,</span>
-<span id="cb2000-2"><a href="7.5-kmeans-clustering.html#cb2000-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
-<span id="cb2000-3"><a href="7.5-kmeans-clustering.html#cb2000-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
-<span id="cb2000-4"><a href="7.5-kmeans-clustering.html#cb2000-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
-<span id="cb2000-5"><a href="7.5-kmeans-clustering.html#cb2000-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2000-6"><a href="7.5-kmeans-clustering.html#cb2000-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 7 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-925-6.png" width="672" /></p>
-<div class="sourceCode" id="cb2001"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2001-1"><a href="7.5-kmeans-clustering.html#cb2001-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_8, <span class="at">data =</span> dat1Clust,</span>
-<span id="cb2001-2"><a href="7.5-kmeans-clustering.html#cb2001-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
-<span id="cb2001-3"><a href="7.5-kmeans-clustering.html#cb2001-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
-<span id="cb2001-4"><a href="7.5-kmeans-clustering.html#cb2001-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
-<span id="cb2001-5"><a href="7.5-kmeans-clustering.html#cb2001-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2001-6"><a href="7.5-kmeans-clustering.html#cb2001-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 8 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-925-7.png" width="672" /></p>
-<div class="sourceCode" id="cb2002"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2002-1"><a href="7.5-kmeans-clustering.html#cb2002-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_9, <span class="at">data =</span> dat1Clust,</span>
-<span id="cb2002-2"><a href="7.5-kmeans-clustering.html#cb2002-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
-<span id="cb2002-3"><a href="7.5-kmeans-clustering.html#cb2002-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
-<span id="cb2002-4"><a href="7.5-kmeans-clustering.html#cb2002-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
-<span id="cb2002-5"><a href="7.5-kmeans-clustering.html#cb2002-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2002-6"><a href="7.5-kmeans-clustering.html#cb2002-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 9 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-925-8.png" width="672" /></p>
-<div class="sourceCode" id="cb2003"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2003-1"><a href="7.5-kmeans-clustering.html#cb2003-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_10, <span class="at">data =</span> dat1Clust,</span>
-<span id="cb2003-2"><a href="7.5-kmeans-clustering.html#cb2003-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
-<span id="cb2003-3"><a href="7.5-kmeans-clustering.html#cb2003-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
-<span id="cb2003-4"><a href="7.5-kmeans-clustering.html#cb2003-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
-<span id="cb2003-5"><a href="7.5-kmeans-clustering.html#cb2003-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2003-6"><a href="7.5-kmeans-clustering.html#cb2003-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 10 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-925-9.png" width="672" /></p>
+<div class="sourceCode" id="cb2029"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2029-1"><a href="7.5-kmeans-clustering.html#cb2029-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_2, <span class="at">data =</span> dat1Clust,</span>
+<span id="cb2029-2"><a href="7.5-kmeans-clustering.html#cb2029-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
+<span id="cb2029-3"><a href="7.5-kmeans-clustering.html#cb2029-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb2029-4"><a href="7.5-kmeans-clustering.html#cb2029-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
+<span id="cb2029-5"><a href="7.5-kmeans-clustering.html#cb2029-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2029-6"><a href="7.5-kmeans-clustering.html#cb2029-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 2 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-939-1.png" width="672" /></p>
+<div class="sourceCode" id="cb2030"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2030-1"><a href="7.5-kmeans-clustering.html#cb2030-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_3, <span class="at">data =</span> dat1Clust,</span>
+<span id="cb2030-2"><a href="7.5-kmeans-clustering.html#cb2030-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
+<span id="cb2030-3"><a href="7.5-kmeans-clustering.html#cb2030-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb2030-4"><a href="7.5-kmeans-clustering.html#cb2030-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
+<span id="cb2030-5"><a href="7.5-kmeans-clustering.html#cb2030-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2030-6"><a href="7.5-kmeans-clustering.html#cb2030-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 3 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-939-2.png" width="672" /></p>
+<div class="sourceCode" id="cb2031"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2031-1"><a href="7.5-kmeans-clustering.html#cb2031-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_4, <span class="at">data =</span> dat1Clust,</span>
+<span id="cb2031-2"><a href="7.5-kmeans-clustering.html#cb2031-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
+<span id="cb2031-3"><a href="7.5-kmeans-clustering.html#cb2031-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb2031-4"><a href="7.5-kmeans-clustering.html#cb2031-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
+<span id="cb2031-5"><a href="7.5-kmeans-clustering.html#cb2031-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2031-6"><a href="7.5-kmeans-clustering.html#cb2031-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 4 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-939-3.png" width="672" /></p>
+<div class="sourceCode" id="cb2032"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2032-1"><a href="7.5-kmeans-clustering.html#cb2032-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_5, <span class="at">data =</span> dat1Clust,</span>
+<span id="cb2032-2"><a href="7.5-kmeans-clustering.html#cb2032-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
+<span id="cb2032-3"><a href="7.5-kmeans-clustering.html#cb2032-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb2032-4"><a href="7.5-kmeans-clustering.html#cb2032-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
+<span id="cb2032-5"><a href="7.5-kmeans-clustering.html#cb2032-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2032-6"><a href="7.5-kmeans-clustering.html#cb2032-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 5 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-939-4.png" width="672" /></p>
+<div class="sourceCode" id="cb2033"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2033-1"><a href="7.5-kmeans-clustering.html#cb2033-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_6, <span class="at">data =</span> dat1Clust,</span>
+<span id="cb2033-2"><a href="7.5-kmeans-clustering.html#cb2033-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
+<span id="cb2033-3"><a href="7.5-kmeans-clustering.html#cb2033-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb2033-4"><a href="7.5-kmeans-clustering.html#cb2033-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
+<span id="cb2033-5"><a href="7.5-kmeans-clustering.html#cb2033-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2033-6"><a href="7.5-kmeans-clustering.html#cb2033-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 6 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-939-5.png" width="672" /></p>
+<div class="sourceCode" id="cb2034"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2034-1"><a href="7.5-kmeans-clustering.html#cb2034-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_7, <span class="at">data =</span> dat1Clust,</span>
+<span id="cb2034-2"><a href="7.5-kmeans-clustering.html#cb2034-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
+<span id="cb2034-3"><a href="7.5-kmeans-clustering.html#cb2034-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb2034-4"><a href="7.5-kmeans-clustering.html#cb2034-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
+<span id="cb2034-5"><a href="7.5-kmeans-clustering.html#cb2034-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2034-6"><a href="7.5-kmeans-clustering.html#cb2034-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 7 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-939-6.png" width="672" /></p>
+<div class="sourceCode" id="cb2035"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2035-1"><a href="7.5-kmeans-clustering.html#cb2035-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_8, <span class="at">data =</span> dat1Clust,</span>
+<span id="cb2035-2"><a href="7.5-kmeans-clustering.html#cb2035-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
+<span id="cb2035-3"><a href="7.5-kmeans-clustering.html#cb2035-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb2035-4"><a href="7.5-kmeans-clustering.html#cb2035-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
+<span id="cb2035-5"><a href="7.5-kmeans-clustering.html#cb2035-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2035-6"><a href="7.5-kmeans-clustering.html#cb2035-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 8 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-939-7.png" width="672" /></p>
+<div class="sourceCode" id="cb2036"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2036-1"><a href="7.5-kmeans-clustering.html#cb2036-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_9, <span class="at">data =</span> dat1Clust,</span>
+<span id="cb2036-2"><a href="7.5-kmeans-clustering.html#cb2036-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
+<span id="cb2036-3"><a href="7.5-kmeans-clustering.html#cb2036-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb2036-4"><a href="7.5-kmeans-clustering.html#cb2036-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
+<span id="cb2036-5"><a href="7.5-kmeans-clustering.html#cb2036-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2036-6"><a href="7.5-kmeans-clustering.html#cb2036-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 9 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-939-8.png" width="672" /></p>
+<div class="sourceCode" id="cb2037"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2037-1"><a href="7.5-kmeans-clustering.html#cb2037-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_10, <span class="at">data =</span> dat1Clust,</span>
+<span id="cb2037-2"><a href="7.5-kmeans-clustering.html#cb2037-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
+<span id="cb2037-3"><a href="7.5-kmeans-clustering.html#cb2037-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb2037-4"><a href="7.5-kmeans-clustering.html#cb2037-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
+<span id="cb2037-5"><a href="7.5-kmeans-clustering.html#cb2037-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2037-6"><a href="7.5-kmeans-clustering.html#cb2037-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 10 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-939-9.png" width="672" /></p>
 </div>
 <div id="individual-clusters" class="section level4 hasAnchor" number="7.5.1.4">
 <h4><span class="header-section-number">7.5.1.4</span> Individual Clusters<a href="7.5-kmeans-clustering.html#individual-clusters" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb2004"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2004-1"><a href="7.5-kmeans-clustering.html#cb2004-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_2<span class="sc">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb2038"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2038-1"><a href="7.5-kmeans-clustering.html#cb2038-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_2<span class="sc">$</span>cluster)</span></code></pre></div>
 <pre><code>##   G_01   G_02   G_03   G_04   G_05   G_06   G_07   G_08   G_09   G_10   G_11 
 ##      1      1      1      1      1      1      1      1      1      1      1 
 ##   G_12   G_13   G_14   G_15   G_16   G_17   G_18   G_19   G_20   G_21   G_22 
@@ -2437,7 +2480,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ##      2      2      2      2      2      2      2      2      2      2      2 
 ## NG_217 NG_218 NG_219 NG_220 NG_221 NG_222 
 ##      2      2      2      2      2      2</code></pre>
-<div class="sourceCode" id="cb2006"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2006-1"><a href="7.5-kmeans-clustering.html#cb2006-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_3<span class="sc">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb2040"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2040-1"><a href="7.5-kmeans-clustering.html#cb2040-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_3<span class="sc">$</span>cluster)</span></code></pre></div>
 <pre><code>##   G_01   G_02   G_03   G_04   G_05   G_06   G_07   G_08   G_09   G_10   G_11 
 ##      1      1      1      1      1      1      1      1      1      1      1 
 ##   G_12   G_13   G_14   G_15   G_16   G_17   G_18   G_19   G_20   G_21   G_22 
@@ -2512,7 +2555,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ##      3      3      3      3      3      3      3      3      3      3      3 
 ## NG_217 NG_218 NG_219 NG_220 NG_221 NG_222 
 ##      3      3      3      3      3      3</code></pre>
-<div class="sourceCode" id="cb2008"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2008-1"><a href="7.5-kmeans-clustering.html#cb2008-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_4<span class="sc">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb2042"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2042-1"><a href="7.5-kmeans-clustering.html#cb2042-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_4<span class="sc">$</span>cluster)</span></code></pre></div>
 <pre><code>##   G_01   G_02   G_03   G_04   G_05   G_06   G_07   G_08   G_09   G_10   G_11 
 ##      1      1      1      1      1      1      1      1      1      1      1 
 ##   G_12   G_13   G_14   G_15   G_16   G_17   G_18   G_19   G_20   G_21   G_22 
@@ -2587,7 +2630,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ##      4      4      4      4      4      4      4      4      4      4      4 
 ## NG_217 NG_218 NG_219 NG_220 NG_221 NG_222 
 ##      4      4      4      4      4      4</code></pre>
-<div class="sourceCode" id="cb2010"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2010-1"><a href="7.5-kmeans-clustering.html#cb2010-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_5<span class="sc">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb2044"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2044-1"><a href="7.5-kmeans-clustering.html#cb2044-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_5<span class="sc">$</span>cluster)</span></code></pre></div>
 <pre><code>##   G_01   G_02   G_04   G_05   G_06   G_07   G_09   G_10   G_12   G_13   G_41 
 ##      1      1      1      1      1      1      1      1      1      1      1 
 ##   G_42   G_43   G_44   G_45   G_46   G_47   G_48   G_67   G_68   G_69   G_70 
@@ -2662,7 +2705,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ##      5      5      5      5      5      5      5      5      5      5      5 
 ## NG_217 NG_218 NG_219 NG_220 NG_221 NG_222 
 ##      5      5      5      5      5      5</code></pre>
-<div class="sourceCode" id="cb2012"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2012-1"><a href="7.5-kmeans-clustering.html#cb2012-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_6<span class="sc">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb2046"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2046-1"><a href="7.5-kmeans-clustering.html#cb2046-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_6<span class="sc">$</span>cluster)</span></code></pre></div>
 <pre><code>##   G_01   G_02   G_04   G_05   G_06   G_07   G_09   G_10   G_12   G_13   G_41 
 ##      1      1      1      1      1      1      1      1      1      1      1 
 ##   G_42   G_43   G_44   G_45   G_46   G_47   G_48   G_67   G_68   G_69   G_70 
@@ -2737,7 +2780,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ##      6      6      6      6      6      6      6      6      6      6      6 
 ## NG_217 NG_218 NG_219 NG_220 NG_221 NG_222 
 ##      6      6      6      6      6      6</code></pre>
-<div class="sourceCode" id="cb2014"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2014-1"><a href="7.5-kmeans-clustering.html#cb2014-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_7<span class="sc">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb2048"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2048-1"><a href="7.5-kmeans-clustering.html#cb2048-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_7<span class="sc">$</span>cluster)</span></code></pre></div>
 <pre><code>##   G_01   G_02   G_04   G_05   G_06   G_07   G_09   G_10   G_12   G_13   G_41 
 ##      1      1      1      1      1      1      1      1      1      1      1 
 ##   G_42   G_43   G_44   G_45   G_46   G_47   G_48   G_67   G_68   G_69   G_70 
@@ -2812,7 +2855,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ##      7      7      7      7      7      7      7      7      7      7      7 
 ## NG_217 NG_218 NG_219 NG_220 NG_221 NG_222 
 ##      7      7      7      7      7      7</code></pre>
-<div class="sourceCode" id="cb2016"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2016-1"><a href="7.5-kmeans-clustering.html#cb2016-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_8<span class="sc">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb2050"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2050-1"><a href="7.5-kmeans-clustering.html#cb2050-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_8<span class="sc">$</span>cluster)</span></code></pre></div>
 <pre><code>##   G_01   G_02   G_04   G_05   G_06   G_07   G_09   G_10   G_12   G_13   G_41 
 ##      1      1      1      1      1      1      1      1      1      1      1 
 ##   G_42   G_43   G_44   G_45   G_46   G_47   G_48   G_03   G_08   G_11   G_14 
@@ -2887,7 +2930,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ##      8      8      8      8      8      8      8      8      8      8      8 
 ## NG_217 NG_218 NG_219 NG_220 NG_221 NG_222 
 ##      8      8      8      8      8      8</code></pre>
-<div class="sourceCode" id="cb2018"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2018-1"><a href="7.5-kmeans-clustering.html#cb2018-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_9<span class="sc">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb2052"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2052-1"><a href="7.5-kmeans-clustering.html#cb2052-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_9<span class="sc">$</span>cluster)</span></code></pre></div>
 <pre><code>##   G_01   G_02   G_04   G_05   G_06   G_07   G_09   G_10   G_12   G_13   G_41 
 ##      1      1      1      1      1      1      1      1      1      1      1 
 ##   G_42   G_43   G_44   G_45   G_46   G_47   G_48   G_03   G_08   G_11   G_14 
@@ -2962,7 +3005,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ##      9      9      9      9      9      9      9      9      9      9      9 
 ## NG_217 NG_218 NG_219 NG_220 NG_221 NG_222 
 ##      9      9      9      9      9      9</code></pre>
-<div class="sourceCode" id="cb2020"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2020-1"><a href="7.5-kmeans-clustering.html#cb2020-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_10<span class="sc">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb2054"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2054-1"><a href="7.5-kmeans-clustering.html#cb2054-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_10<span class="sc">$</span>cluster)</span></code></pre></div>
 <pre><code>##   G_01   G_02   G_04   G_05   G_06   G_07   G_09   G_10   G_12   G_13   G_41 
 ##      1      1      1      1      1      1      1      1      1      1      1 
 ##   G_42   G_43   G_44   G_45   G_46   G_47   G_48   G_03   G_08   G_11   G_14 

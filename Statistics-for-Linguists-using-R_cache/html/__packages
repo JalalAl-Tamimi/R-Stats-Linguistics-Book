@@ -26,6 +26,10 @@ ordinal
 DHARMa
 sjPlot
 htmltools
+pwr
+effectsize
+datawizard
+parameters
 faux
 Matrix
 lme4
@@ -86,6 +90,7 @@ infer
 modeldata
 parsnip
 rsample
+tailor
 tune
 workflows
 workflowsets

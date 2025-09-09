@@ -156,7 +156,7 @@ plot_model(xmdl.Optimal, type = "pred", terms = c("Cond", "Subj"), pred.type = "
 In the next section, we start by demonstrating the use of Linear Mixed-effects Models. 
 
 
-## Linear Mixed-effects Models. Why random effects matter
+## Linear Mixed-effects Models. Why random effects matter {#LMM}
 
 Let's generate a new dataframe that we will use later on for our mixed models
 
@@ -776,7 +776,7 @@ In this example, we see that many subjects vary beyond the fixed effect; Standar
 The approach above used a maximal specification model. This of course depends on the dataset you are working on and requires formal testing. See the package [RePsychLing](https://github.com/dmbates/RePsychLing) that is on github. The function `RePCA` is part of the package `lme4`. You can use it to verify if the model structure is appropriate. However, `lme4` will give you directly a warning "is singular" that you can interpret as "over specified model".
 
 
-## Generalised Linear Mixed-effects Models
+## Generalised Linear Mixed-effects Models {#GLMM}
 
 Here we will look at an example when the outcome is binary. This simulated data is structured as follows. We asked one participant to listen to 165 sentences, and to judge whether these are "grammatical" or "ungrammatical". There were 105 sentences that were "grammatical" and 60 "ungrammatical". This fictitious example can apply in any other situation. Let's think Geography: 165 lands: 105 "flat" and 60 "non-flat", etc. This applies to any case where you need to "categorise" the outcome into two groups. 
 
@@ -1190,7 +1190,7 @@ We obtain the exact same plots, but the model estimations are different.
 
 
 
-## Cumulative Logit Link Mixed-effects Models
+## Cumulative Logit Link Mixed-effects Models {#CLMM}
 
 These models work perfectly with rating data. Ratings are inherently ordered, 1, 2, ... n, and expect to observe an increase (or decrease) in overall ratings from 1 to n. To demonstrate this, we will use an example using the package "ordinal". 
 
@@ -1630,7 +1630,7 @@ Check if the results are different between our initial model (with clm) and our 
 
 
 
-## Generalised Additive Mixed-effects Models (GAMMs)
+## Generalised Additive Mixed-effects Models (GAMMs) {#GAMM}
 
 Generalised Additive Mixed-effects Models (GAMMs) are currently used for dynamic data. By dynamic data we mean, where the "time" component is accounted for. These can be vowel formants or *f*0 obtained at 11 intervals; dynamic tongue contours obtained at multiple time points, etc. 
 

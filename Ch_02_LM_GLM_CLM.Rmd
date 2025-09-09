@@ -20,7 +20,7 @@ models (CLM) to evaluate ordinal (likert) outcomes on two datasets.
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 ## Use the code below to check if you have all required packages installed. If some are not installed already, the code below will install these. If you have all packages installed, then you could load them with the second code.
-requiredPackages = c('tidyverse', 'broom', 'knitr', 'Hmisc', 'corrplot', 'emmeans', 'ggsignif', 'PresenceAbsence', 'languageR', 'psycho', 'ordinal', 'DHARMa', 'sjPlot', 'htmltools')
+requiredPackages = c('tidyverse', 'broom', 'knitr', 'Hmisc', 'corrplot', 'emmeans', 'ggsignif', 'PresenceAbsence', 'languageR', 'psycho', 'ordinal', 'DHARMa', 'sjPlot', 'htmltools', 'pwr', 'effectsize', 'datawizard', 'parameters')
 for(p in requiredPackages){
   if(!require(p,character.only = TRUE)) install.packages(p)
   library(p,character.only = TRUE)
@@ -102,7 +102,7 @@ of:
     function) are used. The mean is meaningless here, and the median is
     a preferred descriptive statistic.
 
-### Types of Errors?
+### Types of Errors? {#errors}
 
 In the literature, we discuss various types of errors in statistical
 models. There are four different types, and the excellent Sonderegger
@@ -136,11 +136,498 @@ increased when there is an over specification of the model and/or not
 accounting for dependencies in the data. **Type S** and **Type M** are
 generally caused due to collinearity in the data, which causes
 instability in the model and leads to cases of suppression; a point
-discussed in **chapter \@ref(DT-RF)**.
+discussed in **chapter** \@ref(DT-RF).
 
-## Power analysis and effect size
+## Effect size and power analysis
 
-to come...
+### Effect size
+
+#### What is the purpose of Effect Size?
+
+'Effect size' is simply a way of quantifying the size of the difference
+between two groups.
+
+There are two family groups of Effect Size:
+
+1.  Standardised mean differences (also called group difference indices;
+    e.g., Cohen's *d*), The mean difference Effect Sizes are computed
+    when the focus of the statistical analysis uses mean outcome scores
+    to compare potential group differences.
+
+2.  Strength of association (also referred to as relationship
+    variance-accounted-for or variance explained Effect Sizes; e.g.,
+    $R^{2}$, $\eta^{2}$, $\eta^{2}p$, $\omega^{2}$, etc. Strength of
+    association Effect Size indices are calculated across a wide variety
+    of research designs (e.g., ex post facto or causal comparative,
+    experimental, quasi-experimental, prediction [regression and
+    correlational]) using the general linear model (GLM) for the
+    statistical analyses. Strength of association Effect Sizes indicate
+    how much of the variance associated with the dependent variable
+    (e.g., students' English test scores) can be accounted for (or
+    explained) by the independent variable(s) (e.g., gender).
+
+Both Effect Size families can be further categorised into biased
+(uncorrected) and unbiased (corrected) measures:
+
+-   Biased measures relates to **"sampling error"** and how the Effect
+    Size derived from statistical procedures computed with smaller
+    groups of participants (samples) drawn from a larger population will
+    be higher than would be found either in the original population or
+    in participant samples studied at a later date.
+
+For example, assume a school counselling researcher randomly selects a
+sample of 15 girls and 15 boys from a 10th-grade physical education
+class in one high school. This 30-person sample then is assumed to
+represent the entire population of male and female students attending
+all Grade 10 physical education classes across a district's five high
+schools. Because there is always sampling error (i.e., problems with
+selecting the students to participate in the research study),
+uncorrected Effect Sizes (e.g., Cohen's *d*, $R^{2}$, $\eta^{2}$) will
+be higher (i.e., positively biased or overestimated) for the 30 students
+than if the researcher actually could have included in the study every
+10th-grade physical education student across all five high schools.
+
+-   Unbiased ones (e.g., adjusted $R^{2}$, Hays' $\omega^{2}$, etc. )
+    statistically correct for this positive bias by calculating the
+    strength of association indices so that they better reflect the true
+    Effect Sizes for the entire population and those calculated in
+    future samples.
+
+The issue is that because these formulas must adjust for sampling error
+occurring both in the present study and in subsequent investigations,
+Effect Size estimates for future research samples result in more
+shrinkage (i.e., are smaller or more conservative) than those Effect
+Size estimates based on an entire population. Therefore, interpretation
+of Effect Size s is often less than straightforward and must be
+exercised with caution.
+
+#### What is the relationship between Effect Size and Significance?
+
+Effect size quantifies the size of the difference between two groups,
+and may therefore be said to be a true measure of the significance of
+the difference.
+
+The statistical significance is usually calculated as a 'p-value', the
+probability that a difference of at least the same size would have
+arisen by chance, even if there really were no difference between the
+two populations. For differences between the means of two groups, this
+p-value would normally be calculated from a 't-test'. By convention, if
+p \< 0.05 (i.e. below 5%), the difference is taken to be large enough to
+be 'significant'; if not, then it is 'not significant'.
+
+There are a number of problems with using 'significance tests' in this
+way. The main one is that the p-value depends essentially on two things:
+
+a)  The size of the effect
+b)  The size of the sample.
+
+One would get a 'significant' result either if the effect were very big
+(despite having only a small sample) or if the sample were very big
+(even if the actual effect size were tiny). It is important to know the
+statistical significance of a result, since without it there is a danger
+of drawing firm conclusions from studies where the sample is too small
+to justify such confidence. However, statistical significance does not
+tell you the most important thing: **the size of the effect**. One way
+to overcome this confusion is to report the effect size, together with
+an estimate of its likely 'margin for error' or 'confidence interval'.
+
+#### What is Confidence Interval?
+
+The confidence interval is an alternative way to indicate the
+variability in estimates from small samples. The default calculation
+here is a '95% confidence interval'. If multiple samples of two groups
+of the same size as these, taken from a population in which the true
+difference was the value in column J, there would be variation in the
+differences found. However, for every 100 samples taken, for 95 of them
+(on average) the difference would be between the lower and upper
+confidence limits. The confidence interval is usually interpreted as a
+'margin of uncertainty' around the estimate of the difference between
+experimental and control groups.
+
+#### Which Effect Size measure to use?
+
+We highlighted above various effect size measures, e.g., Cohen's *d*,
+$R^{2}$, $\eta^{2}$, $\eta^{2}p$, $\omega^{2}$. Which one to chose from?
+Well, all depends on the statistical approach you are using and whether
+you want to report on standardised or unstandardised measures.
+
+However, as a rule of thumb, you can do the following:
+
+1.  In general, if we want to talk about the sample we have, we can use
+    any biased method (like the eta-squared) because it estimates only
+    for the sample and not the population.
+
+2.  If we want to generalise our results, we have to use an unbiased
+    method.
+
+Literature recommends using an Effect Size measure accompanied with the
+Confidence Interval, because telling only that a result is statistically
+significant doesn't inform us of the contribution of the independent
+variable to explain the variation in the dependent variable.
+
+#### How to compute these in `R`
+
+We use the package `effectsize`
+
+##### Standardised effect sizes (Cohen's *d*)
+
+It can be computed using the following formula:
+
+$d=\frac{{Mean}_{factor1}-\ {Mean}_{factor2}}{{SD}_{pooled}}$
+
+With the pooled standard deviation computed as:
+
+${SD}_{pooled}=\sqrt{\frac{{SD}_{factor1}^2\ast\left({Number}_{factor1}-1\right)+\ {SD}_{factor2}^2\ast\left({Number}_{factor2}-1\right)}{{Number}_{factor1}+\ {Number}_{factor2}-\ 2}}$
+
+Fortunately, instead of calculating it manually, we can use the function
+`cohens_d()` from the package `effectsize`.
+
+###### Linear model
+
+```{r}
+options(es.use_symbols = TRUE)# get nice symbols when printing! (On Windows, requires R >= 4.2.0)
+
+english %>% 
+  lm(RTlexdec ~ AgeSubject, data = .) %>%
+  summary()
+```
+
+What the model above tells us is that there is a very highly
+statistically significant impact of AgeSubject on RTlexdec (p \<
+0.0001).
+
+###### Cohen's *d*
+
+However, it does not tell us how large this effect is. That is where we
+can use the `cohens_d()` function.
+
+```{r}
+# Cohen's d
+english %>% 
+  cohens_d(RTlexdec ~ AgeSubject, data = .) %>% 
+  interpret_cohens_d()
+```
+
+One nice option in the package `effectsize` is to use an [*Automated
+Interpretation of Indices of Effect Size*
+vignette](https://easystats.github.io/effectsize/articles/interpret.html).
+We can use the original publication to interpret the effect size or use
+an alternative. See the link above for more details.
+
+We can also standardise our model's coefficients, which allows us to
+compare the effect sizes of different predictors in the same model and
+between models, variables and studies.
+
+###### Standardised coefficients
+
+```{r}
+model <- english %>% 
+  lm(RTlexdec ~ AgeSubject, data = .)
+
+datawizard::standardize(model)
+
+parameters::standardize_parameters(model)
+```
+
+Standardised coefficients are interpreted as the change in standard
+deviations of the outcome variable for a one standard deviation change
+in the predictor variable. We can initially standardise our outcomes
+using the function `scale(center = TRUE, scale = TRUE)` and then run our
+model, OR use the function `standardize()` from the package `datawizard`
+or `standardize_parameters()` from the package `parameters` to do that.
+
+##### Strength of association effect sizes
+
+Here, we saw already that there are biased and unbiased measures. We
+will document the classical measures used.
+
+###### $R^{2}$
+
+$R^{2}$ (R squared): It is the proportion of variance explained by the
+model. This is a biased effect size measure. It is computed as:
+
+$R^2=\frac{SS_{model}}{SS_{total}}=1-\frac{SS_{residual}}{SS_{total}}$
+
+Where: $SS_{model}$ is the sum of squares of the model, $SS_{total}$ is
+the total sum of squares and $SS_{residual}$ is the sum of squares of
+the residuals.
+
+We can get the $R^{2}$ and the adjusted $R^{2}$ from the summary of the
+model:
+
+```{r}
+summary(model)$r.squared
+summary(model)$adj.r.squared
+```
+
+###### $\eta^{2}$ (eta squared)
+
+The eta-squared effect size measure is a biased measure and describes
+the ratio of variance explained in the dependent variable by a predictor
+(or factor) while controlling for other predictors (or in a simple way:
+it is the proportion of total variation attributable to the factor). The
+range is from 0 to 1 and it sums up to 1. Eta squared is a biased
+estimator of the variance explained by the model in the population (it
+only estimates effect size in the sample). On average it overestimates
+the variance explained in the population. . It is computed as:
+
+$\eta^{2}=\frac{SS_{model}}{SS_{total}}$
+
+$SS_{model}$ is the sum of squares of the model, $SS_{total}$ is the
+total sum of squares and $SS_{residual}$ is the sum of squares of the
+residuals.
+
+In a sense, both $R^{2}$ and $\eta^{2}$ are computed in the same way.
+
+To obtain it directly from the model, we can use the function
+`eta_squared()` from the package `effectsize` and specify
+`partial = FALSE`.
+
+```{r}
+# eta squared
+english %>% 
+  aov(RTlexdec ~ AgeSubject, data = .) %>%
+  eta_squared(., partial = FALSE) %>% 
+  interpret_eta_squared()
+```
+
+###### $\eta^{2}p$ (partial eta squared)
+
+$\eta^{2}p$ (partial eta squared): "proportion of total variation
+attributable to the factor, partialling out (excluding) other factors
+from the total non error variation". Partial eta squared is normally
+higher than eta squared (except in simple one-factor models). The range
+is from 0 to 1, and it sums up to more than 1 (except in one-way ANOVA).
+It is computed as:
+
+$\eta^{2}p=\frac{SS_{factor}}{SS_{factor}+SS_{error}}$
+
+Where: $SS_{factor}$ is the sum of squares of the factor, $SS_{error}$
+is the sum of squares of the error.
+
+To obtain it directly from the model, we can use the function
+`eta_squared()` from the package `effectsize` and specify
+`partial = TRUE`.
+
+```{r}
+# partial eta squared
+english %>% 
+  aov(RTlexdec ~ AgeSubject, data = .) %>%
+  eta_squared(., partial = TRUE) %>% 
+  interpret_eta_squared()
+```
+
+###### $\omega^{2}$ (omega squared)
+
+$\omega^{2}$ (omega squared): Provides a relatively unbiased estimate of
+the variance explained in the population by a predictor variable. It
+takes random error into account more so than eta squared, which is
+incredibly biased to be too large. The range is from 0 to 1 and it sums
+up to 1.
+
+It is computed as:
+
+$\omega^{2}=\frac{SS_{model}-(df_{model}\ast MS_{error})}{SS_{total}+MS_{error}}$
+
+Where: $SS_{model}$ is the sum of squares of the model, $SS_{total}$ is
+the total sum of squares, $df_{model}$ is the degrees of freedom of the
+model and $MS_{error}$ is the mean square of the error.
+
+To obtain it directly from the model, we can use the function
+`omega_squared()` from the package `effectsize` and specify
+`partial = FALSE`.
+
+```{r}
+# omega squared
+english %>% 
+  aov(RTlexdec ~ AgeSubject, data = .) %>%
+  omega_squared(., partial = FALSE) %>% 
+  interpret_omega_squared()
+```
+
+###### Partial $\omega^{2}$ (partial omega squared)
+
+Partial $\omega^{2}$ (omega squared): "proportion of total variation
+attributable to the factor, partialling out (excluding) other factors
+from the total non error variation". The range is from 0 to 1 and it
+sums up to more than 1 (except in one-way ANOVA). It is the equivalent
+of partial eta-squared but as an unbiased measure. It is computed as:
+
+$\omega^{2}p=\frac{df_{factor}\ast MS_{factor}-MS_{error})}{df_{factor}\ast MS_{factor}+df_{total}- df_{factor}\ast MS_{error})}$
+
+Where: $df_{factor}$ is the degrees of freedom of the factor,
+$MS_{factor}$ is the mean square of the factor, $df_{total}$ is the
+total degrees of freedom and $MS_{error}$ is the mean square of the
+error.
+
+To obtain it directly from the model, we can use the function
+`omega_squared()` from the package `effectsize` and specify
+`partial = TRUE`.
+
+```{r}
+# omega squared partial
+english %>% 
+  aov(RTlexdec ~ AgeSubject, data = .) %>%
+  omega_squared(., partial = TRUE) %>% 
+  interpret_omega_squared()
+```
+
+###### Odds ratio
+
+We will see in the **sections** \@ref(GLM) **and** \@ref(GLMM) that we
+use odds ratio as an exponentation of the logodds (logit) coefficients.
+Odds ratios can be interpreted as the odds for an event to occur. In
+comparison to the logodds (logit) scale, which spans -6 and 6 (well
+$-\infty$ - $\infty$), odds ratio are very (very high) and can reach 999
+for a logodds of 6.9. Of course, in some cases, odds ratio are not easy
+to interpret, and it is often "easier" to transform the logodds into
+proportions. See this [excellent
+link](https://stats.oarc.ucla.edu/other/mult-pkg/faq/general/faq-how-do-i-interpret-odds-ratios-in-logistic-regression/)
+where you can understand the links better.
+
+## Power analysis and sample size
+
+Usually, when we design an experiment, we always ask the question: what
+is the optimal sample size to use so that I have confidence in the
+results I will obtain? To answer this question, we usually say: well it
+all depends on your discipline and what is feasible for a particular
+study. However, this can easily lead to misconceptions and issues in
+designing our studies and more importantly, in the interpretation of the
+results!
+
+Hence, we demonstrate in the following power analysis and the sample
+size. These two are crucial as they are interlinked. We saw in
+**section** \@ref(errors) that there are four types of errors, with
+**Type M** and **Type S** depending heavily on the power and on the
+sampe size.
+
+We use the package `pwr`, which allows us to compute both power and
+sample size (but not at the same time!!). Looking at the [vignette of
+the `pwr`
+package](https://cran.r-project.org/web/packages/pwr/vignettes/pwr-vignette.html),
+they cite the various functions available, such as:
+
+-   `pwr.p.test`: one-sample proportion test
+-   `pwr.2p.test`: two-sample proportion test
+-   `pwr.2p2n.test`: two-sample proportion test (unequal sample sizes)
+-   `pwr.t.test`: two-sample, one-sample and paired t-tests
+-   `pwr.t2n.test`: two-sample t-tests (unequal sample sizes)
+-   `pwr.anova.test`: one-way balanced ANOVA
+-   `pwr.r.test`: correlation test
+-   `pwr.chisq.test`: chi-squared test (goodness of fit and association)
+-   `pwr.f2.test`: test for the general linear model
+
+### Linear model
+
+#### General example
+
+We borrow from the vignette of the `pwr` package an example of a linear
+model.
+
+##### Power of the test
+
+We want to compute the power we have with a sample size of 40 words, an
+effect size of 0.3 and a significance level of 0.001.
+
+```{r}
+pwr.f2.test(u = 1, v = 40 - 1 - 1, f2 = 0.3/(1 - 0.3), sig.level = 0.001)
+```
+
+Where:
+
+-   u = number of predictors
+
+-   v = degrees of freedom of the residuals (n - u - 1)
+
+-   f2 = effect size (Cohen's f2)
+
+-   sig.level = significance level (alpha)
+
+##### Sample size
+
+We want to compute the sample size needed to have a power of 0.8, with a
+significance level of 0.001 and an effect size of 0.3 (medium effect
+size according to Cohen's conventions).
+
+```{r}
+pwr.f2.test(u = 1, f2 = 0.3/(1 - 0.3), sig.level = 0.001, power = 0.8)
+```
+
+Where:
+
+-   u = number of predictors
+
+-   f2 = effect size (Cohen's f2)
+
+-   sig.level = significance level (alpha)
+
+-   power = desired power (1 - beta)
+
+Recall $n = v + u + 1$. Therefore, we need 43.35263 + 1 + 1 = 45.35263
+\~ **45 words**.
+
+#### Using our LM model
+
+In our case, we use the dataset `english` from the `languageR` package.
+We used AgeSubject as our predictor to predict RTlexdec. What if we want
+to compute the power of our model that we ran previously? Here is the
+summary of our model
+
+```{r}
+summary(model)
+```
+
+##### Power analysis from our model
+
+Recall that the F test has numerator and denominator degrees of freedom.
+The numerator degrees of freedom, `u`, is the number of coefficients
+you'll have in your model (minus the intercept).
+
+The effect size, `f2`, is $R^{2}/(1 - R^{2})$, where $R^{2}$ is the
+coefficient of determination, aka the "proportion of variance
+explained". To determine effect size you hypothesize the proportion of
+variance your model explains, or the $R^{2}$.
+
+Once we computed these three values, we can compute the power of our
+model based on its summary.
+
+```{r}
+u <- summary(model)$fstatistic[2]
+v <- summary(model)$fstatistic[3]
+f2 <- summary(model)$r.squared/(1 - summary(model)$r.squared)
+# p.value <- summary(model)$coefficients[2,4]
+p.value <- 0.0001
+pwrModel <- pwr.f2.test(u = u, v = v, f2 = f2, sig.level = p.value)
+pwrModel
+```
+
+##### Sample size
+
+For the optimal sample size, we use the same values for `u`, `f2` and
+`p.value` as above, but we specify the power we want to have. Here, we
+use the power we obtained from our model above.
+
+```{r}
+pwrSample <- pwr.f2.test(u = u, f2 = f2, sig.level = p.value, power = pwrModel$power)
+pwrSample
+```
+
+Based on the output, we can compute the optimal sample size needed for
+our model as
+
+```{r}
+n <- pwrSample$v + u + 1
+n
+```
+
+The optimal sample size to reach this level of power is **1,000,000,000
+words**! BUT we do not have that many words in our dataset. This is kind
+of telling us that there are serious issues in our model. In fact, we
+see that we have a power of 1, which is very high power. However, we
+know very well that our linear model is inaccurate. We did not tell our
+model that the data comes from multiple words, and that we really need
+to compute a mixed effects regression (see **Section** \@ref(LMM) from
+**chapter** \@ref(Random-LMM-GLMM-CLMM-GAMM)).
 
 ## Correlation tests
 
@@ -246,7 +733,7 @@ english %>%
             sd = sd(RTlexdec))
 ```
 
-## Linear Models
+## Linear Models {#LM}
 
 Up to now, we have looked at descriptive statistics, and evaluated
 summaries, correlations in the data (with p values).
@@ -644,7 +1131,7 @@ english %>%
 The results above tell us that all predictors used are significantly
 different.
 
-## Generalised Linear Models
+## Generalised Linear Models {#GLM}
 
 Here we will look at an example when the outcome is binary. This
 simulated data is structured as follows. We asked one participant to
@@ -1127,7 +1614,7 @@ you need to use the glm function with a specific family function.
 
 ```
 
-## Cumulative Logit Link Models
+## Cumulative Logit Link Models {#CLM}
 
 These models work perfectly with rating data. Ratings are inherently
 ordered, 1, 2, ... n, and expect to observe an increase (or decrease) in
