@@ -348,9 +348,13 @@ model. This is a biased effect size measure. It is computed as:
 
 $R^2=\frac{SS_{model}}{SS_{total}}=1-\frac{SS_{residual}}{SS_{total}}$
 
-Where: $SS_{model}$ is the sum of squares of the model, $SS_{total}$ is
-the total sum of squares and $SS_{residual}$ is the sum of squares of
-the residuals.
+Where:
+
+-   $SS_{model}$ is the sum of squares of the model
+
+-   $SS_{total}$ is the total sum of squares
+
+-   $SS_{residual}$ is the sum of squares of the residuals.
 
 We can get the $R^{2}$ and the adjusted $R^{2}$ from the summary of the
 model:
@@ -373,9 +377,11 @@ the variance explained in the population. . It is computed as:
 
 $\eta^{2}=\frac{SS_{model}}{SS_{total}}$
 
-$SS_{model}$ is the sum of squares of the model, $SS_{total}$ is the
-total sum of squares and $SS_{residual}$ is the sum of squares of the
-residuals.
+-   $SS_{model}$ is the sum of squares of the model
+
+-   $SS_{total}$ is the total sum of squares
+
+-   $SS_{residual}$ is the sum of squares of the residuals.
 
 In a sense, both $R^{2}$ and $\eta^{2}$ are computed in the same way.
 
@@ -402,8 +408,11 @@ It is computed as:
 
 $\eta^{2}p=\frac{SS_{factor}}{SS_{factor}+SS_{error}}$
 
-Where: $SS_{factor}$ is the sum of squares of the factor, $SS_{error}$
-is the sum of squares of the error.
+Where:
+
+-   $SS_{factor}$ is the sum of squares of the factor
+
+-   $SS_{error}$ is the sum of squares of the error.
 
 To obtain it directly from the model, we can use the function
 `eta_squared()` from the package `effectsize` and specify
@@ -429,9 +438,15 @@ It is computed as:
 
 $\omega^{2}=\frac{SS_{model}-(df_{model}\ast MS_{error})}{SS_{total}+MS_{error}}$
 
-Where: $SS_{model}$ is the sum of squares of the model, $SS_{total}$ is
-the total sum of squares, $df_{model}$ is the degrees of freedom of the
-model and $MS_{error}$ is the mean square of the error.
+Where:
+
+-   $SS_{model}$ is the sum of squares of the model
+
+-   $SS_{total}$ is the total sum of squares
+
+-   $df_{model}$ is the degrees of freedom of the model
+
+-   $MS_{error}$ is the mean square of the error.
 
 To obtain it directly from the model, we can use the function
 `omega_squared()` from the package `effectsize` and specify
@@ -455,10 +470,15 @@ of partial eta-squared but as an unbiased measure. It is computed as:
 
 $\omega^{2}p=\frac{df_{factor}\ast MS_{factor}-MS_{error})}{df_{factor}\ast MS_{factor}+df_{total}- df_{factor}\ast MS_{error})}$
 
-Where: $df_{factor}$ is the degrees of freedom of the factor,
-$MS_{factor}$ is the mean square of the factor, $df_{total}$ is the
-total degrees of freedom and $MS_{error}$ is the mean square of the
-error.
+Where:
+
+-   $df_{factor}$ is the degrees of freedom of the factor
+
+-   $MS_{factor}$ is the mean square of the factor
+
+-   $df_{total}$ is the total degrees of freedom
+
+-   $MS_{error}$ is the mean square of the error.
 
 To obtain it directly from the model, we can use the function
 `omega_squared()` from the package `effectsize` and specify
@@ -475,7 +495,7 @@ english %>%
 ###### Odds ratio
 
 We will see in the **sections** \@ref(GLM) **and** \@ref(GLMM) that we
-use odds ratio as an exponentation of the logodds (logit) coefficients.
+use odds ratio as an exponentiation of the logodds (logit) coefficients.
 Odds ratios can be interpreted as the odds for an event to occur. In
 comparison to the logodds (logit) scale, which spans -6 and 6 (well
 $-\infty$ - $\infty$), odds ratio are very (very high) and can reach 999
@@ -485,7 +505,7 @@ proportions. See this [excellent
 link](https://stats.oarc.ucla.edu/other/mult-pkg/faq/general/faq-how-do-i-interpret-odds-ratios-in-logistic-regression/)
 where you can understand the links better.
 
-## Power analysis and sample size
+### Power analysis and sample size
 
 Usually, when we design an experiment, we always ask the question: what
 is the optimal sample size to use so that I have confidence in the
@@ -499,7 +519,7 @@ Hence, we demonstrate in the following power analysis and the sample
 size. These two are crucial as they are interlinked. We saw in
 **section** \@ref(errors) that there are four types of errors, with
 **Type M** and **Type S** depending heavily on the power and on the
-sampe size.
+sample size.
 
 We use the package `pwr`, which allows us to compute both power and
 sample size (but not at the same time!!). Looking at the [vignette of
@@ -517,14 +537,14 @@ they cite the various functions available, such as:
 -   `pwr.chisq.test`: chi-squared test (goodness of fit and association)
 -   `pwr.f2.test`: test for the general linear model
 
-### Linear model
+#### Linear model
 
-#### General example
+##### General example
 
 We borrow from the vignette of the `pwr` package an example of a linear
 model.
 
-##### Power of the test
+###### Power of the test
 
 We want to compute the power we have with a sample size of 40 words, an
 effect size of 0.3 and a significance level of 0.001.
@@ -543,7 +563,7 @@ Where:
 
 -   sig.level = significance level (alpha)
 
-##### Sample size
+###### Sample size
 
 We want to compute the sample size needed to have a power of 0.8, with a
 significance level of 0.001 and an effect size of 0.3 (medium effect
@@ -566,7 +586,7 @@ Where:
 Recall $n = v + u + 1$. Therefore, we need 43.35263 + 1 + 1 = 45.35263
 \~ **45 words**.
 
-#### Using our LM model
+##### Using our LM model
 
 In our case, we use the dataset `english` from the `languageR` package.
 We used AgeSubject as our predictor to predict RTlexdec. What if we want
@@ -577,7 +597,7 @@ summary of our model
 summary(model)
 ```
 
-##### Power analysis from our model
+###### Power analysis from our model
 
 Recall that the F test has numerator and denominator degrees of freedom.
 The numerator degrees of freedom, `u`, is the number of coefficients
@@ -601,7 +621,7 @@ pwrModel <- pwr.f2.test(u = u, v = v, f2 = f2, sig.level = p.value)
 pwrModel
 ```
 
-##### Sample size
+###### Sample size
 
 For the optimal sample size, we use the same values for `u`, `f2` and
 `p.value` as above, but we specify the power we want to have. Here, we
@@ -1431,7 +1451,7 @@ biases.
 Let's do some stats on this
 
 |   | Yes | No | Total |
-|-------------------|------------------|------------------|------------------|
+|----|----|----|----|
 | Grammatical (Yes Actual) | TP = 100 | FN = 5 | (Yes Actual) 105 |
 | Ungrammatical (No Actual) | FP = 10 | TN = 50 | (No Actual) 60 |
 | Total | (Yes Response) 110 | (No Response) 55 | 165 |
