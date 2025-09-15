@@ -20,7 +20,7 @@ models (CLM) to evaluate ordinal (likert) outcomes on two datasets.
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 ## Use the code below to check if you have all required packages installed. If some are not installed already, the code below will install these. If you have all packages installed, then you could load them with the second code.
-requiredPackages = c('tidyverse', 'broom', 'knitr', 'Hmisc', 'corrplot', 'emmeans', 'ggsignif', 'PresenceAbsence', 'languageR', 'psycho', 'ordinal', 'DHARMa', 'sjPlot', 'htmltools', 'pwr', 'effectsize', 'datawizard', 'parameters')
+requiredPackages = c('tidyverse', 'broom', 'knitr', 'Hmisc', 'corrplot', 'emmeans', 'ggsignif', 'PresenceAbsence', 'languageR', 'psycho', 'ordinal', 'DHARMa', 'sjPlot', 'htmltools', 'pwr', 'effectsize', 'datawizard', 'parameters', 'car')
 for(p in requiredPackages){
   if(!require(p,character.only = TRUE)) install.packages(p)
   library(p,character.only = TRUE)
@@ -537,6 +537,156 @@ they cite the various functions available, such as:
 -   `pwr.chisq.test`: chi-squared test (goodness of fit and association)
 -   `pwr.f2.test`: test for the general linear model
 
+#### Cohen's *d* interpretation rules and t.test
+
+Based on J. Cohen (1988) rule of thumb, we can interpret Cohen's *d*
+effect size measure as:
+
+-   d \< 0.2 - Very small
+
+-   0.2 \<= d \< 0.5 - Small
+
+-   0.5 \<= d \< 0.8 - Medium
+
+-   d \>= 0.8 - Large
+
+We can use the function `pwr.t.test()` to compute the power of a t.test. 
+
+##### pwr.t.test - one-sample and two-sample t tests for means
+
+Based on the example below, we know that the variance between the two age groups with respect to RTlexdec is significantly different; meaning that there is no equality of variance in this case. This is important to know to be able to compute the t.test appropriately. 
+
+Here are the results of the t.test between the two groups:
+
+```{r}
+english %>% 
+  t.test(RTlexdec ~ AgeSubject, data = ., var.equal = FALSE)
+```
+
+
+
+##### Cohen's *d* effect size
+
+```{r}
+english %>% 
+  cohens_d(RTlexdec ~ AgeSubject, data = .) %>% 
+  interpret_cohens_d()
+```
+
+
+
+```{r}
+cohen.ES(test = "t", size = "large")
+pwr.t.test(n = 2284, d = 2, sig.level = 2.2e-16)
+```
+
+
+The results here show that with a sample size of 2284, a large effect size of 2 and a significance level of 2.2e-16, we have a power of 1 (or 100\%). This is a massive power and effect size, but we know that the results are inflated de to not using a mixed effects model.
+
+Now, let's imagine we use another sample. 
+
+We're interested to know if there is a difference in the mean reaction time in a lexical decision task between young and old participants. Let's say we randomly ask 30 young and 30 old participants to perform the test and  and calculate the mean reaction time for each group. We'll test for a difference in means using a two-sample t-test. 
+
+How powerful is this experiment if we want to detect a "medium" effect in either direction with a significance level of 0.001?
+
+Unfortunately, we don't have any idea what the number of participants in the `english` dataset. It is composed of 2284 monomorphemic English nouns and verbs that are averaged across old and young subjects.
+
+
+```{r}
+cohen.ES(test = "t", size = "large")
+pwr.t.test(n = 30, d = 0.8, sig.level = 0.01)
+```
+
+
+The power is only at 66.78%! Not very powerful. How many students should we observe for a test with 80% power?
+```{r}
+pwr.t.test(d = 0.8, power = 0.80, sig.level = 0.01)
+```
+
+
+We need at least 38 students per group. If we lower our p value, the sample size will increase drastically
+
+##### Plots
+
+The `pwr` package comes with a handy plotting function that we can use to evaluate the impact of the increase in power, effect size and sample size for a specific p value
+
+###### p < 0.05
+
+What if we use a specific p value < 0.05 and a power of 0.80? How does the change in effect size impact the sample size? We simulate variable effect size measures at 0.2, 0.5, 0.8 and 2 based on the interpretation above.
+
+Based on J. Cohen (1988) rule of thumb, we can interpret Cohen's *d*
+effect size measure as:
+
+-   d \< 0.2 - Very small
+
+-   0.2 \<= d \< 0.5 - Small
+
+-   0.5 \<= d \< 0.8 - Medium
+
+-   d \>= 0.8 - Large
+
+
+
+```{r}
+p.out <- pwr.t.test(d = 0.2, power = 0.80, sig.level = 0.05)
+p.out
+plot(p.out)
+
+p.out <- pwr.t.test(d = 0.5, power = 0.80, sig.level = 0.05)
+p.out
+plot(p.out)
+
+p.out <- pwr.t.test(d = 0.8, power = 0.80, sig.level = 0.05)
+p.out
+plot(p.out)
+
+p.out <- pwr.t.test(d = 2, power = 0.80, sig.level = 0.05)
+p.out
+plot(p.out)
+```
+
+
+###### p < 0.01
+
+We do the same as above but we change the p value < 0.01 and a power of 0.80? How does the change in effect size impact the sample size? We simulate variable effect size measures at 0.2, 0.5, 0.8 and 2 based on the interpretation above.
+
+Based on J. Cohen (1988) rule of thumb, we can interpret Cohen's *d*
+effect size measure as:
+
+-   d \< 0.2 - Very small
+
+-   0.2 \<= d \< 0.5 - Small
+
+-   0.5 \<= d \< 0.8 - Medium
+
+-   d \>= 0.8 - Large
+
+
+```{r}
+p.out <- pwr.t.test(d = 0.2, power = 0.80, sig.level = 0.01)
+p.out
+plot(p.out)
+
+p.out <- pwr.t.test(d = 0.5, power = 0.80, sig.level = 0.01)
+p.out
+plot(p.out)
+
+p.out <- pwr.t.test(d = 0.8, power = 0.80, sig.level = 0.01)
+p.out
+plot(p.out)
+
+p.out <- pwr.t.test(d = 2, power = 0.80, sig.level = 0.01)
+p.out
+plot(p.out)
+```
+
+
+The plot above show the sample size required for the specific power, p value and effect size. Play around with these values to have an idea of the impact of these parameters on the sample size.
+
+
+
+
+
 #### Linear model
 
 ##### General example
@@ -758,9 +908,170 @@ english %>%
 Up to now, we have looked at descriptive statistics, and evaluated
 summaries, correlations in the data (with p values).
 
+We are now interested in looking at group differences. But before moving
+into linear models, let's assume we simply wanted to use a student's
+t.test to evaluate the differences between two groups. In our case, we
+have two age groups within the variable `AgeSubject` (young vs old).
+Before running a t.test, there are some assumptions one needs to take
+into account:
+
+### Normality of distribution
+
+#### Shapiro test
+
+To check normality of distribution, we use the `shapiro.test` on the
+numeric outcome. Given that our predictor now has two levels.
+
+```{r}
+shapiro.test(english$RTlexdec)
+```
+
+How to interpret this statistically significant result? This tells us
+that the distribution of the data is statistically different from a
+normal distribution.
+
+#### Density plot
+
+We can also use a density plot to evaluate normality. The results show
+that both levels have bell shaped distributions but they are both skewed
+to the right (positively skewed data). See [this
+website](https://www.cambridgemaths.org/blogs/skewed-usage-skewed-distribution/)
+for a nice example of left and right skwed data distributions.
+
+```{r}
+english %>% 
+  ggplot(aes(x = RTlexdec))+
+  geom_density()+
+  facet_wrap(~ AgeSubject)
+```
+
+### Homogeneity of variance
+
+If our data were normally distributed, we can use the `bartlett` test.
+If our data were non-normally distributed, we would use the Levene Test
+(either with `var.test` from base-R or `leveneTest` from the car package
+We can check both.
+
+#### Bartlett test
+
+```{r}
+english %>% 
+  bartlett.test(RTlexdec ~ AgeSubject, data = .)
+```
+
+#### Levene test
+
+##### Base R
+
+```{r}
+english %>% 
+  var.test(RTlexdec ~ AgeSubject, data = .)
+```
+
+##### From the `car` package
+
+```{r}
+english %>% 
+  car::leveneTest(RTlexdec ~ AgeSubject, data = .)
+```
+
+In all cases, the statistically significant result indicates that there
+is evidence that the variance of two levels of the factor `AgeSubject`
+is statistically significant; i.e., the variances are not equal. This is
+important as we will use this in our t-test later on
+
+### First steps
+
+Up to now, we have looked at descriptive statistics, and evaluated
+summaries, correlations in the data (with p values), and checked the
+normality of distribution of our data.
+
 We are now interested in looking at group differences.
 
-### Introduction
+Let us start with a simple t-test
+
+#### T-test
+
+We then run a t-test on the data. We specify the formula as `y ~ x` and
+add `var.equal = FALSE` (based on the normality tests above)
+
+```{r}
+english %>% 
+  t.test(RTlexdec ~ AgeSubject, data = ., var.equal = FALSE)
+```
+
+To interpret the t-test, we say that there is evidence for a
+statistically significant difference between the two groups: `setosa`
+and `versicolor`: `t(4534.6) = 67.468, p < 2.2e-16`. The mean of
+`RTLexdec` for the young group is significantly lower than that of the
+old group.
+
+#### Linear Model
+
+Let us run a linear model on the same data
+
+```{r}
+english %>% 
+  lm(RTlexdec ~ AgeSubject, data = .) %>% 
+  summary()
+```
+
+Any comments? discuss with your neighbour.
+
+The results of the linear model are exactly the same, albeit with a
+difference in the sign of the difference. This indicates that the
+$\beta$ coefficient for `versicolor` is significantly higher than that
+of `setosa` by `0.93000`: `t(98) = 10.52, p < <2e-16`.
+
+The dataset `english` contains two levels for `AgeSubject.` We will run
+an ANOVA and a linear model on the data.
+
+#### Basic ANOVA
+
+We can use the function `aov` to run an Analysis of Variance on the full
+dataset
+
+```{r}
+english %>% 
+  aov(RTlexdec ~ AgeSubject, data = .) %>% 
+  summary()
+```
+
+#### Linear model
+
+We can use the function `lm` to run a linear model
+
+```{r}
+english %>% 
+  lm(RTlexdec ~ AgeSubject, data = .) %>% 
+  summary()
+```
+
+But wait... How is the linear model comparable to the analysis of
+variance we ran above? This linear model derives the analysis of
+variance we saw above, use `anova` on your linear model..
+
+Here are the results of the initial Analysis of variance:
+
+```{r}
+english %>% 
+  aov(RTlexdec ~ AgeSubject, data = .) %>% 
+  summary()
+```
+
+And here are the results of the linear model with the `anova` function
+
+```{r}
+english %>% 
+  lm(RTlexdec ~ AgeSubject, data = .) %>% 
+  anova()
+```
+
+They are exactly the same... The underlying of an Analysis of variance
+is a linear model. We will continue with a linear model to understand it
+better
+
+### Introduction to Linear models
 
 The basic assumption of a Linear model is to create a regression
 analysis on the data. We have an outcome (or dependent variable) and a

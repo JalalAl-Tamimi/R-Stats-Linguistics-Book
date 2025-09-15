@@ -30,6 +30,8 @@ pwr
 effectsize
 datawizard
 parameters
+carData
+car
 faux
 Matrix
 lme4
@@ -41,8 +43,6 @@ ggstats
 ggstatsplot
 paletteer
 lattice
-carData
-car
 tidytext
 rvest
 janeaustenr
