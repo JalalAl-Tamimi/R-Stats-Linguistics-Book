@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-10" />
+<meta name="date" content="2025-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,8 +55,9 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -377,17 +378,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-and-sample-size"><i class="fa fa-check"></i><b>2.3.2</b> Power analysis and sample size</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.1</b> Linear model</a>
+<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-interpretation-rules-and-t.test"><i class="fa fa-check"></i><b>2.3.2.1</b> Cohen’s <em>d</em> interpretation rules and t.test</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.1.1</b> General example</a>
+<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#pwr.t.test---one-sample-and-two-sample-t-tests-for-means"><i class="fa fa-check"></i><b>2.3.2.1.1</b> pwr.t.test - one-sample and two-sample t tests for means</a></li>
+<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-effect-size"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Cohen’s <em>d</em> effect size</a></li>
+<li class="chapter" data-level="2.3.2.1.3" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#plots"><i class="fa fa-check"></i><b>2.3.2.1.3</b> Plots</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.1.1.1</b> Power of the test</a></li>
-<li class="chapter" data-level="2.3.2.1.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.1.1.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.1.3.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.05"><i class="fa fa-check"></i><b>2.3.2.1.3.1</b> p &lt; 0.05</a></li>
+<li class="chapter" data-level="2.3.2.1.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.01"><i class="fa fa-check"></i><b>2.3.2.1.3.2</b> p &lt; 0.01</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Using our LM model</a>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.2</b> Linear model</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.1.2.1</b> Power analysis from our model</a></li>
-<li class="chapter" data-level="2.3.2.1.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.1.2.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.2.1</b> General example</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.2.1.1</b> Power of the test</a></li>
+<li class="chapter" data-level="2.3.2.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.2.1.2</b> Sample size</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.2.2</b> Using our LM model</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.2.2.1</b> Power analysis from our model</a></li>
+<li class="chapter" data-level="2.3.2.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.2.2.2</b> Sample size</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -404,53 +415,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="2.5-LM.html"><a href="2.5-LM.html"><i class="fa fa-check"></i><b>2.5</b> Linear Models</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-3"><i class="fa fa-check"></i><b>2.5.1</b> Introduction</a>
+<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#normality-of-distribution"><i class="fa fa-check"></i><b>2.5.1</b> Normality of distribution</a>
 <ul>
-<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.1.1</b> Model estimation</a></li>
+<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#shapiro-test"><i class="fa fa-check"></i><b>2.5.1.1</b> Shapiro test</a></li>
+<li class="chapter" data-level="2.5.1.2" data-path="2.5-LM.html"><a href="2.5-LM.html#density-plot"><i class="fa fa-check"></i><b>2.5.1.2</b> Density plot</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.2</b> Role of coding schemes</a>
+<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#homogeneity-of-variance"><i class="fa fa-check"></i><b>2.5.2</b> Homogeneity of variance</a>
 <ul>
-<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.2.1</b> Intro</a></li>
-<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.2.2</b> Treatment coding</a></li>
-<li class="chapter" data-level="2.5.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.2.3</b> Contrast (or sum) coding</a>
+<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#bartlett-test"><i class="fa fa-check"></i><b>2.5.2.1</b> Bartlett test</a></li>
+<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#levene-test"><i class="fa fa-check"></i><b>2.5.2.2</b> Levene test</a>
 <ul>
-<li class="chapter" data-level="2.5.2.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.2.3.1</b> Default</a></li>
-<li class="chapter" data-level="2.5.2.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.2.3.2</b> Modified</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.3</b> Further steps</a>
-<ul>
-<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.3.1</b> Tidying the output</a></li>
-<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.3.2</b> Nice table of our model summary</a>
-<ul>
-<li class="chapter" data-level="2.5.3.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.3.2.1</b> Directly from model summary</a></li>
-<li class="chapter" data-level="2.5.3.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.3.2.2</b> From the <code>tidy</code> output</a></li>
-<li class="chapter" data-level="2.5.3.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.3.2.3</b> Model’s fit</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.3.3</b> Dissecting the model</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.3.3.1</b> “str” and “coef”</a></li>
-<li class="chapter" data-level="2.5.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.3.3.2</b> “coef” and “coefficients”</a></li>
-<li class="chapter" data-level="2.5.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.3.3.3</b> Residuals</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.3.3.3.1</b> Histogram</a></li>
-<li class="chapter" data-level="2.5.3.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.3.3.3.2</b> qqplots</a></li>
-<li class="chapter" data-level="2.5.3.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.3.3.3.3</b> Residuals vs fitted values</a></li>
-<li class="chapter" data-level="2.5.3.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.3.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.3.3.4</b> Goodness of fit?</a></li>
-<li class="chapter" data-level="2.5.3.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.3.3.5</b> Significance testing</a></li>
+<li class="chapter" data-level="2.5.2.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#base-r"><i class="fa fa-check"></i><b>2.5.2.2.1</b> Base R</a></li>
+<li class="chapter" data-level="2.5.2.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-car-package"><i class="fa fa-check"></i><b>2.5.2.2.2</b> From the <code>car</code> package</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.4</b> Plotting fitted values</a>
+<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#first-steps-3"><i class="fa fa-check"></i><b>2.5.3</b> First steps</a>
 <ul>
-<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.4.1</b> Trend line</a></li>
-<li class="chapter" data-level="2.5.4.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.2</b> Predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.3</b> Raw data, predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.4.4</b> Add significance levels and trend line on a plot?</a></li>
+<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#t-test"><i class="fa fa-check"></i><b>2.5.3.1</b> T-test</a></li>
+<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-2"><i class="fa fa-check"></i><b>2.5.3.2</b> Linear Model</a></li>
+<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#basic-anova"><i class="fa fa-check"></i><b>2.5.3.3</b> Basic ANOVA</a></li>
+<li class="chapter" data-level="2.5.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-3"><i class="fa fa-check"></i><b>2.5.3.4</b> Linear model</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.5</b> What about pairwise comparison?</a></li>
-<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.6</b> Multiple predictors?</a></li>
+<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-to-linear-models"><i class="fa fa-check"></i><b>2.5.4</b> Introduction to Linear models</a>
+<ul>
+<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.4.1</b> Model estimation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.5</b> Role of coding schemes</a>
+<ul>
+<li class="chapter" data-level="2.5.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.5.1</b> Intro</a></li>
+<li class="chapter" data-level="2.5.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.5.2</b> Treatment coding</a></li>
+<li class="chapter" data-level="2.5.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.5.3</b> Contrast (or sum) coding</a>
+<ul>
+<li class="chapter" data-level="2.5.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.5.3.1</b> Default</a></li>
+<li class="chapter" data-level="2.5.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.5.3.2</b> Modified</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.6</b> Further steps</a>
+<ul>
+<li class="chapter" data-level="2.5.6.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.6.1</b> Tidying the output</a></li>
+<li class="chapter" data-level="2.5.6.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.6.2</b> Nice table of our model summary</a>
+<ul>
+<li class="chapter" data-level="2.5.6.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.6.2.1</b> Directly from model summary</a></li>
+<li class="chapter" data-level="2.5.6.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.6.2.2</b> From the <code>tidy</code> output</a></li>
+<li class="chapter" data-level="2.5.6.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.6.2.3</b> Model’s fit</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.6.3</b> Dissecting the model</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.6.3.1</b> “str” and “coef”</a></li>
+<li class="chapter" data-level="2.5.6.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.6.3.2</b> “coef” and “coefficients”</a></li>
+<li class="chapter" data-level="2.5.6.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.6.3.3</b> Residuals</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.6.3.3.1</b> Histogram</a></li>
+<li class="chapter" data-level="2.5.6.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.6.3.3.2</b> qqplots</a></li>
+<li class="chapter" data-level="2.5.6.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.6.3.3.3</b> Residuals vs fitted values</a></li>
+<li class="chapter" data-level="2.5.6.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.6.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.6.3.4</b> Goodness of fit?</a></li>
+<li class="chapter" data-level="2.5.6.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.6.3.5</b> Significance testing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.7" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.7</b> Plotting fitted values</a>
+<ul>
+<li class="chapter" data-level="2.5.7.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.7.1</b> Trend line</a></li>
+<li class="chapter" data-level="2.5.7.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.2</b> Predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.3</b> Raw data, predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.7.4</b> Add significance levels and trend line on a plot?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.8" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.8</b> What about pairwise comparison?</a></li>
+<li class="chapter" data-level="2.5.9" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.9</b> Multiple predictors?</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html"><i class="fa fa-check"></i><b>2.6</b> Generalised Linear Models</a>
 <ul>
@@ -620,7 +652,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.3.4.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-random-effects"><i class="fa fa-check"></i><b>3.3.4.1</b> Subject random effects</a></li>
 <li class="chapter" data-level="3.3.4.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#items-random-effects"><i class="fa fa-check"></i><b>3.3.4.2</b> Items random effects</a></li>
-<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
+<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots-1"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
 <ul>
 <li class="chapter" data-level="3.3.4.3.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#fixed-effects-1"><i class="fa fa-check"></i><b>3.3.4.3.1</b> Fixed effects</a>
 <ul>
@@ -2009,7 +2041,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4.3.3.5" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#dimension-5"><i class="fa fa-check"></i><b>7.4.3.3.5</b> Dimension 5</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-1"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
+<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-2"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
 <ul>
 <li class="chapter" data-level="7.4.4.1" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#default-plots"><i class="fa fa-check"></i><b>7.4.4.1</b> Default plots</a>
 <ul>
@@ -2041,7 +2073,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.5.1.1" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#computing-clusters"><i class="fa fa-check"></i><b>7.5.1.1</b> Computing clusters</a></li>
 <li class="chapter" data-level="7.5.1.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#dendograms"><i class="fa fa-check"></i><b>7.5.1.2</b> Dendograms</a></li>
-<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-2"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
+<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-3"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
 <li class="chapter" data-level="7.5.1.4" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#individual-clusters"><i class="fa fa-check"></i><b>7.5.1.4</b> Individual Clusters</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#conclusion-3"><i class="fa fa-check"></i><b>7.5.2</b> Conclusion</a></li>
@@ -2199,12 +2231,12 @@ Here, we let the algorithm decide how many clusters there are.</p>
 <h3><span class="header-section-number">7.5.1</span> Nb Clusters<a href="7.5-kmeans-clustering.html#nb-clusters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We compute number of clusters via hierarchical clustering, after applying 500 Monte Carlo (“bootstrap”) samples.
 We specify 10 as our maximum number of clusters</p>
-<div class="sourceCode" id="cb1999"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1999-1"><a href="7.5-kmeans-clustering.html#cb1999-1" tabindex="-1"></a>dat1Clust <span class="ot">&lt;-</span> dfPharPCA[<span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb1999-2"><a href="7.5-kmeans-clustering.html#cb1999-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb1999-3"><a href="7.5-kmeans-clustering.html#cb1999-3" tabindex="-1"></a></span>
-<span id="cb1999-4"><a href="7.5-kmeans-clustering.html#cb1999-4" tabindex="-1"></a></span>
-<span id="cb1999-5"><a href="7.5-kmeans-clustering.html#cb1999-5" tabindex="-1"></a>gap_stat <span class="ot">&lt;-</span> <span class="fu">clusGap</span>(dat1Clust, <span class="at">FUN =</span> hcut, <span class="at">nstart =</span> <span class="dv">20</span>, <span class="at">K.max =</span> <span class="dv">10</span>, <span class="at">B =</span> <span class="dv">500</span>, <span class="at">spaceH0 =</span> <span class="st">&quot;scaledPCA&quot;</span>)</span>
-<span id="cb1999-6"><a href="7.5-kmeans-clustering.html#cb1999-6" tabindex="-1"></a><span class="fu">print</span>(gap_stat, <span class="at">method =</span> <span class="st">&quot;Tibs2001SEmax&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2058"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2058-1"><a href="7.5-kmeans-clustering.html#cb2058-1" tabindex="-1"></a>dat1Clust <span class="ot">&lt;-</span> dfPharPCA[<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb2058-2"><a href="7.5-kmeans-clustering.html#cb2058-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb2058-3"><a href="7.5-kmeans-clustering.html#cb2058-3" tabindex="-1"></a></span>
+<span id="cb2058-4"><a href="7.5-kmeans-clustering.html#cb2058-4" tabindex="-1"></a></span>
+<span id="cb2058-5"><a href="7.5-kmeans-clustering.html#cb2058-5" tabindex="-1"></a>gap_stat <span class="ot">&lt;-</span> <span class="fu">clusGap</span>(dat1Clust, <span class="at">FUN =</span> hcut, <span class="at">nstart =</span> <span class="dv">20</span>, <span class="at">K.max =</span> <span class="dv">10</span>, <span class="at">B =</span> <span class="dv">500</span>, <span class="at">spaceH0 =</span> <span class="st">&quot;scaledPCA&quot;</span>)</span>
+<span id="cb2058-6"><a href="7.5-kmeans-clustering.html#cb2058-6" tabindex="-1"></a><span class="fu">print</span>(gap_stat, <span class="at">method =</span> <span class="st">&quot;Tibs2001SEmax&quot;</span>)</span></code></pre></div>
 <pre><code>## Clustering Gap statistic [&quot;clusGap&quot;] from call:
 ## clusGap(x = dat1Clust, FUNcluster = hcut, K.max = 10, B = 500, spaceH0 = &quot;scaledPCA&quot;, nstart = 20)
 ## B=500 simulated reference sets, k = 1..10; spaceH0=&quot;scaledPCA&quot;
@@ -2220,8 +2252,8 @@ We specify 10 as our maximum number of clusters</p>
 ##  [8,] 7.533120 8.226987 0.6938672 0.009925265
 ##  [9,] 7.503556 8.205583 0.7020276 0.009794064
 ## [10,] 7.467433 8.186055 0.7186212 0.009604244</code></pre>
-<div class="sourceCode" id="cb2001"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2001-1"><a href="7.5-kmeans-clustering.html#cb2001-1" tabindex="-1"></a><span class="fu">fviz_gap_stat</span>(gap_stat)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-936-1.png" width="672" /></p>
+<div class="sourceCode" id="cb2060"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2060-1"><a href="7.5-kmeans-clustering.html#cb2060-1" tabindex="-1"></a><span class="fu">fviz_gap_stat</span>(gap_stat)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-954-1.png" width="672" /></p>
 <p>The results in the plot above show that the optimal number of clusters is 10!
 This is not helpful at all; for the moment, this is for demonstration.</p>
 <div id="computing-clusters" class="section level4 hasAnchor" number="7.5.1.1">
@@ -2232,18 +2264,18 @@ The aim is to evaluate how close (or far) our groups are, and whether the the tw
 This will compute Hierarchical Clustering and Cut the Tree into k clusters.
 By default, it uses hc_method = “ward.D2”, hc_metric = “euclidean”.
 stand = TRUE allows for the data to be normalised (z-scored)</p>
-<div class="sourceCode" id="cb2002"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2002-1"><a href="7.5-kmeans-clustering.html#cb2002-1" tabindex="-1"></a>km.resdat1_2 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">2</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2002-2"><a href="7.5-kmeans-clustering.html#cb2002-2" tabindex="-1"></a>km.resdat1_3 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">3</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2002-3"><a href="7.5-kmeans-clustering.html#cb2002-3" tabindex="-1"></a>km.resdat1_4 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">4</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2002-4"><a href="7.5-kmeans-clustering.html#cb2002-4" tabindex="-1"></a>km.resdat1_5 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">5</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2002-5"><a href="7.5-kmeans-clustering.html#cb2002-5" tabindex="-1"></a>km.resdat1_6 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">6</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2002-6"><a href="7.5-kmeans-clustering.html#cb2002-6" tabindex="-1"></a>km.resdat1_7 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">7</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2002-7"><a href="7.5-kmeans-clustering.html#cb2002-7" tabindex="-1"></a>km.resdat1_8 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">8</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2002-8"><a href="7.5-kmeans-clustering.html#cb2002-8" tabindex="-1"></a>km.resdat1_9 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">9</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2002-9"><a href="7.5-kmeans-clustering.html#cb2002-9" tabindex="-1"></a>km.resdat1_10 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">10</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2002-10"><a href="7.5-kmeans-clustering.html#cb2002-10" tabindex="-1"></a></span>
-<span id="cb2002-11"><a href="7.5-kmeans-clustering.html#cb2002-11" tabindex="-1"></a></span>
-<span id="cb2002-12"><a href="7.5-kmeans-clustering.html#cb2002-12" tabindex="-1"></a>km.resdat1_2</span></code></pre></div>
+<div class="sourceCode" id="cb2061"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2061-1"><a href="7.5-kmeans-clustering.html#cb2061-1" tabindex="-1"></a>km.resdat1_2 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">2</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2061-2"><a href="7.5-kmeans-clustering.html#cb2061-2" tabindex="-1"></a>km.resdat1_3 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">3</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2061-3"><a href="7.5-kmeans-clustering.html#cb2061-3" tabindex="-1"></a>km.resdat1_4 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">4</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2061-4"><a href="7.5-kmeans-clustering.html#cb2061-4" tabindex="-1"></a>km.resdat1_5 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">5</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2061-5"><a href="7.5-kmeans-clustering.html#cb2061-5" tabindex="-1"></a>km.resdat1_6 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">6</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2061-6"><a href="7.5-kmeans-clustering.html#cb2061-6" tabindex="-1"></a>km.resdat1_7 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">7</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2061-7"><a href="7.5-kmeans-clustering.html#cb2061-7" tabindex="-1"></a>km.resdat1_8 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">8</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2061-8"><a href="7.5-kmeans-clustering.html#cb2061-8" tabindex="-1"></a>km.resdat1_9 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">9</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2061-9"><a href="7.5-kmeans-clustering.html#cb2061-9" tabindex="-1"></a>km.resdat1_10 <span class="ot">&lt;-</span> <span class="fu">hcut</span>(dat1Clust, <span class="dv">10</span>, <span class="at">hc_method =</span> <span class="st">&quot;ward.D2&quot;</span>, <span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2061-10"><a href="7.5-kmeans-clustering.html#cb2061-10" tabindex="-1"></a></span>
+<span id="cb2061-11"><a href="7.5-kmeans-clustering.html#cb2061-11" tabindex="-1"></a></span>
+<span id="cb2061-12"><a href="7.5-kmeans-clustering.html#cb2061-12" tabindex="-1"></a>km.resdat1_2</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## stats::hclust(d = x, method = hc_method)
@@ -2251,7 +2283,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ## Cluster method   : ward.D2 
 ## Distance         : euclidean 
 ## Number of objects: 402</code></pre>
-<div class="sourceCode" id="cb2004"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2004-1"><a href="7.5-kmeans-clustering.html#cb2004-1" tabindex="-1"></a>km.resdat1_3</span></code></pre></div>
+<div class="sourceCode" id="cb2063"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2063-1"><a href="7.5-kmeans-clustering.html#cb2063-1" tabindex="-1"></a>km.resdat1_3</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## stats::hclust(d = x, method = hc_method)
@@ -2259,7 +2291,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ## Cluster method   : ward.D2 
 ## Distance         : euclidean 
 ## Number of objects: 402</code></pre>
-<div class="sourceCode" id="cb2006"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2006-1"><a href="7.5-kmeans-clustering.html#cb2006-1" tabindex="-1"></a>km.resdat1_4</span></code></pre></div>
+<div class="sourceCode" id="cb2065"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2065-1"><a href="7.5-kmeans-clustering.html#cb2065-1" tabindex="-1"></a>km.resdat1_4</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## stats::hclust(d = x, method = hc_method)
@@ -2267,7 +2299,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ## Cluster method   : ward.D2 
 ## Distance         : euclidean 
 ## Number of objects: 402</code></pre>
-<div class="sourceCode" id="cb2008"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2008-1"><a href="7.5-kmeans-clustering.html#cb2008-1" tabindex="-1"></a>km.resdat1_5</span></code></pre></div>
+<div class="sourceCode" id="cb2067"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2067-1"><a href="7.5-kmeans-clustering.html#cb2067-1" tabindex="-1"></a>km.resdat1_5</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## stats::hclust(d = x, method = hc_method)
@@ -2275,7 +2307,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ## Cluster method   : ward.D2 
 ## Distance         : euclidean 
 ## Number of objects: 402</code></pre>
-<div class="sourceCode" id="cb2010"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2010-1"><a href="7.5-kmeans-clustering.html#cb2010-1" tabindex="-1"></a>km.resdat1_6</span></code></pre></div>
+<div class="sourceCode" id="cb2069"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2069-1"><a href="7.5-kmeans-clustering.html#cb2069-1" tabindex="-1"></a>km.resdat1_6</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## stats::hclust(d = x, method = hc_method)
@@ -2283,7 +2315,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ## Cluster method   : ward.D2 
 ## Distance         : euclidean 
 ## Number of objects: 402</code></pre>
-<div class="sourceCode" id="cb2012"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2012-1"><a href="7.5-kmeans-clustering.html#cb2012-1" tabindex="-1"></a>km.resdat1_7</span></code></pre></div>
+<div class="sourceCode" id="cb2071"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2071-1"><a href="7.5-kmeans-clustering.html#cb2071-1" tabindex="-1"></a>km.resdat1_7</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## stats::hclust(d = x, method = hc_method)
@@ -2291,7 +2323,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ## Cluster method   : ward.D2 
 ## Distance         : euclidean 
 ## Number of objects: 402</code></pre>
-<div class="sourceCode" id="cb2014"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2014-1"><a href="7.5-kmeans-clustering.html#cb2014-1" tabindex="-1"></a>km.resdat1_8</span></code></pre></div>
+<div class="sourceCode" id="cb2073"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2073-1"><a href="7.5-kmeans-clustering.html#cb2073-1" tabindex="-1"></a>km.resdat1_8</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## stats::hclust(d = x, method = hc_method)
@@ -2299,7 +2331,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ## Cluster method   : ward.D2 
 ## Distance         : euclidean 
 ## Number of objects: 402</code></pre>
-<div class="sourceCode" id="cb2016"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2016-1"><a href="7.5-kmeans-clustering.html#cb2016-1" tabindex="-1"></a>km.resdat1_9</span></code></pre></div>
+<div class="sourceCode" id="cb2075"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2075-1"><a href="7.5-kmeans-clustering.html#cb2075-1" tabindex="-1"></a>km.resdat1_9</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## stats::hclust(d = x, method = hc_method)
@@ -2307,7 +2339,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ## Cluster method   : ward.D2 
 ## Distance         : euclidean 
 ## Number of objects: 402</code></pre>
-<div class="sourceCode" id="cb2018"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2018-1"><a href="7.5-kmeans-clustering.html#cb2018-1" tabindex="-1"></a>km.resdat1_10</span></code></pre></div>
+<div class="sourceCode" id="cb2077"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2077-1"><a href="7.5-kmeans-clustering.html#cb2077-1" tabindex="-1"></a>km.resdat1_10</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## stats::hclust(d = x, method = hc_method)
@@ -2318,94 +2350,94 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 </div>
 <div id="dendograms" class="section level4 hasAnchor" number="7.5.1.2">
 <h4><span class="header-section-number">7.5.1.2</span> Dendograms<a href="7.5-kmeans-clustering.html#dendograms" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb2020"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2020-1"><a href="7.5-kmeans-clustering.html#cb2020-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_2, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 2 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-938-1.png" width="672" /></p>
-<div class="sourceCode" id="cb2021"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2021-1"><a href="7.5-kmeans-clustering.html#cb2021-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_3, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 3 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-938-2.png" width="672" /></p>
-<div class="sourceCode" id="cb2022"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2022-1"><a href="7.5-kmeans-clustering.html#cb2022-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_4, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 4 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-938-3.png" width="672" /></p>
-<div class="sourceCode" id="cb2023"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2023-1"><a href="7.5-kmeans-clustering.html#cb2023-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_5, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 5 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-938-4.png" width="672" /></p>
-<div class="sourceCode" id="cb2024"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2024-1"><a href="7.5-kmeans-clustering.html#cb2024-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_6, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 6 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-938-5.png" width="672" /></p>
-<div class="sourceCode" id="cb2025"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2025-1"><a href="7.5-kmeans-clustering.html#cb2025-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_7, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 7 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-938-6.png" width="672" /></p>
-<div class="sourceCode" id="cb2026"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2026-1"><a href="7.5-kmeans-clustering.html#cb2026-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_8, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 8 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-938-7.png" width="672" /></p>
-<div class="sourceCode" id="cb2027"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2027-1"><a href="7.5-kmeans-clustering.html#cb2027-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_9, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 9 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-938-8.png" width="672" /></p>
-<div class="sourceCode" id="cb2028"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2028-1"><a href="7.5-kmeans-clustering.html#cb2028-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_10, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 10 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-938-9.png" width="672" /></p>
+<div class="sourceCode" id="cb2079"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2079-1"><a href="7.5-kmeans-clustering.html#cb2079-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_2, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 2 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-956-1.png" width="672" /></p>
+<div class="sourceCode" id="cb2080"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2080-1"><a href="7.5-kmeans-clustering.html#cb2080-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_3, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 3 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-956-2.png" width="672" /></p>
+<div class="sourceCode" id="cb2081"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2081-1"><a href="7.5-kmeans-clustering.html#cb2081-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_4, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 4 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-956-3.png" width="672" /></p>
+<div class="sourceCode" id="cb2082"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2082-1"><a href="7.5-kmeans-clustering.html#cb2082-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_5, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 5 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-956-4.png" width="672" /></p>
+<div class="sourceCode" id="cb2083"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2083-1"><a href="7.5-kmeans-clustering.html#cb2083-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_6, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 6 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-956-5.png" width="672" /></p>
+<div class="sourceCode" id="cb2084"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2084-1"><a href="7.5-kmeans-clustering.html#cb2084-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_7, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 7 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-956-6.png" width="672" /></p>
+<div class="sourceCode" id="cb2085"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2085-1"><a href="7.5-kmeans-clustering.html#cb2085-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_8, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 8 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-956-7.png" width="672" /></p>
+<div class="sourceCode" id="cb2086"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2086-1"><a href="7.5-kmeans-clustering.html#cb2086-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_9, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 9 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-956-8.png" width="672" /></p>
+<div class="sourceCode" id="cb2087"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2087-1"><a href="7.5-kmeans-clustering.html#cb2087-1" tabindex="-1"></a><span class="fu">fviz_dend</span>(km.resdat1_10, <span class="at">show_labels =</span> <span class="cn">TRUE</span>, <span class="at">rect =</span> <span class="cn">TRUE</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">&quot;Cluster Dendrogram - 10 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-956-9.png" width="672" /></p>
 </div>
-<div id="plots-2" class="section level4 hasAnchor" number="7.5.1.3">
-<h4><span class="header-section-number">7.5.1.3</span> Plots<a href="7.5-kmeans-clustering.html#plots-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb2029"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2029-1"><a href="7.5-kmeans-clustering.html#cb2029-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_2, <span class="at">data =</span> dat1Clust,</span>
-<span id="cb2029-2"><a href="7.5-kmeans-clustering.html#cb2029-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
-<span id="cb2029-3"><a href="7.5-kmeans-clustering.html#cb2029-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
-<span id="cb2029-4"><a href="7.5-kmeans-clustering.html#cb2029-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
-<span id="cb2029-5"><a href="7.5-kmeans-clustering.html#cb2029-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2029-6"><a href="7.5-kmeans-clustering.html#cb2029-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 2 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-939-1.png" width="672" /></p>
-<div class="sourceCode" id="cb2030"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2030-1"><a href="7.5-kmeans-clustering.html#cb2030-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_3, <span class="at">data =</span> dat1Clust,</span>
-<span id="cb2030-2"><a href="7.5-kmeans-clustering.html#cb2030-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
-<span id="cb2030-3"><a href="7.5-kmeans-clustering.html#cb2030-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
-<span id="cb2030-4"><a href="7.5-kmeans-clustering.html#cb2030-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
-<span id="cb2030-5"><a href="7.5-kmeans-clustering.html#cb2030-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2030-6"><a href="7.5-kmeans-clustering.html#cb2030-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 3 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-939-2.png" width="672" /></p>
-<div class="sourceCode" id="cb2031"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2031-1"><a href="7.5-kmeans-clustering.html#cb2031-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_4, <span class="at">data =</span> dat1Clust,</span>
-<span id="cb2031-2"><a href="7.5-kmeans-clustering.html#cb2031-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
-<span id="cb2031-3"><a href="7.5-kmeans-clustering.html#cb2031-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
-<span id="cb2031-4"><a href="7.5-kmeans-clustering.html#cb2031-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
-<span id="cb2031-5"><a href="7.5-kmeans-clustering.html#cb2031-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2031-6"><a href="7.5-kmeans-clustering.html#cb2031-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 4 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-939-3.png" width="672" /></p>
-<div class="sourceCode" id="cb2032"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2032-1"><a href="7.5-kmeans-clustering.html#cb2032-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_5, <span class="at">data =</span> dat1Clust,</span>
-<span id="cb2032-2"><a href="7.5-kmeans-clustering.html#cb2032-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
-<span id="cb2032-3"><a href="7.5-kmeans-clustering.html#cb2032-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
-<span id="cb2032-4"><a href="7.5-kmeans-clustering.html#cb2032-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
-<span id="cb2032-5"><a href="7.5-kmeans-clustering.html#cb2032-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2032-6"><a href="7.5-kmeans-clustering.html#cb2032-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 5 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-939-4.png" width="672" /></p>
-<div class="sourceCode" id="cb2033"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2033-1"><a href="7.5-kmeans-clustering.html#cb2033-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_6, <span class="at">data =</span> dat1Clust,</span>
-<span id="cb2033-2"><a href="7.5-kmeans-clustering.html#cb2033-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
-<span id="cb2033-3"><a href="7.5-kmeans-clustering.html#cb2033-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
-<span id="cb2033-4"><a href="7.5-kmeans-clustering.html#cb2033-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
-<span id="cb2033-5"><a href="7.5-kmeans-clustering.html#cb2033-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2033-6"><a href="7.5-kmeans-clustering.html#cb2033-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 6 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-939-5.png" width="672" /></p>
-<div class="sourceCode" id="cb2034"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2034-1"><a href="7.5-kmeans-clustering.html#cb2034-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_7, <span class="at">data =</span> dat1Clust,</span>
-<span id="cb2034-2"><a href="7.5-kmeans-clustering.html#cb2034-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
-<span id="cb2034-3"><a href="7.5-kmeans-clustering.html#cb2034-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
-<span id="cb2034-4"><a href="7.5-kmeans-clustering.html#cb2034-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
-<span id="cb2034-5"><a href="7.5-kmeans-clustering.html#cb2034-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2034-6"><a href="7.5-kmeans-clustering.html#cb2034-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 7 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-939-6.png" width="672" /></p>
-<div class="sourceCode" id="cb2035"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2035-1"><a href="7.5-kmeans-clustering.html#cb2035-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_8, <span class="at">data =</span> dat1Clust,</span>
-<span id="cb2035-2"><a href="7.5-kmeans-clustering.html#cb2035-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
-<span id="cb2035-3"><a href="7.5-kmeans-clustering.html#cb2035-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
-<span id="cb2035-4"><a href="7.5-kmeans-clustering.html#cb2035-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
-<span id="cb2035-5"><a href="7.5-kmeans-clustering.html#cb2035-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2035-6"><a href="7.5-kmeans-clustering.html#cb2035-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 8 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-939-7.png" width="672" /></p>
-<div class="sourceCode" id="cb2036"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2036-1"><a href="7.5-kmeans-clustering.html#cb2036-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_9, <span class="at">data =</span> dat1Clust,</span>
-<span id="cb2036-2"><a href="7.5-kmeans-clustering.html#cb2036-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
-<span id="cb2036-3"><a href="7.5-kmeans-clustering.html#cb2036-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
-<span id="cb2036-4"><a href="7.5-kmeans-clustering.html#cb2036-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
-<span id="cb2036-5"><a href="7.5-kmeans-clustering.html#cb2036-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2036-6"><a href="7.5-kmeans-clustering.html#cb2036-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 9 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-939-8.png" width="672" /></p>
-<div class="sourceCode" id="cb2037"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2037-1"><a href="7.5-kmeans-clustering.html#cb2037-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_10, <span class="at">data =</span> dat1Clust,</span>
-<span id="cb2037-2"><a href="7.5-kmeans-clustering.html#cb2037-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
-<span id="cb2037-3"><a href="7.5-kmeans-clustering.html#cb2037-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
-<span id="cb2037-4"><a href="7.5-kmeans-clustering.html#cb2037-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
-<span id="cb2037-5"><a href="7.5-kmeans-clustering.html#cb2037-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2037-6"><a href="7.5-kmeans-clustering.html#cb2037-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 10 clusters&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-939-9.png" width="672" /></p>
+<div id="plots-3" class="section level4 hasAnchor" number="7.5.1.3">
+<h4><span class="header-section-number">7.5.1.3</span> Plots<a href="7.5-kmeans-clustering.html#plots-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb2088"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2088-1"><a href="7.5-kmeans-clustering.html#cb2088-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_2, <span class="at">data =</span> dat1Clust,</span>
+<span id="cb2088-2"><a href="7.5-kmeans-clustering.html#cb2088-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
+<span id="cb2088-3"><a href="7.5-kmeans-clustering.html#cb2088-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb2088-4"><a href="7.5-kmeans-clustering.html#cb2088-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
+<span id="cb2088-5"><a href="7.5-kmeans-clustering.html#cb2088-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2088-6"><a href="7.5-kmeans-clustering.html#cb2088-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 2 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-957-1.png" width="672" /></p>
+<div class="sourceCode" id="cb2089"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2089-1"><a href="7.5-kmeans-clustering.html#cb2089-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_3, <span class="at">data =</span> dat1Clust,</span>
+<span id="cb2089-2"><a href="7.5-kmeans-clustering.html#cb2089-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
+<span id="cb2089-3"><a href="7.5-kmeans-clustering.html#cb2089-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb2089-4"><a href="7.5-kmeans-clustering.html#cb2089-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
+<span id="cb2089-5"><a href="7.5-kmeans-clustering.html#cb2089-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2089-6"><a href="7.5-kmeans-clustering.html#cb2089-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 3 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-957-2.png" width="672" /></p>
+<div class="sourceCode" id="cb2090"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2090-1"><a href="7.5-kmeans-clustering.html#cb2090-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_4, <span class="at">data =</span> dat1Clust,</span>
+<span id="cb2090-2"><a href="7.5-kmeans-clustering.html#cb2090-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
+<span id="cb2090-3"><a href="7.5-kmeans-clustering.html#cb2090-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb2090-4"><a href="7.5-kmeans-clustering.html#cb2090-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
+<span id="cb2090-5"><a href="7.5-kmeans-clustering.html#cb2090-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2090-6"><a href="7.5-kmeans-clustering.html#cb2090-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 4 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-957-3.png" width="672" /></p>
+<div class="sourceCode" id="cb2091"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2091-1"><a href="7.5-kmeans-clustering.html#cb2091-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_5, <span class="at">data =</span> dat1Clust,</span>
+<span id="cb2091-2"><a href="7.5-kmeans-clustering.html#cb2091-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
+<span id="cb2091-3"><a href="7.5-kmeans-clustering.html#cb2091-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb2091-4"><a href="7.5-kmeans-clustering.html#cb2091-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
+<span id="cb2091-5"><a href="7.5-kmeans-clustering.html#cb2091-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2091-6"><a href="7.5-kmeans-clustering.html#cb2091-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 5 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-957-4.png" width="672" /></p>
+<div class="sourceCode" id="cb2092"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2092-1"><a href="7.5-kmeans-clustering.html#cb2092-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_6, <span class="at">data =</span> dat1Clust,</span>
+<span id="cb2092-2"><a href="7.5-kmeans-clustering.html#cb2092-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
+<span id="cb2092-3"><a href="7.5-kmeans-clustering.html#cb2092-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb2092-4"><a href="7.5-kmeans-clustering.html#cb2092-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
+<span id="cb2092-5"><a href="7.5-kmeans-clustering.html#cb2092-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2092-6"><a href="7.5-kmeans-clustering.html#cb2092-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 6 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-957-5.png" width="672" /></p>
+<div class="sourceCode" id="cb2093"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2093-1"><a href="7.5-kmeans-clustering.html#cb2093-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_7, <span class="at">data =</span> dat1Clust,</span>
+<span id="cb2093-2"><a href="7.5-kmeans-clustering.html#cb2093-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
+<span id="cb2093-3"><a href="7.5-kmeans-clustering.html#cb2093-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb2093-4"><a href="7.5-kmeans-clustering.html#cb2093-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
+<span id="cb2093-5"><a href="7.5-kmeans-clustering.html#cb2093-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2093-6"><a href="7.5-kmeans-clustering.html#cb2093-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 7 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-957-6.png" width="672" /></p>
+<div class="sourceCode" id="cb2094"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2094-1"><a href="7.5-kmeans-clustering.html#cb2094-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_8, <span class="at">data =</span> dat1Clust,</span>
+<span id="cb2094-2"><a href="7.5-kmeans-clustering.html#cb2094-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
+<span id="cb2094-3"><a href="7.5-kmeans-clustering.html#cb2094-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb2094-4"><a href="7.5-kmeans-clustering.html#cb2094-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
+<span id="cb2094-5"><a href="7.5-kmeans-clustering.html#cb2094-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2094-6"><a href="7.5-kmeans-clustering.html#cb2094-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 8 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-957-7.png" width="672" /></p>
+<div class="sourceCode" id="cb2095"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2095-1"><a href="7.5-kmeans-clustering.html#cb2095-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_9, <span class="at">data =</span> dat1Clust,</span>
+<span id="cb2095-2"><a href="7.5-kmeans-clustering.html#cb2095-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
+<span id="cb2095-3"><a href="7.5-kmeans-clustering.html#cb2095-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb2095-4"><a href="7.5-kmeans-clustering.html#cb2095-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
+<span id="cb2095-5"><a href="7.5-kmeans-clustering.html#cb2095-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2095-6"><a href="7.5-kmeans-clustering.html#cb2095-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 9 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-957-8.png" width="672" /></p>
+<div class="sourceCode" id="cb2096"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2096-1"><a href="7.5-kmeans-clustering.html#cb2096-1" tabindex="-1"></a><span class="fu">fviz_cluster</span>(km.resdat1_10, <span class="at">data =</span> dat1Clust,</span>
+<span id="cb2096-2"><a href="7.5-kmeans-clustering.html#cb2096-2" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
+<span id="cb2096-3"><a href="7.5-kmeans-clustering.html#cb2096-3" tabindex="-1"></a>             <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb2096-4"><a href="7.5-kmeans-clustering.html#cb2096-4" tabindex="-1"></a>             <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>(),</span>
+<span id="cb2096-5"><a href="7.5-kmeans-clustering.html#cb2096-5" tabindex="-1"></a>             <span class="at">show.clust.cent =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2096-6"><a href="7.5-kmeans-clustering.html#cb2096-6" tabindex="-1"></a>             <span class="at">main =</span> <span class="st">&quot;Cluster plot - 10 clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-957-9.png" width="672" /></p>
 </div>
 <div id="individual-clusters" class="section level4 hasAnchor" number="7.5.1.4">
 <h4><span class="header-section-number">7.5.1.4</span> Individual Clusters<a href="7.5-kmeans-clustering.html#individual-clusters" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb2038"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2038-1"><a href="7.5-kmeans-clustering.html#cb2038-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_2<span class="sc">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb2097"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2097-1"><a href="7.5-kmeans-clustering.html#cb2097-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_2<span class="sc">$</span>cluster)</span></code></pre></div>
 <pre><code>##   G_01   G_02   G_03   G_04   G_05   G_06   G_07   G_08   G_09   G_10   G_11 
 ##      1      1      1      1      1      1      1      1      1      1      1 
 ##   G_12   G_13   G_14   G_15   G_16   G_17   G_18   G_19   G_20   G_21   G_22 
@@ -2480,7 +2512,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ##      2      2      2      2      2      2      2      2      2      2      2 
 ## NG_217 NG_218 NG_219 NG_220 NG_221 NG_222 
 ##      2      2      2      2      2      2</code></pre>
-<div class="sourceCode" id="cb2040"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2040-1"><a href="7.5-kmeans-clustering.html#cb2040-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_3<span class="sc">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb2099"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2099-1"><a href="7.5-kmeans-clustering.html#cb2099-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_3<span class="sc">$</span>cluster)</span></code></pre></div>
 <pre><code>##   G_01   G_02   G_03   G_04   G_05   G_06   G_07   G_08   G_09   G_10   G_11 
 ##      1      1      1      1      1      1      1      1      1      1      1 
 ##   G_12   G_13   G_14   G_15   G_16   G_17   G_18   G_19   G_20   G_21   G_22 
@@ -2555,7 +2587,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ##      3      3      3      3      3      3      3      3      3      3      3 
 ## NG_217 NG_218 NG_219 NG_220 NG_221 NG_222 
 ##      3      3      3      3      3      3</code></pre>
-<div class="sourceCode" id="cb2042"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2042-1"><a href="7.5-kmeans-clustering.html#cb2042-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_4<span class="sc">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb2101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2101-1"><a href="7.5-kmeans-clustering.html#cb2101-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_4<span class="sc">$</span>cluster)</span></code></pre></div>
 <pre><code>##   G_01   G_02   G_03   G_04   G_05   G_06   G_07   G_08   G_09   G_10   G_11 
 ##      1      1      1      1      1      1      1      1      1      1      1 
 ##   G_12   G_13   G_14   G_15   G_16   G_17   G_18   G_19   G_20   G_21   G_22 
@@ -2630,7 +2662,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ##      4      4      4      4      4      4      4      4      4      4      4 
 ## NG_217 NG_218 NG_219 NG_220 NG_221 NG_222 
 ##      4      4      4      4      4      4</code></pre>
-<div class="sourceCode" id="cb2044"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2044-1"><a href="7.5-kmeans-clustering.html#cb2044-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_5<span class="sc">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb2103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2103-1"><a href="7.5-kmeans-clustering.html#cb2103-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_5<span class="sc">$</span>cluster)</span></code></pre></div>
 <pre><code>##   G_01   G_02   G_04   G_05   G_06   G_07   G_09   G_10   G_12   G_13   G_41 
 ##      1      1      1      1      1      1      1      1      1      1      1 
 ##   G_42   G_43   G_44   G_45   G_46   G_47   G_48   G_67   G_68   G_69   G_70 
@@ -2705,7 +2737,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ##      5      5      5      5      5      5      5      5      5      5      5 
 ## NG_217 NG_218 NG_219 NG_220 NG_221 NG_222 
 ##      5      5      5      5      5      5</code></pre>
-<div class="sourceCode" id="cb2046"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2046-1"><a href="7.5-kmeans-clustering.html#cb2046-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_6<span class="sc">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb2105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2105-1"><a href="7.5-kmeans-clustering.html#cb2105-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_6<span class="sc">$</span>cluster)</span></code></pre></div>
 <pre><code>##   G_01   G_02   G_04   G_05   G_06   G_07   G_09   G_10   G_12   G_13   G_41 
 ##      1      1      1      1      1      1      1      1      1      1      1 
 ##   G_42   G_43   G_44   G_45   G_46   G_47   G_48   G_67   G_68   G_69   G_70 
@@ -2780,7 +2812,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ##      6      6      6      6      6      6      6      6      6      6      6 
 ## NG_217 NG_218 NG_219 NG_220 NG_221 NG_222 
 ##      6      6      6      6      6      6</code></pre>
-<div class="sourceCode" id="cb2048"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2048-1"><a href="7.5-kmeans-clustering.html#cb2048-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_7<span class="sc">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb2107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2107-1"><a href="7.5-kmeans-clustering.html#cb2107-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_7<span class="sc">$</span>cluster)</span></code></pre></div>
 <pre><code>##   G_01   G_02   G_04   G_05   G_06   G_07   G_09   G_10   G_12   G_13   G_41 
 ##      1      1      1      1      1      1      1      1      1      1      1 
 ##   G_42   G_43   G_44   G_45   G_46   G_47   G_48   G_67   G_68   G_69   G_70 
@@ -2855,7 +2887,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ##      7      7      7      7      7      7      7      7      7      7      7 
 ## NG_217 NG_218 NG_219 NG_220 NG_221 NG_222 
 ##      7      7      7      7      7      7</code></pre>
-<div class="sourceCode" id="cb2050"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2050-1"><a href="7.5-kmeans-clustering.html#cb2050-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_8<span class="sc">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb2109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2109-1"><a href="7.5-kmeans-clustering.html#cb2109-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_8<span class="sc">$</span>cluster)</span></code></pre></div>
 <pre><code>##   G_01   G_02   G_04   G_05   G_06   G_07   G_09   G_10   G_12   G_13   G_41 
 ##      1      1      1      1      1      1      1      1      1      1      1 
 ##   G_42   G_43   G_44   G_45   G_46   G_47   G_48   G_03   G_08   G_11   G_14 
@@ -2930,7 +2962,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ##      8      8      8      8      8      8      8      8      8      8      8 
 ## NG_217 NG_218 NG_219 NG_220 NG_221 NG_222 
 ##      8      8      8      8      8      8</code></pre>
-<div class="sourceCode" id="cb2052"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2052-1"><a href="7.5-kmeans-clustering.html#cb2052-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_9<span class="sc">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb2111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2111-1"><a href="7.5-kmeans-clustering.html#cb2111-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_9<span class="sc">$</span>cluster)</span></code></pre></div>
 <pre><code>##   G_01   G_02   G_04   G_05   G_06   G_07   G_09   G_10   G_12   G_13   G_41 
 ##      1      1      1      1      1      1      1      1      1      1      1 
 ##   G_42   G_43   G_44   G_45   G_46   G_47   G_48   G_03   G_08   G_11   G_14 
@@ -3005,7 +3037,7 @@ stand = TRUE allows for the data to be normalised (z-scored)</p>
 ##      9      9      9      9      9      9      9      9      9      9      9 
 ## NG_217 NG_218 NG_219 NG_220 NG_221 NG_222 
 ##      9      9      9      9      9      9</code></pre>
-<div class="sourceCode" id="cb2054"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2054-1"><a href="7.5-kmeans-clustering.html#cb2054-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_10<span class="sc">$</span>cluster)</span></code></pre></div>
+<div class="sourceCode" id="cb2113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2113-1"><a href="7.5-kmeans-clustering.html#cb2113-1" tabindex="-1"></a><span class="fu">sort</span>(km.resdat1_10<span class="sc">$</span>cluster)</span></code></pre></div>
 <pre><code>##   G_01   G_02   G_04   G_05   G_06   G_07   G_09   G_10   G_12   G_13   G_41 
 ##      1      1      1      1      1      1      1      1      1      1      1 
 ##   G_42   G_43   G_44   G_45   G_46   G_47   G_48   G_03   G_08   G_11   G_14 

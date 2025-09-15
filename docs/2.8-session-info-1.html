@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-10" />
+<meta name="date" content="2025-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,8 +55,9 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -377,17 +378,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-and-sample-size"><i class="fa fa-check"></i><b>2.3.2</b> Power analysis and sample size</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.1</b> Linear model</a>
+<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-interpretation-rules-and-t.test"><i class="fa fa-check"></i><b>2.3.2.1</b> Cohen’s <em>d</em> interpretation rules and t.test</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.1.1</b> General example</a>
+<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#pwr.t.test---one-sample-and-two-sample-t-tests-for-means"><i class="fa fa-check"></i><b>2.3.2.1.1</b> pwr.t.test - one-sample and two-sample t tests for means</a></li>
+<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-effect-size"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Cohen’s <em>d</em> effect size</a></li>
+<li class="chapter" data-level="2.3.2.1.3" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#plots"><i class="fa fa-check"></i><b>2.3.2.1.3</b> Plots</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.1.1.1</b> Power of the test</a></li>
-<li class="chapter" data-level="2.3.2.1.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.1.1.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.1.3.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.05"><i class="fa fa-check"></i><b>2.3.2.1.3.1</b> p &lt; 0.05</a></li>
+<li class="chapter" data-level="2.3.2.1.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.01"><i class="fa fa-check"></i><b>2.3.2.1.3.2</b> p &lt; 0.01</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Using our LM model</a>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.2</b> Linear model</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.1.2.1</b> Power analysis from our model</a></li>
-<li class="chapter" data-level="2.3.2.1.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.1.2.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.2.1</b> General example</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.2.1.1</b> Power of the test</a></li>
+<li class="chapter" data-level="2.3.2.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.2.1.2</b> Sample size</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.2.2</b> Using our LM model</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.2.2.1</b> Power analysis from our model</a></li>
+<li class="chapter" data-level="2.3.2.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.2.2.2</b> Sample size</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -404,53 +415,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="2.5-LM.html"><a href="2.5-LM.html"><i class="fa fa-check"></i><b>2.5</b> Linear Models</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-3"><i class="fa fa-check"></i><b>2.5.1</b> Introduction</a>
+<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#normality-of-distribution"><i class="fa fa-check"></i><b>2.5.1</b> Normality of distribution</a>
 <ul>
-<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.1.1</b> Model estimation</a></li>
+<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#shapiro-test"><i class="fa fa-check"></i><b>2.5.1.1</b> Shapiro test</a></li>
+<li class="chapter" data-level="2.5.1.2" data-path="2.5-LM.html"><a href="2.5-LM.html#density-plot"><i class="fa fa-check"></i><b>2.5.1.2</b> Density plot</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.2</b> Role of coding schemes</a>
+<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#homogeneity-of-variance"><i class="fa fa-check"></i><b>2.5.2</b> Homogeneity of variance</a>
 <ul>
-<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.2.1</b> Intro</a></li>
-<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.2.2</b> Treatment coding</a></li>
-<li class="chapter" data-level="2.5.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.2.3</b> Contrast (or sum) coding</a>
+<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#bartlett-test"><i class="fa fa-check"></i><b>2.5.2.1</b> Bartlett test</a></li>
+<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#levene-test"><i class="fa fa-check"></i><b>2.5.2.2</b> Levene test</a>
 <ul>
-<li class="chapter" data-level="2.5.2.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.2.3.1</b> Default</a></li>
-<li class="chapter" data-level="2.5.2.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.2.3.2</b> Modified</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.3</b> Further steps</a>
-<ul>
-<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.3.1</b> Tidying the output</a></li>
-<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.3.2</b> Nice table of our model summary</a>
-<ul>
-<li class="chapter" data-level="2.5.3.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.3.2.1</b> Directly from model summary</a></li>
-<li class="chapter" data-level="2.5.3.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.3.2.2</b> From the <code>tidy</code> output</a></li>
-<li class="chapter" data-level="2.5.3.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.3.2.3</b> Model’s fit</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.3.3</b> Dissecting the model</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.3.3.1</b> “str” and “coef”</a></li>
-<li class="chapter" data-level="2.5.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.3.3.2</b> “coef” and “coefficients”</a></li>
-<li class="chapter" data-level="2.5.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.3.3.3</b> Residuals</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.3.3.3.1</b> Histogram</a></li>
-<li class="chapter" data-level="2.5.3.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.3.3.3.2</b> qqplots</a></li>
-<li class="chapter" data-level="2.5.3.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.3.3.3.3</b> Residuals vs fitted values</a></li>
-<li class="chapter" data-level="2.5.3.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.3.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.3.3.4</b> Goodness of fit?</a></li>
-<li class="chapter" data-level="2.5.3.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.3.3.5</b> Significance testing</a></li>
+<li class="chapter" data-level="2.5.2.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#base-r"><i class="fa fa-check"></i><b>2.5.2.2.1</b> Base R</a></li>
+<li class="chapter" data-level="2.5.2.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-car-package"><i class="fa fa-check"></i><b>2.5.2.2.2</b> From the <code>car</code> package</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.4</b> Plotting fitted values</a>
+<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#first-steps-3"><i class="fa fa-check"></i><b>2.5.3</b> First steps</a>
 <ul>
-<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.4.1</b> Trend line</a></li>
-<li class="chapter" data-level="2.5.4.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.2</b> Predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.3</b> Raw data, predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.4.4</b> Add significance levels and trend line on a plot?</a></li>
+<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#t-test"><i class="fa fa-check"></i><b>2.5.3.1</b> T-test</a></li>
+<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-2"><i class="fa fa-check"></i><b>2.5.3.2</b> Linear Model</a></li>
+<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#basic-anova"><i class="fa fa-check"></i><b>2.5.3.3</b> Basic ANOVA</a></li>
+<li class="chapter" data-level="2.5.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-3"><i class="fa fa-check"></i><b>2.5.3.4</b> Linear model</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.5</b> What about pairwise comparison?</a></li>
-<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.6</b> Multiple predictors?</a></li>
+<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-to-linear-models"><i class="fa fa-check"></i><b>2.5.4</b> Introduction to Linear models</a>
+<ul>
+<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.4.1</b> Model estimation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.5</b> Role of coding schemes</a>
+<ul>
+<li class="chapter" data-level="2.5.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.5.1</b> Intro</a></li>
+<li class="chapter" data-level="2.5.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.5.2</b> Treatment coding</a></li>
+<li class="chapter" data-level="2.5.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.5.3</b> Contrast (or sum) coding</a>
+<ul>
+<li class="chapter" data-level="2.5.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.5.3.1</b> Default</a></li>
+<li class="chapter" data-level="2.5.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.5.3.2</b> Modified</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.6</b> Further steps</a>
+<ul>
+<li class="chapter" data-level="2.5.6.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.6.1</b> Tidying the output</a></li>
+<li class="chapter" data-level="2.5.6.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.6.2</b> Nice table of our model summary</a>
+<ul>
+<li class="chapter" data-level="2.5.6.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.6.2.1</b> Directly from model summary</a></li>
+<li class="chapter" data-level="2.5.6.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.6.2.2</b> From the <code>tidy</code> output</a></li>
+<li class="chapter" data-level="2.5.6.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.6.2.3</b> Model’s fit</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.6.3</b> Dissecting the model</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.6.3.1</b> “str” and “coef”</a></li>
+<li class="chapter" data-level="2.5.6.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.6.3.2</b> “coef” and “coefficients”</a></li>
+<li class="chapter" data-level="2.5.6.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.6.3.3</b> Residuals</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.6.3.3.1</b> Histogram</a></li>
+<li class="chapter" data-level="2.5.6.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.6.3.3.2</b> qqplots</a></li>
+<li class="chapter" data-level="2.5.6.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.6.3.3.3</b> Residuals vs fitted values</a></li>
+<li class="chapter" data-level="2.5.6.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.6.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.6.3.4</b> Goodness of fit?</a></li>
+<li class="chapter" data-level="2.5.6.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.6.3.5</b> Significance testing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.7" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.7</b> Plotting fitted values</a>
+<ul>
+<li class="chapter" data-level="2.5.7.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.7.1</b> Trend line</a></li>
+<li class="chapter" data-level="2.5.7.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.2</b> Predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.3</b> Raw data, predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.7.4</b> Add significance levels and trend line on a plot?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.8" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.8</b> What about pairwise comparison?</a></li>
+<li class="chapter" data-level="2.5.9" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.9</b> Multiple predictors?</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html"><i class="fa fa-check"></i><b>2.6</b> Generalised Linear Models</a>
 <ul>
@@ -620,7 +652,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.3.4.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-random-effects"><i class="fa fa-check"></i><b>3.3.4.1</b> Subject random effects</a></li>
 <li class="chapter" data-level="3.3.4.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#items-random-effects"><i class="fa fa-check"></i><b>3.3.4.2</b> Items random effects</a></li>
-<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
+<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots-1"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
 <ul>
 <li class="chapter" data-level="3.3.4.3.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#fixed-effects-1"><i class="fa fa-check"></i><b>3.3.4.3.1</b> Fixed effects</a>
 <ul>
@@ -2009,7 +2041,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4.3.3.5" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#dimension-5"><i class="fa fa-check"></i><b>7.4.3.3.5</b> Dimension 5</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-1"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
+<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-2"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
 <ul>
 <li class="chapter" data-level="7.4.4.1" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#default-plots"><i class="fa fa-check"></i><b>7.4.4.1</b> Default plots</a>
 <ul>
@@ -2041,7 +2073,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.5.1.1" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#computing-clusters"><i class="fa fa-check"></i><b>7.5.1.1</b> Computing clusters</a></li>
 <li class="chapter" data-level="7.5.1.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#dendograms"><i class="fa fa-check"></i><b>7.5.1.2</b> Dendograms</a></li>
-<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-2"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
+<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-3"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
 <li class="chapter" data-level="7.5.1.4" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#individual-clusters"><i class="fa fa-check"></i><b>7.5.1.4</b> Individual Clusters</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#conclusion-3"><i class="fa fa-check"></i><b>7.5.2</b> Conclusion</a></li>
@@ -2191,7 +2223,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="session-info-1" class="section level2 hasAnchor" number="2.8">
 <h2><span class="header-section-number">2.8</span> session info<a href="2.8-session-info-1.html#session-info-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="2.8-session-info-1.html#cb544-1" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="2.8-session-info-1.html#cb603-1" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>## R version 4.5.1 (2025-06-13 ucrt)
 ## Platform: x86_64-w64-mingw32/x64
 ## Running under: Windows 11 x64 (build 26100)
@@ -2213,17 +2245,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] parameters_0.28.1      datawizard_1.2.0       effectsize_1.0.1      
-##  [4] pwr_1.3-0              htmltools_0.5.8.1      sjPlot_2.9.0          
-##  [7] DHARMa_0.4.7           ordinal_2023.12-4.1    psycho_0.6.1          
-## [10] PresenceAbsence_1.1.11 ggsignif_0.6.4         emmeans_1.11.2-8      
-## [13] corrplot_0.95          Hmisc_5.2-3            knitr_1.50            
-## [16] broom_1.0.9            cardx_0.3.0            gtsummary_2.4.0       
-## [19] ggdist_3.3.3           summarytools_1.1.4     phonR_1.0-7           
-## [22] languageR_1.6          lubridate_1.9.4        forcats_1.0.0         
-## [25] stringr_1.5.2          dplyr_1.1.4            purrr_1.1.0           
-## [28] readr_2.1.5            tidyr_1.3.1            tibble_3.3.0          
-## [31] ggplot2_3.5.2          tidyverse_2.0.0       
+##  [1] car_3.1-3              carData_3.0-5          parameters_0.28.1     
+##  [4] datawizard_1.2.0       effectsize_1.0.1       pwr_1.3-0             
+##  [7] htmltools_0.5.8.1      sjPlot_2.9.0           DHARMa_0.4.7          
+## [10] ordinal_2023.12-4.1    psycho_0.6.1           PresenceAbsence_1.1.11
+## [13] ggsignif_0.6.4         emmeans_1.11.2-8       corrplot_0.95         
+## [16] Hmisc_5.2-3            knitr_1.50             broom_1.0.9           
+## [19] cardx_0.3.0            gtsummary_2.4.0        ggdist_3.3.3          
+## [22] summarytools_1.1.4     phonR_1.0-7            languageR_1.6         
+## [25] lubridate_1.9.4        forcats_1.0.0          stringr_1.5.2         
+## [28] dplyr_1.1.4            purrr_1.1.0            readr_2.1.5           
+## [31] tidyr_1.3.1            tibble_3.3.0           ggplot2_3.5.2         
+## [34] tidyverse_2.0.0       
 ## 
 ## loaded via a namespace (and not attached):
 ##   [1] RColorBrewer_1.1-3   rstudioapi_0.17.1    jsonlite_2.0.0      
@@ -2236,32 +2269,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  [22] zoo_1.8-14           cachem_1.1.0         gt_1.0.0            
 ##  [25] commonmark_2.0.0     lifecycle_1.0.4      pkgconfig_2.0.3     
 ##  [28] gap_1.6              sjlabelled_1.2.0     Matrix_1.7-3        
-##  [31] R6_2.6.1             fastmap_1.2.0        rbibutils_2.3       
-##  [34] snakecase_0.11.1     digest_0.6.37        numDeriv_2016.8-1.1 
+##  [31] R6_2.6.1             fastmap_1.2.0        snakecase_0.11.1    
+##  [34] rbibutils_2.3        digest_0.6.37        numDeriv_2016.8-1.1 
 ##  [37] colorspace_2.1-1     labeling_0.4.3       timechange_0.3.0    
-##  [40] mgcv_1.9-3           compiler_4.5.1       splancs_2.01-45     
-##  [43] bit64_4.6.0-1        withr_3.0.2          pander_0.6.6        
-##  [46] htmlTable_2.4.3      backports_1.5.0      performance_0.15.1  
-##  [49] MASS_7.3-65          ucminf_1.2.2         tools_4.5.1         
-##  [52] foreign_0.8-90       nnet_7.3-20          glue_1.8.0          
-##  [55] quadprog_1.5-8       nlme_3.1-168         grid_4.5.1          
-##  [58] checkmate_2.3.3      cluster_2.1.8.1      reshape2_1.4.4      
-##  [61] generics_0.1.4       gtable_0.3.6         tzdb_0.5.0          
-##  [64] data.table_1.17.8    hms_1.1.3            sp_2.2-0            
-##  [67] xml2_1.4.0           utf8_1.2.6           pillar_1.11.0       
-##  [70] markdown_2.0         vroom_1.6.5          splines_4.5.1       
-##  [73] pryr_0.1.6           lattice_0.22-7       bit_4.6.0           
-##  [76] survival_3.8-3       tidyselect_1.2.1     reformulas_0.4.1    
-##  [79] gridExtra_2.3        bookdown_0.44        litedown_0.7        
-##  [82] xfun_0.53            rapportools_1.2      matrixStats_1.5.0   
-##  [85] stringi_1.8.7        yaml_2.3.10          boot_1.3-31         
-##  [88] evaluate_1.0.5       codetools_0.2-20     tcltk_4.5.1         
-##  [91] cli_3.6.5            rpart_4.1.24         xtable_1.8-4        
-##  [94] Rdpack_2.6.4         jquerylib_0.1.4      Rcpp_1.1.0          
-##  [97] coda_0.19-4.1        parallel_4.5.1       bayestestR_0.17.0   
-## [100] gap.datasets_0.0.6   lme4_1.1-37          mvtnorm_1.3-3       
-## [103] scales_1.4.0         insight_1.4.2        crayon_1.5.3        
-## [106] rlang_1.1.6          multcomp_1.4-28      cards_0.7.0</code></pre>
+##  [40] abind_1.4-8          mgcv_1.9-3           compiler_4.5.1      
+##  [43] splancs_2.01-45      bit64_4.6.0-1        withr_3.0.2         
+##  [46] pander_0.6.6         htmlTable_2.4.3      backports_1.5.0     
+##  [49] performance_0.15.1   MASS_7.3-65          ucminf_1.2.2        
+##  [52] tools_4.5.1          foreign_0.8-90       nnet_7.3-20         
+##  [55] glue_1.8.0           quadprog_1.5-8       nlme_3.1-168        
+##  [58] grid_4.5.1           checkmate_2.3.3      cluster_2.1.8.1     
+##  [61] reshape2_1.4.4       generics_0.1.4       gtable_0.3.6        
+##  [64] tzdb_0.5.0           data.table_1.17.8    hms_1.1.3           
+##  [67] sp_2.2-0             xml2_1.4.0           utf8_1.2.6          
+##  [70] pillar_1.11.0        markdown_2.0         vroom_1.6.5         
+##  [73] splines_4.5.1        pryr_0.1.6           lattice_0.22-7      
+##  [76] bit_4.6.0            survival_3.8-3       tidyselect_1.2.1    
+##  [79] reformulas_0.4.1     gridExtra_2.3        bookdown_0.44       
+##  [82] litedown_0.7         xfun_0.53            rapportools_1.2     
+##  [85] matrixStats_1.5.0    stringi_1.8.7        yaml_2.3.10         
+##  [88] boot_1.3-31          evaluate_1.0.5       codetools_0.2-20    
+##  [91] tcltk_4.5.1          cli_3.6.5            rpart_4.1.24        
+##  [94] xtable_1.8-4         Rdpack_2.6.4         jquerylib_0.1.4     
+##  [97] Rcpp_1.1.0           coda_0.19-4.1        parallel_4.5.1      
+## [100] bayestestR_0.17.0    gap.datasets_0.0.6   lme4_1.1-37         
+## [103] mvtnorm_1.3-3        scales_1.4.0         insight_1.4.2       
+## [106] crayon_1.5.3         rlang_1.1.6          multcomp_1.4-28     
+## [109] cards_0.7.0</code></pre>
 
 </div>
 <!-- </div> -->

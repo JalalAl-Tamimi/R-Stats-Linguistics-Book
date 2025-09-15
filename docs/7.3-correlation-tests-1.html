@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-10" />
+<meta name="date" content="2025-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,8 +55,9 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -377,17 +378,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-and-sample-size"><i class="fa fa-check"></i><b>2.3.2</b> Power analysis and sample size</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.1</b> Linear model</a>
+<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-interpretation-rules-and-t.test"><i class="fa fa-check"></i><b>2.3.2.1</b> Cohen’s <em>d</em> interpretation rules and t.test</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.1.1</b> General example</a>
+<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#pwr.t.test---one-sample-and-two-sample-t-tests-for-means"><i class="fa fa-check"></i><b>2.3.2.1.1</b> pwr.t.test - one-sample and two-sample t tests for means</a></li>
+<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-effect-size"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Cohen’s <em>d</em> effect size</a></li>
+<li class="chapter" data-level="2.3.2.1.3" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#plots"><i class="fa fa-check"></i><b>2.3.2.1.3</b> Plots</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.1.1.1</b> Power of the test</a></li>
-<li class="chapter" data-level="2.3.2.1.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.1.1.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.1.3.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.05"><i class="fa fa-check"></i><b>2.3.2.1.3.1</b> p &lt; 0.05</a></li>
+<li class="chapter" data-level="2.3.2.1.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.01"><i class="fa fa-check"></i><b>2.3.2.1.3.2</b> p &lt; 0.01</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Using our LM model</a>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.2</b> Linear model</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.1.2.1</b> Power analysis from our model</a></li>
-<li class="chapter" data-level="2.3.2.1.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.1.2.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.2.1</b> General example</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.2.1.1</b> Power of the test</a></li>
+<li class="chapter" data-level="2.3.2.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.2.1.2</b> Sample size</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.2.2</b> Using our LM model</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.2.2.1</b> Power analysis from our model</a></li>
+<li class="chapter" data-level="2.3.2.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.2.2.2</b> Sample size</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -404,53 +415,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="2.5-LM.html"><a href="2.5-LM.html"><i class="fa fa-check"></i><b>2.5</b> Linear Models</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-3"><i class="fa fa-check"></i><b>2.5.1</b> Introduction</a>
+<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#normality-of-distribution"><i class="fa fa-check"></i><b>2.5.1</b> Normality of distribution</a>
 <ul>
-<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.1.1</b> Model estimation</a></li>
+<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#shapiro-test"><i class="fa fa-check"></i><b>2.5.1.1</b> Shapiro test</a></li>
+<li class="chapter" data-level="2.5.1.2" data-path="2.5-LM.html"><a href="2.5-LM.html#density-plot"><i class="fa fa-check"></i><b>2.5.1.2</b> Density plot</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.2</b> Role of coding schemes</a>
+<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#homogeneity-of-variance"><i class="fa fa-check"></i><b>2.5.2</b> Homogeneity of variance</a>
 <ul>
-<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.2.1</b> Intro</a></li>
-<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.2.2</b> Treatment coding</a></li>
-<li class="chapter" data-level="2.5.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.2.3</b> Contrast (or sum) coding</a>
+<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#bartlett-test"><i class="fa fa-check"></i><b>2.5.2.1</b> Bartlett test</a></li>
+<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#levene-test"><i class="fa fa-check"></i><b>2.5.2.2</b> Levene test</a>
 <ul>
-<li class="chapter" data-level="2.5.2.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.2.3.1</b> Default</a></li>
-<li class="chapter" data-level="2.5.2.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.2.3.2</b> Modified</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.3</b> Further steps</a>
-<ul>
-<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.3.1</b> Tidying the output</a></li>
-<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.3.2</b> Nice table of our model summary</a>
-<ul>
-<li class="chapter" data-level="2.5.3.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.3.2.1</b> Directly from model summary</a></li>
-<li class="chapter" data-level="2.5.3.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.3.2.2</b> From the <code>tidy</code> output</a></li>
-<li class="chapter" data-level="2.5.3.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.3.2.3</b> Model’s fit</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.3.3</b> Dissecting the model</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.3.3.1</b> “str” and “coef”</a></li>
-<li class="chapter" data-level="2.5.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.3.3.2</b> “coef” and “coefficients”</a></li>
-<li class="chapter" data-level="2.5.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.3.3.3</b> Residuals</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.3.3.3.1</b> Histogram</a></li>
-<li class="chapter" data-level="2.5.3.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.3.3.3.2</b> qqplots</a></li>
-<li class="chapter" data-level="2.5.3.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.3.3.3.3</b> Residuals vs fitted values</a></li>
-<li class="chapter" data-level="2.5.3.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.3.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.3.3.4</b> Goodness of fit?</a></li>
-<li class="chapter" data-level="2.5.3.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.3.3.5</b> Significance testing</a></li>
+<li class="chapter" data-level="2.5.2.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#base-r"><i class="fa fa-check"></i><b>2.5.2.2.1</b> Base R</a></li>
+<li class="chapter" data-level="2.5.2.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-car-package"><i class="fa fa-check"></i><b>2.5.2.2.2</b> From the <code>car</code> package</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.4</b> Plotting fitted values</a>
+<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#first-steps-3"><i class="fa fa-check"></i><b>2.5.3</b> First steps</a>
 <ul>
-<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.4.1</b> Trend line</a></li>
-<li class="chapter" data-level="2.5.4.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.2</b> Predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.3</b> Raw data, predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.4.4</b> Add significance levels and trend line on a plot?</a></li>
+<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#t-test"><i class="fa fa-check"></i><b>2.5.3.1</b> T-test</a></li>
+<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-2"><i class="fa fa-check"></i><b>2.5.3.2</b> Linear Model</a></li>
+<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#basic-anova"><i class="fa fa-check"></i><b>2.5.3.3</b> Basic ANOVA</a></li>
+<li class="chapter" data-level="2.5.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-3"><i class="fa fa-check"></i><b>2.5.3.4</b> Linear model</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.5</b> What about pairwise comparison?</a></li>
-<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.6</b> Multiple predictors?</a></li>
+<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-to-linear-models"><i class="fa fa-check"></i><b>2.5.4</b> Introduction to Linear models</a>
+<ul>
+<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.4.1</b> Model estimation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.5</b> Role of coding schemes</a>
+<ul>
+<li class="chapter" data-level="2.5.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.5.1</b> Intro</a></li>
+<li class="chapter" data-level="2.5.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.5.2</b> Treatment coding</a></li>
+<li class="chapter" data-level="2.5.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.5.3</b> Contrast (or sum) coding</a>
+<ul>
+<li class="chapter" data-level="2.5.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.5.3.1</b> Default</a></li>
+<li class="chapter" data-level="2.5.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.5.3.2</b> Modified</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.6</b> Further steps</a>
+<ul>
+<li class="chapter" data-level="2.5.6.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.6.1</b> Tidying the output</a></li>
+<li class="chapter" data-level="2.5.6.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.6.2</b> Nice table of our model summary</a>
+<ul>
+<li class="chapter" data-level="2.5.6.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.6.2.1</b> Directly from model summary</a></li>
+<li class="chapter" data-level="2.5.6.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.6.2.2</b> From the <code>tidy</code> output</a></li>
+<li class="chapter" data-level="2.5.6.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.6.2.3</b> Model’s fit</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.6.3</b> Dissecting the model</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.6.3.1</b> “str” and “coef”</a></li>
+<li class="chapter" data-level="2.5.6.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.6.3.2</b> “coef” and “coefficients”</a></li>
+<li class="chapter" data-level="2.5.6.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.6.3.3</b> Residuals</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.6.3.3.1</b> Histogram</a></li>
+<li class="chapter" data-level="2.5.6.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.6.3.3.2</b> qqplots</a></li>
+<li class="chapter" data-level="2.5.6.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.6.3.3.3</b> Residuals vs fitted values</a></li>
+<li class="chapter" data-level="2.5.6.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.6.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.6.3.4</b> Goodness of fit?</a></li>
+<li class="chapter" data-level="2.5.6.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.6.3.5</b> Significance testing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.7" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.7</b> Plotting fitted values</a>
+<ul>
+<li class="chapter" data-level="2.5.7.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.7.1</b> Trend line</a></li>
+<li class="chapter" data-level="2.5.7.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.2</b> Predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.3</b> Raw data, predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.7.4</b> Add significance levels and trend line on a plot?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.8" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.8</b> What about pairwise comparison?</a></li>
+<li class="chapter" data-level="2.5.9" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.9</b> Multiple predictors?</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html"><i class="fa fa-check"></i><b>2.6</b> Generalised Linear Models</a>
 <ul>
@@ -620,7 +652,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.3.4.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-random-effects"><i class="fa fa-check"></i><b>3.3.4.1</b> Subject random effects</a></li>
 <li class="chapter" data-level="3.3.4.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#items-random-effects"><i class="fa fa-check"></i><b>3.3.4.2</b> Items random effects</a></li>
-<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
+<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots-1"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
 <ul>
 <li class="chapter" data-level="3.3.4.3.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#fixed-effects-1"><i class="fa fa-check"></i><b>3.3.4.3.1</b> Fixed effects</a>
 <ul>
@@ -2009,7 +2041,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4.3.3.5" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#dimension-5"><i class="fa fa-check"></i><b>7.4.3.3.5</b> Dimension 5</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-1"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
+<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-2"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
 <ul>
 <li class="chapter" data-level="7.4.4.1" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#default-plots"><i class="fa fa-check"></i><b>7.4.4.1</b> Default plots</a>
 <ul>
@@ -2041,7 +2073,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.5.1.1" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#computing-clusters"><i class="fa fa-check"></i><b>7.5.1.1</b> Computing clusters</a></li>
 <li class="chapter" data-level="7.5.1.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#dendograms"><i class="fa fa-check"></i><b>7.5.1.2</b> Dendograms</a></li>
-<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-2"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
+<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-3"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
 <li class="chapter" data-level="7.5.1.4" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#individual-clusters"><i class="fa fa-check"></i><b>7.5.1.4</b> Individual Clusters</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#conclusion-3"><i class="fa fa-check"></i><b>7.5.2</b> Conclusion</a></li>
@@ -2198,11 +2230,11 @@ We use the package <code>corrplot</code></p>
 <h3><span class="header-section-number">7.3.1</span> Correlation plots<a href="7.3-correlation-tests-1.html#correlation-plots-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="correlation-plots-1-1" class="section level4 hasAnchor" number="7.3.1.1">
 <h4><span class="header-section-number">7.3.1.1</span> Correlation plots 1<a href="7.3-correlation-tests-1.html#correlation-plots-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1935"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1935-1"><a href="7.3-correlation-tests-1.html#cb1935-1" tabindex="-1"></a>corr <span class="ot">&lt;-</span> </span>
-<span id="cb1935-2"><a href="7.3-correlation-tests-1.html#cb1935-2" tabindex="-1"></a>  dfPharV2 <span class="sc">%&gt;%</span> </span>
-<span id="cb1935-3"><a href="7.3-correlation-tests-1.html#cb1935-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> </span>
-<span id="cb1935-4"><a href="7.3-correlation-tests-1.html#cb1935-4" tabindex="-1"></a>  <span class="fu">cor</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb1935-5"><a href="7.3-correlation-tests-1.html#cb1935-5" tabindex="-1"></a>  <span class="fu">print</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1994"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1994-1"><a href="7.3-correlation-tests-1.html#cb1994-1" tabindex="-1"></a>corr <span class="ot">&lt;-</span> </span>
+<span id="cb1994-2"><a href="7.3-correlation-tests-1.html#cb1994-2" tabindex="-1"></a>  dfPharV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb1994-3"><a href="7.3-correlation-tests-1.html#cb1994-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> </span>
+<span id="cb1994-4"><a href="7.3-correlation-tests-1.html#cb1994-4" tabindex="-1"></a>  <span class="fu">cor</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb1994-5"><a href="7.3-correlation-tests-1.html#cb1994-5" tabindex="-1"></a>  <span class="fu">print</span>()</span></code></pre></div>
 <pre><code>##                  CPP      Energy        H1A1c       H1A2c        H1A3c
 ## CPP      1.000000000 -0.03399038  0.404706765 -0.26455286 -0.113482532
 ## Energy  -0.033990377  1.00000000 -0.186476670  0.09170318 -0.122377040
@@ -2323,7 +2355,7 @@ We use the package <code>corrplot</code></p>
 ## A1mnA2   1.00000000  0.22151418 -0.677425247
 ## A1mnA3   0.22151418  1.00000000  0.567258129
 ## A2mnA3  -0.67742525  0.56725813  1.000000000</code></pre>
-<div class="sourceCode" id="cb1937"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1937-1"><a href="7.3-correlation-tests-1.html#cb1937-1" tabindex="-1"></a><span class="fu">print</span>(corr)</span></code></pre></div>
+<div class="sourceCode" id="cb1996"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1996-1"><a href="7.3-correlation-tests-1.html#cb1996-1" tabindex="-1"></a><span class="fu">print</span>(corr)</span></code></pre></div>
 <pre><code>##                  CPP      Energy        H1A1c       H1A2c        H1A3c
 ## CPP      1.000000000 -0.03399038  0.404706765 -0.26455286 -0.113482532
 ## Energy  -0.033990377  1.00000000 -0.186476670  0.09170318 -0.122377040
@@ -2444,21 +2476,21 @@ We use the package <code>corrplot</code></p>
 ## A1mnA2   1.00000000  0.22151418 -0.677425247
 ## A1mnA3   0.22151418  1.00000000  0.567258129
 ## A2mnA3  -0.67742525  0.56725813  1.000000000</code></pre>
-<div class="sourceCode" id="cb1939"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1939-1"><a href="7.3-correlation-tests-1.html#cb1939-1" tabindex="-1"></a><span class="fu">corrplot</span>(corr, <span class="at">method =</span> <span class="st">&#39;ellipse&#39;</span>, <span class="at">type =</span> <span class="st">&#39;upper&#39;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-906-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1998"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1998-1"><a href="7.3-correlation-tests-1.html#cb1998-1" tabindex="-1"></a><span class="fu">corrplot</span>(corr, <span class="at">method =</span> <span class="st">&#39;ellipse&#39;</span>, <span class="at">type =</span> <span class="st">&#39;upper&#39;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-924-1.png" width="672" /></p>
 </div>
 <div id="correlation-plots-2" class="section level4 hasAnchor" number="7.3.1.2">
 <h4><span class="header-section-number">7.3.1.2</span> Correlation plots 2<a href="7.3-correlation-tests-1.html#correlation-plots-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Let’s first compute the correlations between all numeric variables and plot these with the p values</p>
-<div class="sourceCode" id="cb1940"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1940-1"><a href="7.3-correlation-tests-1.html#cb1940-1" tabindex="-1"></a><span class="do">### correlation using &quot;corrplot&quot;</span></span>
-<span id="cb1940-2"><a href="7.3-correlation-tests-1.html#cb1940-2" tabindex="-1"></a><span class="do">### based on the function `rcorr&#39; from the `Hmisc` package</span></span>
-<span id="cb1940-3"><a href="7.3-correlation-tests-1.html#cb1940-3" tabindex="-1"></a><span class="do">### Need to change dataframe into a matrix</span></span>
-<span id="cb1940-4"><a href="7.3-correlation-tests-1.html#cb1940-4" tabindex="-1"></a>corr <span class="ot">&lt;-</span> </span>
-<span id="cb1940-5"><a href="7.3-correlation-tests-1.html#cb1940-5" tabindex="-1"></a>  dfPharV2 <span class="sc">%&gt;%</span> </span>
-<span id="cb1940-6"><a href="7.3-correlation-tests-1.html#cb1940-6" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> </span>
-<span id="cb1940-7"><a href="7.3-correlation-tests-1.html#cb1940-7" tabindex="-1"></a>  <span class="fu">data.matrix</span>(dfPharV2) <span class="sc">%&gt;%</span> </span>
-<span id="cb1940-8"><a href="7.3-correlation-tests-1.html#cb1940-8" tabindex="-1"></a>  <span class="fu">rcorr</span>(<span class="at">type =</span> <span class="st">&quot;pearson&quot;</span>)</span>
-<span id="cb1940-9"><a href="7.3-correlation-tests-1.html#cb1940-9" tabindex="-1"></a><span class="fu">print</span>(corr)</span></code></pre></div>
+<div class="sourceCode" id="cb1999"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1999-1"><a href="7.3-correlation-tests-1.html#cb1999-1" tabindex="-1"></a><span class="do">### correlation using &quot;corrplot&quot;</span></span>
+<span id="cb1999-2"><a href="7.3-correlation-tests-1.html#cb1999-2" tabindex="-1"></a><span class="do">### based on the function `rcorr&#39; from the `Hmisc` package</span></span>
+<span id="cb1999-3"><a href="7.3-correlation-tests-1.html#cb1999-3" tabindex="-1"></a><span class="do">### Need to change dataframe into a matrix</span></span>
+<span id="cb1999-4"><a href="7.3-correlation-tests-1.html#cb1999-4" tabindex="-1"></a>corr <span class="ot">&lt;-</span> </span>
+<span id="cb1999-5"><a href="7.3-correlation-tests-1.html#cb1999-5" tabindex="-1"></a>  dfPharV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb1999-6"><a href="7.3-correlation-tests-1.html#cb1999-6" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> </span>
+<span id="cb1999-7"><a href="7.3-correlation-tests-1.html#cb1999-7" tabindex="-1"></a>  <span class="fu">data.matrix</span>(dfPharV2) <span class="sc">%&gt;%</span> </span>
+<span id="cb1999-8"><a href="7.3-correlation-tests-1.html#cb1999-8" tabindex="-1"></a>  <span class="fu">rcorr</span>(<span class="at">type =</span> <span class="st">&quot;pearson&quot;</span>)</span>
+<span id="cb1999-9"><a href="7.3-correlation-tests-1.html#cb1999-9" tabindex="-1"></a><span class="fu">print</span>(corr)</span></code></pre></div>
 <pre><code>##           CPP Energy H1A1c H1A2c H1A3c H1H2c H2H4c H2KH5Kc H42Kc HNR05 HNR15
 ## CPP      1.00  -0.03  0.40 -0.26 -0.11  0.25 -0.01   -0.34  0.02  0.67  0.60
 ## Energy  -0.03   1.00 -0.19  0.09 -0.12 -0.44  0.20   -0.13  0.19 -0.37 -0.67
@@ -2608,10 +2640,10 @@ We use the package <code>corrplot</code></p>
 ## A1mnA2         0.0000 0.0000
 ## A1mnA3  0.0000        0.0000
 ## A2mnA3  0.0000 0.0000</code></pre>
-<div class="sourceCode" id="cb1942"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1942-1"><a href="7.3-correlation-tests-1.html#cb1942-1" tabindex="-1"></a><span class="do">## use corrplot to obtain a nice correlation plot!</span></span>
-<span id="cb1942-2"><a href="7.3-correlation-tests-1.html#cb1942-2" tabindex="-1"></a><span class="fu">corrplot</span>(corr<span class="sc">$</span>r, <span class="at">p.mat =</span> corr<span class="sc">$</span>P,</span>
-<span id="cb1942-3"><a href="7.3-correlation-tests-1.html#cb1942-3" tabindex="-1"></a>         <span class="at">addCoef.col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">diag =</span> <span class="cn">FALSE</span>, <span class="at">type =</span> <span class="st">&quot;upper&quot;</span>, <span class="at">tl.srt =</span> <span class="dv">55</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-907-1.png" width="672" /></p>
+<div class="sourceCode" id="cb2001"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2001-1"><a href="7.3-correlation-tests-1.html#cb2001-1" tabindex="-1"></a><span class="do">## use corrplot to obtain a nice correlation plot!</span></span>
+<span id="cb2001-2"><a href="7.3-correlation-tests-1.html#cb2001-2" tabindex="-1"></a><span class="fu">corrplot</span>(corr<span class="sc">$</span>r, <span class="at">p.mat =</span> corr<span class="sc">$</span>P,</span>
+<span id="cb2001-3"><a href="7.3-correlation-tests-1.html#cb2001-3" tabindex="-1"></a>         <span class="at">addCoef.col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">diag =</span> <span class="cn">FALSE</span>, <span class="at">type =</span> <span class="st">&quot;upper&quot;</span>, <span class="at">tl.srt =</span> <span class="dv">55</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-925-1.png" width="672" /></p>
 </div>
 </div>
 <div id="reduce-dimensionality-by-selecting-uncorrelated-predictors" class="section level3 hasAnchor" number="7.3.2">
@@ -2624,13 +2656,13 @@ Let us test various R² values between all numeric predictors, at 0.9, 0.75, 0.5
 Any comments?</p>
 <div id="r²-0.9" class="section level4 hasAnchor" number="7.3.2.1">
 <h4><span class="header-section-number">7.3.2.1</span> R² = 0.9<a href="#r%C2%B2-0.9" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1943"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1943-1"><a href="7.3-correlation-tests-1.html#cb1943-1" tabindex="-1"></a><span class="fu">dim</span>(dfPharV2)[<span class="dv">2</span>]<span class="sc">-</span><span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb2002"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2002-1"><a href="7.3-correlation-tests-1.html#cb2002-1" tabindex="-1"></a><span class="fu">dim</span>(dfPharV2)[<span class="dv">2</span>]<span class="sc">-</span><span class="dv">1</span></span></code></pre></div>
 <pre><code>## [1] 24</code></pre>
-<div class="sourceCode" id="cb1945"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1945-1"><a href="7.3-correlation-tests-1.html#cb1945-1" tabindex="-1"></a>rec <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
-<span id="cb1945-2"><a href="7.3-correlation-tests-1.html#cb1945-2" tabindex="-1"></a>  <span class="fu">recipe</span>(context <span class="sc">~</span> .) <span class="sc">%&gt;%</span></span>
-<span id="cb1945-3"><a href="7.3-correlation-tests-1.html#cb1945-3" tabindex="-1"></a>  <span class="fu">step_corr</span>(<span class="fu">all_numeric_predictors</span>(), <span class="at">threshold =</span> <span class="fl">0.9</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1945-4"><a href="7.3-correlation-tests-1.html#cb1945-4" tabindex="-1"></a>  <span class="fu">prep</span>()</span>
-<span id="cb1945-5"><a href="7.3-correlation-tests-1.html#cb1945-5" tabindex="-1"></a><span class="fu">bake</span>(rec, <span class="at">new_data =</span> dfPharV2)</span></code></pre></div>
+<div class="sourceCode" id="cb2004"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2004-1"><a href="7.3-correlation-tests-1.html#cb2004-1" tabindex="-1"></a>rec <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb2004-2"><a href="7.3-correlation-tests-1.html#cb2004-2" tabindex="-1"></a>  <span class="fu">recipe</span>(context <span class="sc">~</span> .) <span class="sc">%&gt;%</span></span>
+<span id="cb2004-3"><a href="7.3-correlation-tests-1.html#cb2004-3" tabindex="-1"></a>  <span class="fu">step_corr</span>(<span class="fu">all_numeric_predictors</span>(), <span class="at">threshold =</span> <span class="fl">0.9</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2004-4"><a href="7.3-correlation-tests-1.html#cb2004-4" tabindex="-1"></a>  <span class="fu">prep</span>()</span>
+<span id="cb2004-5"><a href="7.3-correlation-tests-1.html#cb2004-5" tabindex="-1"></a><span class="fu">bake</span>(rec, <span class="at">new_data =</span> dfPharV2)</span></code></pre></div>
 <pre><code>## # A tibble: 402 × 21
 ##    contextN   CPP Energy H1A1c H1A2c   H1A3c   H1H2c H2H4c H2KH5Kc  H42Kc HNR05
 ##    &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
@@ -2651,13 +2683,13 @@ Any comments?</p>
 </div>
 <div id="r²-0.75" class="section level4 hasAnchor" number="7.3.2.2">
 <h4><span class="header-section-number">7.3.2.2</span> R² = 0.75<a href="#r%C2%B2-0.75" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1947"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1947-1"><a href="7.3-correlation-tests-1.html#cb1947-1" tabindex="-1"></a><span class="fu">dim</span>(dfPharV2)[<span class="dv">2</span>]<span class="sc">-</span><span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb2006"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2006-1"><a href="7.3-correlation-tests-1.html#cb2006-1" tabindex="-1"></a><span class="fu">dim</span>(dfPharV2)[<span class="dv">2</span>]<span class="sc">-</span><span class="dv">1</span></span></code></pre></div>
 <pre><code>## [1] 24</code></pre>
-<div class="sourceCode" id="cb1949"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1949-1"><a href="7.3-correlation-tests-1.html#cb1949-1" tabindex="-1"></a>rec <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
-<span id="cb1949-2"><a href="7.3-correlation-tests-1.html#cb1949-2" tabindex="-1"></a>  <span class="fu">recipe</span>(context <span class="sc">~</span> .) <span class="sc">%&gt;%</span></span>
-<span id="cb1949-3"><a href="7.3-correlation-tests-1.html#cb1949-3" tabindex="-1"></a>  <span class="fu">step_corr</span>(<span class="fu">all_numeric_predictors</span>(), <span class="at">threshold =</span> <span class="fl">0.75</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1949-4"><a href="7.3-correlation-tests-1.html#cb1949-4" tabindex="-1"></a>  <span class="fu">prep</span>()</span>
-<span id="cb1949-5"><a href="7.3-correlation-tests-1.html#cb1949-5" tabindex="-1"></a><span class="fu">bake</span>(rec, <span class="at">new_data =</span> dfPharV2)</span></code></pre></div>
+<div class="sourceCode" id="cb2008"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2008-1"><a href="7.3-correlation-tests-1.html#cb2008-1" tabindex="-1"></a>rec <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb2008-2"><a href="7.3-correlation-tests-1.html#cb2008-2" tabindex="-1"></a>  <span class="fu">recipe</span>(context <span class="sc">~</span> .) <span class="sc">%&gt;%</span></span>
+<span id="cb2008-3"><a href="7.3-correlation-tests-1.html#cb2008-3" tabindex="-1"></a>  <span class="fu">step_corr</span>(<span class="fu">all_numeric_predictors</span>(), <span class="at">threshold =</span> <span class="fl">0.75</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2008-4"><a href="7.3-correlation-tests-1.html#cb2008-4" tabindex="-1"></a>  <span class="fu">prep</span>()</span>
+<span id="cb2008-5"><a href="7.3-correlation-tests-1.html#cb2008-5" tabindex="-1"></a><span class="fu">bake</span>(rec, <span class="at">new_data =</span> dfPharV2)</span></code></pre></div>
 <pre><code>## # A tibble: 402 × 14
 ##    contextN   CPP Energy H1A1c H1A2c   H1A3c   H1H2c H2H4c H2KH5Kc   SHR Z1mnZ0
 ##    &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
@@ -2676,13 +2708,13 @@ Any comments?</p>
 </div>
 <div id="r²-0.5" class="section level4 hasAnchor" number="7.3.2.3">
 <h4><span class="header-section-number">7.3.2.3</span> R² = 0.5<a href="#r%C2%B2-0.5" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1951"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1951-1"><a href="7.3-correlation-tests-1.html#cb1951-1" tabindex="-1"></a><span class="fu">dim</span>(dfPharV2)[<span class="dv">2</span>]<span class="sc">-</span><span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb2010"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2010-1"><a href="7.3-correlation-tests-1.html#cb2010-1" tabindex="-1"></a><span class="fu">dim</span>(dfPharV2)[<span class="dv">2</span>]<span class="sc">-</span><span class="dv">1</span></span></code></pre></div>
 <pre><code>## [1] 24</code></pre>
-<div class="sourceCode" id="cb1953"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1953-1"><a href="7.3-correlation-tests-1.html#cb1953-1" tabindex="-1"></a>rec <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
-<span id="cb1953-2"><a href="7.3-correlation-tests-1.html#cb1953-2" tabindex="-1"></a>  <span class="fu">recipe</span>(context <span class="sc">~</span> .) <span class="sc">%&gt;%</span></span>
-<span id="cb1953-3"><a href="7.3-correlation-tests-1.html#cb1953-3" tabindex="-1"></a>  <span class="fu">step_corr</span>(<span class="fu">all_numeric_predictors</span>(), <span class="at">threshold =</span> <span class="fl">0.5</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1953-4"><a href="7.3-correlation-tests-1.html#cb1953-4" tabindex="-1"></a>  <span class="fu">prep</span>()</span>
-<span id="cb1953-5"><a href="7.3-correlation-tests-1.html#cb1953-5" tabindex="-1"></a><span class="fu">bake</span>(rec, <span class="at">new_data =</span> dfPharV2)</span></code></pre></div>
+<div class="sourceCode" id="cb2012"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2012-1"><a href="7.3-correlation-tests-1.html#cb2012-1" tabindex="-1"></a>rec <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb2012-2"><a href="7.3-correlation-tests-1.html#cb2012-2" tabindex="-1"></a>  <span class="fu">recipe</span>(context <span class="sc">~</span> .) <span class="sc">%&gt;%</span></span>
+<span id="cb2012-3"><a href="7.3-correlation-tests-1.html#cb2012-3" tabindex="-1"></a>  <span class="fu">step_corr</span>(<span class="fu">all_numeric_predictors</span>(), <span class="at">threshold =</span> <span class="fl">0.5</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2012-4"><a href="7.3-correlation-tests-1.html#cb2012-4" tabindex="-1"></a>  <span class="fu">prep</span>()</span>
+<span id="cb2012-5"><a href="7.3-correlation-tests-1.html#cb2012-5" tabindex="-1"></a><span class="fu">bake</span>(rec, <span class="at">new_data =</span> dfPharV2)</span></code></pre></div>
 <pre><code>## # A tibble: 402 × 9
 ##    contextN   CPP H1A1c H2H4c H2KH5Kc   SHR Z1mnZ0 Z4mnZ3 context 
 ##    &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;fct&gt;   
@@ -2700,13 +2732,13 @@ Any comments?</p>
 </div>
 <div id="r²-0.25" class="section level4 hasAnchor" number="7.3.2.4">
 <h4><span class="header-section-number">7.3.2.4</span> R² = 0.25<a href="#r%C2%B2-0.25" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1955"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1955-1"><a href="7.3-correlation-tests-1.html#cb1955-1" tabindex="-1"></a><span class="fu">dim</span>(dfPharV2)[<span class="dv">2</span>]<span class="sc">-</span><span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb2014"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2014-1"><a href="7.3-correlation-tests-1.html#cb2014-1" tabindex="-1"></a><span class="fu">dim</span>(dfPharV2)[<span class="dv">2</span>]<span class="sc">-</span><span class="dv">1</span></span></code></pre></div>
 <pre><code>## [1] 24</code></pre>
-<div class="sourceCode" id="cb1957"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1957-1"><a href="7.3-correlation-tests-1.html#cb1957-1" tabindex="-1"></a>rec <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
-<span id="cb1957-2"><a href="7.3-correlation-tests-1.html#cb1957-2" tabindex="-1"></a>  <span class="fu">recipe</span>(context <span class="sc">~</span> .) <span class="sc">%&gt;%</span></span>
-<span id="cb1957-3"><a href="7.3-correlation-tests-1.html#cb1957-3" tabindex="-1"></a>  <span class="fu">step_corr</span>(<span class="fu">all_numeric_predictors</span>(), <span class="at">threshold =</span> <span class="fl">0.25</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1957-4"><a href="7.3-correlation-tests-1.html#cb1957-4" tabindex="-1"></a>  <span class="fu">prep</span>()</span>
-<span id="cb1957-5"><a href="7.3-correlation-tests-1.html#cb1957-5" tabindex="-1"></a><span class="fu">bake</span>(rec, <span class="at">new_data =</span> dfPharV2)</span></code></pre></div>
+<div class="sourceCode" id="cb2016"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2016-1"><a href="7.3-correlation-tests-1.html#cb2016-1" tabindex="-1"></a>rec <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb2016-2"><a href="7.3-correlation-tests-1.html#cb2016-2" tabindex="-1"></a>  <span class="fu">recipe</span>(context <span class="sc">~</span> .) <span class="sc">%&gt;%</span></span>
+<span id="cb2016-3"><a href="7.3-correlation-tests-1.html#cb2016-3" tabindex="-1"></a>  <span class="fu">step_corr</span>(<span class="fu">all_numeric_predictors</span>(), <span class="at">threshold =</span> <span class="fl">0.25</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2016-4"><a href="7.3-correlation-tests-1.html#cb2016-4" tabindex="-1"></a>  <span class="fu">prep</span>()</span>
+<span id="cb2016-5"><a href="7.3-correlation-tests-1.html#cb2016-5" tabindex="-1"></a><span class="fu">bake</span>(rec, <span class="at">new_data =</span> dfPharV2)</span></code></pre></div>
 <pre><code>## # A tibble: 402 × 5
 ##    contextN   CPP H2H4c Z4mnZ3 context 
 ##    &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;fct&gt;   
@@ -2724,13 +2756,13 @@ Any comments?</p>
 </div>
 <div id="r²-0.1" class="section level4 hasAnchor" number="7.3.2.5">
 <h4><span class="header-section-number">7.3.2.5</span> R² = 0.1<a href="#r%C2%B2-0.1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1959"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1959-1"><a href="7.3-correlation-tests-1.html#cb1959-1" tabindex="-1"></a><span class="fu">dim</span>(dfPharV2)[<span class="dv">2</span>]<span class="sc">-</span><span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb2018"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2018-1"><a href="7.3-correlation-tests-1.html#cb2018-1" tabindex="-1"></a><span class="fu">dim</span>(dfPharV2)[<span class="dv">2</span>]<span class="sc">-</span><span class="dv">1</span></span></code></pre></div>
 <pre><code>## [1] 24</code></pre>
-<div class="sourceCode" id="cb1961"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1961-1"><a href="7.3-correlation-tests-1.html#cb1961-1" tabindex="-1"></a>rec <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
-<span id="cb1961-2"><a href="7.3-correlation-tests-1.html#cb1961-2" tabindex="-1"></a>  <span class="fu">recipe</span>(context <span class="sc">~</span> .) <span class="sc">%&gt;%</span></span>
-<span id="cb1961-3"><a href="7.3-correlation-tests-1.html#cb1961-3" tabindex="-1"></a>  <span class="fu">step_corr</span>(<span class="fu">all_numeric_predictors</span>(), <span class="at">threshold =</span> <span class="fl">0.1</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1961-4"><a href="7.3-correlation-tests-1.html#cb1961-4" tabindex="-1"></a>  <span class="fu">prep</span>()</span>
-<span id="cb1961-5"><a href="7.3-correlation-tests-1.html#cb1961-5" tabindex="-1"></a><span class="fu">bake</span>(rec, <span class="at">new_data =</span> dfPharV2)</span></code></pre></div>
+<div class="sourceCode" id="cb2020"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2020-1"><a href="7.3-correlation-tests-1.html#cb2020-1" tabindex="-1"></a>rec <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb2020-2"><a href="7.3-correlation-tests-1.html#cb2020-2" tabindex="-1"></a>  <span class="fu">recipe</span>(context <span class="sc">~</span> .) <span class="sc">%&gt;%</span></span>
+<span id="cb2020-3"><a href="7.3-correlation-tests-1.html#cb2020-3" tabindex="-1"></a>  <span class="fu">step_corr</span>(<span class="fu">all_numeric_predictors</span>(), <span class="at">threshold =</span> <span class="fl">0.1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2020-4"><a href="7.3-correlation-tests-1.html#cb2020-4" tabindex="-1"></a>  <span class="fu">prep</span>()</span>
+<span id="cb2020-5"><a href="7.3-correlation-tests-1.html#cb2020-5" tabindex="-1"></a><span class="fu">bake</span>(rec, <span class="at">new_data =</span> dfPharV2)</span></code></pre></div>
 <pre><code>## # A tibble: 402 × 5
 ##    contextN   CPP H2H4c Z4mnZ3 context 
 ##    &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;fct&gt;   

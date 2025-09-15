@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-10" />
+<meta name="date" content="2025-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,8 +55,9 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -377,17 +378,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-and-sample-size"><i class="fa fa-check"></i><b>2.3.2</b> Power analysis and sample size</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.1</b> Linear model</a>
+<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-interpretation-rules-and-t.test"><i class="fa fa-check"></i><b>2.3.2.1</b> Cohen’s <em>d</em> interpretation rules and t.test</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.1.1</b> General example</a>
+<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#pwr.t.test---one-sample-and-two-sample-t-tests-for-means"><i class="fa fa-check"></i><b>2.3.2.1.1</b> pwr.t.test - one-sample and two-sample t tests for means</a></li>
+<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-effect-size"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Cohen’s <em>d</em> effect size</a></li>
+<li class="chapter" data-level="2.3.2.1.3" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#plots"><i class="fa fa-check"></i><b>2.3.2.1.3</b> Plots</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.1.1.1</b> Power of the test</a></li>
-<li class="chapter" data-level="2.3.2.1.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.1.1.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.1.3.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.05"><i class="fa fa-check"></i><b>2.3.2.1.3.1</b> p &lt; 0.05</a></li>
+<li class="chapter" data-level="2.3.2.1.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.01"><i class="fa fa-check"></i><b>2.3.2.1.3.2</b> p &lt; 0.01</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Using our LM model</a>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.2</b> Linear model</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.1.2.1</b> Power analysis from our model</a></li>
-<li class="chapter" data-level="2.3.2.1.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.1.2.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.2.1</b> General example</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.2.1.1</b> Power of the test</a></li>
+<li class="chapter" data-level="2.3.2.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.2.1.2</b> Sample size</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.2.2</b> Using our LM model</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.2.2.1</b> Power analysis from our model</a></li>
+<li class="chapter" data-level="2.3.2.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.2.2.2</b> Sample size</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -404,53 +415,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="2.5-LM.html"><a href="2.5-LM.html"><i class="fa fa-check"></i><b>2.5</b> Linear Models</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-3"><i class="fa fa-check"></i><b>2.5.1</b> Introduction</a>
+<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#normality-of-distribution"><i class="fa fa-check"></i><b>2.5.1</b> Normality of distribution</a>
 <ul>
-<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.1.1</b> Model estimation</a></li>
+<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#shapiro-test"><i class="fa fa-check"></i><b>2.5.1.1</b> Shapiro test</a></li>
+<li class="chapter" data-level="2.5.1.2" data-path="2.5-LM.html"><a href="2.5-LM.html#density-plot"><i class="fa fa-check"></i><b>2.5.1.2</b> Density plot</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.2</b> Role of coding schemes</a>
+<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#homogeneity-of-variance"><i class="fa fa-check"></i><b>2.5.2</b> Homogeneity of variance</a>
 <ul>
-<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.2.1</b> Intro</a></li>
-<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.2.2</b> Treatment coding</a></li>
-<li class="chapter" data-level="2.5.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.2.3</b> Contrast (or sum) coding</a>
+<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#bartlett-test"><i class="fa fa-check"></i><b>2.5.2.1</b> Bartlett test</a></li>
+<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#levene-test"><i class="fa fa-check"></i><b>2.5.2.2</b> Levene test</a>
 <ul>
-<li class="chapter" data-level="2.5.2.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.2.3.1</b> Default</a></li>
-<li class="chapter" data-level="2.5.2.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.2.3.2</b> Modified</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.3</b> Further steps</a>
-<ul>
-<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.3.1</b> Tidying the output</a></li>
-<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.3.2</b> Nice table of our model summary</a>
-<ul>
-<li class="chapter" data-level="2.5.3.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.3.2.1</b> Directly from model summary</a></li>
-<li class="chapter" data-level="2.5.3.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.3.2.2</b> From the <code>tidy</code> output</a></li>
-<li class="chapter" data-level="2.5.3.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.3.2.3</b> Model’s fit</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.3.3</b> Dissecting the model</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.3.3.1</b> “str” and “coef”</a></li>
-<li class="chapter" data-level="2.5.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.3.3.2</b> “coef” and “coefficients”</a></li>
-<li class="chapter" data-level="2.5.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.3.3.3</b> Residuals</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.3.3.3.1</b> Histogram</a></li>
-<li class="chapter" data-level="2.5.3.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.3.3.3.2</b> qqplots</a></li>
-<li class="chapter" data-level="2.5.3.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.3.3.3.3</b> Residuals vs fitted values</a></li>
-<li class="chapter" data-level="2.5.3.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.3.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.3.3.4</b> Goodness of fit?</a></li>
-<li class="chapter" data-level="2.5.3.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.3.3.5</b> Significance testing</a></li>
+<li class="chapter" data-level="2.5.2.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#base-r"><i class="fa fa-check"></i><b>2.5.2.2.1</b> Base R</a></li>
+<li class="chapter" data-level="2.5.2.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-car-package"><i class="fa fa-check"></i><b>2.5.2.2.2</b> From the <code>car</code> package</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.4</b> Plotting fitted values</a>
+<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#first-steps-3"><i class="fa fa-check"></i><b>2.5.3</b> First steps</a>
 <ul>
-<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.4.1</b> Trend line</a></li>
-<li class="chapter" data-level="2.5.4.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.2</b> Predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.3</b> Raw data, predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.4.4</b> Add significance levels and trend line on a plot?</a></li>
+<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#t-test"><i class="fa fa-check"></i><b>2.5.3.1</b> T-test</a></li>
+<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-2"><i class="fa fa-check"></i><b>2.5.3.2</b> Linear Model</a></li>
+<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#basic-anova"><i class="fa fa-check"></i><b>2.5.3.3</b> Basic ANOVA</a></li>
+<li class="chapter" data-level="2.5.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-3"><i class="fa fa-check"></i><b>2.5.3.4</b> Linear model</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.5</b> What about pairwise comparison?</a></li>
-<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.6</b> Multiple predictors?</a></li>
+<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-to-linear-models"><i class="fa fa-check"></i><b>2.5.4</b> Introduction to Linear models</a>
+<ul>
+<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.4.1</b> Model estimation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.5</b> Role of coding schemes</a>
+<ul>
+<li class="chapter" data-level="2.5.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.5.1</b> Intro</a></li>
+<li class="chapter" data-level="2.5.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.5.2</b> Treatment coding</a></li>
+<li class="chapter" data-level="2.5.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.5.3</b> Contrast (or sum) coding</a>
+<ul>
+<li class="chapter" data-level="2.5.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.5.3.1</b> Default</a></li>
+<li class="chapter" data-level="2.5.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.5.3.2</b> Modified</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.6</b> Further steps</a>
+<ul>
+<li class="chapter" data-level="2.5.6.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.6.1</b> Tidying the output</a></li>
+<li class="chapter" data-level="2.5.6.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.6.2</b> Nice table of our model summary</a>
+<ul>
+<li class="chapter" data-level="2.5.6.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.6.2.1</b> Directly from model summary</a></li>
+<li class="chapter" data-level="2.5.6.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.6.2.2</b> From the <code>tidy</code> output</a></li>
+<li class="chapter" data-level="2.5.6.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.6.2.3</b> Model’s fit</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.6.3</b> Dissecting the model</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.6.3.1</b> “str” and “coef”</a></li>
+<li class="chapter" data-level="2.5.6.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.6.3.2</b> “coef” and “coefficients”</a></li>
+<li class="chapter" data-level="2.5.6.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.6.3.3</b> Residuals</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.6.3.3.1</b> Histogram</a></li>
+<li class="chapter" data-level="2.5.6.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.6.3.3.2</b> qqplots</a></li>
+<li class="chapter" data-level="2.5.6.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.6.3.3.3</b> Residuals vs fitted values</a></li>
+<li class="chapter" data-level="2.5.6.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.6.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.6.3.4</b> Goodness of fit?</a></li>
+<li class="chapter" data-level="2.5.6.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.6.3.5</b> Significance testing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.7" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.7</b> Plotting fitted values</a>
+<ul>
+<li class="chapter" data-level="2.5.7.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.7.1</b> Trend line</a></li>
+<li class="chapter" data-level="2.5.7.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.2</b> Predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.3</b> Raw data, predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.7.4</b> Add significance levels and trend line on a plot?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.8" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.8</b> What about pairwise comparison?</a></li>
+<li class="chapter" data-level="2.5.9" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.9</b> Multiple predictors?</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html"><i class="fa fa-check"></i><b>2.6</b> Generalised Linear Models</a>
 <ul>
@@ -620,7 +652,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.3.4.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-random-effects"><i class="fa fa-check"></i><b>3.3.4.1</b> Subject random effects</a></li>
 <li class="chapter" data-level="3.3.4.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#items-random-effects"><i class="fa fa-check"></i><b>3.3.4.2</b> Items random effects</a></li>
-<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
+<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots-1"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
 <ul>
 <li class="chapter" data-level="3.3.4.3.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#fixed-effects-1"><i class="fa fa-check"></i><b>3.3.4.3.1</b> Fixed effects</a>
 <ul>
@@ -2009,7 +2041,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4.3.3.5" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#dimension-5"><i class="fa fa-check"></i><b>7.4.3.3.5</b> Dimension 5</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-1"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
+<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-2"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
 <ul>
 <li class="chapter" data-level="7.4.4.1" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#default-plots"><i class="fa fa-check"></i><b>7.4.4.1</b> Default plots</a>
 <ul>
@@ -2041,7 +2073,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.5.1.1" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#computing-clusters"><i class="fa fa-check"></i><b>7.5.1.1</b> Computing clusters</a></li>
 <li class="chapter" data-level="7.5.1.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#dendograms"><i class="fa fa-check"></i><b>7.5.1.2</b> Dendograms</a></li>
-<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-2"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
+<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-3"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
 <li class="chapter" data-level="7.5.1.4" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#individual-clusters"><i class="fa fa-check"></i><b>7.5.1.4</b> Individual Clusters</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#conclusion-3"><i class="fa fa-check"></i><b>7.5.2</b> Conclusion</a></li>
@@ -2191,15 +2223,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="inaugural-corpus-usa-2" class="section level2 hasAnchor" number="6.4">
 <h2><span class="header-section-number">6.4</span> Inaugural Corpus USA<a href="6.4-inaugural-corpus-usa-2.html#inaugural-corpus-usa-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb1700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1700-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1700-1" tabindex="-1"></a>Data_Dir <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata/&quot;</span>, <span class="at">package =</span> <span class="st">&quot;readtext&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1759-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1759-1" tabindex="-1"></a>Data_Dir <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata/&quot;</span>, <span class="at">package =</span> <span class="st">&quot;readtext&quot;</span>)</span></code></pre></div>
 <div id="importing-data-8" class="section level3 hasAnchor" number="6.4.1">
 <h3><span class="header-section-number">6.4.1</span> Importing data<a href="6.4-inaugural-corpus-usa-2.html#importing-data-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1701"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1701-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1701-1" tabindex="-1"></a>dat_inaug <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">paste0</span>(Data_Dir, <span class="st">&quot;/csv/inaugCorpus.csv&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1760-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1760-1" tabindex="-1"></a>dat_inaug <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">paste0</span>(Data_Dir, <span class="st">&quot;/csv/inaugCorpus.csv&quot;</span>))</span></code></pre></div>
 </div>
 <div id="create-a-corpus-16" class="section level3 hasAnchor" number="6.4.2">
 <h3><span class="header-section-number">6.4.2</span> Create a corpus<a href="6.4-inaugural-corpus-usa-2.html#create-a-corpus-16" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1702-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1702-1" tabindex="-1"></a>dat_inaug_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(dat_inaug, <span class="at">text_field =</span> <span class="st">&quot;texts&quot;</span>)</span>
-<span id="cb1702-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1702-2" tabindex="-1"></a><span class="fu">print</span>(dat_inaug_corpus)</span></code></pre></div>
+<div class="sourceCode" id="cb1761"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1761-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1761-1" tabindex="-1"></a>dat_inaug_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(dat_inaug, <span class="at">text_field =</span> <span class="st">&quot;texts&quot;</span>)</span>
+<span id="cb1761-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1761-2" tabindex="-1"></a><span class="fu">print</span>(dat_inaug_corpus)</span></code></pre></div>
 <pre><code>## Corpus consisting of 5 documents and 3 docvars.
 ## text1 :
 ## &quot;Fellow-Citizens of the Senate and of the House of Representa...&quot;
@@ -2217,7 +2249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## &quot;Proceeding, fellow citizens, to that qualification which the...&quot;</code></pre>
 <div id="summary-34" class="section level4 hasAnchor" number="6.4.2.1">
 <h4><span class="header-section-number">6.4.2.1</span> Summary<a href="6.4-inaugural-corpus-usa-2.html#summary-34" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1704-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1704-1" tabindex="-1"></a><span class="fu">summary</span>(dat_inaug_corpus, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1763"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1763-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1763-1" tabindex="-1"></a><span class="fu">summary</span>(dat_inaug_corpus, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Corpus consisting of 5 documents, showing 5 documents:
 ## 
 ##   Text Types Tokens Sentences Year  President FirstName
@@ -2229,11 +2261,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="editing-docnames-2" class="section level4 hasAnchor" number="6.4.2.2">
 <h4><span class="header-section-number">6.4.2.2</span> Editing docnames<a href="6.4-inaugural-corpus-usa-2.html#editing-docnames-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1706-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1706-1" tabindex="-1"></a>docid <span class="ot">&lt;-</span> <span class="fu">paste</span>(dat_inaug<span class="sc">$</span>Year, </span>
-<span id="cb1706-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1706-2" tabindex="-1"></a>               dat_inaug<span class="sc">$</span>FirstName, </span>
-<span id="cb1706-3"><a href="6.4-inaugural-corpus-usa-2.html#cb1706-3" tabindex="-1"></a>               dat_inaug<span class="sc">$</span>President, <span class="at">sep =</span> <span class="st">&quot; &quot;</span>)</span>
-<span id="cb1706-4"><a href="6.4-inaugural-corpus-usa-2.html#cb1706-4" tabindex="-1"></a><span class="fu">docnames</span>(dat_inaug_corpus) <span class="ot">&lt;-</span> docid</span>
-<span id="cb1706-5"><a href="6.4-inaugural-corpus-usa-2.html#cb1706-5" tabindex="-1"></a><span class="fu">print</span>(dat_inaug_corpus)</span></code></pre></div>
+<div class="sourceCode" id="cb1765"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1765-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1765-1" tabindex="-1"></a>docid <span class="ot">&lt;-</span> <span class="fu">paste</span>(dat_inaug<span class="sc">$</span>Year, </span>
+<span id="cb1765-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1765-2" tabindex="-1"></a>               dat_inaug<span class="sc">$</span>FirstName, </span>
+<span id="cb1765-3"><a href="6.4-inaugural-corpus-usa-2.html#cb1765-3" tabindex="-1"></a>               dat_inaug<span class="sc">$</span>President, <span class="at">sep =</span> <span class="st">&quot; &quot;</span>)</span>
+<span id="cb1765-4"><a href="6.4-inaugural-corpus-usa-2.html#cb1765-4" tabindex="-1"></a><span class="fu">docnames</span>(dat_inaug_corpus) <span class="ot">&lt;-</span> docid</span>
+<span id="cb1765-5"><a href="6.4-inaugural-corpus-usa-2.html#cb1765-5" tabindex="-1"></a><span class="fu">print</span>(dat_inaug_corpus)</span></code></pre></div>
 <pre><code>## Corpus consisting of 5 documents and 3 docvars.
 ## 1789 George Washington :
 ## &quot;Fellow-Citizens of the Senate and of the House of Representa...&quot;
@@ -2252,14 +2284,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="accessing-parts-of-corpus-16" class="section level4 hasAnchor" number="6.4.2.3">
 <h4><span class="header-section-number">6.4.2.3</span> Accessing parts of corpus<a href="6.4-inaugural-corpus-usa-2.html#accessing-parts-of-corpus-16" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1708-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1708-1" tabindex="-1"></a>dat_inaug_corpus[[<span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb1767"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1767-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1767-1" tabindex="-1"></a>dat_inaug_corpus[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>## [1] &quot;Fellow-Citizens of the Senate and of the House of Representatives:\n\nAmong the vicissitudes incident to life no event could have filled me with greater anxieties than that of which the notification was transmitted by your order, and received on the 14th day of the present month. On the one hand, I was summoned by my Country, whose voice I can never hear but with veneration and love, from a retreat which I had chosen with the fondest predilection, and, in my flattering hopes, with an immutable decision, as the asylum of my declining years -- a retreat which was rendered every day more necessary as well as more dear to me by the addition of habit to inclination, and of frequent interruptions in my health to the gradual waste committed on it by time. On the other hand, the magnitude and difficulty of the trust to which the voice of my country called me, being sufficient to awaken in the wisest and most experienced of her citizens a distrustful scrutiny into his qualifications, could not but overwhelm with despondence one who (inheriting inferior endowments from nature and unpracticed in the duties of civil administration) ought to be peculiarly conscious of his own deficiencies. In this conflict of emotions all I dare aver is that it has been my faithful study to collect my duty from a just appreciation of every circumstance by which it might be affected. All I dare hope is that if, in executing this task, I have been too much swayed by a grateful remembrance of former instances, or by an affectionate sensibility to this transcendent proof of the confidence of my fellow citizens, and have thence too little consulted my incapacity as well as disinclination for the weighty and untried cares before me, my error will be palliated by the motives which mislead me, and its consequences be judged by my country with some share of the partiality in which they originated.\n\nSuch being the impressions under which I have, in obedience to the public summons, repaired to the present station, it would be peculiarly improper to omit in this first official act my fervent supplications to that Almighty Being who rules over the universe, who presides in the councils of nations, and whose providential aids can supply every human defect, that His benediction may consecrate to the liberties and happiness of the people of the United States a Government instituted by themselves for these essential purposes, and may enable every instrument employed in its administration to execute with success the functions allotted to his charge. In tendering this homage to the Great Author of every public and private good, I assure myself that it expresses your sentiments not less than my own, nor those of my fellow citizens at large less than either. No people can be bound to acknowledge and adore the Invisible Hand which conducts the affairs of men more than those of the United States. Every step by which they have advanced to the character of an independent nation seems to have been distinguished by some token of providential agency; and in the important revolution just accomplished in the system of their united government the tranquil deliberations and voluntary consent of so many distinct communities from which the event has resulted can not be compared with the means by which most governments have been established without some return of pious gratitude, along with an humble anticipation of the future blessings which the past seem to presage. These reflections, arising out of the present crisis, have forced themselves too strongly on my mind to be suppressed. You will join with me, I trust, in thinking that there are none under the influence of which the proceedings of a new and free government can more auspiciously commence.\n\nBy the article establishing the executive department it is made the duty of the President \&quot;to recommend to your consideration such measures as he shall judge necessary and expedient.\&quot; The circumstances under which I now meet you will acquit me from entering into that subject further than to refer to the great constitutional charter under which you are assembled, and which, in defining your powers, designates the objects to which your attention is to be given. It will be more consistent with those circumstances, and far more congenial with the feelings which actuate me, to substitute, in place of a recommendation of particular measures, the tribute that is due to the talents, the rectitude, and the patriotism which adorn the characters selected to devise and adopt them. In these honorable qualifications I behold the surest pledges that as on one side no local prejudices or attachments, no separate views nor party animosities, will misdirect the comprehensive and equal eye which ought to watch over this great assemblage of communities and interests, so, on another, that the foundation of our national policy will be laid in the pure and immutable principles of private morality, and the preeminence of free government be exemplified by all the attributes which can win the affections of its citizens and command the respect of the world. I dwell on this prospect with every satisfaction which an ardent love for my country can inspire, since there is no truth more thoroughly established than that there exists in the economy and course of nature an indissoluble union between virtue and happiness; between duty and advantage; between the genuine maxims of an honest and magnanimous policy and the solid rewards of public prosperity and felicity; since we ought to be no less persuaded that the propitious smiles of Heaven can never be expected on a nation that disregards the eternal rules of order and right which Heaven itself has ordained; and since the preservation of the sacred fire of liberty and the destiny of the republican model of government are justly considered, perhaps, as deeply, as finally, staked on the experiment entrusted to the hands of the American people.\n\nBesides the ordinary objects submitted to your care, it will remain with your judgment to decide how far an exercise of the occasional power delegated by the fifth article of the Constitution is rendered expedient at the present juncture by the nature of objections which have been urged against the system, or by the degree of inquietude which has given birth to them. Instead of undertaking particular recommendations on this subject, in which I could be guided by no lights derived from official opportunities, I shall again give way to my entire confidence in your discernment and pursuit of the public good; for I assure myself that whilst you carefully avoid every alteration which might endanger the benefits of an united and effective government, or which ought to await the future lessons of experience, a reverence for the characteristic rights of freemen and a regard for the public harmony will sufficiently influence your deliberations on the question how far the former can be impregnably fortified or the latter be safely and advantageously promoted.\n\nTo the foregoing observations I have one to add, which will be most properly addressed to the House of Representatives. It concerns myself, and will therefore be as brief as possible. When I was first honored with a call into the service of my country, then on the eve of an arduous struggle for its liberties, the light in which I contemplated my duty required that I should renounce every pecuniary compensation. From this resolution I have in no instance departed; and being still under the impressions which produced it, I must decline as inapplicable to myself any share in the personal emoluments which may be indispensably included in a permanent provision for the executive department, and must accordingly pray that the pecuniary estimates for the station in which I am placed may during my continuance in it be limited to such actual expenditures as the public good may be thought to require.\n\nHaving thus imparted to you my sentiments as they have been awakened by the occasion which brings us together, I shall take my present leave; but not without resorting once more to the benign Parent of the Human Race in humble supplication that, since He has been pleased to favor the American people with opportunities for deliberating in perfect tranquillity, and dispositions for deciding with unparalleled unanimity on a form of government for the security of their union and the advancement of their happiness, so His divine blessing may be equally conspicuous in the enlarged views, the temperate consultations, and the wise measures on which the success of this Government must depend. &quot;</code></pre>
-<div class="sourceCode" id="cb1710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1710-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1710-1" tabindex="-1"></a>dat_inaug_corpus[[<span class="st">&quot;1789 George Washington&quot;</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb1769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1769-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1769-1" tabindex="-1"></a>dat_inaug_corpus[[<span class="st">&quot;1789 George Washington&quot;</span>]]</span></code></pre></div>
 <pre><code>## [1] &quot;Fellow-Citizens of the Senate and of the House of Representatives:\n\nAmong the vicissitudes incident to life no event could have filled me with greater anxieties than that of which the notification was transmitted by your order, and received on the 14th day of the present month. On the one hand, I was summoned by my Country, whose voice I can never hear but with veneration and love, from a retreat which I had chosen with the fondest predilection, and, in my flattering hopes, with an immutable decision, as the asylum of my declining years -- a retreat which was rendered every day more necessary as well as more dear to me by the addition of habit to inclination, and of frequent interruptions in my health to the gradual waste committed on it by time. On the other hand, the magnitude and difficulty of the trust to which the voice of my country called me, being sufficient to awaken in the wisest and most experienced of her citizens a distrustful scrutiny into his qualifications, could not but overwhelm with despondence one who (inheriting inferior endowments from nature and unpracticed in the duties of civil administration) ought to be peculiarly conscious of his own deficiencies. In this conflict of emotions all I dare aver is that it has been my faithful study to collect my duty from a just appreciation of every circumstance by which it might be affected. All I dare hope is that if, in executing this task, I have been too much swayed by a grateful remembrance of former instances, or by an affectionate sensibility to this transcendent proof of the confidence of my fellow citizens, and have thence too little consulted my incapacity as well as disinclination for the weighty and untried cares before me, my error will be palliated by the motives which mislead me, and its consequences be judged by my country with some share of the partiality in which they originated.\n\nSuch being the impressions under which I have, in obedience to the public summons, repaired to the present station, it would be peculiarly improper to omit in this first official act my fervent supplications to that Almighty Being who rules over the universe, who presides in the councils of nations, and whose providential aids can supply every human defect, that His benediction may consecrate to the liberties and happiness of the people of the United States a Government instituted by themselves for these essential purposes, and may enable every instrument employed in its administration to execute with success the functions allotted to his charge. In tendering this homage to the Great Author of every public and private good, I assure myself that it expresses your sentiments not less than my own, nor those of my fellow citizens at large less than either. No people can be bound to acknowledge and adore the Invisible Hand which conducts the affairs of men more than those of the United States. Every step by which they have advanced to the character of an independent nation seems to have been distinguished by some token of providential agency; and in the important revolution just accomplished in the system of their united government the tranquil deliberations and voluntary consent of so many distinct communities from which the event has resulted can not be compared with the means by which most governments have been established without some return of pious gratitude, along with an humble anticipation of the future blessings which the past seem to presage. These reflections, arising out of the present crisis, have forced themselves too strongly on my mind to be suppressed. You will join with me, I trust, in thinking that there are none under the influence of which the proceedings of a new and free government can more auspiciously commence.\n\nBy the article establishing the executive department it is made the duty of the President \&quot;to recommend to your consideration such measures as he shall judge necessary and expedient.\&quot; The circumstances under which I now meet you will acquit me from entering into that subject further than to refer to the great constitutional charter under which you are assembled, and which, in defining your powers, designates the objects to which your attention is to be given. It will be more consistent with those circumstances, and far more congenial with the feelings which actuate me, to substitute, in place of a recommendation of particular measures, the tribute that is due to the talents, the rectitude, and the patriotism which adorn the characters selected to devise and adopt them. In these honorable qualifications I behold the surest pledges that as on one side no local prejudices or attachments, no separate views nor party animosities, will misdirect the comprehensive and equal eye which ought to watch over this great assemblage of communities and interests, so, on another, that the foundation of our national policy will be laid in the pure and immutable principles of private morality, and the preeminence of free government be exemplified by all the attributes which can win the affections of its citizens and command the respect of the world. I dwell on this prospect with every satisfaction which an ardent love for my country can inspire, since there is no truth more thoroughly established than that there exists in the economy and course of nature an indissoluble union between virtue and happiness; between duty and advantage; between the genuine maxims of an honest and magnanimous policy and the solid rewards of public prosperity and felicity; since we ought to be no less persuaded that the propitious smiles of Heaven can never be expected on a nation that disregards the eternal rules of order and right which Heaven itself has ordained; and since the preservation of the sacred fire of liberty and the destiny of the republican model of government are justly considered, perhaps, as deeply, as finally, staked on the experiment entrusted to the hands of the American people.\n\nBesides the ordinary objects submitted to your care, it will remain with your judgment to decide how far an exercise of the occasional power delegated by the fifth article of the Constitution is rendered expedient at the present juncture by the nature of objections which have been urged against the system, or by the degree of inquietude which has given birth to them. Instead of undertaking particular recommendations on this subject, in which I could be guided by no lights derived from official opportunities, I shall again give way to my entire confidence in your discernment and pursuit of the public good; for I assure myself that whilst you carefully avoid every alteration which might endanger the benefits of an united and effective government, or which ought to await the future lessons of experience, a reverence for the characteristic rights of freemen and a regard for the public harmony will sufficiently influence your deliberations on the question how far the former can be impregnably fortified or the latter be safely and advantageously promoted.\n\nTo the foregoing observations I have one to add, which will be most properly addressed to the House of Representatives. It concerns myself, and will therefore be as brief as possible. When I was first honored with a call into the service of my country, then on the eve of an arduous struggle for its liberties, the light in which I contemplated my duty required that I should renounce every pecuniary compensation. From this resolution I have in no instance departed; and being still under the impressions which produced it, I must decline as inapplicable to myself any share in the personal emoluments which may be indispensably included in a permanent provision for the executive department, and must accordingly pray that the pecuniary estimates for the station in which I am placed may during my continuance in it be limited to such actual expenditures as the public good may be thought to require.\n\nHaving thus imparted to you my sentiments as they have been awakened by the occasion which brings us together, I shall take my present leave; but not without resorting once more to the benign Parent of the Human Race in humble supplication that, since He has been pleased to favor the American people with opportunities for deliberating in perfect tranquillity, and dispositions for deciding with unparalleled unanimity on a form of government for the security of their union and the advancement of their happiness, so His divine blessing may be equally conspicuous in the enlarged views, the temperate consultations, and the wise measures on which the success of this Government must depend. &quot;</code></pre>
 </div>
 <div id="unique-variable-names-for-volume-7" class="section level4 hasAnchor" number="6.4.2.4">
 <h4><span class="header-section-number">6.4.2.4</span> Unique variable names (for volume)<a href="6.4-inaugural-corpus-usa-2.html#unique-variable-names-for-volume-7" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1712-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1712-1" tabindex="-1"></a><span class="fu">unique</span>(<span class="fu">docvars</span>(dat_inaug_corpus, <span class="at">field =</span> <span class="st">&quot;Year&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1771-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1771-1" tabindex="-1"></a><span class="fu">unique</span>(<span class="fu">docvars</span>(dat_inaug_corpus, <span class="at">field =</span> <span class="st">&quot;Year&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] 1789 1793 1797 1801 1805</code></pre>
 </div>
 </div>
@@ -2269,8 +2301,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 We can remove punctuations or not</p>
 <div id="with-punctuations-16" class="section level4 hasAnchor" number="6.4.3.1">
 <h4><span class="header-section-number">6.4.3.1</span> With punctuations<a href="6.4-inaugural-corpus-usa-2.html#with-punctuations-16" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1714-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1714-1" tabindex="-1"></a>dat_inaug_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_inaug_corpus)</span>
-<span id="cb1714-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1714-2" tabindex="-1"></a>dat_inaug_corpus_tok</span></code></pre></div>
+<div class="sourceCode" id="cb1773"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1773-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1773-1" tabindex="-1"></a>dat_inaug_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_inaug_corpus)</span>
+<span id="cb1773-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1773-2" tabindex="-1"></a>dat_inaug_corpus_tok</span></code></pre></div>
 <pre><code>## Tokens consisting of 5 documents and 3 docvars.
 ## 1789 George Washington :
 ##  [1] &quot;Fellow-Citizens&quot; &quot;of&quot;              &quot;the&quot;             &quot;Senate&quot;         
@@ -2301,8 +2333,8 @@ We can remove punctuations or not</p>
 </div>
 <div id="without-punctuations-16" class="section level4 hasAnchor" number="6.4.3.2">
 <h4><span class="header-section-number">6.4.3.2</span> Without punctuations<a href="6.4-inaugural-corpus-usa-2.html#without-punctuations-16" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1716-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1716-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_inaug_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1716-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1716-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct</span></code></pre></div>
+<div class="sourceCode" id="cb1775"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1775-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1775-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_inaug_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1775-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1775-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct</span></code></pre></div>
 <pre><code>## Tokens consisting of 5 documents and 3 docvars.
 ## 1789 George Washington :
 ##  [1] &quot;Fellow-Citizens&quot; &quot;of&quot;              &quot;the&quot;             &quot;Senate&quot;         
@@ -2335,8 +2367,8 @@ We can remove punctuations or not</p>
 <div id="stop-words-2" class="section level3 hasAnchor" number="6.4.4">
 <h3><span class="header-section-number">6.4.4</span> Stop words<a href="6.4-inaugural-corpus-usa-2.html#stop-words-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It is best to remove stop words (function/grammatical words) when we use statistical analyses of a corpus.</p>
-<div class="sourceCode" id="cb1718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1718-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1718-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(dat_inaug_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">stopwords</span>(<span class="st">&quot;en&quot;</span>, <span class="at">source =</span> <span class="st">&quot;stopwords-iso&quot;</span>), <span class="at">selection =</span> <span class="st">&quot;remove&quot;</span>)</span>
-<span id="cb1718-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1718-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop</span></code></pre></div>
+<div class="sourceCode" id="cb1777"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1777-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1777-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(dat_inaug_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">stopwords</span>(<span class="st">&quot;en&quot;</span>, <span class="at">source =</span> <span class="st">&quot;stopwords-iso&quot;</span>), <span class="at">selection =</span> <span class="st">&quot;remove&quot;</span>)</span>
+<span id="cb1777-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1777-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop</span></code></pre></div>
 <pre><code>## Tokens consisting of 5 documents and 3 docvars.
 ## 1789 George Washington :
 ##  [1] &quot;Fellow-Citizens&quot; &quot;Senate&quot;          &quot;House&quot;           &quot;Representatives&quot;
@@ -2376,8 +2408,8 @@ We can remove punctuations or not</p>
 <div id="dfm-9" class="section level5 hasAnchor" number="6.4.5.1.1">
 <h5><span class="header-section-number">6.4.5.1.1</span> DFM<a href="6.4-inaugural-corpus-usa-2.html#dfm-9" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We start by generating a DFM (document-feature matrix)</p>
-<div class="sourceCode" id="cb1720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1720-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1720-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm <span class="ot">&lt;-</span> <span class="fu">dfm</span>(dat_inaug_corpus_tok_no_punct_no_Stop)</span>
-<span id="cb1720-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1720-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm</span></code></pre></div>
+<div class="sourceCode" id="cb1779"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1779-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1779-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm <span class="ot">&lt;-</span> <span class="fu">dfm</span>(dat_inaug_corpus_tok_no_punct_no_Stop)</span>
+<span id="cb1779-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1779-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm</span></code></pre></div>
 <pre><code>## Document-feature matrix of: 5 documents, 1,580 features (73.63% sparse) and 3 docvars.
 ##                         features
 ## docs                     fellow-citizens senate house representatives
@@ -2397,8 +2429,8 @@ We can remove punctuations or not</p>
 </div>
 <div id="frequencies-2" class="section level5 hasAnchor" number="6.4.5.1.2">
 <h5><span class="header-section-number">6.4.5.1.2</span> Frequencies<a href="6.4-inaugural-corpus-usa-2.html#frequencies-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1722-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1722-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm_freq <span class="ot">&lt;-</span> <span class="fu">textstat_frequency</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm)</span>
-<span id="cb1722-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1722-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm_freq</span></code></pre></div>
+<div class="sourceCode" id="cb1781"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1781-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1781-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm_freq <span class="ot">&lt;-</span> <span class="fu">textstat_frequency</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm)</span>
+<span id="cb1781-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1781-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm_freq</span></code></pre></div>
 <pre><code>##                feature frequency rank docfreq group
 ## 1           government        40    1       5   all
 ## 2               public        30    2       4   all
@@ -3984,14 +4016,14 @@ We can remove punctuations or not</p>
 <div id="plot-2" class="section level5 hasAnchor" number="6.4.5.1.3">
 <h5><span class="header-section-number">6.4.5.1.3</span> Plot<a href="6.4-inaugural-corpus-usa-2.html#plot-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We plot the top 15 most frequent words used in the text.</p>
-<div class="sourceCode" id="cb1724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1724-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1724-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm <span class="sc">%&gt;%</span> </span>
-<span id="cb1724-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1724-2" tabindex="-1"></a>  <span class="fu">textstat_frequency</span>(<span class="at">n =</span> <span class="dv">15</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1724-3"><a href="6.4-inaugural-corpus-usa-2.html#cb1724-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(feature, frequency), <span class="at">y =</span> frequency)) <span class="sc">+</span></span>
-<span id="cb1724-4"><a href="6.4-inaugural-corpus-usa-2.html#cb1724-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb1724-5"><a href="6.4-inaugural-corpus-usa-2.html#cb1724-5" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb1724-6"><a href="6.4-inaugural-corpus-usa-2.html#cb1724-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1724-7"><a href="6.4-inaugural-corpus-usa-2.html#cb1724-7" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-779-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1783"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1783-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1783-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm <span class="sc">%&gt;%</span> </span>
+<span id="cb1783-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1783-2" tabindex="-1"></a>  <span class="fu">textstat_frequency</span>(<span class="at">n =</span> <span class="dv">15</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1783-3"><a href="6.4-inaugural-corpus-usa-2.html#cb1783-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(feature, frequency), <span class="at">y =</span> frequency)) <span class="sc">+</span></span>
+<span id="cb1783-4"><a href="6.4-inaugural-corpus-usa-2.html#cb1783-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb1783-5"><a href="6.4-inaugural-corpus-usa-2.html#cb1783-5" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb1783-6"><a href="6.4-inaugural-corpus-usa-2.html#cb1783-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1783-7"><a href="6.4-inaugural-corpus-usa-2.html#cb1783-7" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-797-1.png" width="672" /></p>
 </div>
 </div>
 <div id="lexical-diversity-2" class="section level4 hasAnchor" number="6.4.5.2">
@@ -4001,8 +4033,8 @@ We can remove punctuations or not</p>
 <h5><span class="header-section-number">6.4.5.2.1</span> TTR (Type-Token Ratio)<a href="6.4-inaugural-corpus-usa-2.html#ttr-type-token-ratio-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div id="computing-ttr-2" class="section level6 hasAnchor" number="6.4.5.2.1.1">
 <h6><span class="header-section-number">6.4.5.2.1.1</span> Computing TTR<a href="6.4-inaugural-corpus-usa-2.html#computing-ttr-2" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1725-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1725-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr <span class="ot">&lt;-</span> <span class="fu">textstat_lexdiv</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm, <span class="at">measure =</span> <span class="st">&quot;TTR&quot;</span>)</span>
-<span id="cb1725-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1725-2" tabindex="-1"></a><span class="fu">head</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr, <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1784"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1784-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1784-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr <span class="ot">&lt;-</span> <span class="fu">textstat_lexdiv</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm, <span class="at">measure =</span> <span class="st">&quot;TTR&quot;</span>)</span>
+<span id="cb1784-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1784-2" tabindex="-1"></a><span class="fu">head</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr, <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>##                 document       TTR
 ## 1 1789 George Washington 0.8346457
 ## 2 1793 George Washington 0.9791667
@@ -4012,18 +4044,18 @@ We can remove punctuations or not</p>
 </div>
 <div id="plotting-ttr-4" class="section level6 hasAnchor" number="6.4.5.2.1.2">
 <h6><span class="header-section-number">6.4.5.2.1.2</span> Plotting TTR<a href="6.4-inaugural-corpus-usa-2.html#plotting-ttr-4" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1727-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1727-1" tabindex="-1"></a><span class="fu">plot</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr<span class="sc">$</span>TTR, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="cn">NULL</span>, <span class="at">ylab =</span> <span class="st">&quot;TTR&quot;</span>)</span>
-<span id="cb1727-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1727-2" tabindex="-1"></a><span class="fu">grid</span>()</span>
-<span id="cb1727-3"><a href="6.4-inaugural-corpus-usa-2.html#cb1727-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr)), <span class="at">labels =</span> dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr<span class="sc">$</span>document)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-781-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1786"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1786-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1786-1" tabindex="-1"></a><span class="fu">plot</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr<span class="sc">$</span>TTR, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="cn">NULL</span>, <span class="at">ylab =</span> <span class="st">&quot;TTR&quot;</span>)</span>
+<span id="cb1786-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1786-2" tabindex="-1"></a><span class="fu">grid</span>()</span>
+<span id="cb1786-3"><a href="6.4-inaugural-corpus-usa-2.html#cb1786-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr)), <span class="at">labels =</span> dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr<span class="sc">$</span>document)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-799-1.png" width="672" /></p>
 </div>
 </div>
 <div id="cttr-corrected-type-token-ratio-2" class="section level5 hasAnchor" number="6.4.5.2.2">
 <h5><span class="header-section-number">6.4.5.2.2</span> CTTR (Corrected Type-Token Ratio)<a href="6.4-inaugural-corpus-usa-2.html#cttr-corrected-type-token-ratio-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div id="computing-cttr-2" class="section level6 hasAnchor" number="6.4.5.2.2.1">
 <h6><span class="header-section-number">6.4.5.2.2.1</span> Computing CTTR<a href="6.4-inaugural-corpus-usa-2.html#computing-cttr-2" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1728-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1728-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr <span class="ot">&lt;-</span> <span class="fu">textstat_lexdiv</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm, <span class="at">measure =</span> <span class="st">&quot;CTTR&quot;</span>)</span>
-<span id="cb1728-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1728-2" tabindex="-1"></a><span class="fu">head</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr, <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1787"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1787-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1787-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr <span class="ot">&lt;-</span> <span class="fu">textstat_lexdiv</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm, <span class="at">measure =</span> <span class="st">&quot;CTTR&quot;</span>)</span>
+<span id="cb1787-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1787-2" tabindex="-1"></a><span class="fu">head</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr, <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>##                 document      CTTR
 ## 1 1789 George Washington 13.302063
 ## 2 1793 George Washington  4.796917
@@ -4033,18 +4065,18 @@ We can remove punctuations or not</p>
 </div>
 <div id="plotting-ttr-5" class="section level6 hasAnchor" number="6.4.5.2.2.2">
 <h6><span class="header-section-number">6.4.5.2.2.2</span> Plotting TTR<a href="6.4-inaugural-corpus-usa-2.html#plotting-ttr-5" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1730-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1730-1" tabindex="-1"></a><span class="fu">plot</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr<span class="sc">$</span>CTTR, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="cn">NULL</span>, <span class="at">ylab =</span> <span class="st">&quot;CTTR&quot;</span>)</span>
-<span id="cb1730-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1730-2" tabindex="-1"></a><span class="fu">grid</span>()</span>
-<span id="cb1730-3"><a href="6.4-inaugural-corpus-usa-2.html#cb1730-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr)), <span class="at">labels =</span> dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr<span class="sc">$</span>document)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-783-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1789"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1789-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1789-1" tabindex="-1"></a><span class="fu">plot</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr<span class="sc">$</span>CTTR, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="cn">NULL</span>, <span class="at">ylab =</span> <span class="st">&quot;CTTR&quot;</span>)</span>
+<span id="cb1789-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1789-2" tabindex="-1"></a><span class="fu">grid</span>()</span>
+<span id="cb1789-3"><a href="6.4-inaugural-corpus-usa-2.html#cb1789-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr)), <span class="at">labels =</span> dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr<span class="sc">$</span>document)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-801-1.png" width="672" /></p>
 </div>
 </div>
 <div id="k-yules-k-2" class="section level5 hasAnchor" number="6.4.5.2.3">
 <h5><span class="header-section-number">6.4.5.2.3</span> <em>K</em> (Yule’s <em>K</em>)<a href="6.4-inaugural-corpus-usa-2.html#k-yules-k-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div id="computing-k-2" class="section level6 hasAnchor" number="6.4.5.2.3.1">
 <h6><span class="header-section-number">6.4.5.2.3.1</span> Computing <em>K</em><a href="6.4-inaugural-corpus-usa-2.html#computing-k-2" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1731-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1731-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K <span class="ot">&lt;-</span> <span class="fu">textstat_lexdiv</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm, <span class="at">measure =</span> <span class="st">&quot;K&quot;</span>)</span>
-<span id="cb1731-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1731-2" tabindex="-1"></a><span class="fu">head</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K, <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1790"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1790-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1790-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K <span class="ot">&lt;-</span> <span class="fu">textstat_lexdiv</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm, <span class="at">measure =</span> <span class="st">&quot;K&quot;</span>)</span>
+<span id="cb1790-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1790-2" tabindex="-1"></a><span class="fu">head</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K, <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>##                 document         K
 ## 1 1789 George Washington 10.617521
 ## 2 1793 George Washington  8.680556
@@ -4054,10 +4086,10 @@ We can remove punctuations or not</p>
 </div>
 <div id="plotting-k-2" class="section level6 hasAnchor" number="6.4.5.2.3.2">
 <h6><span class="header-section-number">6.4.5.2.3.2</span> Plotting <em>K</em><a href="6.4-inaugural-corpus-usa-2.html#plotting-k-2" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1733-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1733-1" tabindex="-1"></a><span class="fu">plot</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K<span class="sc">$</span>K, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="cn">NULL</span>, <span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(K)))</span>
-<span id="cb1733-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1733-2" tabindex="-1"></a><span class="fu">grid</span>()</span>
-<span id="cb1733-3"><a href="6.4-inaugural-corpus-usa-2.html#cb1733-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K)), <span class="at">labels =</span> dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K<span class="sc">$</span>document)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-785-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1792"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1792-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1792-1" tabindex="-1"></a><span class="fu">plot</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K<span class="sc">$</span>K, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="cn">NULL</span>, <span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(K)))</span>
+<span id="cb1792-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1792-2" tabindex="-1"></a><span class="fu">grid</span>()</span>
+<span id="cb1792-3"><a href="6.4-inaugural-corpus-usa-2.html#cb1792-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K)), <span class="at">labels =</span> dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K<span class="sc">$</span>document)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-803-1.png" width="672" /></p>
 </div>
 </div>
 </div>
@@ -4066,8 +4098,8 @@ We can remove punctuations or not</p>
 <p>The relative frequency analysis allows to provide a statistical analysis of frequent words as a function of a target reference level. For this dataset, we do not have a specific target. Hence the comparison is done based on the full dataset.</p>
 <div id="computing-keyness-2" class="section level5 hasAnchor" number="6.4.5.3.1">
 <h5><span class="header-section-number">6.4.5.3.1</span> Computing keyness<a href="6.4-inaugural-corpus-usa-2.html#computing-keyness-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1734-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1734-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_key <span class="ot">&lt;-</span> <span class="fu">textstat_keyness</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm)</span>
-<span id="cb1734-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1734-2" tabindex="-1"></a><span class="fu">head</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_key, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1793"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1793-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1793-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_key <span class="ot">&lt;-</span> <span class="fu">textstat_keyness</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm)</span>
+<span id="cb1793-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1793-2" tabindex="-1"></a><span class="fu">head</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_key, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##          feature    chi2           p n_target n_reference
 ## 1           hand 8.43838 0.003673834        3           0
 ## 2         assure 4.27290 0.038724786        2           0
@@ -4082,16 +4114,16 @@ We can remove punctuations or not</p>
 </div>
 <div id="plotting-12" class="section level5 hasAnchor" number="6.4.5.3.2">
 <h5><span class="header-section-number">6.4.5.3.2</span> Plotting<a href="6.4-inaugural-corpus-usa-2.html#plotting-12" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1736-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1736-1" tabindex="-1"></a><span class="fu">textplot_keyness</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_key, <span class="at">margin =</span> <span class="fl">0.2</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-787-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1795"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1795-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1795-1" tabindex="-1"></a><span class="fu">textplot_keyness</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm_tstat_key, <span class="at">margin =</span> <span class="fl">0.2</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-805-1.png" width="672" /></p>
 </div>
 </div>
 <div id="collocations---scoring-multi-word-expressions-2" class="section level4 hasAnchor" number="6.4.5.4">
 <h4><span class="header-section-number">6.4.5.4</span> Collocations - scoring multi-word expressions<a href="6.4-inaugural-corpus-usa-2.html#collocations---scoring-multi-word-expressions-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A collocation analysis is a way to identify contiguous collocations of words, i.e., multi-word expressions. Depending on the language, these can be identified based on capitalisation (e.g., proper names) as in English texts. However, this is not the same across languages.</p>
 <p>We look for capital letters in our text. The result provides Wald’s Lamda and z statistics. Usually, any z value higher or equal to 2 is statistically significant. To compute p values, we use the probability of a normal distribution based on a mean of 0 and an SD of 1. This is appended to the table.</p>
-<div class="sourceCode" id="cb1737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1737-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1737-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_tstat_col_caps <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(dat_inaug_corpus_tok_no_punct_no_Stop, <span class="at">pattern =</span> <span class="st">&quot;^[A-Z]&quot;</span>, <span class="at">valuetype =</span> <span class="st">&quot;regex&quot;</span>, <span class="at">case_insensitive =</span> <span class="cn">FALSE</span>, <span class="at">padding =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span>  <span class="fu">textstat_collocations</span>(<span class="at">min_count =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">p_value =</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(z, <span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb1737-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1737-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_tstat_col_caps</span></code></pre></div>
+<div class="sourceCode" id="cb1796"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1796-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1796-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_tstat_col_caps <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(dat_inaug_corpus_tok_no_punct_no_Stop, <span class="at">pattern =</span> <span class="st">&quot;^[A-Z]&quot;</span>, <span class="at">valuetype =</span> <span class="st">&quot;regex&quot;</span>, <span class="at">case_insensitive =</span> <span class="cn">FALSE</span>, <span class="at">padding =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span>  <span class="fu">textstat_collocations</span>(<span class="at">min_count =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">p_value =</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(z, <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb1796-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1796-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_tstat_col_caps</span></code></pre></div>
 <pre><code>##                collocation count count_nested length    lambda        z
 ## 1      constitution united     3            0      2  5.312476 6.610361
 ## 2          houses congress     2            0      2  6.926286 6.100023
@@ -4156,29 +4188,29 @@ We can remove punctuations or not</p>
 <div id="word-clouds-2" class="section level4 hasAnchor" number="6.4.5.5">
 <h4><span class="header-section-number">6.4.5.5</span> Word clouds<a href="6.4-inaugural-corpus-usa-2.html#word-clouds-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We can use word clouds of the top 100 words</p>
-<div class="sourceCode" id="cb1739"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1739-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1739-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">132</span>)</span>
-<span id="cb1739-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1739-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm <span class="sc">%&gt;%</span> </span>
-<span id="cb1739-3"><a href="6.4-inaugural-corpus-usa-2.html#cb1739-3" tabindex="-1"></a>  <span class="fu">textplot_wordcloud</span>(<span class="at">max_words =</span> <span class="dv">100</span>, <span class="at">color =</span> <span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>))</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-789-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1798"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1798-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1798-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">132</span>)</span>
+<span id="cb1798-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1798-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm <span class="sc">%&gt;%</span> </span>
+<span id="cb1798-3"><a href="6.4-inaugural-corpus-usa-2.html#cb1798-3" tabindex="-1"></a>  <span class="fu">textplot_wordcloud</span>(<span class="at">max_words =</span> <span class="dv">100</span>, <span class="at">color =</span> <span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>))</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-807-1.png" width="672" /></p>
 </div>
 <div id="network-of-feature-co-occurrences-2" class="section level4 hasAnchor" number="6.4.5.6">
 <h4><span class="header-section-number">6.4.5.6</span> Network of feature co-occurrences<a href="6.4-inaugural-corpus-usa-2.html#network-of-feature-co-occurrences-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A Network of feature co-occurrences allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.</p>
-<div class="sourceCode" id="cb1740"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1740-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1740-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">144</span>)</span>
-<span id="cb1740-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1740-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm <span class="sc">%&gt;%</span> </span>
-<span id="cb1740-3"><a href="6.4-inaugural-corpus-usa-2.html#cb1740-3" tabindex="-1"></a>  <span class="fu">dfm_trim</span>(<span class="at">min_termfreq =</span> <span class="dv">15</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1740-4"><a href="6.4-inaugural-corpus-usa-2.html#cb1740-4" tabindex="-1"></a>  <span class="fu">textplot_network</span>(<span class="at">min_freq =</span> <span class="fl">0.5</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-790-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1799"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1799-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1799-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">144</span>)</span>
+<span id="cb1799-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1799-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm <span class="sc">%&gt;%</span> </span>
+<span id="cb1799-3"><a href="6.4-inaugural-corpus-usa-2.html#cb1799-3" tabindex="-1"></a>  <span class="fu">dfm_trim</span>(<span class="at">min_termfreq =</span> <span class="dv">15</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1799-4"><a href="6.4-inaugural-corpus-usa-2.html#cb1799-4" tabindex="-1"></a>  <span class="fu">textplot_network</span>(<span class="at">min_freq =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-808-1.png" width="672" /></p>
 </div>
 <div id="poisson-regression-2" class="section level4 hasAnchor" number="6.4.5.7">
 <h4><span class="header-section-number">6.4.5.7</span> Poisson regression<a href="6.4-inaugural-corpus-usa-2.html#poisson-regression-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Finally, we run a GLM with a poisson family to evaluate the significance level of our most frequent words.</p>
 <div id="computing-glm-2" class="section level5 hasAnchor" number="6.4.5.7.1">
 <h5><span class="header-section-number">6.4.5.7.1</span> Computing GLM<a href="6.4-inaugural-corpus-usa-2.html#computing-glm-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1741-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1741-1" tabindex="-1"></a>dat_inaug_corpus_GLM <span class="ot">&lt;-</span> dat_inaug_corpus_tok_no_punct_no_Stop_dfm_freq <span class="sc">%&gt;%</span> </span>
-<span id="cb1741-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1741-2" tabindex="-1"></a>  <span class="fu">filter</span>(frequency <span class="sc">&gt;=</span> <span class="dv">15</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1741-3"><a href="6.4-inaugural-corpus-usa-2.html#cb1741-3" tabindex="-1"></a>  <span class="fu">glm</span>(frequency <span class="sc">~</span> feature, <span class="at">data =</span> ., <span class="at">family =</span> <span class="st">&quot;poisson&quot;</span>)</span>
-<span id="cb1741-4"><a href="6.4-inaugural-corpus-usa-2.html#cb1741-4" tabindex="-1"></a><span class="fu">summary</span>(dat_inaug_corpus_GLM)</span></code></pre></div>
+<div class="sourceCode" id="cb1800"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1800-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1800-1" tabindex="-1"></a>dat_inaug_corpus_GLM <span class="ot">&lt;-</span> dat_inaug_corpus_tok_no_punct_no_Stop_dfm_freq <span class="sc">%&gt;%</span> </span>
+<span id="cb1800-2"><a href="6.4-inaugural-corpus-usa-2.html#cb1800-2" tabindex="-1"></a>  <span class="fu">filter</span>(frequency <span class="sc">&gt;=</span> <span class="dv">15</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1800-3"><a href="6.4-inaugural-corpus-usa-2.html#cb1800-3" tabindex="-1"></a>  <span class="fu">glm</span>(frequency <span class="sc">~</span> feature, <span class="at">data =</span> ., <span class="at">family =</span> <span class="st">&quot;poisson&quot;</span>)</span>
+<span id="cb1800-4"><a href="6.4-inaugural-corpus-usa-2.html#cb1800-4" tabindex="-1"></a><span class="fu">summary</span>(dat_inaug_corpus_GLM)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = frequency ~ feature, family = &quot;poisson&quot;, data = .)
@@ -4210,13 +4242,13 @@ We can remove punctuations or not</p>
 <div id="a-plot-3" class="section level6 hasAnchor" number="6.4.5.7.2.1">
 <h6><span class="header-section-number">6.4.5.7.2.1</span> A plot<a href="6.4-inaugural-corpus-usa-2.html#a-plot-3" class="anchor-section" aria-label="Anchor link to header"></a></h6>
 <p>We use two functions from the package <code>ggstats</code>. Because we used a poisson distribution, we obtain the results in IRR (=Incident rate ratios). Usually, we need to exponentiate these to make sense of the results.</p>
-<div class="sourceCode" id="cb1743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1743-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1743-1" tabindex="-1"></a><span class="fu">ggcoef_model</span>(dat_inaug_corpus_GLM, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-792-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1802"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1802-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1802-1" tabindex="-1"></a><span class="fu">ggcoef_model</span>(dat_inaug_corpus_GLM, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-810-1.png" width="672" /></p>
 </div>
 <div id="a-plot-a-table-95-ci-3" class="section level6 hasAnchor" number="6.4.5.7.2.2">
 <h6><span class="header-section-number">6.4.5.7.2.2</span> A plot + a table + 95% CI<a href="6.4-inaugural-corpus-usa-2.html#a-plot-a-table-95-ci-3" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1744-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1744-1" tabindex="-1"></a><span class="fu">ggcoef_table</span>(dat_inaug_corpus_GLM, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-793-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1803"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1803-1"><a href="6.4-inaugural-corpus-usa-2.html#cb1803-1" tabindex="-1"></a><span class="fu">ggcoef_table</span>(dat_inaug_corpus_GLM, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-811-1.png" width="672" /></p>
 </div>
 </div>
 </div>

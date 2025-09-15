@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-10" />
+<meta name="date" content="2025-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,8 +55,9 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -377,17 +378,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-and-sample-size"><i class="fa fa-check"></i><b>2.3.2</b> Power analysis and sample size</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.1</b> Linear model</a>
+<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-interpretation-rules-and-t.test"><i class="fa fa-check"></i><b>2.3.2.1</b> Cohen’s <em>d</em> interpretation rules and t.test</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.1.1</b> General example</a>
+<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#pwr.t.test---one-sample-and-two-sample-t-tests-for-means"><i class="fa fa-check"></i><b>2.3.2.1.1</b> pwr.t.test - one-sample and two-sample t tests for means</a></li>
+<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-effect-size"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Cohen’s <em>d</em> effect size</a></li>
+<li class="chapter" data-level="2.3.2.1.3" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#plots"><i class="fa fa-check"></i><b>2.3.2.1.3</b> Plots</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.1.1.1</b> Power of the test</a></li>
-<li class="chapter" data-level="2.3.2.1.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.1.1.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.1.3.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.05"><i class="fa fa-check"></i><b>2.3.2.1.3.1</b> p &lt; 0.05</a></li>
+<li class="chapter" data-level="2.3.2.1.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.01"><i class="fa fa-check"></i><b>2.3.2.1.3.2</b> p &lt; 0.01</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Using our LM model</a>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.2</b> Linear model</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.1.2.1</b> Power analysis from our model</a></li>
-<li class="chapter" data-level="2.3.2.1.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.1.2.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.2.1</b> General example</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.2.1.1</b> Power of the test</a></li>
+<li class="chapter" data-level="2.3.2.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.2.1.2</b> Sample size</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.2.2</b> Using our LM model</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.2.2.1</b> Power analysis from our model</a></li>
+<li class="chapter" data-level="2.3.2.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.2.2.2</b> Sample size</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -404,53 +415,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="2.5-LM.html"><a href="2.5-LM.html"><i class="fa fa-check"></i><b>2.5</b> Linear Models</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-3"><i class="fa fa-check"></i><b>2.5.1</b> Introduction</a>
+<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#normality-of-distribution"><i class="fa fa-check"></i><b>2.5.1</b> Normality of distribution</a>
 <ul>
-<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.1.1</b> Model estimation</a></li>
+<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#shapiro-test"><i class="fa fa-check"></i><b>2.5.1.1</b> Shapiro test</a></li>
+<li class="chapter" data-level="2.5.1.2" data-path="2.5-LM.html"><a href="2.5-LM.html#density-plot"><i class="fa fa-check"></i><b>2.5.1.2</b> Density plot</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.2</b> Role of coding schemes</a>
+<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#homogeneity-of-variance"><i class="fa fa-check"></i><b>2.5.2</b> Homogeneity of variance</a>
 <ul>
-<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.2.1</b> Intro</a></li>
-<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.2.2</b> Treatment coding</a></li>
-<li class="chapter" data-level="2.5.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.2.3</b> Contrast (or sum) coding</a>
+<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#bartlett-test"><i class="fa fa-check"></i><b>2.5.2.1</b> Bartlett test</a></li>
+<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#levene-test"><i class="fa fa-check"></i><b>2.5.2.2</b> Levene test</a>
 <ul>
-<li class="chapter" data-level="2.5.2.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.2.3.1</b> Default</a></li>
-<li class="chapter" data-level="2.5.2.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.2.3.2</b> Modified</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.3</b> Further steps</a>
-<ul>
-<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.3.1</b> Tidying the output</a></li>
-<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.3.2</b> Nice table of our model summary</a>
-<ul>
-<li class="chapter" data-level="2.5.3.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.3.2.1</b> Directly from model summary</a></li>
-<li class="chapter" data-level="2.5.3.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.3.2.2</b> From the <code>tidy</code> output</a></li>
-<li class="chapter" data-level="2.5.3.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.3.2.3</b> Model’s fit</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.3.3</b> Dissecting the model</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.3.3.1</b> “str” and “coef”</a></li>
-<li class="chapter" data-level="2.5.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.3.3.2</b> “coef” and “coefficients”</a></li>
-<li class="chapter" data-level="2.5.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.3.3.3</b> Residuals</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.3.3.3.1</b> Histogram</a></li>
-<li class="chapter" data-level="2.5.3.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.3.3.3.2</b> qqplots</a></li>
-<li class="chapter" data-level="2.5.3.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.3.3.3.3</b> Residuals vs fitted values</a></li>
-<li class="chapter" data-level="2.5.3.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.3.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.3.3.4</b> Goodness of fit?</a></li>
-<li class="chapter" data-level="2.5.3.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.3.3.5</b> Significance testing</a></li>
+<li class="chapter" data-level="2.5.2.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#base-r"><i class="fa fa-check"></i><b>2.5.2.2.1</b> Base R</a></li>
+<li class="chapter" data-level="2.5.2.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-car-package"><i class="fa fa-check"></i><b>2.5.2.2.2</b> From the <code>car</code> package</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.4</b> Plotting fitted values</a>
+<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#first-steps-3"><i class="fa fa-check"></i><b>2.5.3</b> First steps</a>
 <ul>
-<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.4.1</b> Trend line</a></li>
-<li class="chapter" data-level="2.5.4.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.2</b> Predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.3</b> Raw data, predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.4.4</b> Add significance levels and trend line on a plot?</a></li>
+<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#t-test"><i class="fa fa-check"></i><b>2.5.3.1</b> T-test</a></li>
+<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-2"><i class="fa fa-check"></i><b>2.5.3.2</b> Linear Model</a></li>
+<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#basic-anova"><i class="fa fa-check"></i><b>2.5.3.3</b> Basic ANOVA</a></li>
+<li class="chapter" data-level="2.5.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-3"><i class="fa fa-check"></i><b>2.5.3.4</b> Linear model</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.5</b> What about pairwise comparison?</a></li>
-<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.6</b> Multiple predictors?</a></li>
+<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-to-linear-models"><i class="fa fa-check"></i><b>2.5.4</b> Introduction to Linear models</a>
+<ul>
+<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.4.1</b> Model estimation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.5</b> Role of coding schemes</a>
+<ul>
+<li class="chapter" data-level="2.5.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.5.1</b> Intro</a></li>
+<li class="chapter" data-level="2.5.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.5.2</b> Treatment coding</a></li>
+<li class="chapter" data-level="2.5.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.5.3</b> Contrast (or sum) coding</a>
+<ul>
+<li class="chapter" data-level="2.5.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.5.3.1</b> Default</a></li>
+<li class="chapter" data-level="2.5.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.5.3.2</b> Modified</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.6</b> Further steps</a>
+<ul>
+<li class="chapter" data-level="2.5.6.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.6.1</b> Tidying the output</a></li>
+<li class="chapter" data-level="2.5.6.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.6.2</b> Nice table of our model summary</a>
+<ul>
+<li class="chapter" data-level="2.5.6.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.6.2.1</b> Directly from model summary</a></li>
+<li class="chapter" data-level="2.5.6.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.6.2.2</b> From the <code>tidy</code> output</a></li>
+<li class="chapter" data-level="2.5.6.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.6.2.3</b> Model’s fit</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.6.3</b> Dissecting the model</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.6.3.1</b> “str” and “coef”</a></li>
+<li class="chapter" data-level="2.5.6.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.6.3.2</b> “coef” and “coefficients”</a></li>
+<li class="chapter" data-level="2.5.6.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.6.3.3</b> Residuals</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.6.3.3.1</b> Histogram</a></li>
+<li class="chapter" data-level="2.5.6.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.6.3.3.2</b> qqplots</a></li>
+<li class="chapter" data-level="2.5.6.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.6.3.3.3</b> Residuals vs fitted values</a></li>
+<li class="chapter" data-level="2.5.6.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.6.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.6.3.4</b> Goodness of fit?</a></li>
+<li class="chapter" data-level="2.5.6.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.6.3.5</b> Significance testing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.7" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.7</b> Plotting fitted values</a>
+<ul>
+<li class="chapter" data-level="2.5.7.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.7.1</b> Trend line</a></li>
+<li class="chapter" data-level="2.5.7.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.2</b> Predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.3</b> Raw data, predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.7.4</b> Add significance levels and trend line on a plot?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.8" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.8</b> What about pairwise comparison?</a></li>
+<li class="chapter" data-level="2.5.9" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.9</b> Multiple predictors?</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html"><i class="fa fa-check"></i><b>2.6</b> Generalised Linear Models</a>
 <ul>
@@ -620,7 +652,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.3.4.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-random-effects"><i class="fa fa-check"></i><b>3.3.4.1</b> Subject random effects</a></li>
 <li class="chapter" data-level="3.3.4.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#items-random-effects"><i class="fa fa-check"></i><b>3.3.4.2</b> Items random effects</a></li>
-<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
+<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots-1"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
 <ul>
 <li class="chapter" data-level="3.3.4.3.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#fixed-effects-1"><i class="fa fa-check"></i><b>3.3.4.3.1</b> Fixed effects</a>
 <ul>
@@ -2009,7 +2041,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4.3.3.5" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#dimension-5"><i class="fa fa-check"></i><b>7.4.3.3.5</b> Dimension 5</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-1"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
+<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-2"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
 <ul>
 <li class="chapter" data-level="7.4.4.1" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#default-plots"><i class="fa fa-check"></i><b>7.4.4.1</b> Default plots</a>
 <ul>
@@ -2041,7 +2073,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.5.1.1" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#computing-clusters"><i class="fa fa-check"></i><b>7.5.1.1</b> Computing clusters</a></li>
 <li class="chapter" data-level="7.5.1.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#dendograms"><i class="fa fa-check"></i><b>7.5.1.2</b> Dendograms</a></li>
-<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-2"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
+<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-3"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
 <li class="chapter" data-level="7.5.1.4" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#individual-clusters"><i class="fa fa-check"></i><b>7.5.1.4</b> Individual Clusters</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#conclusion-3"><i class="fa fa-check"></i><b>7.5.2</b> Conclusion</a></li>
@@ -2194,11 +2226,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We the twitter.json data accessed from <a href="https://github.com/quanteda/tutorials.quanteda.io/blob/master/content/data/twitter.json">here</a>. This is a JSON file (.json) downloaded from the Twitter stream API.</p>
 <div id="importing-data-4" class="section level3 hasAnchor" number="4.6.1">
 <h3><span class="header-section-number">4.6.1</span> Importing data<a href="4.6-twitter-data.html#importing-data-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1058"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1058-1"><a href="4.6-twitter-data.html#cb1058-1" tabindex="-1"></a>dat_twitter <span class="ot">&lt;-</span> <span class="fu">readtext</span>(<span class="st">&quot;data/twitter.json&quot;</span>, <span class="at">source =</span> <span class="st">&quot;twitter&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1117-1"><a href="4.6-twitter-data.html#cb1117-1" tabindex="-1"></a>dat_twitter <span class="ot">&lt;-</span> <span class="fu">readtext</span>(<span class="st">&quot;data/twitter.json&quot;</span>, <span class="at">source =</span> <span class="st">&quot;twitter&quot;</span>)</span></code></pre></div>
 <div id="checking-structure-3" class="section level5 hasAnchor" number="4.6.1.0.1">
 <h5><span class="header-section-number">4.6.1.0.1</span> Checking structure<a href="4.6-twitter-data.html#checking-structure-3" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1059"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1059-1"><a href="4.6-twitter-data.html#cb1059-1" tabindex="-1"></a>dat_twitter <span class="sc">%&gt;%</span> </span>
-<span id="cb1059-2"><a href="4.6-twitter-data.html#cb1059-2" tabindex="-1"></a>  <span class="fu">str</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1118-1"><a href="4.6-twitter-data.html#cb1118-1" tabindex="-1"></a>dat_twitter <span class="sc">%&gt;%</span> </span>
+<span id="cb1118-2"><a href="4.6-twitter-data.html#cb1118-2" tabindex="-1"></a>  <span class="fu">str</span>()</span></code></pre></div>
 <pre><code>## Classes &#39;readtext&#39; and &#39;data.frame&#39;: 7504 obs. of  44 variables:
 ##  $ doc_id                   : chr  &quot;twitter.json.1&quot; &quot;twitter.json.2&quot; &quot;twitter.json.3&quot; &quot;twitter.json.4&quot; ...
 ##  $ text                     : chr  &quot;@EFC_Jayy UKIP&quot; &quot;RT @Corbynator2:@jeremycorbyn Reaction from people at the Watford Rally:\n“We believe in Jeremy Corbyn!”\n“We n&quot;| __truncated__ &quot;RT @ryvr: Stephen Hawking, the world’s smartest man, backs Jeremy Corbyn https://t.co/2kl3ayLd44 #TuesdayThoughts&quot; &quot;RT @TheGreenParty: How you cast your vote will shape the future. Every single vote counts. Tomorrow, #VoteGreen&quot;| __truncated__ ...
@@ -2247,8 +2279,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="unnest-4" class="section level5 hasAnchor" number="4.6.1.0.2">
 <h5><span class="header-section-number">4.6.1.0.2</span> Unnest<a href="4.6-twitter-data.html#unnest-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1061"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1061-1"><a href="4.6-twitter-data.html#cb1061-1" tabindex="-1"></a>dat_twitter <span class="sc">%&gt;%</span> </span>
-<span id="cb1061-2"><a href="4.6-twitter-data.html#cb1061-2" tabindex="-1"></a>  <span class="fu">unnest</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1120-1"><a href="4.6-twitter-data.html#cb1120-1" tabindex="-1"></a>dat_twitter <span class="sc">%&gt;%</span> </span>
+<span id="cb1120-2"><a href="4.6-twitter-data.html#cb1120-2" tabindex="-1"></a>  <span class="fu">unnest</span>()</span></code></pre></div>
 <pre><code>## Warning: `cols` is now required when using `unnest()`.
 ## ℹ Please use `cols = c()`.</code></pre>
 <pre><code>## # A tibble: 7,504 × 44
@@ -2275,8 +2307,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="create-a-corpus-4" class="section level3 hasAnchor" number="4.6.2">
 <h3><span class="header-section-number">4.6.2</span> Create a corpus<a href="4.6-twitter-data.html#create-a-corpus-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1064"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1064-1"><a href="4.6-twitter-data.html#cb1064-1" tabindex="-1"></a>dat_twitter_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(dat_twitter)</span>
-<span id="cb1064-2"><a href="4.6-twitter-data.html#cb1064-2" tabindex="-1"></a><span class="fu">print</span>(dat_twitter_corpus)</span></code></pre></div>
+<div class="sourceCode" id="cb1123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1123-1"><a href="4.6-twitter-data.html#cb1123-1" tabindex="-1"></a>dat_twitter_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(dat_twitter)</span>
+<span id="cb1123-2"><a href="4.6-twitter-data.html#cb1123-2" tabindex="-1"></a><span class="fu">print</span>(dat_twitter_corpus)</span></code></pre></div>
 <pre><code>## Corpus consisting of 7,504 documents and 42 docvars.
 ## twitter.json.1 :
 ## &quot;@EFC_Jayy UKIP&quot;
@@ -2299,7 +2331,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [ reached max_ndoc ... 7,498 more documents ]</code></pre>
 <div id="summary-16" class="section level4 hasAnchor" number="4.6.2.1">
 <h4><span class="header-section-number">4.6.2.1</span> Summary<a href="4.6-twitter-data.html#summary-16" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1066"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1066-1"><a href="4.6-twitter-data.html#cb1066-1" tabindex="-1"></a><span class="fu">summary</span>(dat_twitter_corpus, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1125-1"><a href="4.6-twitter-data.html#cb1125-1" tabindex="-1"></a><span class="fu">summary</span>(dat_twitter_corpus, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Corpus consisting of 7504 documents, showing 10 documents:
 ## 
 ##             Text Types Tokens Sentences retweet_count favorite_count favorited
@@ -2459,7 +2491,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="accessing-parts-of-corpus-4" class="section level4 hasAnchor" number="4.6.2.2">
 <h4><span class="header-section-number">4.6.2.2</span> Accessing parts of corpus<a href="4.6-twitter-data.html#accessing-parts-of-corpus-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1068"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1068-1"><a href="4.6-twitter-data.html#cb1068-1" tabindex="-1"></a>dat_twitter_corpus[,<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1127-1"><a href="4.6-twitter-data.html#cb1127-1" tabindex="-1"></a>dat_twitter_corpus[,<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## Corpus consisting of 7,504 documents and 42 docvars.
 ## twitter.json.1 :
 ## &quot;@EFC_Jayy UKIP&quot;
@@ -2483,7 +2515,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="document-level-information-3" class="section level4 hasAnchor" number="4.6.2.3">
 <h4><span class="header-section-number">4.6.2.3</span> Document-level information<a href="4.6-twitter-data.html#document-level-information-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1070"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1070-1"><a href="4.6-twitter-data.html#cb1070-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">docvars</span>(dat_twitter_corpus))</span></code></pre></div>
+<div class="sourceCode" id="cb1129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1129-1"><a href="4.6-twitter-data.html#cb1129-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">docvars</span>(dat_twitter_corpus))</span></code></pre></div>
 <pre><code>##   retweet_count favorite_count favorited truncated             id_str
 ## 1             0              0     FALSE     FALSE 872596537142116352
 ## 2            90            108     FALSE     FALSE 872596536869363712
@@ -2585,7 +2617,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="unique-variable-names-for-volume-2" class="section level4 hasAnchor" number="4.6.2.4">
 <h4><span class="header-section-number">4.6.2.4</span> Unique variable names (for volume)<a href="4.6-twitter-data.html#unique-variable-names-for-volume-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1072"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1072-1"><a href="4.6-twitter-data.html#cb1072-1" tabindex="-1"></a><span class="fu">unique</span>(<span class="fu">docvars</span>(dat_twitter_corpus, <span class="at">field =</span> <span class="st">&quot;lang&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1131-1"><a href="4.6-twitter-data.html#cb1131-1" tabindex="-1"></a><span class="fu">unique</span>(<span class="fu">docvars</span>(dat_twitter_corpus, <span class="at">field =</span> <span class="st">&quot;lang&quot;</span>))</span></code></pre></div>
 <pre><code>##  [1] &quot;en&quot;  &quot;tl&quot;  &quot;und&quot; &quot;fr&quot;  &quot;ja&quot;  &quot;de&quot;  &quot;sv&quot;  &quot;hu&quot;  &quot;ht&quot;  &quot;lt&quot;  &quot;cy&quot;  &quot;ar&quot; 
 ## [13] &quot;pt&quot;  &quot;in&quot;  &quot;fi&quot;  &quot;tr&quot;  &quot;es&quot;  &quot;hi&quot;  &quot;fa&quot;  &quot;it&quot;  &quot;pl&quot;</code></pre>
 </div>
@@ -2597,8 +2629,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">4.6.3.1</span> Sentences<a href="4.6-twitter-data.html#sentences-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div id="transform-8" class="section level5 hasAnchor" number="4.6.3.1.1">
 <h5><span class="header-section-number">4.6.3.1.1</span> Transform<a href="4.6-twitter-data.html#transform-8" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1074"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1074-1"><a href="4.6-twitter-data.html#cb1074-1" tabindex="-1"></a>dat_twitter_corpus_sent <span class="ot">&lt;-</span> <span class="fu">corpus_reshape</span>(dat_twitter_corpus, <span class="at">to =</span> <span class="st">&quot;sentences&quot;</span>)</span>
-<span id="cb1074-2"><a href="4.6-twitter-data.html#cb1074-2" tabindex="-1"></a>dat_twitter_corpus_sent</span></code></pre></div>
+<div class="sourceCode" id="cb1133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1133-1"><a href="4.6-twitter-data.html#cb1133-1" tabindex="-1"></a>dat_twitter_corpus_sent <span class="ot">&lt;-</span> <span class="fu">corpus_reshape</span>(dat_twitter_corpus, <span class="at">to =</span> <span class="st">&quot;sentences&quot;</span>)</span>
+<span id="cb1133-2"><a href="4.6-twitter-data.html#cb1133-2" tabindex="-1"></a>dat_twitter_corpus_sent</span></code></pre></div>
 <pre><code>## Corpus consisting of 13,091 documents and 42 docvars.
 ## twitter.json.1.1 :
 ## &quot;@EFC_Jayy UKIP&quot;
@@ -2622,7 +2654,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="summary-17" class="section level5 hasAnchor" number="4.6.3.1.2">
 <h5><span class="header-section-number">4.6.3.1.2</span> Summary<a href="4.6-twitter-data.html#summary-17" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1076"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1076-1"><a href="4.6-twitter-data.html#cb1076-1" tabindex="-1"></a><span class="fu">summary</span>(dat_twitter_corpus_sent)</span></code></pre></div>
+<div class="sourceCode" id="cb1135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1135-1"><a href="4.6-twitter-data.html#cb1135-1" tabindex="-1"></a><span class="fu">summary</span>(dat_twitter_corpus_sent)</span></code></pre></div>
 <pre><code>## Corpus consisting of 13091 documents, showing 100 documents:
 ## 
 ##               Text Types Tokens Sentences retweet_count favorite_count
@@ -4144,10 +4176,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="subset-8" class="section level5 hasAnchor" number="4.6.3.1.3">
 <h5><span class="header-section-number">4.6.3.1.3</span> Subset<a href="4.6-twitter-data.html#subset-8" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We can subset sentences with 10 or more words</p>
-<div class="sourceCode" id="cb1078"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1078-1"><a href="4.6-twitter-data.html#cb1078-1" tabindex="-1"></a>dat_twitter_corpus_sent_long <span class="ot">&lt;-</span> <span class="fu">corpus_subset</span>(dat_twitter_corpus_sent, <span class="fu">ntoken</span>(dat_twitter_corpus_sent) <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
-<span id="cb1078-2"><a href="4.6-twitter-data.html#cb1078-2" tabindex="-1"></a><span class="fu">ndoc</span>(dat_twitter_corpus_sent_long)</span></code></pre></div>
+<div class="sourceCode" id="cb1137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1137-1"><a href="4.6-twitter-data.html#cb1137-1" tabindex="-1"></a>dat_twitter_corpus_sent_long <span class="ot">&lt;-</span> <span class="fu">corpus_subset</span>(dat_twitter_corpus_sent, <span class="fu">ntoken</span>(dat_twitter_corpus_sent) <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
+<span id="cb1137-2"><a href="4.6-twitter-data.html#cb1137-2" tabindex="-1"></a><span class="fu">ndoc</span>(dat_twitter_corpus_sent_long)</span></code></pre></div>
 <pre><code>## [1] 8109</code></pre>
-<div class="sourceCode" id="cb1080"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1080-1"><a href="4.6-twitter-data.html#cb1080-1" tabindex="-1"></a><span class="fu">summary</span>(dat_twitter_corpus_sent_long)</span></code></pre></div>
+<div class="sourceCode" id="cb1139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1139-1"><a href="4.6-twitter-data.html#cb1139-1" tabindex="-1"></a><span class="fu">summary</span>(dat_twitter_corpus_sent_long)</span></code></pre></div>
 <pre><code>## Corpus consisting of 8109 documents, showing 100 documents:
 ## 
 ##               Text Types Tokens Sentences retweet_count favorite_count
@@ -5772,8 +5804,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">4.6.3.2</span> Paragraphs<a href="4.6-twitter-data.html#paragraphs-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div id="transform-9" class="section level5 hasAnchor" number="4.6.3.2.1">
 <h5><span class="header-section-number">4.6.3.2.1</span> Transform<a href="4.6-twitter-data.html#transform-9" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1082"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1082-1"><a href="4.6-twitter-data.html#cb1082-1" tabindex="-1"></a>dat_twitter_corpus_para <span class="ot">&lt;-</span> <span class="fu">corpus_reshape</span>(dat_twitter_corpus, <span class="at">to =</span> <span class="st">&quot;paragraphs&quot;</span>)</span>
-<span id="cb1082-2"><a href="4.6-twitter-data.html#cb1082-2" tabindex="-1"></a>dat_twitter_corpus_para</span></code></pre></div>
+<div class="sourceCode" id="cb1141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1141-1"><a href="4.6-twitter-data.html#cb1141-1" tabindex="-1"></a>dat_twitter_corpus_para <span class="ot">&lt;-</span> <span class="fu">corpus_reshape</span>(dat_twitter_corpus, <span class="at">to =</span> <span class="st">&quot;paragraphs&quot;</span>)</span>
+<span id="cb1141-2"><a href="4.6-twitter-data.html#cb1141-2" tabindex="-1"></a>dat_twitter_corpus_para</span></code></pre></div>
 <pre><code>## Corpus consisting of 8,488 documents and 42 docvars.
 ## twitter.json.1.1 :
 ## &quot;@EFC_Jayy UKIP&quot;
@@ -5797,7 +5829,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="summary-18" class="section level5 hasAnchor" number="4.6.3.2.2">
 <h5><span class="header-section-number">4.6.3.2.2</span> Summary<a href="4.6-twitter-data.html#summary-18" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1084"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1084-1"><a href="4.6-twitter-data.html#cb1084-1" tabindex="-1"></a><span class="fu">summary</span>(dat_twitter_corpus_para)</span></code></pre></div>
+<div class="sourceCode" id="cb1143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1143-1"><a href="4.6-twitter-data.html#cb1143-1" tabindex="-1"></a><span class="fu">summary</span>(dat_twitter_corpus_para)</span></code></pre></div>
 <pre><code>## Corpus consisting of 8488 documents, showing 100 documents:
 ## 
 ##               Text Types Tokens Sentences retweet_count favorite_count
@@ -7420,10 +7452,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="subset-9" class="section level5 hasAnchor" number="4.6.3.2.3">
 <h5><span class="header-section-number">4.6.3.2.3</span> Subset<a href="4.6-twitter-data.html#subset-9" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We can subset sentences with 10 or more words</p>
-<div class="sourceCode" id="cb1086"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1086-1"><a href="4.6-twitter-data.html#cb1086-1" tabindex="-1"></a>dat_twitter_corpus_para_long <span class="ot">&lt;-</span> <span class="fu">corpus_subset</span>(dat_twitter_corpus_para, <span class="fu">ntoken</span>(dat_twitter_corpus_para) <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
-<span id="cb1086-2"><a href="4.6-twitter-data.html#cb1086-2" tabindex="-1"></a><span class="fu">ndoc</span>(dat_twitter_corpus_para_long)</span></code></pre></div>
+<div class="sourceCode" id="cb1145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1145-1"><a href="4.6-twitter-data.html#cb1145-1" tabindex="-1"></a>dat_twitter_corpus_para_long <span class="ot">&lt;-</span> <span class="fu">corpus_subset</span>(dat_twitter_corpus_para, <span class="fu">ntoken</span>(dat_twitter_corpus_para) <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
+<span id="cb1145-2"><a href="4.6-twitter-data.html#cb1145-2" tabindex="-1"></a><span class="fu">ndoc</span>(dat_twitter_corpus_para_long)</span></code></pre></div>
 <pre><code>## [1] 6989</code></pre>
-<div class="sourceCode" id="cb1088"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1088-1"><a href="4.6-twitter-data.html#cb1088-1" tabindex="-1"></a><span class="fu">summary</span>(dat_twitter_corpus_para_long)</span></code></pre></div>
+<div class="sourceCode" id="cb1147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1147-1"><a href="4.6-twitter-data.html#cb1147-1" tabindex="-1"></a><span class="fu">summary</span>(dat_twitter_corpus_para_long)</span></code></pre></div>
 <pre><code>## Corpus consisting of 6989 documents, showing 100 documents:
 ## 
 ##                Text Types Tokens Sentences retweet_count favorite_count
@@ -9049,8 +9081,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>tokens()</code> segments texts in a corpus into tokens (words or sentences) by word boundaries. We can remove punctuations or not</p>
 <div id="with-punctuations-4" class="section level5 hasAnchor" number="4.6.3.3.1">
 <h5><span class="header-section-number">4.6.3.3.1</span> With punctuations<a href="4.6-twitter-data.html#with-punctuations-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1090"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1090-1"><a href="4.6-twitter-data.html#cb1090-1" tabindex="-1"></a>dat_twitter_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_twitter_corpus)</span>
-<span id="cb1090-2"><a href="4.6-twitter-data.html#cb1090-2" tabindex="-1"></a>dat_twitter_corpus_tok</span></code></pre></div>
+<div class="sourceCode" id="cb1149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1149-1"><a href="4.6-twitter-data.html#cb1149-1" tabindex="-1"></a>dat_twitter_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_twitter_corpus)</span>
+<span id="cb1149-2"><a href="4.6-twitter-data.html#cb1149-2" tabindex="-1"></a>dat_twitter_corpus_tok</span></code></pre></div>
 <pre><code>## Tokens consisting of 7,504 documents and 42 docvars.
 ## twitter.json.1 :
 ## [1] &quot;@EFC_Jayy&quot; &quot;UKIP&quot;     
@@ -9088,8 +9120,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="without-punctuations-4" class="section level5 hasAnchor" number="4.6.3.3.2">
 <h5><span class="header-section-number">4.6.3.3.2</span> Without punctuations<a href="4.6-twitter-data.html#without-punctuations-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1092"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1092-1"><a href="4.6-twitter-data.html#cb1092-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_twitter_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1092-2"><a href="4.6-twitter-data.html#cb1092-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct</span></code></pre></div>
+<div class="sourceCode" id="cb1151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1151-1"><a href="4.6-twitter-data.html#cb1151-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_twitter_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1151-2"><a href="4.6-twitter-data.html#cb1151-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct</span></code></pre></div>
 <pre><code>## Tokens consisting of 7,504 documents and 42 docvars.
 ## twitter.json.1 :
 ## [1] &quot;@EFC_Jayy&quot; &quot;UKIP&quot;     
@@ -9133,8 +9165,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="types-4" class="section level4 hasAnchor" number="4.6.3.4">
 <h4><span class="header-section-number">4.6.3.4</span> Types<a href="4.6-twitter-data.html#types-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We can also generate <code>types</code> on the tokenised corpus (without punctuations)</p>
-<div class="sourceCode" id="cb1094"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1094-1"><a href="4.6-twitter-data.html#cb1094-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_types <span class="ot">&lt;-</span> <span class="fu">types</span>(dat_twitter_corpus_tok_no_punct)</span>
-<span id="cb1094-2"><a href="4.6-twitter-data.html#cb1094-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_types</span></code></pre></div>
+<div class="sourceCode" id="cb1153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1153-1"><a href="4.6-twitter-data.html#cb1153-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_types <span class="ot">&lt;-</span> <span class="fu">types</span>(dat_twitter_corpus_tok_no_punct)</span>
+<span id="cb1153-2"><a href="4.6-twitter-data.html#cb1153-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_types</span></code></pre></div>
 <pre><code>##     [1] &quot;@EFC_Jayy&quot;                           
 ##     [2] &quot;UKIP&quot;                                
 ##     [3] &quot;RT&quot;                                  
@@ -23757,8 +23789,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="pattern-4" class="section level5 hasAnchor" number="4.6.3.5.1">
 <h5><span class="header-section-number">4.6.3.5.1</span> Pattern<a href="4.6-twitter-data.html#pattern-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>You can see how keywords are used in the actual contexts in a concordance view produced by <code>kwic()</code>. <code>Pattern</code> is used to search for the pattern we are interested in (with * as a wildcard). <code>Window</code> used to display number of words/tokens around it.</p>
-<div class="sourceCode" id="cb1096"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1096-1"><a href="4.6-twitter-data.html#cb1096-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_pres <span class="ot">&lt;-</span> <span class="fu">kwic</span>(dat_twitter_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="st">&quot;pres*&quot;</span>, <span class="at">window =</span> <span class="dv">6</span>)</span>
-<span id="cb1096-2"><a href="4.6-twitter-data.html#cb1096-2" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_tok_no_punct_pres, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1155-1"><a href="4.6-twitter-data.html#cb1155-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_pres <span class="ot">&lt;-</span> <span class="fu">kwic</span>(dat_twitter_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="st">&quot;pres*&quot;</span>, <span class="at">window =</span> <span class="dv">6</span>)</span>
+<span id="cb1155-2"><a href="4.6-twitter-data.html#cb1155-2" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_tok_no_punct_pres, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Keyword-in-context with 10 matches.                                                                              
 ##    [twitter.json.112, 9]      People are mocking the Tory gutter |   press   |
 ##    [twitter.json.131, 9]      People are mocking the Tory gutter |   press   |
@@ -23784,8 +23816,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="phrase-4" class="section level5 hasAnchor" number="4.6.3.5.2">
 <h5><span class="header-section-number">4.6.3.5.2</span> Phrase<a href="4.6-twitter-data.html#phrase-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1098"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1098-1"><a href="4.6-twitter-data.html#cb1098-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_phrase <span class="ot">&lt;-</span> <span class="fu">kwic</span>(dat_twitter_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="fu">phrase</span>(<span class="st">&quot;the tory&quot;</span>), <span class="at">window =</span> <span class="dv">6</span>)</span>
-<span id="cb1098-2"><a href="4.6-twitter-data.html#cb1098-2" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_tok_no_punct_phrase, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1157-1"><a href="4.6-twitter-data.html#cb1157-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_phrase <span class="ot">&lt;-</span> <span class="fu">kwic</span>(dat_twitter_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="fu">phrase</span>(<span class="st">&quot;the tory&quot;</span>), <span class="at">window =</span> <span class="dv">6</span>)</span>
+<span id="cb1157-2"><a href="4.6-twitter-data.html#cb1157-2" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_tok_no_punct_phrase, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Keyword-in-context with 10 matches.                                                                           
 ##   [twitter.json.112, 6:7] RT@SocialistVoice People are mocking | the Tory |
 ##   [twitter.json.131, 6:7] RT@SocialistVoice People are mocking | the Tory |
@@ -23814,8 +23846,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">4.6.3.6</span> stopwords<a href="4.6-twitter-data.html#stopwords-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><code>stopwords</code> are function words (or grammatical words). We can search for these and remove them (if not necessary). This step is often useful because we are not interested in these stop_words.</p>
 <p><code>tokens_remove()</code> is an alias to <code>tokens_select(selection = "remove")</code></p>
-<div class="sourceCode" id="cb1100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1100-1"><a href="4.6-twitter-data.html#cb1100-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(dat_twitter_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">stopwords</span>(<span class="st">&quot;en&quot;</span>, <span class="at">source =</span> <span class="st">&quot;stopwords-iso&quot;</span>), <span class="at">selection =</span> <span class="st">&quot;remove&quot;</span>)</span>
-<span id="cb1100-2"><a href="4.6-twitter-data.html#cb1100-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop</span></code></pre></div>
+<div class="sourceCode" id="cb1159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1159-1"><a href="4.6-twitter-data.html#cb1159-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(dat_twitter_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">stopwords</span>(<span class="st">&quot;en&quot;</span>, <span class="at">source =</span> <span class="st">&quot;stopwords-iso&quot;</span>), <span class="at">selection =</span> <span class="st">&quot;remove&quot;</span>)</span>
+<span id="cb1159-2"><a href="4.6-twitter-data.html#cb1159-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop</span></code></pre></div>
 <pre><code>## Tokens consisting of 7,504 documents and 42 docvars.
 ## twitter.json.1 :
 ## [1] &quot;@EFC_Jayy&quot; &quot;UKIP&quot;     
@@ -23861,8 +23893,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To be able to extract the stems of each of the given words, we use the function <code>tokens_wordstem</code>, <code>char_wordstem</code> or <code>dfm_wordstem</code></p>
 <div id="tokens_wordstem-4" class="section level5 hasAnchor" number="4.6.3.7.1">
 <h5><span class="header-section-number">4.6.3.7.1</span> <code>tokens_wordstem</code><a href="4.6-twitter-data.html#tokens_wordstem-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1102-1"><a href="4.6-twitter-data.html#cb1102-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_stem <span class="ot">&lt;-</span> <span class="fu">tokens_wordstem</span>(dat_twitter_corpus_tok_no_punct_no_Stop)</span>
-<span id="cb1102-2"><a href="4.6-twitter-data.html#cb1102-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_stem</span></code></pre></div>
+<div class="sourceCode" id="cb1161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1161-1"><a href="4.6-twitter-data.html#cb1161-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_stem <span class="ot">&lt;-</span> <span class="fu">tokens_wordstem</span>(dat_twitter_corpus_tok_no_punct_no_Stop)</span>
+<span id="cb1161-2"><a href="4.6-twitter-data.html#cb1161-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_stem</span></code></pre></div>
 <pre><code>## Tokens consisting of 7,504 documents and 42 docvars.
 ## twitter.json.1 :
 ## [1] &quot;@EFC_Jayi&quot; &quot;UKIP&quot;     
@@ -23906,8 +23938,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="dfm_wordstem-4" class="section level5 hasAnchor" number="4.6.3.7.2">
 <h5><span class="header-section-number">4.6.3.7.2</span> <code>dfm_wordstem</code><a href="4.6-twitter-data.html#dfm_wordstem-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Here we can use the <code>dfm</code> (for Document Feature Matrix) to obtain details of the wordstems used in each of the texts</p>
-<div class="sourceCode" id="cb1104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1104-1"><a href="4.6-twitter-data.html#cb1104-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_stem_dfm <span class="ot">&lt;-</span> <span class="fu">dfm</span>(dat_twitter_corpus_tok_no_punct_no_Stop)</span>
-<span id="cb1104-2"><a href="4.6-twitter-data.html#cb1104-2" tabindex="-1"></a><span class="fu">dfm_wordstem</span>(dat_twitter_corpus_tok_no_punct_no_Stop_stem_dfm)</span></code></pre></div>
+<div class="sourceCode" id="cb1163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1163-1"><a href="4.6-twitter-data.html#cb1163-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_stem_dfm <span class="ot">&lt;-</span> <span class="fu">dfm</span>(dat_twitter_corpus_tok_no_punct_no_Stop)</span>
+<span id="cb1163-2"><a href="4.6-twitter-data.html#cb1163-2" tabindex="-1"></a><span class="fu">dfm_wordstem</span>(dat_twitter_corpus_tok_no_punct_no_Stop_stem_dfm)</span></code></pre></div>
 <pre><code>## Document-feature matrix of: 7,504 documents, 10,871 features (99.91% sparse) and 42 docvars.
 ##                 features
 ## docs             @efc_jayi ukip rt @corbynator2 @jeremycorbyn reaction peopl

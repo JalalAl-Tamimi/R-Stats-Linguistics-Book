@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-10" />
+<meta name="date" content="2025-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,8 +55,9 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -377,17 +378,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-and-sample-size"><i class="fa fa-check"></i><b>2.3.2</b> Power analysis and sample size</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.1</b> Linear model</a>
+<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-interpretation-rules-and-t.test"><i class="fa fa-check"></i><b>2.3.2.1</b> Cohen’s <em>d</em> interpretation rules and t.test</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.1.1</b> General example</a>
+<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#pwr.t.test---one-sample-and-two-sample-t-tests-for-means"><i class="fa fa-check"></i><b>2.3.2.1.1</b> pwr.t.test - one-sample and two-sample t tests for means</a></li>
+<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-effect-size"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Cohen’s <em>d</em> effect size</a></li>
+<li class="chapter" data-level="2.3.2.1.3" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#plots"><i class="fa fa-check"></i><b>2.3.2.1.3</b> Plots</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.1.1.1</b> Power of the test</a></li>
-<li class="chapter" data-level="2.3.2.1.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.1.1.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.1.3.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.05"><i class="fa fa-check"></i><b>2.3.2.1.3.1</b> p &lt; 0.05</a></li>
+<li class="chapter" data-level="2.3.2.1.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.01"><i class="fa fa-check"></i><b>2.3.2.1.3.2</b> p &lt; 0.01</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Using our LM model</a>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.2</b> Linear model</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.1.2.1</b> Power analysis from our model</a></li>
-<li class="chapter" data-level="2.3.2.1.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.1.2.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.2.1</b> General example</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.2.1.1</b> Power of the test</a></li>
+<li class="chapter" data-level="2.3.2.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.2.1.2</b> Sample size</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.2.2</b> Using our LM model</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.2.2.1</b> Power analysis from our model</a></li>
+<li class="chapter" data-level="2.3.2.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.2.2.2</b> Sample size</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -404,53 +415,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="2.5-LM.html"><a href="2.5-LM.html"><i class="fa fa-check"></i><b>2.5</b> Linear Models</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-3"><i class="fa fa-check"></i><b>2.5.1</b> Introduction</a>
+<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#normality-of-distribution"><i class="fa fa-check"></i><b>2.5.1</b> Normality of distribution</a>
 <ul>
-<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.1.1</b> Model estimation</a></li>
+<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#shapiro-test"><i class="fa fa-check"></i><b>2.5.1.1</b> Shapiro test</a></li>
+<li class="chapter" data-level="2.5.1.2" data-path="2.5-LM.html"><a href="2.5-LM.html#density-plot"><i class="fa fa-check"></i><b>2.5.1.2</b> Density plot</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.2</b> Role of coding schemes</a>
+<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#homogeneity-of-variance"><i class="fa fa-check"></i><b>2.5.2</b> Homogeneity of variance</a>
 <ul>
-<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.2.1</b> Intro</a></li>
-<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.2.2</b> Treatment coding</a></li>
-<li class="chapter" data-level="2.5.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.2.3</b> Contrast (or sum) coding</a>
+<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#bartlett-test"><i class="fa fa-check"></i><b>2.5.2.1</b> Bartlett test</a></li>
+<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#levene-test"><i class="fa fa-check"></i><b>2.5.2.2</b> Levene test</a>
 <ul>
-<li class="chapter" data-level="2.5.2.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.2.3.1</b> Default</a></li>
-<li class="chapter" data-level="2.5.2.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.2.3.2</b> Modified</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.3</b> Further steps</a>
-<ul>
-<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.3.1</b> Tidying the output</a></li>
-<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.3.2</b> Nice table of our model summary</a>
-<ul>
-<li class="chapter" data-level="2.5.3.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.3.2.1</b> Directly from model summary</a></li>
-<li class="chapter" data-level="2.5.3.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.3.2.2</b> From the <code>tidy</code> output</a></li>
-<li class="chapter" data-level="2.5.3.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.3.2.3</b> Model’s fit</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.3.3</b> Dissecting the model</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.3.3.1</b> “str” and “coef”</a></li>
-<li class="chapter" data-level="2.5.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.3.3.2</b> “coef” and “coefficients”</a></li>
-<li class="chapter" data-level="2.5.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.3.3.3</b> Residuals</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.3.3.3.1</b> Histogram</a></li>
-<li class="chapter" data-level="2.5.3.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.3.3.3.2</b> qqplots</a></li>
-<li class="chapter" data-level="2.5.3.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.3.3.3.3</b> Residuals vs fitted values</a></li>
-<li class="chapter" data-level="2.5.3.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.3.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.3.3.4</b> Goodness of fit?</a></li>
-<li class="chapter" data-level="2.5.3.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.3.3.5</b> Significance testing</a></li>
+<li class="chapter" data-level="2.5.2.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#base-r"><i class="fa fa-check"></i><b>2.5.2.2.1</b> Base R</a></li>
+<li class="chapter" data-level="2.5.2.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-car-package"><i class="fa fa-check"></i><b>2.5.2.2.2</b> From the <code>car</code> package</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.4</b> Plotting fitted values</a>
+<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#first-steps-3"><i class="fa fa-check"></i><b>2.5.3</b> First steps</a>
 <ul>
-<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.4.1</b> Trend line</a></li>
-<li class="chapter" data-level="2.5.4.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.2</b> Predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.3</b> Raw data, predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.4.4</b> Add significance levels and trend line on a plot?</a></li>
+<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#t-test"><i class="fa fa-check"></i><b>2.5.3.1</b> T-test</a></li>
+<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-2"><i class="fa fa-check"></i><b>2.5.3.2</b> Linear Model</a></li>
+<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#basic-anova"><i class="fa fa-check"></i><b>2.5.3.3</b> Basic ANOVA</a></li>
+<li class="chapter" data-level="2.5.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-3"><i class="fa fa-check"></i><b>2.5.3.4</b> Linear model</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.5</b> What about pairwise comparison?</a></li>
-<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.6</b> Multiple predictors?</a></li>
+<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-to-linear-models"><i class="fa fa-check"></i><b>2.5.4</b> Introduction to Linear models</a>
+<ul>
+<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.4.1</b> Model estimation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.5</b> Role of coding schemes</a>
+<ul>
+<li class="chapter" data-level="2.5.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.5.1</b> Intro</a></li>
+<li class="chapter" data-level="2.5.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.5.2</b> Treatment coding</a></li>
+<li class="chapter" data-level="2.5.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.5.3</b> Contrast (or sum) coding</a>
+<ul>
+<li class="chapter" data-level="2.5.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.5.3.1</b> Default</a></li>
+<li class="chapter" data-level="2.5.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.5.3.2</b> Modified</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.6</b> Further steps</a>
+<ul>
+<li class="chapter" data-level="2.5.6.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.6.1</b> Tidying the output</a></li>
+<li class="chapter" data-level="2.5.6.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.6.2</b> Nice table of our model summary</a>
+<ul>
+<li class="chapter" data-level="2.5.6.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.6.2.1</b> Directly from model summary</a></li>
+<li class="chapter" data-level="2.5.6.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.6.2.2</b> From the <code>tidy</code> output</a></li>
+<li class="chapter" data-level="2.5.6.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.6.2.3</b> Model’s fit</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.6.3</b> Dissecting the model</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.6.3.1</b> “str” and “coef”</a></li>
+<li class="chapter" data-level="2.5.6.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.6.3.2</b> “coef” and “coefficients”</a></li>
+<li class="chapter" data-level="2.5.6.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.6.3.3</b> Residuals</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.6.3.3.1</b> Histogram</a></li>
+<li class="chapter" data-level="2.5.6.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.6.3.3.2</b> qqplots</a></li>
+<li class="chapter" data-level="2.5.6.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.6.3.3.3</b> Residuals vs fitted values</a></li>
+<li class="chapter" data-level="2.5.6.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.6.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.6.3.4</b> Goodness of fit?</a></li>
+<li class="chapter" data-level="2.5.6.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.6.3.5</b> Significance testing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.7" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.7</b> Plotting fitted values</a>
+<ul>
+<li class="chapter" data-level="2.5.7.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.7.1</b> Trend line</a></li>
+<li class="chapter" data-level="2.5.7.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.2</b> Predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.3</b> Raw data, predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.7.4</b> Add significance levels and trend line on a plot?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.8" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.8</b> What about pairwise comparison?</a></li>
+<li class="chapter" data-level="2.5.9" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.9</b> Multiple predictors?</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html"><i class="fa fa-check"></i><b>2.6</b> Generalised Linear Models</a>
 <ul>
@@ -620,7 +652,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.3.4.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-random-effects"><i class="fa fa-check"></i><b>3.3.4.1</b> Subject random effects</a></li>
 <li class="chapter" data-level="3.3.4.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#items-random-effects"><i class="fa fa-check"></i><b>3.3.4.2</b> Items random effects</a></li>
-<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
+<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots-1"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
 <ul>
 <li class="chapter" data-level="3.3.4.3.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#fixed-effects-1"><i class="fa fa-check"></i><b>3.3.4.3.1</b> Fixed effects</a>
 <ul>
@@ -2009,7 +2041,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4.3.3.5" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#dimension-5"><i class="fa fa-check"></i><b>7.4.3.3.5</b> Dimension 5</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-1"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
+<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-2"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
 <ul>
 <li class="chapter" data-level="7.4.4.1" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#default-plots"><i class="fa fa-check"></i><b>7.4.4.1</b> Default plots</a>
 <ul>
@@ -2041,7 +2073,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.5.1.1" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#computing-clusters"><i class="fa fa-check"></i><b>7.5.1.1</b> Computing clusters</a></li>
 <li class="chapter" data-level="7.5.1.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#dendograms"><i class="fa fa-check"></i><b>7.5.1.2</b> Dendograms</a></li>
-<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-2"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
+<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-3"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
 <li class="chapter" data-level="7.5.1.4" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#individual-clusters"><i class="fa fa-check"></i><b>7.5.1.4</b> Individual Clusters</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#conclusion-3"><i class="fa fa-check"></i><b>7.5.2</b> Conclusion</a></li>
@@ -2194,18 +2226,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="import-into-global-environment-4" class="section level3 hasAnchor" number="6.2.1">
 <h3><span class="header-section-number">6.2.1</span> Import into <code>Global Environment</code><a href="6.2-janeaustenr-2.html#import-into-global-environment-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Adding data from the first book into the <code>Global Environment</code></p>
-<div class="sourceCode" id="cb1611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1611-1"><a href="6.2-janeaustenr-2.html#cb1611-1" tabindex="-1"></a><span class="fu">data</span>(sensesensibility)</span>
-<span id="cb1611-2"><a href="6.2-janeaustenr-2.html#cb1611-2" tabindex="-1"></a><span class="co">#data(prideprejudice)</span></span>
-<span id="cb1611-3"><a href="6.2-janeaustenr-2.html#cb1611-3" tabindex="-1"></a><span class="co">#data(mansfieldpark)</span></span>
-<span id="cb1611-4"><a href="6.2-janeaustenr-2.html#cb1611-4" tabindex="-1"></a><span class="co">#data(emma)</span></span>
-<span id="cb1611-5"><a href="6.2-janeaustenr-2.html#cb1611-5" tabindex="-1"></a><span class="co">#data(northangerabbey)</span></span>
-<span id="cb1611-6"><a href="6.2-janeaustenr-2.html#cb1611-6" tabindex="-1"></a><span class="co">#data(persuasion)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1670-1"><a href="6.2-janeaustenr-2.html#cb1670-1" tabindex="-1"></a><span class="fu">data</span>(sensesensibility)</span>
+<span id="cb1670-2"><a href="6.2-janeaustenr-2.html#cb1670-2" tabindex="-1"></a><span class="co">#data(prideprejudice)</span></span>
+<span id="cb1670-3"><a href="6.2-janeaustenr-2.html#cb1670-3" tabindex="-1"></a><span class="co">#data(mansfieldpark)</span></span>
+<span id="cb1670-4"><a href="6.2-janeaustenr-2.html#cb1670-4" tabindex="-1"></a><span class="co">#data(emma)</span></span>
+<span id="cb1670-5"><a href="6.2-janeaustenr-2.html#cb1670-5" tabindex="-1"></a><span class="co">#data(northangerabbey)</span></span>
+<span id="cb1670-6"><a href="6.2-janeaustenr-2.html#cb1670-6" tabindex="-1"></a><span class="co">#data(persuasion)</span></span></code></pre></div>
 </div>
 <div id="look-into-data-4" class="section level3 hasAnchor" number="6.2.2">
 <h3><span class="header-section-number">6.2.2</span> Look into data<a href="6.2-janeaustenr-2.html#look-into-data-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>And we can get the top 60 rows from “sensesensibility”</p>
-<div class="sourceCode" id="cb1612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1612-1"><a href="6.2-janeaustenr-2.html#cb1612-1" tabindex="-1"></a>sensesensibility <span class="sc">%&gt;%</span> </span>
-<span id="cb1612-2"><a href="6.2-janeaustenr-2.html#cb1612-2" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">60</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1671"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1671-1"><a href="6.2-janeaustenr-2.html#cb1671-1" tabindex="-1"></a>sensesensibility <span class="sc">%&gt;%</span> </span>
+<span id="cb1671-2"><a href="6.2-janeaustenr-2.html#cb1671-2" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">60</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;SENSE AND SENSIBILITY&quot;                                                  
 ##  [2] &quot;&quot;                                                                       
 ##  [3] &quot;by Jane Austen&quot;                                                         
@@ -2269,11 +2301,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="transform-to-a-dataframe-2" class="section level3 hasAnchor" number="6.2.3">
 <h3><span class="header-section-number">6.2.3</span> Transform to a dataframe<a href="6.2-janeaustenr-2.html#transform-to-a-dataframe-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1614-1"><a href="6.2-janeaustenr-2.html#cb1614-1" tabindex="-1"></a>sensesensibility_DF <span class="ot">&lt;-</span> sensesensibility <span class="sc">%&gt;%</span> </span>
-<span id="cb1614-2"><a href="6.2-janeaustenr-2.html#cb1614-2" tabindex="-1"></a>  <span class="fu">data.frame</span>()</span>
-<span id="cb1614-3"><a href="6.2-janeaustenr-2.html#cb1614-3" tabindex="-1"></a>sensesensibility_DF <span class="ot">&lt;-</span> sensesensibility_DF[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>),]</span>
-<span id="cb1614-4"><a href="6.2-janeaustenr-2.html#cb1614-4" tabindex="-1"></a>sensesensibility_DF <span class="sc">%&gt;%</span> </span>
-<span id="cb1614-5"><a href="6.2-janeaustenr-2.html#cb1614-5" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">60</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1673"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1673-1"><a href="6.2-janeaustenr-2.html#cb1673-1" tabindex="-1"></a>sensesensibility_DF <span class="ot">&lt;-</span> sensesensibility <span class="sc">%&gt;%</span> </span>
+<span id="cb1673-2"><a href="6.2-janeaustenr-2.html#cb1673-2" tabindex="-1"></a>  <span class="fu">data.frame</span>()</span>
+<span id="cb1673-3"><a href="6.2-janeaustenr-2.html#cb1673-3" tabindex="-1"></a>sensesensibility_DF <span class="ot">&lt;-</span> sensesensibility_DF[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>),]</span>
+<span id="cb1673-4"><a href="6.2-janeaustenr-2.html#cb1673-4" tabindex="-1"></a>sensesensibility_DF <span class="sc">%&gt;%</span> </span>
+<span id="cb1673-5"><a href="6.2-janeaustenr-2.html#cb1673-5" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">60</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;The family of Dashwood had long been settled in Sussex.  Their estate&quot;  
 ##  [2] &quot;was large, and their residence was at Norland Park, in the centre of&quot;   
 ##  [3] &quot;their property, where, for many generations, they had lived in so&quot;      
@@ -2337,8 +2369,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="create-a-corpus-14" class="section level3 hasAnchor" number="6.2.4">
 <h3><span class="header-section-number">6.2.4</span> Create a corpus<a href="6.2-janeaustenr-2.html#create-a-corpus-14" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1616-1"><a href="6.2-janeaustenr-2.html#cb1616-1" tabindex="-1"></a>sensesensibility_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(sensesensibility_DF)</span>
-<span id="cb1616-2"><a href="6.2-janeaustenr-2.html#cb1616-2" tabindex="-1"></a><span class="fu">print</span>(sensesensibility_corpus)</span></code></pre></div>
+<div class="sourceCode" id="cb1675"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1675-1"><a href="6.2-janeaustenr-2.html#cb1675-1" tabindex="-1"></a>sensesensibility_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(sensesensibility_DF)</span>
+<span id="cb1675-2"><a href="6.2-janeaustenr-2.html#cb1675-2" tabindex="-1"></a><span class="fu">print</span>(sensesensibility_corpus)</span></code></pre></div>
 <pre><code>## Corpus consisting of 12,612 documents.
 ## text1 :
 ## &quot;The family of Dashwood had long been settled in Sussex.  The...&quot;
@@ -2360,10 +2392,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## [ reached max_ndoc ... 12,606 more documents ]</code></pre>
 <p>Given that we have many empty lines in this corpus, we clean it by excluding any empty line.</p>
-<div class="sourceCode" id="cb1618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1618-1"><a href="6.2-janeaustenr-2.html#cb1618-1" tabindex="-1"></a>sensesensibility_corpus <span class="ot">&lt;-</span> <span class="fu">corpus_subset</span>(sensesensibility_corpus, <span class="fu">ntoken</span>(sensesensibility_corpus) <span class="sc">&gt;=</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1677"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1677-1"><a href="6.2-janeaustenr-2.html#cb1677-1" tabindex="-1"></a>sensesensibility_corpus <span class="ot">&lt;-</span> <span class="fu">corpus_subset</span>(sensesensibility_corpus, <span class="fu">ntoken</span>(sensesensibility_corpus) <span class="sc">&gt;=</span> <span class="dv">1</span>)</span></code></pre></div>
 <div id="summary-32" class="section level4 hasAnchor" number="6.2.4.1">
 <h4><span class="header-section-number">6.2.4.1</span> Summary<a href="6.2-janeaustenr-2.html#summary-32" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1619-1"><a href="6.2-janeaustenr-2.html#cb1619-1" tabindex="-1"></a><span class="fu">summary</span>(sensesensibility_corpus, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1678-1"><a href="6.2-janeaustenr-2.html#cb1678-1" tabindex="-1"></a><span class="fu">summary</span>(sensesensibility_corpus, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Corpus consisting of 10592 documents, showing 10 documents:
 ## 
 ##    Text Types Tokens Sentences
@@ -2380,9 +2412,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="accessing-parts-of-corpus-14" class="section level4 hasAnchor" number="6.2.4.2">
 <h4><span class="header-section-number">6.2.4.2</span> Accessing parts of corpus<a href="6.2-janeaustenr-2.html#accessing-parts-of-corpus-14" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1621-1"><a href="6.2-janeaustenr-2.html#cb1621-1" tabindex="-1"></a><span class="fu">ndoc</span>(sensesensibility_corpus)</span></code></pre></div>
+<div class="sourceCode" id="cb1680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1680-1"><a href="6.2-janeaustenr-2.html#cb1680-1" tabindex="-1"></a><span class="fu">ndoc</span>(sensesensibility_corpus)</span></code></pre></div>
 <pre><code>## [1] 10592</code></pre>
-<div class="sourceCode" id="cb1623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1623-1"><a href="6.2-janeaustenr-2.html#cb1623-1" tabindex="-1"></a>sensesensibility_corpus[[<span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb1682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1682-1"><a href="6.2-janeaustenr-2.html#cb1682-1" tabindex="-1"></a>sensesensibility_corpus[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>## [1] &quot;The family of Dashwood had long been settled in Sussex.  Their estate&quot;</code></pre>
 </div>
 </div>
@@ -2392,8 +2424,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 We can remove punctuations or not</p>
 <div id="with-punctuations-14" class="section level4 hasAnchor" number="6.2.5.1">
 <h4><span class="header-section-number">6.2.5.1</span> With punctuations<a href="6.2-janeaustenr-2.html#with-punctuations-14" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1625-1"><a href="6.2-janeaustenr-2.html#cb1625-1" tabindex="-1"></a>sensesensibility_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(sensesensibility_corpus)</span>
-<span id="cb1625-2"><a href="6.2-janeaustenr-2.html#cb1625-2" tabindex="-1"></a>sensesensibility_corpus_tok</span></code></pre></div>
+<div class="sourceCode" id="cb1684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1684-1"><a href="6.2-janeaustenr-2.html#cb1684-1" tabindex="-1"></a>sensesensibility_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(sensesensibility_corpus)</span>
+<span id="cb1684-2"><a href="6.2-janeaustenr-2.html#cb1684-2" tabindex="-1"></a>sensesensibility_corpus_tok</span></code></pre></div>
 <pre><code>## Tokens consisting of 10,592 documents.
 ## text1 :
 ##  [1] &quot;The&quot;      &quot;family&quot;   &quot;of&quot;       &quot;Dashwood&quot; &quot;had&quot;      &quot;long&quot;    
@@ -2430,8 +2462,8 @@ We can remove punctuations or not</p>
 </div>
 <div id="without-punctuations-14" class="section level4 hasAnchor" number="6.2.5.2">
 <h4><span class="header-section-number">6.2.5.2</span> Without punctuations<a href="6.2-janeaustenr-2.html#without-punctuations-14" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1627-1"><a href="6.2-janeaustenr-2.html#cb1627-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(sensesensibility_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1627-2"><a href="6.2-janeaustenr-2.html#cb1627-2" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct</span></code></pre></div>
+<div class="sourceCode" id="cb1686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1686-1"><a href="6.2-janeaustenr-2.html#cb1686-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(sensesensibility_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1686-2"><a href="6.2-janeaustenr-2.html#cb1686-2" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct</span></code></pre></div>
 <pre><code>## Tokens consisting of 10,592 documents.
 ## text1 :
 ##  [1] &quot;The&quot;      &quot;family&quot;   &quot;of&quot;       &quot;Dashwood&quot; &quot;had&quot;      &quot;long&quot;    
@@ -2468,8 +2500,8 @@ We can remove punctuations or not</p>
 <div id="stop-words" class="section level3 hasAnchor" number="6.2.6">
 <h3><span class="header-section-number">6.2.6</span> Stop words<a href="6.2-janeaustenr-2.html#stop-words" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It is best to remove stop words (function/grammatical words) when we use statistical analyses of a corpus.</p>
-<div class="sourceCode" id="cb1629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1629-1"><a href="6.2-janeaustenr-2.html#cb1629-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(sensesensibility_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">stopwords</span>(<span class="st">&quot;en&quot;</span>, <span class="at">source =</span> <span class="st">&quot;stopwords-iso&quot;</span>), <span class="at">selection =</span> <span class="st">&quot;remove&quot;</span>)</span>
-<span id="cb1629-2"><a href="6.2-janeaustenr-2.html#cb1629-2" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop</span></code></pre></div>
+<div class="sourceCode" id="cb1688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1688-1"><a href="6.2-janeaustenr-2.html#cb1688-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(sensesensibility_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">stopwords</span>(<span class="st">&quot;en&quot;</span>, <span class="at">source =</span> <span class="st">&quot;stopwords-iso&quot;</span>), <span class="at">selection =</span> <span class="st">&quot;remove&quot;</span>)</span>
+<span id="cb1688-2"><a href="6.2-janeaustenr-2.html#cb1688-2" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop</span></code></pre></div>
 <pre><code>## Tokens consisting of 10,592 documents.
 ## text1 :
 ## [1] &quot;family&quot;   &quot;Dashwood&quot; &quot;settled&quot;  &quot;Sussex&quot;   &quot;estate&quot;  
@@ -2501,8 +2533,8 @@ We can remove punctuations or not</p>
 <div id="dfm-7" class="section level5 hasAnchor" number="6.2.7.1.1">
 <h5><span class="header-section-number">6.2.7.1.1</span> DFM<a href="6.2-janeaustenr-2.html#dfm-7" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We start by generating a DFM (document-feature matrix)</p>
-<div class="sourceCode" id="cb1631"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1631-1"><a href="6.2-janeaustenr-2.html#cb1631-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm <span class="ot">&lt;-</span> <span class="fu">dfm</span>(sensesensibility_corpus_tok_no_punct_no_Stop)</span>
-<span id="cb1631-2"><a href="6.2-janeaustenr-2.html#cb1631-2" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm</span></code></pre></div>
+<div class="sourceCode" id="cb1690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1690-1"><a href="6.2-janeaustenr-2.html#cb1690-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm <span class="ot">&lt;-</span> <span class="fu">dfm</span>(sensesensibility_corpus_tok_no_punct_no_Stop)</span>
+<span id="cb1690-2"><a href="6.2-janeaustenr-2.html#cb1690-2" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm</span></code></pre></div>
 <pre><code>## Document-feature matrix of: 10,592 documents, 5,894 features (99.95% sparse) and 0 docvars.
 ##        features
 ## docs    family dashwood settled sussex estate residence norland park centre
@@ -2524,8 +2556,8 @@ We can remove punctuations or not</p>
 </div>
 <div id="frequencies" class="section level5 hasAnchor" number="6.2.7.1.2">
 <h5><span class="header-section-number">6.2.7.1.2</span> Frequencies<a href="6.2-janeaustenr-2.html#frequencies" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1633-1"><a href="6.2-janeaustenr-2.html#cb1633-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm_freq <span class="ot">&lt;-</span> <span class="fu">textstat_frequency</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm)</span>
-<span id="cb1633-2"><a href="6.2-janeaustenr-2.html#cb1633-2" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm_freq</span></code></pre></div>
+<div class="sourceCode" id="cb1692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1692-1"><a href="6.2-janeaustenr-2.html#cb1692-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm_freq <span class="ot">&lt;-</span> <span class="fu">textstat_frequency</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm)</span>
+<span id="cb1692-2"><a href="6.2-janeaustenr-2.html#cb1692-2" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm_freq</span></code></pre></div>
 <pre><code>##                 feature frequency rank docfreq group
 ## 1                elinor       623    1     621   all
 ## 2              marianne       492    2     491   all
@@ -8425,14 +8457,14 @@ We can remove punctuations or not</p>
 <div id="plot" class="section level5 hasAnchor" number="6.2.7.1.3">
 <h5><span class="header-section-number">6.2.7.1.3</span> Plot<a href="6.2-janeaustenr-2.html#plot" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We plot the top 15 most frequent words used in the text.</p>
-<div class="sourceCode" id="cb1635"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1635-1"><a href="6.2-janeaustenr-2.html#cb1635-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm <span class="sc">%&gt;%</span> </span>
-<span id="cb1635-2"><a href="6.2-janeaustenr-2.html#cb1635-2" tabindex="-1"></a>  <span class="fu">textstat_frequency</span>(<span class="at">n =</span> <span class="dv">15</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1635-3"><a href="6.2-janeaustenr-2.html#cb1635-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(feature, frequency), <span class="at">y =</span> frequency)) <span class="sc">+</span></span>
-<span id="cb1635-4"><a href="6.2-janeaustenr-2.html#cb1635-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb1635-5"><a href="6.2-janeaustenr-2.html#cb1635-5" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb1635-6"><a href="6.2-janeaustenr-2.html#cb1635-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1635-7"><a href="6.2-janeaustenr-2.html#cb1635-7" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-724-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1694-1"><a href="6.2-janeaustenr-2.html#cb1694-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm <span class="sc">%&gt;%</span> </span>
+<span id="cb1694-2"><a href="6.2-janeaustenr-2.html#cb1694-2" tabindex="-1"></a>  <span class="fu">textstat_frequency</span>(<span class="at">n =</span> <span class="dv">15</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1694-3"><a href="6.2-janeaustenr-2.html#cb1694-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(feature, frequency), <span class="at">y =</span> frequency)) <span class="sc">+</span></span>
+<span id="cb1694-4"><a href="6.2-janeaustenr-2.html#cb1694-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb1694-5"><a href="6.2-janeaustenr-2.html#cb1694-5" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb1694-6"><a href="6.2-janeaustenr-2.html#cb1694-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1694-7"><a href="6.2-janeaustenr-2.html#cb1694-7" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-742-1.png" width="672" /></p>
 </div>
 </div>
 <div id="lexical-diversity" class="section level4 hasAnchor" number="6.2.7.2">
@@ -8442,8 +8474,8 @@ We can remove punctuations or not</p>
 <h5><span class="header-section-number">6.2.7.2.1</span> TTR (Type-Token Ratio)<a href="6.2-janeaustenr-2.html#ttr-type-token-ratio" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div id="computing-ttr" class="section level6 hasAnchor" number="6.2.7.2.1.1">
 <h6><span class="header-section-number">6.2.7.2.1.1</span> Computing TTR<a href="6.2-janeaustenr-2.html#computing-ttr" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1636-1"><a href="6.2-janeaustenr-2.html#cb1636-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr <span class="ot">&lt;-</span> <span class="fu">textstat_lexdiv</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm, <span class="at">measure =</span> <span class="st">&quot;TTR&quot;</span>)</span>
-<span id="cb1636-2"><a href="6.2-janeaustenr-2.html#cb1636-2" tabindex="-1"></a><span class="fu">head</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr, <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1695-1"><a href="6.2-janeaustenr-2.html#cb1695-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr <span class="ot">&lt;-</span> <span class="fu">textstat_lexdiv</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm, <span class="at">measure =</span> <span class="st">&quot;TTR&quot;</span>)</span>
+<span id="cb1695-2"><a href="6.2-janeaustenr-2.html#cb1695-2" tabindex="-1"></a><span class="fu">head</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr, <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>##   document TTR
 ## 1    text1   1
 ## 2    text2   1
@@ -8453,18 +8485,18 @@ We can remove punctuations or not</p>
 </div>
 <div id="plotting-ttr" class="section level6 hasAnchor" number="6.2.7.2.1.2">
 <h6><span class="header-section-number">6.2.7.2.1.2</span> Plotting TTR<a href="6.2-janeaustenr-2.html#plotting-ttr" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1638"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1638-1"><a href="6.2-janeaustenr-2.html#cb1638-1" tabindex="-1"></a><span class="fu">plot</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr<span class="sc">$</span>TTR, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="cn">NULL</span>, <span class="at">ylab =</span> <span class="st">&quot;TTR&quot;</span>)</span>
-<span id="cb1638-2"><a href="6.2-janeaustenr-2.html#cb1638-2" tabindex="-1"></a><span class="fu">grid</span>()</span>
-<span id="cb1638-3"><a href="6.2-janeaustenr-2.html#cb1638-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr)), <span class="at">labels =</span> sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr<span class="sc">$</span>document)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-726-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1697-1"><a href="6.2-janeaustenr-2.html#cb1697-1" tabindex="-1"></a><span class="fu">plot</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr<span class="sc">$</span>TTR, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="cn">NULL</span>, <span class="at">ylab =</span> <span class="st">&quot;TTR&quot;</span>)</span>
+<span id="cb1697-2"><a href="6.2-janeaustenr-2.html#cb1697-2" tabindex="-1"></a><span class="fu">grid</span>()</span>
+<span id="cb1697-3"><a href="6.2-janeaustenr-2.html#cb1697-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr)), <span class="at">labels =</span> sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr<span class="sc">$</span>document)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-744-1.png" width="672" /></p>
 </div>
 </div>
 <div id="cttr-corrected-type-token-ratio" class="section level5 hasAnchor" number="6.2.7.2.2">
 <h5><span class="header-section-number">6.2.7.2.2</span> CTTR (Corrected Type-Token Ratio)<a href="6.2-janeaustenr-2.html#cttr-corrected-type-token-ratio" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div id="computing-cttr" class="section level6 hasAnchor" number="6.2.7.2.2.1">
 <h6><span class="header-section-number">6.2.7.2.2.1</span> Computing CTTR<a href="6.2-janeaustenr-2.html#computing-cttr" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1639-1"><a href="6.2-janeaustenr-2.html#cb1639-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr <span class="ot">&lt;-</span> <span class="fu">textstat_lexdiv</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm, <span class="at">measure =</span> <span class="st">&quot;CTTR&quot;</span>)</span>
-<span id="cb1639-2"><a href="6.2-janeaustenr-2.html#cb1639-2" tabindex="-1"></a><span class="fu">head</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr, <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1698-1"><a href="6.2-janeaustenr-2.html#cb1698-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr <span class="ot">&lt;-</span> <span class="fu">textstat_lexdiv</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm, <span class="at">measure =</span> <span class="st">&quot;CTTR&quot;</span>)</span>
+<span id="cb1698-2"><a href="6.2-janeaustenr-2.html#cb1698-2" tabindex="-1"></a><span class="fu">head</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr, <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>##   document     CTTR
 ## 1    text1 1.581139
 ## 2    text2 1.414214
@@ -8474,18 +8506,18 @@ We can remove punctuations or not</p>
 </div>
 <div id="plotting-ttr-1" class="section level6 hasAnchor" number="6.2.7.2.2.2">
 <h6><span class="header-section-number">6.2.7.2.2.2</span> Plotting TTR<a href="6.2-janeaustenr-2.html#plotting-ttr-1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1641-1"><a href="6.2-janeaustenr-2.html#cb1641-1" tabindex="-1"></a><span class="fu">plot</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr<span class="sc">$</span>CTTR, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="cn">NULL</span>, <span class="at">ylab =</span> <span class="st">&quot;CTTR&quot;</span>)</span>
-<span id="cb1641-2"><a href="6.2-janeaustenr-2.html#cb1641-2" tabindex="-1"></a><span class="fu">grid</span>()</span>
-<span id="cb1641-3"><a href="6.2-janeaustenr-2.html#cb1641-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr)), <span class="at">labels =</span> sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr<span class="sc">$</span>document)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-728-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1700-1"><a href="6.2-janeaustenr-2.html#cb1700-1" tabindex="-1"></a><span class="fu">plot</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr<span class="sc">$</span>CTTR, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="cn">NULL</span>, <span class="at">ylab =</span> <span class="st">&quot;CTTR&quot;</span>)</span>
+<span id="cb1700-2"><a href="6.2-janeaustenr-2.html#cb1700-2" tabindex="-1"></a><span class="fu">grid</span>()</span>
+<span id="cb1700-3"><a href="6.2-janeaustenr-2.html#cb1700-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr)), <span class="at">labels =</span> sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr<span class="sc">$</span>document)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-746-1.png" width="672" /></p>
 </div>
 </div>
 <div id="k-yules-k" class="section level5 hasAnchor" number="6.2.7.2.3">
 <h5><span class="header-section-number">6.2.7.2.3</span> <em>K</em> (Yule’s <em>K</em>)<a href="6.2-janeaustenr-2.html#k-yules-k" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div id="computing-k" class="section level6 hasAnchor" number="6.2.7.2.3.1">
 <h6><span class="header-section-number">6.2.7.2.3.1</span> Computing <em>K</em><a href="6.2-janeaustenr-2.html#computing-k" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1642"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1642-1"><a href="6.2-janeaustenr-2.html#cb1642-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K <span class="ot">&lt;-</span> <span class="fu">textstat_lexdiv</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm, <span class="at">measure =</span> <span class="st">&quot;K&quot;</span>)</span>
-<span id="cb1642-2"><a href="6.2-janeaustenr-2.html#cb1642-2" tabindex="-1"></a><span class="fu">head</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K, <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1701"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1701-1"><a href="6.2-janeaustenr-2.html#cb1701-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K <span class="ot">&lt;-</span> <span class="fu">textstat_lexdiv</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm, <span class="at">measure =</span> <span class="st">&quot;K&quot;</span>)</span>
+<span id="cb1701-2"><a href="6.2-janeaustenr-2.html#cb1701-2" tabindex="-1"></a><span class="fu">head</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K, <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>##   document            K
 ## 1    text1 2.775558e-13
 ## 2    text2 0.000000e+00
@@ -8495,10 +8527,10 @@ We can remove punctuations or not</p>
 </div>
 <div id="plotting-k" class="section level6 hasAnchor" number="6.2.7.2.3.2">
 <h6><span class="header-section-number">6.2.7.2.3.2</span> Plotting <em>K</em><a href="6.2-janeaustenr-2.html#plotting-k" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1644-1"><a href="6.2-janeaustenr-2.html#cb1644-1" tabindex="-1"></a><span class="fu">plot</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K<span class="sc">$</span>K, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="cn">NULL</span>, <span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(K)))</span>
-<span id="cb1644-2"><a href="6.2-janeaustenr-2.html#cb1644-2" tabindex="-1"></a><span class="fu">grid</span>()</span>
-<span id="cb1644-3"><a href="6.2-janeaustenr-2.html#cb1644-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K)), <span class="at">labels =</span> sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K<span class="sc">$</span>document)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-730-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1703-1"><a href="6.2-janeaustenr-2.html#cb1703-1" tabindex="-1"></a><span class="fu">plot</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K<span class="sc">$</span>K, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="cn">NULL</span>, <span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(K)))</span>
+<span id="cb1703-2"><a href="6.2-janeaustenr-2.html#cb1703-2" tabindex="-1"></a><span class="fu">grid</span>()</span>
+<span id="cb1703-3"><a href="6.2-janeaustenr-2.html#cb1703-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K)), <span class="at">labels =</span> sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K<span class="sc">$</span>document)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-748-1.png" width="672" /></p>
 </div>
 </div>
 </div>
@@ -8507,8 +8539,8 @@ We can remove punctuations or not</p>
 <p>The relative frequency analysis allows to provide a statistical analysis of frequent words as a function of a target reference level. For this dataset, we do not have a specific target. Hence the comparison is done based on the full dataset.</p>
 <div id="computing-keyness" class="section level5 hasAnchor" number="6.2.7.3.1">
 <h5><span class="header-section-number">6.2.7.3.1</span> Computing keyness<a href="6.2-janeaustenr-2.html#computing-keyness" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1645-1"><a href="6.2-janeaustenr-2.html#cb1645-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_key <span class="ot">&lt;-</span> <span class="fu">textstat_keyness</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm)</span>
-<span id="cb1645-2"><a href="6.2-janeaustenr-2.html#cb1645-2" tabindex="-1"></a><span class="fu">head</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_key, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1704-1"><a href="6.2-janeaustenr-2.html#cb1704-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_key <span class="ot">&lt;-</span> <span class="fu">textstat_keyness</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm)</span>
+<span id="cb1704-2"><a href="6.2-janeaustenr-2.html#cb1704-2" tabindex="-1"></a><span class="fu">head</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_key, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##     feature          chi2            p n_target n_reference
 ## 1    sussex  1.896954e+02 0.000000e+00        1           8
 ## 2    estate  8.935737e+01 0.000000e+00        1          18
@@ -8523,16 +8555,16 @@ We can remove punctuations or not</p>
 </div>
 <div id="plotting-10" class="section level5 hasAnchor" number="6.2.7.3.2">
 <h5><span class="header-section-number">6.2.7.3.2</span> Plotting<a href="6.2-janeaustenr-2.html#plotting-10" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1647-1"><a href="6.2-janeaustenr-2.html#cb1647-1" tabindex="-1"></a><span class="fu">textplot_keyness</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_key, <span class="at">margin =</span> <span class="fl">0.2</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-732-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1706-1"><a href="6.2-janeaustenr-2.html#cb1706-1" tabindex="-1"></a><span class="fu">textplot_keyness</span>(sensesensibility_corpus_tok_no_punct_no_Stop_dfm_tstat_key, <span class="at">margin =</span> <span class="fl">0.2</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-750-1.png" width="672" /></p>
 </div>
 </div>
 <div id="collocations---scoring-multi-word-expressions" class="section level4 hasAnchor" number="6.2.7.4">
 <h4><span class="header-section-number">6.2.7.4</span> Collocations - scoring multi-word expressions<a href="6.2-janeaustenr-2.html#collocations---scoring-multi-word-expressions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A collocation analysis is a way to identify contiguous collocations of words, i.e., multi-word expressions. Depending on the language, these can be identified based on capitalisation (e.g., proper names) as in English texts. However, this is not the same across languages.</p>
 <p>We look for capital letters in our text. The result provides Wald’s Lamda and z statistics. Usually, any z value higher or equal to 2 is statistically significant. To compute p values, we use the probability of a normal distribution based on a mean of 0 and an SD of 1. This is appended to the table.</p>
-<div class="sourceCode" id="cb1648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1648-1"><a href="6.2-janeaustenr-2.html#cb1648-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_tstat_col_caps <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(sensesensibility_corpus_tok_no_punct_no_Stop, <span class="at">pattern =</span> <span class="st">&quot;^[A-Z]&quot;</span>, <span class="at">valuetype =</span> <span class="st">&quot;regex&quot;</span>, <span class="at">case_insensitive =</span> <span class="cn">FALSE</span>, <span class="at">padding =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span>  <span class="fu">textstat_collocations</span>(<span class="at">min_count =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">p_value =</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(z, <span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb1648-2"><a href="6.2-janeaustenr-2.html#cb1648-2" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_tstat_col_caps</span></code></pre></div>
+<div class="sourceCode" id="cb1707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1707-1"><a href="6.2-janeaustenr-2.html#cb1707-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_tstat_col_caps <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(sensesensibility_corpus_tok_no_punct_no_Stop, <span class="at">pattern =</span> <span class="st">&quot;^[A-Z]&quot;</span>, <span class="at">valuetype =</span> <span class="st">&quot;regex&quot;</span>, <span class="at">case_insensitive =</span> <span class="cn">FALSE</span>, <span class="at">padding =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span>  <span class="fu">textstat_collocations</span>(<span class="at">min_count =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">p_value =</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(z, <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb1707-2"><a href="6.2-janeaustenr-2.html#cb1707-2" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_tstat_col_caps</span></code></pre></div>
 <pre><code>##          collocation count count_nested length    lambda         z      p_value
 ## 1           sir john    94            0      2  8.403435 25.821983 0.000000e+00
 ## 2    colonel brandon    96            0      2  8.710609 22.451536 0.000000e+00
@@ -8550,29 +8582,29 @@ We can remove punctuations or not</p>
 <div id="word-clouds" class="section level4 hasAnchor" number="6.2.7.5">
 <h4><span class="header-section-number">6.2.7.5</span> Word clouds<a href="6.2-janeaustenr-2.html#word-clouds" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We can use word clouds of the top 100 words</p>
-<div class="sourceCode" id="cb1650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1650-1"><a href="6.2-janeaustenr-2.html#cb1650-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">132</span>)</span>
-<span id="cb1650-2"><a href="6.2-janeaustenr-2.html#cb1650-2" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm <span class="sc">%&gt;%</span> </span>
-<span id="cb1650-3"><a href="6.2-janeaustenr-2.html#cb1650-3" tabindex="-1"></a>  <span class="fu">textplot_wordcloud</span>(<span class="at">max_words =</span> <span class="dv">100</span>, <span class="at">color =</span> <span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>))</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-734-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1709"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1709-1"><a href="6.2-janeaustenr-2.html#cb1709-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">132</span>)</span>
+<span id="cb1709-2"><a href="6.2-janeaustenr-2.html#cb1709-2" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm <span class="sc">%&gt;%</span> </span>
+<span id="cb1709-3"><a href="6.2-janeaustenr-2.html#cb1709-3" tabindex="-1"></a>  <span class="fu">textplot_wordcloud</span>(<span class="at">max_words =</span> <span class="dv">100</span>, <span class="at">color =</span> <span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>))</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-752-1.png" width="672" /></p>
 </div>
 <div id="network-of-feature-co-occurrences" class="section level4 hasAnchor" number="6.2.7.6">
 <h4><span class="header-section-number">6.2.7.6</span> Network of feature co-occurrences<a href="6.2-janeaustenr-2.html#network-of-feature-co-occurrences" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A Network of feature co-occurrences allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.</p>
-<div class="sourceCode" id="cb1651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1651-1"><a href="6.2-janeaustenr-2.html#cb1651-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">144</span>)</span>
-<span id="cb1651-2"><a href="6.2-janeaustenr-2.html#cb1651-2" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm <span class="sc">%&gt;%</span> </span>
-<span id="cb1651-3"><a href="6.2-janeaustenr-2.html#cb1651-3" tabindex="-1"></a>  <span class="fu">dfm_trim</span>(<span class="at">min_termfreq =</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1651-4"><a href="6.2-janeaustenr-2.html#cb1651-4" tabindex="-1"></a>  <span class="fu">textplot_network</span>(<span class="at">min_freq =</span> <span class="fl">0.5</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-735-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1710-1"><a href="6.2-janeaustenr-2.html#cb1710-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">144</span>)</span>
+<span id="cb1710-2"><a href="6.2-janeaustenr-2.html#cb1710-2" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_no_Stop_dfm <span class="sc">%&gt;%</span> </span>
+<span id="cb1710-3"><a href="6.2-janeaustenr-2.html#cb1710-3" tabindex="-1"></a>  <span class="fu">dfm_trim</span>(<span class="at">min_termfreq =</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1710-4"><a href="6.2-janeaustenr-2.html#cb1710-4" tabindex="-1"></a>  <span class="fu">textplot_network</span>(<span class="at">min_freq =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-753-1.png" width="672" /></p>
 </div>
 <div id="poisson-regression" class="section level4 hasAnchor" number="6.2.7.7">
 <h4><span class="header-section-number">6.2.7.7</span> Poisson regression<a href="6.2-janeaustenr-2.html#poisson-regression" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Finally, we run a GLM with a poisson family to evaluate the significance level of our most frequent words.</p>
 <div id="computing-glm" class="section level5 hasAnchor" number="6.2.7.7.1">
 <h5><span class="header-section-number">6.2.7.7.1</span> Computing GLM<a href="6.2-janeaustenr-2.html#computing-glm" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1652"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1652-1"><a href="6.2-janeaustenr-2.html#cb1652-1" tabindex="-1"></a>sensesensibility_corpus_GLM <span class="ot">&lt;-</span> sensesensibility_corpus_tok_no_punct_no_Stop_dfm_freq <span class="sc">%&gt;%</span> </span>
-<span id="cb1652-2"><a href="6.2-janeaustenr-2.html#cb1652-2" tabindex="-1"></a>  <span class="fu">filter</span>(frequency <span class="sc">&gt;=</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1652-3"><a href="6.2-janeaustenr-2.html#cb1652-3" tabindex="-1"></a>  <span class="fu">glm</span>(frequency <span class="sc">~</span> feature, <span class="at">data =</span> ., <span class="at">family =</span> <span class="st">&quot;poisson&quot;</span>)</span>
-<span id="cb1652-4"><a href="6.2-janeaustenr-2.html#cb1652-4" tabindex="-1"></a><span class="fu">summary</span>(sensesensibility_corpus_GLM)</span></code></pre></div>
+<div class="sourceCode" id="cb1711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1711-1"><a href="6.2-janeaustenr-2.html#cb1711-1" tabindex="-1"></a>sensesensibility_corpus_GLM <span class="ot">&lt;-</span> sensesensibility_corpus_tok_no_punct_no_Stop_dfm_freq <span class="sc">%&gt;%</span> </span>
+<span id="cb1711-2"><a href="6.2-janeaustenr-2.html#cb1711-2" tabindex="-1"></a>  <span class="fu">filter</span>(frequency <span class="sc">&gt;=</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1711-3"><a href="6.2-janeaustenr-2.html#cb1711-3" tabindex="-1"></a>  <span class="fu">glm</span>(frequency <span class="sc">~</span> feature, <span class="at">data =</span> ., <span class="at">family =</span> <span class="st">&quot;poisson&quot;</span>)</span>
+<span id="cb1711-4"><a href="6.2-janeaustenr-2.html#cb1711-4" tabindex="-1"></a><span class="fu">summary</span>(sensesensibility_corpus_GLM)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = frequency ~ feature, family = &quot;poisson&quot;, data = .)
@@ -8617,13 +8649,13 @@ We can remove punctuations or not</p>
 <div id="a-plot-1" class="section level6 hasAnchor" number="6.2.7.7.2.1">
 <h6><span class="header-section-number">6.2.7.7.2.1</span> A plot<a href="6.2-janeaustenr-2.html#a-plot-1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
 <p>We use two functions from the package <code>ggstats</code>. Because we used a poisson distribution, we obtain the results in IRR (=Incident rate ratios). Usually, we need to exponentiate these to make sense of the results.</p>
-<div class="sourceCode" id="cb1654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1654-1"><a href="6.2-janeaustenr-2.html#cb1654-1" tabindex="-1"></a><span class="fu">ggcoef_model</span>(sensesensibility_corpus_GLM, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-737-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1713-1"><a href="6.2-janeaustenr-2.html#cb1713-1" tabindex="-1"></a><span class="fu">ggcoef_model</span>(sensesensibility_corpus_GLM, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-755-1.png" width="672" /></p>
 </div>
 <div id="a-plot-a-table-95-ci-1" class="section level6 hasAnchor" number="6.2.7.7.2.2">
 <h6><span class="header-section-number">6.2.7.7.2.2</span> A plot + a table + 95% CI<a href="6.2-janeaustenr-2.html#a-plot-a-table-95-ci-1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1655"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1655-1"><a href="6.2-janeaustenr-2.html#cb1655-1" tabindex="-1"></a><span class="fu">ggcoef_table</span>(sensesensibility_corpus_GLM, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-738-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1714-1"><a href="6.2-janeaustenr-2.html#cb1714-1" tabindex="-1"></a><span class="fu">ggcoef_table</span>(sensesensibility_corpus_GLM, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-756-1.png" width="672" /></p>
 </div>
 </div>
 </div>

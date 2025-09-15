@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-10" />
+<meta name="date" content="2025-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,8 +55,9 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -377,17 +378,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-and-sample-size"><i class="fa fa-check"></i><b>2.3.2</b> Power analysis and sample size</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.1</b> Linear model</a>
+<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-interpretation-rules-and-t.test"><i class="fa fa-check"></i><b>2.3.2.1</b> Cohen’s <em>d</em> interpretation rules and t.test</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.1.1</b> General example</a>
+<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#pwr.t.test---one-sample-and-two-sample-t-tests-for-means"><i class="fa fa-check"></i><b>2.3.2.1.1</b> pwr.t.test - one-sample and two-sample t tests for means</a></li>
+<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-effect-size"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Cohen’s <em>d</em> effect size</a></li>
+<li class="chapter" data-level="2.3.2.1.3" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#plots"><i class="fa fa-check"></i><b>2.3.2.1.3</b> Plots</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.1.1.1</b> Power of the test</a></li>
-<li class="chapter" data-level="2.3.2.1.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.1.1.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.1.3.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.05"><i class="fa fa-check"></i><b>2.3.2.1.3.1</b> p &lt; 0.05</a></li>
+<li class="chapter" data-level="2.3.2.1.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.01"><i class="fa fa-check"></i><b>2.3.2.1.3.2</b> p &lt; 0.01</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Using our LM model</a>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.2</b> Linear model</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.1.2.1</b> Power analysis from our model</a></li>
-<li class="chapter" data-level="2.3.2.1.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.1.2.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.2.1</b> General example</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.2.1.1</b> Power of the test</a></li>
+<li class="chapter" data-level="2.3.2.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.2.1.2</b> Sample size</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.2.2</b> Using our LM model</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.2.2.1</b> Power analysis from our model</a></li>
+<li class="chapter" data-level="2.3.2.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.2.2.2</b> Sample size</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -404,53 +415,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="2.5-LM.html"><a href="2.5-LM.html"><i class="fa fa-check"></i><b>2.5</b> Linear Models</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-3"><i class="fa fa-check"></i><b>2.5.1</b> Introduction</a>
+<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#normality-of-distribution"><i class="fa fa-check"></i><b>2.5.1</b> Normality of distribution</a>
 <ul>
-<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.1.1</b> Model estimation</a></li>
+<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#shapiro-test"><i class="fa fa-check"></i><b>2.5.1.1</b> Shapiro test</a></li>
+<li class="chapter" data-level="2.5.1.2" data-path="2.5-LM.html"><a href="2.5-LM.html#density-plot"><i class="fa fa-check"></i><b>2.5.1.2</b> Density plot</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.2</b> Role of coding schemes</a>
+<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#homogeneity-of-variance"><i class="fa fa-check"></i><b>2.5.2</b> Homogeneity of variance</a>
 <ul>
-<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.2.1</b> Intro</a></li>
-<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.2.2</b> Treatment coding</a></li>
-<li class="chapter" data-level="2.5.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.2.3</b> Contrast (or sum) coding</a>
+<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#bartlett-test"><i class="fa fa-check"></i><b>2.5.2.1</b> Bartlett test</a></li>
+<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#levene-test"><i class="fa fa-check"></i><b>2.5.2.2</b> Levene test</a>
 <ul>
-<li class="chapter" data-level="2.5.2.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.2.3.1</b> Default</a></li>
-<li class="chapter" data-level="2.5.2.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.2.3.2</b> Modified</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.3</b> Further steps</a>
-<ul>
-<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.3.1</b> Tidying the output</a></li>
-<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.3.2</b> Nice table of our model summary</a>
-<ul>
-<li class="chapter" data-level="2.5.3.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.3.2.1</b> Directly from model summary</a></li>
-<li class="chapter" data-level="2.5.3.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.3.2.2</b> From the <code>tidy</code> output</a></li>
-<li class="chapter" data-level="2.5.3.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.3.2.3</b> Model’s fit</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.3.3</b> Dissecting the model</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.3.3.1</b> “str” and “coef”</a></li>
-<li class="chapter" data-level="2.5.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.3.3.2</b> “coef” and “coefficients”</a></li>
-<li class="chapter" data-level="2.5.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.3.3.3</b> Residuals</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.3.3.3.1</b> Histogram</a></li>
-<li class="chapter" data-level="2.5.3.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.3.3.3.2</b> qqplots</a></li>
-<li class="chapter" data-level="2.5.3.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.3.3.3.3</b> Residuals vs fitted values</a></li>
-<li class="chapter" data-level="2.5.3.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.3.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.3.3.4</b> Goodness of fit?</a></li>
-<li class="chapter" data-level="2.5.3.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.3.3.5</b> Significance testing</a></li>
+<li class="chapter" data-level="2.5.2.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#base-r"><i class="fa fa-check"></i><b>2.5.2.2.1</b> Base R</a></li>
+<li class="chapter" data-level="2.5.2.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-car-package"><i class="fa fa-check"></i><b>2.5.2.2.2</b> From the <code>car</code> package</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.4</b> Plotting fitted values</a>
+<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#first-steps-3"><i class="fa fa-check"></i><b>2.5.3</b> First steps</a>
 <ul>
-<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.4.1</b> Trend line</a></li>
-<li class="chapter" data-level="2.5.4.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.2</b> Predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.3</b> Raw data, predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.4.4</b> Add significance levels and trend line on a plot?</a></li>
+<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#t-test"><i class="fa fa-check"></i><b>2.5.3.1</b> T-test</a></li>
+<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-2"><i class="fa fa-check"></i><b>2.5.3.2</b> Linear Model</a></li>
+<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#basic-anova"><i class="fa fa-check"></i><b>2.5.3.3</b> Basic ANOVA</a></li>
+<li class="chapter" data-level="2.5.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-3"><i class="fa fa-check"></i><b>2.5.3.4</b> Linear model</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.5</b> What about pairwise comparison?</a></li>
-<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.6</b> Multiple predictors?</a></li>
+<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-to-linear-models"><i class="fa fa-check"></i><b>2.5.4</b> Introduction to Linear models</a>
+<ul>
+<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.4.1</b> Model estimation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.5</b> Role of coding schemes</a>
+<ul>
+<li class="chapter" data-level="2.5.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.5.1</b> Intro</a></li>
+<li class="chapter" data-level="2.5.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.5.2</b> Treatment coding</a></li>
+<li class="chapter" data-level="2.5.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.5.3</b> Contrast (or sum) coding</a>
+<ul>
+<li class="chapter" data-level="2.5.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.5.3.1</b> Default</a></li>
+<li class="chapter" data-level="2.5.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.5.3.2</b> Modified</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.6</b> Further steps</a>
+<ul>
+<li class="chapter" data-level="2.5.6.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.6.1</b> Tidying the output</a></li>
+<li class="chapter" data-level="2.5.6.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.6.2</b> Nice table of our model summary</a>
+<ul>
+<li class="chapter" data-level="2.5.6.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.6.2.1</b> Directly from model summary</a></li>
+<li class="chapter" data-level="2.5.6.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.6.2.2</b> From the <code>tidy</code> output</a></li>
+<li class="chapter" data-level="2.5.6.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.6.2.3</b> Model’s fit</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.6.3</b> Dissecting the model</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.6.3.1</b> “str” and “coef”</a></li>
+<li class="chapter" data-level="2.5.6.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.6.3.2</b> “coef” and “coefficients”</a></li>
+<li class="chapter" data-level="2.5.6.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.6.3.3</b> Residuals</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.6.3.3.1</b> Histogram</a></li>
+<li class="chapter" data-level="2.5.6.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.6.3.3.2</b> qqplots</a></li>
+<li class="chapter" data-level="2.5.6.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.6.3.3.3</b> Residuals vs fitted values</a></li>
+<li class="chapter" data-level="2.5.6.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.6.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.6.3.4</b> Goodness of fit?</a></li>
+<li class="chapter" data-level="2.5.6.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.6.3.5</b> Significance testing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.7" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.7</b> Plotting fitted values</a>
+<ul>
+<li class="chapter" data-level="2.5.7.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.7.1</b> Trend line</a></li>
+<li class="chapter" data-level="2.5.7.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.2</b> Predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.3</b> Raw data, predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.7.4</b> Add significance levels and trend line on a plot?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.8" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.8</b> What about pairwise comparison?</a></li>
+<li class="chapter" data-level="2.5.9" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.9</b> Multiple predictors?</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html"><i class="fa fa-check"></i><b>2.6</b> Generalised Linear Models</a>
 <ul>
@@ -620,7 +652,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.3.4.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-random-effects"><i class="fa fa-check"></i><b>3.3.4.1</b> Subject random effects</a></li>
 <li class="chapter" data-level="3.3.4.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#items-random-effects"><i class="fa fa-check"></i><b>3.3.4.2</b> Items random effects</a></li>
-<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
+<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots-1"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
 <ul>
 <li class="chapter" data-level="3.3.4.3.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#fixed-effects-1"><i class="fa fa-check"></i><b>3.3.4.3.1</b> Fixed effects</a>
 <ul>
@@ -2009,7 +2041,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4.3.3.5" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#dimension-5"><i class="fa fa-check"></i><b>7.4.3.3.5</b> Dimension 5</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-1"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
+<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-2"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
 <ul>
 <li class="chapter" data-level="7.4.4.1" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#default-plots"><i class="fa fa-check"></i><b>7.4.4.1</b> Default plots</a>
 <ul>
@@ -2041,7 +2073,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.5.1.1" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#computing-clusters"><i class="fa fa-check"></i><b>7.5.1.1</b> Computing clusters</a></li>
 <li class="chapter" data-level="7.5.1.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#dendograms"><i class="fa fa-check"></i><b>7.5.1.2</b> Dendograms</a></li>
-<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-2"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
+<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-3"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
 <li class="chapter" data-level="7.5.1.4" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#individual-clusters"><i class="fa fa-check"></i><b>7.5.1.4</b> Individual Clusters</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#conclusion-3"><i class="fa fa-check"></i><b>7.5.2</b> Conclusion</a></li>
@@ -2192,14 +2224,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="inaugural-corpus-usa" class="section level2 hasAnchor" number="4.4">
 <h2><span class="header-section-number">4.4</span> Inaugural Corpus USA<a href="4.4-inaugural-corpus-usa.html#inaugural-corpus-usa" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The readtext package comes with various datasets. We specify the path to where to find the datasets and upload them</p>
-<div class="sourceCode" id="cb938"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb938-1"><a href="4.4-inaugural-corpus-usa.html#cb938-1" tabindex="-1"></a>Data_Dir <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata/&quot;</span>, <span class="at">package =</span> <span class="st">&quot;readtext&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb997"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb997-1"><a href="4.4-inaugural-corpus-usa.html#cb997-1" tabindex="-1"></a>Data_Dir <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata/&quot;</span>, <span class="at">package =</span> <span class="st">&quot;readtext&quot;</span>)</span></code></pre></div>
 <div id="importing-data" class="section level3 hasAnchor" number="4.4.1">
 <h3><span class="header-section-number">4.4.1</span> Importing data<a href="4.4-inaugural-corpus-usa.html#importing-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb939"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb939-1"><a href="4.4-inaugural-corpus-usa.html#cb939-1" tabindex="-1"></a>dat_inaug <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">paste0</span>(Data_Dir, <span class="st">&quot;/csv/inaugCorpus.csv&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb998"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb998-1"><a href="4.4-inaugural-corpus-usa.html#cb998-1" tabindex="-1"></a>dat_inaug <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">paste0</span>(Data_Dir, <span class="st">&quot;/csv/inaugCorpus.csv&quot;</span>))</span></code></pre></div>
 <div id="checking-structure" class="section level5 hasAnchor" number="4.4.1.0.1">
 <h5><span class="header-section-number">4.4.1.0.1</span> Checking structure<a href="4.4-inaugural-corpus-usa.html#checking-structure" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb940"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb940-1"><a href="4.4-inaugural-corpus-usa.html#cb940-1" tabindex="-1"></a>dat_inaug <span class="sc">%&gt;%</span> </span>
-<span id="cb940-2"><a href="4.4-inaugural-corpus-usa.html#cb940-2" tabindex="-1"></a>  <span class="fu">str</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb999"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb999-1"><a href="4.4-inaugural-corpus-usa.html#cb999-1" tabindex="-1"></a>dat_inaug <span class="sc">%&gt;%</span> </span>
+<span id="cb999-2"><a href="4.4-inaugural-corpus-usa.html#cb999-2" tabindex="-1"></a>  <span class="fu">str</span>()</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    5 obs. of  4 variables:
 ##  $ texts    : chr  &quot;Fellow-Citizens of the Senate and of the House of Representatives:\n\nAmong the vicissitudes incident to life n&quot;| __truncated__ &quot;Fellow citizens, I am again called upon by the voice of my country to execute the functions of its Chief Magist&quot;| __truncated__ &quot;When it was first perceived, in early times, that no middle course for America remained between unlimited submi&quot;| __truncated__ &quot;Friends and Fellow Citizens:\n\nCalled upon to undertake the duties of the first executive office of our countr&quot;| __truncated__ ...
 ##  $ Year     : int  1789 1793 1797 1801 1805
@@ -2208,8 +2240,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="unnest" class="section level5 hasAnchor" number="4.4.1.0.2">
 <h5><span class="header-section-number">4.4.1.0.2</span> Unnest<a href="4.4-inaugural-corpus-usa.html#unnest" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb942"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb942-1"><a href="4.4-inaugural-corpus-usa.html#cb942-1" tabindex="-1"></a>dat_inaug <span class="sc">%&gt;%</span> </span>
-<span id="cb942-2"><a href="4.4-inaugural-corpus-usa.html#cb942-2" tabindex="-1"></a>  <span class="fu">unnest</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1001"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1001-1"><a href="4.4-inaugural-corpus-usa.html#cb1001-1" tabindex="-1"></a>dat_inaug <span class="sc">%&gt;%</span> </span>
+<span id="cb1001-2"><a href="4.4-inaugural-corpus-usa.html#cb1001-2" tabindex="-1"></a>  <span class="fu">unnest</span>()</span></code></pre></div>
 <pre><code>## Warning: `cols` is now required when using `unnest()`.
 ## ℹ Please use `cols = c()`.</code></pre>
 <pre><code>## # A tibble: 5 × 4
@@ -2224,8 +2256,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="create-a-corpus-2" class="section level3 hasAnchor" number="4.4.2">
 <h3><span class="header-section-number">4.4.2</span> Create a corpus<a href="4.4-inaugural-corpus-usa.html#create-a-corpus-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb945"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb945-1"><a href="4.4-inaugural-corpus-usa.html#cb945-1" tabindex="-1"></a>dat_inaug_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(dat_inaug, <span class="at">text_field =</span> <span class="st">&quot;texts&quot;</span>)</span>
-<span id="cb945-2"><a href="4.4-inaugural-corpus-usa.html#cb945-2" tabindex="-1"></a><span class="fu">print</span>(dat_inaug_corpus)</span></code></pre></div>
+<div class="sourceCode" id="cb1004"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1004-1"><a href="4.4-inaugural-corpus-usa.html#cb1004-1" tabindex="-1"></a>dat_inaug_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(dat_inaug, <span class="at">text_field =</span> <span class="st">&quot;texts&quot;</span>)</span>
+<span id="cb1004-2"><a href="4.4-inaugural-corpus-usa.html#cb1004-2" tabindex="-1"></a><span class="fu">print</span>(dat_inaug_corpus)</span></code></pre></div>
 <pre><code>## Corpus consisting of 5 documents and 3 docvars.
 ## text1 :
 ## &quot;Fellow-Citizens of the Senate and of the House of Representa...&quot;
@@ -2243,7 +2275,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## &quot;Proceeding, fellow citizens, to that qualification which the...&quot;</code></pre>
 <div id="summary-10" class="section level4 hasAnchor" number="4.4.2.1">
 <h4><span class="header-section-number">4.4.2.1</span> Summary<a href="4.4-inaugural-corpus-usa.html#summary-10" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb947"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb947-1"><a href="4.4-inaugural-corpus-usa.html#cb947-1" tabindex="-1"></a><span class="fu">summary</span>(dat_inaug_corpus, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1006"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1006-1"><a href="4.4-inaugural-corpus-usa.html#cb1006-1" tabindex="-1"></a><span class="fu">summary</span>(dat_inaug_corpus, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Corpus consisting of 5 documents, showing 5 documents:
 ## 
 ##   Text Types Tokens Sentences Year  President FirstName
@@ -2255,11 +2287,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="editing-docnames" class="section level4 hasAnchor" number="4.4.2.2">
 <h4><span class="header-section-number">4.4.2.2</span> Editing docnames<a href="4.4-inaugural-corpus-usa.html#editing-docnames" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb949"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb949-1"><a href="4.4-inaugural-corpus-usa.html#cb949-1" tabindex="-1"></a>docid <span class="ot">&lt;-</span> <span class="fu">paste</span>(dat_inaug<span class="sc">$</span>Year, </span>
-<span id="cb949-2"><a href="4.4-inaugural-corpus-usa.html#cb949-2" tabindex="-1"></a>               dat_inaug<span class="sc">$</span>FirstName, </span>
-<span id="cb949-3"><a href="4.4-inaugural-corpus-usa.html#cb949-3" tabindex="-1"></a>               dat_inaug<span class="sc">$</span>President, <span class="at">sep =</span> <span class="st">&quot; &quot;</span>)</span>
-<span id="cb949-4"><a href="4.4-inaugural-corpus-usa.html#cb949-4" tabindex="-1"></a><span class="fu">docnames</span>(dat_inaug_corpus) <span class="ot">&lt;-</span> docid</span>
-<span id="cb949-5"><a href="4.4-inaugural-corpus-usa.html#cb949-5" tabindex="-1"></a><span class="fu">print</span>(dat_inaug_corpus)</span></code></pre></div>
+<div class="sourceCode" id="cb1008"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1008-1"><a href="4.4-inaugural-corpus-usa.html#cb1008-1" tabindex="-1"></a>docid <span class="ot">&lt;-</span> <span class="fu">paste</span>(dat_inaug<span class="sc">$</span>Year, </span>
+<span id="cb1008-2"><a href="4.4-inaugural-corpus-usa.html#cb1008-2" tabindex="-1"></a>               dat_inaug<span class="sc">$</span>FirstName, </span>
+<span id="cb1008-3"><a href="4.4-inaugural-corpus-usa.html#cb1008-3" tabindex="-1"></a>               dat_inaug<span class="sc">$</span>President, <span class="at">sep =</span> <span class="st">&quot; &quot;</span>)</span>
+<span id="cb1008-4"><a href="4.4-inaugural-corpus-usa.html#cb1008-4" tabindex="-1"></a><span class="fu">docnames</span>(dat_inaug_corpus) <span class="ot">&lt;-</span> docid</span>
+<span id="cb1008-5"><a href="4.4-inaugural-corpus-usa.html#cb1008-5" tabindex="-1"></a><span class="fu">print</span>(dat_inaug_corpus)</span></code></pre></div>
 <pre><code>## Corpus consisting of 5 documents and 3 docvars.
 ## 1789 George Washington :
 ## &quot;Fellow-Citizens of the Senate and of the House of Representa...&quot;
@@ -2278,14 +2310,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="accessing-parts-of-corpus-2" class="section level4 hasAnchor" number="4.4.2.3">
 <h4><span class="header-section-number">4.4.2.3</span> Accessing parts of corpus<a href="4.4-inaugural-corpus-usa.html#accessing-parts-of-corpus-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb951"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb951-1"><a href="4.4-inaugural-corpus-usa.html#cb951-1" tabindex="-1"></a>dat_inaug_corpus[[<span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb1010"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1010-1"><a href="4.4-inaugural-corpus-usa.html#cb1010-1" tabindex="-1"></a>dat_inaug_corpus[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>## [1] &quot;Fellow-Citizens of the Senate and of the House of Representatives:\n\nAmong the vicissitudes incident to life no event could have filled me with greater anxieties than that of which the notification was transmitted by your order, and received on the 14th day of the present month. On the one hand, I was summoned by my Country, whose voice I can never hear but with veneration and love, from a retreat which I had chosen with the fondest predilection, and, in my flattering hopes, with an immutable decision, as the asylum of my declining years -- a retreat which was rendered every day more necessary as well as more dear to me by the addition of habit to inclination, and of frequent interruptions in my health to the gradual waste committed on it by time. On the other hand, the magnitude and difficulty of the trust to which the voice of my country called me, being sufficient to awaken in the wisest and most experienced of her citizens a distrustful scrutiny into his qualifications, could not but overwhelm with despondence one who (inheriting inferior endowments from nature and unpracticed in the duties of civil administration) ought to be peculiarly conscious of his own deficiencies. In this conflict of emotions all I dare aver is that it has been my faithful study to collect my duty from a just appreciation of every circumstance by which it might be affected. All I dare hope is that if, in executing this task, I have been too much swayed by a grateful remembrance of former instances, or by an affectionate sensibility to this transcendent proof of the confidence of my fellow citizens, and have thence too little consulted my incapacity as well as disinclination for the weighty and untried cares before me, my error will be palliated by the motives which mislead me, and its consequences be judged by my country with some share of the partiality in which they originated.\n\nSuch being the impressions under which I have, in obedience to the public summons, repaired to the present station, it would be peculiarly improper to omit in this first official act my fervent supplications to that Almighty Being who rules over the universe, who presides in the councils of nations, and whose providential aids can supply every human defect, that His benediction may consecrate to the liberties and happiness of the people of the United States a Government instituted by themselves for these essential purposes, and may enable every instrument employed in its administration to execute with success the functions allotted to his charge. In tendering this homage to the Great Author of every public and private good, I assure myself that it expresses your sentiments not less than my own, nor those of my fellow citizens at large less than either. No people can be bound to acknowledge and adore the Invisible Hand which conducts the affairs of men more than those of the United States. Every step by which they have advanced to the character of an independent nation seems to have been distinguished by some token of providential agency; and in the important revolution just accomplished in the system of their united government the tranquil deliberations and voluntary consent of so many distinct communities from which the event has resulted can not be compared with the means by which most governments have been established without some return of pious gratitude, along with an humble anticipation of the future blessings which the past seem to presage. These reflections, arising out of the present crisis, have forced themselves too strongly on my mind to be suppressed. You will join with me, I trust, in thinking that there are none under the influence of which the proceedings of a new and free government can more auspiciously commence.\n\nBy the article establishing the executive department it is made the duty of the President \&quot;to recommend to your consideration such measures as he shall judge necessary and expedient.\&quot; The circumstances under which I now meet you will acquit me from entering into that subject further than to refer to the great constitutional charter under which you are assembled, and which, in defining your powers, designates the objects to which your attention is to be given. It will be more consistent with those circumstances, and far more congenial with the feelings which actuate me, to substitute, in place of a recommendation of particular measures, the tribute that is due to the talents, the rectitude, and the patriotism which adorn the characters selected to devise and adopt them. In these honorable qualifications I behold the surest pledges that as on one side no local prejudices or attachments, no separate views nor party animosities, will misdirect the comprehensive and equal eye which ought to watch over this great assemblage of communities and interests, so, on another, that the foundation of our national policy will be laid in the pure and immutable principles of private morality, and the preeminence of free government be exemplified by all the attributes which can win the affections of its citizens and command the respect of the world. I dwell on this prospect with every satisfaction which an ardent love for my country can inspire, since there is no truth more thoroughly established than that there exists in the economy and course of nature an indissoluble union between virtue and happiness; between duty and advantage; between the genuine maxims of an honest and magnanimous policy and the solid rewards of public prosperity and felicity; since we ought to be no less persuaded that the propitious smiles of Heaven can never be expected on a nation that disregards the eternal rules of order and right which Heaven itself has ordained; and since the preservation of the sacred fire of liberty and the destiny of the republican model of government are justly considered, perhaps, as deeply, as finally, staked on the experiment entrusted to the hands of the American people.\n\nBesides the ordinary objects submitted to your care, it will remain with your judgment to decide how far an exercise of the occasional power delegated by the fifth article of the Constitution is rendered expedient at the present juncture by the nature of objections which have been urged against the system, or by the degree of inquietude which has given birth to them. Instead of undertaking particular recommendations on this subject, in which I could be guided by no lights derived from official opportunities, I shall again give way to my entire confidence in your discernment and pursuit of the public good; for I assure myself that whilst you carefully avoid every alteration which might endanger the benefits of an united and effective government, or which ought to await the future lessons of experience, a reverence for the characteristic rights of freemen and a regard for the public harmony will sufficiently influence your deliberations on the question how far the former can be impregnably fortified or the latter be safely and advantageously promoted.\n\nTo the foregoing observations I have one to add, which will be most properly addressed to the House of Representatives. It concerns myself, and will therefore be as brief as possible. When I was first honored with a call into the service of my country, then on the eve of an arduous struggle for its liberties, the light in which I contemplated my duty required that I should renounce every pecuniary compensation. From this resolution I have in no instance departed; and being still under the impressions which produced it, I must decline as inapplicable to myself any share in the personal emoluments which may be indispensably included in a permanent provision for the executive department, and must accordingly pray that the pecuniary estimates for the station in which I am placed may during my continuance in it be limited to such actual expenditures as the public good may be thought to require.\n\nHaving thus imparted to you my sentiments as they have been awakened by the occasion which brings us together, I shall take my present leave; but not without resorting once more to the benign Parent of the Human Race in humble supplication that, since He has been pleased to favor the American people with opportunities for deliberating in perfect tranquillity, and dispositions for deciding with unparalleled unanimity on a form of government for the security of their union and the advancement of their happiness, so His divine blessing may be equally conspicuous in the enlarged views, the temperate consultations, and the wise measures on which the success of this Government must depend. &quot;</code></pre>
-<div class="sourceCode" id="cb953"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb953-1"><a href="4.4-inaugural-corpus-usa.html#cb953-1" tabindex="-1"></a>dat_inaug_corpus[[<span class="st">&quot;1789 George Washington&quot;</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb1012"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1012-1"><a href="4.4-inaugural-corpus-usa.html#cb1012-1" tabindex="-1"></a>dat_inaug_corpus[[<span class="st">&quot;1789 George Washington&quot;</span>]]</span></code></pre></div>
 <pre><code>## [1] &quot;Fellow-Citizens of the Senate and of the House of Representatives:\n\nAmong the vicissitudes incident to life no event could have filled me with greater anxieties than that of which the notification was transmitted by your order, and received on the 14th day of the present month. On the one hand, I was summoned by my Country, whose voice I can never hear but with veneration and love, from a retreat which I had chosen with the fondest predilection, and, in my flattering hopes, with an immutable decision, as the asylum of my declining years -- a retreat which was rendered every day more necessary as well as more dear to me by the addition of habit to inclination, and of frequent interruptions in my health to the gradual waste committed on it by time. On the other hand, the magnitude and difficulty of the trust to which the voice of my country called me, being sufficient to awaken in the wisest and most experienced of her citizens a distrustful scrutiny into his qualifications, could not but overwhelm with despondence one who (inheriting inferior endowments from nature and unpracticed in the duties of civil administration) ought to be peculiarly conscious of his own deficiencies. In this conflict of emotions all I dare aver is that it has been my faithful study to collect my duty from a just appreciation of every circumstance by which it might be affected. All I dare hope is that if, in executing this task, I have been too much swayed by a grateful remembrance of former instances, or by an affectionate sensibility to this transcendent proof of the confidence of my fellow citizens, and have thence too little consulted my incapacity as well as disinclination for the weighty and untried cares before me, my error will be palliated by the motives which mislead me, and its consequences be judged by my country with some share of the partiality in which they originated.\n\nSuch being the impressions under which I have, in obedience to the public summons, repaired to the present station, it would be peculiarly improper to omit in this first official act my fervent supplications to that Almighty Being who rules over the universe, who presides in the councils of nations, and whose providential aids can supply every human defect, that His benediction may consecrate to the liberties and happiness of the people of the United States a Government instituted by themselves for these essential purposes, and may enable every instrument employed in its administration to execute with success the functions allotted to his charge. In tendering this homage to the Great Author of every public and private good, I assure myself that it expresses your sentiments not less than my own, nor those of my fellow citizens at large less than either. No people can be bound to acknowledge and adore the Invisible Hand which conducts the affairs of men more than those of the United States. Every step by which they have advanced to the character of an independent nation seems to have been distinguished by some token of providential agency; and in the important revolution just accomplished in the system of their united government the tranquil deliberations and voluntary consent of so many distinct communities from which the event has resulted can not be compared with the means by which most governments have been established without some return of pious gratitude, along with an humble anticipation of the future blessings which the past seem to presage. These reflections, arising out of the present crisis, have forced themselves too strongly on my mind to be suppressed. You will join with me, I trust, in thinking that there are none under the influence of which the proceedings of a new and free government can more auspiciously commence.\n\nBy the article establishing the executive department it is made the duty of the President \&quot;to recommend to your consideration such measures as he shall judge necessary and expedient.\&quot; The circumstances under which I now meet you will acquit me from entering into that subject further than to refer to the great constitutional charter under which you are assembled, and which, in defining your powers, designates the objects to which your attention is to be given. It will be more consistent with those circumstances, and far more congenial with the feelings which actuate me, to substitute, in place of a recommendation of particular measures, the tribute that is due to the talents, the rectitude, and the patriotism which adorn the characters selected to devise and adopt them. In these honorable qualifications I behold the surest pledges that as on one side no local prejudices or attachments, no separate views nor party animosities, will misdirect the comprehensive and equal eye which ought to watch over this great assemblage of communities and interests, so, on another, that the foundation of our national policy will be laid in the pure and immutable principles of private morality, and the preeminence of free government be exemplified by all the attributes which can win the affections of its citizens and command the respect of the world. I dwell on this prospect with every satisfaction which an ardent love for my country can inspire, since there is no truth more thoroughly established than that there exists in the economy and course of nature an indissoluble union between virtue and happiness; between duty and advantage; between the genuine maxims of an honest and magnanimous policy and the solid rewards of public prosperity and felicity; since we ought to be no less persuaded that the propitious smiles of Heaven can never be expected on a nation that disregards the eternal rules of order and right which Heaven itself has ordained; and since the preservation of the sacred fire of liberty and the destiny of the republican model of government are justly considered, perhaps, as deeply, as finally, staked on the experiment entrusted to the hands of the American people.\n\nBesides the ordinary objects submitted to your care, it will remain with your judgment to decide how far an exercise of the occasional power delegated by the fifth article of the Constitution is rendered expedient at the present juncture by the nature of objections which have been urged against the system, or by the degree of inquietude which has given birth to them. Instead of undertaking particular recommendations on this subject, in which I could be guided by no lights derived from official opportunities, I shall again give way to my entire confidence in your discernment and pursuit of the public good; for I assure myself that whilst you carefully avoid every alteration which might endanger the benefits of an united and effective government, or which ought to await the future lessons of experience, a reverence for the characteristic rights of freemen and a regard for the public harmony will sufficiently influence your deliberations on the question how far the former can be impregnably fortified or the latter be safely and advantageously promoted.\n\nTo the foregoing observations I have one to add, which will be most properly addressed to the House of Representatives. It concerns myself, and will therefore be as brief as possible. When I was first honored with a call into the service of my country, then on the eve of an arduous struggle for its liberties, the light in which I contemplated my duty required that I should renounce every pecuniary compensation. From this resolution I have in no instance departed; and being still under the impressions which produced it, I must decline as inapplicable to myself any share in the personal emoluments which may be indispensably included in a permanent provision for the executive department, and must accordingly pray that the pecuniary estimates for the station in which I am placed may during my continuance in it be limited to such actual expenditures as the public good may be thought to require.\n\nHaving thus imparted to you my sentiments as they have been awakened by the occasion which brings us together, I shall take my present leave; but not without resorting once more to the benign Parent of the Human Race in humble supplication that, since He has been pleased to favor the American people with opportunities for deliberating in perfect tranquillity, and dispositions for deciding with unparalleled unanimity on a form of government for the security of their union and the advancement of their happiness, so His divine blessing may be equally conspicuous in the enlarged views, the temperate consultations, and the wise measures on which the success of this Government must depend. &quot;</code></pre>
 </div>
 <div id="document-level-information-1" class="section level4 hasAnchor" number="4.4.2.4">
 <h4><span class="header-section-number">4.4.2.4</span> Document-level information<a href="4.4-inaugural-corpus-usa.html#document-level-information-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb955"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb955-1"><a href="4.4-inaugural-corpus-usa.html#cb955-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">docvars</span>(dat_inaug_corpus))</span></code></pre></div>
+<div class="sourceCode" id="cb1014"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1014-1"><a href="4.4-inaugural-corpus-usa.html#cb1014-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">docvars</span>(dat_inaug_corpus))</span></code></pre></div>
 <pre><code>##   Year  President FirstName
 ## 1 1789 Washington    George
 ## 2 1793 Washington    George
@@ -2295,7 +2327,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="unique-variable-names-for-volume-1" class="section level4 hasAnchor" number="4.4.2.5">
 <h4><span class="header-section-number">4.4.2.5</span> Unique variable names (for volume)<a href="4.4-inaugural-corpus-usa.html#unique-variable-names-for-volume-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb957"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb957-1"><a href="4.4-inaugural-corpus-usa.html#cb957-1" tabindex="-1"></a><span class="fu">unique</span>(<span class="fu">docvars</span>(dat_inaug_corpus, <span class="at">field =</span> <span class="st">&quot;Year&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1016"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1016-1"><a href="4.4-inaugural-corpus-usa.html#cb1016-1" tabindex="-1"></a><span class="fu">unique</span>(<span class="fu">docvars</span>(dat_inaug_corpus, <span class="at">field =</span> <span class="st">&quot;Year&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] 1789 1793 1797 1801 1805</code></pre>
 </div>
 </div>
@@ -2306,8 +2338,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">4.4.3.1</span> Sentences<a href="4.4-inaugural-corpus-usa.html#sentences-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div id="transform-4" class="section level5 hasAnchor" number="4.4.3.1.1">
 <h5><span class="header-section-number">4.4.3.1.1</span> Transform<a href="4.4-inaugural-corpus-usa.html#transform-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb959"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb959-1"><a href="4.4-inaugural-corpus-usa.html#cb959-1" tabindex="-1"></a>dat_inaug_corpus_sent <span class="ot">&lt;-</span> <span class="fu">corpus_reshape</span>(dat_inaug_corpus, <span class="at">to =</span> <span class="st">&quot;sentences&quot;</span>)</span>
-<span id="cb959-2"><a href="4.4-inaugural-corpus-usa.html#cb959-2" tabindex="-1"></a>dat_inaug_corpus_sent</span></code></pre></div>
+<div class="sourceCode" id="cb1018"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1018-1"><a href="4.4-inaugural-corpus-usa.html#cb1018-1" tabindex="-1"></a>dat_inaug_corpus_sent <span class="ot">&lt;-</span> <span class="fu">corpus_reshape</span>(dat_inaug_corpus, <span class="at">to =</span> <span class="st">&quot;sentences&quot;</span>)</span>
+<span id="cb1018-2"><a href="4.4-inaugural-corpus-usa.html#cb1018-2" tabindex="-1"></a>dat_inaug_corpus_sent</span></code></pre></div>
 <pre><code>## Corpus consisting of 150 documents and 3 docvars.
 ## 1789 George Washington.1 :
 ## &quot;Fellow-Citizens of the Senate and of the House of Representa...&quot;
@@ -2331,7 +2363,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="summary-11" class="section level5 hasAnchor" number="4.4.3.1.2">
 <h5><span class="header-section-number">4.4.3.1.2</span> Summary<a href="4.4-inaugural-corpus-usa.html#summary-11" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb961"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb961-1"><a href="4.4-inaugural-corpus-usa.html#cb961-1" tabindex="-1"></a><span class="fu">summary</span>(dat_inaug_corpus_sent)</span></code></pre></div>
+<div class="sourceCode" id="cb1020"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1020-1"><a href="4.4-inaugural-corpus-usa.html#cb1020-1" tabindex="-1"></a><span class="fu">summary</span>(dat_inaug_corpus_sent)</span></code></pre></div>
 <pre><code>## Corpus consisting of 150 documents, showing 100 documents:
 ## 
 ##                       Text Types Tokens Sentences Year  President FirstName
@@ -2439,10 +2471,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="subset-4" class="section level5 hasAnchor" number="4.4.3.1.3">
 <h5><span class="header-section-number">4.4.3.1.3</span> Subset<a href="4.4-inaugural-corpus-usa.html#subset-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We can subset sentences with 10 or more words</p>
-<div class="sourceCode" id="cb963"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb963-1"><a href="4.4-inaugural-corpus-usa.html#cb963-1" tabindex="-1"></a>dat_inaug_corpus_sent_long <span class="ot">&lt;-</span> <span class="fu">corpus_subset</span>(dat_inaug_corpus_sent, <span class="fu">ntoken</span>(dat_inaug_corpus_sent) <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
-<span id="cb963-2"><a href="4.4-inaugural-corpus-usa.html#cb963-2" tabindex="-1"></a><span class="fu">ndoc</span>(dat_inaug_corpus_sent_long)</span></code></pre></div>
+<div class="sourceCode" id="cb1022"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1022-1"><a href="4.4-inaugural-corpus-usa.html#cb1022-1" tabindex="-1"></a>dat_inaug_corpus_sent_long <span class="ot">&lt;-</span> <span class="fu">corpus_subset</span>(dat_inaug_corpus_sent, <span class="fu">ntoken</span>(dat_inaug_corpus_sent) <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
+<span id="cb1022-2"><a href="4.4-inaugural-corpus-usa.html#cb1022-2" tabindex="-1"></a><span class="fu">ndoc</span>(dat_inaug_corpus_sent_long)</span></code></pre></div>
 <pre><code>## [1] 148</code></pre>
-<div class="sourceCode" id="cb965"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb965-1"><a href="4.4-inaugural-corpus-usa.html#cb965-1" tabindex="-1"></a><span class="fu">summary</span>(dat_inaug_corpus_sent_long)</span></code></pre></div>
+<div class="sourceCode" id="cb1024"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1024-1"><a href="4.4-inaugural-corpus-usa.html#cb1024-1" tabindex="-1"></a><span class="fu">summary</span>(dat_inaug_corpus_sent_long)</span></code></pre></div>
 <pre><code>## Corpus consisting of 148 documents, showing 100 documents:
 ## 
 ##                       Text Types Tokens Sentences Year  President FirstName
@@ -2552,8 +2584,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">4.4.3.2</span> Paragraphs<a href="4.4-inaugural-corpus-usa.html#paragraphs-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div id="transform-5" class="section level5 hasAnchor" number="4.4.3.2.1">
 <h5><span class="header-section-number">4.4.3.2.1</span> Transform<a href="4.4-inaugural-corpus-usa.html#transform-5" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb967"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb967-1"><a href="4.4-inaugural-corpus-usa.html#cb967-1" tabindex="-1"></a>dat_inaug_corpus_para <span class="ot">&lt;-</span> <span class="fu">corpus_reshape</span>(dat_inaug_corpus, <span class="at">to =</span> <span class="st">&quot;paragraphs&quot;</span>)</span>
-<span id="cb967-2"><a href="4.4-inaugural-corpus-usa.html#cb967-2" tabindex="-1"></a>dat_inaug_corpus_para</span></code></pre></div>
+<div class="sourceCode" id="cb1026"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1026-1"><a href="4.4-inaugural-corpus-usa.html#cb1026-1" tabindex="-1"></a>dat_inaug_corpus_para <span class="ot">&lt;-</span> <span class="fu">corpus_reshape</span>(dat_inaug_corpus, <span class="at">to =</span> <span class="st">&quot;paragraphs&quot;</span>)</span>
+<span id="cb1026-2"><a href="4.4-inaugural-corpus-usa.html#cb1026-2" tabindex="-1"></a>dat_inaug_corpus_para</span></code></pre></div>
 <pre><code>## Corpus consisting of 45 documents and 3 docvars.
 ## 1789 George Washington.1 :
 ## &quot;Fellow-Citizens of the Senate and of the House of Representa...&quot;
@@ -2577,7 +2609,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="summary-12" class="section level5 hasAnchor" number="4.4.3.2.2">
 <h5><span class="header-section-number">4.4.3.2.2</span> Summary<a href="4.4-inaugural-corpus-usa.html#summary-12" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb969"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb969-1"><a href="4.4-inaugural-corpus-usa.html#cb969-1" tabindex="-1"></a><span class="fu">summary</span>(dat_inaug_corpus_para)</span></code></pre></div>
+<div class="sourceCode" id="cb1028"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1028-1"><a href="4.4-inaugural-corpus-usa.html#cb1028-1" tabindex="-1"></a><span class="fu">summary</span>(dat_inaug_corpus_para)</span></code></pre></div>
 <pre><code>## Corpus consisting of 45 documents, showing 45 documents:
 ## 
 ##                      Text Types Tokens Sentences Year  President FirstName
@@ -2630,10 +2662,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="subset-5" class="section level5 hasAnchor" number="4.4.3.2.3">
 <h5><span class="header-section-number">4.4.3.2.3</span> Subset<a href="4.4-inaugural-corpus-usa.html#subset-5" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We can subset sentences with 10 or more words</p>
-<div class="sourceCode" id="cb971"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb971-1"><a href="4.4-inaugural-corpus-usa.html#cb971-1" tabindex="-1"></a>dat_inaug_corpus_para_long <span class="ot">&lt;-</span> <span class="fu">corpus_subset</span>(dat_inaug_corpus_para, <span class="fu">ntoken</span>(dat_inaug_corpus_para) <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
-<span id="cb971-2"><a href="4.4-inaugural-corpus-usa.html#cb971-2" tabindex="-1"></a><span class="fu">ndoc</span>(dat_inaug_corpus_para_long)</span></code></pre></div>
+<div class="sourceCode" id="cb1030"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1030-1"><a href="4.4-inaugural-corpus-usa.html#cb1030-1" tabindex="-1"></a>dat_inaug_corpus_para_long <span class="ot">&lt;-</span> <span class="fu">corpus_subset</span>(dat_inaug_corpus_para, <span class="fu">ntoken</span>(dat_inaug_corpus_para) <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
+<span id="cb1030-2"><a href="4.4-inaugural-corpus-usa.html#cb1030-2" tabindex="-1"></a><span class="fu">ndoc</span>(dat_inaug_corpus_para_long)</span></code></pre></div>
 <pre><code>## [1] 44</code></pre>
-<div class="sourceCode" id="cb973"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb973-1"><a href="4.4-inaugural-corpus-usa.html#cb973-1" tabindex="-1"></a><span class="fu">summary</span>(dat_inaug_corpus_para_long)</span></code></pre></div>
+<div class="sourceCode" id="cb1032"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1032-1"><a href="4.4-inaugural-corpus-usa.html#cb1032-1" tabindex="-1"></a><span class="fu">summary</span>(dat_inaug_corpus_para_long)</span></code></pre></div>
 <pre><code>## Corpus consisting of 44 documents, showing 44 documents:
 ## 
 ##                      Text Types Tokens Sentences Year  President FirstName
@@ -2688,8 +2720,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>tokens()</code> segments texts in a corpus into tokens (words or sentences) by word boundaries. We can remove punctuations or not</p>
 <div id="with-punctuations-2" class="section level5 hasAnchor" number="4.4.3.3.1">
 <h5><span class="header-section-number">4.4.3.3.1</span> With punctuations<a href="4.4-inaugural-corpus-usa.html#with-punctuations-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb975"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb975-1"><a href="4.4-inaugural-corpus-usa.html#cb975-1" tabindex="-1"></a>dat_inaug_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_inaug_corpus)</span>
-<span id="cb975-2"><a href="4.4-inaugural-corpus-usa.html#cb975-2" tabindex="-1"></a>dat_inaug_corpus_tok</span></code></pre></div>
+<div class="sourceCode" id="cb1034"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1034-1"><a href="4.4-inaugural-corpus-usa.html#cb1034-1" tabindex="-1"></a>dat_inaug_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_inaug_corpus)</span>
+<span id="cb1034-2"><a href="4.4-inaugural-corpus-usa.html#cb1034-2" tabindex="-1"></a>dat_inaug_corpus_tok</span></code></pre></div>
 <pre><code>## Tokens consisting of 5 documents and 3 docvars.
 ## 1789 George Washington :
 ##  [1] &quot;Fellow-Citizens&quot; &quot;of&quot;              &quot;the&quot;             &quot;Senate&quot;         
@@ -2720,8 +2752,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="without-punctuations-2" class="section level5 hasAnchor" number="4.4.3.3.2">
 <h5><span class="header-section-number">4.4.3.3.2</span> Without punctuations<a href="4.4-inaugural-corpus-usa.html#without-punctuations-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb977"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb977-1"><a href="4.4-inaugural-corpus-usa.html#cb977-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_inaug_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb977-2"><a href="4.4-inaugural-corpus-usa.html#cb977-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct</span></code></pre></div>
+<div class="sourceCode" id="cb1036"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1036-1"><a href="4.4-inaugural-corpus-usa.html#cb1036-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_inaug_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1036-2"><a href="4.4-inaugural-corpus-usa.html#cb1036-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct</span></code></pre></div>
 <pre><code>## Tokens consisting of 5 documents and 3 docvars.
 ## 1789 George Washington :
 ##  [1] &quot;Fellow-Citizens&quot; &quot;of&quot;              &quot;the&quot;             &quot;Senate&quot;         
@@ -2754,8 +2786,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="types-2" class="section level4 hasAnchor" number="4.4.3.4">
 <h4><span class="header-section-number">4.4.3.4</span> Types<a href="4.4-inaugural-corpus-usa.html#types-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We can also generate <code>types</code> on the tokenised corpus (without punctuations)</p>
-<div class="sourceCode" id="cb979"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb979-1"><a href="4.4-inaugural-corpus-usa.html#cb979-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_types <span class="ot">&lt;-</span> <span class="fu">types</span>(dat_inaug_corpus_tok_no_punct)</span>
-<span id="cb979-2"><a href="4.4-inaugural-corpus-usa.html#cb979-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_types</span></code></pre></div>
+<div class="sourceCode" id="cb1038"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1038-1"><a href="4.4-inaugural-corpus-usa.html#cb1038-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_types <span class="ot">&lt;-</span> <span class="fu">types</span>(dat_inaug_corpus_tok_no_punct)</span>
+<span id="cb1038-2"><a href="4.4-inaugural-corpus-usa.html#cb1038-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_types</span></code></pre></div>
 <pre><code>##    [1] &quot;Fellow-Citizens&quot;   &quot;of&quot;                &quot;the&quot;              
 ##    [4] &quot;Senate&quot;            &quot;and&quot;               &quot;House&quot;            
 ##    [7] &quot;Representatives&quot;   &quot;Among&quot;             &quot;vicissitudes&quot;     
@@ -3433,8 +3465,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="pattern-2" class="section level5 hasAnchor" number="4.4.3.5.1">
 <h5><span class="header-section-number">4.4.3.5.1</span> Pattern<a href="4.4-inaugural-corpus-usa.html#pattern-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>You can see how keywords are used in the actual contexts in a concordance view produced by <code>kwic()</code>. <code>Pattern</code> is used to search for the pattern we are interested in (with * as a wildcard). <code>Window</code> used to display number of words/tokens around it.</p>
-<div class="sourceCode" id="cb981"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb981-1"><a href="4.4-inaugural-corpus-usa.html#cb981-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_hus <span class="ot">&lt;-</span> <span class="fu">kwic</span>(dat_inaug_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="st">&quot;pres*&quot;</span>, <span class="at">window =</span> <span class="dv">6</span>)</span>
-<span id="cb981-2"><a href="4.4-inaugural-corpus-usa.html#cb981-2" tabindex="-1"></a><span class="fu">head</span>(dat_inaug_corpus_tok_no_punct_hus, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1040"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1040-1"><a href="4.4-inaugural-corpus-usa.html#cb1040-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_hus <span class="ot">&lt;-</span> <span class="fu">kwic</span>(dat_inaug_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="st">&quot;pres*&quot;</span>, <span class="at">window =</span> <span class="dv">6</span>)</span>
+<span id="cb1040-2"><a href="4.4-inaugural-corpus-usa.html#cb1040-2" tabindex="-1"></a><span class="fu">head</span>(dat_inaug_corpus_tok_no_punct_hus, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Keyword-in-context with 10 matches.                                                                           
 ##    [1789 George Washington, 45]                    on the 14th day of the |
 ##   [1789 George Washington, 343]        the public summons repaired to the |
@@ -3460,8 +3492,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="phrase-2" class="section level5 hasAnchor" number="4.4.3.5.2">
 <h5><span class="header-section-number">4.4.3.5.2</span> Phrase<a href="4.4-inaugural-corpus-usa.html#phrase-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb983"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb983-1"><a href="4.4-inaugural-corpus-usa.html#cb983-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_phrase <span class="ot">&lt;-</span> <span class="fu">kwic</span>(dat_inaug_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="fu">phrase</span>(<span class="st">&quot;the Constitution&quot;</span>), <span class="at">window =</span> <span class="dv">6</span>)</span>
-<span id="cb983-2"><a href="4.4-inaugural-corpus-usa.html#cb983-2" tabindex="-1"></a><span class="fu">head</span>(dat_inaug_corpus_tok_no_punct_phrase, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1042"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1042-1"><a href="4.4-inaugural-corpus-usa.html#cb1042-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_phrase <span class="ot">&lt;-</span> <span class="fu">kwic</span>(dat_inaug_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="fu">phrase</span>(<span class="st">&quot;the Constitution&quot;</span>), <span class="at">window =</span> <span class="dv">6</span>)</span>
+<span id="cb1042-2"><a href="4.4-inaugural-corpus-usa.html#cb1042-2" tabindex="-1"></a><span class="fu">head</span>(dat_inaug_corpus_tok_no_punct_phrase, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Keyword-in-context with 10 matches.                                    
 ##  [1789 George Washington, 1023:1024]
 ##      [1793 George Washington, 71:72]
@@ -3501,8 +3533,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">4.4.3.6</span> stopwords<a href="4.4-inaugural-corpus-usa.html#stopwords-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><code>stopwords</code> are function words (or grammatical words). We can search for these and remove them (if not necessary). This step is often useful because we are not interested in these stop_words.</p>
 <p><code>tokens_remove()</code> is an alias to <code>tokens_select(selection = "remove")</code></p>
-<div class="sourceCode" id="cb985"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb985-1"><a href="4.4-inaugural-corpus-usa.html#cb985-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(dat_inaug_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">stopwords</span>(<span class="st">&quot;en&quot;</span>, <span class="at">source =</span> <span class="st">&quot;stopwords-iso&quot;</span>), <span class="at">selection =</span> <span class="st">&quot;remove&quot;</span>)</span>
-<span id="cb985-2"><a href="4.4-inaugural-corpus-usa.html#cb985-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop</span></code></pre></div>
+<div class="sourceCode" id="cb1044"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1044-1"><a href="4.4-inaugural-corpus-usa.html#cb1044-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(dat_inaug_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">stopwords</span>(<span class="st">&quot;en&quot;</span>, <span class="at">source =</span> <span class="st">&quot;stopwords-iso&quot;</span>), <span class="at">selection =</span> <span class="st">&quot;remove&quot;</span>)</span>
+<span id="cb1044-2"><a href="4.4-inaugural-corpus-usa.html#cb1044-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop</span></code></pre></div>
 <pre><code>## Tokens consisting of 5 documents and 3 docvars.
 ## 1789 George Washington :
 ##  [1] &quot;Fellow-Citizens&quot; &quot;Senate&quot;          &quot;House&quot;           &quot;Representatives&quot;
@@ -3538,8 +3570,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To be able to extract the stems of each of the given words, we use the function <code>tokens_wordstem</code>, <code>char_wordstem</code> or <code>dfm_wordstem</code></p>
 <div id="tokens_wordstem-2" class="section level5 hasAnchor" number="4.4.3.7.1">
 <h5><span class="header-section-number">4.4.3.7.1</span> <code>tokens_wordstem</code><a href="4.4-inaugural-corpus-usa.html#tokens_wordstem-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb987"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb987-1"><a href="4.4-inaugural-corpus-usa.html#cb987-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_stem <span class="ot">&lt;-</span> <span class="fu">tokens_wordstem</span>(dat_inaug_corpus_tok_no_punct_no_Stop)</span>
-<span id="cb987-2"><a href="4.4-inaugural-corpus-usa.html#cb987-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_stem</span></code></pre></div>
+<div class="sourceCode" id="cb1046"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1046-1"><a href="4.4-inaugural-corpus-usa.html#cb1046-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_stem <span class="ot">&lt;-</span> <span class="fu">tokens_wordstem</span>(dat_inaug_corpus_tok_no_punct_no_Stop)</span>
+<span id="cb1046-2"><a href="4.4-inaugural-corpus-usa.html#cb1046-2" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_stem</span></code></pre></div>
 <pre><code>## Tokens consisting of 5 documents and 3 docvars.
 ## 1789 George Washington :
 ##  [1] &quot;Fellow-Citizen&quot; &quot;Senat&quot;          &quot;Hous&quot;           &quot;Repres&quot;        
@@ -3571,8 +3603,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="dfm_wordstem-2" class="section level5 hasAnchor" number="4.4.3.7.2">
 <h5><span class="header-section-number">4.4.3.7.2</span> <code>dfm_wordstem</code><a href="4.4-inaugural-corpus-usa.html#dfm_wordstem-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Here we can use the <code>dfm</code> (for Document Feature Matrix) to obtain details of the wordstems used in each of the texts</p>
-<div class="sourceCode" id="cb989"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb989-1"><a href="4.4-inaugural-corpus-usa.html#cb989-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm <span class="ot">&lt;-</span> <span class="fu">dfm</span>(dat_inaug_corpus_tok_no_punct_no_Stop)</span>
-<span id="cb989-2"><a href="4.4-inaugural-corpus-usa.html#cb989-2" tabindex="-1"></a><span class="fu">dfm_wordstem</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm)</span></code></pre></div>
+<div class="sourceCode" id="cb1048"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1048-1"><a href="4.4-inaugural-corpus-usa.html#cb1048-1" tabindex="-1"></a>dat_inaug_corpus_tok_no_punct_no_Stop_dfm <span class="ot">&lt;-</span> <span class="fu">dfm</span>(dat_inaug_corpus_tok_no_punct_no_Stop)</span>
+<span id="cb1048-2"><a href="4.4-inaugural-corpus-usa.html#cb1048-2" tabindex="-1"></a><span class="fu">dfm_wordstem</span>(dat_inaug_corpus_tok_no_punct_no_Stop_dfm)</span></code></pre></div>
 <pre><code>## Document-feature matrix of: 5 documents, 1,227 features (69.80% sparse) and 3 docvars.
 ##                         features
 ## docs                     fellow-citizen senat hous repres vicissitud incid life

@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-10" />
+<meta name="date" content="2025-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,8 +55,9 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -377,17 +378,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-and-sample-size"><i class="fa fa-check"></i><b>2.3.2</b> Power analysis and sample size</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.1</b> Linear model</a>
+<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-interpretation-rules-and-t.test"><i class="fa fa-check"></i><b>2.3.2.1</b> Cohen’s <em>d</em> interpretation rules and t.test</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.1.1</b> General example</a>
+<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#pwr.t.test---one-sample-and-two-sample-t-tests-for-means"><i class="fa fa-check"></i><b>2.3.2.1.1</b> pwr.t.test - one-sample and two-sample t tests for means</a></li>
+<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-effect-size"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Cohen’s <em>d</em> effect size</a></li>
+<li class="chapter" data-level="2.3.2.1.3" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#plots"><i class="fa fa-check"></i><b>2.3.2.1.3</b> Plots</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.1.1.1</b> Power of the test</a></li>
-<li class="chapter" data-level="2.3.2.1.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.1.1.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.1.3.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.05"><i class="fa fa-check"></i><b>2.3.2.1.3.1</b> p &lt; 0.05</a></li>
+<li class="chapter" data-level="2.3.2.1.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.01"><i class="fa fa-check"></i><b>2.3.2.1.3.2</b> p &lt; 0.01</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Using our LM model</a>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.2</b> Linear model</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.1.2.1</b> Power analysis from our model</a></li>
-<li class="chapter" data-level="2.3.2.1.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.1.2.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.2.1</b> General example</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.2.1.1</b> Power of the test</a></li>
+<li class="chapter" data-level="2.3.2.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.2.1.2</b> Sample size</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.2.2</b> Using our LM model</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.2.2.1</b> Power analysis from our model</a></li>
+<li class="chapter" data-level="2.3.2.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.2.2.2</b> Sample size</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -404,53 +415,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="2.5-LM.html"><a href="2.5-LM.html"><i class="fa fa-check"></i><b>2.5</b> Linear Models</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-3"><i class="fa fa-check"></i><b>2.5.1</b> Introduction</a>
+<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#normality-of-distribution"><i class="fa fa-check"></i><b>2.5.1</b> Normality of distribution</a>
 <ul>
-<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.1.1</b> Model estimation</a></li>
+<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#shapiro-test"><i class="fa fa-check"></i><b>2.5.1.1</b> Shapiro test</a></li>
+<li class="chapter" data-level="2.5.1.2" data-path="2.5-LM.html"><a href="2.5-LM.html#density-plot"><i class="fa fa-check"></i><b>2.5.1.2</b> Density plot</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.2</b> Role of coding schemes</a>
+<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#homogeneity-of-variance"><i class="fa fa-check"></i><b>2.5.2</b> Homogeneity of variance</a>
 <ul>
-<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.2.1</b> Intro</a></li>
-<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.2.2</b> Treatment coding</a></li>
-<li class="chapter" data-level="2.5.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.2.3</b> Contrast (or sum) coding</a>
+<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#bartlett-test"><i class="fa fa-check"></i><b>2.5.2.1</b> Bartlett test</a></li>
+<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#levene-test"><i class="fa fa-check"></i><b>2.5.2.2</b> Levene test</a>
 <ul>
-<li class="chapter" data-level="2.5.2.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.2.3.1</b> Default</a></li>
-<li class="chapter" data-level="2.5.2.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.2.3.2</b> Modified</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.3</b> Further steps</a>
-<ul>
-<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.3.1</b> Tidying the output</a></li>
-<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.3.2</b> Nice table of our model summary</a>
-<ul>
-<li class="chapter" data-level="2.5.3.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.3.2.1</b> Directly from model summary</a></li>
-<li class="chapter" data-level="2.5.3.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.3.2.2</b> From the <code>tidy</code> output</a></li>
-<li class="chapter" data-level="2.5.3.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.3.2.3</b> Model’s fit</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.3.3</b> Dissecting the model</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.3.3.1</b> “str” and “coef”</a></li>
-<li class="chapter" data-level="2.5.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.3.3.2</b> “coef” and “coefficients”</a></li>
-<li class="chapter" data-level="2.5.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.3.3.3</b> Residuals</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.3.3.3.1</b> Histogram</a></li>
-<li class="chapter" data-level="2.5.3.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.3.3.3.2</b> qqplots</a></li>
-<li class="chapter" data-level="2.5.3.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.3.3.3.3</b> Residuals vs fitted values</a></li>
-<li class="chapter" data-level="2.5.3.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.3.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.3.3.4</b> Goodness of fit?</a></li>
-<li class="chapter" data-level="2.5.3.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.3.3.5</b> Significance testing</a></li>
+<li class="chapter" data-level="2.5.2.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#base-r"><i class="fa fa-check"></i><b>2.5.2.2.1</b> Base R</a></li>
+<li class="chapter" data-level="2.5.2.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-car-package"><i class="fa fa-check"></i><b>2.5.2.2.2</b> From the <code>car</code> package</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.4</b> Plotting fitted values</a>
+<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#first-steps-3"><i class="fa fa-check"></i><b>2.5.3</b> First steps</a>
 <ul>
-<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.4.1</b> Trend line</a></li>
-<li class="chapter" data-level="2.5.4.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.2</b> Predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.3</b> Raw data, predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.4.4</b> Add significance levels and trend line on a plot?</a></li>
+<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#t-test"><i class="fa fa-check"></i><b>2.5.3.1</b> T-test</a></li>
+<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-2"><i class="fa fa-check"></i><b>2.5.3.2</b> Linear Model</a></li>
+<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#basic-anova"><i class="fa fa-check"></i><b>2.5.3.3</b> Basic ANOVA</a></li>
+<li class="chapter" data-level="2.5.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-3"><i class="fa fa-check"></i><b>2.5.3.4</b> Linear model</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.5</b> What about pairwise comparison?</a></li>
-<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.6</b> Multiple predictors?</a></li>
+<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-to-linear-models"><i class="fa fa-check"></i><b>2.5.4</b> Introduction to Linear models</a>
+<ul>
+<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.4.1</b> Model estimation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.5</b> Role of coding schemes</a>
+<ul>
+<li class="chapter" data-level="2.5.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.5.1</b> Intro</a></li>
+<li class="chapter" data-level="2.5.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.5.2</b> Treatment coding</a></li>
+<li class="chapter" data-level="2.5.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.5.3</b> Contrast (or sum) coding</a>
+<ul>
+<li class="chapter" data-level="2.5.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.5.3.1</b> Default</a></li>
+<li class="chapter" data-level="2.5.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.5.3.2</b> Modified</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.6</b> Further steps</a>
+<ul>
+<li class="chapter" data-level="2.5.6.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.6.1</b> Tidying the output</a></li>
+<li class="chapter" data-level="2.5.6.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.6.2</b> Nice table of our model summary</a>
+<ul>
+<li class="chapter" data-level="2.5.6.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.6.2.1</b> Directly from model summary</a></li>
+<li class="chapter" data-level="2.5.6.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.6.2.2</b> From the <code>tidy</code> output</a></li>
+<li class="chapter" data-level="2.5.6.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.6.2.3</b> Model’s fit</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.6.3</b> Dissecting the model</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.6.3.1</b> “str” and “coef”</a></li>
+<li class="chapter" data-level="2.5.6.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.6.3.2</b> “coef” and “coefficients”</a></li>
+<li class="chapter" data-level="2.5.6.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.6.3.3</b> Residuals</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.6.3.3.1</b> Histogram</a></li>
+<li class="chapter" data-level="2.5.6.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.6.3.3.2</b> qqplots</a></li>
+<li class="chapter" data-level="2.5.6.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.6.3.3.3</b> Residuals vs fitted values</a></li>
+<li class="chapter" data-level="2.5.6.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.6.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.6.3.4</b> Goodness of fit?</a></li>
+<li class="chapter" data-level="2.5.6.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.6.3.5</b> Significance testing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.7" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.7</b> Plotting fitted values</a>
+<ul>
+<li class="chapter" data-level="2.5.7.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.7.1</b> Trend line</a></li>
+<li class="chapter" data-level="2.5.7.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.2</b> Predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.3</b> Raw data, predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.7.4</b> Add significance levels and trend line on a plot?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.8" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.8</b> What about pairwise comparison?</a></li>
+<li class="chapter" data-level="2.5.9" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.9</b> Multiple predictors?</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html"><i class="fa fa-check"></i><b>2.6</b> Generalised Linear Models</a>
 <ul>
@@ -620,7 +652,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.3.4.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-random-effects"><i class="fa fa-check"></i><b>3.3.4.1</b> Subject random effects</a></li>
 <li class="chapter" data-level="3.3.4.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#items-random-effects"><i class="fa fa-check"></i><b>3.3.4.2</b> Items random effects</a></li>
-<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
+<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots-1"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
 <ul>
 <li class="chapter" data-level="3.3.4.3.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#fixed-effects-1"><i class="fa fa-check"></i><b>3.3.4.3.1</b> Fixed effects</a>
 <ul>
@@ -2009,7 +2041,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4.3.3.5" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#dimension-5"><i class="fa fa-check"></i><b>7.4.3.3.5</b> Dimension 5</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-1"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
+<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-2"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
 <ul>
 <li class="chapter" data-level="7.4.4.1" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#default-plots"><i class="fa fa-check"></i><b>7.4.4.1</b> Default plots</a>
 <ul>
@@ -2041,7 +2073,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.5.1.1" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#computing-clusters"><i class="fa fa-check"></i><b>7.5.1.1</b> Computing clusters</a></li>
 <li class="chapter" data-level="7.5.1.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#dendograms"><i class="fa fa-check"></i><b>7.5.1.2</b> Dendograms</a></li>
-<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-2"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
+<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-3"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
 <li class="chapter" data-level="7.5.1.4" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#individual-clusters"><i class="fa fa-check"></i><b>7.5.1.4</b> Individual Clusters</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#conclusion-3"><i class="fa fa-check"></i><b>7.5.2</b> Conclusion</a></li>
@@ -2603,17 +2635,254 @@ they cite the various functions available, such as:</p>
 <li><code>pwr.chisq.test</code>: chi-squared test (goodness of fit and association)</li>
 <li><code>pwr.f2.test</code>: test for the general linear model</li>
 </ul>
-<div id="linear-model-1" class="section level4 hasAnchor" number="2.3.2.1">
-<h4><span class="header-section-number">2.3.2.1</span> Linear model<a href="2.3-effect-size-and-power-analysis.html#linear-model-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div id="general-example" class="section level5 hasAnchor" number="2.3.2.1.1">
-<h5><span class="header-section-number">2.3.2.1.1</span> General example<a href="2.3-effect-size-and-power-analysis.html#general-example" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="cohens-d-interpretation-rules-and-t.test" class="section level4 hasAnchor" number="2.3.2.1">
+<h4><span class="header-section-number">2.3.2.1</span> Cohen’s <em>d</em> interpretation rules and t.test<a href="2.3-effect-size-and-power-analysis.html#cohens-d-interpretation-rules-and-t.test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Based on J. Cohen (1988) rule of thumb, we can interpret Cohen’s <em>d</em>
+effect size measure as:</p>
+<ul>
+<li><p>d &lt; 0.2 - Very small</p></li>
+<li><p>0.2 &lt;= d &lt; 0.5 - Small</p></li>
+<li><p>0.5 &lt;= d &lt; 0.8 - Medium</p></li>
+<li><p>d &gt;= 0.8 - Large</p></li>
+</ul>
+<p>We can use the function <code>pwr.t.test()</code> to compute the power of a t.test.</p>
+<div id="pwr.t.test---one-sample-and-two-sample-t-tests-for-means" class="section level5 hasAnchor" number="2.3.2.1.1">
+<h5><span class="header-section-number">2.3.2.1.1</span> pwr.t.test - one-sample and two-sample t tests for means<a href="2.3-effect-size-and-power-analysis.html#pwr.t.test---one-sample-and-two-sample-t-tests-for-means" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Based on the example below, we know that the variance between the two age groups with respect to RTlexdec is significantly different; meaning that there is no equality of variance in this case. This is important to know to be able to compute the t.test appropriately.</p>
+<p>Here are the results of the t.test between the two groups:</p>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="2.3-effect-size-and-power-analysis.html#cb348-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
+<span id="cb348-2"><a href="2.3-effect-size-and-power-analysis.html#cb348-2" tabindex="-1"></a>  <span class="fu">t.test</span>(RTlexdec <span class="sc">~</span> AgeSubject, <span class="at">data =</span> ., <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  RTlexdec by AgeSubject
+## t = 67.468, df = 4534.6, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means between group old and group young is not equal to 0
+## 95 percent confidence interval:
+##  0.2152787 0.2281642
+## sample estimates:
+##   mean in group old mean in group young 
+##            6.660958            6.439237</code></pre>
+</div>
+<div id="cohens-d-effect-size" class="section level5 hasAnchor" number="2.3.2.1.2">
+<h5><span class="header-section-number">2.3.2.1.2</span> Cohen’s <em>d</em> effect size<a href="2.3-effect-size-and-power-analysis.html#cohens-d-effect-size" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="2.3-effect-size-and-power-analysis.html#cb350-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
+<span id="cb350-2"><a href="2.3-effect-size-and-power-analysis.html#cb350-2" tabindex="-1"></a>  <span class="fu">cohens_d</span>(RTlexdec <span class="sc">~</span> AgeSubject, <span class="at">data =</span> .) <span class="sc">%&gt;%</span> </span>
+<span id="cb350-3"><a href="2.3-effect-size-and-power-analysis.html#cb350-3" tabindex="-1"></a>  <span class="fu">interpret_cohens_d</span>()</span></code></pre></div>
+<pre><code>## Cohen&#39;s d |       95% CI | Interpretation
+## -----------------------------------------
+## 2.00      | [1.93, 2.07] |          large
+## 
+## - Estimated using pooled SD.
+## - Interpretation rule: cohen1988</code></pre>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="2.3-effect-size-and-power-analysis.html#cb352-1" tabindex="-1"></a><span class="fu">cohen.ES</span>(<span class="at">test =</span> <span class="st">&quot;t&quot;</span>, <span class="at">size =</span> <span class="st">&quot;large&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##      Conventional effect size from Cohen (1982) 
+## 
+##            test = t
+##            size = large
+##     effect.size = 0.8</code></pre>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="2.3-effect-size-and-power-analysis.html#cb354-1" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> <span class="dv">2284</span>, <span class="at">d =</span> <span class="dv">2</span>, <span class="at">sig.level =</span> <span class="fl">2.2e-16</span>)</span></code></pre></div>
+<pre><code>## 
+##      Two-sample t test power calculation 
+## 
+##               n = 2284
+##               d = 2
+##       sig.level = 2.2e-16
+##           power = 1
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group</code></pre>
+<p>The results here show that with a sample size of 2284, a large effect size of 2 and a significance level of 2.2e-16, we have a power of 1 (or 100%). This is a massive power and effect size, but we know that the results are inflated de to not using a mixed effects model.</p>
+<p>Now, let’s imagine we use another sample.</p>
+<p>We’re interested to know if there is a difference in the mean reaction time in a lexical decision task between young and old participants. Let’s say we randomly ask 30 young and 30 old participants to perform the test and and calculate the mean reaction time for each group. We’ll test for a difference in means using a two-sample t-test.</p>
+<p>How powerful is this experiment if we want to detect a “medium” effect in either direction with a significance level of 0.001?</p>
+<p>Unfortunately, we don’t have any idea what the number of participants in the <code>english</code> dataset. It is composed of 2284 monomorphemic English nouns and verbs that are averaged across old and young subjects.</p>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="2.3-effect-size-and-power-analysis.html#cb356-1" tabindex="-1"></a><span class="fu">cohen.ES</span>(<span class="at">test =</span> <span class="st">&quot;t&quot;</span>, <span class="at">size =</span> <span class="st">&quot;large&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##      Conventional effect size from Cohen (1982) 
+## 
+##            test = t
+##            size = large
+##     effect.size = 0.8</code></pre>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="2.3-effect-size-and-power-analysis.html#cb358-1" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">d =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.01</span>)</span></code></pre></div>
+<pre><code>## 
+##      Two-sample t test power calculation 
+## 
+##               n = 30
+##               d = 0.8
+##       sig.level = 0.01
+##           power = 0.6677563
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group</code></pre>
+<p>The power is only at 66.78%! Not very powerful. How many students should we observe for a test with 80% power?</p>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="2.3-effect-size-and-power-analysis.html#cb360-1" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.8</span>, <span class="at">power =</span> <span class="fl">0.80</span>, <span class="at">sig.level =</span> <span class="fl">0.01</span>)</span></code></pre></div>
+<pre><code>## 
+##      Two-sample t test power calculation 
+## 
+##               n = 38.18831
+##               d = 0.8
+##       sig.level = 0.01
+##           power = 0.8
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group</code></pre>
+<p>We need at least 38 students per group. If we lower our p value, the sample size will increase drastically</p>
+</div>
+<div id="plots" class="section level5 hasAnchor" number="2.3.2.1.3">
+<h5><span class="header-section-number">2.3.2.1.3</span> Plots<a href="2.3-effect-size-and-power-analysis.html#plots" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>The <code>pwr</code> package comes with a handy plotting function that we can use to evaluate the impact of the increase in power, effect size and sample size for a specific p value</p>
+<div id="p-0.05" class="section level6 hasAnchor" number="2.3.2.1.3.1">
+<h6><span class="header-section-number">2.3.2.1.3.1</span> p &lt; 0.05<a href="2.3-effect-size-and-power-analysis.html#p-0.05" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<p>What if we use a specific p value &lt; 0.05 and a power of 0.80? How does the change in effect size impact the sample size? We simulate variable effect size measures at 0.2, 0.5, 0.8 and 2 based on the interpretation above.</p>
+<p>Based on J. Cohen (1988) rule of thumb, we can interpret Cohen’s <em>d</em>
+effect size measure as:</p>
+<ul>
+<li><p>d &lt; 0.2 - Very small</p></li>
+<li><p>0.2 &lt;= d &lt; 0.5 - Small</p></li>
+<li><p>0.5 &lt;= d &lt; 0.8 - Medium</p></li>
+<li><p>d &gt;= 0.8 - Large</p></li>
+</ul>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="2.3-effect-size-and-power-analysis.html#cb362-1" tabindex="-1"></a>p.out <span class="ot">&lt;-</span> <span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.2</span>, <span class="at">power =</span> <span class="fl">0.80</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>)</span>
+<span id="cb362-2"><a href="2.3-effect-size-and-power-analysis.html#cb362-2" tabindex="-1"></a>p.out</span></code></pre></div>
+<pre><code>## 
+##      Two-sample t test power calculation 
+## 
+##               n = 393.4057
+##               d = 0.2
+##       sig.level = 0.05
+##           power = 0.8
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group</code></pre>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="2.3-effect-size-and-power-analysis.html#cb364-1" tabindex="-1"></a><span class="fu">plot</span>(p.out)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-142-1.png" width="672" /></p>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="2.3-effect-size-and-power-analysis.html#cb365-1" tabindex="-1"></a>p.out <span class="ot">&lt;-</span> <span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.80</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>)</span>
+<span id="cb365-2"><a href="2.3-effect-size-and-power-analysis.html#cb365-2" tabindex="-1"></a>p.out</span></code></pre></div>
+<pre><code>## 
+##      Two-sample t test power calculation 
+## 
+##               n = 63.76561
+##               d = 0.5
+##       sig.level = 0.05
+##           power = 0.8
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group</code></pre>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="2.3-effect-size-and-power-analysis.html#cb367-1" tabindex="-1"></a><span class="fu">plot</span>(p.out)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-142-2.png" width="672" /></p>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="2.3-effect-size-and-power-analysis.html#cb368-1" tabindex="-1"></a>p.out <span class="ot">&lt;-</span> <span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.8</span>, <span class="at">power =</span> <span class="fl">0.80</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>)</span>
+<span id="cb368-2"><a href="2.3-effect-size-and-power-analysis.html#cb368-2" tabindex="-1"></a>p.out</span></code></pre></div>
+<pre><code>## 
+##      Two-sample t test power calculation 
+## 
+##               n = 25.52458
+##               d = 0.8
+##       sig.level = 0.05
+##           power = 0.8
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group</code></pre>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="2.3-effect-size-and-power-analysis.html#cb370-1" tabindex="-1"></a><span class="fu">plot</span>(p.out)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-142-3.png" width="672" /></p>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="2.3-effect-size-and-power-analysis.html#cb371-1" tabindex="-1"></a>p.out <span class="ot">&lt;-</span> <span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="dv">2</span>, <span class="at">power =</span> <span class="fl">0.80</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>)</span>
+<span id="cb371-2"><a href="2.3-effect-size-and-power-analysis.html#cb371-2" tabindex="-1"></a>p.out</span></code></pre></div>
+<pre><code>## 
+##      Two-sample t test power calculation 
+## 
+##               n = 5.089995
+##               d = 2
+##       sig.level = 0.05
+##           power = 0.8
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group</code></pre>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="2.3-effect-size-and-power-analysis.html#cb373-1" tabindex="-1"></a><span class="fu">plot</span>(p.out)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-142-4.png" width="672" /></p>
+</div>
+<div id="p-0.01" class="section level6 hasAnchor" number="2.3.2.1.3.2">
+<h6><span class="header-section-number">2.3.2.1.3.2</span> p &lt; 0.01<a href="2.3-effect-size-and-power-analysis.html#p-0.01" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<p>We do the same as above but we change the p value &lt; 0.01 and a power of 0.80? How does the change in effect size impact the sample size? We simulate variable effect size measures at 0.2, 0.5, 0.8 and 2 based on the interpretation above.</p>
+<p>Based on J. Cohen (1988) rule of thumb, we can interpret Cohen’s <em>d</em>
+effect size measure as:</p>
+<ul>
+<li><p>d &lt; 0.2 - Very small</p></li>
+<li><p>0.2 &lt;= d &lt; 0.5 - Small</p></li>
+<li><p>0.5 &lt;= d &lt; 0.8 - Medium</p></li>
+<li><p>d &gt;= 0.8 - Large</p></li>
+</ul>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="2.3-effect-size-and-power-analysis.html#cb374-1" tabindex="-1"></a>p.out <span class="ot">&lt;-</span> <span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.2</span>, <span class="at">power =</span> <span class="fl">0.80</span>, <span class="at">sig.level =</span> <span class="fl">0.01</span>)</span>
+<span id="cb374-2"><a href="2.3-effect-size-and-power-analysis.html#cb374-2" tabindex="-1"></a>p.out</span></code></pre></div>
+<pre><code>## 
+##      Two-sample t test power calculation 
+## 
+##               n = 585.6093
+##               d = 0.2
+##       sig.level = 0.01
+##           power = 0.8
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group</code></pre>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="2.3-effect-size-and-power-analysis.html#cb376-1" tabindex="-1"></a><span class="fu">plot</span>(p.out)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-143-1.png" width="672" /></p>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="2.3-effect-size-and-power-analysis.html#cb377-1" tabindex="-1"></a>p.out <span class="ot">&lt;-</span> <span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.80</span>, <span class="at">sig.level =</span> <span class="fl">0.01</span>)</span>
+<span id="cb377-2"><a href="2.3-effect-size-and-power-analysis.html#cb377-2" tabindex="-1"></a>p.out</span></code></pre></div>
+<pre><code>## 
+##      Two-sample t test power calculation 
+## 
+##               n = 95.10364
+##               d = 0.5
+##       sig.level = 0.01
+##           power = 0.8
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group</code></pre>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="2.3-effect-size-and-power-analysis.html#cb379-1" tabindex="-1"></a><span class="fu">plot</span>(p.out)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-143-2.png" width="672" /></p>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="2.3-effect-size-and-power-analysis.html#cb380-1" tabindex="-1"></a>p.out <span class="ot">&lt;-</span> <span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.8</span>, <span class="at">power =</span> <span class="fl">0.80</span>, <span class="at">sig.level =</span> <span class="fl">0.01</span>)</span>
+<span id="cb380-2"><a href="2.3-effect-size-and-power-analysis.html#cb380-2" tabindex="-1"></a>p.out</span></code></pre></div>
+<pre><code>## 
+##      Two-sample t test power calculation 
+## 
+##               n = 38.18831
+##               d = 0.8
+##       sig.level = 0.01
+##           power = 0.8
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group</code></pre>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="2.3-effect-size-and-power-analysis.html#cb382-1" tabindex="-1"></a><span class="fu">plot</span>(p.out)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-143-3.png" width="672" /></p>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="2.3-effect-size-and-power-analysis.html#cb383-1" tabindex="-1"></a>p.out <span class="ot">&lt;-</span> <span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="dv">2</span>, <span class="at">power =</span> <span class="fl">0.80</span>, <span class="at">sig.level =</span> <span class="fl">0.01</span>)</span>
+<span id="cb383-2"><a href="2.3-effect-size-and-power-analysis.html#cb383-2" tabindex="-1"></a>p.out</span></code></pre></div>
+<pre><code>## 
+##      Two-sample t test power calculation 
+## 
+##               n = 7.66057
+##               d = 2
+##       sig.level = 0.01
+##           power = 0.8
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group</code></pre>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="2.3-effect-size-and-power-analysis.html#cb385-1" tabindex="-1"></a><span class="fu">plot</span>(p.out)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-143-4.png" width="672" /></p>
+<p>The plot above show the sample size required for the specific power, p value and effect size. Play around with these values to have an idea of the impact of these parameters on the sample size.</p>
+</div>
+</div>
+</div>
+<div id="linear-model-1" class="section level4 hasAnchor" number="2.3.2.2">
+<h4><span class="header-section-number">2.3.2.2</span> Linear model<a href="2.3-effect-size-and-power-analysis.html#linear-model-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="general-example" class="section level5 hasAnchor" number="2.3.2.2.1">
+<h5><span class="header-section-number">2.3.2.2.1</span> General example<a href="2.3-effect-size-and-power-analysis.html#general-example" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We borrow from the vignette of the <code>pwr</code> package an example of a linear
 model.</p>
-<div id="power-of-the-test" class="section level6 hasAnchor" number="2.3.2.1.1.1">
-<h6><span class="header-section-number">2.3.2.1.1.1</span> Power of the test<a href="2.3-effect-size-and-power-analysis.html#power-of-the-test" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<div id="power-of-the-test" class="section level6 hasAnchor" number="2.3.2.2.1.1">
+<h6><span class="header-section-number">2.3.2.2.1.1</span> Power of the test<a href="2.3-effect-size-and-power-analysis.html#power-of-the-test" class="anchor-section" aria-label="Anchor link to header"></a></h6>
 <p>We want to compute the power we have with a sample size of 40 words, an
 effect size of 0.3 and a significance level of 0.001.</p>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="2.3-effect-size-and-power-analysis.html#cb348-1" tabindex="-1"></a><span class="fu">pwr.f2.test</span>(<span class="at">u =</span> <span class="dv">1</span>, <span class="at">v =</span> <span class="dv">40</span> <span class="sc">-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="dv">1</span>, <span class="at">f2 =</span> <span class="fl">0.3</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.3</span>), <span class="at">sig.level =</span> <span class="fl">0.001</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="2.3-effect-size-and-power-analysis.html#cb386-1" tabindex="-1"></a><span class="fu">pwr.f2.test</span>(<span class="at">u =</span> <span class="dv">1</span>, <span class="at">v =</span> <span class="dv">40</span> <span class="sc">-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="dv">1</span>, <span class="at">f2 =</span> <span class="fl">0.3</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.3</span>), <span class="at">sig.level =</span> <span class="fl">0.001</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Multiple regression power calculation 
 ## 
@@ -2630,12 +2899,12 @@ effect size of 0.3 and a significance level of 0.001.</p>
 <li><p>sig.level = significance level (alpha)</p></li>
 </ul>
 </div>
-<div id="sample-size" class="section level6 hasAnchor" number="2.3.2.1.1.2">
-<h6><span class="header-section-number">2.3.2.1.1.2</span> Sample size<a href="2.3-effect-size-and-power-analysis.html#sample-size" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<div id="sample-size" class="section level6 hasAnchor" number="2.3.2.2.1.2">
+<h6><span class="header-section-number">2.3.2.2.1.2</span> Sample size<a href="2.3-effect-size-and-power-analysis.html#sample-size" class="anchor-section" aria-label="Anchor link to header"></a></h6>
 <p>We want to compute the sample size needed to have a power of 0.8, with a
 significance level of 0.001 and an effect size of 0.3 (medium effect
 size according to Cohen’s conventions).</p>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="2.3-effect-size-and-power-analysis.html#cb350-1" tabindex="-1"></a><span class="fu">pwr.f2.test</span>(<span class="at">u =</span> <span class="dv">1</span>, <span class="at">f2 =</span> <span class="fl">0.3</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.3</span>), <span class="at">sig.level =</span> <span class="fl">0.001</span>, <span class="at">power =</span> <span class="fl">0.8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="2.3-effect-size-and-power-analysis.html#cb388-1" tabindex="-1"></a><span class="fu">pwr.f2.test</span>(<span class="at">u =</span> <span class="dv">1</span>, <span class="at">f2 =</span> <span class="fl">0.3</span><span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.3</span>), <span class="at">sig.level =</span> <span class="fl">0.001</span>, <span class="at">power =</span> <span class="fl">0.8</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Multiple regression power calculation 
 ## 
@@ -2655,13 +2924,13 @@ size according to Cohen’s conventions).</p>
 ~ <strong>45 words</strong>.</p>
 </div>
 </div>
-<div id="using-our-lm-model" class="section level5 hasAnchor" number="2.3.2.1.2">
-<h5><span class="header-section-number">2.3.2.1.2</span> Using our LM model<a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="using-our-lm-model" class="section level5 hasAnchor" number="2.3.2.2.2">
+<h5><span class="header-section-number">2.3.2.2.2</span> Using our LM model<a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>In our case, we use the dataset <code>english</code> from the <code>languageR</code> package.
 We used AgeSubject as our predictor to predict RTlexdec. What if we want
 to compute the power of our model that we ran previously? Here is the
 summary of our model</p>
-<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="2.3-effect-size-and-power-analysis.html#cb352-1" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="2.3-effect-size-and-power-analysis.html#cb390-1" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = RTlexdec ~ AgeSubject, data = .)
@@ -2680,8 +2949,8 @@ summary of our model</p>
 ## Residual standard error: 0.1111 on 4566 degrees of freedom
 ## Multiple R-squared:  0.4992, Adjusted R-squared:  0.4991 
 ## F-statistic:  4552 on 1 and 4566 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div id="power-analysis-from-our-model" class="section level6 hasAnchor" number="2.3.2.1.2.1">
-<h6><span class="header-section-number">2.3.2.1.2.1</span> Power analysis from our model<a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<div id="power-analysis-from-our-model" class="section level6 hasAnchor" number="2.3.2.2.2.1">
+<h6><span class="header-section-number">2.3.2.2.2.1</span> Power analysis from our model<a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model" class="anchor-section" aria-label="Anchor link to header"></a></h6>
 <p>Recall that the F test has numerator and denominator degrees of freedom.
 The numerator degrees of freedom, <code>u</code>, is the number of coefficients
 you’ll have in your model (minus the intercept).</p>
@@ -2691,13 +2960,13 @@ explained”. To determine effect size you hypothesize the proportion of
 variance your model explains, or the <span class="math inline">\(R^{2}\)</span>.</p>
 <p>Once we computed these three values, we can compute the power of our
 model based on its summary.</p>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="2.3-effect-size-and-power-analysis.html#cb354-1" tabindex="-1"></a>u <span class="ot">&lt;-</span> <span class="fu">summary</span>(model)<span class="sc">$</span>fstatistic[<span class="dv">2</span>]</span>
-<span id="cb354-2"><a href="2.3-effect-size-and-power-analysis.html#cb354-2" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">summary</span>(model)<span class="sc">$</span>fstatistic[<span class="dv">3</span>]</span>
-<span id="cb354-3"><a href="2.3-effect-size-and-power-analysis.html#cb354-3" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> <span class="fu">summary</span>(model)<span class="sc">$</span>r.squared<span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fu">summary</span>(model)<span class="sc">$</span>r.squared)</span>
-<span id="cb354-4"><a href="2.3-effect-size-and-power-analysis.html#cb354-4" tabindex="-1"></a><span class="co"># p.value &lt;- summary(model)$coefficients[2,4]</span></span>
-<span id="cb354-5"><a href="2.3-effect-size-and-power-analysis.html#cb354-5" tabindex="-1"></a>p.value <span class="ot">&lt;-</span> <span class="fl">0.0001</span></span>
-<span id="cb354-6"><a href="2.3-effect-size-and-power-analysis.html#cb354-6" tabindex="-1"></a>pwrModel <span class="ot">&lt;-</span> <span class="fu">pwr.f2.test</span>(<span class="at">u =</span> u, <span class="at">v =</span> v, <span class="at">f2 =</span> f2, <span class="at">sig.level =</span> p.value)</span>
-<span id="cb354-7"><a href="2.3-effect-size-and-power-analysis.html#cb354-7" tabindex="-1"></a>pwrModel</span></code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="2.3-effect-size-and-power-analysis.html#cb392-1" tabindex="-1"></a>u <span class="ot">&lt;-</span> <span class="fu">summary</span>(model)<span class="sc">$</span>fstatistic[<span class="dv">2</span>]</span>
+<span id="cb392-2"><a href="2.3-effect-size-and-power-analysis.html#cb392-2" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">summary</span>(model)<span class="sc">$</span>fstatistic[<span class="dv">3</span>]</span>
+<span id="cb392-3"><a href="2.3-effect-size-and-power-analysis.html#cb392-3" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> <span class="fu">summary</span>(model)<span class="sc">$</span>r.squared<span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fu">summary</span>(model)<span class="sc">$</span>r.squared)</span>
+<span id="cb392-4"><a href="2.3-effect-size-and-power-analysis.html#cb392-4" tabindex="-1"></a><span class="co"># p.value &lt;- summary(model)$coefficients[2,4]</span></span>
+<span id="cb392-5"><a href="2.3-effect-size-and-power-analysis.html#cb392-5" tabindex="-1"></a>p.value <span class="ot">&lt;-</span> <span class="fl">0.0001</span></span>
+<span id="cb392-6"><a href="2.3-effect-size-and-power-analysis.html#cb392-6" tabindex="-1"></a>pwrModel <span class="ot">&lt;-</span> <span class="fu">pwr.f2.test</span>(<span class="at">u =</span> u, <span class="at">v =</span> v, <span class="at">f2 =</span> f2, <span class="at">sig.level =</span> p.value)</span>
+<span id="cb392-7"><a href="2.3-effect-size-and-power-analysis.html#cb392-7" tabindex="-1"></a>pwrModel</span></code></pre></div>
 <pre><code>## 
 ##      Multiple regression power calculation 
 ## 
@@ -2707,13 +2976,13 @@ model based on its summary.</p>
 ##       sig.level = 1e-04
 ##           power = 1</code></pre>
 </div>
-<div id="sample-size-1" class="section level6 hasAnchor" number="2.3.2.1.2.2">
-<h6><span class="header-section-number">2.3.2.1.2.2</span> Sample size<a href="2.3-effect-size-and-power-analysis.html#sample-size-1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<div id="sample-size-1" class="section level6 hasAnchor" number="2.3.2.2.2.2">
+<h6><span class="header-section-number">2.3.2.2.2.2</span> Sample size<a href="2.3-effect-size-and-power-analysis.html#sample-size-1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
 <p>For the optimal sample size, we use the same values for <code>u</code>, <code>f2</code> and
 <code>p.value</code> as above, but we specify the power we want to have. Here, we
 use the power we obtained from our model above.</p>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="2.3-effect-size-and-power-analysis.html#cb356-1" tabindex="-1"></a>pwrSample <span class="ot">&lt;-</span> <span class="fu">pwr.f2.test</span>(<span class="at">u =</span> u, <span class="at">f2 =</span> f2, <span class="at">sig.level =</span> p.value, <span class="at">power =</span> pwrModel<span class="sc">$</span>power)</span>
-<span id="cb356-2"><a href="2.3-effect-size-and-power-analysis.html#cb356-2" tabindex="-1"></a>pwrSample</span></code></pre></div>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="2.3-effect-size-and-power-analysis.html#cb394-1" tabindex="-1"></a>pwrSample <span class="ot">&lt;-</span> <span class="fu">pwr.f2.test</span>(<span class="at">u =</span> u, <span class="at">f2 =</span> f2, <span class="at">sig.level =</span> p.value, <span class="at">power =</span> pwrModel<span class="sc">$</span>power)</span>
+<span id="cb394-2"><a href="2.3-effect-size-and-power-analysis.html#cb394-2" tabindex="-1"></a>pwrSample</span></code></pre></div>
 <pre><code>## 
 ##      Multiple regression power calculation 
 ## 
@@ -2724,8 +2993,8 @@ use the power we obtained from our model above.</p>
 ##           power = 1</code></pre>
 <p>Based on the output, we can compute the optimal sample size needed for
 our model as</p>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="2.3-effect-size-and-power-analysis.html#cb358-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> pwrSample<span class="sc">$</span>v <span class="sc">+</span> u <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb358-2"><a href="2.3-effect-size-and-power-analysis.html#cb358-2" tabindex="-1"></a>n</span></code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="2.3-effect-size-and-power-analysis.html#cb396-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> pwrSample<span class="sc">$</span>v <span class="sc">+</span> u <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb396-2"><a href="2.3-effect-size-and-power-analysis.html#cb396-2" tabindex="-1"></a>n</span></code></pre></div>
 <pre><code>## numdf 
 ## 1e+09</code></pre>
 <p>The optimal sample size to reach this level of power is <strong>1,000,000,000

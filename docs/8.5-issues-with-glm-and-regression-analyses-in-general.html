@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-10" />
+<meta name="date" content="2025-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,8 +55,9 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -377,17 +378,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-and-sample-size"><i class="fa fa-check"></i><b>2.3.2</b> Power analysis and sample size</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.1</b> Linear model</a>
+<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-interpretation-rules-and-t.test"><i class="fa fa-check"></i><b>2.3.2.1</b> Cohen’s <em>d</em> interpretation rules and t.test</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.1.1</b> General example</a>
+<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#pwr.t.test---one-sample-and-two-sample-t-tests-for-means"><i class="fa fa-check"></i><b>2.3.2.1.1</b> pwr.t.test - one-sample and two-sample t tests for means</a></li>
+<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-effect-size"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Cohen’s <em>d</em> effect size</a></li>
+<li class="chapter" data-level="2.3.2.1.3" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#plots"><i class="fa fa-check"></i><b>2.3.2.1.3</b> Plots</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.1.1.1</b> Power of the test</a></li>
-<li class="chapter" data-level="2.3.2.1.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.1.1.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.1.3.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.05"><i class="fa fa-check"></i><b>2.3.2.1.3.1</b> p &lt; 0.05</a></li>
+<li class="chapter" data-level="2.3.2.1.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.01"><i class="fa fa-check"></i><b>2.3.2.1.3.2</b> p &lt; 0.01</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Using our LM model</a>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.2</b> Linear model</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.1.2.1</b> Power analysis from our model</a></li>
-<li class="chapter" data-level="2.3.2.1.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.1.2.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.2.1</b> General example</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.2.1.1</b> Power of the test</a></li>
+<li class="chapter" data-level="2.3.2.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.2.1.2</b> Sample size</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.2.2</b> Using our LM model</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.2.2.1</b> Power analysis from our model</a></li>
+<li class="chapter" data-level="2.3.2.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.2.2.2</b> Sample size</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -404,53 +415,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="2.5-LM.html"><a href="2.5-LM.html"><i class="fa fa-check"></i><b>2.5</b> Linear Models</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-3"><i class="fa fa-check"></i><b>2.5.1</b> Introduction</a>
+<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#normality-of-distribution"><i class="fa fa-check"></i><b>2.5.1</b> Normality of distribution</a>
 <ul>
-<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.1.1</b> Model estimation</a></li>
+<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#shapiro-test"><i class="fa fa-check"></i><b>2.5.1.1</b> Shapiro test</a></li>
+<li class="chapter" data-level="2.5.1.2" data-path="2.5-LM.html"><a href="2.5-LM.html#density-plot"><i class="fa fa-check"></i><b>2.5.1.2</b> Density plot</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.2</b> Role of coding schemes</a>
+<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#homogeneity-of-variance"><i class="fa fa-check"></i><b>2.5.2</b> Homogeneity of variance</a>
 <ul>
-<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.2.1</b> Intro</a></li>
-<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.2.2</b> Treatment coding</a></li>
-<li class="chapter" data-level="2.5.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.2.3</b> Contrast (or sum) coding</a>
+<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#bartlett-test"><i class="fa fa-check"></i><b>2.5.2.1</b> Bartlett test</a></li>
+<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#levene-test"><i class="fa fa-check"></i><b>2.5.2.2</b> Levene test</a>
 <ul>
-<li class="chapter" data-level="2.5.2.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.2.3.1</b> Default</a></li>
-<li class="chapter" data-level="2.5.2.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.2.3.2</b> Modified</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.3</b> Further steps</a>
-<ul>
-<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.3.1</b> Tidying the output</a></li>
-<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.3.2</b> Nice table of our model summary</a>
-<ul>
-<li class="chapter" data-level="2.5.3.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.3.2.1</b> Directly from model summary</a></li>
-<li class="chapter" data-level="2.5.3.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.3.2.2</b> From the <code>tidy</code> output</a></li>
-<li class="chapter" data-level="2.5.3.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.3.2.3</b> Model’s fit</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.3.3</b> Dissecting the model</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.3.3.1</b> “str” and “coef”</a></li>
-<li class="chapter" data-level="2.5.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.3.3.2</b> “coef” and “coefficients”</a></li>
-<li class="chapter" data-level="2.5.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.3.3.3</b> Residuals</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.3.3.3.1</b> Histogram</a></li>
-<li class="chapter" data-level="2.5.3.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.3.3.3.2</b> qqplots</a></li>
-<li class="chapter" data-level="2.5.3.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.3.3.3.3</b> Residuals vs fitted values</a></li>
-<li class="chapter" data-level="2.5.3.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.3.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.3.3.4</b> Goodness of fit?</a></li>
-<li class="chapter" data-level="2.5.3.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.3.3.5</b> Significance testing</a></li>
+<li class="chapter" data-level="2.5.2.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#base-r"><i class="fa fa-check"></i><b>2.5.2.2.1</b> Base R</a></li>
+<li class="chapter" data-level="2.5.2.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-car-package"><i class="fa fa-check"></i><b>2.5.2.2.2</b> From the <code>car</code> package</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.4</b> Plotting fitted values</a>
+<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#first-steps-3"><i class="fa fa-check"></i><b>2.5.3</b> First steps</a>
 <ul>
-<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.4.1</b> Trend line</a></li>
-<li class="chapter" data-level="2.5.4.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.2</b> Predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.3</b> Raw data, predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.4.4</b> Add significance levels and trend line on a plot?</a></li>
+<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#t-test"><i class="fa fa-check"></i><b>2.5.3.1</b> T-test</a></li>
+<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-2"><i class="fa fa-check"></i><b>2.5.3.2</b> Linear Model</a></li>
+<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#basic-anova"><i class="fa fa-check"></i><b>2.5.3.3</b> Basic ANOVA</a></li>
+<li class="chapter" data-level="2.5.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-3"><i class="fa fa-check"></i><b>2.5.3.4</b> Linear model</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.5</b> What about pairwise comparison?</a></li>
-<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.6</b> Multiple predictors?</a></li>
+<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-to-linear-models"><i class="fa fa-check"></i><b>2.5.4</b> Introduction to Linear models</a>
+<ul>
+<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.4.1</b> Model estimation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.5</b> Role of coding schemes</a>
+<ul>
+<li class="chapter" data-level="2.5.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.5.1</b> Intro</a></li>
+<li class="chapter" data-level="2.5.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.5.2</b> Treatment coding</a></li>
+<li class="chapter" data-level="2.5.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.5.3</b> Contrast (or sum) coding</a>
+<ul>
+<li class="chapter" data-level="2.5.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.5.3.1</b> Default</a></li>
+<li class="chapter" data-level="2.5.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.5.3.2</b> Modified</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.6</b> Further steps</a>
+<ul>
+<li class="chapter" data-level="2.5.6.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.6.1</b> Tidying the output</a></li>
+<li class="chapter" data-level="2.5.6.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.6.2</b> Nice table of our model summary</a>
+<ul>
+<li class="chapter" data-level="2.5.6.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.6.2.1</b> Directly from model summary</a></li>
+<li class="chapter" data-level="2.5.6.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.6.2.2</b> From the <code>tidy</code> output</a></li>
+<li class="chapter" data-level="2.5.6.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.6.2.3</b> Model’s fit</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.6.3</b> Dissecting the model</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.6.3.1</b> “str” and “coef”</a></li>
+<li class="chapter" data-level="2.5.6.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.6.3.2</b> “coef” and “coefficients”</a></li>
+<li class="chapter" data-level="2.5.6.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.6.3.3</b> Residuals</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.6.3.3.1</b> Histogram</a></li>
+<li class="chapter" data-level="2.5.6.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.6.3.3.2</b> qqplots</a></li>
+<li class="chapter" data-level="2.5.6.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.6.3.3.3</b> Residuals vs fitted values</a></li>
+<li class="chapter" data-level="2.5.6.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.6.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.6.3.4</b> Goodness of fit?</a></li>
+<li class="chapter" data-level="2.5.6.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.6.3.5</b> Significance testing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.7" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.7</b> Plotting fitted values</a>
+<ul>
+<li class="chapter" data-level="2.5.7.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.7.1</b> Trend line</a></li>
+<li class="chapter" data-level="2.5.7.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.2</b> Predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.3</b> Raw data, predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.7.4</b> Add significance levels and trend line on a plot?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.8" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.8</b> What about pairwise comparison?</a></li>
+<li class="chapter" data-level="2.5.9" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.9</b> Multiple predictors?</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html"><i class="fa fa-check"></i><b>2.6</b> Generalised Linear Models</a>
 <ul>
@@ -620,7 +652,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.3.4.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-random-effects"><i class="fa fa-check"></i><b>3.3.4.1</b> Subject random effects</a></li>
 <li class="chapter" data-level="3.3.4.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#items-random-effects"><i class="fa fa-check"></i><b>3.3.4.2</b> Items random effects</a></li>
-<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
+<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots-1"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
 <ul>
 <li class="chapter" data-level="3.3.4.3.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#fixed-effects-1"><i class="fa fa-check"></i><b>3.3.4.3.1</b> Fixed effects</a>
 <ul>
@@ -2009,7 +2041,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4.3.3.5" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#dimension-5"><i class="fa fa-check"></i><b>7.4.3.3.5</b> Dimension 5</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-1"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
+<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-2"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
 <ul>
 <li class="chapter" data-level="7.4.4.1" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#default-plots"><i class="fa fa-check"></i><b>7.4.4.1</b> Default plots</a>
 <ul>
@@ -2041,7 +2073,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.5.1.1" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#computing-clusters"><i class="fa fa-check"></i><b>7.5.1.1</b> Computing clusters</a></li>
 <li class="chapter" data-level="7.5.1.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#dendograms"><i class="fa fa-check"></i><b>7.5.1.2</b> Dendograms</a></li>
-<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-2"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
+<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-3"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
 <li class="chapter" data-level="7.5.1.4" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#individual-clusters"><i class="fa fa-check"></i><b>7.5.1.4</b> Individual Clusters</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#conclusion-3"><i class="fa fa-check"></i><b>7.5.2</b> Conclusion</a></li>
@@ -2194,7 +2226,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="correlation-tests-2" class="section level3 hasAnchor" number="8.5.1">
 <h3><span class="header-section-number">8.5.1</span> Correlation tests<a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#correlation-tests-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Below, we look at two predictors that are correlated with each other: <code>Z3-Z2</code> (F3-F2 in Bark) and <code>A2*-A3*</code> (normalised amplitude differences between harmonics closest to F2 and F3). The results of the correlation test shows the two predictors to negatively correlate with each other at a rate of -0.87.</p>
-<div class="sourceCode" id="cb2091"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2091-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2091-1" tabindex="-1"></a><span class="fu">cor.test</span>(dfPharV2<span class="sc">$</span>Z3mnZ2, dfPharV2<span class="sc">$</span>A2mnA3)</span></code></pre></div>
+<div class="sourceCode" id="cb2150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2150-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2150-1" tabindex="-1"></a><span class="fu">cor.test</span>(dfPharV2<span class="sc">$</span>Z3mnZ2, dfPharV2<span class="sc">$</span>A2mnA3)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -2209,16 +2241,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="plots-to-visualise-the-data" class="section level3 hasAnchor" number="8.5.2">
 <h3><span class="header-section-number">8.5.2</span> Plots to visualise the data<a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#plots-to-visualise-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb2093"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2093-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2093-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> </span>
-<span id="cb2093-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2093-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> Z3mnZ2)) <span class="sc">+</span> </span>
-<span id="cb2093-3"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2093-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb2093-4"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2093-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-959-1.png" width="672" /></p>
-<div class="sourceCode" id="cb2094"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2094-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2094-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> </span>
-<span id="cb2094-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2094-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> A2mnA3)) <span class="sc">+</span> </span>
-<span id="cb2094-3"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2094-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb2094-4"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2094-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>()  </span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-959-2.png" width="672" /></p>
+<div class="sourceCode" id="cb2152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2152-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2152-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb2152-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2152-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> Z3mnZ2)) <span class="sc">+</span> </span>
+<span id="cb2152-3"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2152-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb2152-4"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2152-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-977-1.png" width="672" /></p>
+<div class="sourceCode" id="cb2153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2153-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2153-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb2153-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2153-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> A2mnA3)) <span class="sc">+</span> </span>
+<span id="cb2153-3"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2153-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb2153-4"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2153-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>()  </span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-977-2.png" width="672" /></p>
 <p>As we see from the plot, <code>Z3-Z2</code> is higher in the guttural, whereas <code>A2*-A3*</code> is lower.</p>
 </div>
 <div id="glm-on-correlated-data" class="section level3 hasAnchor" number="8.5.3">
@@ -2226,7 +2258,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="model-specifications-and-issues" class="section level4 hasAnchor" number="8.5.3.1">
 <h4><span class="header-section-number">8.5.3.1</span> Model specifications and issues<a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#model-specifications-and-issues" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Let’s run a logistic regression as a classification tool to predict the context as a function of each predictor separately and then combined.</p>
-<div class="sourceCode" id="cb2095"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2095-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2095-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2154-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2154-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = context ~ Z3mnZ2, family = binomial, data = .)
@@ -2245,7 +2277,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## AIC: 541.74
 ## 
 ## Number of Fisher Scoring iterations: 4</code></pre>
-<div class="sourceCode" id="cb2097"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2097-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2097-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2156-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2156-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = context ~ A2mnA3, family = binomial, data = .)
@@ -2264,7 +2296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## AIC: 512.51
 ## 
 ## Number of Fisher Scoring iterations: 4</code></pre>
-<div class="sourceCode" id="cb2099"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2099-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2099-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">+</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2158-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2158-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">+</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = context ~ Z3mnZ2 + A2mnA3, family = binomial, data = .)
@@ -2284,7 +2316,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## AIC: 498.5
 ## 
 ## Number of Fisher Scoring iterations: 4</code></pre>
-<div class="sourceCode" id="cb2101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2101-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2101-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">*</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2160-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2160-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">*</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = context ~ Z3mnZ2 * A2mnA3, family = binomial, data = .)
@@ -2312,24 +2344,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To check for collinearity, we can use the <code>vif</code> function from the <code>car</code> package. The <code>vif</code> stands for the “Variance Inflation Factor (VIF)”. This is a measure of how much the variance of a regression coefficient is increased due to collinearity. A VIF value below 5 indicates that there is low level of collinearity; between 5 and 10, that there a moderate level of collinearity and above 10 indicates potential collinearity issues.</p>
 <div id="simple-model" class="section level5 hasAnchor" number="8.5.3.2.1">
 <h5><span class="header-section-number">8.5.3.2.1</span> Simple model<a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#simple-model" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb2103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2103-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2103-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">+</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
-<span id="cb2103-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2103-2" tabindex="-1"></a>  <span class="fu">vif</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2162-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2162-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">+</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
+<span id="cb2162-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2162-2" tabindex="-1"></a>  <span class="fu">vif</span>()</span></code></pre></div>
 <pre><code>##   Z3mnZ2   A2mnA3 
 ## 4.319093 4.319093</code></pre>
 <p>The values here are close to 5, which indicates a moderate level of collinearity. This is appropriate , but it is not ideal either.</p>
 </div>
 <div id="interaction-model" class="section level5 hasAnchor" number="8.5.3.2.2">
 <h5><span class="header-section-number">8.5.3.2.2</span> Interaction model<a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#interaction-model" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb2105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2105-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2105-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">*</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
-<span id="cb2105-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2105-2" tabindex="-1"></a>  <span class="fu">vif</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2164-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2164-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">*</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
+<span id="cb2164-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2164-2" tabindex="-1"></a>  <span class="fu">vif</span>()</span></code></pre></div>
 <pre><code>## there are higher-order terms (interactions) in this model
 ## consider setting type = &#39;predictor&#39;; see ?vif</code></pre>
 <pre><code>##        Z3mnZ2        A2mnA3 Z3mnZ2:A2mnA3 
 ##      7.151205      7.551354     11.244070</code></pre>
 <p>When using interaction, the <code>vif</code> values no increase to more than 5 for the individual predictors, and to 11 for the interaction</p>
 <p>We use the function <code>check_collinearity()</code></p>
-<div class="sourceCode" id="cb2108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2108-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2108-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">*</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
-<span id="cb2108-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2108-2" tabindex="-1"></a>  <span class="fu">check_collinearity</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2167-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2167-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">*</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
+<span id="cb2167-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2167-2" tabindex="-1"></a>  <span class="fu">check_collinearity</span>()</span></code></pre></div>
 <pre><code>## Model has interaction terms. VIFs might be inflated.
 ##   Try to center the variables used for the interaction, or check
 ##   multicollinearity among predictors of a model without interaction terms.</code></pre>
@@ -2345,12 +2377,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ##           Term   VIF    VIF 95% CI adj. VIF Tolerance Tolerance 95% CI
 ##  Z3mnZ2:A2mnA3 11.24 [9.37, 13.53]     3.35      0.09     [0.07, 0.11]</code></pre>
-<div class="sourceCode" id="cb2111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2111-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2111-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">*</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
-<span id="cb2111-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2111-2" tabindex="-1"></a>  <span class="fu">check_collinearity</span>() <span class="sc">%&gt;%</span> <span class="fu">plot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2170-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2170-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">*</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
+<span id="cb2170-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2170-2" tabindex="-1"></a>  <span class="fu">check_collinearity</span>() <span class="sc">%&gt;%</span> <span class="fu">plot</span>()</span></code></pre></div>
 <pre><code>## Model has interaction terms. VIFs might be inflated.
 ##   Try to center the variables used for the interaction, or check
 ##   multicollinearity among predictors of a model without interaction terms.</code></pre>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-963-1.png" width="672" /></p>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-981-1.png" width="672" /></p>
 </div>
 </div>
 <div id="full-dataset" class="section level4 hasAnchor" number="8.5.3.3">
@@ -2358,8 +2390,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We run the logistic regression on the full dataset to evaluate the levels of collinearity</p>
 <div id="vif" class="section level5 hasAnchor" number="8.5.3.3.1">
 <h5><span class="header-section-number">8.5.3.3.1</span> <code>vif()</code><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#vif" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb2113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2113-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2113-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> ., <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
-<span id="cb2113-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2113-2" tabindex="-1"></a>  <span class="fu">vif</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2172-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2172-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> ., <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
+<span id="cb2172-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2172-2" tabindex="-1"></a>  <span class="fu">vif</span>()</span></code></pre></div>
 <pre><code>##           CPP        Energy         H1A1c         H1A2c         H1A3c 
 ## -1.649494e+00 -4.103070e-01 -9.864240e+07 -1.644946e+08  3.187778e+06 
 ##         H1H2c         H2H4c       H2KH5Kc         H42Kc         HNR05 
@@ -2373,8 +2405,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="check_collinearity" class="section level5 hasAnchor" number="8.5.3.3.2">
 <h5><span class="header-section-number">8.5.3.3.2</span> <code>check_collinearity()</code><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#check_collinearity" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb2115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2115-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2115-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> ., <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
-<span id="cb2115-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2115-2" tabindex="-1"></a>  <span class="fu">check_collinearity</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2174-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2174-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> ., <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
+<span id="cb2174-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2174-2" tabindex="-1"></a>  <span class="fu">check_collinearity</span>()</span></code></pre></div>
 <pre><code>## The variance-covariance matrix is not positive definite. Returning the
 ##   nearest positive definite matrix now.
 ##   This ensures that eigenvalues are all positive real numbers, and
@@ -2413,8 +2445,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  A1mnA2 2.22e+07 [1.85e+07, 2.67e+07]  4714.04  4.50e-08     [0.00, 0.00]
 ##  A1mnA3 2.22e+07 [1.85e+07, 2.67e+07]  4714.04  4.50e-08     [0.00, 0.00]
 ##  A2mnA3 2.22e+07 [1.85e+07, 2.67e+07]  4714.05  4.50e-08     [0.00, 0.00]</code></pre>
-<div class="sourceCode" id="cb2119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2119-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2119-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> ., <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
-<span id="cb2119-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2119-2" tabindex="-1"></a>  <span class="fu">check_collinearity</span>() <span class="sc">%&gt;%</span> plot</span></code></pre></div>
+<div class="sourceCode" id="cb2178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2178-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2178-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> ., <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
+<span id="cb2178-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2178-2" tabindex="-1"></a>  <span class="fu">check_collinearity</span>() <span class="sc">%&gt;%</span> plot</span></code></pre></div>
 <pre><code>## The variance-covariance matrix is not positive definite. Returning the
 ##   nearest positive definite matrix now.
 ##   This ensures that eigenvalues are all positive real numbers, and
@@ -2423,7 +2455,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Warning in stats::qlogis(r): NaNs produced</code></pre>
 <pre><code>## Warning: Removed 5 rows containing missing values or values outside the scale
 ## range (`geom_segment()`).</code></pre>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-965-1.png" width="672" /></p>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-983-1.png" width="672" /></p>
 </div>
 </div>
 </div>

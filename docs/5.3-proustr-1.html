@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-10" />
+<meta name="date" content="2025-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,8 +55,9 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -377,17 +378,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-and-sample-size"><i class="fa fa-check"></i><b>2.3.2</b> Power analysis and sample size</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.1</b> Linear model</a>
+<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-interpretation-rules-and-t.test"><i class="fa fa-check"></i><b>2.3.2.1</b> Cohen’s <em>d</em> interpretation rules and t.test</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.1.1</b> General example</a>
+<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#pwr.t.test---one-sample-and-two-sample-t-tests-for-means"><i class="fa fa-check"></i><b>2.3.2.1.1</b> pwr.t.test - one-sample and two-sample t tests for means</a></li>
+<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-effect-size"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Cohen’s <em>d</em> effect size</a></li>
+<li class="chapter" data-level="2.3.2.1.3" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#plots"><i class="fa fa-check"></i><b>2.3.2.1.3</b> Plots</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.1.1.1</b> Power of the test</a></li>
-<li class="chapter" data-level="2.3.2.1.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.1.1.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.1.3.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.05"><i class="fa fa-check"></i><b>2.3.2.1.3.1</b> p &lt; 0.05</a></li>
+<li class="chapter" data-level="2.3.2.1.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.01"><i class="fa fa-check"></i><b>2.3.2.1.3.2</b> p &lt; 0.01</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Using our LM model</a>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.2</b> Linear model</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.1.2.1</b> Power analysis from our model</a></li>
-<li class="chapter" data-level="2.3.2.1.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.1.2.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.2.1</b> General example</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.2.1.1</b> Power of the test</a></li>
+<li class="chapter" data-level="2.3.2.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.2.1.2</b> Sample size</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.2.2</b> Using our LM model</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.2.2.1</b> Power analysis from our model</a></li>
+<li class="chapter" data-level="2.3.2.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.2.2.2</b> Sample size</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -404,53 +415,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="2.5-LM.html"><a href="2.5-LM.html"><i class="fa fa-check"></i><b>2.5</b> Linear Models</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-3"><i class="fa fa-check"></i><b>2.5.1</b> Introduction</a>
+<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#normality-of-distribution"><i class="fa fa-check"></i><b>2.5.1</b> Normality of distribution</a>
 <ul>
-<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.1.1</b> Model estimation</a></li>
+<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#shapiro-test"><i class="fa fa-check"></i><b>2.5.1.1</b> Shapiro test</a></li>
+<li class="chapter" data-level="2.5.1.2" data-path="2.5-LM.html"><a href="2.5-LM.html#density-plot"><i class="fa fa-check"></i><b>2.5.1.2</b> Density plot</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.2</b> Role of coding schemes</a>
+<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#homogeneity-of-variance"><i class="fa fa-check"></i><b>2.5.2</b> Homogeneity of variance</a>
 <ul>
-<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.2.1</b> Intro</a></li>
-<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.2.2</b> Treatment coding</a></li>
-<li class="chapter" data-level="2.5.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.2.3</b> Contrast (or sum) coding</a>
+<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#bartlett-test"><i class="fa fa-check"></i><b>2.5.2.1</b> Bartlett test</a></li>
+<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#levene-test"><i class="fa fa-check"></i><b>2.5.2.2</b> Levene test</a>
 <ul>
-<li class="chapter" data-level="2.5.2.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.2.3.1</b> Default</a></li>
-<li class="chapter" data-level="2.5.2.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.2.3.2</b> Modified</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.3</b> Further steps</a>
-<ul>
-<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.3.1</b> Tidying the output</a></li>
-<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.3.2</b> Nice table of our model summary</a>
-<ul>
-<li class="chapter" data-level="2.5.3.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.3.2.1</b> Directly from model summary</a></li>
-<li class="chapter" data-level="2.5.3.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.3.2.2</b> From the <code>tidy</code> output</a></li>
-<li class="chapter" data-level="2.5.3.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.3.2.3</b> Model’s fit</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.3.3</b> Dissecting the model</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.3.3.1</b> “str” and “coef”</a></li>
-<li class="chapter" data-level="2.5.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.3.3.2</b> “coef” and “coefficients”</a></li>
-<li class="chapter" data-level="2.5.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.3.3.3</b> Residuals</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.3.3.3.1</b> Histogram</a></li>
-<li class="chapter" data-level="2.5.3.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.3.3.3.2</b> qqplots</a></li>
-<li class="chapter" data-level="2.5.3.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.3.3.3.3</b> Residuals vs fitted values</a></li>
-<li class="chapter" data-level="2.5.3.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.3.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.3.3.4</b> Goodness of fit?</a></li>
-<li class="chapter" data-level="2.5.3.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.3.3.5</b> Significance testing</a></li>
+<li class="chapter" data-level="2.5.2.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#base-r"><i class="fa fa-check"></i><b>2.5.2.2.1</b> Base R</a></li>
+<li class="chapter" data-level="2.5.2.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-car-package"><i class="fa fa-check"></i><b>2.5.2.2.2</b> From the <code>car</code> package</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.4</b> Plotting fitted values</a>
+<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#first-steps-3"><i class="fa fa-check"></i><b>2.5.3</b> First steps</a>
 <ul>
-<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.4.1</b> Trend line</a></li>
-<li class="chapter" data-level="2.5.4.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.2</b> Predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.3</b> Raw data, predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.4.4</b> Add significance levels and trend line on a plot?</a></li>
+<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#t-test"><i class="fa fa-check"></i><b>2.5.3.1</b> T-test</a></li>
+<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-2"><i class="fa fa-check"></i><b>2.5.3.2</b> Linear Model</a></li>
+<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#basic-anova"><i class="fa fa-check"></i><b>2.5.3.3</b> Basic ANOVA</a></li>
+<li class="chapter" data-level="2.5.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-3"><i class="fa fa-check"></i><b>2.5.3.4</b> Linear model</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.5</b> What about pairwise comparison?</a></li>
-<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.6</b> Multiple predictors?</a></li>
+<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-to-linear-models"><i class="fa fa-check"></i><b>2.5.4</b> Introduction to Linear models</a>
+<ul>
+<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.4.1</b> Model estimation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.5</b> Role of coding schemes</a>
+<ul>
+<li class="chapter" data-level="2.5.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.5.1</b> Intro</a></li>
+<li class="chapter" data-level="2.5.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.5.2</b> Treatment coding</a></li>
+<li class="chapter" data-level="2.5.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.5.3</b> Contrast (or sum) coding</a>
+<ul>
+<li class="chapter" data-level="2.5.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.5.3.1</b> Default</a></li>
+<li class="chapter" data-level="2.5.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.5.3.2</b> Modified</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.6</b> Further steps</a>
+<ul>
+<li class="chapter" data-level="2.5.6.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.6.1</b> Tidying the output</a></li>
+<li class="chapter" data-level="2.5.6.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.6.2</b> Nice table of our model summary</a>
+<ul>
+<li class="chapter" data-level="2.5.6.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.6.2.1</b> Directly from model summary</a></li>
+<li class="chapter" data-level="2.5.6.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.6.2.2</b> From the <code>tidy</code> output</a></li>
+<li class="chapter" data-level="2.5.6.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.6.2.3</b> Model’s fit</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.6.3</b> Dissecting the model</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.6.3.1</b> “str” and “coef”</a></li>
+<li class="chapter" data-level="2.5.6.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.6.3.2</b> “coef” and “coefficients”</a></li>
+<li class="chapter" data-level="2.5.6.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.6.3.3</b> Residuals</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.6.3.3.1</b> Histogram</a></li>
+<li class="chapter" data-level="2.5.6.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.6.3.3.2</b> qqplots</a></li>
+<li class="chapter" data-level="2.5.6.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.6.3.3.3</b> Residuals vs fitted values</a></li>
+<li class="chapter" data-level="2.5.6.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.6.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.6.3.4</b> Goodness of fit?</a></li>
+<li class="chapter" data-level="2.5.6.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.6.3.5</b> Significance testing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.7" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.7</b> Plotting fitted values</a>
+<ul>
+<li class="chapter" data-level="2.5.7.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.7.1</b> Trend line</a></li>
+<li class="chapter" data-level="2.5.7.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.2</b> Predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.3</b> Raw data, predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.7.4</b> Add significance levels and trend line on a plot?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.8" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.8</b> What about pairwise comparison?</a></li>
+<li class="chapter" data-level="2.5.9" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.9</b> Multiple predictors?</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html"><i class="fa fa-check"></i><b>2.6</b> Generalised Linear Models</a>
 <ul>
@@ -620,7 +652,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.3.4.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-random-effects"><i class="fa fa-check"></i><b>3.3.4.1</b> Subject random effects</a></li>
 <li class="chapter" data-level="3.3.4.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#items-random-effects"><i class="fa fa-check"></i><b>3.3.4.2</b> Items random effects</a></li>
-<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
+<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots-1"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
 <ul>
 <li class="chapter" data-level="3.3.4.3.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#fixed-effects-1"><i class="fa fa-check"></i><b>3.3.4.3.1</b> Fixed effects</a>
 <ul>
@@ -2009,7 +2041,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4.3.3.5" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#dimension-5"><i class="fa fa-check"></i><b>7.4.3.3.5</b> Dimension 5</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-1"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
+<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-2"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
 <ul>
 <li class="chapter" data-level="7.4.4.1" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#default-plots"><i class="fa fa-check"></i><b>7.4.4.1</b> Default plots</a>
 <ul>
@@ -2041,7 +2073,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.5.1.1" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#computing-clusters"><i class="fa fa-check"></i><b>7.5.1.1</b> Computing clusters</a></li>
 <li class="chapter" data-level="7.5.1.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#dendograms"><i class="fa fa-check"></i><b>7.5.1.2</b> Dendograms</a></li>
-<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-2"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
+<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-3"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
 <li class="chapter" data-level="7.5.1.4" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#individual-clusters"><i class="fa fa-check"></i><b>7.5.1.4</b> Individual Clusters</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#conclusion-3"><i class="fa fa-check"></i><b>7.5.2</b> Conclusion</a></li>
@@ -2194,19 +2226,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="import-into-global-environment-3" class="section level3 hasAnchor" number="5.3.1">
 <h3><span class="header-section-number">5.3.1</span> Import into <code>Global Environment</code><a href="5.3-proustr-1.html#import-into-global-environment-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Adding data from the first book into the Global environment</p>
-<div class="sourceCode" id="cb1260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1260-1"><a href="5.3-proustr-1.html#cb1260-1" tabindex="-1"></a><span class="fu">data</span>(ducotedechezswann)</span>
-<span id="cb1260-2"><a href="5.3-proustr-1.html#cb1260-2" tabindex="-1"></a><span class="co">#data(alombredesjeunesfillesenfleurs)</span></span>
-<span id="cb1260-3"><a href="5.3-proustr-1.html#cb1260-3" tabindex="-1"></a><span class="co">#data(lecotedeguermantes)</span></span>
-<span id="cb1260-4"><a href="5.3-proustr-1.html#cb1260-4" tabindex="-1"></a><span class="co">#data(sodomeetgomorrhe)</span></span>
-<span id="cb1260-5"><a href="5.3-proustr-1.html#cb1260-5" tabindex="-1"></a><span class="co">#data(laprisonniere)</span></span>
-<span id="cb1260-6"><a href="5.3-proustr-1.html#cb1260-6" tabindex="-1"></a><span class="co">#data(albertinedisparue)</span></span>
-<span id="cb1260-7"><a href="5.3-proustr-1.html#cb1260-7" tabindex="-1"></a><span class="co">#data(letempretrouve)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1319-1"><a href="5.3-proustr-1.html#cb1319-1" tabindex="-1"></a><span class="fu">data</span>(ducotedechezswann)</span>
+<span id="cb1319-2"><a href="5.3-proustr-1.html#cb1319-2" tabindex="-1"></a><span class="co">#data(alombredesjeunesfillesenfleurs)</span></span>
+<span id="cb1319-3"><a href="5.3-proustr-1.html#cb1319-3" tabindex="-1"></a><span class="co">#data(lecotedeguermantes)</span></span>
+<span id="cb1319-4"><a href="5.3-proustr-1.html#cb1319-4" tabindex="-1"></a><span class="co">#data(sodomeetgomorrhe)</span></span>
+<span id="cb1319-5"><a href="5.3-proustr-1.html#cb1319-5" tabindex="-1"></a><span class="co">#data(laprisonniere)</span></span>
+<span id="cb1319-6"><a href="5.3-proustr-1.html#cb1319-6" tabindex="-1"></a><span class="co">#data(albertinedisparue)</span></span>
+<span id="cb1319-7"><a href="5.3-proustr-1.html#cb1319-7" tabindex="-1"></a><span class="co">#data(letempretrouve)</span></span></code></pre></div>
 </div>
 <div id="look-into-data-3" class="section level3 hasAnchor" number="5.3.2">
 <h3><span class="header-section-number">5.3.2</span> Look into data<a href="5.3-proustr-1.html#look-into-data-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>And we can get the top 60 rows from the first one</p>
-<div class="sourceCode" id="cb1261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1261-1"><a href="5.3-proustr-1.html#cb1261-1" tabindex="-1"></a>ducotedechezswann <span class="sc">%&gt;%</span></span>
-<span id="cb1261-2"><a href="5.3-proustr-1.html#cb1261-2" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">60</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1320-1"><a href="5.3-proustr-1.html#cb1320-1" tabindex="-1"></a>ducotedechezswann <span class="sc">%&gt;%</span></span>
+<span id="cb1320-2"><a href="5.3-proustr-1.html#cb1320-2" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">60</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 60 × 4
 ##    text                                                       book  volume  year
 ##    &lt;chr&gt;                                                      &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;
@@ -2224,8 +2256,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="create-a-corpus-8" class="section level3 hasAnchor" number="5.3.3">
 <h3><span class="header-section-number">5.3.3</span> Create a corpus<a href="5.3-proustr-1.html#create-a-corpus-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1263-1"><a href="5.3-proustr-1.html#cb1263-1" tabindex="-1"></a>ducotedechezswann_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(ducotedechezswann, <span class="at">text_field =</span> <span class="st">&quot;text&quot;</span>)</span>
-<span id="cb1263-2"><a href="5.3-proustr-1.html#cb1263-2" tabindex="-1"></a><span class="fu">print</span>(ducotedechezswann_corpus)</span></code></pre></div>
+<div class="sourceCode" id="cb1322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1322-1"><a href="5.3-proustr-1.html#cb1322-1" tabindex="-1"></a>ducotedechezswann_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(ducotedechezswann, <span class="at">text_field =</span> <span class="st">&quot;text&quot;</span>)</span>
+<span id="cb1322-2"><a href="5.3-proustr-1.html#cb1322-2" tabindex="-1"></a><span class="fu">print</span>(ducotedechezswann_corpus)</span></code></pre></div>
 <pre><code>## Corpus consisting of 1,004 documents and 3 docvars.
 ## text1 :
 ## &quot;Longtemps, je me suis couché de bonne heure. Parfois, à pein...&quot;
@@ -2248,7 +2280,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [ reached max_ndoc ... 998 more documents ]</code></pre>
 <div id="summary-26" class="section level4 hasAnchor" number="5.3.3.1">
 <h4><span class="header-section-number">5.3.3.1</span> Summary<a href="5.3-proustr-1.html#summary-26" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1265-1"><a href="5.3-proustr-1.html#cb1265-1" tabindex="-1"></a><span class="fu">summary</span>(ducotedechezswann_corpus, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1324-1"><a href="5.3-proustr-1.html#cb1324-1" tabindex="-1"></a><span class="fu">summary</span>(ducotedechezswann_corpus, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Corpus consisting of 1004 documents, showing 10 documents:
 ## 
 ##    Text Types Tokens Sentences                  book                    volume
@@ -2276,12 +2308,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="accessing-parts-of-corpus-8" class="section level4 hasAnchor" number="5.3.3.2">
 <h4><span class="header-section-number">5.3.3.2</span> Accessing parts of corpus<a href="5.3-proustr-1.html#accessing-parts-of-corpus-8" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1267-1"><a href="5.3-proustr-1.html#cb1267-1" tabindex="-1"></a>ducotedechezswann_corpus[[<span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb1326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1326-1"><a href="5.3-proustr-1.html#cb1326-1" tabindex="-1"></a>ducotedechezswann_corpus[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>## [1] &quot;Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaient si vite que je n&#39;avais pas le temps de me dire : \&quot; Je m&#39;endors. \&quot; Et, une demi-heure après, la pensée qu&#39;il était temps de chercher le sommeil m&#39;éveillait ; je voulais poser le volume que je croyais avoir encore dans les mains et souffler ma lumière ; je n&#39;avais pas cessé en dormant de faire des réflexions sur ce que je venais de lire, mais ces réflexions avaient pris un tour un peu particulier ; il me semblait que j&#39;étais moi-même ce dont parlait l&#39;ouvrage : une église, un quatuor, la rivalité de François Ier et de Charles-Quint. Cette croyance survivait pendant quelques secondes à mon réveil ; elle ne choquait pas ma raison, mais pesait comme des écailles sur mes yeux et les empêchait de se rendre compte que le bougeoir n&#39;était pas allumé. Puis elle commençait à me devenir inintelligible, comme après la métempsycose les pensées d&#39;une existence antérieure ; le sujet du livre se détachait de moi, j&#39;étais libre de m&#39;y appliquer ou non ; aussitôt je recouvrais la vue et j&#39;étais bien étonné de trouver autour de moi une obscurité, douce et reposante pour mes yeux, mais peut-être plus encore pour mon esprit, à qui elle apparaissait comme une chose sans cause, incompréhensible, comme une chose vraiment obscure. Je me demandais quelle heure il pouvait être ; j&#39;entendais le sifflement des trains qui, plus ou moins éloigné, comme le chant d&#39;un oiseau dans une forêt, relevant les distances, me décrivait l&#39;étendue de la campagne déserte où le voyageur se hâte vers la station prochaine ; et le petit chemin qu&#39;il suit va être gravé dans son souvenir par l&#39;excitation qu&#39;il doit à des lieux nouveaux, à des actes inaccoutumés, à la causerie récente et aux adieux sous la lampe étrangère qui le suivent encore dans le silence de la nuit, à la douceur prochaine du retour.&quot;</code></pre>
 </div>
 <div id="document-level-information-6" class="section level4 hasAnchor" number="5.3.3.3">
 <h4><span class="header-section-number">5.3.3.3</span> Document-level information<a href="5.3-proustr-1.html#document-level-information-6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1269-1"><a href="5.3-proustr-1.html#cb1269-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">docvars</span>(ducotedechezswann_corpus))</span></code></pre></div>
+<div class="sourceCode" id="cb1328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1328-1"><a href="5.3-proustr-1.html#cb1328-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">docvars</span>(ducotedechezswann_corpus))</span></code></pre></div>
 <pre><code>##                    book                    volume year
 ## 1 Du côté de chez Swann Première partie : Combray 1913
 ## 2 Du côté de chez Swann Première partie : Combray 1913
@@ -2292,7 +2324,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="unique-variable-names-for-volume-3" class="section level4 hasAnchor" number="5.3.3.4">
 <h4><span class="header-section-number">5.3.3.4</span> Unique variable names (for volume)<a href="5.3-proustr-1.html#unique-variable-names-for-volume-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1271-1"><a href="5.3-proustr-1.html#cb1271-1" tabindex="-1"></a><span class="fu">unique</span>(<span class="fu">docvars</span>(ducotedechezswann_corpus, <span class="at">field =</span> <span class="st">&quot;volume&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1330-1"><a href="5.3-proustr-1.html#cb1330-1" tabindex="-1"></a><span class="fu">unique</span>(<span class="fu">docvars</span>(ducotedechezswann_corpus, <span class="at">field =</span> <span class="st">&quot;volume&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;Première partie : Combray&quot;              
 ## [2] &quot;Deuxième partie — Un amour de Swan&quot;     
 ## [3] &quot;Troisième partie : Nom de pays : le nom&quot;</code></pre>
@@ -2306,8 +2338,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 We can remove punctuations or not</p>
 <div id="with-punctuations-8" class="section level5 hasAnchor" number="5.3.4.1.1">
 <h5><span class="header-section-number">5.3.4.1.1</span> With punctuations<a href="5.3-proustr-1.html#with-punctuations-8" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1273-1"><a href="5.3-proustr-1.html#cb1273-1" tabindex="-1"></a>ducotedechezswann_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(ducotedechezswann_corpus)</span>
-<span id="cb1273-2"><a href="5.3-proustr-1.html#cb1273-2" tabindex="-1"></a>ducotedechezswann_corpus_tok</span></code></pre></div>
+<div class="sourceCode" id="cb1332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1332-1"><a href="5.3-proustr-1.html#cb1332-1" tabindex="-1"></a>ducotedechezswann_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(ducotedechezswann_corpus)</span>
+<span id="cb1332-2"><a href="5.3-proustr-1.html#cb1332-2" tabindex="-1"></a>ducotedechezswann_corpus_tok</span></code></pre></div>
 <pre><code>## Tokens consisting of 1,004 documents and 3 docvars.
 ## text1 :
 ##  [1] &quot;Longtemps&quot; &quot;,&quot;         &quot;je&quot;        &quot;me&quot;        &quot;suis&quot;      &quot;couché&quot;   
@@ -2347,8 +2379,8 @@ We can remove punctuations or not</p>
 </div>
 <div id="without-punctuations-8" class="section level5 hasAnchor" number="5.3.4.1.2">
 <h5><span class="header-section-number">5.3.4.1.2</span> Without punctuations<a href="5.3-proustr-1.html#without-punctuations-8" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1275-1"><a href="5.3-proustr-1.html#cb1275-1" tabindex="-1"></a>ducotedechezswann_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(ducotedechezswann_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1275-2"><a href="5.3-proustr-1.html#cb1275-2" tabindex="-1"></a>ducotedechezswann_corpus_tok_no_punct</span></code></pre></div>
+<div class="sourceCode" id="cb1334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1334-1"><a href="5.3-proustr-1.html#cb1334-1" tabindex="-1"></a>ducotedechezswann_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(ducotedechezswann_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1334-2"><a href="5.3-proustr-1.html#cb1334-2" tabindex="-1"></a>ducotedechezswann_corpus_tok_no_punct</span></code></pre></div>
 <pre><code>## Tokens consisting of 1,004 documents and 3 docvars.
 ## text1 :
 ##  [1] &quot;Longtemps&quot; &quot;je&quot;        &quot;me&quot;        &quot;suis&quot;      &quot;couché&quot;    &quot;de&quot;       
@@ -2391,8 +2423,8 @@ We can remove punctuations or not</p>
 <h4><span class="header-section-number">5.3.4.2</span> Compound words<a href="5.3-proustr-1.html#compound-words-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div id="kwic-phrase-1" class="section level5 hasAnchor" number="5.3.4.2.1">
 <h5><span class="header-section-number">5.3.4.2.1</span> <code>kwic</code> Phrase<a href="5.3-proustr-1.html#kwic-phrase-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1277-1"><a href="5.3-proustr-1.html#cb1277-1" tabindex="-1"></a>ducotedechezswann_corpus_tok_no_punct_phrase <span class="ot">&lt;-</span> <span class="fu">kwic</span>(ducotedechezswann_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="fu">phrase</span>(<span class="st">&quot;un homme&quot;</span>), <span class="at">window =</span> <span class="dv">6</span>)</span>
-<span id="cb1277-2"><a href="5.3-proustr-1.html#cb1277-2" tabindex="-1"></a><span class="fu">head</span>(ducotedechezswann_corpus_tok_no_punct_phrase, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1336-1"><a href="5.3-proustr-1.html#cb1336-1" tabindex="-1"></a>ducotedechezswann_corpus_tok_no_punct_phrase <span class="ot">&lt;-</span> <span class="fu">kwic</span>(ducotedechezswann_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="fu">phrase</span>(<span class="st">&quot;un homme&quot;</span>), <span class="at">window =</span> <span class="dv">6</span>)</span>
+<span id="cb1336-2"><a href="5.3-proustr-1.html#cb1336-2" tabindex="-1"></a><span class="fu">head</span>(ducotedechezswann_corpus_tok_no_punct_phrase, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Keyword-in-context with 10 matches.                                                                         
 ##        [text5, 1:2]                                          | Un homme |
 ##   [text82, 216:217] nous avions rencontré près du Pont-Vieux | un homme |
@@ -2418,9 +2450,9 @@ We can remove punctuations or not</p>
 </div>
 <div id="compounds-1" class="section level5 hasAnchor" number="5.3.4.2.2">
 <h5><span class="header-section-number">5.3.4.2.2</span> Compounds<a href="5.3-proustr-1.html#compounds-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1279-1"><a href="5.3-proustr-1.html#cb1279-1" tabindex="-1"></a>ducotedechezswann_corpus_tok_no_punct_comp <span class="ot">&lt;-</span> <span class="fu">tokens_compound</span>(ducotedechezswann_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">phrase</span>(<span class="st">&quot;un homme&quot;</span>))</span>
-<span id="cb1279-2"><a href="5.3-proustr-1.html#cb1279-2" tabindex="-1"></a>ducotedechezswann_corpus_tok_no_punct_comp_kwic <span class="ot">&lt;-</span> <span class="fu">kwic</span>(ducotedechezswann_corpus_tok_no_punct_comp, <span class="at">pattern =</span> <span class="fu">phrase</span>(<span class="st">&quot;un_homme&quot;</span>))</span>
-<span id="cb1279-3"><a href="5.3-proustr-1.html#cb1279-3" tabindex="-1"></a><span class="fu">head</span>(ducotedechezswann_corpus_tok_no_punct_comp_kwic, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1338-1"><a href="5.3-proustr-1.html#cb1338-1" tabindex="-1"></a>ducotedechezswann_corpus_tok_no_punct_comp <span class="ot">&lt;-</span> <span class="fu">tokens_compound</span>(ducotedechezswann_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">phrase</span>(<span class="st">&quot;un homme&quot;</span>))</span>
+<span id="cb1338-2"><a href="5.3-proustr-1.html#cb1338-2" tabindex="-1"></a>ducotedechezswann_corpus_tok_no_punct_comp_kwic <span class="ot">&lt;-</span> <span class="fu">kwic</span>(ducotedechezswann_corpus_tok_no_punct_comp, <span class="at">pattern =</span> <span class="fu">phrase</span>(<span class="st">&quot;un_homme&quot;</span>))</span>
+<span id="cb1338-3"><a href="5.3-proustr-1.html#cb1338-3" tabindex="-1"></a><span class="fu">head</span>(ducotedechezswann_corpus_tok_no_punct_comp_kwic, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Keyword-in-context with 10 matches.                                                                
 ##      [text5, 1]                                     | Un_homme |
 ##   [text82, 216] avions rencontré près du Pont-Vieux | un_homme |
@@ -2453,12 +2485,12 @@ N-grams yield a sequence of tokens from already tokenised text object.</p>
 <div id="multi-grams-1" class="section level5 hasAnchor" number="5.3.4.3.1">
 <h5><span class="header-section-number">5.3.4.3.1</span> Multi-grams<a href="5.3-proustr-1.html#multi-grams-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>The code below allows to obtain the sequences of consecutive compound words, with 2, 3 or 4 compound words.</p>
-<div class="sourceCode" id="cb1281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1281-1"><a href="5.3-proustr-1.html#cb1281-1" tabindex="-1"></a>ducotedechezswann_corpus_tok_no_punct_ngram <span class="ot">&lt;-</span> <span class="fu">tokens_ngrams</span>(ducotedechezswann_corpus_tok_no_punct, <span class="at">n =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1281-2"><a href="5.3-proustr-1.html#cb1281-2" tabindex="-1"></a>  <span class="fu">unlist</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1281-3"><a href="5.3-proustr-1.html#cb1281-3" tabindex="-1"></a>  <span class="fu">tolower</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1281-4"><a href="5.3-proustr-1.html#cb1281-4" tabindex="-1"></a>  <span class="fu">table</span>()</span>
-<span id="cb1281-5"><a href="5.3-proustr-1.html#cb1281-5" tabindex="-1"></a><span class="do">## Top 10 rows</span></span>
-<span id="cb1281-6"><a href="5.3-proustr-1.html#cb1281-6" tabindex="-1"></a><span class="fu">head</span>(ducotedechezswann_corpus_tok_no_punct_ngram, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1340-1"><a href="5.3-proustr-1.html#cb1340-1" tabindex="-1"></a>ducotedechezswann_corpus_tok_no_punct_ngram <span class="ot">&lt;-</span> <span class="fu">tokens_ngrams</span>(ducotedechezswann_corpus_tok_no_punct, <span class="at">n =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1340-2"><a href="5.3-proustr-1.html#cb1340-2" tabindex="-1"></a>  <span class="fu">unlist</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1340-3"><a href="5.3-proustr-1.html#cb1340-3" tabindex="-1"></a>  <span class="fu">tolower</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1340-4"><a href="5.3-proustr-1.html#cb1340-4" tabindex="-1"></a>  <span class="fu">table</span>()</span>
+<span id="cb1340-5"><a href="5.3-proustr-1.html#cb1340-5" tabindex="-1"></a><span class="do">## Top 10 rows</span></span>
+<span id="cb1340-6"><a href="5.3-proustr-1.html#cb1340-6" tabindex="-1"></a><span class="fu">head</span>(ducotedechezswann_corpus_tok_no_punct_ngram, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## .
 ##               il_est          il_est_très     il_est_très_tenu 
 ##                    1                    1                    1 
@@ -2468,8 +2500,8 @@ N-grams yield a sequence of tokens from already tokenised text object.</p>
 ##                    1                    1                    1 
 ##               ─_mais 
 ##                    3</code></pre>
-<div class="sourceCode" id="cb1283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1283-1"><a href="5.3-proustr-1.html#cb1283-1" tabindex="-1"></a><span class="do">## Last 10 rows</span></span>
-<span id="cb1283-2"><a href="5.3-proustr-1.html#cb1283-2" tabindex="-1"></a><span class="fu">tail</span>(ducotedechezswann_corpus_tok_no_punct_ngram, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1342-1"><a href="5.3-proustr-1.html#cb1342-1" tabindex="-1"></a><span class="do">## Last 10 rows</span></span>
+<span id="cb1342-2"><a href="5.3-proustr-1.html#cb1342-2" tabindex="-1"></a><span class="fu">tail</span>(ducotedechezswann_corpus_tok_no_punct_ngram, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## .
 ## zoologiques_où_l&#39;on_voit                 zut_mais              zut_mais_en 
 ##                        1                        1                        1 
@@ -2483,12 +2515,12 @@ N-grams yield a sequence of tokens from already tokenised text object.</p>
 <div id="skip-grams-1" class="section level5 hasAnchor" number="5.3.4.3.2">
 <h5><span class="header-section-number">5.3.4.3.2</span> Skip-grams<a href="5.3-proustr-1.html#skip-grams-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Skip-grams allow to obtain non consecutive n-grams</p>
-<div class="sourceCode" id="cb1285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1285-1"><a href="5.3-proustr-1.html#cb1285-1" tabindex="-1"></a>ducotedechezswann_corpus_tok_no_punct_ngram_skip <span class="ot">&lt;-</span> <span class="fu">tokens_ngrams</span>(ducotedechezswann_corpus_tok_no_punct, <span class="at">n =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">skip =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1285-2"><a href="5.3-proustr-1.html#cb1285-2" tabindex="-1"></a>  <span class="fu">unlist</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1285-3"><a href="5.3-proustr-1.html#cb1285-3" tabindex="-1"></a>  <span class="fu">tolower</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1285-4"><a href="5.3-proustr-1.html#cb1285-4" tabindex="-1"></a>  <span class="fu">table</span>()</span>
-<span id="cb1285-5"><a href="5.3-proustr-1.html#cb1285-5" tabindex="-1"></a><span class="do">## Top 10 rows</span></span>
-<span id="cb1285-6"><a href="5.3-proustr-1.html#cb1285-6" tabindex="-1"></a><span class="fu">head</span>(ducotedechezswann_corpus_tok_no_punct_ngram_skip, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1344-1"><a href="5.3-proustr-1.html#cb1344-1" tabindex="-1"></a>ducotedechezswann_corpus_tok_no_punct_ngram_skip <span class="ot">&lt;-</span> <span class="fu">tokens_ngrams</span>(ducotedechezswann_corpus_tok_no_punct, <span class="at">n =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">skip =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1344-2"><a href="5.3-proustr-1.html#cb1344-2" tabindex="-1"></a>  <span class="fu">unlist</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1344-3"><a href="5.3-proustr-1.html#cb1344-3" tabindex="-1"></a>  <span class="fu">tolower</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1344-4"><a href="5.3-proustr-1.html#cb1344-4" tabindex="-1"></a>  <span class="fu">table</span>()</span>
+<span id="cb1344-5"><a href="5.3-proustr-1.html#cb1344-5" tabindex="-1"></a><span class="do">## Top 10 rows</span></span>
+<span id="cb1344-6"><a href="5.3-proustr-1.html#cb1344-6" tabindex="-1"></a><span class="fu">head</span>(ducotedechezswann_corpus_tok_no_punct_ngram_skip, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## .
 ##                 il_tenu               il_tenu_a         il_tenu_a_femme 
 ##                       1                       1                       1 
@@ -2498,8 +2530,8 @@ N-grams yield a sequence of tokens from already tokenised text object.</p>
 ##                       1                       1                       1 
 ##            il_très_il_a 
 ##                       1</code></pre>
-<div class="sourceCode" id="cb1287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1287-1"><a href="5.3-proustr-1.html#cb1287-1" tabindex="-1"></a><span class="do">## Last 10 rows</span></span>
-<span id="cb1287-2"><a href="5.3-proustr-1.html#cb1287-2" tabindex="-1"></a><span class="fu">tail</span>(ducotedechezswann_corpus_tok_no_punct_ngram_skip, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1346-1"><a href="5.3-proustr-1.html#cb1346-1" tabindex="-1"></a><span class="do">## Last 10 rows</span></span>
+<span id="cb1346-2"><a href="5.3-proustr-1.html#cb1346-2" tabindex="-1"></a><span class="fu">tail</span>(ducotedechezswann_corpus_tok_no_punct_ngram_skip, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## .
 ##             zut_zut          zut_zut_en       zut_zut_en_je    zut_zut_en_temps 
 ##                   3                   3                   3                   3 
@@ -2515,9 +2547,9 @@ N-grams yield a sequence of tokens from already tokenised text object.</p>
 Here, we will create a dictionary that we populate ourselves and we show how to use it to search for items</p>
 <div id="create-dictionary-1" class="section level5 hasAnchor" number="5.3.4.4.1">
 <h5><span class="header-section-number">5.3.4.4.1</span> Create dictionary<a href="5.3-proustr-1.html#create-dictionary-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1289-1"><a href="5.3-proustr-1.html#cb1289-1" tabindex="-1"></a>dict_ducotedechezswann <span class="ot">&lt;-</span> <span class="fu">dictionary</span>(<span class="fu">list</span>(<span class="at">famille =</span> <span class="fu">c</span>(<span class="st">&quot;grand-père&quot;</span>, <span class="st">&quot;femme&quot;</span>, <span class="st">&quot;homme&quot;</span>, <span class="st">&quot;oncle&quot;</span>),</span>
-<span id="cb1289-2"><a href="5.3-proustr-1.html#cb1289-2" tabindex="-1"></a>                        <span class="at">dormir =</span> <span class="fu">c</span>(<span class="st">&quot;rendormais&quot;</span>, <span class="st">&quot;dors&quot;</span>, <span class="st">&quot;dort&quot;</span>)))</span>
-<span id="cb1289-3"><a href="5.3-proustr-1.html#cb1289-3" tabindex="-1"></a><span class="fu">print</span>(dict_ducotedechezswann)</span></code></pre></div>
+<div class="sourceCode" id="cb1348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1348-1"><a href="5.3-proustr-1.html#cb1348-1" tabindex="-1"></a>dict_ducotedechezswann <span class="ot">&lt;-</span> <span class="fu">dictionary</span>(<span class="fu">list</span>(<span class="at">famille =</span> <span class="fu">c</span>(<span class="st">&quot;grand-père&quot;</span>, <span class="st">&quot;femme&quot;</span>, <span class="st">&quot;homme&quot;</span>, <span class="st">&quot;oncle&quot;</span>),</span>
+<span id="cb1348-2"><a href="5.3-proustr-1.html#cb1348-2" tabindex="-1"></a>                        <span class="at">dormir =</span> <span class="fu">c</span>(<span class="st">&quot;rendormais&quot;</span>, <span class="st">&quot;dors&quot;</span>, <span class="st">&quot;dort&quot;</span>)))</span>
+<span id="cb1348-3"><a href="5.3-proustr-1.html#cb1348-3" tabindex="-1"></a><span class="fu">print</span>(dict_ducotedechezswann)</span></code></pre></div>
 <pre><code>## Dictionary object with 2 key entries.
 ## - [famille]:
 ##   - grand-père, femme, homme, oncle
@@ -2526,8 +2558,8 @@ Here, we will create a dictionary that we populate ourselves and we show how to 
 </div>
 <div id="token-lookup-1" class="section level5 hasAnchor" number="5.3.4.4.2">
 <h5><span class="header-section-number">5.3.4.4.2</span> Token lookup<a href="5.3-proustr-1.html#token-lookup-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1291-1"><a href="5.3-proustr-1.html#cb1291-1" tabindex="-1"></a>ducotedechezswann_corpus_tok_no_punct_dict_toks <span class="ot">&lt;-</span> <span class="fu">tokens_lookup</span>(ducotedechezswann_corpus_tok_no_punct, <span class="at">dictionary =</span> dict_ducotedechezswann)</span>
-<span id="cb1291-2"><a href="5.3-proustr-1.html#cb1291-2" tabindex="-1"></a><span class="fu">print</span>(ducotedechezswann_corpus_tok_no_punct_dict_toks)</span></code></pre></div>
+<div class="sourceCode" id="cb1350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1350-1"><a href="5.3-proustr-1.html#cb1350-1" tabindex="-1"></a>ducotedechezswann_corpus_tok_no_punct_dict_toks <span class="ot">&lt;-</span> <span class="fu">tokens_lookup</span>(ducotedechezswann_corpus_tok_no_punct, <span class="at">dictionary =</span> dict_ducotedechezswann)</span>
+<span id="cb1350-2"><a href="5.3-proustr-1.html#cb1350-2" tabindex="-1"></a><span class="fu">print</span>(ducotedechezswann_corpus_tok_no_punct_dict_toks)</span></code></pre></div>
 <pre><code>## Tokens consisting of 1,004 documents and 3 docvars.
 ## text1 :
 ## character(0)
@@ -2551,7 +2583,7 @@ Here, we will create a dictionary that we populate ourselves and we show how to 
 </div>
 <div id="dfm-1" class="section level5 hasAnchor" number="5.3.4.4.3">
 <h5><span class="header-section-number">5.3.4.4.3</span> DFM<a href="5.3-proustr-1.html#dfm-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1293-1"><a href="5.3-proustr-1.html#cb1293-1" tabindex="-1"></a><span class="fu">dfm</span>(ducotedechezswann_corpus_tok_no_punct_dict_toks)</span></code></pre></div>
+<div class="sourceCode" id="cb1352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1352-1"><a href="5.3-proustr-1.html#cb1352-1" tabindex="-1"></a><span class="fu">dfm</span>(ducotedechezswann_corpus_tok_no_punct_dict_toks)</span></code></pre></div>
 <pre><code>## Document-feature matrix of: 1,004 documents, 2 features (91.33% sparse) and 3 docvars.
 ##        features
 ## docs    famille dormir
@@ -2572,22 +2604,22 @@ We will use the <a href="https://cran.r-project.org/web/packages/udpipe/index.ht
 <h5><span class="header-section-number">5.3.4.5.1</span> Download and load language model<a href="5.3-proustr-1.html#download-and-load-language-model-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Before using the PoS-tagger, we need to download a language model.
 As you can see from typing <code>?udpipe_download_model</code>, there are 65 languages trained on 101 treebanks from <a href="https://universaldependencies.org/">here</a></p>
-<div class="sourceCode" id="cb1295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1295-1"><a href="5.3-proustr-1.html#cb1295-1" tabindex="-1"></a>file_to_check <span class="ot">&lt;-</span> <span class="st">&quot;models/french-partut-ud-2.5-191206.udpipe&quot;</span></span>
-<span id="cb1295-2"><a href="5.3-proustr-1.html#cb1295-2" tabindex="-1"></a></span>
-<span id="cb1295-3"><a href="5.3-proustr-1.html#cb1295-3" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(<span class="at">file =</span> file_to_check)){</span>
-<span id="cb1295-4"><a href="5.3-proustr-1.html#cb1295-4" tabindex="-1"></a>  m_french <span class="ot">&lt;-</span> <span class="fu">udpipe_load_model</span>(<span class="at">file =</span> <span class="st">&quot;models/french-partut-ud-2.5-191206.udpipe&quot;</span>)</span>
-<span id="cb1295-5"><a href="5.3-proustr-1.html#cb1295-5" tabindex="-1"></a>}<span class="cf">else</span>{</span>
-<span id="cb1295-6"><a href="5.3-proustr-1.html#cb1295-6" tabindex="-1"></a>  m_french <span class="ot">&lt;-</span> <span class="fu">udpipe_download_model</span>(<span class="at">model_dir =</span> <span class="st">&quot;models/&quot;</span>, <span class="at">language =</span> <span class="st">&quot;french-partut&quot;</span>)</span>
-<span id="cb1295-7"><a href="5.3-proustr-1.html#cb1295-7" tabindex="-1"></a>  m_french <span class="ot">&lt;-</span> <span class="fu">udpipe_load_model</span>(<span class="at">file =</span> <span class="st">&quot;models/french-partut-ud-2.5-191206.udpipe&quot;</span>)</span>
-<span id="cb1295-8"><a href="5.3-proustr-1.html#cb1295-8" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb1354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1354-1"><a href="5.3-proustr-1.html#cb1354-1" tabindex="-1"></a>file_to_check <span class="ot">&lt;-</span> <span class="st">&quot;models/french-partut-ud-2.5-191206.udpipe&quot;</span></span>
+<span id="cb1354-2"><a href="5.3-proustr-1.html#cb1354-2" tabindex="-1"></a></span>
+<span id="cb1354-3"><a href="5.3-proustr-1.html#cb1354-3" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(<span class="at">file =</span> file_to_check)){</span>
+<span id="cb1354-4"><a href="5.3-proustr-1.html#cb1354-4" tabindex="-1"></a>  m_french <span class="ot">&lt;-</span> <span class="fu">udpipe_load_model</span>(<span class="at">file =</span> <span class="st">&quot;models/french-partut-ud-2.5-191206.udpipe&quot;</span>)</span>
+<span id="cb1354-5"><a href="5.3-proustr-1.html#cb1354-5" tabindex="-1"></a>}<span class="cf">else</span>{</span>
+<span id="cb1354-6"><a href="5.3-proustr-1.html#cb1354-6" tabindex="-1"></a>  m_french <span class="ot">&lt;-</span> <span class="fu">udpipe_download_model</span>(<span class="at">model_dir =</span> <span class="st">&quot;models/&quot;</span>, <span class="at">language =</span> <span class="st">&quot;french-partut&quot;</span>)</span>
+<span id="cb1354-7"><a href="5.3-proustr-1.html#cb1354-7" tabindex="-1"></a>  m_french <span class="ot">&lt;-</span> <span class="fu">udpipe_load_model</span>(<span class="at">file =</span> <span class="st">&quot;models/french-partut-ud-2.5-191206.udpipe&quot;</span>)</span>
+<span id="cb1354-8"><a href="5.3-proustr-1.html#cb1354-8" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="tokenise-tag-dependency-parsing-1" class="section level5 hasAnchor" number="5.3.4.5.2">
 <h5><span class="header-section-number">5.3.4.5.2</span> Tokenise, tag, dependency parsing<a href="5.3-proustr-1.html#tokenise-tag-dependency-parsing-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We use the already tokenised text, with no punctuations.</p>
-<div class="sourceCode" id="cb1296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1296-1"><a href="5.3-proustr-1.html#cb1296-1" tabindex="-1"></a>ducotedechezswann_anndf <span class="ot">&lt;-</span> <span class="fu">udpipe_annotate</span>(m_french, <span class="at">x =</span> ducotedechezswann_corpus_tok_no_punct[[<span class="dv">1</span>]]) <span class="sc">%&gt;%</span></span>
-<span id="cb1296-2"><a href="5.3-proustr-1.html#cb1296-2" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() </span>
-<span id="cb1296-3"><a href="5.3-proustr-1.html#cb1296-3" tabindex="-1"></a><span class="do">## inspect</span></span>
-<span id="cb1296-4"><a href="5.3-proustr-1.html#cb1296-4" tabindex="-1"></a><span class="fu">head</span>(ducotedechezswann_anndf, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1355-1"><a href="5.3-proustr-1.html#cb1355-1" tabindex="-1"></a>ducotedechezswann_anndf <span class="ot">&lt;-</span> <span class="fu">udpipe_annotate</span>(m_french, <span class="at">x =</span> ducotedechezswann_corpus_tok_no_punct[[<span class="dv">1</span>]]) <span class="sc">%&gt;%</span></span>
+<span id="cb1355-2"><a href="5.3-proustr-1.html#cb1355-2" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() </span>
+<span id="cb1355-3"><a href="5.3-proustr-1.html#cb1355-3" tabindex="-1"></a><span class="do">## inspect</span></span>
+<span id="cb1355-4"><a href="5.3-proustr-1.html#cb1355-4" tabindex="-1"></a><span class="fu">head</span>(ducotedechezswann_anndf, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##    doc_id paragraph_id sentence_id  sentence token_id     token    lemma upos
 ## 1    doc1            1           1 Longtemps        1 Longtemps Longtemp NOUN
 ## 2    doc2            1           1        je        1        je       je PRON
@@ -2624,11 +2656,11 @@ As you can see from typing <code>?udpipe_download_model</code>, there are 65 lan
 </div>
 <div id="dependency-parsing-1" class="section level5 hasAnchor" number="5.3.4.5.3">
 <h5><span class="header-section-number">5.3.4.5.3</span> Dependency parsing<a href="5.3-proustr-1.html#dependency-parsing-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1298-1"><a href="5.3-proustr-1.html#cb1298-1" tabindex="-1"></a><span class="do">## parse text</span></span>
-<span id="cb1298-2"><a href="5.3-proustr-1.html#cb1298-2" tabindex="-1"></a>ducotedechezswann_corpus_sent <span class="ot">&lt;-</span> <span class="fu">udpipe_annotate</span>(m_french, <span class="at">x =</span> ducotedechezswann_corpus[[<span class="dv">1</span>]]) <span class="sc">%&gt;%</span></span>
-<span id="cb1298-3"><a href="5.3-proustr-1.html#cb1298-3" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
-<span id="cb1298-4"><a href="5.3-proustr-1.html#cb1298-4" tabindex="-1"></a><span class="do">## inspect</span></span>
-<span id="cb1298-5"><a href="5.3-proustr-1.html#cb1298-5" tabindex="-1"></a><span class="fu">head</span>(ducotedechezswann_corpus_sent)</span></code></pre></div>
+<div class="sourceCode" id="cb1357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1357-1"><a href="5.3-proustr-1.html#cb1357-1" tabindex="-1"></a><span class="do">## parse text</span></span>
+<span id="cb1357-2"><a href="5.3-proustr-1.html#cb1357-2" tabindex="-1"></a>ducotedechezswann_corpus_sent <span class="ot">&lt;-</span> <span class="fu">udpipe_annotate</span>(m_french, <span class="at">x =</span> ducotedechezswann_corpus[[<span class="dv">1</span>]]) <span class="sc">%&gt;%</span></span>
+<span id="cb1357-3"><a href="5.3-proustr-1.html#cb1357-3" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb1357-4"><a href="5.3-proustr-1.html#cb1357-4" tabindex="-1"></a><span class="do">## inspect</span></span>
+<span id="cb1357-5"><a href="5.3-proustr-1.html#cb1357-5" tabindex="-1"></a><span class="fu">head</span>(ducotedechezswann_corpus_sent)</span></code></pre></div>
 <pre><code>##   doc_id paragraph_id sentence_id                                     sentence
 ## 1   doc1            1           1 Longtemps, je me suis couché de bonne heure.
 ## 2   doc1            1           1 Longtemps, je me suis couché de bonne heure.
@@ -2657,10 +2689,10 @@ As you can see from typing <code>?udpipe_download_model</code>, there are 65 lan
 ## 4 &lt;NA&gt;          &lt;NA&gt;
 ## 5 &lt;NA&gt;          &lt;NA&gt;
 ## 6 &lt;NA&gt;          &lt;NA&gt;</code></pre>
-<div class="sourceCode" id="cb1300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1300-1"><a href="5.3-proustr-1.html#cb1300-1" tabindex="-1"></a>ducotedechezswann_corpus_sent_dplot <span class="ot">&lt;-</span> <span class="fu">textplot_dependencyparser</span>(ducotedechezswann_corpus_sent, <span class="at">size =</span> <span class="dv">3</span>) </span>
-<span id="cb1300-2"><a href="5.3-proustr-1.html#cb1300-2" tabindex="-1"></a><span class="do">## show plot</span></span>
-<span id="cb1300-3"><a href="5.3-proustr-1.html#cb1300-3" tabindex="-1"></a>ducotedechezswann_corpus_sent_dplot</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-562-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1359-1"><a href="5.3-proustr-1.html#cb1359-1" tabindex="-1"></a>ducotedechezswann_corpus_sent_dplot <span class="ot">&lt;-</span> <span class="fu">textplot_dependencyparser</span>(ducotedechezswann_corpus_sent, <span class="at">size =</span> <span class="dv">3</span>) </span>
+<span id="cb1359-2"><a href="5.3-proustr-1.html#cb1359-2" tabindex="-1"></a><span class="do">## show plot</span></span>
+<span id="cb1359-3"><a href="5.3-proustr-1.html#cb1359-3" tabindex="-1"></a>ducotedechezswann_corpus_sent_dplot</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-580-1.png" width="672" /></p>
 </div>
 </div>
 <div id="feature-co-occurrence-matrix-fcm-1" class="section level4 hasAnchor" number="5.3.4.6">
@@ -2668,20 +2700,20 @@ As you can see from typing <code>?udpipe_download_model</code>, there are 65 lan
 <p>Feature co-occurrence matrix (FCM) records the number of co-occurrences of tokens</p>
 <div id="computing-number-of-co-occurrences-1" class="section level5 hasAnchor" number="5.3.4.6.1">
 <h5><span class="header-section-number">5.3.4.6.1</span> Computing number of co-occurrences<a href="5.3-proustr-1.html#computing-number-of-co-occurrences-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1301-1"><a href="5.3-proustr-1.html#cb1301-1" tabindex="-1"></a>ducotedechezswann_corpus_dfmat <span class="ot">&lt;-</span> <span class="fu">dfm</span>(ducotedechezswann_corpus_tok_no_punct)</span>
-<span id="cb1301-2"><a href="5.3-proustr-1.html#cb1301-2" tabindex="-1"></a>ducotedechezswann_corpus_dfmat_trim <span class="ot">&lt;-</span> <span class="fu">dfm_trim</span>(ducotedechezswann_corpus_dfmat, <span class="at">min_termfreq =</span> <span class="dv">500</span>)</span>
-<span id="cb1301-3"><a href="5.3-proustr-1.html#cb1301-3" tabindex="-1"></a></span>
-<span id="cb1301-4"><a href="5.3-proustr-1.html#cb1301-4" tabindex="-1"></a>topfeatures_ducotedechezswann_corpus <span class="ot">&lt;-</span> <span class="fu">topfeatures</span>(ducotedechezswann_corpus_dfmat_trim)</span>
-<span id="cb1301-5"><a href="5.3-proustr-1.html#cb1301-5" tabindex="-1"></a>topfeatures_ducotedechezswann_corpus</span></code></pre></div>
+<div class="sourceCode" id="cb1360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1360-1"><a href="5.3-proustr-1.html#cb1360-1" tabindex="-1"></a>ducotedechezswann_corpus_dfmat <span class="ot">&lt;-</span> <span class="fu">dfm</span>(ducotedechezswann_corpus_tok_no_punct)</span>
+<span id="cb1360-2"><a href="5.3-proustr-1.html#cb1360-2" tabindex="-1"></a>ducotedechezswann_corpus_dfmat_trim <span class="ot">&lt;-</span> <span class="fu">dfm_trim</span>(ducotedechezswann_corpus_dfmat, <span class="at">min_termfreq =</span> <span class="dv">500</span>)</span>
+<span id="cb1360-3"><a href="5.3-proustr-1.html#cb1360-3" tabindex="-1"></a></span>
+<span id="cb1360-4"><a href="5.3-proustr-1.html#cb1360-4" tabindex="-1"></a>topfeatures_ducotedechezswann_corpus <span class="ot">&lt;-</span> <span class="fu">topfeatures</span>(ducotedechezswann_corpus_dfmat_trim)</span>
+<span id="cb1360-5"><a href="5.3-proustr-1.html#cb1360-5" tabindex="-1"></a>topfeatures_ducotedechezswann_corpus</span></code></pre></div>
 <pre><code>##   de   la   et    à  que   le  les  qui   il  pas 
 ## 7780 3935 3894 3686 3137 3033 2330 2150 1998 1850</code></pre>
-<div class="sourceCode" id="cb1303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1303-1"><a href="5.3-proustr-1.html#cb1303-1" tabindex="-1"></a><span class="fu">nfeat</span>(ducotedechezswann_corpus_dfmat_trim)</span></code></pre></div>
+<div class="sourceCode" id="cb1362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1362-1"><a href="5.3-proustr-1.html#cb1362-1" tabindex="-1"></a><span class="fu">nfeat</span>(ducotedechezswann_corpus_dfmat_trim)</span></code></pre></div>
 <pre><code>## [1] 49</code></pre>
 </div>
 <div id="features-co-occurrences-1" class="section level5 hasAnchor" number="5.3.4.6.2">
 <h5><span class="header-section-number">5.3.4.6.2</span> Features co-occurrences<a href="5.3-proustr-1.html#features-co-occurrences-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1305-1"><a href="5.3-proustr-1.html#cb1305-1" tabindex="-1"></a>ducotedechezswann_corpus_fcmat <span class="ot">&lt;-</span> <span class="fu">fcm</span>(ducotedechezswann_corpus_dfmat_trim)</span>
-<span id="cb1305-2"><a href="5.3-proustr-1.html#cb1305-2" tabindex="-1"></a>ducotedechezswann_corpus_fcmat</span></code></pre></div>
+<div class="sourceCode" id="cb1364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1364-1"><a href="5.3-proustr-1.html#cb1364-1" tabindex="-1"></a>ducotedechezswann_corpus_fcmat <span class="ot">&lt;-</span> <span class="fu">fcm</span>(ducotedechezswann_corpus_dfmat_trim)</span>
+<span id="cb1364-2"><a href="5.3-proustr-1.html#cb1364-2" tabindex="-1"></a>ducotedechezswann_corpus_fcmat</span></code></pre></div>
 <pre><code>## Feature co-occurrence matrix of: 49 by 49 features.
 ##         features
 ## features   je   me    de     à    ma    se    si   que   pas    le

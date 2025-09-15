@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-10" />
+<meta name="date" content="2025-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,8 +55,9 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -377,17 +378,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-and-sample-size"><i class="fa fa-check"></i><b>2.3.2</b> Power analysis and sample size</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.1</b> Linear model</a>
+<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-interpretation-rules-and-t.test"><i class="fa fa-check"></i><b>2.3.2.1</b> Cohen’s <em>d</em> interpretation rules and t.test</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.1.1</b> General example</a>
+<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#pwr.t.test---one-sample-and-two-sample-t-tests-for-means"><i class="fa fa-check"></i><b>2.3.2.1.1</b> pwr.t.test - one-sample and two-sample t tests for means</a></li>
+<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-effect-size"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Cohen’s <em>d</em> effect size</a></li>
+<li class="chapter" data-level="2.3.2.1.3" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#plots"><i class="fa fa-check"></i><b>2.3.2.1.3</b> Plots</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.1.1.1</b> Power of the test</a></li>
-<li class="chapter" data-level="2.3.2.1.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.1.1.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.1.3.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.05"><i class="fa fa-check"></i><b>2.3.2.1.3.1</b> p &lt; 0.05</a></li>
+<li class="chapter" data-level="2.3.2.1.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.01"><i class="fa fa-check"></i><b>2.3.2.1.3.2</b> p &lt; 0.01</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Using our LM model</a>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.2</b> Linear model</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.1.2.1</b> Power analysis from our model</a></li>
-<li class="chapter" data-level="2.3.2.1.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.1.2.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.2.1</b> General example</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.2.1.1</b> Power of the test</a></li>
+<li class="chapter" data-level="2.3.2.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.2.1.2</b> Sample size</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.2.2</b> Using our LM model</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.2.2.1</b> Power analysis from our model</a></li>
+<li class="chapter" data-level="2.3.2.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.2.2.2</b> Sample size</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -404,53 +415,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="2.5-LM.html"><a href="2.5-LM.html"><i class="fa fa-check"></i><b>2.5</b> Linear Models</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-3"><i class="fa fa-check"></i><b>2.5.1</b> Introduction</a>
+<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#normality-of-distribution"><i class="fa fa-check"></i><b>2.5.1</b> Normality of distribution</a>
 <ul>
-<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.1.1</b> Model estimation</a></li>
+<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#shapiro-test"><i class="fa fa-check"></i><b>2.5.1.1</b> Shapiro test</a></li>
+<li class="chapter" data-level="2.5.1.2" data-path="2.5-LM.html"><a href="2.5-LM.html#density-plot"><i class="fa fa-check"></i><b>2.5.1.2</b> Density plot</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.2</b> Role of coding schemes</a>
+<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#homogeneity-of-variance"><i class="fa fa-check"></i><b>2.5.2</b> Homogeneity of variance</a>
 <ul>
-<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.2.1</b> Intro</a></li>
-<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.2.2</b> Treatment coding</a></li>
-<li class="chapter" data-level="2.5.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.2.3</b> Contrast (or sum) coding</a>
+<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#bartlett-test"><i class="fa fa-check"></i><b>2.5.2.1</b> Bartlett test</a></li>
+<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#levene-test"><i class="fa fa-check"></i><b>2.5.2.2</b> Levene test</a>
 <ul>
-<li class="chapter" data-level="2.5.2.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.2.3.1</b> Default</a></li>
-<li class="chapter" data-level="2.5.2.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.2.3.2</b> Modified</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.3</b> Further steps</a>
-<ul>
-<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.3.1</b> Tidying the output</a></li>
-<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.3.2</b> Nice table of our model summary</a>
-<ul>
-<li class="chapter" data-level="2.5.3.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.3.2.1</b> Directly from model summary</a></li>
-<li class="chapter" data-level="2.5.3.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.3.2.2</b> From the <code>tidy</code> output</a></li>
-<li class="chapter" data-level="2.5.3.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.3.2.3</b> Model’s fit</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.3.3</b> Dissecting the model</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.3.3.1</b> “str” and “coef”</a></li>
-<li class="chapter" data-level="2.5.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.3.3.2</b> “coef” and “coefficients”</a></li>
-<li class="chapter" data-level="2.5.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.3.3.3</b> Residuals</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.3.3.3.1</b> Histogram</a></li>
-<li class="chapter" data-level="2.5.3.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.3.3.3.2</b> qqplots</a></li>
-<li class="chapter" data-level="2.5.3.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.3.3.3.3</b> Residuals vs fitted values</a></li>
-<li class="chapter" data-level="2.5.3.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.3.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.3.3.4</b> Goodness of fit?</a></li>
-<li class="chapter" data-level="2.5.3.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.3.3.5</b> Significance testing</a></li>
+<li class="chapter" data-level="2.5.2.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#base-r"><i class="fa fa-check"></i><b>2.5.2.2.1</b> Base R</a></li>
+<li class="chapter" data-level="2.5.2.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-car-package"><i class="fa fa-check"></i><b>2.5.2.2.2</b> From the <code>car</code> package</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.4</b> Plotting fitted values</a>
+<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#first-steps-3"><i class="fa fa-check"></i><b>2.5.3</b> First steps</a>
 <ul>
-<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.4.1</b> Trend line</a></li>
-<li class="chapter" data-level="2.5.4.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.2</b> Predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.3</b> Raw data, predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.4.4</b> Add significance levels and trend line on a plot?</a></li>
+<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#t-test"><i class="fa fa-check"></i><b>2.5.3.1</b> T-test</a></li>
+<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-2"><i class="fa fa-check"></i><b>2.5.3.2</b> Linear Model</a></li>
+<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#basic-anova"><i class="fa fa-check"></i><b>2.5.3.3</b> Basic ANOVA</a></li>
+<li class="chapter" data-level="2.5.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-3"><i class="fa fa-check"></i><b>2.5.3.4</b> Linear model</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.5</b> What about pairwise comparison?</a></li>
-<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.6</b> Multiple predictors?</a></li>
+<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-to-linear-models"><i class="fa fa-check"></i><b>2.5.4</b> Introduction to Linear models</a>
+<ul>
+<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.4.1</b> Model estimation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.5</b> Role of coding schemes</a>
+<ul>
+<li class="chapter" data-level="2.5.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.5.1</b> Intro</a></li>
+<li class="chapter" data-level="2.5.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.5.2</b> Treatment coding</a></li>
+<li class="chapter" data-level="2.5.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.5.3</b> Contrast (or sum) coding</a>
+<ul>
+<li class="chapter" data-level="2.5.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.5.3.1</b> Default</a></li>
+<li class="chapter" data-level="2.5.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.5.3.2</b> Modified</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.6</b> Further steps</a>
+<ul>
+<li class="chapter" data-level="2.5.6.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.6.1</b> Tidying the output</a></li>
+<li class="chapter" data-level="2.5.6.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.6.2</b> Nice table of our model summary</a>
+<ul>
+<li class="chapter" data-level="2.5.6.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.6.2.1</b> Directly from model summary</a></li>
+<li class="chapter" data-level="2.5.6.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.6.2.2</b> From the <code>tidy</code> output</a></li>
+<li class="chapter" data-level="2.5.6.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.6.2.3</b> Model’s fit</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.6.3</b> Dissecting the model</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.6.3.1</b> “str” and “coef”</a></li>
+<li class="chapter" data-level="2.5.6.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.6.3.2</b> “coef” and “coefficients”</a></li>
+<li class="chapter" data-level="2.5.6.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.6.3.3</b> Residuals</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.6.3.3.1</b> Histogram</a></li>
+<li class="chapter" data-level="2.5.6.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.6.3.3.2</b> qqplots</a></li>
+<li class="chapter" data-level="2.5.6.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.6.3.3.3</b> Residuals vs fitted values</a></li>
+<li class="chapter" data-level="2.5.6.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.6.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.6.3.4</b> Goodness of fit?</a></li>
+<li class="chapter" data-level="2.5.6.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.6.3.5</b> Significance testing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.7" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.7</b> Plotting fitted values</a>
+<ul>
+<li class="chapter" data-level="2.5.7.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.7.1</b> Trend line</a></li>
+<li class="chapter" data-level="2.5.7.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.2</b> Predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.3</b> Raw data, predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.7.4</b> Add significance levels and trend line on a plot?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.8" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.8</b> What about pairwise comparison?</a></li>
+<li class="chapter" data-level="2.5.9" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.9</b> Multiple predictors?</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html"><i class="fa fa-check"></i><b>2.6</b> Generalised Linear Models</a>
 <ul>
@@ -620,7 +652,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.3.4.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-random-effects"><i class="fa fa-check"></i><b>3.3.4.1</b> Subject random effects</a></li>
 <li class="chapter" data-level="3.3.4.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#items-random-effects"><i class="fa fa-check"></i><b>3.3.4.2</b> Items random effects</a></li>
-<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
+<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots-1"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
 <ul>
 <li class="chapter" data-level="3.3.4.3.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#fixed-effects-1"><i class="fa fa-check"></i><b>3.3.4.3.1</b> Fixed effects</a>
 <ul>
@@ -2009,7 +2041,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4.3.3.5" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#dimension-5"><i class="fa fa-check"></i><b>7.4.3.3.5</b> Dimension 5</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-1"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
+<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-2"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
 <ul>
 <li class="chapter" data-level="7.4.4.1" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#default-plots"><i class="fa fa-check"></i><b>7.4.4.1</b> Default plots</a>
 <ul>
@@ -2041,7 +2073,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.5.1.1" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#computing-clusters"><i class="fa fa-check"></i><b>7.5.1.1</b> Computing clusters</a></li>
 <li class="chapter" data-level="7.5.1.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#dendograms"><i class="fa fa-check"></i><b>7.5.1.2</b> Dendograms</a></li>
-<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-2"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
+<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-3"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
 <li class="chapter" data-level="7.5.1.4" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#individual-clusters"><i class="fa fa-check"></i><b>7.5.1.4</b> Individual Clusters</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#conclusion-3"><i class="fa fa-check"></i><b>7.5.2</b> Conclusion</a></li>
@@ -2193,23 +2225,237 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.5</span> Linear Models<a href="2.5-LM.html#LM" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Up to now, we have looked at descriptive statistics, and evaluated
 summaries, correlations in the data (with p values).</p>
+<p>We are now interested in looking at group differences. But before moving
+into linear models, let’s assume we simply wanted to use a student’s
+t.test to evaluate the differences between two groups. In our case, we
+have two age groups within the variable <code>AgeSubject</code> (young vs old).
+Before running a t.test, there are some assumptions one needs to take
+into account:</p>
+<div id="normality-of-distribution" class="section level3 hasAnchor" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Normality of distribution<a href="2.5-LM.html#normality-of-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="shapiro-test" class="section level4 hasAnchor" number="2.5.1.1">
+<h4><span class="header-section-number">2.5.1.1</span> Shapiro test<a href="2.5-LM.html#shapiro-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To check normality of distribution, we use the <code>shapiro.test</code> on the
+numeric outcome. Given that our predictor now has two levels.</p>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="2.5-LM.html#cb406-1" tabindex="-1"></a><span class="fu">shapiro.test</span>(english<span class="sc">$</span>RTlexdec)</span></code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  english$RTlexdec
+## W = 0.98595, p-value &lt; 2.2e-16</code></pre>
+<p>How to interpret this statistically significant result? This tells us
+that the distribution of the data is statistically different from a
+normal distribution.</p>
+</div>
+<div id="density-plot" class="section level4 hasAnchor" number="2.5.1.2">
+<h4><span class="header-section-number">2.5.1.2</span> Density plot<a href="2.5-LM.html#density-plot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We can also use a density plot to evaluate normality. The results show
+that both levels have bell shaped distributions but they are both skewed
+to the right (positively skewed data). See <a href="https://www.cambridgemaths.org/blogs/skewed-usage-skewed-distribution/">this
+website</a>
+for a nice example of left and right skwed data distributions.</p>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="2.5-LM.html#cb408-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
+<span id="cb408-2"><a href="2.5-LM.html#cb408-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> RTlexdec))<span class="sc">+</span></span>
+<span id="cb408-3"><a href="2.5-LM.html#cb408-3" tabindex="-1"></a>  <span class="fu">geom_density</span>()<span class="sc">+</span></span>
+<span id="cb408-4"><a href="2.5-LM.html#cb408-4" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> AgeSubject)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-154-1.png" width="672" /></p>
+</div>
+</div>
+<div id="homogeneity-of-variance" class="section level3 hasAnchor" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Homogeneity of variance<a href="2.5-LM.html#homogeneity-of-variance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If our data were normally distributed, we can use the <code>bartlett</code> test.
+If our data were non-normally distributed, we would use the Levene Test
+(either with <code>var.test</code> from base-R or <code>leveneTest</code> from the car package
+We can check both.</p>
+<div id="bartlett-test" class="section level4 hasAnchor" number="2.5.2.1">
+<h4><span class="header-section-number">2.5.2.1</span> Bartlett test<a href="2.5-LM.html#bartlett-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="2.5-LM.html#cb409-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
+<span id="cb409-2"><a href="2.5-LM.html#cb409-2" tabindex="-1"></a>  <span class="fu">bartlett.test</span>(RTlexdec <span class="sc">~</span> AgeSubject, <span class="at">data =</span> .)</span></code></pre></div>
+<pre><code>## 
+##  Bartlett test of homogeneity of variances
+## 
+## data:  RTlexdec by AgeSubject
+## Bartlett&#39;s K-squared = 15.883, df = 1, p-value = 6.737e-05</code></pre>
+</div>
+<div id="levene-test" class="section level4 hasAnchor" number="2.5.2.2">
+<h4><span class="header-section-number">2.5.2.2</span> Levene test<a href="2.5-LM.html#levene-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="base-r" class="section level5 hasAnchor" number="2.5.2.2.1">
+<h5><span class="header-section-number">2.5.2.2.1</span> Base R<a href="2.5-LM.html#base-r" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="2.5-LM.html#cb411-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
+<span id="cb411-2"><a href="2.5-LM.html#cb411-2" tabindex="-1"></a>  <span class="fu">var.test</span>(RTlexdec <span class="sc">~</span> AgeSubject, <span class="at">data =</span> .)</span></code></pre></div>
+<pre><code>## 
+##  F test to compare two variances
+## 
+## data:  RTlexdec by AgeSubject
+## F = 1.1817, num df = 2283, denom df = 2283, p-value = 6.737e-05
+## alternative hypothesis: true ratio of variances is not equal to 1
+## 95 percent confidence interval:
+##  1.088581 1.282737
+## sample estimates:
+## ratio of variances 
+##           1.181678</code></pre>
+</div>
+<div id="from-the-car-package" class="section level5 hasAnchor" number="2.5.2.2.2">
+<h5><span class="header-section-number">2.5.2.2.2</span> From the <code>car</code> package<a href="2.5-LM.html#from-the-car-package" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="2.5-LM.html#cb413-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
+<span id="cb413-2"><a href="2.5-LM.html#cb413-2" tabindex="-1"></a>  car<span class="sc">::</span><span class="fu">leveneTest</span>(RTlexdec <span class="sc">~</span> AgeSubject, <span class="at">data =</span> .)</span></code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##         Df F value  Pr(&gt;F)  
+## group    1  5.1615 0.02314 *
+##       4566                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>In all cases, the statistically significant result indicates that there
+is evidence that the variance of two levels of the factor <code>AgeSubject</code>
+is statistically significant; i.e., the variances are not equal. This is
+important as we will use this in our t-test later on</p>
+</div>
+</div>
+</div>
+<div id="first-steps-3" class="section level3 hasAnchor" number="2.5.3">
+<h3><span class="header-section-number">2.5.3</span> First steps<a href="2.5-LM.html#first-steps-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Up to now, we have looked at descriptive statistics, and evaluated
+summaries, correlations in the data (with p values), and checked the
+normality of distribution of our data.</p>
 <p>We are now interested in looking at group differences.</p>
-<div id="introduction-3" class="section level3 hasAnchor" number="2.5.1">
-<h3><span class="header-section-number">2.5.1</span> Introduction<a href="2.5-LM.html#introduction-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let us start with a simple t-test</p>
+<div id="t-test" class="section level4 hasAnchor" number="2.5.3.1">
+<h4><span class="header-section-number">2.5.3.1</span> T-test<a href="2.5-LM.html#t-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We then run a t-test on the data. We specify the formula as <code>y ~ x</code> and
+add <code>var.equal = FALSE</code> (based on the normality tests above)</p>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="2.5-LM.html#cb415-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
+<span id="cb415-2"><a href="2.5-LM.html#cb415-2" tabindex="-1"></a>  <span class="fu">t.test</span>(RTlexdec <span class="sc">~</span> AgeSubject, <span class="at">data =</span> ., <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  RTlexdec by AgeSubject
+## t = 67.468, df = 4534.6, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means between group old and group young is not equal to 0
+## 95 percent confidence interval:
+##  0.2152787 0.2281642
+## sample estimates:
+##   mean in group old mean in group young 
+##            6.660958            6.439237</code></pre>
+<p>To interpret the t-test, we say that there is evidence for a
+statistically significant difference between the two groups: <code>setosa</code>
+and <code>versicolor</code>: <code>t(4534.6) = 67.468, p &lt; 2.2e-16</code>. The mean of
+<code>RTLexdec</code> for the young group is significantly lower than that of the
+old group.</p>
+</div>
+<div id="linear-model-2" class="section level4 hasAnchor" number="2.5.3.2">
+<h4><span class="header-section-number">2.5.3.2</span> Linear Model<a href="2.5-LM.html#linear-model-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let us run a linear model on the same data</p>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="2.5-LM.html#cb417-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
+<span id="cb417-2"><a href="2.5-LM.html#cb417-2" tabindex="-1"></a>  <span class="fu">lm</span>(RTlexdec <span class="sc">~</span> AgeSubject, <span class="at">data =</span> .) <span class="sc">%&gt;%</span> </span>
+<span id="cb417-3"><a href="2.5-LM.html#cb417-3" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = RTlexdec ~ AgeSubject, data = .)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.25776 -0.08339 -0.01669  0.06921  0.52685 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)      6.660958   0.002324 2866.44   &lt;2e-16 ***
+## AgeSubjectyoung -0.221721   0.003286  -67.47   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.1111 on 4566 degrees of freedom
+## Multiple R-squared:  0.4992, Adjusted R-squared:  0.4991 
+## F-statistic:  4552 on 1 and 4566 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Any comments? discuss with your neighbour.</p>
+<p>The results of the linear model are exactly the same, albeit with a
+difference in the sign of the difference. This indicates that the
+<span class="math inline">\(\beta\)</span> coefficient for <code>versicolor</code> is significantly higher than that
+of <code>setosa</code> by <code>0.93000</code>: <code>t(98) = 10.52, p &lt; &lt;2e-16</code>.</p>
+<p>The dataset <code>english</code> contains two levels for <code>AgeSubject.</code> We will run
+an ANOVA and a linear model on the data.</p>
+</div>
+<div id="basic-anova" class="section level4 hasAnchor" number="2.5.3.3">
+<h4><span class="header-section-number">2.5.3.3</span> Basic ANOVA<a href="2.5-LM.html#basic-anova" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We can use the function <code>aov</code> to run an Analysis of Variance on the full
+dataset</p>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="2.5-LM.html#cb419-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
+<span id="cb419-2"><a href="2.5-LM.html#cb419-2" tabindex="-1"></a>  <span class="fu">aov</span>(RTlexdec <span class="sc">~</span> AgeSubject, <span class="at">data =</span> .) <span class="sc">%&gt;%</span> </span>
+<span id="cb419-3"><a href="2.5-LM.html#cb419-3" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<pre><code>##               Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## AgeSubject     1  56.14   56.14    4552 &lt;2e-16 ***
+## Residuals   4566  56.31    0.01                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<div id="linear-model-3" class="section level4 hasAnchor" number="2.5.3.4">
+<h4><span class="header-section-number">2.5.3.4</span> Linear model<a href="2.5-LM.html#linear-model-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We can use the function <code>lm</code> to run a linear model</p>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="2.5-LM.html#cb421-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
+<span id="cb421-2"><a href="2.5-LM.html#cb421-2" tabindex="-1"></a>  <span class="fu">lm</span>(RTlexdec <span class="sc">~</span> AgeSubject, <span class="at">data =</span> .) <span class="sc">%&gt;%</span> </span>
+<span id="cb421-3"><a href="2.5-LM.html#cb421-3" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = RTlexdec ~ AgeSubject, data = .)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.25776 -0.08339 -0.01669  0.06921  0.52685 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)      6.660958   0.002324 2866.44   &lt;2e-16 ***
+## AgeSubjectyoung -0.221721   0.003286  -67.47   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.1111 on 4566 degrees of freedom
+## Multiple R-squared:  0.4992, Adjusted R-squared:  0.4991 
+## F-statistic:  4552 on 1 and 4566 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>But wait… How is the linear model comparable to the analysis of
+variance we ran above? This linear model derives the analysis of
+variance we saw above, use <code>anova</code> on your linear model..</p>
+<p>Here are the results of the initial Analysis of variance:</p>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="2.5-LM.html#cb423-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
+<span id="cb423-2"><a href="2.5-LM.html#cb423-2" tabindex="-1"></a>  <span class="fu">aov</span>(RTlexdec <span class="sc">~</span> AgeSubject, <span class="at">data =</span> .) <span class="sc">%&gt;%</span> </span>
+<span id="cb423-3"><a href="2.5-LM.html#cb423-3" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<pre><code>##               Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## AgeSubject     1  56.14   56.14    4552 &lt;2e-16 ***
+## Residuals   4566  56.31    0.01                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>And here are the results of the linear model with the <code>anova</code> function</p>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="2.5-LM.html#cb425-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
+<span id="cb425-2"><a href="2.5-LM.html#cb425-2" tabindex="-1"></a>  <span class="fu">lm</span>(RTlexdec <span class="sc">~</span> AgeSubject, <span class="at">data =</span> .) <span class="sc">%&gt;%</span> </span>
+<span id="cb425-3"><a href="2.5-LM.html#cb425-3" tabindex="-1"></a>  <span class="fu">anova</span>()</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: RTlexdec
+##              Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+## AgeSubject    1 56.141  56.141    4552 &lt; 2.2e-16 ***
+## Residuals  4566 56.314   0.012                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>They are exactly the same… The underlying of an Analysis of variance
+is a linear model. We will continue with a linear model to understand it
+better</p>
+</div>
+</div>
+<div id="introduction-to-linear-models" class="section level3 hasAnchor" number="2.5.4">
+<h3><span class="header-section-number">2.5.4</span> Introduction to Linear models<a href="2.5-LM.html#introduction-to-linear-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The basic assumption of a Linear model is to create a regression
 analysis on the data. We have an outcome (or dependent variable) and a
 predictor (or an independent variable). The formula of a linear model is
 as follows <code>outcome ~ predictor</code> that can be read as “outcome as a
 function of the predictor”. We can add “1” to specify an intercept, but
 this is by default added to the model</p>
-<div id="model-estimation" class="section level4 hasAnchor" number="2.5.1.1">
-<h4><span class="header-section-number">2.5.1.1</span> Model estimation<a href="2.5-LM.html#model-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="2.5-LM.html#cb368-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english <span class="sc">%&gt;%</span> </span>
-<span id="cb368-2"><a href="2.5-LM.html#cb368-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">AgeSubject =</span> <span class="fu">factor</span>(AgeSubject, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;young&quot;</span>, <span class="st">&quot;old&quot;</span>)))</span>
-<span id="cb368-3"><a href="2.5-LM.html#cb368-3" tabindex="-1"></a>mdl.lm <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb368-4"><a href="2.5-LM.html#cb368-4" tabindex="-1"></a>  <span class="fu">lm</span>(RTlexdec <span class="sc">~</span> AgeSubject, <span class="at">data =</span> .)</span>
-<span id="cb368-5"><a href="2.5-LM.html#cb368-5" tabindex="-1"></a><span class="co">#lm(RTlexdec ~ AgeSubject, data = english)</span></span>
-<span id="cb368-6"><a href="2.5-LM.html#cb368-6" tabindex="-1"></a>mdl.lm <span class="co">#also print(mdl.lm)</span></span></code></pre></div>
+<div id="model-estimation" class="section level4 hasAnchor" number="2.5.4.1">
+<h4><span class="header-section-number">2.5.4.1</span> Model estimation<a href="2.5-LM.html#model-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="2.5-LM.html#cb427-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english <span class="sc">%&gt;%</span> </span>
+<span id="cb427-2"><a href="2.5-LM.html#cb427-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">AgeSubject =</span> <span class="fu">factor</span>(AgeSubject, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;young&quot;</span>, <span class="st">&quot;old&quot;</span>)))</span>
+<span id="cb427-3"><a href="2.5-LM.html#cb427-3" tabindex="-1"></a>mdl.lm <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb427-4"><a href="2.5-LM.html#cb427-4" tabindex="-1"></a>  <span class="fu">lm</span>(RTlexdec <span class="sc">~</span> AgeSubject, <span class="at">data =</span> .)</span>
+<span id="cb427-5"><a href="2.5-LM.html#cb427-5" tabindex="-1"></a><span class="co">#lm(RTlexdec ~ AgeSubject, data = english)</span></span>
+<span id="cb427-6"><a href="2.5-LM.html#cb427-6" tabindex="-1"></a>mdl.lm <span class="co">#also print(mdl.lm)</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = RTlexdec ~ AgeSubject, data = .)
@@ -2217,7 +2463,7 @@ this is by default added to the model</p>
 ## Coefficients:
 ##   (Intercept)  AgeSubjectold  
 ##        6.4392         0.2217</code></pre>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="2.5-LM.html#cb370-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.lm)</span></code></pre></div>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="2.5-LM.html#cb429-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.lm)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = RTlexdec ~ AgeSubject, data = .)
@@ -2238,10 +2484,10 @@ this is by default added to the model</p>
 ## F-statistic:  4552 on 1 and 4566 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<div id="role-of-coding-schemes" class="section level3 hasAnchor" number="2.5.2">
-<h3><span class="header-section-number">2.5.2</span> Role of coding schemes<a href="2.5-LM.html#role-of-coding-schemes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="intro-1" class="section level4 hasAnchor" number="2.5.2.1">
-<h4><span class="header-section-number">2.5.2.1</span> Intro<a href="2.5-LM.html#intro-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="role-of-coding-schemes" class="section level3 hasAnchor" number="2.5.5">
+<h3><span class="header-section-number">2.5.5</span> Role of coding schemes<a href="2.5-LM.html#role-of-coding-schemes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="intro-1" class="section level4 hasAnchor" number="2.5.5.1">
+<h4><span class="header-section-number">2.5.5.1</span> Intro<a href="2.5-LM.html#intro-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>There are other coding schemes that can be used. See Schad et al.
 (2020): “How to capitalize on a priori contrasts in linear (mixed)
 models: A tutorial”. <strong>Journal of Memory and Language</strong>,vol. 110,
@@ -2257,8 +2503,8 @@ models: A tutorial”. <strong>Journal of Memory and Language</strong>,vol. 110
 <p>The first two are the most commonly used coding schemes, but see the
 paper for why one can use the others.</p>
 </div>
-<div id="treatment-coding" class="section level4 hasAnchor" number="2.5.2.2">
-<h4><span class="header-section-number">2.5.2.2</span> Treatment coding<a href="2.5-LM.html#treatment-coding" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="treatment-coding" class="section level4 hasAnchor" number="2.5.5.2">
+<h4><span class="header-section-number">2.5.5.2</span> Treatment coding<a href="2.5-LM.html#treatment-coding" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>By default, <code>R</code> uses a treatment coding scheme. By this we mean that the
 intercept has the outcome of a specific level in the dataset (usually,
 the first in alphabetical order, unless you have changed that!). In our
@@ -2268,17 +2514,17 @@ is the intercept (=Young) vs “AgeSubjectold”. This will mean we are
 looking at the difference between the reference level and all other
 levels.</p>
 <p>The code below allows you to see what the coding scheme is.</p>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="2.5-LM.html#cb372-1" tabindex="-1"></a>english2<span class="sc">$</span>AgeSubject2 <span class="ot">&lt;-</span> english2<span class="sc">$</span>AgeSubject</span>
-<span id="cb372-2"><a href="2.5-LM.html#cb372-2" tabindex="-1"></a></span>
-<span id="cb372-3"><a href="2.5-LM.html#cb372-3" tabindex="-1"></a><span class="fu">contrasts</span>(english2<span class="sc">$</span>AgeSubject2) <span class="ot">&lt;-</span> <span class="fu">contr.treatment</span>(<span class="dv">2</span>)</span>
-<span id="cb372-4"><a href="2.5-LM.html#cb372-4" tabindex="-1"></a><span class="fu">contrasts</span>(english2<span class="sc">$</span>AgeSubject2) </span></code></pre></div>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="2.5-LM.html#cb431-1" tabindex="-1"></a>english2<span class="sc">$</span>AgeSubject2 <span class="ot">&lt;-</span> english2<span class="sc">$</span>AgeSubject</span>
+<span id="cb431-2"><a href="2.5-LM.html#cb431-2" tabindex="-1"></a></span>
+<span id="cb431-3"><a href="2.5-LM.html#cb431-3" tabindex="-1"></a><span class="fu">contrasts</span>(english2<span class="sc">$</span>AgeSubject2) <span class="ot">&lt;-</span> <span class="fu">contr.treatment</span>(<span class="dv">2</span>)</span>
+<span id="cb431-4"><a href="2.5-LM.html#cb431-4" tabindex="-1"></a><span class="fu">contrasts</span>(english2<span class="sc">$</span>AgeSubject2) </span></code></pre></div>
 <pre><code>##       2
 ## young 0
 ## old   1</code></pre>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="2.5-LM.html#cb374-1" tabindex="-1"></a>mdl.lm.T <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb374-2"><a href="2.5-LM.html#cb374-2" tabindex="-1"></a>  <span class="fu">lm</span>(RTlexdec <span class="sc">~</span> AgeSubject2, <span class="at">data =</span> .)</span>
-<span id="cb374-3"><a href="2.5-LM.html#cb374-3" tabindex="-1"></a><span class="co">#lm(RTlexdec ~ AgeSubject, data = english)</span></span>
-<span id="cb374-4"><a href="2.5-LM.html#cb374-4" tabindex="-1"></a>mdl.lm.T <span class="co">#also print(mdl.lm)</span></span></code></pre></div>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="2.5-LM.html#cb433-1" tabindex="-1"></a>mdl.lm.T <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb433-2"><a href="2.5-LM.html#cb433-2" tabindex="-1"></a>  <span class="fu">lm</span>(RTlexdec <span class="sc">~</span> AgeSubject2, <span class="at">data =</span> .)</span>
+<span id="cb433-3"><a href="2.5-LM.html#cb433-3" tabindex="-1"></a><span class="co">#lm(RTlexdec ~ AgeSubject, data = english)</span></span>
+<span id="cb433-4"><a href="2.5-LM.html#cb433-4" tabindex="-1"></a>mdl.lm.T <span class="co">#also print(mdl.lm)</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = RTlexdec ~ AgeSubject2, data = .)
@@ -2286,7 +2532,7 @@ levels.</p>
 ## Coefficients:
 ##  (Intercept)  AgeSubject22  
 ##       6.4392        0.2217</code></pre>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="2.5-LM.html#cb376-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.lm.T)</span></code></pre></div>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="2.5-LM.html#cb435-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.lm.T)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = RTlexdec ~ AgeSubject2, data = .)
@@ -2306,23 +2552,23 @@ levels.</p>
 ## Multiple R-squared:  0.4992, Adjusted R-squared:  0.4991 
 ## F-statistic:  4552 on 1 and 4566 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<div id="contrast-or-sum-coding" class="section level4 hasAnchor" number="2.5.2.3">
-<h4><span class="header-section-number">2.5.2.3</span> Contrast (or sum) coding<a href="2.5-LM.html#contrast-or-sum-coding" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div id="default" class="section level5 hasAnchor" number="2.5.2.3.1">
-<h5><span class="header-section-number">2.5.2.3.1</span> Default<a href="2.5-LM.html#default" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="contrast-or-sum-coding" class="section level4 hasAnchor" number="2.5.5.3">
+<h4><span class="header-section-number">2.5.5.3</span> Contrast (or sum) coding<a href="2.5-LM.html#contrast-or-sum-coding" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="default" class="section level5 hasAnchor" number="2.5.5.3.1">
+<h5><span class="header-section-number">2.5.5.3.1</span> Default<a href="2.5-LM.html#default" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Let’s change the coding scheme and see the difference in the output.</p>
-<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="2.5-LM.html#cb378-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb378-2"><a href="2.5-LM.html#cb378-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">AgeSubject2 =</span> <span class="fu">factor</span>(AgeSubject2, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;old&quot;</span>, <span class="st">&quot;young&quot;</span>)))</span>
-<span id="cb378-3"><a href="2.5-LM.html#cb378-3" tabindex="-1"></a></span>
-<span id="cb378-4"><a href="2.5-LM.html#cb378-4" tabindex="-1"></a><span class="fu">contrasts</span>(english2<span class="sc">$</span>AgeSubject2) <span class="ot">&lt;-</span> <span class="fu">contr.sum</span>(<span class="dv">2</span>)</span>
-<span id="cb378-5"><a href="2.5-LM.html#cb378-5" tabindex="-1"></a><span class="fu">contrasts</span>(english2<span class="sc">$</span>AgeSubject2)</span></code></pre></div>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="2.5-LM.html#cb437-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb437-2"><a href="2.5-LM.html#cb437-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">AgeSubject2 =</span> <span class="fu">factor</span>(AgeSubject2, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;old&quot;</span>, <span class="st">&quot;young&quot;</span>)))</span>
+<span id="cb437-3"><a href="2.5-LM.html#cb437-3" tabindex="-1"></a></span>
+<span id="cb437-4"><a href="2.5-LM.html#cb437-4" tabindex="-1"></a><span class="fu">contrasts</span>(english2<span class="sc">$</span>AgeSubject2) <span class="ot">&lt;-</span> <span class="fu">contr.sum</span>(<span class="dv">2</span>)</span>
+<span id="cb437-5"><a href="2.5-LM.html#cb437-5" tabindex="-1"></a><span class="fu">contrasts</span>(english2<span class="sc">$</span>AgeSubject2)</span></code></pre></div>
 <pre><code>##       [,1]
 ## old      1
 ## young   -1</code></pre>
-<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="2.5-LM.html#cb380-1" tabindex="-1"></a>mdl.lm.C <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb380-2"><a href="2.5-LM.html#cb380-2" tabindex="-1"></a>  <span class="fu">lm</span>(RTlexdec <span class="sc">~</span> AgeSubject2, <span class="at">data =</span> .)</span>
-<span id="cb380-3"><a href="2.5-LM.html#cb380-3" tabindex="-1"></a><span class="co">#lm(RTlexdec ~ AgeSubject, data = english)</span></span>
-<span id="cb380-4"><a href="2.5-LM.html#cb380-4" tabindex="-1"></a>mdl.lm.C <span class="co">#also print(mdl.lm)</span></span></code></pre></div>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="2.5-LM.html#cb439-1" tabindex="-1"></a>mdl.lm.C <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb439-2"><a href="2.5-LM.html#cb439-2" tabindex="-1"></a>  <span class="fu">lm</span>(RTlexdec <span class="sc">~</span> AgeSubject2, <span class="at">data =</span> .)</span>
+<span id="cb439-3"><a href="2.5-LM.html#cb439-3" tabindex="-1"></a><span class="co">#lm(RTlexdec ~ AgeSubject, data = english)</span></span>
+<span id="cb439-4"><a href="2.5-LM.html#cb439-4" tabindex="-1"></a>mdl.lm.C <span class="co">#also print(mdl.lm)</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = RTlexdec ~ AgeSubject2, data = .)
@@ -2330,7 +2576,7 @@ levels.</p>
 ## Coefficients:
 ##  (Intercept)  AgeSubject21  
 ##       6.5501        0.1109</code></pre>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="2.5-LM.html#cb382-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.lm.C)</span></code></pre></div>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="2.5-LM.html#cb441-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.lm.C)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = RTlexdec ~ AgeSubject2, data = .)
@@ -2352,10 +2598,10 @@ levels.</p>
 <p>With contrast (or sum) coding, the intercept is almost the same as
 before (treatment = 6.439237 vs contrast = 6.550097). The intercept is
 now the average of all of the data points</p>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="2.5-LM.html#cb384-1" tabindex="-1"></a>english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb384-2"><a href="2.5-LM.html#cb384-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">meanRTlexdec =</span> <span class="fu">mean</span>(RTlexdec)) <span class="sc">%&gt;%</span> </span>
-<span id="cb384-3"><a href="2.5-LM.html#cb384-3" tabindex="-1"></a>  <span class="fu">select</span>(meanRTlexdec) <span class="sc">%&gt;%</span></span>
-<span id="cb384-4"><a href="2.5-LM.html#cb384-4" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="2.5-LM.html#cb443-1" tabindex="-1"></a>english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb443-2"><a href="2.5-LM.html#cb443-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">meanRTlexdec =</span> <span class="fu">mean</span>(RTlexdec)) <span class="sc">%&gt;%</span> </span>
+<span id="cb443-3"><a href="2.5-LM.html#cb443-3" tabindex="-1"></a>  <span class="fu">select</span>(meanRTlexdec) <span class="sc">%&gt;%</span></span>
+<span id="cb443-4"><a href="2.5-LM.html#cb443-4" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##    meanRTlexdec
 ## 1      6.550097
 ## 2      6.550097
@@ -2377,20 +2623,20 @@ above (0.221721 / 1 = 0.221721; 0.221721 / 2 = 0.110861)!</p>
 from the average!</p>
 <p>Let’s change slightly the coding scheme</p>
 </div>
-<div id="modified" class="section level5 hasAnchor" number="2.5.2.3.2">
-<h5><span class="header-section-number">2.5.2.3.2</span> Modified<a href="2.5-LM.html#modified" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="2.5-LM.html#cb386-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb386-2"><a href="2.5-LM.html#cb386-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">AgeSubject2 =</span> <span class="fu">factor</span>(AgeSubject, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;young&quot;</span>, <span class="st">&quot;old&quot;</span>)))</span>
-<span id="cb386-3"><a href="2.5-LM.html#cb386-3" tabindex="-1"></a></span>
-<span id="cb386-4"><a href="2.5-LM.html#cb386-4" tabindex="-1"></a><span class="fu">contrasts</span>(english2<span class="sc">$</span>AgeSubject2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>)</span>
-<span id="cb386-5"><a href="2.5-LM.html#cb386-5" tabindex="-1"></a><span class="fu">contrasts</span>(english2<span class="sc">$</span>AgeSubject2)</span></code></pre></div>
+<div id="modified" class="section level5 hasAnchor" number="2.5.5.3.2">
+<h5><span class="header-section-number">2.5.5.3.2</span> Modified<a href="2.5-LM.html#modified" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="2.5-LM.html#cb445-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb445-2"><a href="2.5-LM.html#cb445-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">AgeSubject2 =</span> <span class="fu">factor</span>(AgeSubject, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;young&quot;</span>, <span class="st">&quot;old&quot;</span>)))</span>
+<span id="cb445-3"><a href="2.5-LM.html#cb445-3" tabindex="-1"></a></span>
+<span id="cb445-4"><a href="2.5-LM.html#cb445-4" tabindex="-1"></a><span class="fu">contrasts</span>(english2<span class="sc">$</span>AgeSubject2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>)</span>
+<span id="cb445-5"><a href="2.5-LM.html#cb445-5" tabindex="-1"></a><span class="fu">contrasts</span>(english2<span class="sc">$</span>AgeSubject2)</span></code></pre></div>
 <pre><code>##       [,1]
 ## young -0.5
 ## old    0.5</code></pre>
-<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="2.5-LM.html#cb388-1" tabindex="-1"></a>mdl.lmC<span class="fl">.2</span> <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb388-2"><a href="2.5-LM.html#cb388-2" tabindex="-1"></a>  <span class="fu">lm</span>(RTlexdec <span class="sc">~</span> AgeSubject2, <span class="at">data =</span> .)</span>
-<span id="cb388-3"><a href="2.5-LM.html#cb388-3" tabindex="-1"></a><span class="co">#lm(RTlexdec ~ AgeSubject, data = english)</span></span>
-<span id="cb388-4"><a href="2.5-LM.html#cb388-4" tabindex="-1"></a>mdl.lmC<span class="fl">.2</span> <span class="co">#also print(mdl.lmC.2)</span></span></code></pre></div>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="2.5-LM.html#cb447-1" tabindex="-1"></a>mdl.lmC<span class="fl">.2</span> <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb447-2"><a href="2.5-LM.html#cb447-2" tabindex="-1"></a>  <span class="fu">lm</span>(RTlexdec <span class="sc">~</span> AgeSubject2, <span class="at">data =</span> .)</span>
+<span id="cb447-3"><a href="2.5-LM.html#cb447-3" tabindex="-1"></a><span class="co">#lm(RTlexdec ~ AgeSubject, data = english)</span></span>
+<span id="cb447-4"><a href="2.5-LM.html#cb447-4" tabindex="-1"></a>mdl.lmC<span class="fl">.2</span> <span class="co">#also print(mdl.lmC.2)</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = RTlexdec ~ AgeSubject2, data = .)
@@ -2398,7 +2644,7 @@ from the average!</p>
 ## Coefficients:
 ##  (Intercept)  AgeSubject21  
 ##       6.5501        0.2217</code></pre>
-<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="2.5-LM.html#cb390-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.lmC<span class="fl">.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="2.5-LM.html#cb449-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.lmC<span class="fl">.2</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = RTlexdec ~ AgeSubject2, data = .)
@@ -2428,36 +2674,36 @@ Winter’s book for more details.</p>
 </div>
 </div>
 </div>
-<div id="further-steps" class="section level3 hasAnchor" number="2.5.3">
-<h3><span class="header-section-number">2.5.3</span> Further steps<a href="2.5-LM.html#further-steps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="tidying-the-output" class="section level4 hasAnchor" number="2.5.3.1">
-<h4><span class="header-section-number">2.5.3.1</span> Tidying the output<a href="2.5-LM.html#tidying-the-output" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="further-steps" class="section level3 hasAnchor" number="2.5.6">
+<h3><span class="header-section-number">2.5.6</span> Further steps<a href="2.5-LM.html#further-steps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="tidying-the-output" class="section level4 hasAnchor" number="2.5.6.1">
+<h4><span class="header-section-number">2.5.6.1</span> Tidying the output<a href="2.5-LM.html#tidying-the-output" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We use our original model with treatment coding.</p>
-<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="2.5-LM.html#cb392-1" tabindex="-1"></a><span class="co"># from library(broom)</span></span>
-<span id="cb392-2"><a href="2.5-LM.html#cb392-2" tabindex="-1"></a><span class="fu">tidy</span>(mdl.lm) <span class="sc">%&gt;%</span> </span>
-<span id="cb392-3"><a href="2.5-LM.html#cb392-3" tabindex="-1"></a>  <span class="fu">select</span>(term, estimate) <span class="sc">%&gt;%</span> </span>
-<span id="cb392-4"><a href="2.5-LM.html#cb392-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">estimate =</span> <span class="fu">round</span>(estimate, <span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="2.5-LM.html#cb451-1" tabindex="-1"></a><span class="co"># from library(broom)</span></span>
+<span id="cb451-2"><a href="2.5-LM.html#cb451-2" tabindex="-1"></a><span class="fu">tidy</span>(mdl.lm) <span class="sc">%&gt;%</span> </span>
+<span id="cb451-3"><a href="2.5-LM.html#cb451-3" tabindex="-1"></a>  <span class="fu">select</span>(term, estimate) <span class="sc">%&gt;%</span> </span>
+<span id="cb451-4"><a href="2.5-LM.html#cb451-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">estimate =</span> <span class="fu">round</span>(estimate, <span class="dv">3</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 2
 ##   term          estimate
 ##   &lt;chr&gt;            &lt;dbl&gt;
 ## 1 (Intercept)      6.44 
 ## 2 AgeSubjectold    0.222</code></pre>
-<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="2.5-LM.html#cb394-1" tabindex="-1"></a>mycoefE <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mdl.lm) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(estimate)</span></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="2.5-LM.html#cb453-1" tabindex="-1"></a>mycoefE <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mdl.lm) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(estimate)</span></code></pre></div>
 <p>Obtaining mean values from our model</p>
-<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="2.5-LM.html#cb395-1" tabindex="-1"></a><span class="co">#old</span></span>
-<span id="cb395-2"><a href="2.5-LM.html#cb395-2" tabindex="-1"></a>mycoefE[<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="2.5-LM.html#cb454-1" tabindex="-1"></a><span class="co">#old</span></span>
+<span id="cb454-2"><a href="2.5-LM.html#cb454-2" tabindex="-1"></a>mycoefE[<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## [1] 6.439237</code></pre>
-<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="2.5-LM.html#cb397-1" tabindex="-1"></a><span class="co">#young</span></span>
-<span id="cb397-2"><a href="2.5-LM.html#cb397-2" tabindex="-1"></a>mycoefE[<span class="dv">1</span>] <span class="sc">+</span> mycoefE[<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="2.5-LM.html#cb456-1" tabindex="-1"></a><span class="co">#young</span></span>
+<span id="cb456-2"><a href="2.5-LM.html#cb456-2" tabindex="-1"></a>mycoefE[<span class="dv">1</span>] <span class="sc">+</span> mycoefE[<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## [1] 6.660958</code></pre>
 </div>
-<div id="nice-table-of-our-model-summary" class="section level4 hasAnchor" number="2.5.3.2">
-<h4><span class="header-section-number">2.5.3.2</span> Nice table of our model summary<a href="2.5-LM.html#nice-table-of-our-model-summary" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="nice-table-of-our-model-summary" class="section level4 hasAnchor" number="2.5.6.2">
+<h4><span class="header-section-number">2.5.6.2</span> Nice table of our model summary<a href="2.5-LM.html#nice-table-of-our-model-summary" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We can also obtain a nice table of our model summary. We can use the
 package <code>knitr</code> or <code>xtable</code></p>
-<div id="directly-from-model-summary" class="section level5 hasAnchor" number="2.5.3.2.1">
-<h5><span class="header-section-number">2.5.3.2.1</span> Directly from model summary<a href="2.5-LM.html#directly-from-model-summary" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="2.5-LM.html#cb399-1" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">summary</span>(mdl.lm)<span class="sc">$</span>coef, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div id="directly-from-model-summary" class="section level5 hasAnchor" number="2.5.6.2.1">
+<h5><span class="header-section-number">2.5.6.2.1</span> Directly from model summary<a href="2.5-LM.html#directly-from-model-summary" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="2.5-LM.html#cb458-1" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">summary</span>(mdl.lm)<span class="sc">$</span>coef, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -2486,10 +2732,10 @@ package <code>knitr</code> or <code>xtable</code></p>
 </tbody>
 </table>
 </div>
-<div id="from-the-tidy-output" class="section level5 hasAnchor" number="2.5.3.2.2">
-<h5><span class="header-section-number">2.5.3.2.2</span> From the <code>tidy</code> output<a href="2.5-LM.html#from-the-tidy-output" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="2.5-LM.html#cb400-1" tabindex="-1"></a>mdl.lmT <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mdl.lm)</span>
-<span id="cb400-2"><a href="2.5-LM.html#cb400-2" tabindex="-1"></a><span class="fu">kable</span>(mdl.lmT, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div id="from-the-tidy-output" class="section level5 hasAnchor" number="2.5.6.2.2">
+<h5><span class="header-section-number">2.5.6.2.2</span> From the <code>tidy</code> output<a href="2.5-LM.html#from-the-tidy-output" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="2.5-LM.html#cb459-1" tabindex="-1"></a>mdl.lmT <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mdl.lm)</span>
+<span id="cb459-2"><a href="2.5-LM.html#cb459-2" tabindex="-1"></a><span class="fu">kable</span>(mdl.lmT, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -2518,10 +2764,10 @@ package <code>knitr</code> or <code>xtable</code></p>
 </tbody>
 </table>
 </div>
-<div id="models-fit" class="section level5 hasAnchor" number="2.5.3.2.3">
-<h5><span class="header-section-number">2.5.3.2.3</span> Model’s fit<a href="2.5-LM.html#models-fit" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="2.5-LM.html#cb401-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tab_model</span>(mdl.lm, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl_lm.html&quot;</span>)))</span>
-<span id="cb401-2"><a href="2.5-LM.html#cb401-2" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">&quot;outputs/mdl_lm.html&quot;</span>)</span></code></pre></div>
+<div id="models-fit" class="section level5 hasAnchor" number="2.5.6.2.3">
+<h5><span class="header-section-number">2.5.6.2.3</span> Model’s fit<a href="2.5-LM.html#models-fit" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="2.5-LM.html#cb460-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tab_model</span>(mdl.lm, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl_lm.html&quot;</span>)))</span>
+<span id="cb460-2"><a href="2.5-LM.html#cb460-2" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">&quot;outputs/mdl_lm.html&quot;</span>)</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">&nbsp;</th>
@@ -2558,13 +2804,13 @@ package <code>knitr</code> or <code>xtable</code></p>
 
 </div>
 </div>
-<div id="dissecting-the-model" class="section level4 hasAnchor" number="2.5.3.3">
-<h4><span class="header-section-number">2.5.3.3</span> Dissecting the model<a href="2.5-LM.html#dissecting-the-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="dissecting-the-model" class="section level4 hasAnchor" number="2.5.6.3">
+<h4><span class="header-section-number">2.5.6.3</span> Dissecting the model<a href="2.5-LM.html#dissecting-the-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Let us dissect the model. If you use “str”, you will be able to see what
 is available under our linear model. To access some info from the model</p>
-<div id="str-and-coef" class="section level5 hasAnchor" number="2.5.3.3.1">
-<h5><span class="header-section-number">2.5.3.3.1</span> “str” and “coef”<a href="2.5-LM.html#str-and-coef" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="2.5-LM.html#cb402-1" tabindex="-1"></a><span class="fu">str</span>(mdl.lm)</span></code></pre></div>
+<div id="str-and-coef" class="section level5 hasAnchor" number="2.5.6.3.1">
+<h5><span class="header-section-number">2.5.6.3.1</span> “str” and “coef”<a href="2.5-LM.html#str-and-coef" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="2.5-LM.html#cb461-1" tabindex="-1"></a><span class="fu">str</span>(mdl.lm)</span></code></pre></div>
 <pre><code>## List of 13
 ##  $ coefficients : Named num [1:2] 6.439 0.222
 ##   ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;(Intercept)&quot; &quot;AgeSubjectold&quot;
@@ -2605,7 +2851,7 @@ is available under our linear model. To access some info from the model</p>
 ##   .. ..- attr(*, &quot;order&quot;)= int 1
 ##   .. ..- attr(*, &quot;intercept&quot;)= int 1
 ##   .. ..- attr(*, &quot;response&quot;)= int 1
-##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x00000177bd07beb0&gt; 
+##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x000002c38cd41770&gt; 
 ##   .. ..- attr(*, &quot;predvars&quot;)= language list(RTlexdec, AgeSubject)
 ##   .. ..- attr(*, &quot;dataClasses&quot;)= Named chr [1:2] &quot;numeric&quot; &quot;factor&quot;
 ##   .. .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;RTlexdec&quot; &quot;AgeSubject&quot;
@@ -2622,86 +2868,86 @@ is available under our linear model. To access some info from the model</p>
 ##   .. .. ..- attr(*, &quot;order&quot;)= int 1
 ##   .. .. ..- attr(*, &quot;intercept&quot;)= int 1
 ##   .. .. ..- attr(*, &quot;response&quot;)= int 1
-##   .. .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x00000177bd07beb0&gt; 
+##   .. .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x000002c38cd41770&gt; 
 ##   .. .. ..- attr(*, &quot;predvars&quot;)= language list(RTlexdec, AgeSubject)
 ##   .. .. ..- attr(*, &quot;dataClasses&quot;)= Named chr [1:2] &quot;numeric&quot; &quot;factor&quot;
 ##   .. .. .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;RTlexdec&quot; &quot;AgeSubject&quot;
 ##  - attr(*, &quot;class&quot;)= chr &quot;lm&quot;</code></pre>
-<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="2.5-LM.html#cb404-1" tabindex="-1"></a><span class="fu">coef</span>(mdl.lm)</span></code></pre></div>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="2.5-LM.html#cb463-1" tabindex="-1"></a><span class="fu">coef</span>(mdl.lm)</span></code></pre></div>
 <pre><code>##   (Intercept) AgeSubjectold 
 ##     6.4392366     0.2217215</code></pre>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="2.5-LM.html#cb406-1" tabindex="-1"></a><span class="do">## same as </span></span>
-<span id="cb406-2"><a href="2.5-LM.html#cb406-2" tabindex="-1"></a><span class="do">## mdl.lm$coefficients</span></span></code></pre></div>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="2.5-LM.html#cb465-1" tabindex="-1"></a><span class="do">## same as </span></span>
+<span id="cb465-2"><a href="2.5-LM.html#cb465-2" tabindex="-1"></a><span class="do">## mdl.lm$coefficients</span></span></code></pre></div>
 </div>
-<div id="coef-and-coefficients" class="section level5 hasAnchor" number="2.5.3.3.2">
-<h5><span class="header-section-number">2.5.3.3.2</span> “coef” and “coefficients”<a href="2.5-LM.html#coef-and-coefficients" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="coef-and-coefficients" class="section level5 hasAnchor" number="2.5.6.3.2">
+<h5><span class="header-section-number">2.5.6.3.2</span> “coef” and “coefficients”<a href="2.5-LM.html#coef-and-coefficients" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>What if I want to obtain the “Intercept”? Or the coefficient for
 distance? What if I want the full row for distance?</p>
-<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="2.5-LM.html#cb407-1" tabindex="-1"></a><span class="fu">coef</span>(mdl.lm)[<span class="dv">1</span>] <span class="co"># same as mdl.lm$coefficients[1]</span></span></code></pre></div>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="2.5-LM.html#cb466-1" tabindex="-1"></a><span class="fu">coef</span>(mdl.lm)[<span class="dv">1</span>] <span class="co"># same as mdl.lm$coefficients[1]</span></span></code></pre></div>
 <pre><code>## (Intercept) 
 ##    6.439237</code></pre>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="2.5-LM.html#cb409-1" tabindex="-1"></a><span class="fu">coef</span>(mdl.lm)[<span class="dv">2</span>] <span class="co"># same as mdl.lm$coefficients[2]</span></span></code></pre></div>
+<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="2.5-LM.html#cb468-1" tabindex="-1"></a><span class="fu">coef</span>(mdl.lm)[<span class="dv">2</span>] <span class="co"># same as mdl.lm$coefficients[2]</span></span></code></pre></div>
 <pre><code>## AgeSubjectold 
 ##     0.2217215</code></pre>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="2.5-LM.html#cb411-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.lm)<span class="sc">$</span>coefficients[<span class="dv">2</span>, ] <span class="co"># full row</span></span></code></pre></div>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="2.5-LM.html#cb470-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.lm)<span class="sc">$</span>coefficients[<span class="dv">2</span>, ] <span class="co"># full row</span></span></code></pre></div>
 <pre><code>##    Estimate  Std. Error     t value    Pr(&gt;|t|) 
 ##  0.22172146  0.00328631 67.46820211  0.00000000</code></pre>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="2.5-LM.html#cb413-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.lm)<span class="sc">$</span>coefficients[<span class="dv">2</span>, <span class="dv">4</span>] <span class="co">#for p value</span></span></code></pre></div>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="2.5-LM.html#cb472-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.lm)<span class="sc">$</span>coefficients[<span class="dv">2</span>, <span class="dv">4</span>] <span class="co">#for p value</span></span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
 </div>
-<div id="residuals" class="section level5 hasAnchor" number="2.5.3.3.3">
-<h5><span class="header-section-number">2.5.3.3.3</span> Residuals<a href="2.5-LM.html#residuals" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="residuals" class="section level5 hasAnchor" number="2.5.6.3.3">
+<h5><span class="header-section-number">2.5.6.3.3</span> Residuals<a href="2.5-LM.html#residuals" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>What about residuals (difference between the observed value and the
 estimated value of the quantity) and fitted values? This allows us to
 evaluate how normal our residuals are and how different they are from a
 normal distribution.</p>
-<div id="histogram" class="section level6 hasAnchor" number="2.5.3.3.3.1">
-<h6><span class="header-section-number">2.5.3.3.3.1</span> Histogram<a href="2.5-LM.html#histogram" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="2.5-LM.html#cb415-1" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">residuals</span>(mdl.lm))</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-160-1.png" width="672" /></p>
+<div id="histogram" class="section level6 hasAnchor" number="2.5.6.3.3.1">
+<h6><span class="header-section-number">2.5.6.3.3.1</span> Histogram<a href="2.5-LM.html#histogram" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="2.5-LM.html#cb474-1" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">residuals</span>(mdl.lm))</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-178-1.png" width="672" /></p>
 </div>
-<div id="qqplots" class="section level6 hasAnchor" number="2.5.3.3.3.2">
-<h6><span class="header-section-number">2.5.3.3.3.2</span> qqplots<a href="2.5-LM.html#qqplots" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="2.5-LM.html#cb416-1" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(mdl.lm)); <span class="fu">qqline</span>(<span class="fu">residuals</span>(mdl.lm))</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-161-1.png" width="672" /></p>
+<div id="qqplots" class="section level6 hasAnchor" number="2.5.6.3.3.2">
+<h6><span class="header-section-number">2.5.6.3.3.2</span> qqplots<a href="2.5-LM.html#qqplots" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="2.5-LM.html#cb475-1" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(mdl.lm)); <span class="fu">qqline</span>(<span class="fu">residuals</span>(mdl.lm))</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-179-1.png" width="672" /></p>
 </div>
-<div id="residuals-vs-fitted-values" class="section level6 hasAnchor" number="2.5.3.3.3.3">
-<h6><span class="header-section-number">2.5.3.3.3.3</span> Residuals vs fitted values<a href="2.5-LM.html#residuals-vs-fitted-values" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="2.5-LM.html#cb417-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">fitted</span>(mdl.lm), <span class="fu">residuals</span>(mdl.lm), <span class="at">cex =</span> <span class="dv">4</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-162-1.png" width="672" /></p>
+<div id="residuals-vs-fitted-values" class="section level6 hasAnchor" number="2.5.6.3.3.3">
+<h6><span class="header-section-number">2.5.6.3.3.3</span> Residuals vs fitted values<a href="2.5-LM.html#residuals-vs-fitted-values" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="2.5-LM.html#cb476-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">fitted</span>(mdl.lm), <span class="fu">residuals</span>(mdl.lm), <span class="at">cex =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-180-1.png" width="672" /></p>
 </div>
-<div id="generating-and-plotting-residual-plot-with-dharma" class="section level6 hasAnchor" number="2.5.3.3.3.4">
-<h6><span class="header-section-number">2.5.3.3.3.4</span> Generating and plotting residual plot with <code>DHARMa</code><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="2.5-LM.html#cb418-1" tabindex="-1"></a>sim_residuals <span class="ot">&lt;-</span> <span class="fu">simulateResiduals</span>(mdl.lm)</span>
-<span id="cb418-2"><a href="2.5-LM.html#cb418-2" tabindex="-1"></a><span class="fu">plot</span>(sim_residuals)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-163-1.png" width="672" /></p>
+<div id="generating-and-plotting-residual-plot-with-dharma" class="section level6 hasAnchor" number="2.5.6.3.3.4">
+<h6><span class="header-section-number">2.5.6.3.3.4</span> Generating and plotting residual plot with <code>DHARMa</code><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="2.5-LM.html#cb477-1" tabindex="-1"></a>sim_residuals <span class="ot">&lt;-</span> <span class="fu">simulateResiduals</span>(mdl.lm)</span>
+<span id="cb477-2"><a href="2.5-LM.html#cb477-2" tabindex="-1"></a><span class="fu">plot</span>(sim_residuals)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-181-1.png" width="672" /></p>
 </div>
 </div>
-<div id="goodness-of-fit" class="section level5 hasAnchor" number="2.5.3.3.4">
-<h5><span class="header-section-number">2.5.3.3.4</span> Goodness of fit?<a href="2.5-LM.html#goodness-of-fit" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="2.5-LM.html#cb419-1" tabindex="-1"></a><span class="fu">AIC</span>(mdl.lm) <span class="co"># Akaike&#39;s Information Criterion, lower values are better</span></span></code></pre></div>
+<div id="goodness-of-fit" class="section level5 hasAnchor" number="2.5.6.3.4">
+<h5><span class="header-section-number">2.5.6.3.4</span> Goodness of fit?<a href="2.5-LM.html#goodness-of-fit" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="2.5-LM.html#cb478-1" tabindex="-1"></a><span class="fu">AIC</span>(mdl.lm) <span class="co"># Akaike&#39;s Information Criterion, lower values are better</span></span></code></pre></div>
 <pre><code>## [1] -7110.962</code></pre>
-<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="2.5-LM.html#cb421-1" tabindex="-1"></a><span class="fu">BIC</span>(mdl.lm) <span class="co"># Bayesian AIC</span></span></code></pre></div>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="2.5-LM.html#cb480-1" tabindex="-1"></a><span class="fu">BIC</span>(mdl.lm) <span class="co"># Bayesian AIC</span></span></code></pre></div>
 <pre><code>## [1] -7091.682</code></pre>
-<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="2.5-LM.html#cb423-1" tabindex="-1"></a><span class="fu">logLik</span>(mdl.lm)  <span class="co"># log likelihood</span></span></code></pre></div>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="2.5-LM.html#cb482-1" tabindex="-1"></a><span class="fu">logLik</span>(mdl.lm)  <span class="co"># log likelihood</span></span></code></pre></div>
 <pre><code>## &#39;log Lik.&#39; 3558.481 (df=3)</code></pre>
 <p>Or use the following from <code>broom</code></p>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="2.5-LM.html#cb425-1" tabindex="-1"></a><span class="fu">glance</span>(mdl.lm)</span></code></pre></div>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="2.5-LM.html#cb484-1" tabindex="-1"></a><span class="fu">glance</span>(mdl.lm)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 12
 ##   r.squared adj.r.squared sigma statistic p.value    df logLik    AIC    BIC
 ##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
 ## 1     0.499         0.499 0.111     4552.       0     1  3558. -7111. -7092.
 ## # ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
 </div>
-<div id="significance-testing" class="section level5 hasAnchor" number="2.5.3.3.5">
-<h5><span class="header-section-number">2.5.3.3.5</span> Significance testing<a href="2.5-LM.html#significance-testing" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="significance-testing" class="section level5 hasAnchor" number="2.5.6.3.5">
+<h5><span class="header-section-number">2.5.6.3.5</span> Significance testing<a href="2.5-LM.html#significance-testing" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Are the above informative? of course not directly. If we want to test
 for overall significance of model. We run a null model (aka intercept
 only) and compare models.</p>
-<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="2.5-LM.html#cb427-1" tabindex="-1"></a>mdl.lm.Null <span class="ot">&lt;-</span> english <span class="sc">%&gt;%</span> </span>
-<span id="cb427-2"><a href="2.5-LM.html#cb427-2" tabindex="-1"></a>  <span class="fu">lm</span>(RTlexdec <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> .)</span>
-<span id="cb427-3"><a href="2.5-LM.html#cb427-3" tabindex="-1"></a>mdl.comp <span class="ot">&lt;-</span> <span class="fu">anova</span>(mdl.lm.Null, mdl.lm)</span>
-<span id="cb427-4"><a href="2.5-LM.html#cb427-4" tabindex="-1"></a>mdl.comp</span></code></pre></div>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="2.5-LM.html#cb486-1" tabindex="-1"></a>mdl.lm.Null <span class="ot">&lt;-</span> english <span class="sc">%&gt;%</span> </span>
+<span id="cb486-2"><a href="2.5-LM.html#cb486-2" tabindex="-1"></a>  <span class="fu">lm</span>(RTlexdec <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> .)</span>
+<span id="cb486-3"><a href="2.5-LM.html#cb486-3" tabindex="-1"></a>mdl.comp <span class="ot">&lt;-</span> <span class="fu">anova</span>(mdl.lm.Null, mdl.lm)</span>
+<span id="cb486-4"><a href="2.5-LM.html#cb486-4" tabindex="-1"></a>mdl.comp</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Model 1: RTlexdec ~ 1
@@ -2720,68 +2966,68 @@ intercept only model (<span class="math inline">\(F\)</span>(1) =
 </div>
 </div>
 </div>
-<div id="plotting-fitted-values" class="section level3 hasAnchor" number="2.5.4">
-<h3><span class="header-section-number">2.5.4</span> Plotting fitted values<a href="2.5-LM.html#plotting-fitted-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="trend-line" class="section level4 hasAnchor" number="2.5.4.1">
-<h4><span class="header-section-number">2.5.4.1</span> Trend line<a href="2.5-LM.html#trend-line" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="plotting-fitted-values" class="section level3 hasAnchor" number="2.5.7">
+<h3><span class="header-section-number">2.5.7</span> Plotting fitted values<a href="2.5-LM.html#plotting-fitted-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="trend-line" class="section level4 hasAnchor" number="2.5.7.1">
+<h4><span class="header-section-number">2.5.7.1</span> Trend line<a href="2.5-LM.html#trend-line" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Let’s plot our fitted values but only for the trend line</p>
-<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="2.5-LM.html#cb429-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
-<span id="cb429-2"><a href="2.5-LM.html#cb429-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> AgeSubject, <span class="at">y =</span> RTlexdec))<span class="sc">+</span></span>
-<span id="cb429-3"><a href="2.5-LM.html#cb429-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()<span class="sc">+</span></span>
-<span id="cb429-4"><a href="2.5-LM.html#cb429-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>))<span class="sc">+</span></span>
-<span id="cb429-5"><a href="2.5-LM.html#cb429-5" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(AgeSubject), <span class="at">y =</span> <span class="fu">predict</span>(mdl.lm)), <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb429-6"><a href="2.5-LM.html#cb429-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Age&quot;</span>, <span class="at">y =</span> <span class="st">&quot;RTLexDec&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Boxplot and predicted trend line&quot;</span>, <span class="at">subtitle =</span> <span class="st">&quot;with ggplot2&quot;</span>) </span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-167-1.png" width="672" /></p>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="2.5-LM.html#cb488-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
+<span id="cb488-2"><a href="2.5-LM.html#cb488-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> AgeSubject, <span class="at">y =</span> RTlexdec))<span class="sc">+</span></span>
+<span id="cb488-3"><a href="2.5-LM.html#cb488-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()<span class="sc">+</span></span>
+<span id="cb488-4"><a href="2.5-LM.html#cb488-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>))<span class="sc">+</span></span>
+<span id="cb488-5"><a href="2.5-LM.html#cb488-5" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(AgeSubject), <span class="at">y =</span> <span class="fu">predict</span>(mdl.lm)), <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb488-6"><a href="2.5-LM.html#cb488-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Age&quot;</span>, <span class="at">y =</span> <span class="st">&quot;RTLexDec&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Boxplot and predicted trend line&quot;</span>, <span class="at">subtitle =</span> <span class="st">&quot;with ggplot2&quot;</span>) </span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-185-1.png" width="672" /></p>
 <p>This allows us to plot the fitted values from our model with the
 predicted linear trend. This is exactly the same as our original data.</p>
 </div>
-<div id="predicted-means-and-the-trend-line" class="section level4 hasAnchor" number="2.5.4.2">
-<h4><span class="header-section-number">2.5.4.2</span> Predicted means and the trend line<a href="2.5-LM.html#predicted-means-and-the-trend-line" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="predicted-means-and-the-trend-line" class="section level4 hasAnchor" number="2.5.7.2">
+<h4><span class="header-section-number">2.5.7.2</span> Predicted means and the trend line<a href="2.5-LM.html#predicted-means-and-the-trend-line" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We can also plot the predicted means and linear trend</p>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="2.5-LM.html#cb430-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
-<span id="cb430-2"><a href="2.5-LM.html#cb430-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> AgeSubject, <span class="at">y =</span> <span class="fu">predict</span>(mdl.lm)))<span class="sc">+</span></span>
-<span id="cb430-3"><a href="2.5-LM.html#cb430-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb430-4"><a href="2.5-LM.html#cb430-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>)) <span class="sc">+</span></span>
-<span id="cb430-5"><a href="2.5-LM.html#cb430-5" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(AgeSubject), <span class="at">y =</span> <span class="fu">predict</span>(mdl.lm)), <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb430-6"><a href="2.5-LM.html#cb430-6" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Age&quot;</span>, <span class="at">y =</span> <span class="st">&quot;RTLexDec&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Predicted means and trend line&quot;</span>, <span class="at">subtitle =</span> <span class="st">&quot;with ggplot2&quot;</span>) </span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-168-1.png" width="672" /></p>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="2.5-LM.html#cb489-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
+<span id="cb489-2"><a href="2.5-LM.html#cb489-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> AgeSubject, <span class="at">y =</span> <span class="fu">predict</span>(mdl.lm)))<span class="sc">+</span></span>
+<span id="cb489-3"><a href="2.5-LM.html#cb489-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb489-4"><a href="2.5-LM.html#cb489-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>)) <span class="sc">+</span></span>
+<span id="cb489-5"><a href="2.5-LM.html#cb489-5" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(AgeSubject), <span class="at">y =</span> <span class="fu">predict</span>(mdl.lm)), <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb489-6"><a href="2.5-LM.html#cb489-6" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Age&quot;</span>, <span class="at">y =</span> <span class="st">&quot;RTLexDec&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Predicted means and trend line&quot;</span>, <span class="at">subtitle =</span> <span class="st">&quot;with ggplot2&quot;</span>) </span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-186-1.png" width="672" /></p>
 </div>
-<div id="raw-data-predicted-means-and-the-trend-line" class="section level4 hasAnchor" number="2.5.4.3">
-<h4><span class="header-section-number">2.5.4.3</span> Raw data, predicted means and the trend line<a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="raw-data-predicted-means-and-the-trend-line" class="section level4 hasAnchor" number="2.5.7.3">
+<h4><span class="header-section-number">2.5.7.3</span> Raw data, predicted means and the trend line<a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We can also plot the actual data, the predicted means and linear trend</p>
-<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="2.5-LM.html#cb431-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
-<span id="cb431-2"><a href="2.5-LM.html#cb431-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> AgeSubject, <span class="at">y =</span> RTlexdec))<span class="sc">+</span></span>
-<span id="cb431-3"><a href="2.5-LM.html#cb431-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb431-4"><a href="2.5-LM.html#cb431-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> AgeSubject, <span class="at">y =</span> <span class="fu">predict</span>(mdl.lm)), <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb431-5"><a href="2.5-LM.html#cb431-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>)) <span class="sc">+</span></span>
-<span id="cb431-6"><a href="2.5-LM.html#cb431-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(AgeSubject), <span class="at">y =</span> <span class="fu">predict</span>(mdl.lm)), <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb431-7"><a href="2.5-LM.html#cb431-7" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Length&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Boxplot raw data, predicted means (in blue) and trend line&quot;</span>, <span class="at">subtitle =</span> <span class="st">&quot;with ggplot2&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-169-1.png" width="672" /></p>
+<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="2.5-LM.html#cb490-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
+<span id="cb490-2"><a href="2.5-LM.html#cb490-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> AgeSubject, <span class="at">y =</span> RTlexdec))<span class="sc">+</span></span>
+<span id="cb490-3"><a href="2.5-LM.html#cb490-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb490-4"><a href="2.5-LM.html#cb490-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> AgeSubject, <span class="at">y =</span> <span class="fu">predict</span>(mdl.lm)), <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb490-5"><a href="2.5-LM.html#cb490-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>)) <span class="sc">+</span></span>
+<span id="cb490-6"><a href="2.5-LM.html#cb490-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(AgeSubject), <span class="at">y =</span> <span class="fu">predict</span>(mdl.lm)), <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb490-7"><a href="2.5-LM.html#cb490-7" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Length&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Boxplot raw data, predicted means (in blue) and trend line&quot;</span>, <span class="at">subtitle =</span> <span class="st">&quot;with ggplot2&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-187-1.png" width="672" /></p>
 </div>
-<div id="add-significance-levels-and-trend-line-on-a-plot" class="section level4 hasAnchor" number="2.5.4.4">
-<h4><span class="header-section-number">2.5.4.4</span> Add significance levels and trend line on a plot?<a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="add-significance-levels-and-trend-line-on-a-plot" class="section level4 hasAnchor" number="2.5.7.4">
+<h4><span class="header-section-number">2.5.7.4</span> Add significance levels and trend line on a plot?<a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We can use the p values generated from either our linear model to add
 significance levels on a plot. We use the code from above and add the
 significance level. We also add a trend line</p>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="2.5-LM.html#cb432-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
-<span id="cb432-2"><a href="2.5-LM.html#cb432-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> AgeSubject, <span class="at">y =</span> RTlexdec))<span class="sc">+</span></span>
-<span id="cb432-3"><a href="2.5-LM.html#cb432-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb432-4"><a href="2.5-LM.html#cb432-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> AgeSubject, <span class="at">y =</span> <span class="fu">predict</span>(mdl.lm)), <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb432-5"><a href="2.5-LM.html#cb432-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>)) <span class="sc">+</span></span>
-<span id="cb432-6"><a href="2.5-LM.html#cb432-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(AgeSubject), <span class="at">y =</span> <span class="fu">predict</span>(mdl.lm)), <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb432-7"><a href="2.5-LM.html#cb432-7" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Length&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Boxplot raw data, predicted means (in blue) and trend line&quot;</span>, <span class="at">subtitle =</span> <span class="st">&quot;with significance testing&quot;</span>) <span class="sc">+</span></span>
-<span id="cb432-8"><a href="2.5-LM.html#cb432-8" tabindex="-1"></a>    <span class="fu">geom_signif</span>(<span class="at">comparison =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;old&quot;</span>, <span class="st">&quot;young&quot;</span>)), </span>
-<span id="cb432-9"><a href="2.5-LM.html#cb432-9" tabindex="-1"></a>              <span class="at">map_signif_level =</span> <span class="cn">TRUE</span>, <span class="at">test =</span> <span class="cf">function</span>(a, b) {</span>
-<span id="cb432-10"><a href="2.5-LM.html#cb432-10" tabindex="-1"></a>                <span class="fu">list</span>(<span class="at">p.value =</span> <span class="fu">summary</span>(mdl.lm)<span class="sc">$</span>coefficients[<span class="dv">2</span>, <span class="dv">4</span>])})</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-170-1.png" width="672" /></p>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="2.5-LM.html#cb491-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
+<span id="cb491-2"><a href="2.5-LM.html#cb491-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> AgeSubject, <span class="at">y =</span> RTlexdec))<span class="sc">+</span></span>
+<span id="cb491-3"><a href="2.5-LM.html#cb491-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb491-4"><a href="2.5-LM.html#cb491-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> AgeSubject, <span class="at">y =</span> <span class="fu">predict</span>(mdl.lm)), <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb491-5"><a href="2.5-LM.html#cb491-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>)) <span class="sc">+</span></span>
+<span id="cb491-6"><a href="2.5-LM.html#cb491-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(AgeSubject), <span class="at">y =</span> <span class="fu">predict</span>(mdl.lm)), <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb491-7"><a href="2.5-LM.html#cb491-7" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Length&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Boxplot raw data, predicted means (in blue) and trend line&quot;</span>, <span class="at">subtitle =</span> <span class="st">&quot;with significance testing&quot;</span>) <span class="sc">+</span></span>
+<span id="cb491-8"><a href="2.5-LM.html#cb491-8" tabindex="-1"></a>    <span class="fu">geom_signif</span>(<span class="at">comparison =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;old&quot;</span>, <span class="st">&quot;young&quot;</span>)), </span>
+<span id="cb491-9"><a href="2.5-LM.html#cb491-9" tabindex="-1"></a>              <span class="at">map_signif_level =</span> <span class="cn">TRUE</span>, <span class="at">test =</span> <span class="cf">function</span>(a, b) {</span>
+<span id="cb491-10"><a href="2.5-LM.html#cb491-10" tabindex="-1"></a>                <span class="fu">list</span>(<span class="at">p.value =</span> <span class="fu">summary</span>(mdl.lm)<span class="sc">$</span>coefficients[<span class="dv">2</span>, <span class="dv">4</span>])})</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-188-1.png" width="672" /></p>
 </div>
 </div>
-<div id="what-about-pairwise-comparison" class="section level3 hasAnchor" number="2.5.5">
-<h3><span class="header-section-number">2.5.5</span> What about pairwise comparison?<a href="2.5-LM.html#what-about-pairwise-comparison" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="what-about-pairwise-comparison" class="section level3 hasAnchor" number="2.5.8">
+<h3><span class="header-section-number">2.5.8</span> What about pairwise comparison?<a href="2.5-LM.html#what-about-pairwise-comparison" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When having three of more levels in our predictor, we can use pairwise
 comparisons, with corrections to evaluate differences between each
 level.</p>
-<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="2.5-LM.html#cb433-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.lm)</span></code></pre></div>
+<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="2.5-LM.html#cb492-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.lm)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = RTlexdec ~ AgeSubject, data = .)
@@ -2800,8 +3046,8 @@ level.</p>
 ## Residual standard error: 0.1111 on 4566 degrees of freedom
 ## Multiple R-squared:  0.4992, Adjusted R-squared:  0.4991 
 ## F-statistic:  4552 on 1 and 4566 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="2.5-LM.html#cb435-1" tabindex="-1"></a>mdl.lm <span class="sc">%&gt;%</span> <span class="fu">emmeans</span>(pairwise <span class="sc">~</span> AgeSubject, <span class="at">adjust =</span> <span class="st">&quot;fdr&quot;</span>) <span class="ot">-&gt;</span> mdl.emmeans</span>
-<span id="cb435-2"><a href="2.5-LM.html#cb435-2" tabindex="-1"></a>mdl.emmeans</span></code></pre></div>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="2.5-LM.html#cb494-1" tabindex="-1"></a>mdl.lm <span class="sc">%&gt;%</span> <span class="fu">emmeans</span>(pairwise <span class="sc">~</span> AgeSubject, <span class="at">adjust =</span> <span class="st">&quot;fdr&quot;</span>) <span class="ot">-&gt;</span> mdl.emmeans</span>
+<span id="cb494-2"><a href="2.5-LM.html#cb494-2" tabindex="-1"></a>mdl.emmeans</span></code></pre></div>
 <pre><code>## $emmeans
 ##  AgeSubject emmean      SE   df lower.CL upper.CL
 ##  young       6.439 0.00232 4566    6.435    6.444
@@ -2817,14 +3063,14 @@ the group.</p>
 <p>Hint… Look at the emmeans values for each level of our factor
 “Species” and the contrasts.</p>
 </div>
-<div id="multiple-predictors" class="section level3 hasAnchor" number="2.5.6">
-<h3><span class="header-section-number">2.5.6</span> Multiple predictors?<a href="2.5-LM.html#multiple-predictors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="multiple-predictors" class="section level3 hasAnchor" number="2.5.9">
+<h3><span class="header-section-number">2.5.9</span> Multiple predictors?<a href="2.5-LM.html#multiple-predictors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Linear models require a numeric outcome, but the predictor can be either
 numeric or a factor. We can have more than one predictor. The only issue
 is that this complicates the interpretation of results</p>
-<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="2.5-LM.html#cb437-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
-<span id="cb437-2"><a href="2.5-LM.html#cb437-2" tabindex="-1"></a>  <span class="fu">lm</span>(RTlexdec <span class="sc">~</span> AgeSubject <span class="sc">*</span> WordCategory, <span class="at">data =</span> .) <span class="sc">%&gt;%</span> </span>
-<span id="cb437-3"><a href="2.5-LM.html#cb437-3" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="2.5-LM.html#cb496-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
+<span id="cb496-2"><a href="2.5-LM.html#cb496-2" tabindex="-1"></a>  <span class="fu">lm</span>(RTlexdec <span class="sc">~</span> AgeSubject <span class="sc">*</span> WordCategory, <span class="at">data =</span> .) <span class="sc">%&gt;%</span> </span>
+<span id="cb496-3"><a href="2.5-LM.html#cb496-3" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = RTlexdec ~ AgeSubject * WordCategory, data = .)
@@ -2846,9 +3092,9 @@ is that this complicates the interpretation of results</p>
 ## Multiple R-squared:  0.5008, Adjusted R-squared:  0.5005 
 ## F-statistic:  1526 on 3 and 4564 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>And with an Anova</p>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="2.5-LM.html#cb439-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
-<span id="cb439-2"><a href="2.5-LM.html#cb439-2" tabindex="-1"></a>  <span class="fu">lm</span>(RTlexdec <span class="sc">~</span> AgeSubject <span class="sc">*</span> WordCategory, <span class="at">data =</span> .) <span class="sc">%&gt;%</span> </span>
-<span id="cb439-3"><a href="2.5-LM.html#cb439-3" tabindex="-1"></a>  <span class="fu">anova</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="2.5-LM.html#cb498-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
+<span id="cb498-2"><a href="2.5-LM.html#cb498-2" tabindex="-1"></a>  <span class="fu">lm</span>(RTlexdec <span class="sc">~</span> AgeSubject <span class="sc">*</span> WordCategory, <span class="at">data =</span> .) <span class="sc">%&gt;%</span> </span>
+<span id="cb498-3"><a href="2.5-LM.html#cb498-3" tabindex="-1"></a>  <span class="fu">anova</span>()</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: RTlexdec

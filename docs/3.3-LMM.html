@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-10" />
+<meta name="date" content="2025-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,8 +55,9 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -377,17 +378,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-and-sample-size"><i class="fa fa-check"></i><b>2.3.2</b> Power analysis and sample size</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.1</b> Linear model</a>
+<li class="chapter" data-level="2.3.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-interpretation-rules-and-t.test"><i class="fa fa-check"></i><b>2.3.2.1</b> Cohen’s <em>d</em> interpretation rules and t.test</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.1.1</b> General example</a>
+<li class="chapter" data-level="2.3.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#pwr.t.test---one-sample-and-two-sample-t-tests-for-means"><i class="fa fa-check"></i><b>2.3.2.1.1</b> pwr.t.test - one-sample and two-sample t tests for means</a></li>
+<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#cohens-d-effect-size"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Cohen’s <em>d</em> effect size</a></li>
+<li class="chapter" data-level="2.3.2.1.3" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#plots"><i class="fa fa-check"></i><b>2.3.2.1.3</b> Plots</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.1.1.1</b> Power of the test</a></li>
-<li class="chapter" data-level="2.3.2.1.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.1.1.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.1.3.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.05"><i class="fa fa-check"></i><b>2.3.2.1.3.1</b> p &lt; 0.05</a></li>
+<li class="chapter" data-level="2.3.2.1.3.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#p-0.01"><i class="fa fa-check"></i><b>2.3.2.1.3.2</b> p &lt; 0.01</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.1.2</b> Using our LM model</a>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#linear-model-1"><i class="fa fa-check"></i><b>2.3.2.2</b> Linear model</a>
 <ul>
-<li class="chapter" data-level="2.3.2.1.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.1.2.1</b> Power analysis from our model</a></li>
-<li class="chapter" data-level="2.3.2.1.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.1.2.2</b> Sample size</a></li>
+<li class="chapter" data-level="2.3.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#general-example"><i class="fa fa-check"></i><b>2.3.2.2.1</b> General example</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.1.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-of-the-test"><i class="fa fa-check"></i><b>2.3.2.2.1.1</b> Power of the test</a></li>
+<li class="chapter" data-level="2.3.2.2.1.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size"><i class="fa fa-check"></i><b>2.3.2.2.1.2</b> Sample size</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#using-our-lm-model"><i class="fa fa-check"></i><b>2.3.2.2.2</b> Using our LM model</a>
+<ul>
+<li class="chapter" data-level="2.3.2.2.2.1" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#power-analysis-from-our-model"><i class="fa fa-check"></i><b>2.3.2.2.2.1</b> Power analysis from our model</a></li>
+<li class="chapter" data-level="2.3.2.2.2.2" data-path="2.3-effect-size-and-power-analysis.html"><a href="2.3-effect-size-and-power-analysis.html#sample-size-1"><i class="fa fa-check"></i><b>2.3.2.2.2.2</b> Sample size</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -404,53 +415,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="2.5-LM.html"><a href="2.5-LM.html"><i class="fa fa-check"></i><b>2.5</b> Linear Models</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-3"><i class="fa fa-check"></i><b>2.5.1</b> Introduction</a>
+<li class="chapter" data-level="2.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#normality-of-distribution"><i class="fa fa-check"></i><b>2.5.1</b> Normality of distribution</a>
 <ul>
-<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.1.1</b> Model estimation</a></li>
+<li class="chapter" data-level="2.5.1.1" data-path="2.5-LM.html"><a href="2.5-LM.html#shapiro-test"><i class="fa fa-check"></i><b>2.5.1.1</b> Shapiro test</a></li>
+<li class="chapter" data-level="2.5.1.2" data-path="2.5-LM.html"><a href="2.5-LM.html#density-plot"><i class="fa fa-check"></i><b>2.5.1.2</b> Density plot</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.2</b> Role of coding schemes</a>
+<li class="chapter" data-level="2.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#homogeneity-of-variance"><i class="fa fa-check"></i><b>2.5.2</b> Homogeneity of variance</a>
 <ul>
-<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.2.1</b> Intro</a></li>
-<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.2.2</b> Treatment coding</a></li>
-<li class="chapter" data-level="2.5.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.2.3</b> Contrast (or sum) coding</a>
+<li class="chapter" data-level="2.5.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#bartlett-test"><i class="fa fa-check"></i><b>2.5.2.1</b> Bartlett test</a></li>
+<li class="chapter" data-level="2.5.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#levene-test"><i class="fa fa-check"></i><b>2.5.2.2</b> Levene test</a>
 <ul>
-<li class="chapter" data-level="2.5.2.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.2.3.1</b> Default</a></li>
-<li class="chapter" data-level="2.5.2.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.2.3.2</b> Modified</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.3</b> Further steps</a>
-<ul>
-<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.3.1</b> Tidying the output</a></li>
-<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.3.2</b> Nice table of our model summary</a>
-<ul>
-<li class="chapter" data-level="2.5.3.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.3.2.1</b> Directly from model summary</a></li>
-<li class="chapter" data-level="2.5.3.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.3.2.2</b> From the <code>tidy</code> output</a></li>
-<li class="chapter" data-level="2.5.3.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.3.2.3</b> Model’s fit</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.3.3</b> Dissecting the model</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.3.3.1</b> “str” and “coef”</a></li>
-<li class="chapter" data-level="2.5.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.3.3.2</b> “coef” and “coefficients”</a></li>
-<li class="chapter" data-level="2.5.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.3.3.3</b> Residuals</a>
-<ul>
-<li class="chapter" data-level="2.5.3.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.3.3.3.1</b> Histogram</a></li>
-<li class="chapter" data-level="2.5.3.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.3.3.3.2</b> qqplots</a></li>
-<li class="chapter" data-level="2.5.3.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.3.3.3.3</b> Residuals vs fitted values</a></li>
-<li class="chapter" data-level="2.5.3.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.3.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
-</ul></li>
-<li class="chapter" data-level="2.5.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.3.3.4</b> Goodness of fit?</a></li>
-<li class="chapter" data-level="2.5.3.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.3.3.5</b> Significance testing</a></li>
+<li class="chapter" data-level="2.5.2.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#base-r"><i class="fa fa-check"></i><b>2.5.2.2.1</b> Base R</a></li>
+<li class="chapter" data-level="2.5.2.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-car-package"><i class="fa fa-check"></i><b>2.5.2.2.2</b> From the <code>car</code> package</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.4</b> Plotting fitted values</a>
+<li class="chapter" data-level="2.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#first-steps-3"><i class="fa fa-check"></i><b>2.5.3</b> First steps</a>
 <ul>
-<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.4.1</b> Trend line</a></li>
-<li class="chapter" data-level="2.5.4.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.2</b> Predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.4.3</b> Raw data, predicted means and the trend line</a></li>
-<li class="chapter" data-level="2.5.4.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.4.4</b> Add significance levels and trend line on a plot?</a></li>
+<li class="chapter" data-level="2.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#t-test"><i class="fa fa-check"></i><b>2.5.3.1</b> T-test</a></li>
+<li class="chapter" data-level="2.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-2"><i class="fa fa-check"></i><b>2.5.3.2</b> Linear Model</a></li>
+<li class="chapter" data-level="2.5.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#basic-anova"><i class="fa fa-check"></i><b>2.5.3.3</b> Basic ANOVA</a></li>
+<li class="chapter" data-level="2.5.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#linear-model-3"><i class="fa fa-check"></i><b>2.5.3.4</b> Linear model</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.5</b> What about pairwise comparison?</a></li>
-<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.6</b> Multiple predictors?</a></li>
+<li class="chapter" data-level="2.5.4" data-path="2.5-LM.html"><a href="2.5-LM.html#introduction-to-linear-models"><i class="fa fa-check"></i><b>2.5.4</b> Introduction to Linear models</a>
+<ul>
+<li class="chapter" data-level="2.5.4.1" data-path="2.5-LM.html"><a href="2.5-LM.html#model-estimation"><i class="fa fa-check"></i><b>2.5.4.1</b> Model estimation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.5" data-path="2.5-LM.html"><a href="2.5-LM.html#role-of-coding-schemes"><i class="fa fa-check"></i><b>2.5.5</b> Role of coding schemes</a>
+<ul>
+<li class="chapter" data-level="2.5.5.1" data-path="2.5-LM.html"><a href="2.5-LM.html#intro-1"><i class="fa fa-check"></i><b>2.5.5.1</b> Intro</a></li>
+<li class="chapter" data-level="2.5.5.2" data-path="2.5-LM.html"><a href="2.5-LM.html#treatment-coding"><i class="fa fa-check"></i><b>2.5.5.2</b> Treatment coding</a></li>
+<li class="chapter" data-level="2.5.5.3" data-path="2.5-LM.html"><a href="2.5-LM.html#contrast-or-sum-coding"><i class="fa fa-check"></i><b>2.5.5.3</b> Contrast (or sum) coding</a>
+<ul>
+<li class="chapter" data-level="2.5.5.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#default"><i class="fa fa-check"></i><b>2.5.5.3.1</b> Default</a></li>
+<li class="chapter" data-level="2.5.5.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#modified"><i class="fa fa-check"></i><b>2.5.5.3.2</b> Modified</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6" data-path="2.5-LM.html"><a href="2.5-LM.html#further-steps"><i class="fa fa-check"></i><b>2.5.6</b> Further steps</a>
+<ul>
+<li class="chapter" data-level="2.5.6.1" data-path="2.5-LM.html"><a href="2.5-LM.html#tidying-the-output"><i class="fa fa-check"></i><b>2.5.6.1</b> Tidying the output</a></li>
+<li class="chapter" data-level="2.5.6.2" data-path="2.5-LM.html"><a href="2.5-LM.html#nice-table-of-our-model-summary"><i class="fa fa-check"></i><b>2.5.6.2</b> Nice table of our model summary</a>
+<ul>
+<li class="chapter" data-level="2.5.6.2.1" data-path="2.5-LM.html"><a href="2.5-LM.html#directly-from-model-summary"><i class="fa fa-check"></i><b>2.5.6.2.1</b> Directly from model summary</a></li>
+<li class="chapter" data-level="2.5.6.2.2" data-path="2.5-LM.html"><a href="2.5-LM.html#from-the-tidy-output"><i class="fa fa-check"></i><b>2.5.6.2.2</b> From the <code>tidy</code> output</a></li>
+<li class="chapter" data-level="2.5.6.2.3" data-path="2.5-LM.html"><a href="2.5-LM.html#models-fit"><i class="fa fa-check"></i><b>2.5.6.2.3</b> Model’s fit</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3" data-path="2.5-LM.html"><a href="2.5-LM.html#dissecting-the-model"><i class="fa fa-check"></i><b>2.5.6.3</b> Dissecting the model</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#str-and-coef"><i class="fa fa-check"></i><b>2.5.6.3.1</b> “str” and “coef”</a></li>
+<li class="chapter" data-level="2.5.6.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#coef-and-coefficients"><i class="fa fa-check"></i><b>2.5.6.3.2</b> “coef” and “coefficients”</a></li>
+<li class="chapter" data-level="2.5.6.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals"><i class="fa fa-check"></i><b>2.5.6.3.3</b> Residuals</a>
+<ul>
+<li class="chapter" data-level="2.5.6.3.3.1" data-path="2.5-LM.html"><a href="2.5-LM.html#histogram"><i class="fa fa-check"></i><b>2.5.6.3.3.1</b> Histogram</a></li>
+<li class="chapter" data-level="2.5.6.3.3.2" data-path="2.5-LM.html"><a href="2.5-LM.html#qqplots"><i class="fa fa-check"></i><b>2.5.6.3.3.2</b> qqplots</a></li>
+<li class="chapter" data-level="2.5.6.3.3.3" data-path="2.5-LM.html"><a href="2.5-LM.html#residuals-vs-fitted-values"><i class="fa fa-check"></i><b>2.5.6.3.3.3</b> Residuals vs fitted values</a></li>
+<li class="chapter" data-level="2.5.6.3.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#generating-and-plotting-residual-plot-with-dharma"><i class="fa fa-check"></i><b>2.5.6.3.3.4</b> Generating and plotting residual plot with <code>DHARMa</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.6.3.4" data-path="2.5-LM.html"><a href="2.5-LM.html#goodness-of-fit"><i class="fa fa-check"></i><b>2.5.6.3.4</b> Goodness of fit?</a></li>
+<li class="chapter" data-level="2.5.6.3.5" data-path="2.5-LM.html"><a href="2.5-LM.html#significance-testing"><i class="fa fa-check"></i><b>2.5.6.3.5</b> Significance testing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.5.7" data-path="2.5-LM.html"><a href="2.5-LM.html#plotting-fitted-values"><i class="fa fa-check"></i><b>2.5.7</b> Plotting fitted values</a>
+<ul>
+<li class="chapter" data-level="2.5.7.1" data-path="2.5-LM.html"><a href="2.5-LM.html#trend-line"><i class="fa fa-check"></i><b>2.5.7.1</b> Trend line</a></li>
+<li class="chapter" data-level="2.5.7.2" data-path="2.5-LM.html"><a href="2.5-LM.html#predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.2</b> Predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.3" data-path="2.5-LM.html"><a href="2.5-LM.html#raw-data-predicted-means-and-the-trend-line"><i class="fa fa-check"></i><b>2.5.7.3</b> Raw data, predicted means and the trend line</a></li>
+<li class="chapter" data-level="2.5.7.4" data-path="2.5-LM.html"><a href="2.5-LM.html#add-significance-levels-and-trend-line-on-a-plot"><i class="fa fa-check"></i><b>2.5.7.4</b> Add significance levels and trend line on a plot?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5.8" data-path="2.5-LM.html"><a href="2.5-LM.html#what-about-pairwise-comparison"><i class="fa fa-check"></i><b>2.5.8</b> What about pairwise comparison?</a></li>
+<li class="chapter" data-level="2.5.9" data-path="2.5-LM.html"><a href="2.5-LM.html#multiple-predictors"><i class="fa fa-check"></i><b>2.5.9</b> Multiple predictors?</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html"><i class="fa fa-check"></i><b>2.6</b> Generalised Linear Models</a>
 <ul>
@@ -620,7 +652,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.3.4.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#subject-random-effects"><i class="fa fa-check"></i><b>3.3.4.1</b> Subject random effects</a></li>
 <li class="chapter" data-level="3.3.4.2" data-path="3.3-LMM.html"><a href="3.3-LMM.html#items-random-effects"><i class="fa fa-check"></i><b>3.3.4.2</b> Items random effects</a></li>
-<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
+<li class="chapter" data-level="3.3.4.3" data-path="3.3-LMM.html"><a href="3.3-LMM.html#plots-1"><i class="fa fa-check"></i><b>3.3.4.3</b> Plots</a>
 <ul>
 <li class="chapter" data-level="3.3.4.3.1" data-path="3.3-LMM.html"><a href="3.3-LMM.html#fixed-effects-1"><i class="fa fa-check"></i><b>3.3.4.3.1</b> Fixed effects</a>
 <ul>
@@ -2009,7 +2041,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4.3.3.5" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#dimension-5"><i class="fa fa-check"></i><b>7.4.3.3.5</b> Dimension 5</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-1"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
+<li class="chapter" data-level="7.4.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#plots-2"><i class="fa fa-check"></i><b>7.4.4</b> Plots</a>
 <ul>
 <li class="chapter" data-level="7.4.4.1" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html#default-plots"><i class="fa fa-check"></i><b>7.4.4.1</b> Default plots</a>
 <ul>
@@ -2041,7 +2073,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.5.1.1" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#computing-clusters"><i class="fa fa-check"></i><b>7.5.1.1</b> Computing clusters</a></li>
 <li class="chapter" data-level="7.5.1.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#dendograms"><i class="fa fa-check"></i><b>7.5.1.2</b> Dendograms</a></li>
-<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-2"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
+<li class="chapter" data-level="7.5.1.3" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#plots-3"><i class="fa fa-check"></i><b>7.5.1.3</b> Plots</a></li>
 <li class="chapter" data-level="7.5.1.4" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#individual-clusters"><i class="fa fa-check"></i><b>7.5.1.4</b> Individual Clusters</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5.2" data-path="7.5-kmeans-clustering.html"><a href="7.5-kmeans-clustering.html#conclusion-3"><i class="fa fa-check"></i><b>7.5.2</b> Conclusion</a></li>
@@ -2194,9 +2226,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s generate a new dataframe that we will use later on for our mixed models</p>
 <p>We will use the <code>faux</code> package. It is available on CRAN, but it is possible that it is not available for your version of R (I used version 4.5). In this case, you need to install it via github. The package <code>faux</code> is a package that allows you to simulate data for your experiments. It is a very useful package to test your ideas and to assess the impact of particular predictors on your dependant variable.</p>
 <p>To install it, you will first need to install the package <code>devtools</code>, and then install the package <code>faux</code> using the function <code>devtools::install_github</code>. Uncomment the code chunk below</p>
-<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="3.3-LMM.html#cb548-1" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;)</span></span>
-<span id="cb548-2"><a href="3.3-LMM.html#cb548-2" tabindex="-1"></a><span class="co"># devtools::install_github(&quot;debruine/faux&quot;)</span></span>
-<span id="cb548-3"><a href="3.3-LMM.html#cb548-3" tabindex="-1"></a><span class="co"># library(faux)</span></span></code></pre></div>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="3.3-LMM.html#cb607-1" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;)</span></span>
+<span id="cb607-2"><a href="3.3-LMM.html#cb607-2" tabindex="-1"></a><span class="co"># devtools::install_github(&quot;debruine/faux&quot;)</span></span>
+<span id="cb607-3"><a href="3.3-LMM.html#cb607-3" tabindex="-1"></a><span class="co"># library(faux)</span></span></code></pre></div>
 <div id="dataframe-simulated" class="section level3 hasAnchor" number="3.3.1">
 <h3><span class="header-section-number">3.3.1</span> Dataframe (simulated)<a href="3.3-LMM.html#dataframe-simulated" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Our experiment has the following structure: we asked 40 subjects to respond to 40 items in a fully crossed design. There were two IVs: Condition with <code>congruent</code> and <code>incongruent</code> and Age with <code>young</code> and <code>old</code>. The Condition is a within subject variable; age is a between subject. However, Condition and Age were both within item variables. The dependant variable was LookingTime.</p>
@@ -2205,48 +2237,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Our hypothesis is: The older a subject is, the more the looking time it is to the incongruent condition.</p>
 <p>We will use the package <code>faux</code> to simulate a dataframe. This step is crucial in assessing contributions of particular predictors and for testing ideas as we already know the distribution of the data and what to expect as an outcome when it comes to the fixed effect in question.</p>
 <p>The simulated data has the following parameters</p>
-<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="3.3-LMM.html#cb549-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb549-2"><a href="3.3-LMM.html#cb549-2" tabindex="-1"></a><span class="co"># define parameters</span></span>
-<span id="cb549-3"><a href="3.3-LMM.html#cb549-3" tabindex="-1"></a>Subj_n <span class="ot">=</span> <span class="dv">40</span>  <span class="co"># number of subjects</span></span>
-<span id="cb549-4"><a href="3.3-LMM.html#cb549-4" tabindex="-1"></a>Item_n <span class="ot">=</span> <span class="dv">40</span>  <span class="co"># number of items</span></span>
-<span id="cb549-5"><a href="3.3-LMM.html#cb549-5" tabindex="-1"></a>b0 <span class="ot">=</span> <span class="dv">100</span>       <span class="co"># intercept</span></span>
-<span id="cb549-6"><a href="3.3-LMM.html#cb549-6" tabindex="-1"></a>b1 <span class="ot">=</span> <span class="fl">2.5</span> <span class="sc">*</span> b0   <span class="co"># fixed effect of condition</span></span>
-<span id="cb549-7"><a href="3.3-LMM.html#cb549-7" tabindex="-1"></a>u0s_sd <span class="ot">=</span> <span class="dv">300</span>   <span class="co"># random intercept SD for subjects</span></span>
-<span id="cb549-8"><a href="3.3-LMM.html#cb549-8" tabindex="-1"></a>u0i_sd <span class="ot">=</span> <span class="dv">200</span>   <span class="co"># random intercept SD for items</span></span>
-<span id="cb549-9"><a href="3.3-LMM.html#cb549-9" tabindex="-1"></a>u1s_sd <span class="ot">=</span> <span class="dv">100</span>   <span class="co"># random b1 slope SD for subjects</span></span>
-<span id="cb549-10"><a href="3.3-LMM.html#cb549-10" tabindex="-1"></a>u1i_sd <span class="ot">=</span> <span class="dv">50</span>   <span class="co"># random b1 slope SD for items</span></span>
-<span id="cb549-11"><a href="3.3-LMM.html#cb549-11" tabindex="-1"></a>r01s <span class="ot">=</span> <span class="sc">-</span><span class="fl">0.3</span>     <span class="co"># correlation between random effects 0 and 1 for subjects</span></span>
-<span id="cb549-12"><a href="3.3-LMM.html#cb549-12" tabindex="-1"></a>r01i <span class="ot">=</span> <span class="fl">0.2</span>     <span class="co"># correlation between random effects 0 and 1 for items</span></span>
-<span id="cb549-13"><a href="3.3-LMM.html#cb549-13" tabindex="-1"></a>sigma_sd <span class="ot">=</span> <span class="dv">150</span> <span class="co"># error SD</span></span>
-<span id="cb549-14"><a href="3.3-LMM.html#cb549-14" tabindex="-1"></a></span>
-<span id="cb549-15"><a href="3.3-LMM.html#cb549-15" tabindex="-1"></a><span class="co"># set up data structure</span></span>
-<span id="cb549-16"><a href="3.3-LMM.html#cb549-16" tabindex="-1"></a>dataCong <span class="ot">&lt;-</span> <span class="fu">add_random</span>(<span class="at">Subj =</span> Subj_n, <span class="at">Item =</span> Item_n) <span class="sc">%&gt;%</span></span>
-<span id="cb549-17"><a href="3.3-LMM.html#cb549-17" tabindex="-1"></a>  <span class="co"># add within categorical variable for subject</span></span>
-<span id="cb549-18"><a href="3.3-LMM.html#cb549-18" tabindex="-1"></a>  <span class="fu">add_within</span>(<span class="st">&quot;Subj&quot;</span>, <span class="at">Cond =</span> <span class="fu">c</span>(<span class="st">&quot;Congruent&quot;</span>, <span class="st">&quot;Incongruent&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb549-19"><a href="3.3-LMM.html#cb549-19" tabindex="-1"></a>  <span class="fu">add_recode</span>(<span class="st">&quot;Cond&quot;</span>, <span class="st">&quot;Cond.Incongruent&quot;</span>, <span class="at">Congruent =</span> <span class="dv">0</span>, <span class="at">Incongruent =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb549-20"><a href="3.3-LMM.html#cb549-20" tabindex="-1"></a>  <span class="co"># add between categorical variable for subject</span></span>
-<span id="cb549-21"><a href="3.3-LMM.html#cb549-21" tabindex="-1"></a>  <span class="fu">add_between</span>(<span class="st">&quot;Subj&quot;</span>, <span class="at">Age =</span> <span class="fu">c</span>(<span class="st">&quot;Young&quot;</span>, <span class="st">&quot;Old&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb549-22"><a href="3.3-LMM.html#cb549-22" tabindex="-1"></a>  <span class="fu">add_recode</span>(<span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Age.Old&quot;</span>, <span class="at">Young =</span> <span class="dv">0</span>, <span class="at">Old =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb549-23"><a href="3.3-LMM.html#cb549-23" tabindex="-1"></a>  <span class="co"># add random effects </span></span>
-<span id="cb549-24"><a href="3.3-LMM.html#cb549-24" tabindex="-1"></a>  <span class="fu">add_ranef</span>(<span class="st">&quot;Subj&quot;</span>, <span class="at">u0s =</span> u0s_sd, <span class="at">u1s =</span> u1s_sd, <span class="at">.cors =</span> r01s) <span class="sc">%&gt;%</span></span>
-<span id="cb549-25"><a href="3.3-LMM.html#cb549-25" tabindex="-1"></a>  <span class="fu">add_ranef</span>(<span class="st">&quot;Item&quot;</span>, <span class="at">u0i =</span> u0i_sd, <span class="at">u1i =</span> u1i_sd, <span class="at">.cors =</span> r01i) <span class="sc">%&gt;%</span></span>
-<span id="cb549-26"><a href="3.3-LMM.html#cb549-26" tabindex="-1"></a>  <span class="do">##add_ranef(c(&quot;Subj&quot;, &quot;Item&quot;), u0si = u0s_sd + u0i_sd) %&gt;%</span></span>
-<span id="cb549-27"><a href="3.3-LMM.html#cb549-27" tabindex="-1"></a>  <span class="do">##add_ranef(c(&quot;Subj&quot;, &quot;Item&quot;), u1si = u1s_sd + u1i_sd) %&gt;%</span></span>
-<span id="cb549-28"><a href="3.3-LMM.html#cb549-28" tabindex="-1"></a>  <span class="fu">add_ranef</span>(<span class="at">sigma =</span> sigma_sd) <span class="sc">%&gt;%</span></span>
-<span id="cb549-29"><a href="3.3-LMM.html#cb549-29" tabindex="-1"></a>  <span class="co"># calculate DV</span></span>
-<span id="cb549-30"><a href="3.3-LMM.html#cb549-30" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">LookingTime =</span> b0 <span class="sc">+</span> b1 <span class="sc">+</span> u0s <span class="sc">+</span> u0i <span class="sc">+</span> <span class="co">#u0si + u1si +</span></span>
-<span id="cb549-31"><a href="3.3-LMM.html#cb549-31" tabindex="-1"></a>           (((b1 <span class="sc">+</span> u1s) <span class="sc">+</span> <span class="fl">0.5</span>) <span class="sc">*</span> Cond.Incongruent) <span class="sc">+</span> (((b1 <span class="sc">+</span> u1s) <span class="sc">+</span> <span class="fl">0.9</span>) <span class="sc">*</span> Age.Old) <span class="sc">+</span> <span class="co"># subject specific variation</span></span>
-<span id="cb549-32"><a href="3.3-LMM.html#cb549-32" tabindex="-1"></a>           (((b1 <span class="sc">+</span> u1i) <span class="sc">-</span> <span class="fl">0.3</span>) <span class="sc">*</span> Cond.Incongruent) <span class="sc">+</span> (((b1 <span class="sc">+</span> u1i) <span class="sc">-</span> <span class="fl">0.25</span>) <span class="sc">*</span> Age.Old) <span class="sc">+</span> <span class="co"># item specific variation  </span></span>
-<span id="cb549-33"><a href="3.3-LMM.html#cb549-33" tabindex="-1"></a>           sigma)</span>
-<span id="cb549-34"><a href="3.3-LMM.html#cb549-34" tabindex="-1"></a><span class="fu">write.csv</span>(dataCong, <span class="st">&quot;data/dataCong.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="3.3-LMM.html#cb608-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb608-2"><a href="3.3-LMM.html#cb608-2" tabindex="-1"></a><span class="co"># define parameters</span></span>
+<span id="cb608-3"><a href="3.3-LMM.html#cb608-3" tabindex="-1"></a>Subj_n <span class="ot">=</span> <span class="dv">40</span>  <span class="co"># number of subjects</span></span>
+<span id="cb608-4"><a href="3.3-LMM.html#cb608-4" tabindex="-1"></a>Item_n <span class="ot">=</span> <span class="dv">40</span>  <span class="co"># number of items</span></span>
+<span id="cb608-5"><a href="3.3-LMM.html#cb608-5" tabindex="-1"></a>b0 <span class="ot">=</span> <span class="dv">100</span>       <span class="co"># intercept</span></span>
+<span id="cb608-6"><a href="3.3-LMM.html#cb608-6" tabindex="-1"></a>b1 <span class="ot">=</span> <span class="fl">2.5</span> <span class="sc">*</span> b0   <span class="co"># fixed effect of condition</span></span>
+<span id="cb608-7"><a href="3.3-LMM.html#cb608-7" tabindex="-1"></a>u0s_sd <span class="ot">=</span> <span class="dv">300</span>   <span class="co"># random intercept SD for subjects</span></span>
+<span id="cb608-8"><a href="3.3-LMM.html#cb608-8" tabindex="-1"></a>u0i_sd <span class="ot">=</span> <span class="dv">200</span>   <span class="co"># random intercept SD for items</span></span>
+<span id="cb608-9"><a href="3.3-LMM.html#cb608-9" tabindex="-1"></a>u1s_sd <span class="ot">=</span> <span class="dv">100</span>   <span class="co"># random b1 slope SD for subjects</span></span>
+<span id="cb608-10"><a href="3.3-LMM.html#cb608-10" tabindex="-1"></a>u1i_sd <span class="ot">=</span> <span class="dv">50</span>   <span class="co"># random b1 slope SD for items</span></span>
+<span id="cb608-11"><a href="3.3-LMM.html#cb608-11" tabindex="-1"></a>r01s <span class="ot">=</span> <span class="sc">-</span><span class="fl">0.3</span>     <span class="co"># correlation between random effects 0 and 1 for subjects</span></span>
+<span id="cb608-12"><a href="3.3-LMM.html#cb608-12" tabindex="-1"></a>r01i <span class="ot">=</span> <span class="fl">0.2</span>     <span class="co"># correlation between random effects 0 and 1 for items</span></span>
+<span id="cb608-13"><a href="3.3-LMM.html#cb608-13" tabindex="-1"></a>sigma_sd <span class="ot">=</span> <span class="dv">150</span> <span class="co"># error SD</span></span>
+<span id="cb608-14"><a href="3.3-LMM.html#cb608-14" tabindex="-1"></a></span>
+<span id="cb608-15"><a href="3.3-LMM.html#cb608-15" tabindex="-1"></a><span class="co"># set up data structure</span></span>
+<span id="cb608-16"><a href="3.3-LMM.html#cb608-16" tabindex="-1"></a>dataCong <span class="ot">&lt;-</span> <span class="fu">add_random</span>(<span class="at">Subj =</span> Subj_n, <span class="at">Item =</span> Item_n) <span class="sc">%&gt;%</span></span>
+<span id="cb608-17"><a href="3.3-LMM.html#cb608-17" tabindex="-1"></a>  <span class="co"># add within categorical variable for subject</span></span>
+<span id="cb608-18"><a href="3.3-LMM.html#cb608-18" tabindex="-1"></a>  <span class="fu">add_within</span>(<span class="st">&quot;Subj&quot;</span>, <span class="at">Cond =</span> <span class="fu">c</span>(<span class="st">&quot;Congruent&quot;</span>, <span class="st">&quot;Incongruent&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb608-19"><a href="3.3-LMM.html#cb608-19" tabindex="-1"></a>  <span class="fu">add_recode</span>(<span class="st">&quot;Cond&quot;</span>, <span class="st">&quot;Cond.Incongruent&quot;</span>, <span class="at">Congruent =</span> <span class="dv">0</span>, <span class="at">Incongruent =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb608-20"><a href="3.3-LMM.html#cb608-20" tabindex="-1"></a>  <span class="co"># add between categorical variable for subject</span></span>
+<span id="cb608-21"><a href="3.3-LMM.html#cb608-21" tabindex="-1"></a>  <span class="fu">add_between</span>(<span class="st">&quot;Subj&quot;</span>, <span class="at">Age =</span> <span class="fu">c</span>(<span class="st">&quot;Young&quot;</span>, <span class="st">&quot;Old&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb608-22"><a href="3.3-LMM.html#cb608-22" tabindex="-1"></a>  <span class="fu">add_recode</span>(<span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Age.Old&quot;</span>, <span class="at">Young =</span> <span class="dv">0</span>, <span class="at">Old =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb608-23"><a href="3.3-LMM.html#cb608-23" tabindex="-1"></a>  <span class="co"># add random effects </span></span>
+<span id="cb608-24"><a href="3.3-LMM.html#cb608-24" tabindex="-1"></a>  <span class="fu">add_ranef</span>(<span class="st">&quot;Subj&quot;</span>, <span class="at">u0s =</span> u0s_sd, <span class="at">u1s =</span> u1s_sd, <span class="at">.cors =</span> r01s) <span class="sc">%&gt;%</span></span>
+<span id="cb608-25"><a href="3.3-LMM.html#cb608-25" tabindex="-1"></a>  <span class="fu">add_ranef</span>(<span class="st">&quot;Item&quot;</span>, <span class="at">u0i =</span> u0i_sd, <span class="at">u1i =</span> u1i_sd, <span class="at">.cors =</span> r01i) <span class="sc">%&gt;%</span></span>
+<span id="cb608-26"><a href="3.3-LMM.html#cb608-26" tabindex="-1"></a>  <span class="do">##add_ranef(c(&quot;Subj&quot;, &quot;Item&quot;), u0si = u0s_sd + u0i_sd) %&gt;%</span></span>
+<span id="cb608-27"><a href="3.3-LMM.html#cb608-27" tabindex="-1"></a>  <span class="do">##add_ranef(c(&quot;Subj&quot;, &quot;Item&quot;), u1si = u1s_sd + u1i_sd) %&gt;%</span></span>
+<span id="cb608-28"><a href="3.3-LMM.html#cb608-28" tabindex="-1"></a>  <span class="fu">add_ranef</span>(<span class="at">sigma =</span> sigma_sd) <span class="sc">%&gt;%</span></span>
+<span id="cb608-29"><a href="3.3-LMM.html#cb608-29" tabindex="-1"></a>  <span class="co"># calculate DV</span></span>
+<span id="cb608-30"><a href="3.3-LMM.html#cb608-30" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">LookingTime =</span> b0 <span class="sc">+</span> b1 <span class="sc">+</span> u0s <span class="sc">+</span> u0i <span class="sc">+</span> <span class="co">#u0si + u1si +</span></span>
+<span id="cb608-31"><a href="3.3-LMM.html#cb608-31" tabindex="-1"></a>           (((b1 <span class="sc">+</span> u1s) <span class="sc">+</span> <span class="fl">0.5</span>) <span class="sc">*</span> Cond.Incongruent) <span class="sc">+</span> (((b1 <span class="sc">+</span> u1s) <span class="sc">+</span> <span class="fl">0.9</span>) <span class="sc">*</span> Age.Old) <span class="sc">+</span> <span class="co"># subject specific variation</span></span>
+<span id="cb608-32"><a href="3.3-LMM.html#cb608-32" tabindex="-1"></a>           (((b1 <span class="sc">+</span> u1i) <span class="sc">-</span> <span class="fl">0.3</span>) <span class="sc">*</span> Cond.Incongruent) <span class="sc">+</span> (((b1 <span class="sc">+</span> u1i) <span class="sc">-</span> <span class="fl">0.25</span>) <span class="sc">*</span> Age.Old) <span class="sc">+</span> <span class="co"># item specific variation  </span></span>
+<span id="cb608-33"><a href="3.3-LMM.html#cb608-33" tabindex="-1"></a>           sigma)</span>
+<span id="cb608-34"><a href="3.3-LMM.html#cb608-34" tabindex="-1"></a><span class="fu">write.csv</span>(dataCong, <span class="st">&quot;data/dataCong.csv&quot;</span>)</span></code></pre></div>
 <p>If you were not able to install the <code>faux</code> package, simply uncomment the following line of code below to import the dataset</p>
-<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="3.3-LMM.html#cb550-1" tabindex="-1"></a><span class="co">#dataCong &lt;- read.csv(&quot;dataCong.csv&quot;)[-1]</span></span></code></pre></div>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="3.3-LMM.html#cb609-1" tabindex="-1"></a><span class="co">#dataCong &lt;- read.csv(&quot;dataCong.csv&quot;)[-1]</span></span></code></pre></div>
 <div id="counts" class="section level4 hasAnchor" number="3.3.1.1">
 <h4><span class="header-section-number">3.3.1.1</span> Counts<a href="3.3-LMM.html#counts" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="3.3-LMM.html#cb551-1" tabindex="-1"></a>dataCong <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
-<span id="cb551-2"><a href="3.3-LMM.html#cb551-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Subj =</span> <span class="fu">factor</span>(Subj),</span>
-<span id="cb551-3"><a href="3.3-LMM.html#cb551-3" tabindex="-1"></a>         <span class="at">Item =</span> <span class="fu">factor</span>(Item))</span>
-<span id="cb551-4"><a href="3.3-LMM.html#cb551-4" tabindex="-1"></a>dataCong</span></code></pre></div>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="3.3-LMM.html#cb610-1" tabindex="-1"></a>dataCong <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
+<span id="cb610-2"><a href="3.3-LMM.html#cb610-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Subj =</span> <span class="fu">factor</span>(Subj),</span>
+<span id="cb610-3"><a href="3.3-LMM.html#cb610-3" tabindex="-1"></a>         <span class="at">Item =</span> <span class="fu">factor</span>(Item))</span>
+<span id="cb610-4"><a href="3.3-LMM.html#cb610-4" tabindex="-1"></a>dataCong</span></code></pre></div>
 <pre><code>## # A tibble: 3,200 × 12
 ##    Subj   Item   Cond    Cond.Incongruent Age   Age.Old   u0s   u1s    u0i   u1i
 ##    &lt;fct&gt;  &lt;fct&gt;  &lt;fct&gt;              &lt;dbl&gt; &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
@@ -2264,9 +2296,9 @@ Our hypothesis is: The older a subject is, the more the looking time it is to th
 ## # ℹ 2 more variables: sigma &lt;dbl&gt;, LookingTime &lt;dbl&gt;</code></pre>
 <div id="subjects" class="section level5 hasAnchor" number="3.3.1.1.1">
 <h5><span class="header-section-number">3.3.1.1.1</span> Subjects<a href="3.3-LMM.html#subjects" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="3.3-LMM.html#cb553-1" tabindex="-1"></a>dataCong <span class="sc">%&gt;%</span> </span>
-<span id="cb553-2"><a href="3.3-LMM.html#cb553-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Cond, Age, Subj) <span class="sc">%&gt;%</span> </span>
-<span id="cb553-3"><a href="3.3-LMM.html#cb553-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="3.3-LMM.html#cb612-1" tabindex="-1"></a>dataCong <span class="sc">%&gt;%</span> </span>
+<span id="cb612-2"><a href="3.3-LMM.html#cb612-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Cond, Age, Subj) <span class="sc">%&gt;%</span> </span>
+<span id="cb612-3"><a href="3.3-LMM.html#cb612-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 80 × 4
 ## # Groups:   Cond, Age [4]
 ##    Cond      Age   Subj   count
@@ -2288,9 +2320,9 @@ Our hypothesis is: The older a subject is, the more the looking time it is to th
 </div>
 <div id="age" class="section level5 hasAnchor" number="3.3.1.1.3">
 <h5><span class="header-section-number">3.3.1.1.3</span> Age<a href="3.3-LMM.html#age" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="3.3-LMM.html#cb555-1" tabindex="-1"></a>dataCong <span class="sc">%&gt;%</span> </span>
-<span id="cb555-2"><a href="3.3-LMM.html#cb555-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Age, Item) <span class="sc">%&gt;%</span> </span>
-<span id="cb555-3"><a href="3.3-LMM.html#cb555-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="3.3-LMM.html#cb614-1" tabindex="-1"></a>dataCong <span class="sc">%&gt;%</span> </span>
+<span id="cb614-2"><a href="3.3-LMM.html#cb614-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Age, Item) <span class="sc">%&gt;%</span> </span>
+<span id="cb614-3"><a href="3.3-LMM.html#cb614-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 80 × 3
 ## # Groups:   Age [2]
 ##    Age   Item   count
@@ -2309,9 +2341,9 @@ Our hypothesis is: The older a subject is, the more the looking time it is to th
 </div>
 <div id="cond" class="section level5 hasAnchor" number="3.3.1.1.4">
 <h5><span class="header-section-number">3.3.1.1.4</span> Cond<a href="3.3-LMM.html#cond" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="3.3-LMM.html#cb557-1" tabindex="-1"></a>dataCong <span class="sc">%&gt;%</span> </span>
-<span id="cb557-2"><a href="3.3-LMM.html#cb557-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Cond, Item) <span class="sc">%&gt;%</span> </span>
-<span id="cb557-3"><a href="3.3-LMM.html#cb557-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="3.3-LMM.html#cb616-1" tabindex="-1"></a>dataCong <span class="sc">%&gt;%</span> </span>
+<span id="cb616-2"><a href="3.3-LMM.html#cb616-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Cond, Item) <span class="sc">%&gt;%</span> </span>
+<span id="cb616-3"><a href="3.3-LMM.html#cb616-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 80 × 3
 ## # Groups:   Cond [2]
 ##    Cond      Item   count
@@ -2334,66 +2366,66 @@ Our hypothesis is: The older a subject is, the more the looking time it is to th
 <div id="condition-by-age" class="section level5 hasAnchor" number="3.3.1.2.1">
 <h5><span class="header-section-number">3.3.1.2.1</span> Condition by Age<a href="3.3-LMM.html#condition-by-age" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>The figure below confirms this, where we see an increase in LookingTime in the <code>incongruent</code> condition and oevrall, <code>older</code> participants show an increase in LookingTime</p>
-<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="3.3-LMM.html#cb559-1" tabindex="-1"></a>dataCong <span class="sc">%&gt;%</span> </span>
-<span id="cb559-2"><a href="3.3-LMM.html#cb559-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Cond,</span>
-<span id="cb559-3"><a href="3.3-LMM.html#cb559-3" tabindex="-1"></a>             <span class="at">y =</span> LookingTime,</span>
-<span id="cb559-4"><a href="3.3-LMM.html#cb559-4" tabindex="-1"></a>             <span class="at">colour =</span> Age)) <span class="sc">+</span></span>
-<span id="cb559-5"><a href="3.3-LMM.html#cb559-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
-<span id="cb559-6"><a href="3.3-LMM.html#cb559-6" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb559-7"><a href="3.3-LMM.html#cb559-7" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="fu">as.numeric</span>(Cond)), <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-222-1.png" width="672" /></p>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="3.3-LMM.html#cb618-1" tabindex="-1"></a>dataCong <span class="sc">%&gt;%</span> </span>
+<span id="cb618-2"><a href="3.3-LMM.html#cb618-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Cond,</span>
+<span id="cb618-3"><a href="3.3-LMM.html#cb618-3" tabindex="-1"></a>             <span class="at">y =</span> LookingTime,</span>
+<span id="cb618-4"><a href="3.3-LMM.html#cb618-4" tabindex="-1"></a>             <span class="at">colour =</span> Age)) <span class="sc">+</span></span>
+<span id="cb618-5"><a href="3.3-LMM.html#cb618-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb618-6"><a href="3.3-LMM.html#cb618-6" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb618-7"><a href="3.3-LMM.html#cb618-7" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="fu">as.numeric</span>(Cond)), <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-240-1.png" width="672" /></p>
 </div>
 <div id="subject-by-condition" class="section level5 hasAnchor" number="3.3.1.2.2">
 <h5><span class="header-section-number">3.3.1.2.2</span> Subject by Condition<a href="3.3-LMM.html#subject-by-condition" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>This figure shows that subjects are variable in how they responded to this task</p>
-<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="3.3-LMM.html#cb560-1" tabindex="-1"></a>dataCong <span class="sc">%&gt;%</span> </span>
-<span id="cb560-2"><a href="3.3-LMM.html#cb560-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Cond,</span>
-<span id="cb560-3"><a href="3.3-LMM.html#cb560-3" tabindex="-1"></a>             <span class="at">y =</span> LookingTime,</span>
-<span id="cb560-4"><a href="3.3-LMM.html#cb560-4" tabindex="-1"></a>             <span class="at">colour =</span> Subj)) <span class="sc">+</span></span>
-<span id="cb560-5"><a href="3.3-LMM.html#cb560-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
-<span id="cb560-6"><a href="3.3-LMM.html#cb560-6" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb560-7"><a href="3.3-LMM.html#cb560-7" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="fu">as.numeric</span>(Cond)), <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb560-8"><a href="3.3-LMM.html#cb560-8" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Subj))))</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-223-1.png" width="672" /></p>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="3.3-LMM.html#cb619-1" tabindex="-1"></a>dataCong <span class="sc">%&gt;%</span> </span>
+<span id="cb619-2"><a href="3.3-LMM.html#cb619-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Cond,</span>
+<span id="cb619-3"><a href="3.3-LMM.html#cb619-3" tabindex="-1"></a>             <span class="at">y =</span> LookingTime,</span>
+<span id="cb619-4"><a href="3.3-LMM.html#cb619-4" tabindex="-1"></a>             <span class="at">colour =</span> Subj)) <span class="sc">+</span></span>
+<span id="cb619-5"><a href="3.3-LMM.html#cb619-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb619-6"><a href="3.3-LMM.html#cb619-6" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb619-7"><a href="3.3-LMM.html#cb619-7" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="fu">as.numeric</span>(Cond)), <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb619-8"><a href="3.3-LMM.html#cb619-8" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Subj))))</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-241-1.png" width="672" /></p>
 </div>
 <div id="subject-by-age" class="section level5 hasAnchor" number="3.3.1.2.3">
 <h5><span class="header-section-number">3.3.1.2.3</span> Subject by Age<a href="3.3-LMM.html#subject-by-age" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>This figure shows that subjects had an impact on the LookingTime in both age groups, simply due to their variable responses to the different items</p>
-<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="3.3-LMM.html#cb561-1" tabindex="-1"></a>dataCong <span class="sc">%&gt;%</span> </span>
-<span id="cb561-2"><a href="3.3-LMM.html#cb561-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Age,</span>
-<span id="cb561-3"><a href="3.3-LMM.html#cb561-3" tabindex="-1"></a>             <span class="at">y =</span> LookingTime,</span>
-<span id="cb561-4"><a href="3.3-LMM.html#cb561-4" tabindex="-1"></a>             <span class="at">colour =</span> Subj)) <span class="sc">+</span></span>
-<span id="cb561-5"><a href="3.3-LMM.html#cb561-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
-<span id="cb561-6"><a href="3.3-LMM.html#cb561-6" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb561-7"><a href="3.3-LMM.html#cb561-7" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="fu">as.numeric</span>(Cond)), <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb561-8"><a href="3.3-LMM.html#cb561-8" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Subj))))</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-224-1.png" width="672" /></p>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="3.3-LMM.html#cb620-1" tabindex="-1"></a>dataCong <span class="sc">%&gt;%</span> </span>
+<span id="cb620-2"><a href="3.3-LMM.html#cb620-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Age,</span>
+<span id="cb620-3"><a href="3.3-LMM.html#cb620-3" tabindex="-1"></a>             <span class="at">y =</span> LookingTime,</span>
+<span id="cb620-4"><a href="3.3-LMM.html#cb620-4" tabindex="-1"></a>             <span class="at">colour =</span> Subj)) <span class="sc">+</span></span>
+<span id="cb620-5"><a href="3.3-LMM.html#cb620-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb620-6"><a href="3.3-LMM.html#cb620-6" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb620-7"><a href="3.3-LMM.html#cb620-7" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="fu">as.numeric</span>(Cond)), <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb620-8"><a href="3.3-LMM.html#cb620-8" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Subj))))</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-242-1.png" width="672" /></p>
 </div>
 <div id="item-by-condition" class="section level5 hasAnchor" number="3.3.1.2.4">
 <h5><span class="header-section-number">3.3.1.2.4</span> Item by Condition<a href="3.3-LMM.html#item-by-condition" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>This figure shows that items had an impact on the LookingTime in both conditions</p>
-<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="3.3-LMM.html#cb562-1" tabindex="-1"></a>dataCong <span class="sc">%&gt;%</span> </span>
-<span id="cb562-2"><a href="3.3-LMM.html#cb562-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Cond,</span>
-<span id="cb562-3"><a href="3.3-LMM.html#cb562-3" tabindex="-1"></a>             <span class="at">y =</span> LookingTime,</span>
-<span id="cb562-4"><a href="3.3-LMM.html#cb562-4" tabindex="-1"></a>             <span class="at">colour =</span> Item)) <span class="sc">+</span></span>
-<span id="cb562-5"><a href="3.3-LMM.html#cb562-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
-<span id="cb562-6"><a href="3.3-LMM.html#cb562-6" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb562-7"><a href="3.3-LMM.html#cb562-7" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="fu">as.numeric</span>(Cond)), <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb562-8"><a href="3.3-LMM.html#cb562-8" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Item))))</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-225-1.png" width="672" /></p>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="3.3-LMM.html#cb621-1" tabindex="-1"></a>dataCong <span class="sc">%&gt;%</span> </span>
+<span id="cb621-2"><a href="3.3-LMM.html#cb621-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Cond,</span>
+<span id="cb621-3"><a href="3.3-LMM.html#cb621-3" tabindex="-1"></a>             <span class="at">y =</span> LookingTime,</span>
+<span id="cb621-4"><a href="3.3-LMM.html#cb621-4" tabindex="-1"></a>             <span class="at">colour =</span> Item)) <span class="sc">+</span></span>
+<span id="cb621-5"><a href="3.3-LMM.html#cb621-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb621-6"><a href="3.3-LMM.html#cb621-6" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb621-7"><a href="3.3-LMM.html#cb621-7" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="fu">as.numeric</span>(Cond)), <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb621-8"><a href="3.3-LMM.html#cb621-8" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Item))))</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-243-1.png" width="672" /></p>
 </div>
 <div id="subject-by-age-1" class="section level5 hasAnchor" number="3.3.1.2.5">
 <h5><span class="header-section-number">3.3.1.2.5</span> Subject by Age<a href="3.3-LMM.html#subject-by-age-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>This figure shows that items had an impact on the LookingTime in both age groups</p>
-<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="3.3-LMM.html#cb563-1" tabindex="-1"></a>dataCong <span class="sc">%&gt;%</span> </span>
-<span id="cb563-2"><a href="3.3-LMM.html#cb563-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Age,</span>
-<span id="cb563-3"><a href="3.3-LMM.html#cb563-3" tabindex="-1"></a>             <span class="at">y =</span> LookingTime,</span>
-<span id="cb563-4"><a href="3.3-LMM.html#cb563-4" tabindex="-1"></a>             <span class="at">colour =</span> Item)) <span class="sc">+</span></span>
-<span id="cb563-5"><a href="3.3-LMM.html#cb563-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
-<span id="cb563-6"><a href="3.3-LMM.html#cb563-6" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb563-7"><a href="3.3-LMM.html#cb563-7" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="fu">as.numeric</span>(Cond)), <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb563-8"><a href="3.3-LMM.html#cb563-8" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Item))))</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-226-1.png" width="672" /></p>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="3.3-LMM.html#cb622-1" tabindex="-1"></a>dataCong <span class="sc">%&gt;%</span> </span>
+<span id="cb622-2"><a href="3.3-LMM.html#cb622-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Age,</span>
+<span id="cb622-3"><a href="3.3-LMM.html#cb622-3" tabindex="-1"></a>             <span class="at">y =</span> LookingTime,</span>
+<span id="cb622-4"><a href="3.3-LMM.html#cb622-4" tabindex="-1"></a>             <span class="at">colour =</span> Item)) <span class="sc">+</span></span>
+<span id="cb622-5"><a href="3.3-LMM.html#cb622-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb622-6"><a href="3.3-LMM.html#cb622-6" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb622-7"><a href="3.3-LMM.html#cb622-7" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="fu">as.numeric</span>(Cond)), <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb622-8"><a href="3.3-LMM.html#cb622-8" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Item))))</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-244-1.png" width="672" /></p>
 </div>
 </div>
 </div>
@@ -2402,9 +2434,9 @@ Our hypothesis is: The older a subject is, the more the looking time it is to th
 <p>We use an LMER model with a crossed random effect. To choose our optimal model, we start first by a simple model with only random intercepts, increasing complexity by accounting for random slopes for both subjects and items. It is clear from our visualisation above, that there is no interaction between the two predictors. However, for demonstration purposes, we do test for this</p>
 <div id="simple-linear-model" class="section level4 hasAnchor" number="3.3.2.1">
 <h4><span class="header-section-number">3.3.2.1</span> Simple Linear Model<a href="3.3-LMM.html#simple-linear-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="3.3-LMM.html#cb564-1" tabindex="-1"></a>mdl.lm <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
-<span id="cb564-2"><a href="3.3-LMM.html#cb564-2" tabindex="-1"></a>  <span class="fu">lm</span>(LookingTime <span class="sc">~</span> Cond <span class="sc">+</span> Age, <span class="at">data =</span> .)</span>
-<span id="cb564-3"><a href="3.3-LMM.html#cb564-3" tabindex="-1"></a><span class="fu">summary</span>(mdl.lm)</span></code></pre></div>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="3.3-LMM.html#cb623-1" tabindex="-1"></a>mdl.lm <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
+<span id="cb623-2"><a href="3.3-LMM.html#cb623-2" tabindex="-1"></a>  <span class="fu">lm</span>(LookingTime <span class="sc">~</span> Cond <span class="sc">+</span> Age, <span class="at">data =</span> .)</span>
+<span id="cb623-3"><a href="3.3-LMM.html#cb623-3" tabindex="-1"></a><span class="fu">summary</span>(mdl.lm)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = LookingTime ~ Cond + Age, data = .)
@@ -2424,86 +2456,86 @@ Our hypothesis is: The older a subject is, the more the looking time it is to th
 ## Residual standard error: 421.8 on 3197 degrees of freedom
 ## Multiple R-squared:  0.4472, Adjusted R-squared:  0.4469 
 ## F-statistic:  1293 on 2 and 3197 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="3.3-LMM.html#cb566-1" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">residuals</span>(mdl.lm))</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-227-1.png" width="672" /></p>
-<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="3.3-LMM.html#cb567-1" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(mdl.lm)); <span class="fu">qqline</span>(<span class="fu">residuals</span>(mdl.lm))</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-227-2.png" width="672" /></p>
-<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="3.3-LMM.html#cb568-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">fitted</span>(mdl.lm), <span class="fu">residuals</span>(mdl.lm), <span class="at">cex =</span> <span class="dv">4</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-227-3.png" width="672" /></p>
+<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb625-1"><a href="3.3-LMM.html#cb625-1" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">residuals</span>(mdl.lm))</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-245-1.png" width="672" /></p>
+<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="3.3-LMM.html#cb626-1" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(mdl.lm)); <span class="fu">qqline</span>(<span class="fu">residuals</span>(mdl.lm))</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-245-2.png" width="672" /></p>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="3.3-LMM.html#cb627-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">fitted</span>(mdl.lm), <span class="fu">residuals</span>(mdl.lm), <span class="at">cex =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-245-3.png" width="672" /></p>
 </div>
 <div id="no-interaction" class="section level4 hasAnchor" number="3.3.2.2">
 <h4><span class="header-section-number">3.3.2.2</span> No interaction<a href="3.3-LMM.html#no-interaction" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div id="crossed-random-intercepts" class="section level5 hasAnchor" number="3.3.2.2.1">
 <h5><span class="header-section-number">3.3.2.2.1</span> Crossed random intercepts<a href="3.3-LMM.html#crossed-random-intercepts" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="3.3-LMM.html#cb569-1" tabindex="-1"></a>xmdl.rand.Interc <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
-<span id="cb569-2"><a href="3.3-LMM.html#cb569-2" tabindex="-1"></a>  <span class="fu">lmer</span>(LookingTime <span class="sc">~</span> Cond <span class="sc">+</span> Age <span class="sc">+</span> </span>
-<span id="cb569-3"><a href="3.3-LMM.html#cb569-3" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">|</span> Subj) <span class="sc">+</span> </span>
-<span id="cb569-4"><a href="3.3-LMM.html#cb569-4" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">|</span> Item), <span class="at">data =</span> ., <span class="at">REML =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb569-5"><a href="3.3-LMM.html#cb569-5" tabindex="-1"></a>       <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer =</span> <span class="st">&quot;bobyqa&quot;</span>, <span class="at">optCtrl =</span> <span class="fu">list</span>(<span class="at">maxfun =</span> <span class="fl">1e5</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="3.3-LMM.html#cb628-1" tabindex="-1"></a>xmdl.rand.Interc <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
+<span id="cb628-2"><a href="3.3-LMM.html#cb628-2" tabindex="-1"></a>  <span class="fu">lmer</span>(LookingTime <span class="sc">~</span> Cond <span class="sc">+</span> Age <span class="sc">+</span> </span>
+<span id="cb628-3"><a href="3.3-LMM.html#cb628-3" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">|</span> Subj) <span class="sc">+</span> </span>
+<span id="cb628-4"><a href="3.3-LMM.html#cb628-4" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">|</span> Item), <span class="at">data =</span> ., <span class="at">REML =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb628-5"><a href="3.3-LMM.html#cb628-5" tabindex="-1"></a>       <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer =</span> <span class="st">&quot;bobyqa&quot;</span>, <span class="at">optCtrl =</span> <span class="fu">list</span>(<span class="at">maxfun =</span> <span class="fl">1e5</span>)))</span></code></pre></div>
 </div>
 <div id="crossed-random-intercepts-by-speaker-random-slopes" class="section level5 hasAnchor" number="3.3.2.2.2">
 <h5><span class="header-section-number">3.3.2.2.2</span> Crossed random intercepts + By-speaker random slopes<a href="3.3-LMM.html#crossed-random-intercepts-by-speaker-random-slopes" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="3.3-LMM.html#cb570-1" tabindex="-1"></a>xmdl.rand.Slope1 <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
-<span id="cb570-2"><a href="3.3-LMM.html#cb570-2" tabindex="-1"></a>  <span class="fu">lmer</span>(LookingTime <span class="sc">~</span> Cond <span class="sc">+</span> Age <span class="sc">+</span> </span>
-<span id="cb570-3"><a href="3.3-LMM.html#cb570-3" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">|</span> Subj) <span class="sc">+</span> </span>
-<span id="cb570-4"><a href="3.3-LMM.html#cb570-4" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">|</span> Item), <span class="at">data =</span> ., <span class="at">REML =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb570-5"><a href="3.3-LMM.html#cb570-5" tabindex="-1"></a>       <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer =</span> <span class="st">&quot;bobyqa&quot;</span>, <span class="at">optCtrl =</span> <span class="fu">list</span>(<span class="at">maxfun =</span> <span class="fl">1e5</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="3.3-LMM.html#cb629-1" tabindex="-1"></a>xmdl.rand.Slope1 <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
+<span id="cb629-2"><a href="3.3-LMM.html#cb629-2" tabindex="-1"></a>  <span class="fu">lmer</span>(LookingTime <span class="sc">~</span> Cond <span class="sc">+</span> Age <span class="sc">+</span> </span>
+<span id="cb629-3"><a href="3.3-LMM.html#cb629-3" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">|</span> Subj) <span class="sc">+</span> </span>
+<span id="cb629-4"><a href="3.3-LMM.html#cb629-4" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">|</span> Item), <span class="at">data =</span> ., <span class="at">REML =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb629-5"><a href="3.3-LMM.html#cb629-5" tabindex="-1"></a>       <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer =</span> <span class="st">&quot;bobyqa&quot;</span>, <span class="at">optCtrl =</span> <span class="fu">list</span>(<span class="at">maxfun =</span> <span class="fl">1e5</span>)))</span></code></pre></div>
 </div>
 <div id="crossed-random-intercepts-by-speaker-and-by-item-random-slopes" class="section level5 hasAnchor" number="3.3.2.2.3">
 <h5><span class="header-section-number">3.3.2.2.3</span> Crossed random intercepts + By-speaker and by-item random slopes<a href="3.3-LMM.html#crossed-random-intercepts-by-speaker-and-by-item-random-slopes" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="3.3-LMM.html#cb571-1" tabindex="-1"></a>xmdl.rand.Slope2 <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
-<span id="cb571-2"><a href="3.3-LMM.html#cb571-2" tabindex="-1"></a>  <span class="fu">lmer</span>(LookingTime <span class="sc">~</span> Cond <span class="sc">+</span> Age <span class="sc">+</span> </span>
-<span id="cb571-3"><a href="3.3-LMM.html#cb571-3" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">|</span> Subj) <span class="sc">+</span> </span>
-<span id="cb571-4"><a href="3.3-LMM.html#cb571-4" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">|</span> Item), <span class="at">data =</span> ., <span class="at">REML =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb571-5"><a href="3.3-LMM.html#cb571-5" tabindex="-1"></a>       <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer =</span> <span class="st">&quot;bobyqa&quot;</span>, <span class="at">optCtrl =</span> <span class="fu">list</span>(<span class="at">maxfun =</span> <span class="fl">1e5</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb630-1"><a href="3.3-LMM.html#cb630-1" tabindex="-1"></a>xmdl.rand.Slope2 <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
+<span id="cb630-2"><a href="3.3-LMM.html#cb630-2" tabindex="-1"></a>  <span class="fu">lmer</span>(LookingTime <span class="sc">~</span> Cond <span class="sc">+</span> Age <span class="sc">+</span> </span>
+<span id="cb630-3"><a href="3.3-LMM.html#cb630-3" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">|</span> Subj) <span class="sc">+</span> </span>
+<span id="cb630-4"><a href="3.3-LMM.html#cb630-4" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">|</span> Item), <span class="at">data =</span> ., <span class="at">REML =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb630-5"><a href="3.3-LMM.html#cb630-5" tabindex="-1"></a>       <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer =</span> <span class="st">&quot;bobyqa&quot;</span>, <span class="at">optCtrl =</span> <span class="fu">list</span>(<span class="at">maxfun =</span> <span class="fl">1e5</span>)))</span></code></pre></div>
 </div>
 <div id="crossed-random-intercepts-by-speaker-and-by-item-random-slopes-1" class="section level5 hasAnchor" number="3.3.2.2.4">
 <h5><span class="header-section-number">3.3.2.2.4</span> Crossed random intercepts + By-speaker and by-item random slopes<a href="3.3-LMM.html#crossed-random-intercepts-by-speaker-and-by-item-random-slopes-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="3.3-LMM.html#cb572-1" tabindex="-1"></a>xmdl.rand.Slope3 <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
-<span id="cb572-2"><a href="3.3-LMM.html#cb572-2" tabindex="-1"></a>  <span class="fu">lmer</span>(LookingTime <span class="sc">~</span> Cond <span class="sc">+</span> Age <span class="sc">+</span> </span>
-<span id="cb572-3"><a href="3.3-LMM.html#cb572-3" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">|</span> Subj) <span class="sc">+</span> </span>
-<span id="cb572-4"><a href="3.3-LMM.html#cb572-4" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">+</span> Age<span class="sc">|</span> Item), <span class="at">data =</span> ., <span class="at">REML =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb572-5"><a href="3.3-LMM.html#cb572-5" tabindex="-1"></a>       <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer =</span> <span class="st">&quot;bobyqa&quot;</span>, <span class="at">optCtrl =</span> <span class="fu">list</span>(<span class="at">maxfun =</span> <span class="fl">1e5</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb631-1"><a href="3.3-LMM.html#cb631-1" tabindex="-1"></a>xmdl.rand.Slope3 <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
+<span id="cb631-2"><a href="3.3-LMM.html#cb631-2" tabindex="-1"></a>  <span class="fu">lmer</span>(LookingTime <span class="sc">~</span> Cond <span class="sc">+</span> Age <span class="sc">+</span> </span>
+<span id="cb631-3"><a href="3.3-LMM.html#cb631-3" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">|</span> Subj) <span class="sc">+</span> </span>
+<span id="cb631-4"><a href="3.3-LMM.html#cb631-4" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">+</span> Age<span class="sc">|</span> Item), <span class="at">data =</span> ., <span class="at">REML =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb631-5"><a href="3.3-LMM.html#cb631-5" tabindex="-1"></a>       <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer =</span> <span class="st">&quot;bobyqa&quot;</span>, <span class="at">optCtrl =</span> <span class="fu">list</span>(<span class="at">maxfun =</span> <span class="fl">1e5</span>)))</span></code></pre></div>
 </div>
 </div>
 <div id="with-interaction" class="section level4 hasAnchor" number="3.3.2.3">
 <h4><span class="header-section-number">3.3.2.3</span> With interaction<a href="3.3-LMM.html#with-interaction" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div id="crossed-random-intercepts-interaction" class="section level5 hasAnchor" number="3.3.2.3.1">
 <h5><span class="header-section-number">3.3.2.3.1</span> Crossed random intercepts + Interaction<a href="3.3-LMM.html#crossed-random-intercepts-interaction" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="3.3-LMM.html#cb573-1" tabindex="-1"></a>xmdl.rand.Interc.Int <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
-<span id="cb573-2"><a href="3.3-LMM.html#cb573-2" tabindex="-1"></a>  <span class="fu">lmer</span>(LookingTime <span class="sc">~</span> Cond <span class="sc">*</span> Age <span class="sc">+</span> </span>
-<span id="cb573-3"><a href="3.3-LMM.html#cb573-3" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">|</span> Subj) <span class="sc">+</span> </span>
-<span id="cb573-4"><a href="3.3-LMM.html#cb573-4" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">|</span> Item), <span class="at">data =</span> ., <span class="at">REML =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb573-5"><a href="3.3-LMM.html#cb573-5" tabindex="-1"></a>       <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer =</span> <span class="st">&quot;bobyqa&quot;</span>, <span class="at">optCtrl =</span> <span class="fu">list</span>(<span class="at">maxfun =</span> <span class="fl">1e5</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb632-1"><a href="3.3-LMM.html#cb632-1" tabindex="-1"></a>xmdl.rand.Interc.Int <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
+<span id="cb632-2"><a href="3.3-LMM.html#cb632-2" tabindex="-1"></a>  <span class="fu">lmer</span>(LookingTime <span class="sc">~</span> Cond <span class="sc">*</span> Age <span class="sc">+</span> </span>
+<span id="cb632-3"><a href="3.3-LMM.html#cb632-3" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">|</span> Subj) <span class="sc">+</span> </span>
+<span id="cb632-4"><a href="3.3-LMM.html#cb632-4" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">|</span> Item), <span class="at">data =</span> ., <span class="at">REML =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb632-5"><a href="3.3-LMM.html#cb632-5" tabindex="-1"></a>       <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer =</span> <span class="st">&quot;bobyqa&quot;</span>, <span class="at">optCtrl =</span> <span class="fu">list</span>(<span class="at">maxfun =</span> <span class="fl">1e5</span>)))</span></code></pre></div>
 </div>
 <div id="crossed-random-intercepts-by-speaker-random-slopes-interaction" class="section level5 hasAnchor" number="3.3.2.3.2">
 <h5><span class="header-section-number">3.3.2.3.2</span> Crossed random intercepts + By-speaker random slopes + Interaction<a href="3.3-LMM.html#crossed-random-intercepts-by-speaker-random-slopes-interaction" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="3.3-LMM.html#cb574-1" tabindex="-1"></a>xmdl.rand.Slope1.Int <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
-<span id="cb574-2"><a href="3.3-LMM.html#cb574-2" tabindex="-1"></a>  <span class="fu">lmer</span>(LookingTime <span class="sc">~</span> Cond <span class="sc">*</span> Age <span class="sc">+</span> </span>
-<span id="cb574-3"><a href="3.3-LMM.html#cb574-3" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">|</span> Subj) <span class="sc">+</span> </span>
-<span id="cb574-4"><a href="3.3-LMM.html#cb574-4" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">|</span> Item), <span class="at">data =</span> ., <span class="at">REML =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb574-5"><a href="3.3-LMM.html#cb574-5" tabindex="-1"></a>       <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer =</span> <span class="st">&quot;bobyqa&quot;</span>, <span class="at">optCtrl =</span> <span class="fu">list</span>(<span class="at">maxfun =</span> <span class="fl">1e5</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb633-1"><a href="3.3-LMM.html#cb633-1" tabindex="-1"></a>xmdl.rand.Slope1.Int <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
+<span id="cb633-2"><a href="3.3-LMM.html#cb633-2" tabindex="-1"></a>  <span class="fu">lmer</span>(LookingTime <span class="sc">~</span> Cond <span class="sc">*</span> Age <span class="sc">+</span> </span>
+<span id="cb633-3"><a href="3.3-LMM.html#cb633-3" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">|</span> Subj) <span class="sc">+</span> </span>
+<span id="cb633-4"><a href="3.3-LMM.html#cb633-4" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">|</span> Item), <span class="at">data =</span> ., <span class="at">REML =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb633-5"><a href="3.3-LMM.html#cb633-5" tabindex="-1"></a>       <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer =</span> <span class="st">&quot;bobyqa&quot;</span>, <span class="at">optCtrl =</span> <span class="fu">list</span>(<span class="at">maxfun =</span> <span class="fl">1e5</span>)))</span></code></pre></div>
 </div>
 <div id="crossed-random-intercepts-by-speaker-and-by-item-random-slopes-interaction" class="section level5 hasAnchor" number="3.3.2.3.3">
 <h5><span class="header-section-number">3.3.2.3.3</span> Crossed random intercepts + By-speaker and by-item random slopes + Interaction<a href="3.3-LMM.html#crossed-random-intercepts-by-speaker-and-by-item-random-slopes-interaction" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="3.3-LMM.html#cb575-1" tabindex="-1"></a>xmdl.rand.Slope2.Int <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
-<span id="cb575-2"><a href="3.3-LMM.html#cb575-2" tabindex="-1"></a>  <span class="fu">lmer</span>(LookingTime <span class="sc">~</span> Cond <span class="sc">*</span> Age <span class="sc">+</span> </span>
-<span id="cb575-3"><a href="3.3-LMM.html#cb575-3" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">|</span> Subj) <span class="sc">+</span> </span>
-<span id="cb575-4"><a href="3.3-LMM.html#cb575-4" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">|</span> Item), <span class="at">data =</span> ., <span class="at">REML =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb575-5"><a href="3.3-LMM.html#cb575-5" tabindex="-1"></a>       <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer =</span> <span class="st">&quot;bobyqa&quot;</span>, <span class="at">optCtrl =</span> <span class="fu">list</span>(<span class="at">maxfun =</span> <span class="fl">1e5</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb634-1"><a href="3.3-LMM.html#cb634-1" tabindex="-1"></a>xmdl.rand.Slope2.Int <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
+<span id="cb634-2"><a href="3.3-LMM.html#cb634-2" tabindex="-1"></a>  <span class="fu">lmer</span>(LookingTime <span class="sc">~</span> Cond <span class="sc">*</span> Age <span class="sc">+</span> </span>
+<span id="cb634-3"><a href="3.3-LMM.html#cb634-3" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">|</span> Subj) <span class="sc">+</span> </span>
+<span id="cb634-4"><a href="3.3-LMM.html#cb634-4" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">|</span> Item), <span class="at">data =</span> ., <span class="at">REML =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb634-5"><a href="3.3-LMM.html#cb634-5" tabindex="-1"></a>       <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer =</span> <span class="st">&quot;bobyqa&quot;</span>, <span class="at">optCtrl =</span> <span class="fu">list</span>(<span class="at">maxfun =</span> <span class="fl">1e5</span>)))</span></code></pre></div>
 </div>
 <div id="crossed-random-intercepts-by-speaker-and-by-item-random-slopes-2" class="section level5 hasAnchor" number="3.3.2.3.4">
 <h5><span class="header-section-number">3.3.2.3.4</span> Crossed random intercepts + By-speaker and by-item random slopes<a href="3.3-LMM.html#crossed-random-intercepts-by-speaker-and-by-item-random-slopes-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="3.3-LMM.html#cb576-1" tabindex="-1"></a>xmdl.rand.Slope3.Int <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
-<span id="cb576-2"><a href="3.3-LMM.html#cb576-2" tabindex="-1"></a>  <span class="fu">lmer</span>(LookingTime <span class="sc">~</span> Cond <span class="sc">*</span> Age <span class="sc">+</span> </span>
-<span id="cb576-3"><a href="3.3-LMM.html#cb576-3" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">|</span> Subj) <span class="sc">+</span> </span>
-<span id="cb576-4"><a href="3.3-LMM.html#cb576-4" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">*</span> Age<span class="sc">|</span> Item), <span class="at">data =</span> ., <span class="at">REML =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb576-5"><a href="3.3-LMM.html#cb576-5" tabindex="-1"></a>       <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer =</span> <span class="st">&quot;bobyqa&quot;</span>, <span class="at">optCtrl =</span> <span class="fu">list</span>(<span class="at">maxfun =</span> <span class="fl">1e5</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb635-1"><a href="3.3-LMM.html#cb635-1" tabindex="-1"></a>xmdl.rand.Slope3.Int <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
+<span id="cb635-2"><a href="3.3-LMM.html#cb635-2" tabindex="-1"></a>  <span class="fu">lmer</span>(LookingTime <span class="sc">~</span> Cond <span class="sc">*</span> Age <span class="sc">+</span> </span>
+<span id="cb635-3"><a href="3.3-LMM.html#cb635-3" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">|</span> Subj) <span class="sc">+</span> </span>
+<span id="cb635-4"><a href="3.3-LMM.html#cb635-4" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">*</span> Age<span class="sc">|</span> Item), <span class="at">data =</span> ., <span class="at">REML =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb635-5"><a href="3.3-LMM.html#cb635-5" tabindex="-1"></a>       <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer =</span> <span class="st">&quot;bobyqa&quot;</span>, <span class="at">optCtrl =</span> <span class="fu">list</span>(<span class="at">maxfun =</span> <span class="fl">1e5</span>)))</span></code></pre></div>
 </div>
 </div>
 <div id="model-comparison" class="section level4 hasAnchor" number="3.3.2.4">
 <h4><span class="header-section-number">3.3.2.4</span> Model comparison<a href="3.3-LMM.html#model-comparison" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="3.3-LMM.html#cb577-1" tabindex="-1"></a><span class="fu">anova</span>(xmdl.rand.Interc, xmdl.rand.Slope1, xmdl.rand.Slope2, xmdl.rand.Slope3, xmdl.rand.Interc.Int, xmdl.rand.Slope1.Int, xmdl.rand.Slope2.Int, xmdl.rand.Slope3.Int)</span></code></pre></div>
+<div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="3.3-LMM.html#cb636-1" tabindex="-1"></a><span class="fu">anova</span>(xmdl.rand.Interc, xmdl.rand.Slope1, xmdl.rand.Slope2, xmdl.rand.Slope3, xmdl.rand.Interc.Int, xmdl.rand.Slope1.Int, xmdl.rand.Slope2.Int, xmdl.rand.Slope3.Int)</span></code></pre></div>
 <pre><code>## Data: .
 ## Models:
 ## xmdl.rand.Interc: LookingTime ~ Cond + Age + (1 | Subj) + (1 | Item)
@@ -2538,33 +2570,33 @@ Our hypothesis is: The older a subject is, the more the looking time it is to th
 </div>
 <div id="optimal-model" class="section level4 hasAnchor" number="3.3.2.5">
 <h4><span class="header-section-number">3.3.2.5</span> Optimal model<a href="3.3-LMM.html#optimal-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="3.3-LMM.html#cb579-1" tabindex="-1"></a>xmdl.Optimal <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
-<span id="cb579-2"><a href="3.3-LMM.html#cb579-2" tabindex="-1"></a>  <span class="fu">lmer</span>(LookingTime <span class="sc">~</span> Cond <span class="sc">+</span> Age <span class="sc">+</span> </span>
-<span id="cb579-3"><a href="3.3-LMM.html#cb579-3" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">|</span> Subj) <span class="sc">+</span> </span>
-<span id="cb579-4"><a href="3.3-LMM.html#cb579-4" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">+</span> Age <span class="sc">|</span> Item), <span class="at">data =</span> ., <span class="at">REML =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb579-5"><a href="3.3-LMM.html#cb579-5" tabindex="-1"></a>       <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer =</span> <span class="st">&quot;bobyqa&quot;</span>, <span class="at">optCtrl =</span> <span class="fu">list</span>(<span class="at">maxfun =</span> <span class="fl">1e5</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb638"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb638-1"><a href="3.3-LMM.html#cb638-1" tabindex="-1"></a>xmdl.Optimal <span class="ot">&lt;-</span> dataCong <span class="sc">%&gt;%</span> </span>
+<span id="cb638-2"><a href="3.3-LMM.html#cb638-2" tabindex="-1"></a>  <span class="fu">lmer</span>(LookingTime <span class="sc">~</span> Cond <span class="sc">+</span> Age <span class="sc">+</span> </span>
+<span id="cb638-3"><a href="3.3-LMM.html#cb638-3" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">|</span> Subj) <span class="sc">+</span> </span>
+<span id="cb638-4"><a href="3.3-LMM.html#cb638-4" tabindex="-1"></a>         (<span class="dv">1</span> <span class="sc">+</span> Cond <span class="sc">+</span> Age <span class="sc">|</span> Item), <span class="at">data =</span> ., <span class="at">REML =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb638-5"><a href="3.3-LMM.html#cb638-5" tabindex="-1"></a>       <span class="at">control =</span> <span class="fu">lmerControl</span>(<span class="at">optimizer =</span> <span class="st">&quot;bobyqa&quot;</span>, <span class="at">optCtrl =</span> <span class="fu">list</span>(<span class="at">maxfun =</span> <span class="fl">1e5</span>)))</span></code></pre></div>
 <div id="model-criticism" class="section level5 hasAnchor" number="3.3.2.5.1">
 <h5><span class="header-section-number">3.3.2.5.1</span> Model criticism<a href="3.3-LMM.html#model-criticism" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div id="histogram-1" class="section level6 hasAnchor" number="3.3.2.5.1.1">
 <h6><span class="header-section-number">3.3.2.5.1.1</span> Histogram<a href="3.3-LMM.html#histogram-1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="3.3-LMM.html#cb580-1" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">residuals</span>(xmdl.Optimal))</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-238-1.png" width="672" /></p>
+<div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb639-1"><a href="3.3-LMM.html#cb639-1" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">residuals</span>(xmdl.Optimal))</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-256-1.png" width="672" /></p>
 </div>
 <div id="qq-plot" class="section level6 hasAnchor" number="3.3.2.5.1.2">
 <h6><span class="header-section-number">3.3.2.5.1.2</span> QQ-plot<a href="3.3-LMM.html#qq-plot" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="3.3-LMM.html#cb581-1" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(xmdl.Optimal)); <span class="fu">qqline</span>(<span class="fu">residuals</span>(xmdl.Optimal))</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-239-1.png" width="672" /></p>
+<div class="sourceCode" id="cb640"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb640-1"><a href="3.3-LMM.html#cb640-1" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(xmdl.Optimal)); <span class="fu">qqline</span>(<span class="fu">residuals</span>(xmdl.Optimal))</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-257-1.png" width="672" /></p>
 </div>
 <div id="residuals-vs-fitted" class="section level6 hasAnchor" number="3.3.2.5.1.3">
 <h6><span class="header-section-number">3.3.2.5.1.3</span> Residuals vs Fitted<a href="3.3-LMM.html#residuals-vs-fitted" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="3.3-LMM.html#cb582-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">fitted</span>(xmdl.Optimal), <span class="fu">residuals</span>(xmdl.Optimal), <span class="at">cex =</span> <span class="dv">4</span>)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-240-1.png" width="672" /></p>
+<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb641-1"><a href="3.3-LMM.html#cb641-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">fitted</span>(xmdl.Optimal), <span class="fu">residuals</span>(xmdl.Optimal), <span class="at">cex =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-258-1.png" width="672" /></p>
 </div>
 </div>
 <div id="summary" class="section level5 hasAnchor" number="3.3.2.5.2">
 <h5><span class="header-section-number">3.3.2.5.2</span> Summary<a href="3.3-LMM.html#summary" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="3.3-LMM.html#cb583-1" tabindex="-1"></a>xmdl.Optimal <span class="sc">%&gt;%</span> </span>
-<span id="cb583-2"><a href="3.3-LMM.html#cb583-2" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb642"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb642-1"><a href="3.3-LMM.html#cb642-1" tabindex="-1"></a>xmdl.Optimal <span class="sc">%&gt;%</span> </span>
+<span id="cb642-2"><a href="3.3-LMM.html#cb642-2" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>## Linear mixed model fit by REML [&#39;lmerMod&#39;]
 ## Formula: LookingTime ~ Cond + Age + (1 + Cond | Subj) + (1 + Cond + Age |  
 ##     Item)
@@ -2600,7 +2632,7 @@ Our hypothesis is: The older a subject is, the more the looking time it is to th
 </div>
 <div id="anova" class="section level5 hasAnchor" number="3.3.2.5.3">
 <h5><span class="header-section-number">3.3.2.5.3</span> ANOVA<a href="3.3-LMM.html#anova" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="3.3-LMM.html#cb585-1" tabindex="-1"></a><span class="fu">Anova</span>(xmdl.Optimal)</span></code></pre></div>
+<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="3.3-LMM.html#cb644-1" tabindex="-1"></a><span class="fu">Anova</span>(xmdl.Optimal)</span></code></pre></div>
 <pre><code>## Analysis of Deviance Table (Type II Wald chisquare tests)
 ## 
 ## Response: LookingTime
@@ -2612,8 +2644,8 @@ Our hypothesis is: The older a subject is, the more the looking time it is to th
 </div>
 <div id="models-fit-6" class="section level5 hasAnchor" number="3.3.2.5.4">
 <h5><span class="header-section-number">3.3.2.5.4</span> Model’s fit<a href="3.3-LMM.html#models-fit-6" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="3.3-LMM.html#cb587-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tab_model</span>(xmdl.Optimal, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;outputs/xmdl.Optimal.html&quot;</span>)))</span>
-<span id="cb587-2"><a href="3.3-LMM.html#cb587-2" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">&quot;outputs/xmdl.Optimal.html&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="3.3-LMM.html#cb646-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tab_model</span>(xmdl.Optimal, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;outputs/xmdl.Optimal.html&quot;</span>)))</span>
+<span id="cb646-2"><a href="3.3-LMM.html#cb646-2" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">&quot;outputs/xmdl.Optimal.html&quot;</span>)</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">&nbsp;</th>
@@ -2716,36 +2748,36 @@ Our hypothesis is: The older a subject is, the more the looking time it is to th
 <p>We use two functions from the package <code>ggstats</code>.</p>
 <div id="a-plot" class="section level5 hasAnchor" number="3.3.3.1.1">
 <h5><span class="header-section-number">3.3.3.1.1</span> A plot<a href="3.3-LMM.html#a-plot" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="3.3-LMM.html#cb588-1" tabindex="-1"></a><span class="fu">ggcoef_model</span>(xmdl.Optimal)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-244-1.png" width="672" /></p>
+<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb647-1"><a href="3.3-LMM.html#cb647-1" tabindex="-1"></a><span class="fu">ggcoef_model</span>(xmdl.Optimal)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-262-1.png" width="672" /></p>
 </div>
 </div>
 <div id="a-plot-a-table-95-ci" class="section level4 hasAnchor" number="3.3.3.2">
 <h4><span class="header-section-number">3.3.3.2</span> A plot + a table + 95% CI<a href="3.3-LMM.html#a-plot-a-table-95-ci" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="3.3-LMM.html#cb589-1" tabindex="-1"></a><span class="fu">ggcoef_table</span>(xmdl.Optimal)</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-245-1.png" width="672" /></p>
+<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="3.3-LMM.html#cb648-1" tabindex="-1"></a><span class="fu">ggcoef_table</span>(xmdl.Optimal)</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-263-1.png" width="672" /></p>
 </div>
 <div id="with-ggstatsplot" class="section level4 hasAnchor" number="3.3.3.3">
 <h4><span class="header-section-number">3.3.3.3</span> With <code>ggstatsplot</code><a href="3.3-LMM.html#with-ggstatsplot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="3.3-LMM.html#cb590-1" tabindex="-1"></a><span class="fu">ggcoefstats</span>(xmdl.Optimal, <span class="at">point.args =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="dv">13</span>), <span class="at">stats.label.color =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="dv">13</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb649-1"><a href="3.3-LMM.html#cb649-1" tabindex="-1"></a><span class="fu">ggcoefstats</span>(xmdl.Optimal, <span class="at">point.args =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="dv">13</span>), <span class="at">stats.label.color =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="dv">13</span>)))</span></code></pre></div>
 <pre><code>## Warning in (function (mapping = NULL, data = NULL, stat = &quot;identity&quot;, position
 ## = &quot;identity&quot;, : Ignoring unknown parameters: `stats.label.colour`</code></pre>
 <pre><code>## Number of labels is greater than default palette color count.
 ## • Select another color `palette` (and/or `package`).</code></pre>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-246-1.png" width="672" /></p>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-264-1.png" width="672" /></p>
 </div>
 </div>
 <div id="exploring-random-effects" class="section level3 hasAnchor" number="3.3.4">
 <h3><span class="header-section-number">3.3.4</span> Exploring random effects<a href="3.3-LMM.html#exploring-random-effects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="subject-random-effects" class="section level4 hasAnchor" number="3.3.4.1">
 <h4><span class="header-section-number">3.3.4.1</span> Subject random effects<a href="3.3-LMM.html#subject-random-effects" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="3.3-LMM.html#cb593-1" tabindex="-1"></a>random_effects <span class="ot">&lt;-</span> <span class="fu">ranef</span>(xmdl.Optimal) <span class="sc">%&gt;%</span></span>
-<span id="cb593-2"><a href="3.3-LMM.html#cb593-2" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb593-3"><a href="3.3-LMM.html#cb593-3" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb593-4"><a href="3.3-LMM.html#cb593-4" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Subject =</span> rowname, <span class="at">Intercept =</span> <span class="st">&quot;(Intercept)&quot;</span>) </span>
-<span id="cb593-5"><a href="3.3-LMM.html#cb593-5" tabindex="-1"></a> </span>
-<span id="cb593-6"><a href="3.3-LMM.html#cb593-6" tabindex="-1"></a>random_effects <span class="sc">%&gt;%</span></span>
-<span id="cb593-7"><a href="3.3-LMM.html#cb593-7" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb652-1"><a href="3.3-LMM.html#cb652-1" tabindex="-1"></a>random_effects <span class="ot">&lt;-</span> <span class="fu">ranef</span>(xmdl.Optimal) <span class="sc">%&gt;%</span></span>
+<span id="cb652-2"><a href="3.3-LMM.html#cb652-2" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb652-3"><a href="3.3-LMM.html#cb652-3" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb652-4"><a href="3.3-LMM.html#cb652-4" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Subject =</span> rowname, <span class="at">Intercept =</span> <span class="st">&quot;(Intercept)&quot;</span>) </span>
+<span id="cb652-5"><a href="3.3-LMM.html#cb652-5" tabindex="-1"></a> </span>
+<span id="cb652-6"><a href="3.3-LMM.html#cb652-6" tabindex="-1"></a>random_effects <span class="sc">%&gt;%</span></span>
+<span id="cb652-7"><a href="3.3-LMM.html#cb652-7" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -2960,13 +2992,13 @@ Our hypothesis is: The older a subject is, the more the looking time it is to th
 </div>
 <div id="items-random-effects" class="section level4 hasAnchor" number="3.3.4.2">
 <h4><span class="header-section-number">3.3.4.2</span> Items random effects<a href="3.3-LMM.html#items-random-effects" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="3.3-LMM.html#cb594-1" tabindex="-1"></a>random_effects <span class="ot">&lt;-</span> <span class="fu">ranef</span>(xmdl.Optimal) <span class="sc">%&gt;%</span></span>
-<span id="cb594-2"><a href="3.3-LMM.html#cb594-2" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb594-3"><a href="3.3-LMM.html#cb594-3" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb594-4"><a href="3.3-LMM.html#cb594-4" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Items =</span> rowname, <span class="at">Intercept =</span> <span class="st">&quot;(Intercept)&quot;</span>) </span>
-<span id="cb594-5"><a href="3.3-LMM.html#cb594-5" tabindex="-1"></a> </span>
-<span id="cb594-6"><a href="3.3-LMM.html#cb594-6" tabindex="-1"></a>random_effects <span class="sc">%&gt;%</span></span>
-<span id="cb594-7"><a href="3.3-LMM.html#cb594-7" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb653"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb653-1"><a href="3.3-LMM.html#cb653-1" tabindex="-1"></a>random_effects <span class="ot">&lt;-</span> <span class="fu">ranef</span>(xmdl.Optimal) <span class="sc">%&gt;%</span></span>
+<span id="cb653-2"><a href="3.3-LMM.html#cb653-2" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb653-3"><a href="3.3-LMM.html#cb653-3" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb653-4"><a href="3.3-LMM.html#cb653-4" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Items =</span> rowname, <span class="at">Intercept =</span> <span class="st">&quot;(Intercept)&quot;</span>) </span>
+<span id="cb653-5"><a href="3.3-LMM.html#cb653-5" tabindex="-1"></a> </span>
+<span id="cb653-6"><a href="3.3-LMM.html#cb653-6" tabindex="-1"></a>random_effects <span class="sc">%&gt;%</span></span>
+<span id="cb653-7"><a href="3.3-LMM.html#cb653-7" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -3220,106 +3252,106 @@ Our hypothesis is: The older a subject is, the more the looking time it is to th
 </tbody>
 </table>
 </div>
-<div id="plots" class="section level4 hasAnchor" number="3.3.4.3">
-<h4><span class="header-section-number">3.3.4.3</span> Plots<a href="3.3-LMM.html#plots" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="plots-1" class="section level4 hasAnchor" number="3.3.4.3">
+<h4><span class="header-section-number">3.3.4.3</span> Plots<a href="3.3-LMM.html#plots-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>These plots below are produced with the <code>sjPlot</code> package.</p>
 <div id="fixed-effects-1" class="section level5 hasAnchor" number="3.3.4.3.1">
 <h5><span class="header-section-number">3.3.4.3.1</span> Fixed effects<a href="3.3-LMM.html#fixed-effects-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div id="condition" class="section level6 hasAnchor" number="3.3.4.3.1.1">
 <h6><span class="header-section-number">3.3.4.3.1.1</span> Condition<a href="3.3-LMM.html#condition" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="3.3-LMM.html#cb595-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Cond&quot;</span>), <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-249-1.png" width="672" /></p>
+<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb654-1"><a href="3.3-LMM.html#cb654-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Cond&quot;</span>), <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-267-1.png" width="672" /></p>
 </div>
 <div id="age-1" class="section level6 hasAnchor" number="3.3.4.3.1.2">
 <h6><span class="header-section-number">3.3.4.3.1.2</span> Age<a href="3.3-LMM.html#age-1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="3.3-LMM.html#cb596-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Age&quot;</span>), <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-250-1.png" width="672" /></p>
+<div class="sourceCode" id="cb655"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb655-1"><a href="3.3-LMM.html#cb655-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Age&quot;</span>), <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-268-1.png" width="672" /></p>
 </div>
 <div id="condition-by-age-1" class="section level6 hasAnchor" number="3.3.4.3.1.3">
 <h6><span class="header-section-number">3.3.4.3.1.3</span> Condition by Age<a href="3.3-LMM.html#condition-by-age-1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="3.3-LMM.html#cb597-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;emm&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Cond&quot;</span>, <span class="st">&quot;Age&quot;</span>), <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-251-1.png" width="672" /></p>
+<div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb656-1"><a href="3.3-LMM.html#cb656-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;emm&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Cond&quot;</span>, <span class="st">&quot;Age&quot;</span>), <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-269-1.png" width="672" /></p>
 </div>
 </div>
 <div id="random-effects-2" class="section level5 hasAnchor" number="3.3.4.3.2">
 <h5><span class="header-section-number">3.3.4.3.2</span> Random effects<a href="3.3-LMM.html#random-effects-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div id="subject" class="section level6 hasAnchor" number="3.3.4.3.2.1">
 <h6><span class="header-section-number">3.3.4.3.2.1</span> Subject<a href="3.3-LMM.html#subject" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="3.3-LMM.html#cb598-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Subj&quot;</span>), <span class="at">pred.type=</span><span class="st">&quot;re&quot;</span>, <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-252-1.png" width="672" /></p>
+<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb657-1"><a href="3.3-LMM.html#cb657-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Subj&quot;</span>), <span class="at">pred.type=</span><span class="st">&quot;re&quot;</span>, <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-270-1.png" width="672" /></p>
 </div>
 <div id="subject-by-condition-1" class="section level6 hasAnchor" number="3.3.4.3.2.2">
 <h6><span class="header-section-number">3.3.4.3.2.2</span> Subject by Condition<a href="3.3-LMM.html#subject-by-condition-1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="3.3-LMM.html#cb599-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Cond&quot;</span>, <span class="st">&quot;Subj&quot;</span>), <span class="at">pred.type=</span><span class="st">&quot;re&quot;</span>, <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>, <span class="at">colors =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Subj)))) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>() </span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-253-1.png" width="672" /></p>
+<div class="sourceCode" id="cb658"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb658-1"><a href="3.3-LMM.html#cb658-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Cond&quot;</span>, <span class="st">&quot;Subj&quot;</span>), <span class="at">pred.type=</span><span class="st">&quot;re&quot;</span>, <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>, <span class="at">colors =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Subj)))) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>() </span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-271-1.png" width="672" /></p>
 </div>
 <div id="subject-by-age-2" class="section level6 hasAnchor" number="3.3.4.3.2.3">
 <h6><span class="header-section-number">3.3.4.3.2.3</span> Subject by Age<a href="3.3-LMM.html#subject-by-age-2" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="3.3-LMM.html#cb600-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Subj&quot;</span>), <span class="at">pred.type=</span><span class="st">&quot;re&quot;</span>, <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>, <span class="at">colors =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Subj)))) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-254-1.png" width="672" /></p>
+<div class="sourceCode" id="cb659"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb659-1"><a href="3.3-LMM.html#cb659-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Subj&quot;</span>), <span class="at">pred.type=</span><span class="st">&quot;re&quot;</span>, <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>, <span class="at">colors =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Subj)))) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-272-1.png" width="672" /></p>
 </div>
 <div id="item" class="section level6 hasAnchor" number="3.3.4.3.2.4">
 <h6><span class="header-section-number">3.3.4.3.2.4</span> Item<a href="3.3-LMM.html#item" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="3.3-LMM.html#cb601-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Item&quot;</span>), <span class="at">pred.type=</span><span class="st">&quot;re&quot;</span>, <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-255-1.png" width="672" /></p>
+<div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb660-1"><a href="3.3-LMM.html#cb660-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Item&quot;</span>), <span class="at">pred.type=</span><span class="st">&quot;re&quot;</span>, <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-273-1.png" width="672" /></p>
 </div>
 <div id="item-by-cond" class="section level6 hasAnchor" number="3.3.4.3.2.5">
 <h6><span class="header-section-number">3.3.4.3.2.5</span> Item by Cond<a href="3.3-LMM.html#item-by-cond" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="3.3-LMM.html#cb602-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Cond&quot;</span>, <span class="st">&quot;Item&quot;</span>), <span class="at">pred.type=</span><span class="st">&quot;re&quot;</span>, <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>, <span class="at">colors =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Item)))) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-256-1.png" width="672" /></p>
+<div class="sourceCode" id="cb661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb661-1"><a href="3.3-LMM.html#cb661-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Cond&quot;</span>, <span class="st">&quot;Item&quot;</span>), <span class="at">pred.type=</span><span class="st">&quot;re&quot;</span>, <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>, <span class="at">colors =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Item)))) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-274-1.png" width="672" /></p>
 </div>
 <div id="item-by-age" class="section level6 hasAnchor" number="3.3.4.3.2.6">
 <h6><span class="header-section-number">3.3.4.3.2.6</span> Item by Age<a href="3.3-LMM.html#item-by-age" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="3.3-LMM.html#cb603-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Item&quot;</span>), <span class="at">pred.type=</span><span class="st">&quot;re&quot;</span>, <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>, <span class="at">colors =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Item)))) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-257-1.png" width="672" /></p>
+<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb662-1"><a href="3.3-LMM.html#cb662-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Item&quot;</span>), <span class="at">pred.type=</span><span class="st">&quot;re&quot;</span>, <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>, <span class="at">colors =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Item)))) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-275-1.png" width="672" /></p>
 </div>
 <div id="item-by-cond-facetted-by-age" class="section level6 hasAnchor" number="3.3.4.3.2.7">
 <h6><span class="header-section-number">3.3.4.3.2.7</span> Item by Cond facetted by Age<a href="3.3-LMM.html#item-by-cond-facetted-by-age" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="3.3-LMM.html#cb604-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Cond&quot;</span>, <span class="st">&quot;Item&quot;</span>, <span class="st">&quot;Age&quot;</span>), <span class="at">pred.type=</span><span class="st">&quot;re&quot;</span>, <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>, <span class="at">colors =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Item)))) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-258-1.png" width="672" /></p>
+<div class="sourceCode" id="cb663"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb663-1"><a href="3.3-LMM.html#cb663-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Cond&quot;</span>, <span class="st">&quot;Item&quot;</span>, <span class="st">&quot;Age&quot;</span>), <span class="at">pred.type=</span><span class="st">&quot;re&quot;</span>, <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>, <span class="at">colors =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Item)))) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-276-1.png" width="672" /></p>
 </div>
 <div id="subject-by-item" class="section level6 hasAnchor" number="3.3.4.3.2.8">
 <h6><span class="header-section-number">3.3.4.3.2.8</span> Subject by Item<a href="3.3-LMM.html#subject-by-item" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="3.3-LMM.html#cb605-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Subj&quot;</span>, <span class="st">&quot;Item&quot;</span>), <span class="at">pred.type=</span><span class="st">&quot;re&quot;</span>, <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>, <span class="at">colors =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Subj)))) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-259-1.png" width="672" /></p>
+<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb664-1"><a href="3.3-LMM.html#cb664-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Subj&quot;</span>, <span class="st">&quot;Item&quot;</span>), <span class="at">pred.type=</span><span class="st">&quot;re&quot;</span>, <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>, <span class="at">colors =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Subj)))) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-277-1.png" width="672" /></p>
 </div>
 <div id="subject-by-item-facetted-by-cond" class="section level6 hasAnchor" number="3.3.4.3.2.9">
 <h6><span class="header-section-number">3.3.4.3.2.9</span> Subject by Item facetted by Cond<a href="3.3-LMM.html#subject-by-item-facetted-by-cond" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="3.3-LMM.html#cb606-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Subj&quot;</span>, <span class="st">&quot;Item&quot;</span>, <span class="st">&quot;Cond&quot;</span>), <span class="at">pred.type=</span><span class="st">&quot;re&quot;</span>, <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>, <span class="at">colors =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Subj)))) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-260-1.png" width="672" /></p>
+<div class="sourceCode" id="cb665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb665-1"><a href="3.3-LMM.html#cb665-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Subj&quot;</span>, <span class="st">&quot;Item&quot;</span>, <span class="st">&quot;Cond&quot;</span>), <span class="at">pred.type=</span><span class="st">&quot;re&quot;</span>, <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>, <span class="at">colors =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Subj)))) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-278-1.png" width="672" /></p>
 </div>
 <div id="subject-by-item-facetted-by-age" class="section level6 hasAnchor" number="3.3.4.3.2.10">
 <h6><span class="header-section-number">3.3.4.3.2.10</span> Subject by Item facetted by Age<a href="3.3-LMM.html#subject-by-item-facetted-by-age" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="3.3-LMM.html#cb607-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Subj&quot;</span>, <span class="st">&quot;Item&quot;</span>, <span class="st">&quot;Age&quot;</span>), <span class="at">pred.type=</span><span class="st">&quot;re&quot;</span>, <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>, <span class="at">colors =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Subj)))) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-261-1.png" width="672" /></p>
+<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb666-1"><a href="3.3-LMM.html#cb666-1" tabindex="-1"></a><span class="fu">plot_model</span>(xmdl.Optimal, <span class="at">type=</span><span class="st">&quot;pred&quot;</span>, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">&quot;Subj&quot;</span>, <span class="st">&quot;Item&quot;</span>, <span class="st">&quot;Age&quot;</span>), <span class="at">pred.type=</span><span class="st">&quot;re&quot;</span>, <span class="at">ci.lvl =</span> <span class="cn">NA</span>, <span class="at">dodge =</span> <span class="dv">0</span>, <span class="at">colors =</span> <span class="fu">paletteer_c</span>(<span class="st">&quot;grDevices::rainbow&quot;</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dataCong<span class="sc">$</span>Subj)))) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-279-1.png" width="672" /></p>
 </div>
 </div>
 <div id="with-lattice" class="section level5 hasAnchor" number="3.3.4.3.3">
 <h5><span class="header-section-number">3.3.4.3.3</span> With <code>Lattice</code><a href="3.3-LMM.html#with-lattice" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div id="subject-intercepts" class="section level6 hasAnchor" number="3.3.4.3.3.1">
 <h6><span class="header-section-number">3.3.4.3.3.1</span> Subject Intercepts<a href="3.3-LMM.html#subject-intercepts" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="3.3-LMM.html#cb608-1" tabindex="-1"></a><span class="fu">dotplot</span>(<span class="fu">ranef</span>(xmdl.Optimal))<span class="sc">$</span>Subj[<span class="dv">1</span>]</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-262-1.png" width="672" /></p>
+<div class="sourceCode" id="cb667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb667-1"><a href="3.3-LMM.html#cb667-1" tabindex="-1"></a><span class="fu">dotplot</span>(<span class="fu">ranef</span>(xmdl.Optimal))<span class="sc">$</span>Subj[<span class="dv">1</span>]</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-280-1.png" width="672" /></p>
 </div>
 <div id="subject-slopes" class="section level6 hasAnchor" number="3.3.4.3.3.2">
 <h6><span class="header-section-number">3.3.4.3.3.2</span> Subject Slopes<a href="3.3-LMM.html#subject-slopes" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="3.3-LMM.html#cb609-1" tabindex="-1"></a><span class="fu">dotplot</span>(<span class="fu">ranef</span>(xmdl.Optimal), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">350</span>, <span class="dv">350</span>))<span class="sc">$</span>Subj[<span class="dv">2</span>]</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-263-1.png" width="672" /></p>
+<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb668-1"><a href="3.3-LMM.html#cb668-1" tabindex="-1"></a><span class="fu">dotplot</span>(<span class="fu">ranef</span>(xmdl.Optimal), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">350</span>, <span class="dv">350</span>))<span class="sc">$</span>Subj[<span class="dv">2</span>]</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-281-1.png" width="672" /></p>
 </div>
 <div id="item-intercepts" class="section level6 hasAnchor" number="3.3.4.3.3.3">
 <h6><span class="header-section-number">3.3.4.3.3.3</span> Item Intercepts<a href="3.3-LMM.html#item-intercepts" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="3.3-LMM.html#cb610-1" tabindex="-1"></a><span class="fu">dotplot</span>(<span class="fu">ranef</span>(xmdl.Optimal))<span class="sc">$</span>Item[<span class="dv">1</span>]</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-264-1.png" width="672" /></p>
+<div class="sourceCode" id="cb669"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb669-1"><a href="3.3-LMM.html#cb669-1" tabindex="-1"></a><span class="fu">dotplot</span>(<span class="fu">ranef</span>(xmdl.Optimal))<span class="sc">$</span>Item[<span class="dv">1</span>]</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-282-1.png" width="672" /></p>
 </div>
 <div id="item-slopes-for-cond" class="section level6 hasAnchor" number="3.3.4.3.3.4">
 <h6><span class="header-section-number">3.3.4.3.3.4</span> Item Slopes for Cond<a href="3.3-LMM.html#item-slopes-for-cond" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="3.3-LMM.html#cb611-1" tabindex="-1"></a><span class="fu">dotplot</span>(<span class="fu">ranef</span>(xmdl.Optimal), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">150</span>, <span class="dv">150</span>))<span class="sc">$</span>Item[<span class="dv">2</span>]</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-265-1.png" width="672" /></p>
+<div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb670-1"><a href="3.3-LMM.html#cb670-1" tabindex="-1"></a><span class="fu">dotplot</span>(<span class="fu">ranef</span>(xmdl.Optimal), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">150</span>, <span class="dv">150</span>))<span class="sc">$</span>Item[<span class="dv">2</span>]</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-283-1.png" width="672" /></p>
 </div>
 <div id="item-slopes-for-age" class="section level6 hasAnchor" number="3.3.4.3.3.5">
 <h6><span class="header-section-number">3.3.4.3.3.5</span> Item Slopes for Age<a href="3.3-LMM.html#item-slopes-for-age" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="3.3-LMM.html#cb612-1" tabindex="-1"></a><span class="fu">dotplot</span>(<span class="fu">ranef</span>(xmdl.Optimal), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">150</span>, <span class="dv">150</span>))<span class="sc">$</span>Item[<span class="dv">3</span>]</span></code></pre></div>
-<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-266-1.png" width="672" /></p>
+<div class="sourceCode" id="cb671"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb671-1"><a href="3.3-LMM.html#cb671-1" tabindex="-1"></a><span class="fu">dotplot</span>(<span class="fu">ranef</span>(xmdl.Optimal), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">150</span>, <span class="dv">150</span>))<span class="sc">$</span>Item[<span class="dv">3</span>]</span></code></pre></div>
+<p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-284-1.png" width="672" /></p>
 <p>I hope this tutorial helped you to uncover the role of participants and items and what they can tell us beyond the fixed effect!</p>
 </div>
 </div>
