@@ -599,6 +599,8 @@ pwr.t.test(n = 30, d = 0.8, sig.level = 0.01)
 
 
 The power is only at 66.78%! Not very powerful. How many students should we observe for a test with 80% power?
+
+
 ```{r}
 pwr.t.test(d = 0.8, power = 0.80, sig.level = 0.01)
 ```
@@ -896,6 +898,7 @@ corrplot(corr$r, p.mat = corr$P,
          addCoef.col = "black", diag = FALSE, type = "upper", tl.srt = 55)
 ```
 
+
 ```{r}
 english %>% 
   group_by(AgeSubject) %>% 
@@ -978,7 +981,7 @@ english %>%
 In all cases, the statistically significant result indicates that there
 is evidence that the variance of two levels of the factor `AgeSubject`
 is statistically significant; i.e., the variances are not equal. This is
-important as we will use this in our t-test later on
+important as we will use this in our t-test later on.
 
 ### First steps
 
@@ -1001,8 +1004,8 @@ english %>%
 ```
 
 To interpret the t-test, we say that there is evidence for a
-statistically significant difference between the two groups: `setosa`
-and `versicolor`: `t(4534.6) = 67.468, p < 2.2e-16`. The mean of
+statistically significant difference between the two groups: `young`
+and `old`: `t(4534.6) = 67.468, p < 2.2e-16`. The mean of
 `RTLexdec` for the young group is significantly lower than that of the
 old group.
 
@@ -1020,8 +1023,8 @@ Any comments? discuss with your neighbour.
 
 The results of the linear model are exactly the same, albeit with a
 difference in the sign of the difference. This indicates that the
-$\beta$ coefficient for `versicolor` is significantly higher than that
-of `setosa` by `0.93000`: `t(98) = 10.52, p < <2e-16`.
+$\beta$ coefficient for `young` is significantly lower than that
+of `old` by `-0.221721`: `t = -67.47, p < <2e-16`.
 
 The dataset `english` contains two levels for `AgeSubject.` We will run
 an ANOVA and a linear model on the data.

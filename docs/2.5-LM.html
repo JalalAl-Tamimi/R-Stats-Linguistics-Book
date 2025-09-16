@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-15" />
+<meta name="date" content="2025-09-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -2308,7 +2308,7 @@ We can check both.</p>
 <p>In all cases, the statistically significant result indicates that there
 is evidence that the variance of two levels of the factor <code>AgeSubject</code>
 is statistically significant; i.e., the variances are not equal. This is
-important as we will use this in our t-test later on</p>
+important as we will use this in our t-test later on.</p>
 </div>
 </div>
 </div>
@@ -2337,8 +2337,8 @@ add <code>var.equal = FALSE</code> (based on the normality tests above)</p>
 ##   mean in group old mean in group young 
 ##            6.660958            6.439237</code></pre>
 <p>To interpret the t-test, we say that there is evidence for a
-statistically significant difference between the two groups: <code>setosa</code>
-and <code>versicolor</code>: <code>t(4534.6) = 67.468, p &lt; 2.2e-16</code>. The mean of
+statistically significant difference between the two groups: <code>young</code>
+and <code>old</code>: <code>t(4534.6) = 67.468, p &lt; 2.2e-16</code>. The mean of
 <code>RTLexdec</code> for the young group is significantly lower than that of the
 old group.</p>
 </div>
@@ -2369,8 +2369,8 @@ old group.</p>
 <p>Any comments? discuss with your neighbour.</p>
 <p>The results of the linear model are exactly the same, albeit with a
 difference in the sign of the difference. This indicates that the
-<span class="math inline">\(\beta\)</span> coefficient for <code>versicolor</code> is significantly higher than that
-of <code>setosa</code> by <code>0.93000</code>: <code>t(98) = 10.52, p &lt; &lt;2e-16</code>.</p>
+<span class="math inline">\(\beta\)</span> coefficient for <code>young</code> is significantly lower than that
+of <code>old</code> by <code>-0.221721</code>: <code>t = -67.47, p &lt; &lt;2e-16</code>.</p>
 <p>The dataset <code>english</code> contains two levels for <code>AgeSubject.</code> We will run
 an ANOVA and a linear model on the data.</p>
 </div>
@@ -2851,7 +2851,7 @@ is available under our linear model. To access some info from the model</p>
 ##   .. ..- attr(*, &quot;order&quot;)= int 1
 ##   .. ..- attr(*, &quot;intercept&quot;)= int 1
 ##   .. ..- attr(*, &quot;response&quot;)= int 1
-##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x000002c38cd41770&gt; 
+##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x000001ac6b9735b8&gt; 
 ##   .. ..- attr(*, &quot;predvars&quot;)= language list(RTlexdec, AgeSubject)
 ##   .. ..- attr(*, &quot;dataClasses&quot;)= Named chr [1:2] &quot;numeric&quot; &quot;factor&quot;
 ##   .. .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;RTlexdec&quot; &quot;AgeSubject&quot;
@@ -2868,7 +2868,7 @@ is available under our linear model. To access some info from the model</p>
 ##   .. .. ..- attr(*, &quot;order&quot;)= int 1
 ##   .. .. ..- attr(*, &quot;intercept&quot;)= int 1
 ##   .. .. ..- attr(*, &quot;response&quot;)= int 1
-##   .. .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x000002c38cd41770&gt; 
+##   .. .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x000001ac6b9735b8&gt; 
 ##   .. .. ..- attr(*, &quot;predvars&quot;)= language list(RTlexdec, AgeSubject)
 ##   .. .. ..- attr(*, &quot;dataClasses&quot;)= Named chr [1:2] &quot;numeric&quot; &quot;factor&quot;
 ##   .. .. .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;RTlexdec&quot; &quot;AgeSubject&quot;
