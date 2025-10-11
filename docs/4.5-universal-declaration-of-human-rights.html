@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.5 Universal Declaration of Human Rights | Statistics for Linguists using R - Quantitative and qualitative approaches</title>
   <meta name="description" content="This repo contains all material for the book Statistics for Linguists using R - Quantitative and qualitative approaches" />
-  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.5 Universal Declaration of Human Rights | Statistics for Linguists using R - Quantitative and qualitative approaches" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-16" />
+<meta name="date" content="2025-10-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -2017,11 +2017,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.3.2" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#reduce-dimensionality-by-selecting-uncorrelated-predictors"><i class="fa fa-check"></i><b>7.3.2</b> Reduce dimensionality by selecting uncorrelated predictors</a>
 <ul>
-<li class="chapter" data-level="7.3.2.1" data-path="Ch_04_Corpus_Manipulations_I.html"><a href="#r%C2%B2-0.9"><i class="fa fa-check"></i><b>7.3.2.1</b> R² = 0.9</a></li>
-<li class="chapter" data-level="7.3.2.2" data-path="Ch_04_Corpus_Manipulations_I.html"><a href="#r%C2%B2-0.75"><i class="fa fa-check"></i><b>7.3.2.2</b> R² = 0.75</a></li>
-<li class="chapter" data-level="7.3.2.3" data-path="Ch_04_Corpus_Manipulations_I.html"><a href="#r%C2%B2-0.5"><i class="fa fa-check"></i><b>7.3.2.3</b> R² = 0.5</a></li>
-<li class="chapter" data-level="7.3.2.4" data-path="Ch_04_Corpus_Manipulations_I.html"><a href="#r%C2%B2-0.25"><i class="fa fa-check"></i><b>7.3.2.4</b> R² = 0.25</a></li>
-<li class="chapter" data-level="7.3.2.5" data-path="Ch_04_Corpus_Manipulations_I.html"><a href="#r%C2%B2-0.1"><i class="fa fa-check"></i><b>7.3.2.5</b> R² = 0.1</a></li>
+<li class="chapter" data-level="7.3.2.1" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.9"><i class="fa fa-check"></i><b>7.3.2.1</b> R² = 0.9</a></li>
+<li class="chapter" data-level="7.3.2.2" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.75"><i class="fa fa-check"></i><b>7.3.2.2</b> R² = 0.75</a></li>
+<li class="chapter" data-level="7.3.2.3" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.5"><i class="fa fa-check"></i><b>7.3.2.3</b> R² = 0.5</a></li>
+<li class="chapter" data-level="7.3.2.4" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.25"><i class="fa fa-check"></i><b>7.3.2.4</b> R² = 0.25</a></li>
+<li class="chapter" data-level="7.3.2.5" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.1"><i class="fa fa-check"></i><b>7.3.2.5</b> R² = 0.1</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html"><i class="fa fa-check"></i><b>7.4</b> Principal Component Analyses - PCA</a>
@@ -2226,13 +2226,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We import multiple files containing the Universal Declaration of Human Rights in 13 languages. There are 13 different textfiles</p>
 <div id="importing-data-1" class="section level3 hasAnchor" number="4.5.1">
 <h3><span class="header-section-number">4.5.1</span> Importing data<a href="4.5-universal-declaration-of-human-rights.html#importing-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1050"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1050-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1050-1" tabindex="-1"></a>dat_udhr <span class="ot">&lt;-</span> <span class="fu">readtext</span>(<span class="fu">paste0</span>(Data_Dir, <span class="st">&quot;/txt/UDHR/*&quot;</span>),</span>
-<span id="cb1050-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1050-2" tabindex="-1"></a>                      <span class="at">docvarsfrom =</span> <span class="st">&quot;filenames&quot;</span>, </span>
-<span id="cb1050-3"><a href="4.5-universal-declaration-of-human-rights.html#cb1050-3" tabindex="-1"></a>                      <span class="at">docvarnames =</span> <span class="fu">c</span>(<span class="st">&quot;document&quot;</span>, <span class="st">&quot;language&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1060"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1060-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1060-1" tabindex="-1"></a>dat_udhr <span class="ot">&lt;-</span> <span class="fu">readtext</span>(<span class="fu">paste0</span>(Data_Dir, <span class="st">&quot;/txt/UDHR/*&quot;</span>),</span>
+<span id="cb1060-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1060-2" tabindex="-1"></a>                      <span class="at">docvarsfrom =</span> <span class="st">&quot;filenames&quot;</span>, </span>
+<span id="cb1060-3"><a href="4.5-universal-declaration-of-human-rights.html#cb1060-3" tabindex="-1"></a>                      <span class="at">docvarnames =</span> <span class="fu">c</span>(<span class="st">&quot;document&quot;</span>, <span class="st">&quot;language&quot;</span>))</span></code></pre></div>
 <div id="checking-structure-1" class="section level4 hasAnchor" number="4.5.1.1">
 <h4><span class="header-section-number">4.5.1.1</span> Checking structure<a href="4.5-universal-declaration-of-human-rights.html#checking-structure-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1051"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1051-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1051-1" tabindex="-1"></a>dat_udhr <span class="sc">%&gt;%</span> </span>
-<span id="cb1051-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1051-2" tabindex="-1"></a>  <span class="fu">str</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1061"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1061-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1061-1" tabindex="-1"></a>dat_udhr <span class="sc">%&gt;%</span> </span>
+<span id="cb1061-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1061-2" tabindex="-1"></a>  <span class="fu">str</span>()</span></code></pre></div>
 <pre><code>## Classes &#39;readtext&#39; and &#39;data.frame&#39;: 13 obs. of  4 variables:
 ##  $ doc_id  : chr  &quot;UDHR_chinese.txt&quot; &quot;UDHR_czech.txt&quot; &quot;UDHR_danish.txt&quot; &quot;UDHR_english.txt&quot; ...
 ##  $ text    : chr  &quot;世界人权宣言\n联合国大会一九四八年十二月十日第217A(III)号决议通过并颁布 1948 年 12 月 10 日， 联 合 国 大 会 通&quot;| __truncated__ &quot;VŠEOBECNÁ DEKLARACE LIDSKÝCH PRÁV\nÚvod U vědomí toho, že uznání přirozené důstojnosti a rovných a nezcizitelný&quot;| __truncated__ &quot;Den 10. december 1948 vedtog og offentliggjorde FNs tredie generalforsamling Verdenserklæringen om Menneskerett&quot;| __truncated__ &quot;Universal Declaration of Human Rights\nPreamble Whereas recognition of the inherent dignity and of the equal an&quot;| __truncated__ ...
@@ -2241,8 +2241,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="unnest-1" class="section level4 hasAnchor" number="4.5.1.2">
 <h4><span class="header-section-number">4.5.1.2</span> Unnest<a href="4.5-universal-declaration-of-human-rights.html#unnest-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1053"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1053-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1053-1" tabindex="-1"></a>dat_udhr <span class="sc">%&gt;%</span> </span>
-<span id="cb1053-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1053-2" tabindex="-1"></a>  <span class="fu">unnest</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1063"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1063-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1063-1" tabindex="-1"></a>dat_udhr <span class="sc">%&gt;%</span> </span>
+<span id="cb1063-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1063-2" tabindex="-1"></a>  <span class="fu">unnest</span>()</span></code></pre></div>
 <pre><code>## Warning: `cols` is now required when using `unnest()`.
 ## ℹ Please use `cols = c()`.</code></pre>
 <pre><code>## # A tibble: 13 × 4
@@ -2269,21 +2269,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This dataset comes as well in PDF formats. We can import data in a PDF format and obtain details from file name.</p>
 <div id="importing-data-2" class="section level6 hasAnchor" number="4.5.1.3.1.1">
 <h6><span class="header-section-number">4.5.1.3.1.1</span> Importing data<a href="4.5-universal-declaration-of-human-rights.html#importing-data-2" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1056"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1056-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1056-1" tabindex="-1"></a>dat_udhr_PDF <span class="ot">&lt;-</span> <span class="fu">readtext</span>(<span class="fu">paste0</span>(Data_Dir, <span class="st">&quot;/pdf/UDHR/*.pdf&quot;</span>), </span>
-<span id="cb1056-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1056-2" tabindex="-1"></a>                      <span class="at">docvarsfrom =</span> <span class="st">&quot;filenames&quot;</span>, </span>
-<span id="cb1056-3"><a href="4.5-universal-declaration-of-human-rights.html#cb1056-3" tabindex="-1"></a>                      <span class="at">docvarnames =</span> <span class="fu">c</span>(<span class="st">&quot;document&quot;</span>, <span class="st">&quot;language&quot;</span>),</span>
-<span id="cb1056-4"><a href="4.5-universal-declaration-of-human-rights.html#cb1056-4" tabindex="-1"></a>                      <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1066"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1066-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1066-1" tabindex="-1"></a>dat_udhr_PDF <span class="ot">&lt;-</span> <span class="fu">readtext</span>(<span class="fu">paste0</span>(Data_Dir, <span class="st">&quot;/pdf/UDHR/*.pdf&quot;</span>), </span>
+<span id="cb1066-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1066-2" tabindex="-1"></a>                      <span class="at">docvarsfrom =</span> <span class="st">&quot;filenames&quot;</span>, </span>
+<span id="cb1066-3"><a href="4.5-universal-declaration-of-human-rights.html#cb1066-3" tabindex="-1"></a>                      <span class="at">docvarnames =</span> <span class="fu">c</span>(<span class="st">&quot;document&quot;</span>, <span class="st">&quot;language&quot;</span>),</span>
+<span id="cb1066-4"><a href="4.5-universal-declaration-of-human-rights.html#cb1066-4" tabindex="-1"></a>                      <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)</span></code></pre></div>
 </div>
 <div id="check-encoding" class="section level6 hasAnchor" number="4.5.1.3.1.2">
 <h6><span class="header-section-number">4.5.1.3.1.2</span> Check encoding<a href="4.5-universal-declaration-of-human-rights.html#check-encoding" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1057"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1057-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1057-1" tabindex="-1"></a><span class="fu">Encoding</span>(dat_udhr_PDF<span class="sc">$</span>text)</span></code></pre></div>
+<div class="sourceCode" id="cb1067"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1067-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1067-1" tabindex="-1"></a><span class="fu">Encoding</span>(dat_udhr_PDF<span class="sc">$</span>text)</span></code></pre></div>
 <pre><code>##  [1] &quot;UTF-8&quot;   &quot;UTF-8&quot;   &quot;UTF-8&quot;   &quot;unknown&quot; &quot;UTF-8&quot;   &quot;UTF-8&quot;   &quot;UTF-8&quot;  
 ##  [8] &quot;UTF-8&quot;   &quot;UTF-8&quot;   &quot;UTF-8&quot;   &quot;UTF-8&quot;</code></pre>
 </div>
 <div id="checking-structure-2" class="section level6 hasAnchor" number="4.5.1.3.1.3">
 <h6><span class="header-section-number">4.5.1.3.1.3</span> Checking structure<a href="4.5-universal-declaration-of-human-rights.html#checking-structure-2" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1059"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1059-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1059-1" tabindex="-1"></a>dat_udhr_PDF <span class="sc">%&gt;%</span> </span>
-<span id="cb1059-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1059-2" tabindex="-1"></a>  <span class="fu">str</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1069"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1069-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1069-1" tabindex="-1"></a>dat_udhr_PDF <span class="sc">%&gt;%</span> </span>
+<span id="cb1069-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1069-2" tabindex="-1"></a>  <span class="fu">str</span>()</span></code></pre></div>
 <pre><code>## Classes &#39;readtext&#39; and &#39;data.frame&#39;: 11 obs. of  4 variables:
 ##  $ doc_id  : chr  &quot;UDHR_chinese.pdf&quot; &quot;UDHR_czech.pdf&quot; &quot;UDHR_danish.pdf&quot; &quot;UDHR_english.pdf&quot; ...
 ##  $ text    : chr  &quot;世界人权宣言\n\n联合国大会一九四八年十二月十日第217A(III)号决议通过并颁布\n1948 年 12 月 10 日， 联 合 国 大 会&quot;| __truncated__ &quot;VŠEOBECNÁ DEKLARACE LIDSKÝCH PRÁV\n\nÚvod\n\nU vědomí toho,\nže uznání přirozené důstojnosti a rovných a nezciz&quot;| __truncated__ &quot;Den 10. december 1948 vedtog og offentliggjorde FNs tredie generalforsamling\nVerdenserklæringen om Menneskeret&quot;| __truncated__ &quot;Universal Declaration of Human Rights\n\nPreamble\n\nWhereas recognition of the inherent dignity and of the equ&quot;| __truncated__ ...
@@ -2292,8 +2292,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="unnest-2" class="section level6 hasAnchor" number="4.5.1.3.1.4">
 <h6><span class="header-section-number">4.5.1.3.1.4</span> Unnest<a href="4.5-universal-declaration-of-human-rights.html#unnest-2" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1061"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1061-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1061-1" tabindex="-1"></a>dat_udhr_PDF <span class="sc">%&gt;%</span> </span>
-<span id="cb1061-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1061-2" tabindex="-1"></a>  <span class="fu">unnest</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1071"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1071-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1071-1" tabindex="-1"></a>dat_udhr_PDF <span class="sc">%&gt;%</span> </span>
+<span id="cb1071-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1071-2" tabindex="-1"></a>  <span class="fu">unnest</span>()</span></code></pre></div>
 <pre><code>## Warning: `cols` is now required when using `unnest()`.
 ## ℹ Please use `cols = c()`.</code></pre>
 <pre><code>## # A tibble: 11 × 4
@@ -2317,14 +2317,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We look into data with different encoding. This is important as the type of data you will generate can be of different encodings.</p>
 <div id="temp-path" class="section level6 hasAnchor" number="4.5.1.3.2.1">
 <h6><span class="header-section-number">4.5.1.3.2.1</span> Temp path<a href="4.5-universal-declaration-of-human-rights.html#temp-path" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1064"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1064-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1064-1" tabindex="-1"></a>path_temp <span class="ot">&lt;-</span> <span class="fu">tempdir</span>()</span>
-<span id="cb1064-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1064-2" tabindex="-1"></a><span class="fu">unzip</span>(<span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;data_files_encodedtexts.zip&quot;</span>, <span class="at">package =</span> <span class="st">&quot;readtext&quot;</span>), <span class="at">exdir =</span> path_temp)</span></code></pre></div>
+<div class="sourceCode" id="cb1074"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1074-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1074-1" tabindex="-1"></a>path_temp <span class="ot">&lt;-</span> <span class="fu">tempdir</span>()</span>
+<span id="cb1074-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1074-2" tabindex="-1"></a><span class="fu">unzip</span>(<span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;data_files_encodedtexts.zip&quot;</span>, <span class="at">package =</span> <span class="st">&quot;readtext&quot;</span>), <span class="at">exdir =</span> path_temp)</span></code></pre></div>
 </div>
 <div id="importing-data-3" class="section level6 hasAnchor" number="4.5.1.3.2.2">
 <h6><span class="header-section-number">4.5.1.3.2.2</span> Importing data<a href="4.5-universal-declaration-of-human-rights.html#importing-data-3" class="anchor-section" aria-label="Anchor link to header"></a></h6>
 <p>We use regular expressions to search for all files starting with “Indian_” or “UDHR_” and containing any characters, up to the ending with “.text”</p>
-<div class="sourceCode" id="cb1065"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1065-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1065-1" tabindex="-1"></a>filename <span class="ot">&lt;-</span> <span class="fu">list.files</span>(path_temp, <span class="st">&quot;^(Indian|UDHR_).*</span><span class="sc">\\</span><span class="st">.txt$&quot;</span>)</span>
-<span id="cb1065-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1065-2" tabindex="-1"></a><span class="fu">head</span>(filename)</span></code></pre></div>
+<div class="sourceCode" id="cb1075"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1075-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1075-1" tabindex="-1"></a>filename <span class="ot">&lt;-</span> <span class="fu">list.files</span>(path_temp, <span class="st">&quot;^(Indian|UDHR_).*</span><span class="sc">\\</span><span class="st">.txt$&quot;</span>)</span>
+<span id="cb1075-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1075-2" tabindex="-1"></a><span class="fu">head</span>(filename)</span></code></pre></div>
 <pre><code>## [1] &quot;IndianTreaty_English_UTF-16LE.txt&quot;  &quot;IndianTreaty_English_UTF-8-BOM.txt&quot;
 ## [3] &quot;UDHR_Arabic_ISO-8859-6.txt&quot;         &quot;UDHR_Arabic_UTF-8.txt&quot;             
 ## [5] &quot;UDHR_Arabic_WINDOWS-1256.txt&quot;       &quot;UDHR_Chinese_GB2312.txt&quot;</code></pre>
@@ -2332,10 +2332,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="export-encoding" class="section level6 hasAnchor" number="4.5.1.3.2.3">
 <h6><span class="header-section-number">4.5.1.3.2.3</span> Export encoding<a href="4.5-universal-declaration-of-human-rights.html#export-encoding" class="anchor-section" aria-label="Anchor link to header"></a></h6>
 <p>We use various functions to delete <code>.txt</code> at the end of each file name and then we split each string as a function of <code>_</code> and obtain the third row in each list of item.</p>
-<div class="sourceCode" id="cb1067"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1067-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1067-1" tabindex="-1"></a>filename <span class="ot">&lt;-</span> filename <span class="sc">%&gt;%</span> </span>
-<span id="cb1067-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1067-2" tabindex="-1"></a>  <span class="fu">str_replace</span>(<span class="st">&quot;.txt$&quot;</span>, <span class="st">&quot;&quot;</span>)</span>
-<span id="cb1067-3"><a href="4.5-universal-declaration-of-human-rights.html#cb1067-3" tabindex="-1"></a>encoding <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map</span>(<span class="fu">str_split</span>(filename, <span class="st">&quot;_&quot;</span>), <span class="dv">3</span>)</span>
-<span id="cb1067-4"><a href="4.5-universal-declaration-of-human-rights.html#cb1067-4" tabindex="-1"></a><span class="fu">head</span>(encoding)</span></code></pre></div>
+<div class="sourceCode" id="cb1077"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1077-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1077-1" tabindex="-1"></a>filename <span class="ot">&lt;-</span> filename <span class="sc">%&gt;%</span> </span>
+<span id="cb1077-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1077-2" tabindex="-1"></a>  <span class="fu">str_replace</span>(<span class="st">&quot;.txt$&quot;</span>, <span class="st">&quot;&quot;</span>)</span>
+<span id="cb1077-3"><a href="4.5-universal-declaration-of-human-rights.html#cb1077-3" tabindex="-1"></a>encoding <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map</span>(<span class="fu">str_split</span>(filename, <span class="st">&quot;_&quot;</span>), <span class="dv">3</span>)</span>
+<span id="cb1077-4"><a href="4.5-universal-declaration-of-human-rights.html#cb1077-4" tabindex="-1"></a><span class="fu">head</span>(encoding)</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] &quot;UTF-16LE&quot;
 ## 
@@ -2354,15 +2354,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [[6]]
 ## [1] &quot;GB2312&quot;</code></pre>
 <p>We feed the encoding to <code>readtext()</code> to convert various character encodings into UTF-8.</p>
-<div class="sourceCode" id="cb1069"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1069-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1069-1" tabindex="-1"></a>dat_txt <span class="ot">&lt;-</span> <span class="fu">readtext</span>(<span class="fu">paste0</span>(Data_Dir, <span class="st">&quot;/data_files_encodedtexts.zip&quot;</span>), </span>
-<span id="cb1069-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1069-2" tabindex="-1"></a>                     <span class="at">encoding =</span> encoding,</span>
-<span id="cb1069-3"><a href="4.5-universal-declaration-of-human-rights.html#cb1069-3" tabindex="-1"></a>                     <span class="at">docvarsfrom =</span> <span class="st">&quot;filenames&quot;</span>, </span>
-<span id="cb1069-4"><a href="4.5-universal-declaration-of-human-rights.html#cb1069-4" tabindex="-1"></a>                     <span class="at">docvarnames =</span> <span class="fu">c</span>(<span class="st">&quot;document&quot;</span>, <span class="st">&quot;language&quot;</span>, <span class="st">&quot;input_encoding&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1079"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1079-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1079-1" tabindex="-1"></a>dat_txt <span class="ot">&lt;-</span> <span class="fu">readtext</span>(<span class="fu">paste0</span>(Data_Dir, <span class="st">&quot;/data_files_encodedtexts.zip&quot;</span>), </span>
+<span id="cb1079-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1079-2" tabindex="-1"></a>                     <span class="at">encoding =</span> encoding,</span>
+<span id="cb1079-3"><a href="4.5-universal-declaration-of-human-rights.html#cb1079-3" tabindex="-1"></a>                     <span class="at">docvarsfrom =</span> <span class="st">&quot;filenames&quot;</span>, </span>
+<span id="cb1079-4"><a href="4.5-universal-declaration-of-human-rights.html#cb1079-4" tabindex="-1"></a>                     <span class="at">docvarnames =</span> <span class="fu">c</span>(<span class="st">&quot;document&quot;</span>, <span class="st">&quot;language&quot;</span>, <span class="st">&quot;input_encoding&quot;</span>))</span></code></pre></div>
 </div>
 <div id="unnest-3" class="section level6 hasAnchor" number="4.5.1.3.2.4">
 <h6><span class="header-section-number">4.5.1.3.2.4</span> Unnest<a href="4.5-universal-declaration-of-human-rights.html#unnest-3" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1070"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1070-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1070-1" tabindex="-1"></a>dat_txt <span class="sc">%&gt;%</span> </span>
-<span id="cb1070-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1070-2" tabindex="-1"></a>  <span class="fu">unnest</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1080"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1080-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1080-1" tabindex="-1"></a>dat_txt <span class="sc">%&gt;%</span> </span>
+<span id="cb1080-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1080-2" tabindex="-1"></a>  <span class="fu">unnest</span>()</span></code></pre></div>
 <pre><code>## Warning: `cols` is now required when using `unnest()`.
 ## ℹ Please use `cols = c()`.</code></pre>
 <pre><code>## # A tibble: 36 × 5
@@ -2386,8 +2386,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="create-a-corpus-3" class="section level3 hasAnchor" number="4.5.2">
 <h3><span class="header-section-number">4.5.2</span> Create a corpus<a href="4.5-universal-declaration-of-human-rights.html#create-a-corpus-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We reuse the original data from text files to create a corpus.</p>
-<div class="sourceCode" id="cb1073"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1073-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1073-1" tabindex="-1"></a>dat_udhr_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(dat_udhr)</span>
-<span id="cb1073-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1073-2" tabindex="-1"></a><span class="fu">print</span>(dat_udhr_corpus)</span></code></pre></div>
+<div class="sourceCode" id="cb1083"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1083-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1083-1" tabindex="-1"></a>dat_udhr_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(dat_udhr)</span>
+<span id="cb1083-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1083-2" tabindex="-1"></a><span class="fu">print</span>(dat_udhr_corpus)</span></code></pre></div>
 <pre><code>## Corpus consisting of 13 documents and 2 docvars.
 ## UDHR_chinese.txt :
 ## &quot;世界人权宣言 联合国大会一九四八年十二月十日第217A(III)号决议通过并颁布 1948 年 12 月 10 日， 联...&quot;
@@ -2410,7 +2410,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [ reached max_ndoc ... 7 more documents ]</code></pre>
 <div id="summary-13" class="section level4 hasAnchor" number="4.5.2.1">
 <h4><span class="header-section-number">4.5.2.1</span> Summary<a href="4.5-universal-declaration-of-human-rights.html#summary-13" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1075"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1075-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1075-1" tabindex="-1"></a><span class="fu">summary</span>(dat_udhr_corpus, <span class="dv">13</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1085"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1085-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1085-1" tabindex="-1"></a><span class="fu">summary</span>(dat_udhr_corpus, <span class="dv">13</span>)</span></code></pre></div>
 <pre><code>## Corpus consisting of 13 documents, showing 13 documents:
 ## 
 ##                 Text Types Tokens Sentences document   language
@@ -2430,12 +2430,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="accessing-parts-of-corpus-3" class="section level4 hasAnchor" number="4.5.2.2">
 <h4><span class="header-section-number">4.5.2.2</span> Accessing parts of corpus<a href="4.5-universal-declaration-of-human-rights.html#accessing-parts-of-corpus-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1077"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1077-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1077-1" tabindex="-1"></a>dat_udhr_corpus[[<span class="dv">4</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb1087"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1087-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1087-1" tabindex="-1"></a>dat_udhr_corpus[[<span class="dv">4</span>]]</span></code></pre></div>
 <pre><code>## [1] &quot;Universal Declaration of Human Rights\nPreamble Whereas recognition of the inherent dignity and of the equal and inalienable rights of all members of the human family is the foundation of freedom, justice and peace in the world, Whereas disregard and contempt for human rights have resulted in barbarous acts which have outraged the conscience of mankind, and the advent of a world in which human beings shall enjoy freedom of speech and belief and freedom from fear and want has been proclaimed as the highest aspiration of the common people, Whereas it is essential, if man is not to be compelled to have recourse, as a last resort, to rebellion against tyranny and oppression, that human rights should be protected by the rule of law, Whereas it is essential to promote the development of friendly relations between nations, Whereas the peoples of the United Nations have in the Charter reaffirmed their faith in fundamental human rights, in the dignity and worth of the human person and in the equal rights of men and women and have determined to promote social progress and better standards of life in larger freedom, Whereas Member States have pledged themselves to achieve, in cooperation with the United Nations, the promotion of universal respect for and observance of human rights and fundamental freedoms, Whereas a common understanding of these rights and freedoms is of the greatest importance for the full realization of this pledge, Now, therefore, The General Assembly, Proclaims this Universal Declaration of Human Rights as a common standard of achievement for all peoples and all nations, to the end that every individual and every organ of society, keeping this Declaration constantly in mind, shall strive by\n\n\fteaching and education to promote respect for these rights and freedoms and by progressive measures, national and international, to secure their universal and effective recognition and observance, both among the peoples of Member States themselves and among the peoples of territories under their jurisdiction. Article I All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood. Article 2 Everyone is entitled to all the rights and freedoms set forth in this Declaration, without distinction of any kind, such as race, colour, sex, language, religion, political or other opinion, national or social origin, property, birth or other status. Furthermore, no distinction shall be made on the basis of the political, jurisdictional or international status of the country or territory to which a person belongs, whether it be independent, trust, non-self-governing or under any other limitation of sovereignty. Article 3 Everyone has the right to life, liberty and security of person. Article 4 No one shall be held in slavery or servitude; slavery and the slave trade shall be prohibited in all their forms. Article 5 No one shall be subjected to torture or to cruel, inhuman or degrading treatment or punishment.\n\n\fArticle 6 Everyone has the right to recognition everywhere as a person before the law. Article 7 All are equal before the law and are entitled without any discrimination to equal protection of the law. All are entitled to equal protection against any discrimination in violation of this Declaration and against any incitement to such discrimination. Article 8 Everyone has the right to an effective remedy by the competent national tribunals for acts violating the fundamental rights granted him by the constitution or by law. Article 9 No one shall be subjected to arbitrary arrest, detention or exile. Article 10 Everyone is entitled in full equality to a fair and public hearing by an independent and impartial tribunal, in the determination of his rights and obligations and of any criminal charge against him. Article 11 1. Everyone charged with a penal offence has the right to be presumed innocent until proved guilty according to law in a public trial at which he has had all the guarantees necessary for his defence. 2. No one shall be held guilty of any penal offence on account of any act or omission which did not constitute a penal offence, under national or international law, at the time when it was committed. Nor shall a heavier\n\n\fpenalty be imposed than the one that was applicable at the time the penal offence was committed. Article 12 No one shall be subjected to arbitrary interference with his privacy, family, home or correspondence, nor to attacks upon his honour and reputation. Everyone has the right to the protection of the law against such interference or attacks. Article 13 1. Everyone has the right to freedom of movement and residence within the borders of each State. 2. Everyone has the right to leave any country, including his own, and to return to his country. Article 14 1. Everyone has the right to seek and to enjoy in other countries asylum from persecution. 2. This right may not be invoked in the case of prosecutions genuinely arising from non-political crimes or from acts contrary to the purposes and principles of the United Nations. Article 15 1. Everyone has the right to a nationality. 2. No one shall be arbitrarily deprived of his nationality nor denied the right to change his nationality. Article 16\n\n\f1. Men and women of full age, without any limitation due to race, nationality or religion, have the right to marry and to found a family. They are entitled to equal rights as to marriage, during marriage and at its dissolution. 2. Marriage shall be entered into only with the free and full consent of the intending spouses. 3. The family is the natural and fundamental group unit of society and is entitled to protection by society and the State. Article 17 1. Everyone has the right to own property alone as well as in association with others. 2. No one shall be arbitrarily deprived of his property. Article 18 Everyone has the right to freedom of thought, conscience and religion; this right includes freedom to change his religion or belief, and freedom, either alone or in community with others and in public or private, to manifest his religion or belief in teaching, practice, worship and observance. Article 19 Everyone has the right to freedom of opinion and expression; this right includes freedom to hold opinions without interference and to seek, receive and impart information and ideas through any media and regardless of frontiers. Article 20 1. Everyone has the right to freedom of peaceful assembly and association. 2. No one may be compelled to belong to an association. Article 21\n\n\f1. Everyone has the right to take part in the government of his country, directly or through freely chosen representatives. 2. Everyone has the right to equal access to public service in his country. 3. The will of the people shall be the basis of the authority of government; this will shall be expressed in periodic and genuine elections which shall be by universal and equal suffrage and shall be held by secret vote or by equivalent free voting procedures. Article 22 Everyone, as a member of society, has the right to social security and is entitled to realization, through national effort and international co-operation and in accordance with the organization and resources of each State, of the economic, social and cultural rights indispensable for his dignity and the free development of his personality. Article 23 1. Everyone has the right to work, to free choice of employment, to just and favourable conditions of work and to protection against unemployment. 2. Everyone, without any discrimination, has the right to equal pay for equal work. 3. Everyone who works has the right to just and favourable remuneration ensuring for himself and his family an existence worthy of human dignity, and supplemented, if necessary, by other means of social protection. 4. Everyone has the right to form and to join trade unions for the protection of his interests. Article 24 Everyone has the right to rest and leisure, including reasonable limitation of working hours and periodic holidays with pay.\n\n\fArticle 25 1. Everyone has the right to a standard of living adequate for the health and well-being of himself and of his family, including food, clothing, housing and medical care and necessary social services, and the right to security in the event of unemployment, sickness, disability, widowhood, old age or other lack of livelihood in circumstances beyond his control. 2. Motherhood and childhood are entitled to special care and assistance. All children, whether born in or out of wedlock, shall enjoy the same social protection. Article 26 1. Everyone has the right to education. Education shall be free, at least in the elementary and fundamental stages. Elementary education shall be compulsory. Technical and professional education shall be made generally available and higher education shall be equally accessible to all on the basis of merit. 2. Education shall be directed to the full development of the human personality and to the strengthening of respect for human rights and fundamental freedoms. It shall promote understanding, tolerance and friendship among all nations, racial or religious groups, and shall further the activities of the United Nations for the maintenance of peace. 3. Parents have a prior right to choose the kind of education that shall be given to their children. Article 27 1. Everyone has the right freely to participate in the cultural life of the community, to enjoy the arts and to share in scientific advancement and its benefits.\n\n\f2. Everyone has the right to the protection of the moral and material interests resulting from any scientific, literary or artistic production of which he is the author. Article 28 Everyone is entitled to a social and international order in which the rights and freedoms set forth in this Declaration can be fully realized. Article 29 1. Everyone has duties to the community in which alone the free and full development of his personality is possible. 2. In the exercise of his rights and freedoms, everyone shall be subject only to such limitations as are determined by law solely for the purpose of securing due recognition and respect for the rights and freedoms of others and of meeting the just requirements of morality, public order and the general welfare in a democratic society. 3. These rights and freedoms may in no case be exercised contrary to the purposes and principles of the United Nations. Article 30 Nothing in this Declaration may be interpreted as implying for any State, group or person any right to engage in any activity or to perform any act aimed at the destruction of any of the rights and freedoms set forth herein.\n\n\f&quot;</code></pre>
 </div>
 <div id="document-level-information-2" class="section level4 hasAnchor" number="4.5.2.3">
 <h4><span class="header-section-number">4.5.2.3</span> Document-level information<a href="4.5-universal-declaration-of-human-rights.html#document-level-information-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1079"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1079-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1079-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">docvars</span>(dat_udhr_corpus))</span></code></pre></div>
+<div class="sourceCode" id="cb1089"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1089-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1089-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">docvars</span>(dat_udhr_corpus))</span></code></pre></div>
 <pre><code>##   document language
 ## 1     UDHR  chinese
 ## 2     UDHR    czech
@@ -2452,8 +2452,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">4.5.3.1</span> Sentences<a href="4.5-universal-declaration-of-human-rights.html#sentences-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div id="transform-6" class="section level5 hasAnchor" number="4.5.3.1.1">
 <h5><span class="header-section-number">4.5.3.1.1</span> Transform<a href="4.5-universal-declaration-of-human-rights.html#transform-6" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1081"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1081-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1081-1" tabindex="-1"></a>dat_udhr_corpus_sent <span class="ot">&lt;-</span> <span class="fu">corpus_reshape</span>(dat_udhr_corpus, <span class="at">to =</span> <span class="st">&quot;sentences&quot;</span>)</span>
-<span id="cb1081-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1081-2" tabindex="-1"></a>dat_udhr_corpus_sent</span></code></pre></div>
+<div class="sourceCode" id="cb1091"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1091-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1091-1" tabindex="-1"></a>dat_udhr_corpus_sent <span class="ot">&lt;-</span> <span class="fu">corpus_reshape</span>(dat_udhr_corpus, <span class="at">to =</span> <span class="st">&quot;sentences&quot;</span>)</span>
+<span id="cb1091-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1091-2" tabindex="-1"></a>dat_udhr_corpus_sent</span></code></pre></div>
 <pre><code>## Corpus consisting of 1,149 documents and 2 docvars.
 ## UDHR_chinese.txt.1 :
 ## &quot;世界人权宣言 联合国大会一九四八年十二月十日第217A(III)号决议通过并颁布 1948 年 12 月 10 日， 联...&quot;
@@ -2477,7 +2477,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="summary-14" class="section level5 hasAnchor" number="4.5.3.1.2">
 <h5><span class="header-section-number">4.5.3.1.2</span> Summary<a href="4.5-universal-declaration-of-human-rights.html#summary-14" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1083"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1083-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1083-1" tabindex="-1"></a><span class="fu">summary</span>(dat_udhr_corpus_sent)</span></code></pre></div>
+<div class="sourceCode" id="cb1093"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1093-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1093-1" tabindex="-1"></a><span class="fu">summary</span>(dat_udhr_corpus_sent)</span></code></pre></div>
 <pre><code>## Corpus consisting of 1149 documents, showing 100 documents:
 ## 
 ##                 Text Types Tokens Sentences document language
@@ -2585,10 +2585,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="subset-6" class="section level5 hasAnchor" number="4.5.3.1.3">
 <h5><span class="header-section-number">4.5.3.1.3</span> Subset<a href="4.5-universal-declaration-of-human-rights.html#subset-6" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We can subset sentences with 10 or more words</p>
-<div class="sourceCode" id="cb1085"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1085-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1085-1" tabindex="-1"></a>dat_udhr_corpus_sent_long <span class="ot">&lt;-</span> <span class="fu">corpus_subset</span>(dat_udhr_corpus_sent, <span class="fu">ntoken</span>(dat_udhr_corpus_sent) <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
-<span id="cb1085-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1085-2" tabindex="-1"></a><span class="fu">ndoc</span>(dat_udhr_corpus_sent_long)</span></code></pre></div>
+<div class="sourceCode" id="cb1095"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1095-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1095-1" tabindex="-1"></a>dat_udhr_corpus_sent_long <span class="ot">&lt;-</span> <span class="fu">corpus_subset</span>(dat_udhr_corpus_sent, <span class="fu">ntoken</span>(dat_udhr_corpus_sent) <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
+<span id="cb1095-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1095-2" tabindex="-1"></a><span class="fu">ndoc</span>(dat_udhr_corpus_sent_long)</span></code></pre></div>
 <pre><code>## [1] 696</code></pre>
-<div class="sourceCode" id="cb1087"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1087-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1087-1" tabindex="-1"></a><span class="fu">summary</span>(dat_udhr_corpus_sent_long)</span></code></pre></div>
+<div class="sourceCode" id="cb1097"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1097-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1097-1" tabindex="-1"></a><span class="fu">summary</span>(dat_udhr_corpus_sent_long)</span></code></pre></div>
 <pre><code>## Corpus consisting of 696 documents, showing 100 documents:
 ## 
 ##                 Text Types Tokens Sentences document language
@@ -2698,8 +2698,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">4.5.3.2</span> Paragraphs<a href="4.5-universal-declaration-of-human-rights.html#paragraphs-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div id="transform-7" class="section level5 hasAnchor" number="4.5.3.2.1">
 <h5><span class="header-section-number">4.5.3.2.1</span> Transform<a href="4.5-universal-declaration-of-human-rights.html#transform-7" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1089"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1089-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1089-1" tabindex="-1"></a>dat_udhr_corpus_para <span class="ot">&lt;-</span> <span class="fu">corpus_reshape</span>(dat_udhr_corpus, <span class="at">to =</span> <span class="st">&quot;paragraphs&quot;</span>)</span>
-<span id="cb1089-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1089-2" tabindex="-1"></a>dat_udhr_corpus_para</span></code></pre></div>
+<div class="sourceCode" id="cb1099"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1099-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1099-1" tabindex="-1"></a>dat_udhr_corpus_para <span class="ot">&lt;-</span> <span class="fu">corpus_reshape</span>(dat_udhr_corpus, <span class="at">to =</span> <span class="st">&quot;paragraphs&quot;</span>)</span>
+<span id="cb1099-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1099-2" tabindex="-1"></a>dat_udhr_corpus_para</span></code></pre></div>
 <pre><code>## Corpus consisting of 154 documents and 2 docvars.
 ## UDHR_chinese.txt.1 :
 ## &quot;世界人权宣言 联合国大会一九四八年十二月十日第217A(III)号决议通过并颁布 1948 年 12 月 10 日， 联...&quot;
@@ -2723,7 +2723,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="summary-15" class="section level5 hasAnchor" number="4.5.3.2.2">
 <h5><span class="header-section-number">4.5.3.2.2</span> Summary<a href="4.5-universal-declaration-of-human-rights.html#summary-15" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1091"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1091-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1091-1" tabindex="-1"></a><span class="fu">summary</span>(dat_udhr_corpus_para)</span></code></pre></div>
+<div class="sourceCode" id="cb1101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1101-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1101-1" tabindex="-1"></a><span class="fu">summary</span>(dat_udhr_corpus_para)</span></code></pre></div>
 <pre><code>## Corpus consisting of 154 documents, showing 100 documents:
 ## 
 ##                   Text Types Tokens Sentences document  language
@@ -2831,10 +2831,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="subset-7" class="section level5 hasAnchor" number="4.5.3.2.3">
 <h5><span class="header-section-number">4.5.3.2.3</span> Subset<a href="4.5-universal-declaration-of-human-rights.html#subset-7" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We can subset sentences with 10 or more words</p>
-<div class="sourceCode" id="cb1093"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1093-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1093-1" tabindex="-1"></a>dat_udhr_corpus_para_long <span class="ot">&lt;-</span> <span class="fu">corpus_subset</span>(dat_udhr_corpus_para, <span class="fu">ntoken</span>(dat_udhr_corpus_para) <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
-<span id="cb1093-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1093-2" tabindex="-1"></a><span class="fu">ndoc</span>(dat_udhr_corpus_para_long)</span></code></pre></div>
+<div class="sourceCode" id="cb1103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1103-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1103-1" tabindex="-1"></a>dat_udhr_corpus_para_long <span class="ot">&lt;-</span> <span class="fu">corpus_subset</span>(dat_udhr_corpus_para, <span class="fu">ntoken</span>(dat_udhr_corpus_para) <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
+<span id="cb1103-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1103-2" tabindex="-1"></a><span class="fu">ndoc</span>(dat_udhr_corpus_para_long)</span></code></pre></div>
 <pre><code>## [1] 133</code></pre>
-<div class="sourceCode" id="cb1095"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1095-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1095-1" tabindex="-1"></a><span class="fu">summary</span>(dat_udhr_corpus_para_long)</span></code></pre></div>
+<div class="sourceCode" id="cb1105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1105-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1105-1" tabindex="-1"></a><span class="fu">summary</span>(dat_udhr_corpus_para_long)</span></code></pre></div>
 <pre><code>## Corpus consisting of 133 documents, showing 100 documents:
 ## 
 ##                   Text Types Tokens Sentences document  language
@@ -2945,8 +2945,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>tokens()</code> segments texts in a corpus into tokens (words or sentences) by word boundaries. We can remove punctuations or not</p>
 <div id="with-punctuations-3" class="section level5 hasAnchor" number="4.5.3.3.1">
 <h5><span class="header-section-number">4.5.3.3.1</span> With punctuations<a href="4.5-universal-declaration-of-human-rights.html#with-punctuations-3" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1097"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1097-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1097-1" tabindex="-1"></a>dat_udhr_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_udhr_corpus)</span>
-<span id="cb1097-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1097-2" tabindex="-1"></a>dat_udhr_corpus_tok</span></code></pre></div>
+<div class="sourceCode" id="cb1107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1107-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1107-1" tabindex="-1"></a>dat_udhr_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_udhr_corpus)</span>
+<span id="cb1107-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1107-2" tabindex="-1"></a>dat_udhr_corpus_tok</span></code></pre></div>
 <pre><code>## Tokens consisting of 13 documents and 2 docvars.
 ## UDHR_chinese.txt :
 ##  [1] &quot;世界&quot;   &quot;人权&quot;   &quot;宣言&quot;   &quot;联合&quot;   &quot;国&quot;     &quot;大会&quot;   &quot;一九&quot;   &quot;四&quot;    
@@ -2987,8 +2987,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="without-punctuations-3" class="section level5 hasAnchor" number="4.5.3.3.2">
 <h5><span class="header-section-number">4.5.3.3.2</span> Without punctuations<a href="4.5-universal-declaration-of-human-rights.html#without-punctuations-3" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1099"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1099-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1099-1" tabindex="-1"></a>dat_udhr_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_udhr_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1099-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1099-2" tabindex="-1"></a>dat_udhr_corpus_tok_no_punct</span></code></pre></div>
+<div class="sourceCode" id="cb1109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1109-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-1" tabindex="-1"></a>dat_udhr_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_udhr_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1109-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-2" tabindex="-1"></a>dat_udhr_corpus_tok_no_punct</span></code></pre></div>
 <pre><code>## Tokens consisting of 13 documents and 2 docvars.
 ## UDHR_chinese.txt :
 ##  [1] &quot;世界&quot;   &quot;人权&quot;   &quot;宣言&quot;   &quot;联合&quot;   &quot;国&quot;     &quot;大会&quot;   &quot;一九&quot;   &quot;四&quot;    
@@ -3032,8 +3032,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="types-3" class="section level4 hasAnchor" number="4.5.3.4">
 <h4><span class="header-section-number">4.5.3.4</span> Types<a href="4.5-universal-declaration-of-human-rights.html#types-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We can also generate <code>types</code> on the tokenised corpus (without punctuations)</p>
-<div class="sourceCode" id="cb1101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1101-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1101-1" tabindex="-1"></a>dat_udhr_corpus_tok_no_punct_types <span class="ot">&lt;-</span> <span class="fu">types</span>(dat_udhr_corpus_tok_no_punct)</span>
-<span id="cb1101-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1101-2" tabindex="-1"></a>dat_udhr_corpus_tok_no_punct_types</span></code></pre></div>
+<div class="sourceCode" id="cb1111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1111-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1111-1" tabindex="-1"></a>dat_udhr_corpus_tok_no_punct_types <span class="ot">&lt;-</span> <span class="fu">types</span>(dat_udhr_corpus_tok_no_punct)</span>
+<span id="cb1111-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1111-2" tabindex="-1"></a>dat_udhr_corpus_tok_no_punct_types</span></code></pre></div>
 <pre><code>##    [1] &quot;世界&quot;                         &quot;人权&quot;                        
 ##    [3] &quot;宣言&quot;                         &quot;联合&quot;                        
 ##    [5] &quot;国&quot;                           &quot;大会&quot;                        
@@ -7005,8 +7005,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="pattern-3" class="section level5 hasAnchor" number="4.5.3.5.1">
 <h5><span class="header-section-number">4.5.3.5.1</span> Pattern<a href="4.5-universal-declaration-of-human-rights.html#pattern-3" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>You can see how keywords are used in the actual contexts in a concordance view produced by <code>kwic()</code>. <code>Pattern</code> is used to search for the pattern we are interested in (with * as a wildcard). <code>Window</code> used to display number of words/tokens around it.</p>
-<div class="sourceCode" id="cb1103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1103-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1103-1" tabindex="-1"></a>dat_udhr_corpus_tok_no_punct_pond <span class="ot">&lt;-</span> <span class="fu">kwic</span>(dat_udhr_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="st">&quot;*pond*&quot;</span>, <span class="at">window =</span> <span class="dv">6</span>)</span>
-<span id="cb1103-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1103-2" tabindex="-1"></a><span class="fu">head</span>(dat_udhr_corpus_tok_no_punct_pond, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1113-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1113-1" tabindex="-1"></a>dat_udhr_corpus_tok_no_punct_pond <span class="ot">&lt;-</span> <span class="fu">kwic</span>(dat_udhr_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="st">&quot;*pond*&quot;</span>, <span class="at">window =</span> <span class="dv">6</span>)</span>
+<span id="cb1113-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1113-2" tabindex="-1"></a><span class="fu">head</span>(dat_udhr_corpus_tok_no_punct_pond, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Keyword-in-context with 4 matches.                                                                  
 ##    [UDHR_czech.txt, 608] soukromého života do rodiny domova nebo |
 ##   [UDHR_danish.txt, 853]    i private forhold familie hjem eller |
@@ -7020,8 +7020,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="phrase-3" class="section level5 hasAnchor" number="4.5.3.5.2">
 <h5><span class="header-section-number">4.5.3.5.2</span> Phrase<a href="4.5-universal-declaration-of-human-rights.html#phrase-3" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1105-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1105-1" tabindex="-1"></a>dat_udhr_corpus_tok_no_punct_phrase <span class="ot">&lt;-</span> <span class="fu">kwic</span>(dat_udhr_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="fu">phrase</span>(<span class="st">&quot;Human Rights&quot;</span>), <span class="at">window =</span> <span class="dv">6</span>)</span>
-<span id="cb1105-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1105-2" tabindex="-1"></a><span class="fu">head</span>(dat_udhr_corpus_tok_no_punct_phrase, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1115-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1115-1" tabindex="-1"></a>dat_udhr_corpus_tok_no_punct_phrase <span class="ot">&lt;-</span> <span class="fu">kwic</span>(dat_udhr_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="fu">phrase</span>(<span class="st">&quot;Human Rights&quot;</span>), <span class="at">window =</span> <span class="dv">6</span>)</span>
+<span id="cb1115-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1115-2" tabindex="-1"></a><span class="fu">head</span>(dat_udhr_corpus_tok_no_punct_phrase, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Keyword-in-context with 7 matches.                                                                               
 ##        [UDHR_english.txt, 4:5]                         Universal Declaration of
 ##      [UDHR_english.txt, 43:44]         world Whereas disregard and contempt for
@@ -7047,8 +7047,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="single-language" class="section level5 hasAnchor" number="4.5.3.6.1">
 <h5><span class="header-section-number">4.5.3.6.1</span> Single language<a href="4.5-universal-declaration-of-human-rights.html#single-language" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Unfortunately, we cannot use stopwords on multilingual corpora. What you need to do is either run the stop words on each language you are interested in (by rewriting the object and changing the language’s ISO name (<a href="https://cran.r-project.org/web/packages/stopwords/readme/README.html">see here</a>))</p>
-<div class="sourceCode" id="cb1107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1107-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1107-1" tabindex="-1"></a>dat_udhr_corpus_tok_no_punct_no_Stop <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(dat_udhr_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">stopwords</span>(<span class="st">&quot;en&quot;</span>, <span class="at">source =</span> <span class="st">&quot;stopwords-iso&quot;</span>), <span class="at">selection =</span> <span class="st">&quot;remove&quot;</span>)</span>
-<span id="cb1107-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1107-2" tabindex="-1"></a>dat_udhr_corpus_tok_no_punct_no_Stop</span></code></pre></div>
+<div class="sourceCode" id="cb1117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1117-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1117-1" tabindex="-1"></a>dat_udhr_corpus_tok_no_punct_no_Stop <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(dat_udhr_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">stopwords</span>(<span class="st">&quot;en&quot;</span>, <span class="at">source =</span> <span class="st">&quot;stopwords-iso&quot;</span>), <span class="at">selection =</span> <span class="st">&quot;remove&quot;</span>)</span>
+<span id="cb1117-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1117-2" tabindex="-1"></a>dat_udhr_corpus_tok_no_punct_no_Stop</span></code></pre></div>
 <pre><code>## Tokens consisting of 13 documents and 2 docvars.
 ## UDHR_chinese.txt :
 ##  [1] &quot;世界&quot;   &quot;人权&quot;   &quot;宣言&quot;   &quot;联合&quot;   &quot;国&quot;     &quot;大会&quot;   &quot;一九&quot;   &quot;四&quot;    
@@ -7091,31 +7091,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="multiple-language" class="section level5 hasAnchor" number="4.5.3.6.2">
 <h5><span class="header-section-number">4.5.3.6.2</span> Multiple language<a href="4.5-universal-declaration-of-human-rights.html#multiple-language" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>An alternative, is following <a href="https://stackoverflow.com/a/58670223">this link</a>, to use a function that allows the mapping of the multiple languages we have, and then to use stopword and specifying <code>source = "stopwords-iso"</code>. This allows to remove the stops words from multiple languages</p>
-<div class="sourceCode" id="cb1109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1109-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-1" tabindex="-1"></a><span class="do">## language assignment function</span></span>
-<span id="cb1109-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-2" tabindex="-1"></a>setlang <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(</span>
-<span id="cb1109-3"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-3" tabindex="-1"></a>  <span class="at">vectorize.args =</span> <span class="st">&quot;language&quot;</span>,</span>
-<span id="cb1109-4"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-4" tabindex="-1"></a>  <span class="at">FUN =</span> <span class="cf">function</span>(language) {</span>
-<span id="cb1109-5"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-5" tabindex="-1"></a>    <span class="cf">switch</span>(language,</span>
-<span id="cb1109-6"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-6" tabindex="-1"></a>      <span class="st">&quot;chinese&quot;</span> <span class="ot">=</span> <span class="st">&quot;zh&quot;</span>,<span class="co">#no stopwords defined for this language</span></span>
-<span id="cb1109-7"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-7" tabindex="-1"></a>      <span class="st">&quot;czech&quot;</span> <span class="ot">=</span> <span class="st">&quot;cs&quot;</span>,<span class="co">#no stopwords defined for this language</span></span>
-<span id="cb1109-8"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-8" tabindex="-1"></a>      <span class="st">&quot;danish&quot;</span> <span class="ot">=</span> <span class="st">&quot;da&quot;</span>,</span>
-<span id="cb1109-9"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-9" tabindex="-1"></a>      <span class="st">&quot;english&quot;</span> <span class="ot">=</span> <span class="st">&quot;en&quot;</span>,</span>
-<span id="cb1109-10"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-10" tabindex="-1"></a>      <span class="st">&quot;french&quot;</span> <span class="ot">=</span> <span class="st">&quot;fr&quot;</span>,</span>
-<span id="cb1109-11"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-11" tabindex="-1"></a>      <span class="st">&quot;georgian&quot;</span> <span class="ot">=</span> <span class="st">&quot;en&quot;</span>,<span class="co">#we do not have Georgian in the list of languages with stopwords!</span></span>
-<span id="cb1109-12"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-12" tabindex="-1"></a>      <span class="st">&quot;greek&quot;</span> <span class="ot">=</span> <span class="st">&quot;el&quot;</span>,<span class="co">#no stopwords defined for this language</span></span>
-<span id="cb1109-13"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-13" tabindex="-1"></a>      <span class="st">&quot;hungarian&quot;</span> <span class="ot">=</span> <span class="st">&quot;hu&quot;</span>,</span>
-<span id="cb1109-14"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-14" tabindex="-1"></a>      <span class="st">&quot;icelandic&quot;</span> <span class="ot">=</span> <span class="st">&quot;en&quot;</span>,<span class="co">#we do not have Icelandic in the list of languages with stopwords!</span></span>
-<span id="cb1109-15"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-15" tabindex="-1"></a>      <span class="st">&quot;irish&quot;</span> <span class="ot">=</span> <span class="st">&quot;ga&quot;</span>,<span class="co">#no stopwords defined for this language</span></span>
-<span id="cb1109-16"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-16" tabindex="-1"></a>      <span class="st">&quot;japanese&quot;</span> <span class="ot">=</span> <span class="st">&quot;ja&quot;</span>,<span class="co">#no stopwords defined for this language</span></span>
-<span id="cb1109-17"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-17" tabindex="-1"></a>      <span class="st">&quot;russian&quot;</span> <span class="ot">=</span> <span class="st">&quot;ru&quot;</span>,</span>
-<span id="cb1109-18"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-18" tabindex="-1"></a>      <span class="st">&quot;vietnamese&quot;</span> <span class="ot">=</span> <span class="st">&quot;vi&quot;</span><span class="co">#no stopwords defined for this language</span></span>
-<span id="cb1109-19"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-19" tabindex="-1"></a>    )</span>
-<span id="cb1109-20"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-20" tabindex="-1"></a>  }</span>
-<span id="cb1109-21"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-21" tabindex="-1"></a>)</span>
-<span id="cb1109-22"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-22" tabindex="-1"></a></span>
-<span id="cb1109-23"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-23" tabindex="-1"></a><span class="do">## set a language docvar</span></span>
-<span id="cb1109-24"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-24" tabindex="-1"></a><span class="fu">docvars</span>(dat_udhr_corpus, <span class="st">&quot;lang&quot;</span>) <span class="ot">&lt;-</span> <span class="fu">setlang</span>(<span class="fu">docvars</span>(dat_udhr_corpus, <span class="st">&quot;language&quot;</span>))</span>
-<span id="cb1109-25"><a href="4.5-universal-declaration-of-human-rights.html#cb1109-25" tabindex="-1"></a><span class="fu">summary</span>(dat_udhr_corpus)</span></code></pre></div>
+<div class="sourceCode" id="cb1119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1119-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-1" tabindex="-1"></a><span class="do">## language assignment function</span></span>
+<span id="cb1119-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-2" tabindex="-1"></a>setlang <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(</span>
+<span id="cb1119-3"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-3" tabindex="-1"></a>  <span class="at">vectorize.args =</span> <span class="st">&quot;language&quot;</span>,</span>
+<span id="cb1119-4"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-4" tabindex="-1"></a>  <span class="at">FUN =</span> <span class="cf">function</span>(language) {</span>
+<span id="cb1119-5"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-5" tabindex="-1"></a>    <span class="cf">switch</span>(language,</span>
+<span id="cb1119-6"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-6" tabindex="-1"></a>      <span class="st">&quot;chinese&quot;</span> <span class="ot">=</span> <span class="st">&quot;zh&quot;</span>,<span class="co">#no stopwords defined for this language</span></span>
+<span id="cb1119-7"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-7" tabindex="-1"></a>      <span class="st">&quot;czech&quot;</span> <span class="ot">=</span> <span class="st">&quot;cs&quot;</span>,<span class="co">#no stopwords defined for this language</span></span>
+<span id="cb1119-8"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-8" tabindex="-1"></a>      <span class="st">&quot;danish&quot;</span> <span class="ot">=</span> <span class="st">&quot;da&quot;</span>,</span>
+<span id="cb1119-9"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-9" tabindex="-1"></a>      <span class="st">&quot;english&quot;</span> <span class="ot">=</span> <span class="st">&quot;en&quot;</span>,</span>
+<span id="cb1119-10"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-10" tabindex="-1"></a>      <span class="st">&quot;french&quot;</span> <span class="ot">=</span> <span class="st">&quot;fr&quot;</span>,</span>
+<span id="cb1119-11"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-11" tabindex="-1"></a>      <span class="st">&quot;georgian&quot;</span> <span class="ot">=</span> <span class="st">&quot;en&quot;</span>,<span class="co">#we do not have Georgian in the list of languages with stopwords!</span></span>
+<span id="cb1119-12"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-12" tabindex="-1"></a>      <span class="st">&quot;greek&quot;</span> <span class="ot">=</span> <span class="st">&quot;el&quot;</span>,<span class="co">#no stopwords defined for this language</span></span>
+<span id="cb1119-13"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-13" tabindex="-1"></a>      <span class="st">&quot;hungarian&quot;</span> <span class="ot">=</span> <span class="st">&quot;hu&quot;</span>,</span>
+<span id="cb1119-14"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-14" tabindex="-1"></a>      <span class="st">&quot;icelandic&quot;</span> <span class="ot">=</span> <span class="st">&quot;en&quot;</span>,<span class="co">#we do not have Icelandic in the list of languages with stopwords!</span></span>
+<span id="cb1119-15"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-15" tabindex="-1"></a>      <span class="st">&quot;irish&quot;</span> <span class="ot">=</span> <span class="st">&quot;ga&quot;</span>,<span class="co">#no stopwords defined for this language</span></span>
+<span id="cb1119-16"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-16" tabindex="-1"></a>      <span class="st">&quot;japanese&quot;</span> <span class="ot">=</span> <span class="st">&quot;ja&quot;</span>,<span class="co">#no stopwords defined for this language</span></span>
+<span id="cb1119-17"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-17" tabindex="-1"></a>      <span class="st">&quot;russian&quot;</span> <span class="ot">=</span> <span class="st">&quot;ru&quot;</span>,</span>
+<span id="cb1119-18"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-18" tabindex="-1"></a>      <span class="st">&quot;vietnamese&quot;</span> <span class="ot">=</span> <span class="st">&quot;vi&quot;</span><span class="co">#no stopwords defined for this language</span></span>
+<span id="cb1119-19"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-19" tabindex="-1"></a>    )</span>
+<span id="cb1119-20"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-20" tabindex="-1"></a>  }</span>
+<span id="cb1119-21"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-21" tabindex="-1"></a>)</span>
+<span id="cb1119-22"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-22" tabindex="-1"></a></span>
+<span id="cb1119-23"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-23" tabindex="-1"></a><span class="do">## set a language docvar</span></span>
+<span id="cb1119-24"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-24" tabindex="-1"></a><span class="fu">docvars</span>(dat_udhr_corpus, <span class="st">&quot;lang&quot;</span>) <span class="ot">&lt;-</span> <span class="fu">setlang</span>(<span class="fu">docvars</span>(dat_udhr_corpus, <span class="st">&quot;language&quot;</span>))</span>
+<span id="cb1119-25"><a href="4.5-universal-declaration-of-human-rights.html#cb1119-25" tabindex="-1"></a><span class="fu">summary</span>(dat_udhr_corpus)</span></code></pre></div>
 <pre><code>## Corpus consisting of 13 documents, showing 13 documents:
 ## 
 ##                 Text Types Tokens Sentences document   language lang
@@ -7132,15 +7132,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##    UDHR_japanese.txt   586   2553        97     UDHR   japanese   ja
 ##     UDHR_russian.txt   763   1875        94     UDHR    russian   ru
 ##  UDHR_vietnamese.txt   191   2597         9     UDHR vietnamese   vi</code></pre>
-<div class="sourceCode" id="cb1111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1111-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1111-1" tabindex="-1"></a>dat_udhr_corpus_toks <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_udhr_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1111-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1111-2" tabindex="-1"></a></span>
-<span id="cb1111-3"><a href="4.5-universal-declaration-of-human-rights.html#cb1111-3" tabindex="-1"></a>dat_udhr_corpus_toks_no_stop <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb1111-4"><a href="4.5-universal-declaration-of-human-rights.html#cb1111-4" tabindex="-1"></a><span class="cf">for</span> (l <span class="cf">in</span> <span class="fu">unique</span>(<span class="fu">docvars</span>(dat_udhr_corpus_toks, <span class="st">&quot;lang&quot;</span>))) {</span>
-<span id="cb1111-5"><a href="4.5-universal-declaration-of-human-rights.html#cb1111-5" tabindex="-1"></a>  toksthislang <span class="ot">&lt;-</span> <span class="fu">tokens_subset</span>(dat_udhr_corpus_toks, lang <span class="sc">==</span> l) <span class="sc">%&gt;%</span></span>
-<span id="cb1111-6"><a href="4.5-universal-declaration-of-human-rights.html#cb1111-6" tabindex="-1"></a>    <span class="fu">tokens_remove</span>(<span class="fu">stopwords</span>(<span class="at">language =</span> l, <span class="at">source =</span> <span class="st">&quot;stopwords-iso&quot;</span>), <span class="at">padding =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1111-7"><a href="4.5-universal-declaration-of-human-rights.html#cb1111-7" tabindex="-1"></a>  dat_udhr_corpus_toks_no_stop <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(dat_udhr_corpus_toks_no_stop)) <span class="fu">c</span>(dat_udhr_corpus_toks_no_stop, toksthislang) <span class="cf">else</span> toksthislang</span>
-<span id="cb1111-8"><a href="4.5-universal-declaration-of-human-rights.html#cb1111-8" tabindex="-1"></a>}</span>
-<span id="cb1111-9"><a href="4.5-universal-declaration-of-human-rights.html#cb1111-9" tabindex="-1"></a>dat_udhr_corpus_toks_no_stop</span></code></pre></div>
+<div class="sourceCode" id="cb1121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1121-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1121-1" tabindex="-1"></a>dat_udhr_corpus_toks <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_udhr_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1121-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1121-2" tabindex="-1"></a></span>
+<span id="cb1121-3"><a href="4.5-universal-declaration-of-human-rights.html#cb1121-3" tabindex="-1"></a>dat_udhr_corpus_toks_no_stop <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb1121-4"><a href="4.5-universal-declaration-of-human-rights.html#cb1121-4" tabindex="-1"></a><span class="cf">for</span> (l <span class="cf">in</span> <span class="fu">unique</span>(<span class="fu">docvars</span>(dat_udhr_corpus_toks, <span class="st">&quot;lang&quot;</span>))) {</span>
+<span id="cb1121-5"><a href="4.5-universal-declaration-of-human-rights.html#cb1121-5" tabindex="-1"></a>  toksthislang <span class="ot">&lt;-</span> <span class="fu">tokens_subset</span>(dat_udhr_corpus_toks, lang <span class="sc">==</span> l) <span class="sc">%&gt;%</span></span>
+<span id="cb1121-6"><a href="4.5-universal-declaration-of-human-rights.html#cb1121-6" tabindex="-1"></a>    <span class="fu">tokens_remove</span>(<span class="fu">stopwords</span>(<span class="at">language =</span> l, <span class="at">source =</span> <span class="st">&quot;stopwords-iso&quot;</span>), <span class="at">padding =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1121-7"><a href="4.5-universal-declaration-of-human-rights.html#cb1121-7" tabindex="-1"></a>  dat_udhr_corpus_toks_no_stop <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(dat_udhr_corpus_toks_no_stop)) <span class="fu">c</span>(dat_udhr_corpus_toks_no_stop, toksthislang) <span class="cf">else</span> toksthislang</span>
+<span id="cb1121-8"><a href="4.5-universal-declaration-of-human-rights.html#cb1121-8" tabindex="-1"></a>}</span>
+<span id="cb1121-9"><a href="4.5-universal-declaration-of-human-rights.html#cb1121-9" tabindex="-1"></a>dat_udhr_corpus_toks_no_stop</span></code></pre></div>
 <pre><code>## Tokens consisting of 13 documents and 3 docvars.
 ## UDHR_chinese.txt :
 ##  [1] &quot;世界&quot;   &quot;人权&quot;   &quot;宣言&quot;   &quot;联合&quot;   &quot;国&quot;     &quot;大会&quot;   &quot;一九&quot;   &quot;&quot;      
@@ -7187,8 +7187,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To be able to extract the stems of each of the given words, we use the function <code>tokens_wordstem</code>, <code>char_wordstem</code> or <code>dfm_wordstem</code></p>
 <div id="tokens_wordstem-3" class="section level5 hasAnchor" number="4.5.3.7.1">
 <h5><span class="header-section-number">4.5.3.7.1</span> <code>tokens_wordstem</code><a href="4.5-universal-declaration-of-human-rights.html#tokens_wordstem-3" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1113-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1113-1" tabindex="-1"></a>dat_udhr_corpus_toks_no_stop_stem <span class="ot">&lt;-</span> <span class="fu">tokens_wordstem</span>(dat_udhr_corpus_toks_no_stop)</span>
-<span id="cb1113-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1113-2" tabindex="-1"></a>dat_udhr_corpus_toks_no_stop_stem</span></code></pre></div>
+<div class="sourceCode" id="cb1123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1123-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1123-1" tabindex="-1"></a>dat_udhr_corpus_toks_no_stop_stem <span class="ot">&lt;-</span> <span class="fu">tokens_wordstem</span>(dat_udhr_corpus_toks_no_stop)</span>
+<span id="cb1123-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1123-2" tabindex="-1"></a>dat_udhr_corpus_toks_no_stop_stem</span></code></pre></div>
 <pre><code>## Tokens consisting of 13 documents and 3 docvars.
 ## UDHR_chinese.txt :
 ##  [1] &quot;世界&quot;   &quot;人权&quot;   &quot;宣言&quot;   &quot;联合&quot;   &quot;国&quot;     &quot;大会&quot;   &quot;一九&quot;   &quot;&quot;      
@@ -7231,8 +7231,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="dfm_wordstem-3" class="section level5 hasAnchor" number="4.5.3.7.2">
 <h5><span class="header-section-number">4.5.3.7.2</span> <code>dfm_wordstem</code><a href="4.5-universal-declaration-of-human-rights.html#dfm_wordstem-3" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Here we can use the <code>dfm</code> (for Document Feature Matrix) to obtain details of the wordstems used in each of the texts</p>
-<div class="sourceCode" id="cb1115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1115-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1115-1" tabindex="-1"></a>dat_udhr_corpus_toks_no_stop_stem_dfm <span class="ot">&lt;-</span> <span class="fu">dfm</span>(dat_udhr_corpus_toks_no_stop)</span>
-<span id="cb1115-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1115-2" tabindex="-1"></a><span class="fu">dfm_wordstem</span>(dat_udhr_corpus_toks_no_stop_stem_dfm)</span></code></pre></div>
+<div class="sourceCode" id="cb1125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1125-1"><a href="4.5-universal-declaration-of-human-rights.html#cb1125-1" tabindex="-1"></a>dat_udhr_corpus_toks_no_stop_stem_dfm <span class="ot">&lt;-</span> <span class="fu">dfm</span>(dat_udhr_corpus_toks_no_stop)</span>
+<span id="cb1125-2"><a href="4.5-universal-declaration-of-human-rights.html#cb1125-2" tabindex="-1"></a><span class="fu">dfm_wordstem</span>(dat_udhr_corpus_toks_no_stop_stem_dfm)</span></code></pre></div>
 <pre><code>## Document-feature matrix of: 13 documents, 6,796 features (91.83% sparse) and 3 docvars.
 ##                     features
 ## docs                      世界 人权 宣言 联合 国 大会 一九 八年 十二月

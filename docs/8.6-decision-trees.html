@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8.6 Decision Trees | Statistics for Linguists using R - Quantitative and qualitative approaches</title>
   <meta name="description" content="This repo contains all material for the book Statistics for Linguists using R - Quantitative and qualitative approaches" />
-  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8.6 Decision Trees | Statistics for Linguists using R - Quantitative and qualitative approaches" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-16" />
+<meta name="date" content="2025-10-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -2017,11 +2017,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.3.2" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#reduce-dimensionality-by-selecting-uncorrelated-predictors"><i class="fa fa-check"></i><b>7.3.2</b> Reduce dimensionality by selecting uncorrelated predictors</a>
 <ul>
-<li class="chapter" data-level="7.3.2.1" data-path="Ch_08_GLM_DT_RF.html"><a href="#r%C2%B2-0.9"><i class="fa fa-check"></i><b>7.3.2.1</b> R² = 0.9</a></li>
-<li class="chapter" data-level="7.3.2.2" data-path="Ch_08_GLM_DT_RF.html"><a href="#r%C2%B2-0.75"><i class="fa fa-check"></i><b>7.3.2.2</b> R² = 0.75</a></li>
-<li class="chapter" data-level="7.3.2.3" data-path="Ch_08_GLM_DT_RF.html"><a href="#r%C2%B2-0.5"><i class="fa fa-check"></i><b>7.3.2.3</b> R² = 0.5</a></li>
-<li class="chapter" data-level="7.3.2.4" data-path="Ch_08_GLM_DT_RF.html"><a href="#r%C2%B2-0.25"><i class="fa fa-check"></i><b>7.3.2.4</b> R² = 0.25</a></li>
-<li class="chapter" data-level="7.3.2.5" data-path="Ch_08_GLM_DT_RF.html"><a href="#r%C2%B2-0.1"><i class="fa fa-check"></i><b>7.3.2.5</b> R² = 0.1</a></li>
+<li class="chapter" data-level="7.3.2.1" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.9"><i class="fa fa-check"></i><b>7.3.2.1</b> R² = 0.9</a></li>
+<li class="chapter" data-level="7.3.2.2" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.75"><i class="fa fa-check"></i><b>7.3.2.2</b> R² = 0.75</a></li>
+<li class="chapter" data-level="7.3.2.3" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.5"><i class="fa fa-check"></i><b>7.3.2.3</b> R² = 0.5</a></li>
+<li class="chapter" data-level="7.3.2.4" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.25"><i class="fa fa-check"></i><b>7.3.2.4</b> R² = 0.25</a></li>
+<li class="chapter" data-level="7.3.2.5" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.1"><i class="fa fa-check"></i><b>7.3.2.5</b> R² = 0.1</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html"><i class="fa fa-check"></i><b>7.4</b> Principal Component Analyses - PCA</a>
@@ -2237,13 +2237,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">8.6.1</span> Individual trees<a href="8.6-decision-trees.html#individual-trees" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="tree-1" class="section level4 hasAnchor" number="8.6.1.1">
 <h4><span class="header-section-number">8.6.1.1</span> Tree 1<a href="8.6-decision-trees.html#tree-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb2182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2182-1"><a href="8.6-decision-trees.html#cb2182-1" tabindex="-1"></a><span class="do">### from the package party</span></span>
-<span id="cb2182-2"><a href="8.6-decision-trees.html#cb2182-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2182-3"><a href="8.6-decision-trees.html#cb2182-3" tabindex="-1"></a>tree1 <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
-<span id="cb2182-4"><a href="8.6-decision-trees.html#cb2182-4" tabindex="-1"></a>  <span class="fu">ctree</span>(</span>
-<span id="cb2182-5"><a href="8.6-decision-trees.html#cb2182-5" tabindex="-1"></a>    context <span class="sc">~</span> Z2mnZ1, </span>
-<span id="cb2182-6"><a href="8.6-decision-trees.html#cb2182-6" tabindex="-1"></a>    <span class="at">data =</span> .)</span>
-<span id="cb2182-7"><a href="8.6-decision-trees.html#cb2182-7" tabindex="-1"></a><span class="fu">print</span>(tree1)</span></code></pre></div>
+<div class="sourceCode" id="cb2193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2193-1"><a href="8.6-decision-trees.html#cb2193-1" tabindex="-1"></a><span class="do">### from the package party</span></span>
+<span id="cb2193-2"><a href="8.6-decision-trees.html#cb2193-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2193-3"><a href="8.6-decision-trees.html#cb2193-3" tabindex="-1"></a>tree1 <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb2193-4"><a href="8.6-decision-trees.html#cb2193-4" tabindex="-1"></a>  <span class="fu">ctree</span>(</span>
+<span id="cb2193-5"><a href="8.6-decision-trees.html#cb2193-5" tabindex="-1"></a>    context <span class="sc">~</span> Z2mnZ1, </span>
+<span id="cb2193-6"><a href="8.6-decision-trees.html#cb2193-6" tabindex="-1"></a>    <span class="at">data =</span> .)</span>
+<span id="cb2193-7"><a href="8.6-decision-trees.html#cb2193-7" tabindex="-1"></a><span class="fu">print</span>(tree1)</span></code></pre></div>
 <pre><code>## 
 ##   Conditional inference tree with 4 terminal nodes
 ## 
@@ -2261,22 +2261,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##     6)*  weights = 64 
 ## 1) Z2mnZ1 &gt; 9.551456
 ##   7)*  weights = 75</code></pre>
-<div class="sourceCode" id="cb2184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2184-1"><a href="8.6-decision-trees.html#cb2184-1" tabindex="-1"></a><span class="fu">plot</span>(tree1, <span class="at">main =</span> <span class="st">&quot;Conditional Inference Tree &quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2195-1"><a href="8.6-decision-trees.html#cb2195-1" tabindex="-1"></a><span class="fu">plot</span>(tree1, <span class="at">main =</span> <span class="st">&quot;Conditional Inference Tree &quot;</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-984-1.png" width="672" /></p>
 <p>How to interpret this figure? Let’s look at mean values and a plot for this variable. This is the difference between <code>F2</code> and <code>F1</code> using the bark scale. Because gutturals are produced within the pharynx (regardless of where), the predictions is that a high <code>F1</code> and a low <code>F2</code> will be the acoustic correlates related to this constriction location. The closeness between these formants yields a lower <code>Z2-Z1</code>. Hence, the prediction is as follow: the smaller the difference, the more pharyngeal-like constriction these consonants have (all else being equal!). Let’s compute the mean/median and plot the difference between the two contexts.</p>
-<div class="sourceCode" id="cb2185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2185-1"><a href="8.6-decision-trees.html#cb2185-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> </span>
-<span id="cb2185-2"><a href="8.6-decision-trees.html#cb2185-2" tabindex="-1"></a>  <span class="fu">group_by</span>(context) <span class="sc">%&gt;%</span> </span>
-<span id="cb2185-3"><a href="8.6-decision-trees.html#cb2185-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(Z2mnZ1),</span>
-<span id="cb2185-4"><a href="8.6-decision-trees.html#cb2185-4" tabindex="-1"></a>            <span class="at">median =</span> <span class="fu">median</span>(Z2mnZ1), </span>
-<span id="cb2185-5"><a href="8.6-decision-trees.html#cb2185-5" tabindex="-1"></a>            <span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb2196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2196-1"><a href="8.6-decision-trees.html#cb2196-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb2196-2"><a href="8.6-decision-trees.html#cb2196-2" tabindex="-1"></a>  <span class="fu">group_by</span>(context) <span class="sc">%&gt;%</span> </span>
+<span id="cb2196-3"><a href="8.6-decision-trees.html#cb2196-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(Z2mnZ1),</span>
+<span id="cb2196-4"><a href="8.6-decision-trees.html#cb2196-4" tabindex="-1"></a>            <span class="at">median =</span> <span class="fu">median</span>(Z2mnZ1), </span>
+<span id="cb2196-5"><a href="8.6-decision-trees.html#cb2196-5" tabindex="-1"></a>            <span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 4
 ##   context       mean median count
 ##   &lt;fct&gt;        &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt;
 ## 1 Non-Guttural  6.30   5.02   222
 ## 2 Guttural      5.31   3.84   180</code></pre>
-<div class="sourceCode" id="cb2187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2187-1"><a href="8.6-decision-trees.html#cb2187-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> </span>
-<span id="cb2187-2"><a href="8.6-decision-trees.html#cb2187-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> Z2mnZ1)) <span class="sc">+</span> </span>
-<span id="cb2187-3"><a href="8.6-decision-trees.html#cb2187-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()  </span></code></pre></div>
+<div class="sourceCode" id="cb2198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2198-1"><a href="8.6-decision-trees.html#cb2198-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb2198-2"><a href="8.6-decision-trees.html#cb2198-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> Z2mnZ1)) <span class="sc">+</span> </span>
+<span id="cb2198-3"><a href="8.6-decision-trees.html#cb2198-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()  </span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-985-1.png" width="672" /></p>
 <p>The table above reports the mean and median of <code>Z2-Z1</code> for both levels of context and the plots show the difference between the two. We have a total of 180 cases in the <code>guttural</code>, and 222 in the <code>non-guttural</code>.
 When considering the conditional inference tree output, various splits were obtained.
@@ -2290,12 +2290,12 @@ Now let’s look at the full dataset to make sense of the combination of predict
 <h3><span class="header-section-number">8.6.2</span> Model 1<a href="8.6-decision-trees.html#model-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="model-specification-2" class="section level4 hasAnchor" number="8.6.2.1">
 <h4><span class="header-section-number">8.6.2.1</span> Model specification<a href="8.6-decision-trees.html#model-specification-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb2188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2188-1"><a href="8.6-decision-trees.html#cb2188-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2188-2"><a href="8.6-decision-trees.html#cb2188-2" tabindex="-1"></a>fit <span class="ot">&lt;-</span> dfPharV2  <span class="sc">%&gt;%</span> </span>
-<span id="cb2188-3"><a href="8.6-decision-trees.html#cb2188-3" tabindex="-1"></a>  <span class="fu">ctree</span>(</span>
-<span id="cb2188-4"><a href="8.6-decision-trees.html#cb2188-4" tabindex="-1"></a>    context <span class="sc">~</span> ., </span>
-<span id="cb2188-5"><a href="8.6-decision-trees.html#cb2188-5" tabindex="-1"></a>    <span class="at">data =</span> .)</span>
-<span id="cb2188-6"><a href="8.6-decision-trees.html#cb2188-6" tabindex="-1"></a><span class="fu">print</span>(fit)</span></code></pre></div>
+<div class="sourceCode" id="cb2199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2199-1"><a href="8.6-decision-trees.html#cb2199-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2199-2"><a href="8.6-decision-trees.html#cb2199-2" tabindex="-1"></a>fit <span class="ot">&lt;-</span> dfPharV2  <span class="sc">%&gt;%</span> </span>
+<span id="cb2199-3"><a href="8.6-decision-trees.html#cb2199-3" tabindex="-1"></a>  <span class="fu">ctree</span>(</span>
+<span id="cb2199-4"><a href="8.6-decision-trees.html#cb2199-4" tabindex="-1"></a>    context <span class="sc">~</span> ., </span>
+<span id="cb2199-5"><a href="8.6-decision-trees.html#cb2199-5" tabindex="-1"></a>    <span class="at">data =</span> .)</span>
+<span id="cb2199-6"><a href="8.6-decision-trees.html#cb2199-6" tabindex="-1"></a><span class="fu">print</span>(fit)</span></code></pre></div>
 <pre><code>## 
 ##   Conditional inference tree with 8 terminal nodes
 ## 
@@ -2325,13 +2325,13 @@ Now let’s look at the full dataset to make sense of the combination of predict
 ##         14)*  weights = 30 
 ##   9) H1H2c &gt; 10.27167
 ##     15)*  weights = 27</code></pre>
-<div class="sourceCode" id="cb2190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2190-1"><a href="8.6-decision-trees.html#cb2190-1" tabindex="-1"></a><span class="fu">plot</span>(fit, <span class="at">main =</span> <span class="st">&quot;Conditional Inference Tree&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2201-1"><a href="8.6-decision-trees.html#cb2201-1" tabindex="-1"></a><span class="fu">plot</span>(fit, <span class="at">main =</span> <span class="st">&quot;Conditional Inference Tree&quot;</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-986-1.png" width="672" /></p>
 <p>How to interpret this complex decision tree?</p>
 <p>Let’s obtain the median value for each predictor grouped by context. Discuss some of the patterns.</p>
-<div class="sourceCode" id="cb2191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2191-1"><a href="8.6-decision-trees.html#cb2191-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> </span>
-<span id="cb2191-2"><a href="8.6-decision-trees.html#cb2191-2" tabindex="-1"></a>  <span class="fu">group_by</span>(context) <span class="sc">%&gt;%</span> </span>
-<span id="cb2191-3"><a href="8.6-decision-trees.html#cb2191-3" tabindex="-1"></a>  <span class="fu">summarize_all</span>(<span class="fu">list</span>(<span class="at">mean =</span> mean))</span></code></pre></div>
+<div class="sourceCode" id="cb2202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2202-1"><a href="8.6-decision-trees.html#cb2202-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb2202-2"><a href="8.6-decision-trees.html#cb2202-2" tabindex="-1"></a>  <span class="fu">group_by</span>(context) <span class="sc">%&gt;%</span> </span>
+<span id="cb2202-3"><a href="8.6-decision-trees.html#cb2202-3" tabindex="-1"></a>  <span class="fu">summarize_all</span>(<span class="fu">list</span>(<span class="at">mean =</span> mean))</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 24
 ##   context      CPP_mean Energy_mean H1A1c_mean H1A2c_mean H1A3c_mean H1H2c_mean
 ##   &lt;fct&gt;           &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;
@@ -2350,34 +2350,34 @@ Now let’s look at the full dataset to make sense of the combination of predict
 <div id="predictions-from-the-full-model" class="section level4 hasAnchor" number="8.6.2.2">
 <h4><span class="header-section-number">8.6.2.2</span> Predictions from the full model<a href="8.6-decision-trees.html#predictions-from-the-full-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Let’s obtain some predictions from the model and evaluate how successful it is in dealing with the data.</p>
-<div class="sourceCode" id="cb2193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2193-1"><a href="8.6-decision-trees.html#cb2193-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2193-2"><a href="8.6-decision-trees.html#cb2193-2" tabindex="-1"></a>pred.ctree <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit)</span>
-<span id="cb2193-3"><a href="8.6-decision-trees.html#cb2193-3" tabindex="-1"></a>tbl.ctree <span class="ot">&lt;-</span> <span class="fu">table</span>(pred.ctree, dfPharV2<span class="sc">$</span>context)</span>
-<span id="cb2193-4"><a href="8.6-decision-trees.html#cb2193-4" tabindex="-1"></a>tbl.ctree</span></code></pre></div>
+<div class="sourceCode" id="cb2204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2204-1"><a href="8.6-decision-trees.html#cb2204-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2204-2"><a href="8.6-decision-trees.html#cb2204-2" tabindex="-1"></a>pred.ctree <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit)</span>
+<span id="cb2204-3"><a href="8.6-decision-trees.html#cb2204-3" tabindex="-1"></a>tbl.ctree <span class="ot">&lt;-</span> <span class="fu">table</span>(pred.ctree, dfPharV2<span class="sc">$</span>context)</span>
+<span id="cb2204-4"><a href="8.6-decision-trees.html#cb2204-4" tabindex="-1"></a>tbl.ctree</span></code></pre></div>
 <pre><code>##               
 ## pred.ctree     Non-Guttural Guttural
 ##   Non-Guttural          194       41
 ##   Guttural               28      139</code></pre>
-<div class="sourceCode" id="cb2195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2195-1"><a href="8.6-decision-trees.html#cb2195-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">pcc</span>(tbl.ctree)</span></code></pre></div>
+<div class="sourceCode" id="cb2206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2206-1"><a href="8.6-decision-trees.html#cb2206-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">pcc</span>(tbl.ctree)</span></code></pre></div>
 <pre><code>##         PCC     PCC.sd
 ## 1 0.8283582 0.01882992</code></pre>
-<div class="sourceCode" id="cb2197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2197-1"><a href="8.6-decision-trees.html#cb2197-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">specificity</span>(tbl.ctree)</span></code></pre></div>
+<div class="sourceCode" id="cb2208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2208-1"><a href="8.6-decision-trees.html#cb2208-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">specificity</span>(tbl.ctree)</span></code></pre></div>
 <pre><code>##   specificity specificity.sd
 ## 1   0.7722222     0.03134731</code></pre>
-<div class="sourceCode" id="cb2199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2199-1"><a href="8.6-decision-trees.html#cb2199-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">sensitivity</span>(tbl.ctree)</span></code></pre></div>
+<div class="sourceCode" id="cb2210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2210-1"><a href="8.6-decision-trees.html#cb2210-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">sensitivity</span>(tbl.ctree)</span></code></pre></div>
 <pre><code>##   sensitivity sensitivity.sd
 ## 1   0.8738739     0.02233216</code></pre>
-<div class="sourceCode" id="cb2201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2201-1"><a href="8.6-decision-trees.html#cb2201-1" tabindex="-1"></a>roc.ctree <span class="ot">&lt;-</span> pROC<span class="sc">::</span><span class="fu">roc</span>(dfPharV2<span class="sc">$</span>context, <span class="fu">as.numeric</span>(pred.ctree))</span></code></pre></div>
+<div class="sourceCode" id="cb2212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2212-1"><a href="8.6-decision-trees.html#cb2212-1" tabindex="-1"></a>roc.ctree <span class="ot">&lt;-</span> pROC<span class="sc">::</span><span class="fu">roc</span>(dfPharV2<span class="sc">$</span>context, <span class="fu">as.numeric</span>(pred.ctree))</span></code></pre></div>
 <pre><code>## Setting levels: control = Non-Guttural, case = Guttural</code></pre>
 <pre><code>## Setting direction: controls &lt; cases</code></pre>
-<div class="sourceCode" id="cb2204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2204-1"><a href="8.6-decision-trees.html#cb2204-1" tabindex="-1"></a>roc.ctree</span></code></pre></div>
+<div class="sourceCode" id="cb2215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2215-1"><a href="8.6-decision-trees.html#cb2215-1" tabindex="-1"></a>roc.ctree</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## roc.default(response = dfPharV2$context, predictor = as.numeric(pred.ctree))
 ## 
 ## Data: as.numeric(pred.ctree) in 222 controls (dfPharV2$context Non-Guttural) &lt; 180 cases (dfPharV2$context Guttural).
 ## Area under the curve: 0.823</code></pre>
-<div class="sourceCode" id="cb2206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2206-1"><a href="8.6-decision-trees.html#cb2206-1" tabindex="-1"></a>pROC<span class="sc">::</span><span class="fu">plot.roc</span>(roc.ctree, <span class="at">legacy.axes =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2217-1"><a href="8.6-decision-trees.html#cb2217-1" tabindex="-1"></a>pROC<span class="sc">::</span><span class="fu">plot.roc</span>(roc.ctree, <span class="at">legacy.axes =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-988-1.png" width="672" /></p>
 <p>This full model has a classification accuracy of 82.8%. This is not bad!! It has a relatively moderate specificity at 0.772 (at detecting the gutturals) but a high sensitivity at 0.874 (at detecting the non-gutturals). The ROC curve shows the relationship between the two with an AUC of 0.823.
 This is a good model, but it is not perfect. The confusion matrix shows that the model was able to detect 80% of the gutturals, but 20% were misclassified as non-gutturals. The opposite is true for the non-gutturals: 80% were detected, but 20% were misclassified as gutturals.
@@ -2389,42 +2389,42 @@ The AUC is at 0.823, which is not too bad.
 </div>
 <div id="model-2" class="section level4 hasAnchor" number="8.6.2.3">
 <h4><span class="header-section-number">8.6.2.3</span> Model 2<a href="8.6-decision-trees.html#model-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb2207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2207-1"><a href="8.6-decision-trees.html#cb2207-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2207-2"><a href="8.6-decision-trees.html#cb2207-2" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> dfPharV2  <span class="sc">%&gt;%</span> </span>
-<span id="cb2207-3"><a href="8.6-decision-trees.html#cb2207-3" tabindex="-1"></a>  <span class="fu">ctree</span>(</span>
-<span id="cb2207-4"><a href="8.6-decision-trees.html#cb2207-4" tabindex="-1"></a>    context <span class="sc">~</span> ., </span>
-<span id="cb2207-5"><a href="8.6-decision-trees.html#cb2207-5" tabindex="-1"></a>    <span class="at">data =</span> .,</span>
-<span id="cb2207-6"><a href="8.6-decision-trees.html#cb2207-6" tabindex="-1"></a>    <span class="at">controls =</span> <span class="fu">ctree_control</span>(<span class="at">mtry =</span> <span class="dv">5</span>))</span>
-<span id="cb2207-7"><a href="8.6-decision-trees.html#cb2207-7" tabindex="-1"></a></span>
-<span id="cb2207-8"><a href="8.6-decision-trees.html#cb2207-8" tabindex="-1"></a><span class="fu">plot</span>(fit1, <span class="at">main =</span> <span class="st">&quot;Conditional Inference Tree&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2218-1"><a href="8.6-decision-trees.html#cb2218-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2218-2"><a href="8.6-decision-trees.html#cb2218-2" tabindex="-1"></a>fit1 <span class="ot">&lt;-</span> dfPharV2  <span class="sc">%&gt;%</span> </span>
+<span id="cb2218-3"><a href="8.6-decision-trees.html#cb2218-3" tabindex="-1"></a>  <span class="fu">ctree</span>(</span>
+<span id="cb2218-4"><a href="8.6-decision-trees.html#cb2218-4" tabindex="-1"></a>    context <span class="sc">~</span> ., </span>
+<span id="cb2218-5"><a href="8.6-decision-trees.html#cb2218-5" tabindex="-1"></a>    <span class="at">data =</span> .,</span>
+<span id="cb2218-6"><a href="8.6-decision-trees.html#cb2218-6" tabindex="-1"></a>    <span class="at">controls =</span> <span class="fu">ctree_control</span>(<span class="at">mtry =</span> <span class="dv">5</span>))</span>
+<span id="cb2218-7"><a href="8.6-decision-trees.html#cb2218-7" tabindex="-1"></a></span>
+<span id="cb2218-8"><a href="8.6-decision-trees.html#cb2218-8" tabindex="-1"></a><span class="fu">plot</span>(fit1, <span class="at">main =</span> <span class="st">&quot;Conditional Inference Tree&quot;</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-989-1.png" width="672" /></p>
-<div class="sourceCode" id="cb2208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2208-1"><a href="8.6-decision-trees.html#cb2208-1" tabindex="-1"></a>pred.ctree1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit1)</span>
-<span id="cb2208-2"><a href="8.6-decision-trees.html#cb2208-2" tabindex="-1"></a>tbl.ctree1 <span class="ot">&lt;-</span> <span class="fu">table</span>(pred.ctree1, dfPharV2<span class="sc">$</span>context)</span>
-<span id="cb2208-3"><a href="8.6-decision-trees.html#cb2208-3" tabindex="-1"></a>tbl.ctree1</span></code></pre></div>
+<div class="sourceCode" id="cb2219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2219-1"><a href="8.6-decision-trees.html#cb2219-1" tabindex="-1"></a>pred.ctree1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit1)</span>
+<span id="cb2219-2"><a href="8.6-decision-trees.html#cb2219-2" tabindex="-1"></a>tbl.ctree1 <span class="ot">&lt;-</span> <span class="fu">table</span>(pred.ctree1, dfPharV2<span class="sc">$</span>context)</span>
+<span id="cb2219-3"><a href="8.6-decision-trees.html#cb2219-3" tabindex="-1"></a>tbl.ctree1</span></code></pre></div>
 <pre><code>##               
 ## pred.ctree1    Non-Guttural Guttural
 ##   Non-Guttural          205       79
 ##   Guttural               17      101</code></pre>
-<div class="sourceCode" id="cb2210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2210-1"><a href="8.6-decision-trees.html#cb2210-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">pcc</span>(tbl.ctree1)</span></code></pre></div>
+<div class="sourceCode" id="cb2221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2221-1"><a href="8.6-decision-trees.html#cb2221-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">pcc</span>(tbl.ctree1)</span></code></pre></div>
 <pre><code>##        PCC    PCC.sd
 ## 1 0.761194 0.0212911</code></pre>
-<div class="sourceCode" id="cb2212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2212-1"><a href="8.6-decision-trees.html#cb2212-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">specificity</span>(tbl.ctree1)</span></code></pre></div>
+<div class="sourceCode" id="cb2223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2223-1"><a href="8.6-decision-trees.html#cb2223-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">specificity</span>(tbl.ctree1)</span></code></pre></div>
 <pre><code>##   specificity specificity.sd
 ## 1   0.5611111     0.03709157</code></pre>
-<div class="sourceCode" id="cb2214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2214-1"><a href="8.6-decision-trees.html#cb2214-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">sensitivity</span>(tbl.ctree1)</span></code></pre></div>
+<div class="sourceCode" id="cb2225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2225-1"><a href="8.6-decision-trees.html#cb2225-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">sensitivity</span>(tbl.ctree1)</span></code></pre></div>
 <pre><code>##   sensitivity sensitivity.sd
 ## 1   0.9234234     0.01788761</code></pre>
-<div class="sourceCode" id="cb2216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2216-1"><a href="8.6-decision-trees.html#cb2216-1" tabindex="-1"></a>roc.ctree1 <span class="ot">&lt;-</span> pROC<span class="sc">::</span><span class="fu">roc</span>(dfPharV2<span class="sc">$</span>context, <span class="fu">as.numeric</span>(pred.ctree1))</span></code></pre></div>
+<div class="sourceCode" id="cb2227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2227-1"><a href="8.6-decision-trees.html#cb2227-1" tabindex="-1"></a>roc.ctree1 <span class="ot">&lt;-</span> pROC<span class="sc">::</span><span class="fu">roc</span>(dfPharV2<span class="sc">$</span>context, <span class="fu">as.numeric</span>(pred.ctree1))</span></code></pre></div>
 <pre><code>## Setting levels: control = Non-Guttural, case = Guttural</code></pre>
 <pre><code>## Setting direction: controls &lt; cases</code></pre>
-<div class="sourceCode" id="cb2219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2219-1"><a href="8.6-decision-trees.html#cb2219-1" tabindex="-1"></a>roc.ctree1</span></code></pre></div>
+<div class="sourceCode" id="cb2230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2230-1"><a href="8.6-decision-trees.html#cb2230-1" tabindex="-1"></a>roc.ctree1</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## roc.default(response = dfPharV2$context, predictor = as.numeric(pred.ctree1))
 ## 
 ## Data: as.numeric(pred.ctree1) in 222 controls (dfPharV2$context Non-Guttural) &lt; 180 cases (dfPharV2$context Guttural).
 ## Area under the curve: 0.7423</code></pre>
-<div class="sourceCode" id="cb2221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2221-1"><a href="8.6-decision-trees.html#cb2221-1" tabindex="-1"></a>pROC<span class="sc">::</span><span class="fu">plot.roc</span>(roc.ctree1, <span class="at">legacy.axes =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2232-1"><a href="8.6-decision-trees.html#cb2232-1" tabindex="-1"></a>pROC<span class="sc">::</span><span class="fu">plot.roc</span>(roc.ctree1, <span class="at">legacy.axes =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-989-2.png" width="672" /></p>
 <p>Can you compare results between you and discuss what is going on?</p>
 <p>When adding one random selection process to our <code>ctree</code>, we allow it to obtain more robust predictions. We could even go further and grow multiple small trees with a portion of datapoints (e.g., 100 rows, 200 rows). When doing these multiple random selections, you are growing multiple trees that are decorrelated from each other. These become independent trees and one can combine the results of these trees to come with clear predictions.</p>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.1 Loading packages | Statistics for Linguists using R - Quantitative and qualitative approaches</title>
   <meta name="description" content="This repo contains all material for the book Statistics for Linguists using R - Quantitative and qualitative approaches" />
-  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.1 Loading packages | Statistics for Linguists using R - Quantitative and qualitative approaches" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-16" />
+<meta name="date" content="2025-10-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -2017,11 +2017,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.3.2" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#reduce-dimensionality-by-selecting-uncorrelated-predictors"><i class="fa fa-check"></i><b>7.3.2</b> Reduce dimensionality by selecting uncorrelated predictors</a>
 <ul>
-<li class="chapter" data-level="7.3.2.1" data-path="Ch_04_Corpus_Manipulations_I.html"><a href="#r%C2%B2-0.9"><i class="fa fa-check"></i><b>7.3.2.1</b> R² = 0.9</a></li>
-<li class="chapter" data-level="7.3.2.2" data-path="Ch_04_Corpus_Manipulations_I.html"><a href="#r%C2%B2-0.75"><i class="fa fa-check"></i><b>7.3.2.2</b> R² = 0.75</a></li>
-<li class="chapter" data-level="7.3.2.3" data-path="Ch_04_Corpus_Manipulations_I.html"><a href="#r%C2%B2-0.5"><i class="fa fa-check"></i><b>7.3.2.3</b> R² = 0.5</a></li>
-<li class="chapter" data-level="7.3.2.4" data-path="Ch_04_Corpus_Manipulations_I.html"><a href="#r%C2%B2-0.25"><i class="fa fa-check"></i><b>7.3.2.4</b> R² = 0.25</a></li>
-<li class="chapter" data-level="7.3.2.5" data-path="Ch_04_Corpus_Manipulations_I.html"><a href="#r%C2%B2-0.1"><i class="fa fa-check"></i><b>7.3.2.5</b> R² = 0.1</a></li>
+<li class="chapter" data-level="7.3.2.1" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.9"><i class="fa fa-check"></i><b>7.3.2.1</b> R² = 0.9</a></li>
+<li class="chapter" data-level="7.3.2.2" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.75"><i class="fa fa-check"></i><b>7.3.2.2</b> R² = 0.75</a></li>
+<li class="chapter" data-level="7.3.2.3" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.5"><i class="fa fa-check"></i><b>7.3.2.3</b> R² = 0.5</a></li>
+<li class="chapter" data-level="7.3.2.4" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.25"><i class="fa fa-check"></i><b>7.3.2.4</b> R² = 0.25</a></li>
+<li class="chapter" data-level="7.3.2.5" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.1"><i class="fa fa-check"></i><b>7.3.2.5</b> R² = 0.1</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html"><i class="fa fa-check"></i><b>7.4</b> Principal Component Analyses - PCA</a>
@@ -2223,12 +2223,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="loading-packages-3" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Loading packages<a href="4.1-loading-packages-3.html#loading-packages-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb860"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb860-1"><a href="4.1-loading-packages-3.html#cb860-1" tabindex="-1"></a><span class="do">## Use the code below to check if you have all required packages installed. If some are not installed already, the code below will install these. If you have all packages installed, then you could load them with the second code.</span></span>
-<span id="cb860-2"><a href="4.1-loading-packages-3.html#cb860-2" tabindex="-1"></a>requiredPackages <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;tidyverse&#39;</span>, <span class="st">&#39;tidytext&#39;</span>, <span class="st">&#39;rvest&#39;</span>, <span class="st">&#39;janeaustenr&#39;</span>, <span class="st">&#39;proustr&#39;</span>, <span class="st">&#39;textdata&#39;</span>, <span class="st">&#39;gutenbergr&#39;</span>, <span class="st">&#39;quanteda&#39;</span>, <span class="st">&#39;readtext&#39;</span>, <span class="st">&#39;tm&#39;</span>, <span class="st">&#39;SnowballC&#39;</span>, <span class="st">&#39;stopwords&#39;</span>, <span class="st">&#39;quanteda.textplots&#39;</span>)</span>
-<span id="cb860-3"><a href="4.1-loading-packages-3.html#cb860-3" tabindex="-1"></a><span class="cf">for</span>(p <span class="cf">in</span> requiredPackages){</span>
-<span id="cb860-4"><a href="4.1-loading-packages-3.html#cb860-4" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(p,<span class="at">character.only =</span> <span class="cn">TRUE</span>)) <span class="fu">install.packages</span>(p)</span>
-<span id="cb860-5"><a href="4.1-loading-packages-3.html#cb860-5" tabindex="-1"></a>  <span class="fu">library</span>(p,<span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb860-6"><a href="4.1-loading-packages-3.html#cb860-6" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb870"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb870-1"><a href="4.1-loading-packages-3.html#cb870-1" tabindex="-1"></a><span class="do">## Use the code below to check if you have all required packages installed. If some are not installed already, the code below will install these. If you have all packages installed, then you could load them with the second code.</span></span>
+<span id="cb870-2"><a href="4.1-loading-packages-3.html#cb870-2" tabindex="-1"></a>requiredPackages <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;tidyverse&#39;</span>, <span class="st">&#39;tidytext&#39;</span>, <span class="st">&#39;rvest&#39;</span>, <span class="st">&#39;janeaustenr&#39;</span>, <span class="st">&#39;proustr&#39;</span>, <span class="st">&#39;textdata&#39;</span>, <span class="st">&#39;gutenbergr&#39;</span>, <span class="st">&#39;quanteda&#39;</span>, <span class="st">&#39;readtext&#39;</span>, <span class="st">&#39;tm&#39;</span>, <span class="st">&#39;SnowballC&#39;</span>, <span class="st">&#39;stopwords&#39;</span>, <span class="st">&#39;quanteda.textplots&#39;</span>)</span>
+<span id="cb870-3"><a href="4.1-loading-packages-3.html#cb870-3" tabindex="-1"></a><span class="cf">for</span>(p <span class="cf">in</span> requiredPackages){</span>
+<span id="cb870-4"><a href="4.1-loading-packages-3.html#cb870-4" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(p,<span class="at">character.only =</span> <span class="cn">TRUE</span>)) <span class="fu">install.packages</span>(p)</span>
+<span id="cb870-5"><a href="4.1-loading-packages-3.html#cb870-5" tabindex="-1"></a>  <span class="fu">library</span>(p,<span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb870-6"><a href="4.1-loading-packages-3.html#cb870-6" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## Loading required package: tidytext</code></pre>
 <pre><code>## Loading required package: rvest</code></pre>
 <pre><code>## 

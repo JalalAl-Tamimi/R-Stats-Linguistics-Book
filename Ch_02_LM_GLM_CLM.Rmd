@@ -906,6 +906,7 @@ english %>%
             sd = sd(RTlexdec))
 ```
 
+
 ## Linear Models {#LM}
 
 Up to now, we have looked at descriptive statistics, and evaluated
@@ -1170,7 +1171,7 @@ english2 %>%
   head(10)
 ```
 
-The coefficient for "old" is different. It is now nearly half of that in
+The coefficient for `old` is different. It is now nearly half of that in
 the treatment coding (0.221721 vs 0.110861). Why is this the case? In
 treatment coding, the distance between old and young was of 1 (1- 0 =
 1), in contrast coding, it is of 2 (1 - -1 = 2). The coefficient of the
@@ -1440,7 +1441,7 @@ How to interpret the output? Discuss with your neighbour and share with
 the group.
 
 Hint... Look at the emmeans values for each level of our factor
-"Species" and the contrasts.
+"AgeSubject" and the contrasts.
 
 ### Multiple predictors?
 
@@ -1723,7 +1724,7 @@ Let's use another type of predictions
 
 ###### z-scores
 
-```{r warning=FALSE, message=FALSE, error=FALSE}
+```{r}
 z_vals <- seq(-3, 3, 0.01)
 
 dfPredNew <- data.frame(RTlexdec_z = z_vals)
@@ -1735,9 +1736,9 @@ pp %>%
   ggplot(aes(x = RTlexdec_z, y = prob)) +
   geom_point() +
   theme_bw(base_size = 20)+
-    labs(y = "Probability", x = "") +
-    coord_cartesian(ylim = c(-0.1, 1.1), expand = FALSE) +
-    scale_y_discrete(limits = c(0,1), labels = c("Young", "Old")) +
+  labs(y = "Probability", x = "") +
+  coord_cartesian(ylim = c(-0.1, 1.1), expand = FALSE) +
+  scale_y_continuous(breaks = c(0,1), labels = c("Young","Old")) +
   scale_x_continuous(breaks = c(-3, -2, -1, 0, 1, 2, 3))
 ```
 
@@ -1947,6 +1948,8 @@ you need to use the glm function with a specific family function.
 
 
 ```
+
+
 
 ## Cumulative Logit Link Models {#CLM}
 
@@ -2311,6 +2314,8 @@ legend(par('usr')[2], par('usr')[4], bty = 'n', xpd = NA, lty = 1,
        col = c("black", "red", "green", "orange", "yellow", "grey", "blue"), 
        legend = c("1", "2", "3", "4", "5", "6", "7"), cex = 0.75)
 ```
+
+
 
 ## session info
 

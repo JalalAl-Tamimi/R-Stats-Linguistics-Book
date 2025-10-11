@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.6 Twitter data | Statistics for Linguists using R - Quantitative and qualitative approaches</title>
   <meta name="description" content="This repo contains all material for the book Statistics for Linguists using R - Quantitative and qualitative approaches" />
-  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.6 Twitter data | Statistics for Linguists using R - Quantitative and qualitative approaches" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-16" />
+<meta name="date" content="2025-10-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -2017,11 +2017,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.3.2" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#reduce-dimensionality-by-selecting-uncorrelated-predictors"><i class="fa fa-check"></i><b>7.3.2</b> Reduce dimensionality by selecting uncorrelated predictors</a>
 <ul>
-<li class="chapter" data-level="7.3.2.1" data-path="Ch_06_Corpus_Analysis_Statistics.html"><a href="#r%C2%B2-0.9"><i class="fa fa-check"></i><b>7.3.2.1</b> R² = 0.9</a></li>
-<li class="chapter" data-level="7.3.2.2" data-path="Ch_06_Corpus_Analysis_Statistics.html"><a href="#r%C2%B2-0.75"><i class="fa fa-check"></i><b>7.3.2.2</b> R² = 0.75</a></li>
-<li class="chapter" data-level="7.3.2.3" data-path="Ch_06_Corpus_Analysis_Statistics.html"><a href="#r%C2%B2-0.5"><i class="fa fa-check"></i><b>7.3.2.3</b> R² = 0.5</a></li>
-<li class="chapter" data-level="7.3.2.4" data-path="Ch_06_Corpus_Analysis_Statistics.html"><a href="#r%C2%B2-0.25"><i class="fa fa-check"></i><b>7.3.2.4</b> R² = 0.25</a></li>
-<li class="chapter" data-level="7.3.2.5" data-path="Ch_06_Corpus_Analysis_Statistics.html"><a href="#r%C2%B2-0.1"><i class="fa fa-check"></i><b>7.3.2.5</b> R² = 0.1</a></li>
+<li class="chapter" data-level="7.3.2.1" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.9"><i class="fa fa-check"></i><b>7.3.2.1</b> R² = 0.9</a></li>
+<li class="chapter" data-level="7.3.2.2" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.75"><i class="fa fa-check"></i><b>7.3.2.2</b> R² = 0.75</a></li>
+<li class="chapter" data-level="7.3.2.3" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.5"><i class="fa fa-check"></i><b>7.3.2.3</b> R² = 0.5</a></li>
+<li class="chapter" data-level="7.3.2.4" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.25"><i class="fa fa-check"></i><b>7.3.2.4</b> R² = 0.25</a></li>
+<li class="chapter" data-level="7.3.2.5" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.1"><i class="fa fa-check"></i><b>7.3.2.5</b> R² = 0.1</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html"><i class="fa fa-check"></i><b>7.4</b> Principal Component Analyses - PCA</a>
@@ -2227,12 +2227,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 This is a JSON file (.json) downloaded from the Twitter stream API.</p>
 <div id="importing-data-10" class="section level3 hasAnchor" number="6.6.1">
 <h3><span class="header-section-number">6.6.1</span> Importing data<a href="6.6-twitter-data-2.html#importing-data-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1845"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1845-1"><a href="6.6-twitter-data-2.html#cb1845-1" tabindex="-1"></a>dat_twitter <span class="ot">&lt;-</span> <span class="fu">readtext</span>(<span class="st">&quot;data/twitter.json&quot;</span>, <span class="at">source =</span> <span class="st">&quot;twitter&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1855"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1855-1"><a href="6.6-twitter-data-2.html#cb1855-1" tabindex="-1"></a>dat_twitter <span class="ot">&lt;-</span> <span class="fu">readtext</span>(<span class="st">&quot;data/twitter.json&quot;</span>, <span class="at">source =</span> <span class="st">&quot;twitter&quot;</span>)</span></code></pre></div>
 </div>
 <div id="create-a-corpus-18" class="section level3 hasAnchor" number="6.6.2">
 <h3><span class="header-section-number">6.6.2</span> Create a corpus<a href="6.6-twitter-data-2.html#create-a-corpus-18" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1846"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1846-1"><a href="6.6-twitter-data-2.html#cb1846-1" tabindex="-1"></a>dat_twitter_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(dat_twitter)</span>
-<span id="cb1846-2"><a href="6.6-twitter-data-2.html#cb1846-2" tabindex="-1"></a><span class="fu">print</span>(dat_twitter_corpus)</span></code></pre></div>
+<div class="sourceCode" id="cb1856"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1856-1"><a href="6.6-twitter-data-2.html#cb1856-1" tabindex="-1"></a>dat_twitter_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(dat_twitter)</span>
+<span id="cb1856-2"><a href="6.6-twitter-data-2.html#cb1856-2" tabindex="-1"></a><span class="fu">print</span>(dat_twitter_corpus)</span></code></pre></div>
 <pre><code>## Corpus consisting of 7,504 documents and 42 docvars.
 ## twitter.json.1 :
 ## &quot;@EFC_Jayy UKIP&quot;
@@ -2255,7 +2255,7 @@ This is a JSON file (.json) downloaded from the Twitter stream API.</p>
 ## [ reached max_ndoc ... 7,498 more documents ]</code></pre>
 <div id="summary-36" class="section level4 hasAnchor" number="6.6.2.1">
 <h4><span class="header-section-number">6.6.2.1</span> Summary<a href="6.6-twitter-data-2.html#summary-36" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1848"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1848-1"><a href="6.6-twitter-data-2.html#cb1848-1" tabindex="-1"></a><span class="fu">summary</span>(dat_twitter_corpus, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1858"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1858-1"><a href="6.6-twitter-data-2.html#cb1858-1" tabindex="-1"></a><span class="fu">summary</span>(dat_twitter_corpus, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Corpus consisting of 7504 documents, showing 10 documents:
 ## 
 ##             Text Types Tokens Sentences retweet_count favorite_count favorited
@@ -2415,7 +2415,7 @@ This is a JSON file (.json) downloaded from the Twitter stream API.</p>
 </div>
 <div id="accessing-parts-of-corpus-18" class="section level4 hasAnchor" number="6.6.2.2">
 <h4><span class="header-section-number">6.6.2.2</span> Accessing parts of corpus<a href="6.6-twitter-data-2.html#accessing-parts-of-corpus-18" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1850"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1850-1"><a href="6.6-twitter-data-2.html#cb1850-1" tabindex="-1"></a>dat_twitter_corpus[,<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1860"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1860-1"><a href="6.6-twitter-data-2.html#cb1860-1" tabindex="-1"></a>dat_twitter_corpus[,<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## Corpus consisting of 7,504 documents and 42 docvars.
 ## twitter.json.1 :
 ## &quot;@EFC_Jayy UKIP&quot;
@@ -2439,7 +2439,7 @@ This is a JSON file (.json) downloaded from the Twitter stream API.</p>
 </div>
 <div id="document-level-information-14" class="section level4 hasAnchor" number="6.6.2.3">
 <h4><span class="header-section-number">6.6.2.3</span> Document-level information<a href="6.6-twitter-data-2.html#document-level-information-14" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1852"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1852-1"><a href="6.6-twitter-data-2.html#cb1852-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">docvars</span>(dat_twitter_corpus))</span></code></pre></div>
+<div class="sourceCode" id="cb1862"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1862-1"><a href="6.6-twitter-data-2.html#cb1862-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">docvars</span>(dat_twitter_corpus))</span></code></pre></div>
 <pre><code>##   retweet_count favorite_count favorited truncated             id_str
 ## 1             0              0     FALSE     FALSE 872596537142116352
 ## 2            90            108     FALSE     FALSE 872596536869363712
@@ -2541,7 +2541,7 @@ This is a JSON file (.json) downloaded from the Twitter stream API.</p>
 </div>
 <div id="unique-variable-names-for-volume-8" class="section level4 hasAnchor" number="6.6.2.4">
 <h4><span class="header-section-number">6.6.2.4</span> Unique variable names (for volume)<a href="6.6-twitter-data-2.html#unique-variable-names-for-volume-8" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1854"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1854-1"><a href="6.6-twitter-data-2.html#cb1854-1" tabindex="-1"></a><span class="fu">unique</span>(<span class="fu">docvars</span>(dat_twitter_corpus, <span class="at">field =</span> <span class="st">&quot;lang&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1864"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1864-1"><a href="6.6-twitter-data-2.html#cb1864-1" tabindex="-1"></a><span class="fu">unique</span>(<span class="fu">docvars</span>(dat_twitter_corpus, <span class="at">field =</span> <span class="st">&quot;lang&quot;</span>))</span></code></pre></div>
 <pre><code>##  [1] &quot;en&quot;  &quot;tl&quot;  &quot;und&quot; &quot;fr&quot;  &quot;ja&quot;  &quot;de&quot;  &quot;sv&quot;  &quot;hu&quot;  &quot;ht&quot;  &quot;lt&quot;  &quot;cy&quot;  &quot;ar&quot; 
 ## [13] &quot;pt&quot;  &quot;in&quot;  &quot;fi&quot;  &quot;tr&quot;  &quot;es&quot;  &quot;hi&quot;  &quot;fa&quot;  &quot;it&quot;  &quot;pl&quot;</code></pre>
 </div>
@@ -2552,8 +2552,8 @@ This is a JSON file (.json) downloaded from the Twitter stream API.</p>
 We can remove punctuations or not</p>
 <div id="with-punctuations-18" class="section level4 hasAnchor" number="6.6.3.1">
 <h4><span class="header-section-number">6.6.3.1</span> With punctuations<a href="6.6-twitter-data-2.html#with-punctuations-18" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1856"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1856-1"><a href="6.6-twitter-data-2.html#cb1856-1" tabindex="-1"></a>dat_twitter_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_twitter_corpus)</span>
-<span id="cb1856-2"><a href="6.6-twitter-data-2.html#cb1856-2" tabindex="-1"></a>dat_twitter_corpus_tok</span></code></pre></div>
+<div class="sourceCode" id="cb1866"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1866-1"><a href="6.6-twitter-data-2.html#cb1866-1" tabindex="-1"></a>dat_twitter_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_twitter_corpus)</span>
+<span id="cb1866-2"><a href="6.6-twitter-data-2.html#cb1866-2" tabindex="-1"></a>dat_twitter_corpus_tok</span></code></pre></div>
 <pre><code>## Tokens consisting of 7,504 documents and 42 docvars.
 ## twitter.json.1 :
 ## [1] &quot;@EFC_Jayy&quot; &quot;UKIP&quot;     
@@ -2591,8 +2591,8 @@ We can remove punctuations or not</p>
 </div>
 <div id="without-punctuations-18" class="section level4 hasAnchor" number="6.6.3.2">
 <h4><span class="header-section-number">6.6.3.2</span> Without punctuations<a href="6.6-twitter-data-2.html#without-punctuations-18" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1858"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1858-1"><a href="6.6-twitter-data-2.html#cb1858-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_twitter_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1858-2"><a href="6.6-twitter-data-2.html#cb1858-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct</span></code></pre></div>
+<div class="sourceCode" id="cb1868"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1868-1"><a href="6.6-twitter-data-2.html#cb1868-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_twitter_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1868-2"><a href="6.6-twitter-data-2.html#cb1868-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct</span></code></pre></div>
 <pre><code>## Tokens consisting of 7,504 documents and 42 docvars.
 ## twitter.json.1 :
 ## [1] &quot;@EFC_Jayy&quot; &quot;UKIP&quot;     
@@ -2636,8 +2636,8 @@ We can remove punctuations or not</p>
 <div id="stop-words-4" class="section level3 hasAnchor" number="6.6.4">
 <h3><span class="header-section-number">6.6.4</span> Stop words<a href="6.6-twitter-data-2.html#stop-words-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It is best to remove stop words (function/grammatical words) when we use statistical analyses of a corpus.</p>
-<div class="sourceCode" id="cb1860"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1860-1"><a href="6.6-twitter-data-2.html#cb1860-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(dat_twitter_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">stopwords</span>(<span class="st">&quot;en&quot;</span>, <span class="at">source =</span> <span class="st">&quot;stopwords-iso&quot;</span>), <span class="at">selection =</span> <span class="st">&quot;remove&quot;</span>)</span>
-<span id="cb1860-2"><a href="6.6-twitter-data-2.html#cb1860-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop</span></code></pre></div>
+<div class="sourceCode" id="cb1870"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1870-1"><a href="6.6-twitter-data-2.html#cb1870-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(dat_twitter_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">stopwords</span>(<span class="st">&quot;en&quot;</span>, <span class="at">source =</span> <span class="st">&quot;stopwords-iso&quot;</span>), <span class="at">selection =</span> <span class="st">&quot;remove&quot;</span>)</span>
+<span id="cb1870-2"><a href="6.6-twitter-data-2.html#cb1870-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop</span></code></pre></div>
 <pre><code>## Tokens consisting of 7,504 documents and 42 docvars.
 ## twitter.json.1 :
 ## [1] &quot;@EFC_Jayy&quot; &quot;UKIP&quot;     
@@ -2687,8 +2687,8 @@ We can remove punctuations or not</p>
 <div id="dfm-11" class="section level5 hasAnchor" number="6.6.5.1.1">
 <h5><span class="header-section-number">6.6.5.1.1</span> DFM<a href="6.6-twitter-data-2.html#dfm-11" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We start by generating a DFM (document-feature matrix)</p>
-<div class="sourceCode" id="cb1862"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1862-1"><a href="6.6-twitter-data-2.html#cb1862-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm <span class="ot">&lt;-</span> <span class="fu">dfm</span>(dat_twitter_corpus_tok_no_punct_no_Stop)</span>
-<span id="cb1862-2"><a href="6.6-twitter-data-2.html#cb1862-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm</span></code></pre></div>
+<div class="sourceCode" id="cb1872"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1872-1"><a href="6.6-twitter-data-2.html#cb1872-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm <span class="ot">&lt;-</span> <span class="fu">dfm</span>(dat_twitter_corpus_tok_no_punct_no_Stop)</span>
+<span id="cb1872-2"><a href="6.6-twitter-data-2.html#cb1872-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm</span></code></pre></div>
 <pre><code>## Document-feature matrix of: 7,504 documents, 12,235 features (99.92% sparse) and 42 docvars.
 ##                 features
 ## docs             @efc_jayy ukip rt @corbynator2 @jeremycorbyn reaction people
@@ -2710,8 +2710,8 @@ We can remove punctuations or not</p>
 </div>
 <div id="frequencies-4" class="section level5 hasAnchor" number="6.6.5.1.2">
 <h5><span class="header-section-number">6.6.5.1.2</span> Frequencies<a href="6.6-twitter-data-2.html#frequencies-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1864"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1864-1"><a href="6.6-twitter-data-2.html#cb1864-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm_freq <span class="ot">&lt;-</span> <span class="fu">textstat_frequency</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm)</span>
-<span id="cb1864-2"><a href="6.6-twitter-data-2.html#cb1864-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm_freq</span></code></pre></div>
+<div class="sourceCode" id="cb1874"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1874-1"><a href="6.6-twitter-data-2.html#cb1874-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm_freq <span class="ot">&lt;-</span> <span class="fu">textstat_frequency</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm)</span>
+<span id="cb1874-2"><a href="6.6-twitter-data-2.html#cb1874-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm_freq</span></code></pre></div>
 <pre><code>##                                    feature frequency rank docfreq group
 ## 1                                       rt      5827    1    5591   all
 ## 2                                  #ge2017      2483    2    2481   all
@@ -14952,13 +14952,13 @@ We can remove punctuations or not</p>
 <div id="plot-4" class="section level5 hasAnchor" number="6.6.5.1.3">
 <h5><span class="header-section-number">6.6.5.1.3</span> Plot<a href="6.6-twitter-data-2.html#plot-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We plot the top 15 most frequent words used in the text.</p>
-<div class="sourceCode" id="cb1866"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1866-1"><a href="6.6-twitter-data-2.html#cb1866-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm <span class="sc">%&gt;%</span> </span>
-<span id="cb1866-2"><a href="6.6-twitter-data-2.html#cb1866-2" tabindex="-1"></a>  <span class="fu">textstat_frequency</span>(<span class="at">n =</span> <span class="dv">15</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1866-3"><a href="6.6-twitter-data-2.html#cb1866-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(feature, frequency), <span class="at">y =</span> frequency)) <span class="sc">+</span></span>
-<span id="cb1866-4"><a href="6.6-twitter-data-2.html#cb1866-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb1866-5"><a href="6.6-twitter-data-2.html#cb1866-5" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb1866-6"><a href="6.6-twitter-data-2.html#cb1866-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1866-7"><a href="6.6-twitter-data-2.html#cb1866-7" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1876"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1876-1"><a href="6.6-twitter-data-2.html#cb1876-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm <span class="sc">%&gt;%</span> </span>
+<span id="cb1876-2"><a href="6.6-twitter-data-2.html#cb1876-2" tabindex="-1"></a>  <span class="fu">textstat_frequency</span>(<span class="at">n =</span> <span class="dv">15</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1876-3"><a href="6.6-twitter-data-2.html#cb1876-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(feature, frequency), <span class="at">y =</span> frequency)) <span class="sc">+</span></span>
+<span id="cb1876-4"><a href="6.6-twitter-data-2.html#cb1876-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb1876-5"><a href="6.6-twitter-data-2.html#cb1876-5" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb1876-6"><a href="6.6-twitter-data-2.html#cb1876-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1876-7"><a href="6.6-twitter-data-2.html#cb1876-7" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-848-1.png" width="672" /></p>
 </div>
 </div>
@@ -14969,8 +14969,8 @@ We can remove punctuations or not</p>
 <h5><span class="header-section-number">6.6.5.2.1</span> TTR (Type-Token Ratio)<a href="6.6-twitter-data-2.html#ttr-type-token-ratio-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div id="computing-ttr-4" class="section level6 hasAnchor" number="6.6.5.2.1.1">
 <h6><span class="header-section-number">6.6.5.2.1.1</span> Computing TTR<a href="6.6-twitter-data-2.html#computing-ttr-4" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1867"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1867-1"><a href="6.6-twitter-data-2.html#cb1867-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr <span class="ot">&lt;-</span> <span class="fu">textstat_lexdiv</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm, <span class="at">measure =</span> <span class="st">&quot;TTR&quot;</span>)</span>
-<span id="cb1867-2"><a href="6.6-twitter-data-2.html#cb1867-2" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr, <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1877"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1877-1"><a href="6.6-twitter-data-2.html#cb1877-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr <span class="ot">&lt;-</span> <span class="fu">textstat_lexdiv</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm, <span class="at">measure =</span> <span class="st">&quot;TTR&quot;</span>)</span>
+<span id="cb1877-2"><a href="6.6-twitter-data-2.html#cb1877-2" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr, <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>##         document       TTR
 ## 1 twitter.json.1 1.0000000
 ## 2 twitter.json.2 0.9230769
@@ -14980,9 +14980,9 @@ We can remove punctuations or not</p>
 </div>
 <div id="plotting-ttr-8" class="section level6 hasAnchor" number="6.6.5.2.1.2">
 <h6><span class="header-section-number">6.6.5.2.1.2</span> Plotting TTR<a href="6.6-twitter-data-2.html#plotting-ttr-8" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1869"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1869-1"><a href="6.6-twitter-data-2.html#cb1869-1" tabindex="-1"></a><span class="fu">plot</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr<span class="sc">$</span>TTR, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="cn">NULL</span>, <span class="at">ylab =</span> <span class="st">&quot;TTR&quot;</span>)</span>
-<span id="cb1869-2"><a href="6.6-twitter-data-2.html#cb1869-2" tabindex="-1"></a><span class="fu">grid</span>()</span>
-<span id="cb1869-3"><a href="6.6-twitter-data-2.html#cb1869-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr)), <span class="at">labels =</span> dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr<span class="sc">$</span>document)</span></code></pre></div>
+<div class="sourceCode" id="cb1879"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1879-1"><a href="6.6-twitter-data-2.html#cb1879-1" tabindex="-1"></a><span class="fu">plot</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr<span class="sc">$</span>TTR, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="cn">NULL</span>, <span class="at">ylab =</span> <span class="st">&quot;TTR&quot;</span>)</span>
+<span id="cb1879-2"><a href="6.6-twitter-data-2.html#cb1879-2" tabindex="-1"></a><span class="fu">grid</span>()</span>
+<span id="cb1879-3"><a href="6.6-twitter-data-2.html#cb1879-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr)), <span class="at">labels =</span> dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_ttr<span class="sc">$</span>document)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-850-1.png" width="672" /></p>
 </div>
 </div>
@@ -14990,8 +14990,8 @@ We can remove punctuations or not</p>
 <h5><span class="header-section-number">6.6.5.2.2</span> CTTR (Corrected Type-Token Ratio)<a href="6.6-twitter-data-2.html#cttr-corrected-type-token-ratio-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div id="computing-cttr-4" class="section level6 hasAnchor" number="6.6.5.2.2.1">
 <h6><span class="header-section-number">6.6.5.2.2.1</span> Computing CTTR<a href="6.6-twitter-data-2.html#computing-cttr-4" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1870"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1870-1"><a href="6.6-twitter-data-2.html#cb1870-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr <span class="ot">&lt;-</span> <span class="fu">textstat_lexdiv</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm, <span class="at">measure =</span> <span class="st">&quot;CTTR&quot;</span>)</span>
-<span id="cb1870-2"><a href="6.6-twitter-data-2.html#cb1870-2" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr, <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1880"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1880-1"><a href="6.6-twitter-data-2.html#cb1880-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr <span class="ot">&lt;-</span> <span class="fu">textstat_lexdiv</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm, <span class="at">measure =</span> <span class="st">&quot;CTTR&quot;</span>)</span>
+<span id="cb1880-2"><a href="6.6-twitter-data-2.html#cb1880-2" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr, <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>##         document     CTTR
 ## 1 twitter.json.1 1.000000
 ## 2 twitter.json.2 2.353394
@@ -15001,9 +15001,9 @@ We can remove punctuations or not</p>
 </div>
 <div id="plotting-ttr-9" class="section level6 hasAnchor" number="6.6.5.2.2.2">
 <h6><span class="header-section-number">6.6.5.2.2.2</span> Plotting TTR<a href="6.6-twitter-data-2.html#plotting-ttr-9" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1872"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1872-1"><a href="6.6-twitter-data-2.html#cb1872-1" tabindex="-1"></a><span class="fu">plot</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr<span class="sc">$</span>CTTR, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="cn">NULL</span>, <span class="at">ylab =</span> <span class="st">&quot;CTTR&quot;</span>)</span>
-<span id="cb1872-2"><a href="6.6-twitter-data-2.html#cb1872-2" tabindex="-1"></a><span class="fu">grid</span>()</span>
-<span id="cb1872-3"><a href="6.6-twitter-data-2.html#cb1872-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr)), <span class="at">labels =</span> dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr<span class="sc">$</span>document)</span></code></pre></div>
+<div class="sourceCode" id="cb1882"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1882-1"><a href="6.6-twitter-data-2.html#cb1882-1" tabindex="-1"></a><span class="fu">plot</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr<span class="sc">$</span>CTTR, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="cn">NULL</span>, <span class="at">ylab =</span> <span class="st">&quot;CTTR&quot;</span>)</span>
+<span id="cb1882-2"><a href="6.6-twitter-data-2.html#cb1882-2" tabindex="-1"></a><span class="fu">grid</span>()</span>
+<span id="cb1882-3"><a href="6.6-twitter-data-2.html#cb1882-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr)), <span class="at">labels =</span> dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_cttr<span class="sc">$</span>document)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-852-1.png" width="672" /></p>
 </div>
 </div>
@@ -15011,8 +15011,8 @@ We can remove punctuations or not</p>
 <h5><span class="header-section-number">6.6.5.2.3</span> <em>K</em> (Yule’s <em>K</em>)<a href="6.6-twitter-data-2.html#k-yules-k-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div id="computing-k-4" class="section level6 hasAnchor" number="6.6.5.2.3.1">
 <h6><span class="header-section-number">6.6.5.2.3.1</span> Computing <em>K</em><a href="6.6-twitter-data-2.html#computing-k-4" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1873"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1873-1"><a href="6.6-twitter-data-2.html#cb1873-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K <span class="ot">&lt;-</span> <span class="fu">textstat_lexdiv</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm, <span class="at">measure =</span> <span class="st">&quot;K&quot;</span>)</span>
-<span id="cb1873-2"><a href="6.6-twitter-data-2.html#cb1873-2" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K, <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1883"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1883-1"><a href="6.6-twitter-data-2.html#cb1883-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K <span class="ot">&lt;-</span> <span class="fu">textstat_lexdiv</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm, <span class="at">measure =</span> <span class="st">&quot;K&quot;</span>)</span>
+<span id="cb1883-2"><a href="6.6-twitter-data-2.html#cb1883-2" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K, <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>##         document        K
 ## 1 twitter.json.1   0.0000
 ## 2 twitter.json.2 118.3432
@@ -15022,9 +15022,9 @@ We can remove punctuations or not</p>
 </div>
 <div id="plotting-k-4" class="section level6 hasAnchor" number="6.6.5.2.3.2">
 <h6><span class="header-section-number">6.6.5.2.3.2</span> Plotting <em>K</em><a href="6.6-twitter-data-2.html#plotting-k-4" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1875"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1875-1"><a href="6.6-twitter-data-2.html#cb1875-1" tabindex="-1"></a><span class="fu">plot</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K<span class="sc">$</span>K, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="cn">NULL</span>, <span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(K)))</span>
-<span id="cb1875-2"><a href="6.6-twitter-data-2.html#cb1875-2" tabindex="-1"></a><span class="fu">grid</span>()</span>
-<span id="cb1875-3"><a href="6.6-twitter-data-2.html#cb1875-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K)), <span class="at">labels =</span> dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K<span class="sc">$</span>document)</span></code></pre></div>
+<div class="sourceCode" id="cb1885"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1885-1"><a href="6.6-twitter-data-2.html#cb1885-1" tabindex="-1"></a><span class="fu">plot</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K<span class="sc">$</span>K, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="cn">NULL</span>, <span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(K)))</span>
+<span id="cb1885-2"><a href="6.6-twitter-data-2.html#cb1885-2" tabindex="-1"></a><span class="fu">grid</span>()</span>
+<span id="cb1885-3"><a href="6.6-twitter-data-2.html#cb1885-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K)), <span class="at">labels =</span> dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_lexdiv_K<span class="sc">$</span>document)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-854-1.png" width="672" /></p>
 </div>
 </div>
@@ -15034,8 +15034,8 @@ We can remove punctuations or not</p>
 <p>The relative frequency analysis allows to provide a statistical analysis of frequent words as a function of a target reference level. For this dataset, we do not have a specific target. Hence the comparison is done based on the full dataset.</p>
 <div id="computing-keyness-4" class="section level5 hasAnchor" number="6.6.5.3.1">
 <h5><span class="header-section-number">6.6.5.3.1</span> Computing keyness<a href="6.6-twitter-data-2.html#computing-keyness-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1876"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1876-1"><a href="6.6-twitter-data-2.html#cb1876-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_key <span class="ot">&lt;-</span> <span class="fu">textstat_keyness</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm)</span>
-<span id="cb1876-2"><a href="6.6-twitter-data-2.html#cb1876-2" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_key, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1886"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1886-1"><a href="6.6-twitter-data-2.html#cb1886-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_key <span class="ot">&lt;-</span> <span class="fu">textstat_keyness</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm)</span>
+<span id="cb1886-2"><a href="6.6-twitter-data-2.html#cb1886-2" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_key, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##            feature          chi2            p n_target n_reference
 ## 1        @efc_jayy  2.475875e+03 0.000000e+00        1           3
 ## 2             ukip  3.528582e+01 2.846981e-09        1         273
@@ -15050,7 +15050,7 @@ We can remove punctuations or not</p>
 </div>
 <div id="plotting-14" class="section level5 hasAnchor" number="6.6.5.3.2">
 <h5><span class="header-section-number">6.6.5.3.2</span> Plotting<a href="6.6-twitter-data-2.html#plotting-14" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1878"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1878-1"><a href="6.6-twitter-data-2.html#cb1878-1" tabindex="-1"></a><span class="fu">textplot_keyness</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_key, <span class="at">margin =</span> <span class="fl">0.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1888"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1888-1"><a href="6.6-twitter-data-2.html#cb1888-1" tabindex="-1"></a><span class="fu">textplot_keyness</span>(dat_twitter_corpus_tok_no_punct_no_Stop_dfm_tstat_key, <span class="at">margin =</span> <span class="fl">0.2</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-856-1.png" width="672" /></p>
 </div>
 </div>
@@ -15058,8 +15058,8 @@ We can remove punctuations or not</p>
 <h4><span class="header-section-number">6.6.5.4</span> Collocations - scoring multi-word expressions<a href="6.6-twitter-data-2.html#collocations---scoring-multi-word-expressions-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A collocation analysis is a way to identify contiguous collocations of words, i.e., multi-word expressions. Depending on the language, these can be identified based on capitalisation (e.g., proper names) as in English texts. However, this is not the same across languages.</p>
 <p>We look for capital letters in our text. The result provides Wald’s Lamda and z statistics. Usually, any z value higher or equal to 2 is statistically significant. To compute p values, we use the probability of a normal distribution based on a mean of 0 and an SD of 1. This is appended to the table.</p>
-<div class="sourceCode" id="cb1879"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1879-1"><a href="6.6-twitter-data-2.html#cb1879-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_tstat_col_caps <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(dat_twitter_corpus_tok_no_punct_no_Stop, <span class="at">pattern =</span> <span class="st">&quot;^[A-Z]&quot;</span>, <span class="at">valuetype =</span> <span class="st">&quot;regex&quot;</span>, <span class="at">case_insensitive =</span> <span class="cn">FALSE</span>, <span class="at">padding =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span>  <span class="fu">textstat_collocations</span>(<span class="at">min_count =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">p_value =</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(z, <span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb1879-2"><a href="6.6-twitter-data-2.html#cb1879-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_tstat_col_caps</span></code></pre></div>
+<div class="sourceCode" id="cb1889"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1889-1"><a href="6.6-twitter-data-2.html#cb1889-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_tstat_col_caps <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(dat_twitter_corpus_tok_no_punct_no_Stop, <span class="at">pattern =</span> <span class="st">&quot;^[A-Z]&quot;</span>, <span class="at">valuetype =</span> <span class="st">&quot;regex&quot;</span>, <span class="at">case_insensitive =</span> <span class="cn">FALSE</span>, <span class="at">padding =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span>  <span class="fu">textstat_collocations</span>(<span class="at">min_count =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">p_value =</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(z, <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb1889-2"><a href="6.6-twitter-data-2.html#cb1889-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_tstat_col_caps</span></code></pre></div>
 <pre><code>##                   collocation count count_nested length    lambda         z
 ## 1               jeremy corbyn   176            0      2  6.182393 42.218248
 ## 2                london check    59            0      2  8.333997 29.588186
@@ -15204,18 +15204,18 @@ We can remove punctuations or not</p>
 <div id="word-clouds-4" class="section level4 hasAnchor" number="6.6.5.5">
 <h4><span class="header-section-number">6.6.5.5</span> Word clouds<a href="6.6-twitter-data-2.html#word-clouds-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We can use word clouds of the top 100 words</p>
-<div class="sourceCode" id="cb1881"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1881-1"><a href="6.6-twitter-data-2.html#cb1881-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">132</span>)</span>
-<span id="cb1881-2"><a href="6.6-twitter-data-2.html#cb1881-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm <span class="sc">%&gt;%</span> </span>
-<span id="cb1881-3"><a href="6.6-twitter-data-2.html#cb1881-3" tabindex="-1"></a>  <span class="fu">textplot_wordcloud</span>(<span class="at">max_words =</span> <span class="dv">100</span>, <span class="at">color =</span> <span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1891"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1891-1"><a href="6.6-twitter-data-2.html#cb1891-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">132</span>)</span>
+<span id="cb1891-2"><a href="6.6-twitter-data-2.html#cb1891-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm <span class="sc">%&gt;%</span> </span>
+<span id="cb1891-3"><a href="6.6-twitter-data-2.html#cb1891-3" tabindex="-1"></a>  <span class="fu">textplot_wordcloud</span>(<span class="at">max_words =</span> <span class="dv">100</span>, <span class="at">color =</span> <span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>))</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-858-1.png" width="672" /></p>
 </div>
 <div id="network-of-feature-co-occurrences-4" class="section level4 hasAnchor" number="6.6.5.6">
 <h4><span class="header-section-number">6.6.5.6</span> Network of feature co-occurrences<a href="6.6-twitter-data-2.html#network-of-feature-co-occurrences-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A Network of feature co-occurrences allows to obtain association plot of word usage. We use an fcm (feature co-occurrence matrix) based on our DFM.</p>
-<div class="sourceCode" id="cb1882"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1882-1"><a href="6.6-twitter-data-2.html#cb1882-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">144</span>)</span>
-<span id="cb1882-2"><a href="6.6-twitter-data-2.html#cb1882-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm <span class="sc">%&gt;%</span> </span>
-<span id="cb1882-3"><a href="6.6-twitter-data-2.html#cb1882-3" tabindex="-1"></a>  <span class="fu">dfm_trim</span>(<span class="at">min_termfreq =</span> <span class="dv">500</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1882-4"><a href="6.6-twitter-data-2.html#cb1882-4" tabindex="-1"></a>  <span class="fu">textplot_network</span>(<span class="at">min_freq =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1892"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1892-1"><a href="6.6-twitter-data-2.html#cb1892-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">144</span>)</span>
+<span id="cb1892-2"><a href="6.6-twitter-data-2.html#cb1892-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_no_Stop_dfm <span class="sc">%&gt;%</span> </span>
+<span id="cb1892-3"><a href="6.6-twitter-data-2.html#cb1892-3" tabindex="-1"></a>  <span class="fu">dfm_trim</span>(<span class="at">min_termfreq =</span> <span class="dv">500</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1892-4"><a href="6.6-twitter-data-2.html#cb1892-4" tabindex="-1"></a>  <span class="fu">textplot_network</span>(<span class="at">min_freq =</span> <span class="fl">0.5</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-859-1.png" width="672" /></p>
 </div>
 <div id="poisson-regression-4" class="section level4 hasAnchor" number="6.6.5.7">
@@ -15223,10 +15223,10 @@ We can remove punctuations or not</p>
 <p>Finally, we run a GLM with a poisson family to evaluate the significance level of our most frequent words.</p>
 <div id="computing-glm-4" class="section level5 hasAnchor" number="6.6.5.7.1">
 <h5><span class="header-section-number">6.6.5.7.1</span> Computing GLM<a href="6.6-twitter-data-2.html#computing-glm-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1883"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1883-1"><a href="6.6-twitter-data-2.html#cb1883-1" tabindex="-1"></a>dat_twitter_corpus_GLM <span class="ot">&lt;-</span> dat_twitter_corpus_tok_no_punct_no_Stop_dfm_freq <span class="sc">%&gt;%</span> </span>
-<span id="cb1883-2"><a href="6.6-twitter-data-2.html#cb1883-2" tabindex="-1"></a>  <span class="fu">filter</span>(frequency <span class="sc">&gt;=</span> <span class="dv">500</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1883-3"><a href="6.6-twitter-data-2.html#cb1883-3" tabindex="-1"></a>  <span class="fu">glm</span>(frequency <span class="sc">~</span> feature, <span class="at">data =</span> ., <span class="at">family =</span> <span class="st">&quot;poisson&quot;</span>)</span>
-<span id="cb1883-4"><a href="6.6-twitter-data-2.html#cb1883-4" tabindex="-1"></a><span class="fu">summary</span>(dat_twitter_corpus_GLM)</span></code></pre></div>
+<div class="sourceCode" id="cb1893"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1893-1"><a href="6.6-twitter-data-2.html#cb1893-1" tabindex="-1"></a>dat_twitter_corpus_GLM <span class="ot">&lt;-</span> dat_twitter_corpus_tok_no_punct_no_Stop_dfm_freq <span class="sc">%&gt;%</span> </span>
+<span id="cb1893-2"><a href="6.6-twitter-data-2.html#cb1893-2" tabindex="-1"></a>  <span class="fu">filter</span>(frequency <span class="sc">&gt;=</span> <span class="dv">500</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1893-3"><a href="6.6-twitter-data-2.html#cb1893-3" tabindex="-1"></a>  <span class="fu">glm</span>(frequency <span class="sc">~</span> feature, <span class="at">data =</span> ., <span class="at">family =</span> <span class="st">&quot;poisson&quot;</span>)</span>
+<span id="cb1893-4"><a href="6.6-twitter-data-2.html#cb1893-4" tabindex="-1"></a><span class="fu">summary</span>(dat_twitter_corpus_GLM)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = frequency ~ feature, family = &quot;poisson&quot;, data = .)
@@ -15266,12 +15266,12 @@ We can remove punctuations or not</p>
 <div id="a-plot-5" class="section level6 hasAnchor" number="6.6.5.7.2.1">
 <h6><span class="header-section-number">6.6.5.7.2.1</span> A plot<a href="6.6-twitter-data-2.html#a-plot-5" class="anchor-section" aria-label="Anchor link to header"></a></h6>
 <p>We use two functions from the package <code>ggstats</code>. Because we used a poisson distribution, we obtain the results in IRR (=Incident rate ratios). Usually, we need to exponentiate these to make sense of the results.</p>
-<div class="sourceCode" id="cb1885"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1885-1"><a href="6.6-twitter-data-2.html#cb1885-1" tabindex="-1"></a><span class="fu">ggcoef_model</span>(dat_twitter_corpus_GLM, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1895"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1895-1"><a href="6.6-twitter-data-2.html#cb1895-1" tabindex="-1"></a><span class="fu">ggcoef_model</span>(dat_twitter_corpus_GLM, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-861-1.png" width="672" /></p>
 </div>
 <div id="a-plot-a-table-95-ci-5" class="section level6 hasAnchor" number="6.6.5.7.2.2">
 <h6><span class="header-section-number">6.6.5.7.2.2</span> A plot + a table + 95% CI<a href="6.6-twitter-data-2.html#a-plot-a-table-95-ci-5" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb1886"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1886-1"><a href="6.6-twitter-data-2.html#cb1886-1" tabindex="-1"></a><span class="fu">ggcoef_table</span>(dat_twitter_corpus_GLM, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1896"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1896-1"><a href="6.6-twitter-data-2.html#cb1896-1" tabindex="-1"></a><span class="fu">ggcoef_table</span>(dat_twitter_corpus_GLM, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-862-1.png" width="672" /></p>
 </div>
 </div>

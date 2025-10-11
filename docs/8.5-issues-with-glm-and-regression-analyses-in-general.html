@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8.5 Issues with GLM (and regression analyses in general) | Statistics for Linguists using R - Quantitative and qualitative approaches</title>
   <meta name="description" content="This repo contains all material for the book Statistics for Linguists using R - Quantitative and qualitative approaches" />
-  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8.5 Issues with GLM (and regression analyses in general) | Statistics for Linguists using R - Quantitative and qualitative approaches" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-16" />
+<meta name="date" content="2025-10-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -2017,11 +2017,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.3.2" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#reduce-dimensionality-by-selecting-uncorrelated-predictors"><i class="fa fa-check"></i><b>7.3.2</b> Reduce dimensionality by selecting uncorrelated predictors</a>
 <ul>
-<li class="chapter" data-level="7.3.2.1" data-path="Ch_08_GLM_DT_RF.html"><a href="#r%C2%B2-0.9"><i class="fa fa-check"></i><b>7.3.2.1</b> R² = 0.9</a></li>
-<li class="chapter" data-level="7.3.2.2" data-path="Ch_08_GLM_DT_RF.html"><a href="#r%C2%B2-0.75"><i class="fa fa-check"></i><b>7.3.2.2</b> R² = 0.75</a></li>
-<li class="chapter" data-level="7.3.2.3" data-path="Ch_08_GLM_DT_RF.html"><a href="#r%C2%B2-0.5"><i class="fa fa-check"></i><b>7.3.2.3</b> R² = 0.5</a></li>
-<li class="chapter" data-level="7.3.2.4" data-path="Ch_08_GLM_DT_RF.html"><a href="#r%C2%B2-0.25"><i class="fa fa-check"></i><b>7.3.2.4</b> R² = 0.25</a></li>
-<li class="chapter" data-level="7.3.2.5" data-path="Ch_08_GLM_DT_RF.html"><a href="#r%C2%B2-0.1"><i class="fa fa-check"></i><b>7.3.2.5</b> R² = 0.1</a></li>
+<li class="chapter" data-level="7.3.2.1" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.9"><i class="fa fa-check"></i><b>7.3.2.1</b> R² = 0.9</a></li>
+<li class="chapter" data-level="7.3.2.2" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.75"><i class="fa fa-check"></i><b>7.3.2.2</b> R² = 0.75</a></li>
+<li class="chapter" data-level="7.3.2.3" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.5"><i class="fa fa-check"></i><b>7.3.2.3</b> R² = 0.5</a></li>
+<li class="chapter" data-level="7.3.2.4" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.25"><i class="fa fa-check"></i><b>7.3.2.4</b> R² = 0.25</a></li>
+<li class="chapter" data-level="7.3.2.5" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.1"><i class="fa fa-check"></i><b>7.3.2.5</b> R² = 0.1</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html"><i class="fa fa-check"></i><b>7.4</b> Principal Component Analyses - PCA</a>
@@ -2226,7 +2226,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="correlation-tests-2" class="section level3 hasAnchor" number="8.5.1">
 <h3><span class="header-section-number">8.5.1</span> Correlation tests<a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#correlation-tests-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Below, we look at two predictors that are correlated with each other: <code>Z3-Z2</code> (F3-F2 in Bark) and <code>A2*-A3*</code> (normalised amplitude differences between harmonics closest to F2 and F3). The results of the correlation test shows the two predictors to negatively correlate with each other at a rate of -0.87.</p>
-<div class="sourceCode" id="cb2150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2150-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2150-1" tabindex="-1"></a><span class="fu">cor.test</span>(dfPharV2<span class="sc">$</span>Z3mnZ2, dfPharV2<span class="sc">$</span>A2mnA3)</span></code></pre></div>
+<div class="sourceCode" id="cb2161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2161-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2161-1" tabindex="-1"></a><span class="fu">cor.test</span>(dfPharV2<span class="sc">$</span>Z3mnZ2, dfPharV2<span class="sc">$</span>A2mnA3)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -2241,15 +2241,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="plots-to-visualise-the-data" class="section level3 hasAnchor" number="8.5.2">
 <h3><span class="header-section-number">8.5.2</span> Plots to visualise the data<a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#plots-to-visualise-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb2152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2152-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2152-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> </span>
-<span id="cb2152-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2152-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> Z3mnZ2)) <span class="sc">+</span> </span>
-<span id="cb2152-3"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2152-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb2152-4"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2152-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2163-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2163-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb2163-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2163-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> Z3mnZ2)) <span class="sc">+</span> </span>
+<span id="cb2163-3"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2163-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb2163-4"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2163-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-977-1.png" width="672" /></p>
-<div class="sourceCode" id="cb2153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2153-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2153-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> </span>
-<span id="cb2153-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2153-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> A2mnA3)) <span class="sc">+</span> </span>
-<span id="cb2153-3"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2153-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb2153-4"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2153-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>()  </span></code></pre></div>
+<div class="sourceCode" id="cb2164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2164-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2164-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb2164-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2164-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> context, <span class="at">y =</span> A2mnA3)) <span class="sc">+</span> </span>
+<span id="cb2164-3"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2164-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb2164-4"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2164-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>()  </span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-977-2.png" width="672" /></p>
 <p>As we see from the plot, <code>Z3-Z2</code> is higher in the guttural, whereas <code>A2*-A3*</code> is lower.</p>
 </div>
@@ -2258,7 +2258,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="model-specifications-and-issues" class="section level4 hasAnchor" number="8.5.3.1">
 <h4><span class="header-section-number">8.5.3.1</span> Model specifications and issues<a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#model-specifications-and-issues" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Let’s run a logistic regression as a classification tool to predict the context as a function of each predictor separately and then combined.</p>
-<div class="sourceCode" id="cb2154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2154-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2154-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2165-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2165-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = context ~ Z3mnZ2, family = binomial, data = .)
@@ -2277,7 +2277,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## AIC: 541.74
 ## 
 ## Number of Fisher Scoring iterations: 4</code></pre>
-<div class="sourceCode" id="cb2156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2156-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2156-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2167-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2167-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = context ~ A2mnA3, family = binomial, data = .)
@@ -2296,7 +2296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## AIC: 512.51
 ## 
 ## Number of Fisher Scoring iterations: 4</code></pre>
-<div class="sourceCode" id="cb2158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2158-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2158-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">+</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2169-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2169-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">+</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = context ~ Z3mnZ2 + A2mnA3, family = binomial, data = .)
@@ -2316,7 +2316,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## AIC: 498.5
 ## 
 ## Number of Fisher Scoring iterations: 4</code></pre>
-<div class="sourceCode" id="cb2160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2160-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2160-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">*</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2171-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2171-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">*</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = context ~ Z3mnZ2 * A2mnA3, family = binomial, data = .)
@@ -2344,24 +2344,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To check for collinearity, we can use the <code>vif</code> function from the <code>car</code> package. The <code>vif</code> stands for the “Variance Inflation Factor (VIF)”. This is a measure of how much the variance of a regression coefficient is increased due to collinearity. A VIF value below 5 indicates that there is low level of collinearity; between 5 and 10, that there a moderate level of collinearity and above 10 indicates potential collinearity issues.</p>
 <div id="simple-model" class="section level5 hasAnchor" number="8.5.3.2.1">
 <h5><span class="header-section-number">8.5.3.2.1</span> Simple model<a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#simple-model" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb2162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2162-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2162-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">+</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
-<span id="cb2162-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2162-2" tabindex="-1"></a>  <span class="fu">vif</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2173-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2173-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">+</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
+<span id="cb2173-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2173-2" tabindex="-1"></a>  <span class="fu">vif</span>()</span></code></pre></div>
 <pre><code>##   Z3mnZ2   A2mnA3 
 ## 4.319093 4.319093</code></pre>
 <p>The values here are close to 5, which indicates a moderate level of collinearity. This is appropriate , but it is not ideal either.</p>
 </div>
 <div id="interaction-model" class="section level5 hasAnchor" number="8.5.3.2.2">
 <h5><span class="header-section-number">8.5.3.2.2</span> Interaction model<a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#interaction-model" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb2164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2164-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2164-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">*</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
-<span id="cb2164-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2164-2" tabindex="-1"></a>  <span class="fu">vif</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2175-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2175-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">*</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
+<span id="cb2175-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2175-2" tabindex="-1"></a>  <span class="fu">vif</span>()</span></code></pre></div>
 <pre><code>## there are higher-order terms (interactions) in this model
 ## consider setting type = &#39;predictor&#39;; see ?vif</code></pre>
 <pre><code>##        Z3mnZ2        A2mnA3 Z3mnZ2:A2mnA3 
 ##      7.151205      7.551354     11.244070</code></pre>
 <p>When using interaction, the <code>vif</code> values no increase to more than 5 for the individual predictors, and to 11 for the interaction</p>
 <p>We use the function <code>check_collinearity()</code></p>
-<div class="sourceCode" id="cb2167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2167-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2167-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">*</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
-<span id="cb2167-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2167-2" tabindex="-1"></a>  <span class="fu">check_collinearity</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2178-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2178-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">*</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
+<span id="cb2178-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2178-2" tabindex="-1"></a>  <span class="fu">check_collinearity</span>()</span></code></pre></div>
 <pre><code>## Model has interaction terms. VIFs might be inflated.
 ##   Try to center the variables used for the interaction, or check
 ##   multicollinearity among predictors of a model without interaction terms.</code></pre>
@@ -2377,8 +2377,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ##           Term   VIF    VIF 95% CI adj. VIF Tolerance Tolerance 95% CI
 ##  Z3mnZ2:A2mnA3 11.24 [9.37, 13.53]     3.35      0.09     [0.07, 0.11]</code></pre>
-<div class="sourceCode" id="cb2170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2170-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2170-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">*</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
-<span id="cb2170-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2170-2" tabindex="-1"></a>  <span class="fu">check_collinearity</span>() <span class="sc">%&gt;%</span> <span class="fu">plot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2181-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2181-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> Z3mnZ2 <span class="sc">*</span> A2mnA3, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
+<span id="cb2181-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2181-2" tabindex="-1"></a>  <span class="fu">check_collinearity</span>() <span class="sc">%&gt;%</span> <span class="fu">plot</span>()</span></code></pre></div>
 <pre><code>## Model has interaction terms. VIFs might be inflated.
 ##   Try to center the variables used for the interaction, or check
 ##   multicollinearity among predictors of a model without interaction terms.</code></pre>
@@ -2390,8 +2390,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We run the logistic regression on the full dataset to evaluate the levels of collinearity</p>
 <div id="vif" class="section level5 hasAnchor" number="8.5.3.3.1">
 <h5><span class="header-section-number">8.5.3.3.1</span> <code>vif()</code><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#vif" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb2172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2172-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2172-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> ., <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
-<span id="cb2172-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2172-2" tabindex="-1"></a>  <span class="fu">vif</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2183-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2183-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> ., <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
+<span id="cb2183-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2183-2" tabindex="-1"></a>  <span class="fu">vif</span>()</span></code></pre></div>
 <pre><code>##           CPP        Energy         H1A1c         H1A2c         H1A3c 
 ## -1.649494e+00 -4.103070e-01 -9.864240e+07 -1.644946e+08  3.187778e+06 
 ##         H1H2c         H2H4c       H2KH5Kc         H42Kc         HNR05 
@@ -2405,8 +2405,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="check_collinearity" class="section level5 hasAnchor" number="8.5.3.3.2">
 <h5><span class="header-section-number">8.5.3.3.2</span> <code>check_collinearity()</code><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#check_collinearity" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb2174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2174-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2174-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> ., <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
-<span id="cb2174-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2174-2" tabindex="-1"></a>  <span class="fu">check_collinearity</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2185-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2185-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> ., <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
+<span id="cb2185-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2185-2" tabindex="-1"></a>  <span class="fu">check_collinearity</span>()</span></code></pre></div>
 <pre><code>## The variance-covariance matrix is not positive definite. Returning the
 ##   nearest positive definite matrix now.
 ##   This ensures that eigenvalues are all positive real numbers, and
@@ -2445,16 +2445,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  A1mnA2 2.22e+07 [1.85e+07, 2.67e+07]  4714.04  4.50e-08     [0.00, 0.00]
 ##  A1mnA3 2.22e+07 [1.85e+07, 2.67e+07]  4714.04  4.50e-08     [0.00, 0.00]
 ##  A2mnA3 2.22e+07 [1.85e+07, 2.67e+07]  4714.05  4.50e-08     [0.00, 0.00]</code></pre>
-<div class="sourceCode" id="cb2178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2178-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2178-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> ., <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
-<span id="cb2178-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2178-2" tabindex="-1"></a>  <span class="fu">check_collinearity</span>() <span class="sc">%&gt;%</span> plot</span></code></pre></div>
+<div class="sourceCode" id="cb2189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2189-1"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2189-1" tabindex="-1"></a>dfPharV2 <span class="sc">%&gt;%</span> <span class="fu">glm</span>(context <span class="sc">~</span> ., <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="sc">%&gt;%</span> </span>
+<span id="cb2189-2"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html#cb2189-2" tabindex="-1"></a>  <span class="fu">check_collinearity</span>() <span class="sc">%&gt;%</span> plot</span></code></pre></div>
 <pre><code>## The variance-covariance matrix is not positive definite. Returning the
 ##   nearest positive definite matrix now.
 ##   This ensures that eigenvalues are all positive real numbers, and
 ##   thereby, for instance, it is possible to calculate standard errors for
 ##   all relevant parameters.</code></pre>
 <pre><code>## Warning in stats::qlogis(r): NaNs produced</code></pre>
-<pre><code>## Warning: Removed 5 rows containing missing values or values outside the scale
-## range (`geom_segment()`).</code></pre>
+<pre><code>## Warning: Removed 5 rows containing missing values or values outside the scale range
+## (`geom_segment()`).</code></pre>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-983-1.png" width="672" /></p>
 </div>
 </div>

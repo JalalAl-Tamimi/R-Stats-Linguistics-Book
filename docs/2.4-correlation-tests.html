@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.4 Correlation tests | Statistics for Linguists using R - Quantitative and qualitative approaches</title>
   <meta name="description" content="This repo contains all material for the book Statistics for Linguists using R - Quantitative and qualitative approaches" />
-  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.4 Correlation tests | Statistics for Linguists using R - Quantitative and qualitative approaches" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-16" />
+<meta name="date" content="2025-10-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -2017,11 +2017,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.3.2" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#reduce-dimensionality-by-selecting-uncorrelated-predictors"><i class="fa fa-check"></i><b>7.3.2</b> Reduce dimensionality by selecting uncorrelated predictors</a>
 <ul>
-<li class="chapter" data-level="7.3.2.1" data-path="Ch_02_LM_GLM_CLM.html"><a href="#r%C2%B2-0.9"><i class="fa fa-check"></i><b>7.3.2.1</b> R² = 0.9</a></li>
-<li class="chapter" data-level="7.3.2.2" data-path="Ch_02_LM_GLM_CLM.html"><a href="#r%C2%B2-0.75"><i class="fa fa-check"></i><b>7.3.2.2</b> R² = 0.75</a></li>
-<li class="chapter" data-level="7.3.2.3" data-path="Ch_02_LM_GLM_CLM.html"><a href="#r%C2%B2-0.5"><i class="fa fa-check"></i><b>7.3.2.3</b> R² = 0.5</a></li>
-<li class="chapter" data-level="7.3.2.4" data-path="Ch_02_LM_GLM_CLM.html"><a href="#r%C2%B2-0.25"><i class="fa fa-check"></i><b>7.3.2.4</b> R² = 0.25</a></li>
-<li class="chapter" data-level="7.3.2.5" data-path="Ch_02_LM_GLM_CLM.html"><a href="#r%C2%B2-0.1"><i class="fa fa-check"></i><b>7.3.2.5</b> R² = 0.1</a></li>
+<li class="chapter" data-level="7.3.2.1" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.9"><i class="fa fa-check"></i><b>7.3.2.1</b> R² = 0.9</a></li>
+<li class="chapter" data-level="7.3.2.2" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.75"><i class="fa fa-check"></i><b>7.3.2.2</b> R² = 0.75</a></li>
+<li class="chapter" data-level="7.3.2.3" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.5"><i class="fa fa-check"></i><b>7.3.2.3</b> R² = 0.5</a></li>
+<li class="chapter" data-level="7.3.2.4" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.25"><i class="fa fa-check"></i><b>7.3.2.4</b> R² = 0.25</a></li>
+<li class="chapter" data-level="7.3.2.5" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.1"><i class="fa fa-check"></i><b>7.3.2.5</b> R² = 0.1</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html"><i class="fa fa-check"></i><b>7.4</b> Principal Component Analyses - PCA</a>
@@ -2243,9 +2243,9 @@ numeric variables are correlated with each other.</p>
 <p>We use the function <code>cor</code> to obtain the pearson correlation and
 <code>cor.test</code> to run a basic correlation test on our data with significance
 testing</p>
-<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="2.4-correlation-tests.html#cb398-1" tabindex="-1"></a><span class="fu">cor</span>(english<span class="sc">$</span>RTlexdec, english<span class="sc">$</span>RTnaming, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="2.4-correlation-tests.html#cb399-1" tabindex="-1"></a><span class="fu">cor</span>(english<span class="sc">$</span>RTlexdec, english<span class="sc">$</span>RTnaming, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 0.7587033</code></pre>
-<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="2.4-correlation-tests.html#cb400-1" tabindex="-1"></a><span class="fu">cor.test</span>(english<span class="sc">$</span>RTlexdec, english<span class="sc">$</span>RTnaming)</span></code></pre></div>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="2.4-correlation-tests.html#cb401-1" tabindex="-1"></a><span class="fu">cor.test</span>(english<span class="sc">$</span>RTlexdec, english<span class="sc">$</span>RTnaming)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -2288,33 +2288,33 @@ obtain a nice plot of all numeric predictors and add significance
 levels?</p>
 <div id="correlation-plots" class="section level4 hasAnchor" number="2.4.3.1">
 <h4><span class="header-section-number">2.4.3.1</span> Correlation plots<a href="2.4-correlation-tests.html#correlation-plots" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="2.4-correlation-tests.html#cb402-1" tabindex="-1"></a>corr <span class="ot">&lt;-</span> </span>
-<span id="cb402-2"><a href="2.4-correlation-tests.html#cb402-2" tabindex="-1"></a>  english <span class="sc">%&gt;%</span> </span>
-<span id="cb402-3"><a href="2.4-correlation-tests.html#cb402-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> </span>
-<span id="cb402-4"><a href="2.4-correlation-tests.html#cb402-4" tabindex="-1"></a>  <span class="fu">cor</span>()</span>
-<span id="cb402-5"><a href="2.4-correlation-tests.html#cb402-5" tabindex="-1"></a><span class="fu">corrplot</span>(corr, <span class="at">method =</span> <span class="st">&#39;ellipse&#39;</span>, <span class="at">type =</span> <span class="st">&#39;upper&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="2.4-correlation-tests.html#cb403-1" tabindex="-1"></a>corr <span class="ot">&lt;-</span> </span>
+<span id="cb403-2"><a href="2.4-correlation-tests.html#cb403-2" tabindex="-1"></a>  english <span class="sc">%&gt;%</span> </span>
+<span id="cb403-3"><a href="2.4-correlation-tests.html#cb403-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> </span>
+<span id="cb403-4"><a href="2.4-correlation-tests.html#cb403-4" tabindex="-1"></a>  <span class="fu">cor</span>()</span>
+<span id="cb403-5"><a href="2.4-correlation-tests.html#cb403-5" tabindex="-1"></a><span class="fu">corrplot</span>(corr, <span class="at">method =</span> <span class="st">&#39;ellipse&#39;</span>, <span class="at">type =</span> <span class="st">&#39;upper&#39;</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-151-1.png" width="672" /></p>
 </div>
 <div id="more-advanced" class="section level4 hasAnchor" number="2.4.3.2">
 <h4><span class="header-section-number">2.4.3.2</span> More advanced<a href="2.4-correlation-tests.html#more-advanced" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Let’s first compute the correlations between all numeric variables and
 plot these with the p values</p>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="2.4-correlation-tests.html#cb403-1" tabindex="-1"></a><span class="do">## correlation using &quot;corrplot&quot;</span></span>
-<span id="cb403-2"><a href="2.4-correlation-tests.html#cb403-2" tabindex="-1"></a><span class="do">## based on the function `rcorr&#39; from the `Hmisc` package</span></span>
-<span id="cb403-3"><a href="2.4-correlation-tests.html#cb403-3" tabindex="-1"></a><span class="do">## Need to change dataframe into a matrix</span></span>
-<span id="cb403-4"><a href="2.4-correlation-tests.html#cb403-4" tabindex="-1"></a>corr <span class="ot">&lt;-</span> </span>
-<span id="cb403-5"><a href="2.4-correlation-tests.html#cb403-5" tabindex="-1"></a>  english <span class="sc">%&gt;%</span> </span>
-<span id="cb403-6"><a href="2.4-correlation-tests.html#cb403-6" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> </span>
-<span id="cb403-7"><a href="2.4-correlation-tests.html#cb403-7" tabindex="-1"></a>  <span class="fu">data.matrix</span>(english) <span class="sc">%&gt;%</span> </span>
-<span id="cb403-8"><a href="2.4-correlation-tests.html#cb403-8" tabindex="-1"></a>  <span class="fu">rcorr</span>(<span class="at">type =</span> <span class="st">&quot;pearson&quot;</span>)</span>
-<span id="cb403-9"><a href="2.4-correlation-tests.html#cb403-9" tabindex="-1"></a><span class="co"># use corrplot to obtain a nice correlation plot!</span></span>
-<span id="cb403-10"><a href="2.4-correlation-tests.html#cb403-10" tabindex="-1"></a><span class="fu">corrplot</span>(corr<span class="sc">$</span>r, <span class="at">p.mat =</span> corr<span class="sc">$</span>P,</span>
-<span id="cb403-11"><a href="2.4-correlation-tests.html#cb403-11" tabindex="-1"></a>         <span class="at">addCoef.col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">diag =</span> <span class="cn">FALSE</span>, <span class="at">type =</span> <span class="st">&quot;upper&quot;</span>, <span class="at">tl.srt =</span> <span class="dv">55</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="2.4-correlation-tests.html#cb404-1" tabindex="-1"></a><span class="do">## correlation using &quot;corrplot&quot;</span></span>
+<span id="cb404-2"><a href="2.4-correlation-tests.html#cb404-2" tabindex="-1"></a><span class="do">## based on the function `rcorr&#39; from the `Hmisc` package</span></span>
+<span id="cb404-3"><a href="2.4-correlation-tests.html#cb404-3" tabindex="-1"></a><span class="do">## Need to change dataframe into a matrix</span></span>
+<span id="cb404-4"><a href="2.4-correlation-tests.html#cb404-4" tabindex="-1"></a>corr <span class="ot">&lt;-</span> </span>
+<span id="cb404-5"><a href="2.4-correlation-tests.html#cb404-5" tabindex="-1"></a>  english <span class="sc">%&gt;%</span> </span>
+<span id="cb404-6"><a href="2.4-correlation-tests.html#cb404-6" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> </span>
+<span id="cb404-7"><a href="2.4-correlation-tests.html#cb404-7" tabindex="-1"></a>  <span class="fu">data.matrix</span>(english) <span class="sc">%&gt;%</span> </span>
+<span id="cb404-8"><a href="2.4-correlation-tests.html#cb404-8" tabindex="-1"></a>  <span class="fu">rcorr</span>(<span class="at">type =</span> <span class="st">&quot;pearson&quot;</span>)</span>
+<span id="cb404-9"><a href="2.4-correlation-tests.html#cb404-9" tabindex="-1"></a><span class="co"># use corrplot to obtain a nice correlation plot!</span></span>
+<span id="cb404-10"><a href="2.4-correlation-tests.html#cb404-10" tabindex="-1"></a><span class="fu">corrplot</span>(corr<span class="sc">$</span>r, <span class="at">p.mat =</span> corr<span class="sc">$</span>P,</span>
+<span id="cb404-11"><a href="2.4-correlation-tests.html#cb404-11" tabindex="-1"></a>         <span class="at">addCoef.col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">diag =</span> <span class="cn">FALSE</span>, <span class="at">type =</span> <span class="st">&quot;upper&quot;</span>, <span class="at">tl.srt =</span> <span class="dv">55</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/fig.width==14-1.png" width="672" /></p>
-<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="2.4-correlation-tests.html#cb404-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
-<span id="cb404-2"><a href="2.4-correlation-tests.html#cb404-2" tabindex="-1"></a>  <span class="fu">group_by</span>(AgeSubject) <span class="sc">%&gt;%</span> </span>
-<span id="cb404-3"><a href="2.4-correlation-tests.html#cb404-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(RTlexdec),</span>
-<span id="cb404-4"><a href="2.4-correlation-tests.html#cb404-4" tabindex="-1"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(RTlexdec))</span></code></pre></div>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="2.4-correlation-tests.html#cb405-1" tabindex="-1"></a>english <span class="sc">%&gt;%</span> </span>
+<span id="cb405-2"><a href="2.4-correlation-tests.html#cb405-2" tabindex="-1"></a>  <span class="fu">group_by</span>(AgeSubject) <span class="sc">%&gt;%</span> </span>
+<span id="cb405-3"><a href="2.4-correlation-tests.html#cb405-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(RTlexdec),</span>
+<span id="cb405-4"><a href="2.4-correlation-tests.html#cb405-4" tabindex="-1"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(RTlexdec))</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 3
 ##   AgeSubject  mean    sd
 ##   &lt;fct&gt;      &lt;dbl&gt; &lt;dbl&gt;

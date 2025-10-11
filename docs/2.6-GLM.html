@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.6 Generalised Linear Models | Statistics for Linguists using R - Quantitative and qualitative approaches</title>
   <meta name="description" content="This repo contains all material for the book Statistics for Linguists using R - Quantitative and qualitative approaches" />
-  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.6 Generalised Linear Models | Statistics for Linguists using R - Quantitative and qualitative approaches" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-16" />
+<meta name="date" content="2025-10-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -2017,11 +2017,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.3.2" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#reduce-dimensionality-by-selecting-uncorrelated-predictors"><i class="fa fa-check"></i><b>7.3.2</b> Reduce dimensionality by selecting uncorrelated predictors</a>
 <ul>
-<li class="chapter" data-level="7.3.2.1" data-path="Ch_02_LM_GLM_CLM.html"><a href="#r%C2%B2-0.9"><i class="fa fa-check"></i><b>7.3.2.1</b> R² = 0.9</a></li>
-<li class="chapter" data-level="7.3.2.2" data-path="Ch_02_LM_GLM_CLM.html"><a href="#r%C2%B2-0.75"><i class="fa fa-check"></i><b>7.3.2.2</b> R² = 0.75</a></li>
-<li class="chapter" data-level="7.3.2.3" data-path="Ch_02_LM_GLM_CLM.html"><a href="#r%C2%B2-0.5"><i class="fa fa-check"></i><b>7.3.2.3</b> R² = 0.5</a></li>
-<li class="chapter" data-level="7.3.2.4" data-path="Ch_02_LM_GLM_CLM.html"><a href="#r%C2%B2-0.25"><i class="fa fa-check"></i><b>7.3.2.4</b> R² = 0.25</a></li>
-<li class="chapter" data-level="7.3.2.5" data-path="Ch_02_LM_GLM_CLM.html"><a href="#r%C2%B2-0.1"><i class="fa fa-check"></i><b>7.3.2.5</b> R² = 0.1</a></li>
+<li class="chapter" data-level="7.3.2.1" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.9"><i class="fa fa-check"></i><b>7.3.2.1</b> R² = 0.9</a></li>
+<li class="chapter" data-level="7.3.2.2" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.75"><i class="fa fa-check"></i><b>7.3.2.2</b> R² = 0.75</a></li>
+<li class="chapter" data-level="7.3.2.3" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.5"><i class="fa fa-check"></i><b>7.3.2.3</b> R² = 0.5</a></li>
+<li class="chapter" data-level="7.3.2.4" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.25"><i class="fa fa-check"></i><b>7.3.2.4</b> R² = 0.25</a></li>
+<li class="chapter" data-level="7.3.2.5" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.1"><i class="fa fa-check"></i><b>7.3.2.5</b> R² = 0.1</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html"><i class="fa fa-check"></i><b>7.4</b> Principal Component Analyses - PCA</a>
@@ -2236,16 +2236,16 @@ any case where you need to “categorise” the outcome into two groups.</p>
 <h3><span class="header-section-number">2.6.1</span> Load and summaries<a href="2.6-GLM.html#load-and-summaries" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s create this dataset from scratch (you can load the
 “grammatical.csv file as well) and do some basic summaries</p>
-<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="2.6-GLM.html#cb500-1" tabindex="-1"></a>grammatical <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(</span>
-<span id="cb500-2"><a href="2.6-GLM.html#cb500-2" tabindex="-1"></a>  <span class="fu">cbind</span>(<span class="st">&quot;grammaticality&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;grammatical&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;grammatical&quot;</span>, <span class="dv">105</span>),</span>
-<span id="cb500-3"><a href="2.6-GLM.html#cb500-3" tabindex="-1"></a>                             <span class="st">&quot;ungrammatical&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;ungrammatical&quot;</span>, <span class="dv">60</span>)),</span>
-<span id="cb500-4"><a href="2.6-GLM.html#cb500-4" tabindex="-1"></a>        <span class="st">&quot;response&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;yes&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;yes&quot;</span>, <span class="dv">100</span>),</span>
-<span id="cb500-5"><a href="2.6-GLM.html#cb500-5" tabindex="-1"></a>                       <span class="st">&quot;no&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;no&quot;</span>, <span class="dv">5</span>),</span>
-<span id="cb500-6"><a href="2.6-GLM.html#cb500-6" tabindex="-1"></a>                       <span class="st">&quot;yes&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;yes&quot;</span>, <span class="dv">10</span>),</span>
-<span id="cb500-7"><a href="2.6-GLM.html#cb500-7" tabindex="-1"></a>                       <span class="st">&quot;no&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;no&quot;</span>, <span class="dv">50</span>))),</span>
-<span id="cb500-8"><a href="2.6-GLM.html#cb500-8" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb500-9"><a href="2.6-GLM.html#cb500-9" tabindex="-1"></a>grammatical <span class="sc">%&gt;%</span> </span>
-<span id="cb500-10"><a href="2.6-GLM.html#cb500-10" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="2.6-GLM.html#cb501-1" tabindex="-1"></a>grammatical <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(</span>
+<span id="cb501-2"><a href="2.6-GLM.html#cb501-2" tabindex="-1"></a>  <span class="fu">cbind</span>(<span class="st">&quot;grammaticality&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;grammatical&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;grammatical&quot;</span>, <span class="dv">105</span>),</span>
+<span id="cb501-3"><a href="2.6-GLM.html#cb501-3" tabindex="-1"></a>                             <span class="st">&quot;ungrammatical&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;ungrammatical&quot;</span>, <span class="dv">60</span>)),</span>
+<span id="cb501-4"><a href="2.6-GLM.html#cb501-4" tabindex="-1"></a>        <span class="st">&quot;response&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;yes&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;yes&quot;</span>, <span class="dv">100</span>),</span>
+<span id="cb501-5"><a href="2.6-GLM.html#cb501-5" tabindex="-1"></a>                       <span class="st">&quot;no&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;no&quot;</span>, <span class="dv">5</span>),</span>
+<span id="cb501-6"><a href="2.6-GLM.html#cb501-6" tabindex="-1"></a>                       <span class="st">&quot;yes&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;yes&quot;</span>, <span class="dv">10</span>),</span>
+<span id="cb501-7"><a href="2.6-GLM.html#cb501-7" tabindex="-1"></a>                       <span class="st">&quot;no&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;no&quot;</span>, <span class="dv">50</span>))),</span>
+<span id="cb501-8"><a href="2.6-GLM.html#cb501-8" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb501-9"><a href="2.6-GLM.html#cb501-9" tabindex="-1"></a>grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb501-10"><a href="2.6-GLM.html#cb501-10" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">20</span>)</span></code></pre></div>
 <pre><code>##    grammaticality response
 ## 1     grammatical      yes
 ## 2     grammatical      yes
@@ -2267,11 +2267,11 @@ any case where you need to “categorise” the outcome into two groups.</p>
 ## 18    grammatical      yes
 ## 19    grammatical      yes
 ## 20    grammatical      yes</code></pre>
-<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="2.6-GLM.html#cb502-1" tabindex="-1"></a><span class="fu">str</span>(grammatical)</span></code></pre></div>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="2.6-GLM.html#cb503-1" tabindex="-1"></a><span class="fu">str</span>(grammatical)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    165 obs. of  2 variables:
 ##  $ grammaticality: chr  &quot;grammatical&quot; &quot;grammatical&quot; &quot;grammatical&quot; &quot;grammatical&quot; ...
 ##  $ response      : chr  &quot;yes&quot; &quot;yes&quot; &quot;yes&quot; &quot;yes&quot; ...</code></pre>
-<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="2.6-GLM.html#cb504-1" tabindex="-1"></a><span class="fu">head</span>(grammatical)</span></code></pre></div>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="2.6-GLM.html#cb505-1" tabindex="-1"></a><span class="fu">head</span>(grammatical)</span></code></pre></div>
 <pre><code>##   grammaticality response
 ## 1    grammatical      yes
 ## 2    grammatical      yes
@@ -2279,7 +2279,7 @@ any case where you need to “categorise” the outcome into two groups.</p>
 ## 4    grammatical      yes
 ## 5    grammatical      yes
 ## 6    grammatical      yes</code></pre>
-<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="2.6-GLM.html#cb506-1" tabindex="-1"></a><span class="fu">table</span>(grammatical<span class="sc">$</span>response, grammatical<span class="sc">$</span>grammaticality)</span></code></pre></div>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="2.6-GLM.html#cb507-1" tabindex="-1"></a><span class="fu">table</span>(grammatical<span class="sc">$</span>response, grammatical<span class="sc">$</span>grammaticality)</span></code></pre></div>
 <pre><code>##      
 ##       grammatical ungrammatical
 ##   no            5            50
@@ -2299,20 +2299,20 @@ as “yes” responses to the “grammatical” category.</p>
 <div id="model-estimation-and-results" class="section level4 hasAnchor" number="2.6.2.1">
 <h4><span class="header-section-number">2.6.2.1</span> Model estimation and results<a href="2.6-GLM.html#model-estimation-and-results" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The results below show the logodds for our model.</p>
-<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="2.6-GLM.html#cb508-1" tabindex="-1"></a>grammatical <span class="ot">&lt;-</span> grammatical <span class="sc">%&gt;%</span> </span>
-<span id="cb508-2"><a href="2.6-GLM.html#cb508-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">factor</span>(response, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;no&quot;</span>, <span class="st">&quot;yes&quot;</span>)),</span>
-<span id="cb508-3"><a href="2.6-GLM.html#cb508-3" tabindex="-1"></a>         <span class="at">grammaticality =</span> <span class="fu">factor</span>(grammaticality, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;ungrammatical&quot;</span>, <span class="st">&quot;grammatical&quot;</span>)))</span>
-<span id="cb508-4"><a href="2.6-GLM.html#cb508-4" tabindex="-1"></a></span>
-<span id="cb508-5"><a href="2.6-GLM.html#cb508-5" tabindex="-1"></a>grammatical <span class="sc">%&gt;%</span> </span>
-<span id="cb508-6"><a href="2.6-GLM.html#cb508-6" tabindex="-1"></a>  <span class="fu">group_by</span>(grammaticality, response) <span class="sc">%&gt;%</span> </span>
-<span id="cb508-7"><a href="2.6-GLM.html#cb508-7" tabindex="-1"></a>  <span class="fu">table</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="2.6-GLM.html#cb509-1" tabindex="-1"></a>grammatical <span class="ot">&lt;-</span> grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb509-2"><a href="2.6-GLM.html#cb509-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">factor</span>(response, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;no&quot;</span>, <span class="st">&quot;yes&quot;</span>)),</span>
+<span id="cb509-3"><a href="2.6-GLM.html#cb509-3" tabindex="-1"></a>         <span class="at">grammaticality =</span> <span class="fu">factor</span>(grammaticality, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;ungrammatical&quot;</span>, <span class="st">&quot;grammatical&quot;</span>)))</span>
+<span id="cb509-4"><a href="2.6-GLM.html#cb509-4" tabindex="-1"></a></span>
+<span id="cb509-5"><a href="2.6-GLM.html#cb509-5" tabindex="-1"></a>grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb509-6"><a href="2.6-GLM.html#cb509-6" tabindex="-1"></a>  <span class="fu">group_by</span>(grammaticality, response) <span class="sc">%&gt;%</span> </span>
+<span id="cb509-7"><a href="2.6-GLM.html#cb509-7" tabindex="-1"></a>  <span class="fu">table</span>()</span></code></pre></div>
 <pre><code>##                response
 ## grammaticality   no yes
 ##   ungrammatical  50  10
 ##   grammatical     5 100</code></pre>
-<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="2.6-GLM.html#cb510-1" tabindex="-1"></a>mdl.glm <span class="ot">&lt;-</span> grammatical <span class="sc">%&gt;%</span> </span>
-<span id="cb510-2"><a href="2.6-GLM.html#cb510-2" tabindex="-1"></a>  <span class="fu">glm</span>(response <span class="sc">~</span> grammaticality, <span class="at">data =</span> ., <span class="at">family =</span> binomial)</span>
-<span id="cb510-3"><a href="2.6-GLM.html#cb510-3" tabindex="-1"></a><span class="fu">summary</span>(mdl.glm)</span></code></pre></div>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="2.6-GLM.html#cb511-1" tabindex="-1"></a>mdl.glm <span class="ot">&lt;-</span> grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb511-2"><a href="2.6-GLM.html#cb511-2" tabindex="-1"></a>  <span class="fu">glm</span>(response <span class="sc">~</span> grammaticality, <span class="at">data =</span> ., <span class="at">family =</span> binomial)</span>
+<span id="cb511-3"><a href="2.6-GLM.html#cb511-3" tabindex="-1"></a><span class="fu">summary</span>(mdl.glm)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = response ~ grammaticality, family = binomial, data = .)
@@ -2331,21 +2331,21 @@ as “yes” responses to the “grammatical” category.</p>
 ## AIC: 98.271
 ## 
 ## Number of Fisher Scoring iterations: 5</code></pre>
-<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="2.6-GLM.html#cb512-1" tabindex="-1"></a><span class="fu">tidy</span>(mdl.glm) <span class="sc">%&gt;%</span> </span>
-<span id="cb512-2"><a href="2.6-GLM.html#cb512-2" tabindex="-1"></a>  <span class="fu">select</span>(term, estimate) <span class="sc">%&gt;%</span> </span>
-<span id="cb512-3"><a href="2.6-GLM.html#cb512-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">estimate =</span> <span class="fu">round</span>(estimate, <span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="2.6-GLM.html#cb513-1" tabindex="-1"></a><span class="fu">tidy</span>(mdl.glm) <span class="sc">%&gt;%</span> </span>
+<span id="cb513-2"><a href="2.6-GLM.html#cb513-2" tabindex="-1"></a>  <span class="fu">select</span>(term, estimate) <span class="sc">%&gt;%</span> </span>
+<span id="cb513-3"><a href="2.6-GLM.html#cb513-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">estimate =</span> <span class="fu">round</span>(estimate, <span class="dv">3</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 2
 ##   term                      estimate
 ##   &lt;chr&gt;                        &lt;dbl&gt;
 ## 1 (Intercept)                  -1.61
 ## 2 grammaticalitygrammatical     4.61</code></pre>
-<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="2.6-GLM.html#cb514-1" tabindex="-1"></a><span class="co"># to only get the coefficients</span></span>
-<span id="cb514-2"><a href="2.6-GLM.html#cb514-2" tabindex="-1"></a>mycoef2 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mdl.glm) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(estimate)</span></code></pre></div>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="2.6-GLM.html#cb515-1" tabindex="-1"></a><span class="co"># to only get the coefficients</span></span>
+<span id="cb515-2"><a href="2.6-GLM.html#cb515-2" tabindex="-1"></a>mycoef2 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mdl.glm) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(estimate)</span></code></pre></div>
 </div>
 <div id="models-fit-1" class="section level4 hasAnchor" number="2.6.2.2">
 <h4><span class="header-section-number">2.6.2.2</span> Model’s fit<a href="2.6-GLM.html#models-fit-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="2.6-GLM.html#cb515-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tab_model</span>(mdl.glm, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.glm.html&quot;</span>)))</span>
-<span id="cb515-2"><a href="2.6-GLM.html#cb515-2" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">&quot;outputs/mdl.glm.html&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="2.6-GLM.html#cb516-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tab_model</span>(mdl.glm, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.glm.html&quot;</span>)))</span>
+<span id="cb516-2"><a href="2.6-GLM.html#cb516-2" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">&quot;outputs/mdl.glm.html&quot;</span>)</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">&nbsp;</th>
@@ -2392,9 +2392,9 @@ to grammatical is 2.9957323</p>
 model above, the odds of “grammatical” receiving a “no” response is a
 mere 0.2; the odds of “grammatical” to receive a “yes” is a 20; i.e., 20
 times more likely</p>
-<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="2.6-GLM.html#cb516-1" tabindex="-1"></a><span class="fu">exp</span>(mycoef2[<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="2.6-GLM.html#cb517-1" tabindex="-1"></a><span class="fu">exp</span>(mycoef2[<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## [1] 0.2</code></pre>
-<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="2.6-GLM.html#cb518-1" tabindex="-1"></a><span class="fu">exp</span>(mycoef2[<span class="dv">1</span>] <span class="sc">+</span> mycoef2[<span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="2.6-GLM.html#cb519-1" tabindex="-1"></a><span class="fu">exp</span>(mycoef2[<span class="dv">1</span>] <span class="sc">+</span> mycoef2[<span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## [1] 20</code></pre>
 </div>
 <div id="logodds-to-proportions" class="section level4 hasAnchor" number="2.6.2.4">
@@ -2403,24 +2403,24 @@ times more likely</p>
 we can transform our loggodds into proportions. This shows that the
 proportion of “grammatical” receiving a “yes” response increases by 99%
 (or 95% based on our “true” coefficients)</p>
-<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="2.6-GLM.html#cb520-1" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="2.6-GLM.html#cb521-1" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## [1] 0.1666667</code></pre>
-<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="2.6-GLM.html#cb522-1" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>] <span class="sc">+</span> mycoef2[<span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="2.6-GLM.html#cb523-1" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>] <span class="sc">+</span> mycoef2[<span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## [1] 0.952381</code></pre>
 </div>
 <div id="plotting" class="section level4 hasAnchor" number="2.6.2.5">
 <h4><span class="header-section-number">2.6.2.5</span> Plotting<a href="2.6-GLM.html#plotting" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="2.6-GLM.html#cb524-1" tabindex="-1"></a>grammatical <span class="ot">&lt;-</span> grammatical <span class="sc">%&gt;%</span> </span>
-<span id="cb524-2"><a href="2.6-GLM.html#cb524-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> <span class="fu">predict</span>(mdl.glm, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>))</span>
-<span id="cb524-3"><a href="2.6-GLM.html#cb524-3" tabindex="-1"></a>grammatical <span class="sc">%&gt;%</span> </span>
-<span id="cb524-4"><a href="2.6-GLM.html#cb524-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(grammaticality), <span class="at">y =</span> prob)) <span class="sc">+</span></span>
-<span id="cb524-5"><a href="2.6-GLM.html#cb524-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb524-6"><a href="2.6-GLM.html#cb524-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;glm&quot;</span>, </span>
-<span id="cb524-7"><a href="2.6-GLM.html#cb524-7" tabindex="-1"></a>    <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>), </span>
-<span id="cb524-8"><a href="2.6-GLM.html#cb524-8" tabindex="-1"></a>    <span class="at">se =</span> T) <span class="sc">+</span> <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>)<span class="sc">+</span></span>
-<span id="cb524-9"><a href="2.6-GLM.html#cb524-9" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>)<span class="sc">+</span></span>
-<span id="cb524-10"><a href="2.6-GLM.html#cb524-10" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
-<span id="cb524-11"><a href="2.6-GLM.html#cb524-11" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">&quot;Ungrammatical&quot;</span>, <span class="st">&quot;Grammatical&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="2.6-GLM.html#cb525-1" tabindex="-1"></a>grammatical <span class="ot">&lt;-</span> grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb525-2"><a href="2.6-GLM.html#cb525-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> <span class="fu">predict</span>(mdl.glm, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>))</span>
+<span id="cb525-3"><a href="2.6-GLM.html#cb525-3" tabindex="-1"></a>grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb525-4"><a href="2.6-GLM.html#cb525-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(grammaticality), <span class="at">y =</span> prob)) <span class="sc">+</span></span>
+<span id="cb525-5"><a href="2.6-GLM.html#cb525-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb525-6"><a href="2.6-GLM.html#cb525-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;glm&quot;</span>, </span>
+<span id="cb525-7"><a href="2.6-GLM.html#cb525-7" tabindex="-1"></a>    <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>), </span>
+<span id="cb525-8"><a href="2.6-GLM.html#cb525-8" tabindex="-1"></a>    <span class="at">se =</span> T) <span class="sc">+</span> <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>)<span class="sc">+</span></span>
+<span id="cb525-9"><a href="2.6-GLM.html#cb525-9" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>)<span class="sc">+</span></span>
+<span id="cb525-10"><a href="2.6-GLM.html#cb525-10" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb525-11"><a href="2.6-GLM.html#cb525-11" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">&quot;Ungrammatical&quot;</span>, <span class="st">&quot;Grammatical&quot;</span>))</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-198-1.png" width="672" /></p>
 </div>
 </div>
@@ -2444,24 +2444,24 @@ and without z-scoring</p>
 <h4><span class="header-section-number">2.6.3.1</span> Without z-scoring of predictor<a href="2.6-GLM.html#without-z-scoring-of-predictor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div id="model-estimation-1" class="section level5 hasAnchor" number="2.6.3.1.1">
 <h5><span class="header-section-number">2.6.3.1.1</span> Model estimation<a href="2.6-GLM.html#model-estimation-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="2.6-GLM.html#cb525-1" tabindex="-1"></a>mdl.glm2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb525-2"><a href="2.6-GLM.html#cb525-2" tabindex="-1"></a>  <span class="fu">glm</span>(AgeSubject <span class="sc">~</span> RTlexdec, <span class="at">data =</span> ., <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
-<span id="cb525-3"><a href="2.6-GLM.html#cb525-3" tabindex="-1"></a></span>
-<span id="cb525-4"><a href="2.6-GLM.html#cb525-4" tabindex="-1"></a><span class="fu">tidy</span>(mdl.glm2) <span class="sc">%&gt;%</span> </span>
-<span id="cb525-5"><a href="2.6-GLM.html#cb525-5" tabindex="-1"></a>  <span class="fu">select</span>(term, estimate) <span class="sc">%&gt;%</span> </span>
-<span id="cb525-6"><a href="2.6-GLM.html#cb525-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">estimate =</span> <span class="fu">round</span>(estimate, <span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="2.6-GLM.html#cb526-1" tabindex="-1"></a>mdl.glm2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb526-2"><a href="2.6-GLM.html#cb526-2" tabindex="-1"></a>  <span class="fu">glm</span>(AgeSubject <span class="sc">~</span> RTlexdec, <span class="at">data =</span> ., <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb526-3"><a href="2.6-GLM.html#cb526-3" tabindex="-1"></a></span>
+<span id="cb526-4"><a href="2.6-GLM.html#cb526-4" tabindex="-1"></a><span class="fu">tidy</span>(mdl.glm2) <span class="sc">%&gt;%</span> </span>
+<span id="cb526-5"><a href="2.6-GLM.html#cb526-5" tabindex="-1"></a>  <span class="fu">select</span>(term, estimate) <span class="sc">%&gt;%</span> </span>
+<span id="cb526-6"><a href="2.6-GLM.html#cb526-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">estimate =</span> <span class="fu">round</span>(estimate, <span class="dv">3</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 2
 ##   term        estimate
 ##   &lt;chr&gt;          &lt;dbl&gt;
 ## 1 (Intercept)   -129. 
 ## 2 RTlexdec        19.6</code></pre>
-<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="2.6-GLM.html#cb527-1" tabindex="-1"></a><span class="co"># to only get the coefficients</span></span>
-<span id="cb527-2"><a href="2.6-GLM.html#cb527-2" tabindex="-1"></a>mycoef2 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mdl.glm2) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(estimate)</span></code></pre></div>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="2.6-GLM.html#cb528-1" tabindex="-1"></a><span class="co"># to only get the coefficients</span></span>
+<span id="cb528-2"><a href="2.6-GLM.html#cb528-2" tabindex="-1"></a>mycoef2 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mdl.glm2) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(estimate)</span></code></pre></div>
 </div>
 <div id="models-fit-2" class="section level5 hasAnchor" number="2.6.3.1.2">
 <h5><span class="header-section-number">2.6.3.1.2</span> Model’s fit<a href="2.6-GLM.html#models-fit-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="2.6-GLM.html#cb528-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tab_model</span>(mdl.glm2, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.glm2.html&quot;</span>)))</span>
-<span id="cb528-2"><a href="2.6-GLM.html#cb528-2" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">&quot;outputs/mdl.glm2.html&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="2.6-GLM.html#cb529-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tab_model</span>(mdl.glm2, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.glm2.html&quot;</span>)))</span>
+<span id="cb529-2"><a href="2.6-GLM.html#cb529-2" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">&quot;outputs/mdl.glm2.html&quot;</span>)</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">&nbsp;</th>
@@ -2501,24 +2501,24 @@ and without z-scoring</p>
 <h5><span class="header-section-number">2.6.3.1.3</span> LogOdds to proportions<a href="2.6-GLM.html#logodds-to-proportions-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>If you want to talk about the percentage “accuracy” of our model, then
 we can transform our loggodds into proportions.</p>
-<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="2.6-GLM.html#cb529-1" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="2.6-GLM.html#cb530-1" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## [1] 1.368844e-56</code></pre>
-<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="2.6-GLM.html#cb531-1" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>] <span class="sc">+</span> mycoef2[<span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="2.6-GLM.html#cb532-1" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>] <span class="sc">+</span> mycoef2[<span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## [1] 4.678715e-48</code></pre>
 </div>
 <div id="plotting-1" class="section level5 hasAnchor" number="2.6.3.1.4">
 <h5><span class="header-section-number">2.6.3.1.4</span> Plotting<a href="2.6-GLM.html#plotting-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="2.6-GLM.html#cb533-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb533-2"><a href="2.6-GLM.html#cb533-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> <span class="fu">predict</span>(mdl.glm2, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>))</span>
-<span id="cb533-3"><a href="2.6-GLM.html#cb533-3" tabindex="-1"></a>english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb533-4"><a href="2.6-GLM.html#cb533-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(AgeSubject), <span class="at">y =</span> prob)) <span class="sc">+</span></span>
-<span id="cb533-5"><a href="2.6-GLM.html#cb533-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb533-6"><a href="2.6-GLM.html#cb533-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;glm&quot;</span>, </span>
-<span id="cb533-7"><a href="2.6-GLM.html#cb533-7" tabindex="-1"></a>    <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>), </span>
-<span id="cb533-8"><a href="2.6-GLM.html#cb533-8" tabindex="-1"></a>    <span class="at">se =</span> T) <span class="sc">+</span> <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>)<span class="sc">+</span></span>
-<span id="cb533-9"><a href="2.6-GLM.html#cb533-9" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>)<span class="sc">+</span></span>
-<span id="cb533-10"><a href="2.6-GLM.html#cb533-10" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
-<span id="cb533-11"><a href="2.6-GLM.html#cb533-11" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">&quot;Young&quot;</span>, <span class="st">&quot;Old&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="2.6-GLM.html#cb534-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb534-2"><a href="2.6-GLM.html#cb534-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> <span class="fu">predict</span>(mdl.glm2, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>))</span>
+<span id="cb534-3"><a href="2.6-GLM.html#cb534-3" tabindex="-1"></a>english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb534-4"><a href="2.6-GLM.html#cb534-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(AgeSubject), <span class="at">y =</span> prob)) <span class="sc">+</span></span>
+<span id="cb534-5"><a href="2.6-GLM.html#cb534-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb534-6"><a href="2.6-GLM.html#cb534-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;glm&quot;</span>, </span>
+<span id="cb534-7"><a href="2.6-GLM.html#cb534-7" tabindex="-1"></a>    <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>), </span>
+<span id="cb534-8"><a href="2.6-GLM.html#cb534-8" tabindex="-1"></a>    <span class="at">se =</span> T) <span class="sc">+</span> <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>)<span class="sc">+</span></span>
+<span id="cb534-9"><a href="2.6-GLM.html#cb534-9" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>)<span class="sc">+</span></span>
+<span id="cb534-10"><a href="2.6-GLM.html#cb534-10" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb534-11"><a href="2.6-GLM.html#cb534-11" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">&quot;Young&quot;</span>, <span class="st">&quot;Old&quot;</span>))</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-202-1.png" width="672" /></p>
 <p>The plot above show how the two groups differ using a glm. The results
 point to an overall increase in the proportion of reaction time when
@@ -2529,31 +2529,31 @@ moving from the “Young” to the “Old” group. Let’s use z-scoring next</
 <h4><span class="header-section-number">2.6.3.2</span> With z-scoring of predictor<a href="2.6-GLM.html#with-z-scoring-of-predictor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div id="model-estimation-2" class="section level5 hasAnchor" number="2.6.3.2.1">
 <h5><span class="header-section-number">2.6.3.2.1</span> Model estimation<a href="2.6-GLM.html#model-estimation-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="2.6-GLM.html#cb534-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb534-2"><a href="2.6-GLM.html#cb534-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">RTlexdec_z</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">scale</span>(RTlexdec, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb534-3"><a href="2.6-GLM.html#cb534-3" tabindex="-1"></a></span>
-<span id="cb534-4"><a href="2.6-GLM.html#cb534-4" tabindex="-1"></a>english2[<span class="st">&#39;RTlexdec_z&#39;</span>] <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">scale</span>(english2<span class="sc">$</span>RTlexdec))</span>
-<span id="cb534-5"><a href="2.6-GLM.html#cb534-5" tabindex="-1"></a></span>
-<span id="cb534-6"><a href="2.6-GLM.html#cb534-6" tabindex="-1"></a></span>
-<span id="cb534-7"><a href="2.6-GLM.html#cb534-7" tabindex="-1"></a></span>
-<span id="cb534-8"><a href="2.6-GLM.html#cb534-8" tabindex="-1"></a>mdl.glm3 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb534-9"><a href="2.6-GLM.html#cb534-9" tabindex="-1"></a>  <span class="fu">glm</span>(AgeSubject <span class="sc">~</span> RTlexdec_z, <span class="at">data =</span> ., <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
-<span id="cb534-10"><a href="2.6-GLM.html#cb534-10" tabindex="-1"></a></span>
-<span id="cb534-11"><a href="2.6-GLM.html#cb534-11" tabindex="-1"></a><span class="fu">tidy</span>(mdl.glm3) <span class="sc">%&gt;%</span> </span>
-<span id="cb534-12"><a href="2.6-GLM.html#cb534-12" tabindex="-1"></a>  <span class="fu">select</span>(term, estimate) <span class="sc">%&gt;%</span> </span>
-<span id="cb534-13"><a href="2.6-GLM.html#cb534-13" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">estimate =</span> <span class="fu">round</span>(estimate, <span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="2.6-GLM.html#cb535-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb535-2"><a href="2.6-GLM.html#cb535-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">RTlexdec_z</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">scale</span>(RTlexdec, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb535-3"><a href="2.6-GLM.html#cb535-3" tabindex="-1"></a></span>
+<span id="cb535-4"><a href="2.6-GLM.html#cb535-4" tabindex="-1"></a>english2[<span class="st">&#39;RTlexdec_z&#39;</span>] <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">scale</span>(english2<span class="sc">$</span>RTlexdec))</span>
+<span id="cb535-5"><a href="2.6-GLM.html#cb535-5" tabindex="-1"></a></span>
+<span id="cb535-6"><a href="2.6-GLM.html#cb535-6" tabindex="-1"></a></span>
+<span id="cb535-7"><a href="2.6-GLM.html#cb535-7" tabindex="-1"></a></span>
+<span id="cb535-8"><a href="2.6-GLM.html#cb535-8" tabindex="-1"></a>mdl.glm3 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb535-9"><a href="2.6-GLM.html#cb535-9" tabindex="-1"></a>  <span class="fu">glm</span>(AgeSubject <span class="sc">~</span> RTlexdec_z, <span class="at">data =</span> ., <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb535-10"><a href="2.6-GLM.html#cb535-10" tabindex="-1"></a></span>
+<span id="cb535-11"><a href="2.6-GLM.html#cb535-11" tabindex="-1"></a><span class="fu">tidy</span>(mdl.glm3) <span class="sc">%&gt;%</span> </span>
+<span id="cb535-12"><a href="2.6-GLM.html#cb535-12" tabindex="-1"></a>  <span class="fu">select</span>(term, estimate) <span class="sc">%&gt;%</span> </span>
+<span id="cb535-13"><a href="2.6-GLM.html#cb535-13" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">estimate =</span> <span class="fu">round</span>(estimate, <span class="dv">3</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 2
 ##   term        estimate
 ##   &lt;chr&gt;          &lt;dbl&gt;
 ## 1 (Intercept)    0.077
 ## 2 RTlexdec_z     3.08</code></pre>
-<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="2.6-GLM.html#cb536-1" tabindex="-1"></a><span class="co"># to only get the coefficients</span></span>
-<span id="cb536-2"><a href="2.6-GLM.html#cb536-2" tabindex="-1"></a>mycoef2 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mdl.glm3) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(estimate)</span></code></pre></div>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="2.6-GLM.html#cb537-1" tabindex="-1"></a><span class="co"># to only get the coefficients</span></span>
+<span id="cb537-2"><a href="2.6-GLM.html#cb537-2" tabindex="-1"></a>mycoef2 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mdl.glm3) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(estimate)</span></code></pre></div>
 </div>
 <div id="models-fit-3" class="section level5 hasAnchor" number="2.6.3.2.2">
 <h5><span class="header-section-number">2.6.3.2.2</span> Model’s fit<a href="2.6-GLM.html#models-fit-3" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="2.6-GLM.html#cb537-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tab_model</span>(mdl.glm3, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.glm3.html&quot;</span>)))</span>
-<span id="cb537-2"><a href="2.6-GLM.html#cb537-2" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">&quot;outputs/mdl.glm3.html&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="2.6-GLM.html#cb538-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tab_model</span>(mdl.glm3, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.glm3.html&quot;</span>)))</span>
+<span id="cb538-2"><a href="2.6-GLM.html#cb538-2" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">&quot;outputs/mdl.glm3.html&quot;</span>)</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">&nbsp;</th>
@@ -2593,47 +2593,47 @@ moving from the “Young” to the “Old” group. Let’s use z-scoring next</
 <h5><span class="header-section-number">2.6.3.2.3</span> LogOdds to proportions<a href="2.6-GLM.html#logodds-to-proportions-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>If you want to talk about the percentage “accuracy” of our model, then
 we can transform our loggodds into proportions.</p>
-<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="2.6-GLM.html#cb538-1" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="2.6-GLM.html#cb539-1" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## [1] 0.5192147</code></pre>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="2.6-GLM.html#cb540-1" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>] <span class="sc">+</span> mycoef2[<span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="2.6-GLM.html#cb541-1" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>] <span class="sc">+</span> mycoef2[<span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## [1] 0.959313</code></pre>
 </div>
 <div id="plotting-2" class="section level5 hasAnchor" number="2.6.3.2.4">
 <h5><span class="header-section-number">2.6.3.2.4</span> Plotting<a href="2.6-GLM.html#plotting-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div id="normal" class="section level6 hasAnchor" number="2.6.3.2.4.1">
 <h6><span class="header-section-number">2.6.3.2.4.1</span> Normal<a href="2.6-GLM.html#normal" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="2.6-GLM.html#cb542-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb542-2"><a href="2.6-GLM.html#cb542-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> <span class="fu">predict</span>(mdl.glm3, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>))</span>
-<span id="cb542-3"><a href="2.6-GLM.html#cb542-3" tabindex="-1"></a>english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb542-4"><a href="2.6-GLM.html#cb542-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(AgeSubject), <span class="at">y =</span> prob)) <span class="sc">+</span></span>
-<span id="cb542-5"><a href="2.6-GLM.html#cb542-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb542-6"><a href="2.6-GLM.html#cb542-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;glm&quot;</span>, </span>
-<span id="cb542-7"><a href="2.6-GLM.html#cb542-7" tabindex="-1"></a>    <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>), </span>
-<span id="cb542-8"><a href="2.6-GLM.html#cb542-8" tabindex="-1"></a>    <span class="at">se =</span> T) <span class="sc">+</span> <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>)<span class="sc">+</span></span>
-<span id="cb542-9"><a href="2.6-GLM.html#cb542-9" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>)<span class="sc">+</span></span>
-<span id="cb542-10"><a href="2.6-GLM.html#cb542-10" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
-<span id="cb542-11"><a href="2.6-GLM.html#cb542-11" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">&quot;Young&quot;</span>, <span class="st">&quot;Old&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="2.6-GLM.html#cb543-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb543-2"><a href="2.6-GLM.html#cb543-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> <span class="fu">predict</span>(mdl.glm3, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>))</span>
+<span id="cb543-3"><a href="2.6-GLM.html#cb543-3" tabindex="-1"></a>english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb543-4"><a href="2.6-GLM.html#cb543-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(AgeSubject), <span class="at">y =</span> prob)) <span class="sc">+</span></span>
+<span id="cb543-5"><a href="2.6-GLM.html#cb543-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb543-6"><a href="2.6-GLM.html#cb543-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;glm&quot;</span>, </span>
+<span id="cb543-7"><a href="2.6-GLM.html#cb543-7" tabindex="-1"></a>    <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>), </span>
+<span id="cb543-8"><a href="2.6-GLM.html#cb543-8" tabindex="-1"></a>    <span class="at">se =</span> T) <span class="sc">+</span> <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>)<span class="sc">+</span></span>
+<span id="cb543-9"><a href="2.6-GLM.html#cb543-9" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>)<span class="sc">+</span></span>
+<span id="cb543-10"><a href="2.6-GLM.html#cb543-10" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb543-11"><a href="2.6-GLM.html#cb543-11" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">&quot;Young&quot;</span>, <span class="st">&quot;Old&quot;</span>))</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-206-1.png" width="672" /></p>
 <p>We obtain the exact same plots, but the model estimations are different.
 Let’s use another type of predictions</p>
 </div>
 <div id="z-scores" class="section level6 hasAnchor" number="2.6.3.2.4.2">
 <h6><span class="header-section-number">2.6.3.2.4.2</span> z-scores<a href="2.6-GLM.html#z-scores" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="2.6-GLM.html#cb543-1" tabindex="-1"></a>z_vals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">0.01</span>)</span>
-<span id="cb543-2"><a href="2.6-GLM.html#cb543-2" tabindex="-1"></a></span>
-<span id="cb543-3"><a href="2.6-GLM.html#cb543-3" tabindex="-1"></a>dfPredNew <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">RTlexdec_z =</span> z_vals)</span>
-<span id="cb543-4"><a href="2.6-GLM.html#cb543-4" tabindex="-1"></a></span>
-<span id="cb543-5"><a href="2.6-GLM.html#cb543-5" tabindex="-1"></a><span class="do">## store the predicted probabilities for each value of RTlexdec_z</span></span>
-<span id="cb543-6"><a href="2.6-GLM.html#cb543-6" tabindex="-1"></a>pp <span class="ot">&lt;-</span> <span class="fu">cbind</span>(dfPredNew, <span class="at">prob =</span> <span class="fu">predict</span>(mdl.glm3, <span class="at">newdata =</span> dfPredNew, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>))</span>
-<span id="cb543-7"><a href="2.6-GLM.html#cb543-7" tabindex="-1"></a></span>
-<span id="cb543-8"><a href="2.6-GLM.html#cb543-8" tabindex="-1"></a>pp <span class="sc">%&gt;%</span> </span>
-<span id="cb543-9"><a href="2.6-GLM.html#cb543-9" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> RTlexdec_z, <span class="at">y =</span> prob)) <span class="sc">+</span></span>
-<span id="cb543-10"><a href="2.6-GLM.html#cb543-10" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb543-11"><a href="2.6-GLM.html#cb543-11" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>)<span class="sc">+</span></span>
-<span id="cb543-12"><a href="2.6-GLM.html#cb543-12" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
-<span id="cb543-13"><a href="2.6-GLM.html#cb543-13" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.1</span>, <span class="fl">1.1</span>), <span class="at">expand =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb543-14"><a href="2.6-GLM.html#cb543-14" tabindex="-1"></a>    <span class="fu">scale_y_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Young&quot;</span>, <span class="st">&quot;Old&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb543-15"><a href="2.6-GLM.html#cb543-15" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="2.6-GLM.html#cb544-1" tabindex="-1"></a>z_vals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">0.01</span>)</span>
+<span id="cb544-2"><a href="2.6-GLM.html#cb544-2" tabindex="-1"></a></span>
+<span id="cb544-3"><a href="2.6-GLM.html#cb544-3" tabindex="-1"></a>dfPredNew <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">RTlexdec_z =</span> z_vals)</span>
+<span id="cb544-4"><a href="2.6-GLM.html#cb544-4" tabindex="-1"></a></span>
+<span id="cb544-5"><a href="2.6-GLM.html#cb544-5" tabindex="-1"></a><span class="do">## store the predicted probabilities for each value of RTlexdec_z</span></span>
+<span id="cb544-6"><a href="2.6-GLM.html#cb544-6" tabindex="-1"></a>pp <span class="ot">&lt;-</span> <span class="fu">cbind</span>(dfPredNew, <span class="at">prob =</span> <span class="fu">predict</span>(mdl.glm3, <span class="at">newdata =</span> dfPredNew, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>))</span>
+<span id="cb544-7"><a href="2.6-GLM.html#cb544-7" tabindex="-1"></a></span>
+<span id="cb544-8"><a href="2.6-GLM.html#cb544-8" tabindex="-1"></a>pp <span class="sc">%&gt;%</span> </span>
+<span id="cb544-9"><a href="2.6-GLM.html#cb544-9" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> RTlexdec_z, <span class="at">y =</span> prob)) <span class="sc">+</span></span>
+<span id="cb544-10"><a href="2.6-GLM.html#cb544-10" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb544-11"><a href="2.6-GLM.html#cb544-11" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>)<span class="sc">+</span></span>
+<span id="cb544-12"><a href="2.6-GLM.html#cb544-12" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb544-13"><a href="2.6-GLM.html#cb544-13" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.1</span>, <span class="fl">1.1</span>), <span class="at">expand =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb544-14"><a href="2.6-GLM.html#cb544-14" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Young&quot;</span>,<span class="st">&quot;Old&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb544-15"><a href="2.6-GLM.html#cb544-15" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-207-1.png" width="672" /></p>
 <p>We obtain the exact same plots, but the model estimations are different.</p>
 </div>
@@ -2688,9 +2688,9 @@ biases.</p>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="2.6-GLM.html#cb544-1" tabindex="-1"></a>grammatical <span class="ot">&lt;-</span> grammatical <span class="sc">%&gt;%</span> </span>
-<span id="cb544-2"><a href="2.6-GLM.html#cb544-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">factor</span>(response, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>)),</span>
-<span id="cb544-3"><a href="2.6-GLM.html#cb544-3" tabindex="-1"></a>         <span class="at">grammaticality =</span> <span class="fu">factor</span>(grammaticality, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;grammatical&quot;</span>, <span class="st">&quot;ungrammatical&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="2.6-GLM.html#cb545-1" tabindex="-1"></a>grammatical <span class="ot">&lt;-</span> grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb545-2"><a href="2.6-GLM.html#cb545-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">factor</span>(response, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>)),</span>
+<span id="cb545-3"><a href="2.6-GLM.html#cb545-3" tabindex="-1"></a>         <span class="at">grammaticality =</span> <span class="fu">factor</span>(grammaticality, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;grammatical&quot;</span>, <span class="st">&quot;ungrammatical&quot;</span>)))</span></code></pre></div>
 </div>
 <div id="below-we-obtain-multiple-measures" class="section level4 hasAnchor" number="2.6.4.3">
 <h4><span class="header-section-number">2.6.4.3</span> Below we obtain multiple measures<a href="2.6-GLM.html#below-we-obtain-multiple-measures" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -2698,49 +2698,49 @@ biases.</p>
 <h5><span class="header-section-number">2.6.4.3.1</span> TP, FP, FN, TN<a href="2.6-GLM.html#tp-fp-fn-tn" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>TP = True Positive (Hit); FP = False Positive; FN = False Negative; TN =
 True Negative</p>
-<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="2.6-GLM.html#cb545-1" tabindex="-1"></a>TP <span class="ot">&lt;-</span> <span class="fu">nrow</span>(grammatical <span class="sc">%&gt;%</span> </span>
-<span id="cb545-2"><a href="2.6-GLM.html#cb545-2" tabindex="-1"></a>             <span class="fu">filter</span>(grammaticality <span class="sc">==</span> <span class="st">&quot;grammatical&quot;</span> <span class="sc">&amp;</span></span>
-<span id="cb545-3"><a href="2.6-GLM.html#cb545-3" tabindex="-1"></a>                      response <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>))</span>
-<span id="cb545-4"><a href="2.6-GLM.html#cb545-4" tabindex="-1"></a>FN <span class="ot">&lt;-</span> <span class="fu">nrow</span>(grammatical <span class="sc">%&gt;%</span> </span>
-<span id="cb545-5"><a href="2.6-GLM.html#cb545-5" tabindex="-1"></a>             <span class="fu">filter</span>(grammaticality <span class="sc">==</span> <span class="st">&quot;grammatical&quot;</span> <span class="sc">&amp;</span></span>
-<span id="cb545-6"><a href="2.6-GLM.html#cb545-6" tabindex="-1"></a>                      response <span class="sc">==</span> <span class="st">&quot;no&quot;</span>))</span>
-<span id="cb545-7"><a href="2.6-GLM.html#cb545-7" tabindex="-1"></a>FP <span class="ot">&lt;-</span> <span class="fu">nrow</span>(grammatical <span class="sc">%&gt;%</span> </span>
-<span id="cb545-8"><a href="2.6-GLM.html#cb545-8" tabindex="-1"></a>             <span class="fu">filter</span>(grammaticality <span class="sc">==</span> <span class="st">&quot;ungrammatical&quot;</span> <span class="sc">&amp;</span></span>
-<span id="cb545-9"><a href="2.6-GLM.html#cb545-9" tabindex="-1"></a>                      response <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>))</span>
-<span id="cb545-10"><a href="2.6-GLM.html#cb545-10" tabindex="-1"></a>TN <span class="ot">&lt;-</span> <span class="fu">nrow</span>(grammatical <span class="sc">%&gt;%</span> </span>
-<span id="cb545-11"><a href="2.6-GLM.html#cb545-11" tabindex="-1"></a>             <span class="fu">filter</span>(grammaticality <span class="sc">==</span> <span class="st">&quot;ungrammatical&quot;</span> <span class="sc">&amp;</span></span>
-<span id="cb545-12"><a href="2.6-GLM.html#cb545-12" tabindex="-1"></a>                      response <span class="sc">==</span> <span class="st">&quot;no&quot;</span>))</span>
-<span id="cb545-13"><a href="2.6-GLM.html#cb545-13" tabindex="-1"></a>TP</span></code></pre></div>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="2.6-GLM.html#cb546-1" tabindex="-1"></a>TP <span class="ot">&lt;-</span> <span class="fu">nrow</span>(grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb546-2"><a href="2.6-GLM.html#cb546-2" tabindex="-1"></a>             <span class="fu">filter</span>(grammaticality <span class="sc">==</span> <span class="st">&quot;grammatical&quot;</span> <span class="sc">&amp;</span></span>
+<span id="cb546-3"><a href="2.6-GLM.html#cb546-3" tabindex="-1"></a>                      response <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>))</span>
+<span id="cb546-4"><a href="2.6-GLM.html#cb546-4" tabindex="-1"></a>FN <span class="ot">&lt;-</span> <span class="fu">nrow</span>(grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb546-5"><a href="2.6-GLM.html#cb546-5" tabindex="-1"></a>             <span class="fu">filter</span>(grammaticality <span class="sc">==</span> <span class="st">&quot;grammatical&quot;</span> <span class="sc">&amp;</span></span>
+<span id="cb546-6"><a href="2.6-GLM.html#cb546-6" tabindex="-1"></a>                      response <span class="sc">==</span> <span class="st">&quot;no&quot;</span>))</span>
+<span id="cb546-7"><a href="2.6-GLM.html#cb546-7" tabindex="-1"></a>FP <span class="ot">&lt;-</span> <span class="fu">nrow</span>(grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb546-8"><a href="2.6-GLM.html#cb546-8" tabindex="-1"></a>             <span class="fu">filter</span>(grammaticality <span class="sc">==</span> <span class="st">&quot;ungrammatical&quot;</span> <span class="sc">&amp;</span></span>
+<span id="cb546-9"><a href="2.6-GLM.html#cb546-9" tabindex="-1"></a>                      response <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>))</span>
+<span id="cb546-10"><a href="2.6-GLM.html#cb546-10" tabindex="-1"></a>TN <span class="ot">&lt;-</span> <span class="fu">nrow</span>(grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb546-11"><a href="2.6-GLM.html#cb546-11" tabindex="-1"></a>             <span class="fu">filter</span>(grammaticality <span class="sc">==</span> <span class="st">&quot;ungrammatical&quot;</span> <span class="sc">&amp;</span></span>
+<span id="cb546-12"><a href="2.6-GLM.html#cb546-12" tabindex="-1"></a>                      response <span class="sc">==</span> <span class="st">&quot;no&quot;</span>))</span>
+<span id="cb546-13"><a href="2.6-GLM.html#cb546-13" tabindex="-1"></a>TP</span></code></pre></div>
 <pre><code>## [1] 100</code></pre>
-<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="2.6-GLM.html#cb547-1" tabindex="-1"></a>FN</span></code></pre></div>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="2.6-GLM.html#cb548-1" tabindex="-1"></a>FN</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="2.6-GLM.html#cb549-1" tabindex="-1"></a>FP</span></code></pre></div>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="2.6-GLM.html#cb550-1" tabindex="-1"></a>FP</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="2.6-GLM.html#cb551-1" tabindex="-1"></a>TN</span></code></pre></div>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="2.6-GLM.html#cb552-1" tabindex="-1"></a>TN</span></code></pre></div>
 <pre><code>## [1] 50</code></pre>
 </div>
 <div id="accuracy-error-sensitivity-specificity-precision-etc." class="section level5 hasAnchor" number="2.6.4.3.2">
 <h5><span class="header-section-number">2.6.4.3.2</span> Accuracy, Error, Sensitivity, Specificity, Precision, etc.<a href="2.6-GLM.html#accuracy-error-sensitivity-specificity-precision-etc." class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div id="accuracy-and-error" class="section level6 hasAnchor" number="2.6.4.3.2.1">
 <h6><span class="header-section-number">2.6.4.3.2.1</span> Accuracy and Error<a href="2.6-GLM.html#accuracy-and-error" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="2.6-GLM.html#cb553-1" tabindex="-1"></a>(TP<span class="sc">+</span>TN)<span class="sc">/</span><span class="fu">nrow</span>(grammatical) <span class="co"># accuracy</span></span></code></pre></div>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="2.6-GLM.html#cb554-1" tabindex="-1"></a>(TP<span class="sc">+</span>TN)<span class="sc">/</span><span class="fu">nrow</span>(grammatical) <span class="co"># accuracy</span></span></code></pre></div>
 <pre><code>## [1] 0.9090909</code></pre>
-<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="2.6-GLM.html#cb555-1" tabindex="-1"></a>(FP<span class="sc">+</span>FN)<span class="sc">/</span><span class="fu">nrow</span>(grammatical) <span class="co"># error, also 1-accuracy</span></span></code></pre></div>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="2.6-GLM.html#cb556-1" tabindex="-1"></a>(FP<span class="sc">+</span>FN)<span class="sc">/</span><span class="fu">nrow</span>(grammatical) <span class="co"># error, also 1-accuracy</span></span></code></pre></div>
 <pre><code>## [1] 0.09090909</code></pre>
 </div>
 <div id="sensitivity-specificity-precision-etc." class="section level6 hasAnchor" number="2.6.4.3.2.2">
 <h6><span class="header-section-number">2.6.4.3.2.2</span> Sensitivity, Specificity, Precision, etc.<a href="2.6-GLM.html#sensitivity-specificity-precision-etc." class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="2.6-GLM.html#cb557-1" tabindex="-1"></a><span class="co"># When stimulus = yes, how many times response = yes?</span></span>
-<span id="cb557-2"><a href="2.6-GLM.html#cb557-2" tabindex="-1"></a>TP<span class="sc">/</span>(TP<span class="sc">+</span>FN) <span class="co"># also True Positive Rate or Specificity</span></span></code></pre></div>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="2.6-GLM.html#cb558-1" tabindex="-1"></a><span class="co"># When stimulus = yes, how many times response = yes?</span></span>
+<span id="cb558-2"><a href="2.6-GLM.html#cb558-2" tabindex="-1"></a>TP<span class="sc">/</span>(TP<span class="sc">+</span>FN) <span class="co"># also True Positive Rate or Specificity</span></span></code></pre></div>
 <pre><code>## [1] 0.952381</code></pre>
-<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="2.6-GLM.html#cb559-1" tabindex="-1"></a><span class="co"># When stimulus = no, how many times response = yes?</span></span>
-<span id="cb559-2"><a href="2.6-GLM.html#cb559-2" tabindex="-1"></a>FP<span class="sc">/</span>(FP<span class="sc">+</span>TN) <span class="co"># False Positive Rate, </span></span></code></pre></div>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="2.6-GLM.html#cb560-1" tabindex="-1"></a><span class="co"># When stimulus = no, how many times response = yes?</span></span>
+<span id="cb560-2"><a href="2.6-GLM.html#cb560-2" tabindex="-1"></a>FP<span class="sc">/</span>(FP<span class="sc">+</span>TN) <span class="co"># False Positive Rate, </span></span></code></pre></div>
 <pre><code>## [1] 0.1666667</code></pre>
-<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="2.6-GLM.html#cb561-1" tabindex="-1"></a><span class="co"># When stimulus = no, how many times response = no?</span></span>
-<span id="cb561-2"><a href="2.6-GLM.html#cb561-2" tabindex="-1"></a>TN<span class="sc">/</span>(FP<span class="sc">+</span>TN) <span class="co"># True Negative Rate or Sensitivity </span></span></code></pre></div>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="2.6-GLM.html#cb562-1" tabindex="-1"></a><span class="co"># When stimulus = no, how many times response = no?</span></span>
+<span id="cb562-2"><a href="2.6-GLM.html#cb562-2" tabindex="-1"></a>TN<span class="sc">/</span>(FP<span class="sc">+</span>TN) <span class="co"># True Negative Rate or Sensitivity </span></span></code></pre></div>
 <pre><code>## [1] 0.8333333</code></pre>
-<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="2.6-GLM.html#cb563-1" tabindex="-1"></a><span class="co"># When subject responds &quot;yes&quot; how many times is (s)he correct?</span></span>
-<span id="cb563-2"><a href="2.6-GLM.html#cb563-2" tabindex="-1"></a>TP<span class="sc">/</span>(TP<span class="sc">+</span>FP) <span class="co"># precision</span></span></code></pre></div>
+<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="2.6-GLM.html#cb564-1" tabindex="-1"></a><span class="co"># When subject responds &quot;yes&quot; how many times is (s)he correct?</span></span>
+<span id="cb564-2"><a href="2.6-GLM.html#cb564-2" tabindex="-1"></a>TP<span class="sc">/</span>(TP<span class="sc">+</span>FP) <span class="co"># precision</span></span></code></pre></div>
 <pre><code>## [1] 0.9090909</code></pre>
 </div>
 <div id="std-measures" class="section level6 hasAnchor" number="2.6.4.3.2.3">
@@ -2759,10 +2759,10 @@ respond “yes”, positive = tendency to respond “no”)</p></li>
 <p>See
 <a href="https://www.r-bloggers.com/compute-signal-detection-theory-indices-with-r/amp/">here</a>
 for more details</p>
-<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="2.6-GLM.html#cb565-1" tabindex="-1"></a>psycho<span class="sc">::</span><span class="fu">dprime</span>(TP, FP, FN, TN, </span>
-<span id="cb565-2"><a href="2.6-GLM.html#cb565-2" tabindex="-1"></a>               <span class="at">n_targets =</span> TP<span class="sc">+</span>FN, </span>
-<span id="cb565-3"><a href="2.6-GLM.html#cb565-3" tabindex="-1"></a>               <span class="at">n_distractors =</span> FP<span class="sc">+</span>TN,</span>
-<span id="cb565-4"><a href="2.6-GLM.html#cb565-4" tabindex="-1"></a>               <span class="at">adjust=</span>F)</span></code></pre></div>
+<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="2.6-GLM.html#cb566-1" tabindex="-1"></a>psycho<span class="sc">::</span><span class="fu">dprime</span>(TP, FP, FN, TN, </span>
+<span id="cb566-2"><a href="2.6-GLM.html#cb566-2" tabindex="-1"></a>               <span class="at">n_targets =</span> TP<span class="sc">+</span>FN, </span>
+<span id="cb566-3"><a href="2.6-GLM.html#cb566-3" tabindex="-1"></a>               <span class="at">n_distractors =</span> FP<span class="sc">+</span>TN,</span>
+<span id="cb566-4"><a href="2.6-GLM.html#cb566-4" tabindex="-1"></a>               <span class="at">adjust=</span>F)</span></code></pre></div>
 <pre><code>## $dprime
 ## [1] 2.635813
 ## 
@@ -2796,14 +2796,14 @@ and is evaluated in change in 1-standard unit. This is modelling the
 change from “ungrammatical” “no” responses into “grammatical” “yes”
 responses in z-scores. The same conceptual underpinnings of d-prime from
 Signal Detection Theory.</p>
-<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="2.6-GLM.html#cb567-1" tabindex="-1"></a><span class="do">## d prime</span></span>
-<span id="cb567-2"><a href="2.6-GLM.html#cb567-2" tabindex="-1"></a>psycho<span class="sc">::</span><span class="fu">dprime</span>(TP, FP, FN, TN, </span>
-<span id="cb567-3"><a href="2.6-GLM.html#cb567-3" tabindex="-1"></a>               <span class="at">n_targets =</span> TP<span class="sc">+</span>FN, </span>
-<span id="cb567-4"><a href="2.6-GLM.html#cb567-4" tabindex="-1"></a>               <span class="at">n_distractors =</span> FP<span class="sc">+</span>TN,</span>
-<span id="cb567-5"><a href="2.6-GLM.html#cb567-5" tabindex="-1"></a>               <span class="at">adjust=</span>F)<span class="sc">$</span>dprime</span></code></pre></div>
+<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="2.6-GLM.html#cb568-1" tabindex="-1"></a><span class="do">## d prime</span></span>
+<span id="cb568-2"><a href="2.6-GLM.html#cb568-2" tabindex="-1"></a>psycho<span class="sc">::</span><span class="fu">dprime</span>(TP, FP, FN, TN, </span>
+<span id="cb568-3"><a href="2.6-GLM.html#cb568-3" tabindex="-1"></a>               <span class="at">n_targets =</span> TP<span class="sc">+</span>FN, </span>
+<span id="cb568-4"><a href="2.6-GLM.html#cb568-4" tabindex="-1"></a>               <span class="at">n_distractors =</span> FP<span class="sc">+</span>TN,</span>
+<span id="cb568-5"><a href="2.6-GLM.html#cb568-5" tabindex="-1"></a>               <span class="at">adjust=</span>F)<span class="sc">$</span>dprime</span></code></pre></div>
 <pre><code>## [1] 2.635813</code></pre>
-<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="2.6-GLM.html#cb569-1" tabindex="-1"></a><span class="do">## GLM with probit</span></span>
-<span id="cb569-2"><a href="2.6-GLM.html#cb569-2" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">glm</span>(response <span class="sc">~</span> grammaticality, <span class="at">data =</span> grammatical, <span class="at">family =</span> <span class="fu">binomial</span>(probit)))[<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="2.6-GLM.html#cb570-1" tabindex="-1"></a><span class="do">## GLM with probit</span></span>
+<span id="cb570-2"><a href="2.6-GLM.html#cb570-2" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">glm</span>(response <span class="sc">~</span> grammaticality, <span class="at">data =</span> grammatical, <span class="at">family =</span> <span class="fu">binomial</span>(probit)))[<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## grammaticalityungrammatical 
 ##                    2.635813</code></pre>
 </div>
@@ -2816,34 +2816,34 @@ data setup. Look at the table here and the table above. Once we have
 created our table of outcome, we can compute percent correct, the
 specificity, the sensitivity, the Kappa score, etc.. this yields the
 actual value with the SD that is related to variations in responses.</p>
-<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="2.6-GLM.html#cb571-1" tabindex="-1"></a><span class="do">## predict(mdl.glm)&gt;0.5 is identical to </span></span>
-<span id="cb571-2"><a href="2.6-GLM.html#cb571-2" tabindex="-1"></a><span class="do">## predict(glm(response~grammaticality,data=grammatical,family = binomial),type=&quot;response&quot;)</span></span>
-<span id="cb571-3"><a href="2.6-GLM.html#cb571-3" tabindex="-1"></a>grammatical <span class="ot">&lt;-</span> grammatical <span class="sc">%&gt;%</span> </span>
-<span id="cb571-4"><a href="2.6-GLM.html#cb571-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">factor</span>(response, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>)),</span>
-<span id="cb571-5"><a href="2.6-GLM.html#cb571-5" tabindex="-1"></a>         <span class="at">grammaticality =</span> <span class="fu">factor</span>(grammaticality, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;grammatical&quot;</span>, <span class="st">&quot;ungrammatical&quot;</span>)))</span>
-<span id="cb571-6"><a href="2.6-GLM.html#cb571-6" tabindex="-1"></a></span>
-<span id="cb571-7"><a href="2.6-GLM.html#cb571-7" tabindex="-1"></a></span>
-<span id="cb571-8"><a href="2.6-GLM.html#cb571-8" tabindex="-1"></a></span>
-<span id="cb571-9"><a href="2.6-GLM.html#cb571-9" tabindex="-1"></a>mdl.glm.C <span class="ot">&lt;-</span> grammatical <span class="sc">%&gt;%</span> </span>
-<span id="cb571-10"><a href="2.6-GLM.html#cb571-10" tabindex="-1"></a>  <span class="fu">glm</span>(response <span class="sc">~</span> grammaticality, <span class="at">data =</span> .,<span class="at">family =</span> binomial)</span>
-<span id="cb571-11"><a href="2.6-GLM.html#cb571-11" tabindex="-1"></a></span>
-<span id="cb571-12"><a href="2.6-GLM.html#cb571-12" tabindex="-1"></a>tbl.glm <span class="ot">&lt;-</span> <span class="fu">table</span>(grammatical<span class="sc">$</span>response, <span class="fu">predict</span>(mdl.glm.C, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)<span class="sc">&gt;</span><span class="fl">0.5</span>)</span>
-<span id="cb571-13"><a href="2.6-GLM.html#cb571-13" tabindex="-1"></a><span class="fu">colnames</span>(tbl.glm) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;grammatical&quot;</span>, <span class="st">&quot;ungrammatical&quot;</span>)</span>
-<span id="cb571-14"><a href="2.6-GLM.html#cb571-14" tabindex="-1"></a>tbl.glm</span></code></pre></div>
+<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="2.6-GLM.html#cb572-1" tabindex="-1"></a><span class="do">## predict(mdl.glm)&gt;0.5 is identical to </span></span>
+<span id="cb572-2"><a href="2.6-GLM.html#cb572-2" tabindex="-1"></a><span class="do">## predict(glm(response~grammaticality,data=grammatical,family = binomial),type=&quot;response&quot;)</span></span>
+<span id="cb572-3"><a href="2.6-GLM.html#cb572-3" tabindex="-1"></a>grammatical <span class="ot">&lt;-</span> grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb572-4"><a href="2.6-GLM.html#cb572-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">factor</span>(response, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>)),</span>
+<span id="cb572-5"><a href="2.6-GLM.html#cb572-5" tabindex="-1"></a>         <span class="at">grammaticality =</span> <span class="fu">factor</span>(grammaticality, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;grammatical&quot;</span>, <span class="st">&quot;ungrammatical&quot;</span>)))</span>
+<span id="cb572-6"><a href="2.6-GLM.html#cb572-6" tabindex="-1"></a></span>
+<span id="cb572-7"><a href="2.6-GLM.html#cb572-7" tabindex="-1"></a></span>
+<span id="cb572-8"><a href="2.6-GLM.html#cb572-8" tabindex="-1"></a></span>
+<span id="cb572-9"><a href="2.6-GLM.html#cb572-9" tabindex="-1"></a>mdl.glm.C <span class="ot">&lt;-</span> grammatical <span class="sc">%&gt;%</span> </span>
+<span id="cb572-10"><a href="2.6-GLM.html#cb572-10" tabindex="-1"></a>  <span class="fu">glm</span>(response <span class="sc">~</span> grammaticality, <span class="at">data =</span> .,<span class="at">family =</span> binomial)</span>
+<span id="cb572-11"><a href="2.6-GLM.html#cb572-11" tabindex="-1"></a></span>
+<span id="cb572-12"><a href="2.6-GLM.html#cb572-12" tabindex="-1"></a>tbl.glm <span class="ot">&lt;-</span> <span class="fu">table</span>(grammatical<span class="sc">$</span>response, <span class="fu">predict</span>(mdl.glm.C, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)<span class="sc">&gt;</span><span class="fl">0.5</span>)</span>
+<span id="cb572-13"><a href="2.6-GLM.html#cb572-13" tabindex="-1"></a><span class="fu">colnames</span>(tbl.glm) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;grammatical&quot;</span>, <span class="st">&quot;ungrammatical&quot;</span>)</span>
+<span id="cb572-14"><a href="2.6-GLM.html#cb572-14" tabindex="-1"></a>tbl.glm</span></code></pre></div>
 <pre><code>##      
 ##       grammatical ungrammatical
 ##   yes         100            10
 ##   no            5            50</code></pre>
-<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="2.6-GLM.html#cb573-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">pcc</span>(tbl.glm)</span></code></pre></div>
+<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="2.6-GLM.html#cb574-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">pcc</span>(tbl.glm)</span></code></pre></div>
 <pre><code>##         PCC    PCC.sd
 ## 1 0.9090909 0.0224484</code></pre>
-<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="2.6-GLM.html#cb575-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">specificity</span>(tbl.glm)</span></code></pre></div>
+<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="2.6-GLM.html#cb576-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">specificity</span>(tbl.glm)</span></code></pre></div>
 <pre><code>##   specificity specificity.sd
 ## 1   0.8333333     0.04851854</code></pre>
-<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="2.6-GLM.html#cb577-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">sensitivity</span>(tbl.glm)</span></code></pre></div>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="2.6-GLM.html#cb578-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">sensitivity</span>(tbl.glm)</span></code></pre></div>
 <pre><code>##   sensitivity sensitivity.sd
 ## 1    0.952381     0.02088233</code></pre>
-<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="2.6-GLM.html#cb579-1" tabindex="-1"></a><span class="do">###etc..</span></span></code></pre></div>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="2.6-GLM.html#cb580-1" tabindex="-1"></a><span class="do">###etc..</span></span></code></pre></div>
 <p>If you look at the results from SDT above, these results are the same as
 the following</p>
 <p>Accuracy: (TP+TN)/Total (0.9090909)</p>

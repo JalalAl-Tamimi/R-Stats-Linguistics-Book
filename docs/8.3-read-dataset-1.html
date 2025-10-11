@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8.3 Read dataset | Statistics for Linguists using R - Quantitative and qualitative approaches</title>
   <meta name="description" content="This repo contains all material for the book Statistics for Linguists using R - Quantitative and qualitative approaches" />
-  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8.3 Read dataset | Statistics for Linguists using R - Quantitative and qualitative approaches" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-16" />
+<meta name="date" content="2025-10-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -2017,11 +2017,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.3.2" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#reduce-dimensionality-by-selecting-uncorrelated-predictors"><i class="fa fa-check"></i><b>7.3.2</b> Reduce dimensionality by selecting uncorrelated predictors</a>
 <ul>
-<li class="chapter" data-level="7.3.2.1" data-path="Ch_08_GLM_DT_RF.html"><a href="#r%C2%B2-0.9"><i class="fa fa-check"></i><b>7.3.2.1</b> R² = 0.9</a></li>
-<li class="chapter" data-level="7.3.2.2" data-path="Ch_08_GLM_DT_RF.html"><a href="#r%C2%B2-0.75"><i class="fa fa-check"></i><b>7.3.2.2</b> R² = 0.75</a></li>
-<li class="chapter" data-level="7.3.2.3" data-path="Ch_08_GLM_DT_RF.html"><a href="#r%C2%B2-0.5"><i class="fa fa-check"></i><b>7.3.2.3</b> R² = 0.5</a></li>
-<li class="chapter" data-level="7.3.2.4" data-path="Ch_08_GLM_DT_RF.html"><a href="#r%C2%B2-0.25"><i class="fa fa-check"></i><b>7.3.2.4</b> R² = 0.25</a></li>
-<li class="chapter" data-level="7.3.2.5" data-path="Ch_08_GLM_DT_RF.html"><a href="#r%C2%B2-0.1"><i class="fa fa-check"></i><b>7.3.2.5</b> R² = 0.1</a></li>
+<li class="chapter" data-level="7.3.2.1" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.9"><i class="fa fa-check"></i><b>7.3.2.1</b> R² = 0.9</a></li>
+<li class="chapter" data-level="7.3.2.2" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.75"><i class="fa fa-check"></i><b>7.3.2.2</b> R² = 0.75</a></li>
+<li class="chapter" data-level="7.3.2.3" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.5"><i class="fa fa-check"></i><b>7.3.2.3</b> R² = 0.5</a></li>
+<li class="chapter" data-level="7.3.2.4" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.25"><i class="fa fa-check"></i><b>7.3.2.4</b> R² = 0.25</a></li>
+<li class="chapter" data-level="7.3.2.5" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.1"><i class="fa fa-check"></i><b>7.3.2.5</b> R² = 0.1</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html"><i class="fa fa-check"></i><b>7.4</b> Principal Component Analyses - PCA</a>
@@ -2223,16 +2223,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="read-dataset-1" class="section level2 hasAnchor" number="8.3">
 <h2><span class="header-section-number">8.3</span> Read dataset<a href="8.3-read-dataset-1.html#read-dataset-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb2122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2122-1"><a href="8.3-read-dataset-1.html#cb2122-1" tabindex="-1"></a>dfPharV2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/dfPharV2.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2133-1"><a href="8.3-read-dataset-1.html#cb2133-1" tabindex="-1"></a>dfPharV2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/dfPharV2.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 402 Columns: 25
-## ── Column specification ─────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr  (2): contextN, context
 ## dbl (23): CPP, Energy, H1A1c, H1A2c, H1A3c, H1H2c, H2H4c, H2KH5Kc, H42Kc, HN...
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb2124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2124-1"><a href="8.3-read-dataset-1.html#cb2124-1" tabindex="-1"></a>dfPharV2</span></code></pre></div>
+<div class="sourceCode" id="cb2135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2135-1"><a href="8.3-read-dataset-1.html#cb2135-1" tabindex="-1"></a>dfPharV2</span></code></pre></div>
 <pre><code>## # A tibble: 402 × 25
 ##    contextN context    CPP Energy H1A1c H1A2c   H1A3c   H1H2c H2H4c H2KH5Kc
 ##    &lt;chr&gt;    &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
@@ -2251,9 +2251,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   HNR35 &lt;dbl&gt;, SHR &lt;dbl&gt;, soe &lt;dbl&gt;, Z1mnZ0 &lt;dbl&gt;, Z2mnZ1 &lt;dbl&gt;,
 ## #   Z3mnZ2 &lt;dbl&gt;, Z4mnZ3 &lt;dbl&gt;, F0Bark &lt;dbl&gt;, A1mnA2 &lt;dbl&gt;, A1mnA3 &lt;dbl&gt;,
 ## #   A2mnA3 &lt;dbl&gt;</code></pre>
-<div class="sourceCode" id="cb2126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2126-1"><a href="8.3-read-dataset-1.html#cb2126-1" tabindex="-1"></a>dfPharV2 <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
-<span id="cb2126-2"><a href="8.3-read-dataset-1.html#cb2126-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>contextN) <span class="sc">%&gt;%</span> </span>
-<span id="cb2126-3"><a href="8.3-read-dataset-1.html#cb2126-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">factor</span>(context, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Non-Guttural&quot;</span>, <span class="st">&quot;Guttural&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb2137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2137-1"><a href="8.3-read-dataset-1.html#cb2137-1" tabindex="-1"></a>dfPharV2 <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb2137-2"><a href="8.3-read-dataset-1.html#cb2137-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>contextN) <span class="sc">%&gt;%</span> </span>
+<span id="cb2137-3"><a href="8.3-read-dataset-1.html#cb2137-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">factor</span>(context, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Non-Guttural&quot;</span>, <span class="st">&quot;Guttural&quot;</span>)))</span></code></pre></div>
 </div>
             </section>
 

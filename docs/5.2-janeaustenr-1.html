@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.2 janeaustenr | Statistics for Linguists using R - Quantitative and qualitative approaches</title>
   <meta name="description" content="This repo contains all material for the book Statistics for Linguists using R - Quantitative and qualitative approaches" />
-  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.2 janeaustenr | Statistics for Linguists using R - Quantitative and qualitative approaches" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-09-16" />
+<meta name="date" content="2025-10-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -2017,11 +2017,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.3.2" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#reduce-dimensionality-by-selecting-uncorrelated-predictors"><i class="fa fa-check"></i><b>7.3.2</b> Reduce dimensionality by selecting uncorrelated predictors</a>
 <ul>
-<li class="chapter" data-level="7.3.2.1" data-path="Ch_05_Corpus_Manipulations_II.html"><a href="#r%C2%B2-0.9"><i class="fa fa-check"></i><b>7.3.2.1</b> R² = 0.9</a></li>
-<li class="chapter" data-level="7.3.2.2" data-path="Ch_05_Corpus_Manipulations_II.html"><a href="#r%C2%B2-0.75"><i class="fa fa-check"></i><b>7.3.2.2</b> R² = 0.75</a></li>
-<li class="chapter" data-level="7.3.2.3" data-path="Ch_05_Corpus_Manipulations_II.html"><a href="#r%C2%B2-0.5"><i class="fa fa-check"></i><b>7.3.2.3</b> R² = 0.5</a></li>
-<li class="chapter" data-level="7.3.2.4" data-path="Ch_05_Corpus_Manipulations_II.html"><a href="#r%C2%B2-0.25"><i class="fa fa-check"></i><b>7.3.2.4</b> R² = 0.25</a></li>
-<li class="chapter" data-level="7.3.2.5" data-path="Ch_05_Corpus_Manipulations_II.html"><a href="#r%C2%B2-0.1"><i class="fa fa-check"></i><b>7.3.2.5</b> R² = 0.1</a></li>
+<li class="chapter" data-level="7.3.2.1" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.9"><i class="fa fa-check"></i><b>7.3.2.1</b> R² = 0.9</a></li>
+<li class="chapter" data-level="7.3.2.2" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.75"><i class="fa fa-check"></i><b>7.3.2.2</b> R² = 0.75</a></li>
+<li class="chapter" data-level="7.3.2.3" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.5"><i class="fa fa-check"></i><b>7.3.2.3</b> R² = 0.5</a></li>
+<li class="chapter" data-level="7.3.2.4" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.25"><i class="fa fa-check"></i><b>7.3.2.4</b> R² = 0.25</a></li>
+<li class="chapter" data-level="7.3.2.5" data-path="7.3-correlation-tests-1.html"><a href="7.3-correlation-tests-1.html#r%C2%B2-0.1"><i class="fa fa-check"></i><b>7.3.2.5</b> R² = 0.1</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="7.4-principal-component-analyses---pca.html"><a href="7.4-principal-component-analyses---pca.html"><i class="fa fa-check"></i><b>7.4</b> Principal Component Analyses - PCA</a>
@@ -2226,18 +2226,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="import-into-global-environment-2" class="section level3 hasAnchor" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> Import into <code>Global Environment</code><a href="5.2-janeaustenr-1.html#import-into-global-environment-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Adding data from the first book into the <code>Global Environment</code></p>
-<div class="sourceCode" id="cb1271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1271-1"><a href="5.2-janeaustenr-1.html#cb1271-1" tabindex="-1"></a><span class="fu">data</span>(sensesensibility)</span>
-<span id="cb1271-2"><a href="5.2-janeaustenr-1.html#cb1271-2" tabindex="-1"></a><span class="co">#data(prideprejudice)</span></span>
-<span id="cb1271-3"><a href="5.2-janeaustenr-1.html#cb1271-3" tabindex="-1"></a><span class="co">#data(mansfieldpark)</span></span>
-<span id="cb1271-4"><a href="5.2-janeaustenr-1.html#cb1271-4" tabindex="-1"></a><span class="co">#data(emma)</span></span>
-<span id="cb1271-5"><a href="5.2-janeaustenr-1.html#cb1271-5" tabindex="-1"></a><span class="co">#data(northangerabbey)</span></span>
-<span id="cb1271-6"><a href="5.2-janeaustenr-1.html#cb1271-6" tabindex="-1"></a><span class="co">#data(persuasion)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1281-1"><a href="5.2-janeaustenr-1.html#cb1281-1" tabindex="-1"></a><span class="fu">data</span>(sensesensibility)</span>
+<span id="cb1281-2"><a href="5.2-janeaustenr-1.html#cb1281-2" tabindex="-1"></a><span class="co">#data(prideprejudice)</span></span>
+<span id="cb1281-3"><a href="5.2-janeaustenr-1.html#cb1281-3" tabindex="-1"></a><span class="co">#data(mansfieldpark)</span></span>
+<span id="cb1281-4"><a href="5.2-janeaustenr-1.html#cb1281-4" tabindex="-1"></a><span class="co">#data(emma)</span></span>
+<span id="cb1281-5"><a href="5.2-janeaustenr-1.html#cb1281-5" tabindex="-1"></a><span class="co">#data(northangerabbey)</span></span>
+<span id="cb1281-6"><a href="5.2-janeaustenr-1.html#cb1281-6" tabindex="-1"></a><span class="co">#data(persuasion)</span></span></code></pre></div>
 </div>
 <div id="look-into-data-2" class="section level3 hasAnchor" number="5.2.2">
 <h3><span class="header-section-number">5.2.2</span> Look into data<a href="5.2-janeaustenr-1.html#look-into-data-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>And we can get the top 60 rows from “sensesensibility”</p>
-<div class="sourceCode" id="cb1272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1272-1"><a href="5.2-janeaustenr-1.html#cb1272-1" tabindex="-1"></a>sensesensibility <span class="sc">%&gt;%</span> </span>
-<span id="cb1272-2"><a href="5.2-janeaustenr-1.html#cb1272-2" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">60</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1282-1"><a href="5.2-janeaustenr-1.html#cb1282-1" tabindex="-1"></a>sensesensibility <span class="sc">%&gt;%</span> </span>
+<span id="cb1282-2"><a href="5.2-janeaustenr-1.html#cb1282-2" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">60</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;SENSE AND SENSIBILITY&quot;                                                  
 ##  [2] &quot;&quot;                                                                       
 ##  [3] &quot;by Jane Austen&quot;                                                         
@@ -2301,11 +2301,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="transform-to-a-dataframe-1" class="section level3 hasAnchor" number="5.2.3">
 <h3><span class="header-section-number">5.2.3</span> Transform to a dataframe<a href="5.2-janeaustenr-1.html#transform-to-a-dataframe-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1274-1"><a href="5.2-janeaustenr-1.html#cb1274-1" tabindex="-1"></a>sensesensibility_DF <span class="ot">&lt;-</span> sensesensibility <span class="sc">%&gt;%</span> </span>
-<span id="cb1274-2"><a href="5.2-janeaustenr-1.html#cb1274-2" tabindex="-1"></a>  <span class="fu">data.frame</span>()</span>
-<span id="cb1274-3"><a href="5.2-janeaustenr-1.html#cb1274-3" tabindex="-1"></a>sensesensibility_DF <span class="ot">&lt;-</span> sensesensibility_DF[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>),]</span>
-<span id="cb1274-4"><a href="5.2-janeaustenr-1.html#cb1274-4" tabindex="-1"></a>sensesensibility_DF <span class="sc">%&gt;%</span> </span>
-<span id="cb1274-5"><a href="5.2-janeaustenr-1.html#cb1274-5" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">60</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1284-1"><a href="5.2-janeaustenr-1.html#cb1284-1" tabindex="-1"></a>sensesensibility_DF <span class="ot">&lt;-</span> sensesensibility <span class="sc">%&gt;%</span> </span>
+<span id="cb1284-2"><a href="5.2-janeaustenr-1.html#cb1284-2" tabindex="-1"></a>  <span class="fu">data.frame</span>()</span>
+<span id="cb1284-3"><a href="5.2-janeaustenr-1.html#cb1284-3" tabindex="-1"></a>sensesensibility_DF <span class="ot">&lt;-</span> sensesensibility_DF[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>),]</span>
+<span id="cb1284-4"><a href="5.2-janeaustenr-1.html#cb1284-4" tabindex="-1"></a>sensesensibility_DF <span class="sc">%&gt;%</span> </span>
+<span id="cb1284-5"><a href="5.2-janeaustenr-1.html#cb1284-5" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">60</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;The family of Dashwood had long been settled in Sussex.  Their estate&quot;  
 ##  [2] &quot;was large, and their residence was at Norland Park, in the centre of&quot;   
 ##  [3] &quot;their property, where, for many generations, they had lived in so&quot;      
@@ -2369,8 +2369,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="create-a-corpus-7" class="section level3 hasAnchor" number="5.2.4">
 <h3><span class="header-section-number">5.2.4</span> Create a corpus<a href="5.2-janeaustenr-1.html#create-a-corpus-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1276-1"><a href="5.2-janeaustenr-1.html#cb1276-1" tabindex="-1"></a>sensesensibility_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(sensesensibility_DF)</span>
-<span id="cb1276-2"><a href="5.2-janeaustenr-1.html#cb1276-2" tabindex="-1"></a><span class="fu">print</span>(sensesensibility_corpus)</span></code></pre></div>
+<div class="sourceCode" id="cb1286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1286-1"><a href="5.2-janeaustenr-1.html#cb1286-1" tabindex="-1"></a>sensesensibility_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(sensesensibility_DF)</span>
+<span id="cb1286-2"><a href="5.2-janeaustenr-1.html#cb1286-2" tabindex="-1"></a><span class="fu">print</span>(sensesensibility_corpus)</span></code></pre></div>
 <pre><code>## Corpus consisting of 12,612 documents.
 ## text1 :
 ## &quot;The family of Dashwood had long been settled in Sussex.  The...&quot;
@@ -2392,10 +2392,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## [ reached max_ndoc ... 12,606 more documents ]</code></pre>
 <p>Given that we have many empty lines in this corpus, we clean it by excluding any empty line.</p>
-<div class="sourceCode" id="cb1278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1278-1"><a href="5.2-janeaustenr-1.html#cb1278-1" tabindex="-1"></a>sensesensibility_corpus <span class="ot">&lt;-</span> <span class="fu">corpus_subset</span>(sensesensibility_corpus, <span class="fu">ntoken</span>(sensesensibility_corpus) <span class="sc">&gt;=</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1288-1"><a href="5.2-janeaustenr-1.html#cb1288-1" tabindex="-1"></a>sensesensibility_corpus <span class="ot">&lt;-</span> <span class="fu">corpus_subset</span>(sensesensibility_corpus, <span class="fu">ntoken</span>(sensesensibility_corpus) <span class="sc">&gt;=</span> <span class="dv">1</span>)</span></code></pre></div>
 <div id="summary-25" class="section level4 hasAnchor" number="5.2.4.1">
 <h4><span class="header-section-number">5.2.4.1</span> Summary<a href="5.2-janeaustenr-1.html#summary-25" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1279-1"><a href="5.2-janeaustenr-1.html#cb1279-1" tabindex="-1"></a><span class="fu">summary</span>(sensesensibility_corpus, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1289-1"><a href="5.2-janeaustenr-1.html#cb1289-1" tabindex="-1"></a><span class="fu">summary</span>(sensesensibility_corpus, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Corpus consisting of 10592 documents, showing 10 documents:
 ## 
 ##    Text Types Tokens Sentences
@@ -2412,9 +2412,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="accessing-parts-of-corpus-7" class="section level4 hasAnchor" number="5.2.4.2">
 <h4><span class="header-section-number">5.2.4.2</span> Accessing parts of corpus<a href="5.2-janeaustenr-1.html#accessing-parts-of-corpus-7" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1281-1"><a href="5.2-janeaustenr-1.html#cb1281-1" tabindex="-1"></a><span class="fu">ndoc</span>(sensesensibility_corpus)</span></code></pre></div>
+<div class="sourceCode" id="cb1291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1291-1"><a href="5.2-janeaustenr-1.html#cb1291-1" tabindex="-1"></a><span class="fu">ndoc</span>(sensesensibility_corpus)</span></code></pre></div>
 <pre><code>## [1] 10592</code></pre>
-<div class="sourceCode" id="cb1283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1283-1"><a href="5.2-janeaustenr-1.html#cb1283-1" tabindex="-1"></a>sensesensibility_corpus[[<span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb1293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1293-1"><a href="5.2-janeaustenr-1.html#cb1293-1" tabindex="-1"></a>sensesensibility_corpus[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>## [1] &quot;The family of Dashwood had long been settled in Sussex.  Their estate&quot;</code></pre>
 </div>
 </div>
@@ -2426,8 +2426,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 We can remove punctuations or not</p>
 <div id="with-punctuations-7" class="section level5 hasAnchor" number="5.2.5.1.1">
 <h5><span class="header-section-number">5.2.5.1.1</span> With punctuations<a href="5.2-janeaustenr-1.html#with-punctuations-7" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1285-1"><a href="5.2-janeaustenr-1.html#cb1285-1" tabindex="-1"></a>sensesensibility_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(sensesensibility_corpus)</span>
-<span id="cb1285-2"><a href="5.2-janeaustenr-1.html#cb1285-2" tabindex="-1"></a>sensesensibility_corpus_tok</span></code></pre></div>
+<div class="sourceCode" id="cb1295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1295-1"><a href="5.2-janeaustenr-1.html#cb1295-1" tabindex="-1"></a>sensesensibility_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(sensesensibility_corpus)</span>
+<span id="cb1295-2"><a href="5.2-janeaustenr-1.html#cb1295-2" tabindex="-1"></a>sensesensibility_corpus_tok</span></code></pre></div>
 <pre><code>## Tokens consisting of 10,592 documents.
 ## text1 :
 ##  [1] &quot;The&quot;      &quot;family&quot;   &quot;of&quot;       &quot;Dashwood&quot; &quot;had&quot;      &quot;long&quot;    
@@ -2464,8 +2464,8 @@ We can remove punctuations or not</p>
 </div>
 <div id="without-punctuations-7" class="section level5 hasAnchor" number="5.2.5.1.2">
 <h5><span class="header-section-number">5.2.5.1.2</span> Without punctuations<a href="5.2-janeaustenr-1.html#without-punctuations-7" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1287-1"><a href="5.2-janeaustenr-1.html#cb1287-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(sensesensibility_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1287-2"><a href="5.2-janeaustenr-1.html#cb1287-2" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct</span></code></pre></div>
+<div class="sourceCode" id="cb1297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1297-1"><a href="5.2-janeaustenr-1.html#cb1297-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(sensesensibility_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1297-2"><a href="5.2-janeaustenr-1.html#cb1297-2" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct</span></code></pre></div>
 <pre><code>## Tokens consisting of 10,592 documents.
 ## text1 :
 ##  [1] &quot;The&quot;      &quot;family&quot;   &quot;of&quot;       &quot;Dashwood&quot; &quot;had&quot;      &quot;long&quot;    
@@ -2505,8 +2505,8 @@ We can remove punctuations or not</p>
 We already found these based the <code>kwic</code> function</p>
 <div id="kwic-phrase" class="section level5 hasAnchor" number="5.2.5.2.1">
 <h5><span class="header-section-number">5.2.5.2.1</span> <code>kwic</code> Phrase<a href="5.2-janeaustenr-1.html#kwic-phrase" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1289-1"><a href="5.2-janeaustenr-1.html#cb1289-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_phrase <span class="ot">&lt;-</span> <span class="fu">kwic</span>(sensesensibility_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="fu">phrase</span>(<span class="st">&quot;the house&quot;</span>), <span class="at">window =</span> <span class="dv">6</span>)</span>
-<span id="cb1289-2"><a href="5.2-janeaustenr-1.html#cb1289-2" tabindex="-1"></a><span class="fu">head</span>(sensesensibility_corpus_tok_no_punct_phrase, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1299-1"><a href="5.2-janeaustenr-1.html#cb1299-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_phrase <span class="ot">&lt;-</span> <span class="fu">kwic</span>(sensesensibility_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="fu">phrase</span>(<span class="st">&quot;the house&quot;</span>), <span class="at">window =</span> <span class="dv">6</span>)</span>
+<span id="cb1299-2"><a href="5.2-janeaustenr-1.html#cb1299-2" tabindex="-1"></a><span class="fu">head</span>(sensesensibility_corpus_tok_no_punct_phrase, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Keyword-in-context with 10 matches.                                                                             
 ##    [text97, 4:5]                                  right to come | the house |
 ##  [text110, 9:10]              the latter she would have quitted | the house |
@@ -2535,9 +2535,9 @@ We already found these based the <code>kwic</code> function</p>
 <p>However, these are computed as individual words not compound words.
 To do so, we can use the following code.
 As you see the phrase we were interested in is now added as compound words</p>
-<div class="sourceCode" id="cb1291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1291-1"><a href="5.2-janeaustenr-1.html#cb1291-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_comp <span class="ot">&lt;-</span> <span class="fu">tokens_compound</span>(sensesensibility_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">phrase</span>(<span class="st">&quot;the house&quot;</span>))</span>
-<span id="cb1291-2"><a href="5.2-janeaustenr-1.html#cb1291-2" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_comp_kwic <span class="ot">&lt;-</span> <span class="fu">kwic</span>(sensesensibility_corpus_tok_no_punct_comp, <span class="at">pattern =</span> <span class="fu">phrase</span>(<span class="st">&quot;the_house&quot;</span>))</span>
-<span id="cb1291-3"><a href="5.2-janeaustenr-1.html#cb1291-3" tabindex="-1"></a><span class="fu">head</span>(sensesensibility_corpus_tok_no_punct_comp_kwic, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1301-1"><a href="5.2-janeaustenr-1.html#cb1301-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_comp <span class="ot">&lt;-</span> <span class="fu">tokens_compound</span>(sensesensibility_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">phrase</span>(<span class="st">&quot;the house&quot;</span>))</span>
+<span id="cb1301-2"><a href="5.2-janeaustenr-1.html#cb1301-2" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_comp_kwic <span class="ot">&lt;-</span> <span class="fu">kwic</span>(sensesensibility_corpus_tok_no_punct_comp, <span class="at">pattern =</span> <span class="fu">phrase</span>(<span class="st">&quot;the_house&quot;</span>))</span>
+<span id="cb1301-3"><a href="5.2-janeaustenr-1.html#cb1301-3" tabindex="-1"></a><span class="fu">head</span>(sensesensibility_corpus_tok_no_punct_comp_kwic, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Keyword-in-context with 10 matches.                                                                 
 ##   [text97, 4]                         right to come | the_house |
 ##  [text110, 9]         latter she would have quitted | the_house |
@@ -2570,12 +2570,12 @@ N-grams yield a sequence of tokens from already tokenised text object.</p>
 <div id="multi-grams" class="section level5 hasAnchor" number="5.2.5.3.1">
 <h5><span class="header-section-number">5.2.5.3.1</span> Multi-grams<a href="5.2-janeaustenr-1.html#multi-grams" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>The code below allows to obtain the sequences of consecutive compound words, with 2, 3 or 4 compound words.</p>
-<div class="sourceCode" id="cb1293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1293-1"><a href="5.2-janeaustenr-1.html#cb1293-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_ngram <span class="ot">&lt;-</span> <span class="fu">tokens_ngrams</span>(sensesensibility_corpus_tok_no_punct, <span class="at">n =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1293-2"><a href="5.2-janeaustenr-1.html#cb1293-2" tabindex="-1"></a>  <span class="fu">unlist</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1293-3"><a href="5.2-janeaustenr-1.html#cb1293-3" tabindex="-1"></a>  <span class="fu">tolower</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1293-4"><a href="5.2-janeaustenr-1.html#cb1293-4" tabindex="-1"></a>  <span class="fu">table</span>()</span>
-<span id="cb1293-5"><a href="5.2-janeaustenr-1.html#cb1293-5" tabindex="-1"></a><span class="do">## Top 10 rows</span></span>
-<span id="cb1293-6"><a href="5.2-janeaustenr-1.html#cb1293-6" tabindex="-1"></a><span class="fu">head</span>(sensesensibility_corpus_tok_no_punct_ngram, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1303-1"><a href="5.2-janeaustenr-1.html#cb1303-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_ngram <span class="ot">&lt;-</span> <span class="fu">tokens_ngrams</span>(sensesensibility_corpus_tok_no_punct, <span class="at">n =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1303-2"><a href="5.2-janeaustenr-1.html#cb1303-2" tabindex="-1"></a>  <span class="fu">unlist</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1303-3"><a href="5.2-janeaustenr-1.html#cb1303-3" tabindex="-1"></a>  <span class="fu">tolower</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1303-4"><a href="5.2-janeaustenr-1.html#cb1303-4" tabindex="-1"></a>  <span class="fu">table</span>()</span>
+<span id="cb1303-5"><a href="5.2-janeaustenr-1.html#cb1303-5" tabindex="-1"></a><span class="do">## Top 10 rows</span></span>
+<span id="cb1303-6"><a href="5.2-janeaustenr-1.html#cb1303-6" tabindex="-1"></a><span class="fu">head</span>(sensesensibility_corpus_tok_no_punct_ngram, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## .
 ##                  1_ends                   200_l               200_l_per 
 ##                       1                       1                       1 
@@ -2585,8 +2585,8 @@ N-grams yield a sequence of tokens from already tokenised text object.</p>
 ##                       1                       1                       1 
 ##             a-piece_and 
 ##                       1</code></pre>
-<div class="sourceCode" id="cb1295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1295-1"><a href="5.2-janeaustenr-1.html#cb1295-1" tabindex="-1"></a><span class="do">## Last 10 rows</span></span>
-<span id="cb1295-2"><a href="5.2-janeaustenr-1.html#cb1295-2" tabindex="-1"></a><span class="fu">tail</span>(sensesensibility_corpus_tok_no_punct_ngram, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1305-1"><a href="5.2-janeaustenr-1.html#cb1305-1" tabindex="-1"></a><span class="do">## Last 10 rows</span></span>
+<span id="cb1305-2"><a href="5.2-janeaustenr-1.html#cb1305-2" tabindex="-1"></a><span class="fu">tail</span>(sensesensibility_corpus_tok_no_punct_ngram, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## .
 ## youthful_infatuation_of_nineteen                          zeal_in 
 ##                                1                                1 
@@ -2602,12 +2602,12 @@ N-grams yield a sequence of tokens from already tokenised text object.</p>
 <div id="skip-grams" class="section level5 hasAnchor" number="5.2.5.3.2">
 <h5><span class="header-section-number">5.2.5.3.2</span> Skip-grams<a href="5.2-janeaustenr-1.html#skip-grams" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Skip-grams allow to obtain non consecutive n-grams</p>
-<div class="sourceCode" id="cb1297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1297-1"><a href="5.2-janeaustenr-1.html#cb1297-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_ngram_skip <span class="ot">&lt;-</span> <span class="fu">tokens_ngrams</span>(sensesensibility_corpus_tok_no_punct, <span class="at">n =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">skip =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1297-2"><a href="5.2-janeaustenr-1.html#cb1297-2" tabindex="-1"></a>  <span class="fu">unlist</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1297-3"><a href="5.2-janeaustenr-1.html#cb1297-3" tabindex="-1"></a>  <span class="fu">tolower</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1297-4"><a href="5.2-janeaustenr-1.html#cb1297-4" tabindex="-1"></a>  <span class="fu">table</span>()</span>
-<span id="cb1297-5"><a href="5.2-janeaustenr-1.html#cb1297-5" tabindex="-1"></a><span class="do">## Top 10 rows</span></span>
-<span id="cb1297-6"><a href="5.2-janeaustenr-1.html#cb1297-6" tabindex="-1"></a><span class="fu">head</span>(sensesensibility_corpus_tok_no_punct_ngram_skip, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1307-1"><a href="5.2-janeaustenr-1.html#cb1307-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_ngram_skip <span class="ot">&lt;-</span> <span class="fu">tokens_ngrams</span>(sensesensibility_corpus_tok_no_punct, <span class="at">n =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">skip =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1307-2"><a href="5.2-janeaustenr-1.html#cb1307-2" tabindex="-1"></a>  <span class="fu">unlist</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1307-3"><a href="5.2-janeaustenr-1.html#cb1307-3" tabindex="-1"></a>  <span class="fu">tolower</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1307-4"><a href="5.2-janeaustenr-1.html#cb1307-4" tabindex="-1"></a>  <span class="fu">table</span>()</span>
+<span id="cb1307-5"><a href="5.2-janeaustenr-1.html#cb1307-5" tabindex="-1"></a><span class="do">## Top 10 rows</span></span>
+<span id="cb1307-6"><a href="5.2-janeaustenr-1.html#cb1307-6" tabindex="-1"></a><span class="fu">head</span>(sensesensibility_corpus_tok_no_punct_ngram_skip, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## .
 ##                  200_annum               200_annum_it 
 ##                          1                          1 
@@ -2619,8 +2619,8 @@ N-grams yield a sequence of tokens from already tokenised text object.</p>
 ##                          1                          1 
 ##                200_per_and             200_per_and_is 
 ##                          1                          1</code></pre>
-<div class="sourceCode" id="cb1299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1299-1"><a href="5.2-janeaustenr-1.html#cb1299-1" tabindex="-1"></a><span class="do">## Last 10 rows</span></span>
-<span id="cb1299-2"><a href="5.2-janeaustenr-1.html#cb1299-2" tabindex="-1"></a><span class="fu">tail</span>(sensesensibility_corpus_tok_no_punct_ngram_skip, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1309-1"><a href="5.2-janeaustenr-1.html#cb1309-1" tabindex="-1"></a><span class="do">## Last 10 rows</span></span>
+<span id="cb1309-2"><a href="5.2-janeaustenr-1.html#cb1309-2" tabindex="-1"></a><span class="fu">tail</span>(sensesensibility_corpus_tok_no_punct_ngram_skip, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## .
 ## zealous_as_what_and zealous_as_what_was          zealous_to       zealous_to_he 
 ##                   1                   1                   1                   1 
@@ -2636,10 +2636,10 @@ N-grams yield a sequence of tokens from already tokenised text object.</p>
 Here, we will create a dictionary that we populate ourselves and we show how to use it to search for items</p>
 <div id="create-dictionary" class="section level5 hasAnchor" number="5.2.5.4.1">
 <h5><span class="header-section-number">5.2.5.4.1</span> Create dictionary<a href="5.2-janeaustenr-1.html#create-dictionary" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1301-1"><a href="5.2-janeaustenr-1.html#cb1301-1" tabindex="-1"></a>dict_sensesensibility <span class="ot">&lt;-</span> <span class="fu">dictionary</span>(<span class="fu">list</span>(<span class="at">large =</span> <span class="fu">c</span>(<span class="st">&quot;large&quot;</span>, <span class="st">&quot;big&quot;</span>),</span>
-<span id="cb1301-2"><a href="5.2-janeaustenr-1.html#cb1301-2" tabindex="-1"></a>                        <span class="at">property =</span> <span class="fu">c</span>(<span class="st">&quot;property&quot;</span>, <span class="st">&quot;house&quot;</span>),</span>
-<span id="cb1301-3"><a href="5.2-janeaustenr-1.html#cb1301-3" tabindex="-1"></a>                        <span class="at">good =</span> <span class="fu">c</span>(<span class="st">&quot;good&quot;</span>, <span class="st">&quot;great&quot;</span>)))</span>
-<span id="cb1301-4"><a href="5.2-janeaustenr-1.html#cb1301-4" tabindex="-1"></a><span class="fu">print</span>(dict_sensesensibility)</span></code></pre></div>
+<div class="sourceCode" id="cb1311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1311-1"><a href="5.2-janeaustenr-1.html#cb1311-1" tabindex="-1"></a>dict_sensesensibility <span class="ot">&lt;-</span> <span class="fu">dictionary</span>(<span class="fu">list</span>(<span class="at">large =</span> <span class="fu">c</span>(<span class="st">&quot;large&quot;</span>, <span class="st">&quot;big&quot;</span>),</span>
+<span id="cb1311-2"><a href="5.2-janeaustenr-1.html#cb1311-2" tabindex="-1"></a>                        <span class="at">property =</span> <span class="fu">c</span>(<span class="st">&quot;property&quot;</span>, <span class="st">&quot;house&quot;</span>),</span>
+<span id="cb1311-3"><a href="5.2-janeaustenr-1.html#cb1311-3" tabindex="-1"></a>                        <span class="at">good =</span> <span class="fu">c</span>(<span class="st">&quot;good&quot;</span>, <span class="st">&quot;great&quot;</span>)))</span>
+<span id="cb1311-4"><a href="5.2-janeaustenr-1.html#cb1311-4" tabindex="-1"></a><span class="fu">print</span>(dict_sensesensibility)</span></code></pre></div>
 <pre><code>## Dictionary object with 3 key entries.
 ## - [large]:
 ##   - large, big
@@ -2650,8 +2650,8 @@ Here, we will create a dictionary that we populate ourselves and we show how to 
 </div>
 <div id="token-lookup" class="section level5 hasAnchor" number="5.2.5.4.2">
 <h5><span class="header-section-number">5.2.5.4.2</span> Token lookup<a href="5.2-janeaustenr-1.html#token-lookup" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1303-1"><a href="5.2-janeaustenr-1.html#cb1303-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_dict_toks <span class="ot">&lt;-</span> <span class="fu">tokens_lookup</span>(sensesensibility_corpus_tok_no_punct, <span class="at">dictionary =</span> dict_sensesensibility)</span>
-<span id="cb1303-2"><a href="5.2-janeaustenr-1.html#cb1303-2" tabindex="-1"></a><span class="fu">print</span>(sensesensibility_corpus_tok_no_punct_dict_toks)</span></code></pre></div>
+<div class="sourceCode" id="cb1313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1313-1"><a href="5.2-janeaustenr-1.html#cb1313-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_dict_toks <span class="ot">&lt;-</span> <span class="fu">tokens_lookup</span>(sensesensibility_corpus_tok_no_punct, <span class="at">dictionary =</span> dict_sensesensibility)</span>
+<span id="cb1313-2"><a href="5.2-janeaustenr-1.html#cb1313-2" tabindex="-1"></a><span class="fu">print</span>(sensesensibility_corpus_tok_no_punct_dict_toks)</span></code></pre></div>
 <pre><code>## Tokens consisting of 10,592 documents.
 ## text1 :
 ## character(0)
@@ -2675,7 +2675,7 @@ Here, we will create a dictionary that we populate ourselves and we show how to 
 </div>
 <div id="dfm" class="section level5 hasAnchor" number="5.2.5.4.3">
 <h5><span class="header-section-number">5.2.5.4.3</span> DFM<a href="5.2-janeaustenr-1.html#dfm" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1305-1"><a href="5.2-janeaustenr-1.html#cb1305-1" tabindex="-1"></a><span class="fu">dfm</span>(sensesensibility_corpus_tok_no_punct_dict_toks)</span></code></pre></div>
+<div class="sourceCode" id="cb1315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1315-1"><a href="5.2-janeaustenr-1.html#cb1315-1" tabindex="-1"></a><span class="fu">dfm</span>(sensesensibility_corpus_tok_no_punct_dict_toks)</span></code></pre></div>
 <pre><code>## Document-feature matrix of: 10,592 documents, 3 features (98.51% sparse) and 0 docvars.
 ##        features
 ## docs    large property good
@@ -2698,21 +2698,21 @@ We will use the <a href="https://cran.r-project.org/web/packages/udpipe/index.ht
 <h5><span class="header-section-number">5.2.5.5.1</span> Download and load language model<a href="5.2-janeaustenr-1.html#download-and-load-language-model" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Before using the PoS-tagger, we need to download a language model.
 As you can see from typing <code>?udpipe_download_model</code>, there are 65 languages trained on 101 treebanks from <a href="https://universaldependencies.org/">here</a></p>
-<div class="sourceCode" id="cb1307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1307-1"><a href="5.2-janeaustenr-1.html#cb1307-1" tabindex="-1"></a>file_to_check <span class="ot">&lt;-</span> <span class="st">&quot;models/english-ewt-ud-2.5-191206.udpipe&quot;</span></span>
-<span id="cb1307-2"><a href="5.2-janeaustenr-1.html#cb1307-2" tabindex="-1"></a></span>
-<span id="cb1307-3"><a href="5.2-janeaustenr-1.html#cb1307-3" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(<span class="at">file =</span> file_to_check)){</span>
-<span id="cb1307-4"><a href="5.2-janeaustenr-1.html#cb1307-4" tabindex="-1"></a>  m_english <span class="ot">&lt;-</span> <span class="fu">udpipe_load_model</span>(<span class="at">file =</span> <span class="st">&quot;models/english-ewt-ud-2.5-191206.udpipe&quot;</span>)</span>
-<span id="cb1307-5"><a href="5.2-janeaustenr-1.html#cb1307-5" tabindex="-1"></a>}<span class="cf">else</span>{</span>
-<span id="cb1307-6"><a href="5.2-janeaustenr-1.html#cb1307-6" tabindex="-1"></a>  m_english <span class="ot">&lt;-</span> <span class="fu">udpipe_download_model</span>(<span class="at">model_dir =</span> <span class="st">&quot;models/&quot;</span>, <span class="at">language =</span> <span class="st">&quot;english-ewt&quot;</span>)</span>
-<span id="cb1307-7"><a href="5.2-janeaustenr-1.html#cb1307-7" tabindex="-1"></a>  m_english <span class="ot">&lt;-</span> <span class="fu">udpipe_load_model</span>(<span class="at">file =</span> <span class="st">&quot;models/english-ewt-ud-2.5-191206.udpipe&quot;</span>)</span>
-<span id="cb1307-8"><a href="5.2-janeaustenr-1.html#cb1307-8" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb1317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1317-1"><a href="5.2-janeaustenr-1.html#cb1317-1" tabindex="-1"></a>file_to_check <span class="ot">&lt;-</span> <span class="st">&quot;models/english-ewt-ud-2.5-191206.udpipe&quot;</span></span>
+<span id="cb1317-2"><a href="5.2-janeaustenr-1.html#cb1317-2" tabindex="-1"></a></span>
+<span id="cb1317-3"><a href="5.2-janeaustenr-1.html#cb1317-3" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(<span class="at">file =</span> file_to_check)){</span>
+<span id="cb1317-4"><a href="5.2-janeaustenr-1.html#cb1317-4" tabindex="-1"></a>  m_english <span class="ot">&lt;-</span> <span class="fu">udpipe_load_model</span>(<span class="at">file =</span> <span class="st">&quot;models/english-ewt-ud-2.5-191206.udpipe&quot;</span>)</span>
+<span id="cb1317-5"><a href="5.2-janeaustenr-1.html#cb1317-5" tabindex="-1"></a>}<span class="cf">else</span>{</span>
+<span id="cb1317-6"><a href="5.2-janeaustenr-1.html#cb1317-6" tabindex="-1"></a>  m_english <span class="ot">&lt;-</span> <span class="fu">udpipe_download_model</span>(<span class="at">model_dir =</span> <span class="st">&quot;models/&quot;</span>, <span class="at">language =</span> <span class="st">&quot;english-ewt&quot;</span>)</span>
+<span id="cb1317-7"><a href="5.2-janeaustenr-1.html#cb1317-7" tabindex="-1"></a>  m_english <span class="ot">&lt;-</span> <span class="fu">udpipe_load_model</span>(<span class="at">file =</span> <span class="st">&quot;models/english-ewt-ud-2.5-191206.udpipe&quot;</span>)</span>
+<span id="cb1317-8"><a href="5.2-janeaustenr-1.html#cb1317-8" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="tokenise-tag-dependency-parsing" class="section level5 hasAnchor" number="5.2.5.5.2">
 <h5><span class="header-section-number">5.2.5.5.2</span> Tokenise, tag, dependency parsing<a href="5.2-janeaustenr-1.html#tokenise-tag-dependency-parsing" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1308-1"><a href="5.2-janeaustenr-1.html#cb1308-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_anndf <span class="ot">&lt;-</span> <span class="fu">udpipe_annotate</span>(m_english, <span class="at">x =</span> sensesensibility_corpus_tok_no_punct[[<span class="dv">1</span>]]) <span class="sc">%&gt;%</span></span>
-<span id="cb1308-2"><a href="5.2-janeaustenr-1.html#cb1308-2" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() </span>
-<span id="cb1308-3"><a href="5.2-janeaustenr-1.html#cb1308-3" tabindex="-1"></a><span class="do">## inspect</span></span>
-<span id="cb1308-4"><a href="5.2-janeaustenr-1.html#cb1308-4" tabindex="-1"></a><span class="fu">head</span>(sensesensibility_corpus_tok_no_punct_anndf, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1318-1"><a href="5.2-janeaustenr-1.html#cb1318-1" tabindex="-1"></a>sensesensibility_corpus_tok_no_punct_anndf <span class="ot">&lt;-</span> <span class="fu">udpipe_annotate</span>(m_english, <span class="at">x =</span> sensesensibility_corpus_tok_no_punct[[<span class="dv">1</span>]]) <span class="sc">%&gt;%</span></span>
+<span id="cb1318-2"><a href="5.2-janeaustenr-1.html#cb1318-2" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() </span>
+<span id="cb1318-3"><a href="5.2-janeaustenr-1.html#cb1318-3" tabindex="-1"></a><span class="do">## inspect</span></span>
+<span id="cb1318-4"><a href="5.2-janeaustenr-1.html#cb1318-4" tabindex="-1"></a><span class="fu">head</span>(sensesensibility_corpus_tok_no_punct_anndf, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##    doc_id paragraph_id sentence_id sentence token_id    token    lemma  upos
 ## 1    doc1            1           1      The        1      The      the   DET
 ## 2    doc2            1           1   family        1   family   family  NOUN
@@ -2749,11 +2749,11 @@ As you can see from typing <code>?udpipe_download_model</code>, there are 65 lan
 </div>
 <div id="dependency-parsing" class="section level5 hasAnchor" number="5.2.5.5.3">
 <h5><span class="header-section-number">5.2.5.5.3</span> Dependency parsing<a href="5.2-janeaustenr-1.html#dependency-parsing" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1310-1"><a href="5.2-janeaustenr-1.html#cb1310-1" tabindex="-1"></a><span class="do">## parse text</span></span>
-<span id="cb1310-2"><a href="5.2-janeaustenr-1.html#cb1310-2" tabindex="-1"></a>sensesensibility_corpus_sent <span class="ot">&lt;-</span> <span class="fu">udpipe_annotate</span>(m_english, <span class="at">x =</span> sensesensibility_corpus[[<span class="dv">1</span>]]) <span class="sc">%&gt;%</span></span>
-<span id="cb1310-3"><a href="5.2-janeaustenr-1.html#cb1310-3" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
-<span id="cb1310-4"><a href="5.2-janeaustenr-1.html#cb1310-4" tabindex="-1"></a><span class="do">## inspect</span></span>
-<span id="cb1310-5"><a href="5.2-janeaustenr-1.html#cb1310-5" tabindex="-1"></a><span class="fu">head</span>(sensesensibility_corpus_sent)</span></code></pre></div>
+<div class="sourceCode" id="cb1320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1320-1"><a href="5.2-janeaustenr-1.html#cb1320-1" tabindex="-1"></a><span class="do">## parse text</span></span>
+<span id="cb1320-2"><a href="5.2-janeaustenr-1.html#cb1320-2" tabindex="-1"></a>sensesensibility_corpus_sent <span class="ot">&lt;-</span> <span class="fu">udpipe_annotate</span>(m_english, <span class="at">x =</span> sensesensibility_corpus[[<span class="dv">1</span>]]) <span class="sc">%&gt;%</span></span>
+<span id="cb1320-3"><a href="5.2-janeaustenr-1.html#cb1320-3" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb1320-4"><a href="5.2-janeaustenr-1.html#cb1320-4" tabindex="-1"></a><span class="do">## inspect</span></span>
+<span id="cb1320-5"><a href="5.2-janeaustenr-1.html#cb1320-5" tabindex="-1"></a><span class="fu">head</span>(sensesensibility_corpus_sent)</span></code></pre></div>
 <pre><code>##   doc_id paragraph_id sentence_id
 ## 1   doc1            1           1
 ## 2   doc1            1           1
@@ -2782,9 +2782,9 @@ As you can see from typing <code>?udpipe_download_model</code>, there are 65 lan
 ## 4 &lt;NA&gt; &lt;NA&gt;
 ## 5 &lt;NA&gt; &lt;NA&gt;
 ## 6 &lt;NA&gt; &lt;NA&gt;</code></pre>
-<div class="sourceCode" id="cb1312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1312-1"><a href="5.2-janeaustenr-1.html#cb1312-1" tabindex="-1"></a>sensesensibility_corpus_sent_dplot <span class="ot">&lt;-</span> <span class="fu">textplot_dependencyparser</span>(sensesensibility_corpus_sent, <span class="at">size =</span> <span class="dv">3</span>) </span>
-<span id="cb1312-2"><a href="5.2-janeaustenr-1.html#cb1312-2" tabindex="-1"></a><span class="do">## show plot</span></span>
-<span id="cb1312-3"><a href="5.2-janeaustenr-1.html#cb1312-3" tabindex="-1"></a>sensesensibility_corpus_sent_dplot</span></code></pre></div>
+<div class="sourceCode" id="cb1322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1322-1"><a href="5.2-janeaustenr-1.html#cb1322-1" tabindex="-1"></a>sensesensibility_corpus_sent_dplot <span class="ot">&lt;-</span> <span class="fu">textplot_dependencyparser</span>(sensesensibility_corpus_sent, <span class="at">size =</span> <span class="dv">3</span>) </span>
+<span id="cb1322-2"><a href="5.2-janeaustenr-1.html#cb1322-2" tabindex="-1"></a><span class="do">## show plot</span></span>
+<span id="cb1322-3"><a href="5.2-janeaustenr-1.html#cb1322-3" tabindex="-1"></a>sensesensibility_corpus_sent_dplot</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-558-1.png" width="672" /></p>
 </div>
 </div>
@@ -2793,20 +2793,20 @@ As you can see from typing <code>?udpipe_download_model</code>, there are 65 lan
 <p>Feature co-occurrence matrix (FCM) records the number of co-occurrences of tokens</p>
 <div id="computing-number-of-co-occurrences" class="section level5 hasAnchor" number="5.2.5.6.1">
 <h5><span class="header-section-number">5.2.5.6.1</span> Computing number of co-occurrences<a href="5.2-janeaustenr-1.html#computing-number-of-co-occurrences" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1313-1"><a href="5.2-janeaustenr-1.html#cb1313-1" tabindex="-1"></a>sensesensibility_corpus_dfmat <span class="ot">&lt;-</span> <span class="fu">dfm</span>(sensesensibility_corpus_tok_no_punct)</span>
-<span id="cb1313-2"><a href="5.2-janeaustenr-1.html#cb1313-2" tabindex="-1"></a>sensesensibility_corpus_dfmat_trim <span class="ot">&lt;-</span> <span class="fu">dfm_trim</span>(sensesensibility_corpus_dfmat, <span class="at">min_termfreq =</span> <span class="dv">500</span>)</span>
-<span id="cb1313-3"><a href="5.2-janeaustenr-1.html#cb1313-3" tabindex="-1"></a></span>
-<span id="cb1313-4"><a href="5.2-janeaustenr-1.html#cb1313-4" tabindex="-1"></a>topfeatures_sensesensibility_corpus <span class="ot">&lt;-</span> <span class="fu">topfeatures</span>(sensesensibility_corpus_dfmat_trim)</span>
-<span id="cb1313-5"><a href="5.2-janeaustenr-1.html#cb1313-5" tabindex="-1"></a>topfeatures_sensesensibility_corpus</span></code></pre></div>
+<div class="sourceCode" id="cb1323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1323-1"><a href="5.2-janeaustenr-1.html#cb1323-1" tabindex="-1"></a>sensesensibility_corpus_dfmat <span class="ot">&lt;-</span> <span class="fu">dfm</span>(sensesensibility_corpus_tok_no_punct)</span>
+<span id="cb1323-2"><a href="5.2-janeaustenr-1.html#cb1323-2" tabindex="-1"></a>sensesensibility_corpus_dfmat_trim <span class="ot">&lt;-</span> <span class="fu">dfm_trim</span>(sensesensibility_corpus_dfmat, <span class="at">min_termfreq =</span> <span class="dv">500</span>)</span>
+<span id="cb1323-3"><a href="5.2-janeaustenr-1.html#cb1323-3" tabindex="-1"></a></span>
+<span id="cb1323-4"><a href="5.2-janeaustenr-1.html#cb1323-4" tabindex="-1"></a>topfeatures_sensesensibility_corpus <span class="ot">&lt;-</span> <span class="fu">topfeatures</span>(sensesensibility_corpus_dfmat_trim)</span>
+<span id="cb1323-5"><a href="5.2-janeaustenr-1.html#cb1323-5" tabindex="-1"></a>topfeatures_sensesensibility_corpus</span></code></pre></div>
 <pre><code>##  the   to   of  and  her    a    i   in  was   it 
 ## 4105 4104 3570 3488 2543 2067 1998 1948 1861 1755</code></pre>
-<div class="sourceCode" id="cb1315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1315-1"><a href="5.2-janeaustenr-1.html#cb1315-1" tabindex="-1"></a><span class="fu">nfeat</span>(sensesensibility_corpus_dfmat_trim)</span></code></pre></div>
+<div class="sourceCode" id="cb1325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1325-1"><a href="5.2-janeaustenr-1.html#cb1325-1" tabindex="-1"></a><span class="fu">nfeat</span>(sensesensibility_corpus_dfmat_trim)</span></code></pre></div>
 <pre><code>## [1] 40</code></pre>
 </div>
 <div id="features-co-occurrences" class="section level5 hasAnchor" number="5.2.5.6.2">
 <h5><span class="header-section-number">5.2.5.6.2</span> Features co-occurrences<a href="5.2-janeaustenr-1.html#features-co-occurrences" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1317-1"><a href="5.2-janeaustenr-1.html#cb1317-1" tabindex="-1"></a>sensesensibility_corpus_fcmat <span class="ot">&lt;-</span> <span class="fu">fcm</span>(sensesensibility_corpus_dfmat_trim)</span>
-<span id="cb1317-2"><a href="5.2-janeaustenr-1.html#cb1317-2" tabindex="-1"></a>sensesensibility_corpus_fcmat</span></code></pre></div>
+<div class="sourceCode" id="cb1327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1327-1"><a href="5.2-janeaustenr-1.html#cb1327-1" tabindex="-1"></a>sensesensibility_corpus_fcmat <span class="ot">&lt;-</span> <span class="fu">fcm</span>(sensesensibility_corpus_dfmat_trim)</span>
+<span id="cb1327-2"><a href="5.2-janeaustenr-1.html#cb1327-2" tabindex="-1"></a>sensesensibility_corpus_fcmat</span></code></pre></div>
 <pre><code>## Feature co-occurrence matrix of: 40 by 40 features.
 ##         features
 ## features the   of had  in was  and  at for they  so
