@@ -17,7 +17,12 @@ description: "This repo contains all material for the book `Statistics for Lingu
 
 This book covers the basics of statistics and R programming for linguists. It is based on various courses I have taught at both Newcastle University, Newcastle, UK during various workshops and mainly at the Université Paris Cité, Paris, France during my teaching at undergraduate and postgraduate levels. 
 
-It is designed to be accessible to those with little or no prior experience in statistics or programming. The book applies these concepts to real-world examples from linguistics, including phonetics, syntax, and semantics. The book also includes exercises and solutions to help readers practice and reinforce their understanding of the material. The book is divided into four main parts. 
+You can use this reference for citation:
+
+Al-Tamimi, J. (2025). *Statistics for Linguists using R - Quantitative and qualitative approaches*. Bookdown. https://jalalal-tamimi.github.io/R-Stats-Linguistics-Book/. Doi: [https://doi.org/10.5281/zenodo.17249197](10.5281/zenodo.17249197)
+[![DOI](https://zenodo.org/badge/970753526.svg)](https://doi.org/10.5281/zenodo.17249197).
+
+The book is designed to be accessible to those with little or no prior experience in statistics or programming. The book applies these concepts to real-world examples from linguistics, including phonetics, syntax, and semantics. The book also includes exercises and solutions to help readers practice and reinforce their understanding of the material. The book is divided into four main parts. 
 
 The first part covered in **chapter \@ref(IntroTidyverseVisualisation)** introduces the basics of the R programming language and the tidyverse universe. It covers data manipulation, data cleaning and an introduction to the basics of descriptive statistics. We end the part with data visualisation.
 

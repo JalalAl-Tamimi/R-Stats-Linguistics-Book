@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-10-11" />
+<meta name="date" content="2025-11-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -2227,11 +2227,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 This is a JSON file (.json) downloaded from the Twitter stream API.</p>
 <div id="importing-data-7" class="section level3 hasAnchor" number="5.6.1">
 <h3><span class="header-section-number">5.6.1</span> Importing data<a href="5.6-twitter-data-1.html#importing-data-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1525-1"><a href="5.6-twitter-data-1.html#cb1525-1" tabindex="-1"></a>dat_twitter <span class="ot">&lt;-</span> <span class="fu">readtext</span>(<span class="st">&quot;data/twitter.json&quot;</span>, <span class="at">source =</span> <span class="st">&quot;twitter&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1522-1"><a href="5.6-twitter-data-1.html#cb1522-1" tabindex="-1"></a>dat_twitter <span class="ot">&lt;-</span> <span class="fu">readtext</span>(<span class="st">&quot;data/twitter.json&quot;</span>, <span class="at">source =</span> <span class="st">&quot;twitter&quot;</span>)</span></code></pre></div>
 <div id="create-a-corpus-11" class="section level4 hasAnchor" number="5.6.1.1">
 <h4><span class="header-section-number">5.6.1.1</span> Create a corpus<a href="5.6-twitter-data-1.html#create-a-corpus-11" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1526-1"><a href="5.6-twitter-data-1.html#cb1526-1" tabindex="-1"></a>dat_twitter_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(dat_twitter)</span>
-<span id="cb1526-2"><a href="5.6-twitter-data-1.html#cb1526-2" tabindex="-1"></a><span class="fu">print</span>(dat_twitter_corpus)</span></code></pre></div>
+<div class="sourceCode" id="cb1523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1523-1"><a href="5.6-twitter-data-1.html#cb1523-1" tabindex="-1"></a>dat_twitter_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(dat_twitter)</span>
+<span id="cb1523-2"><a href="5.6-twitter-data-1.html#cb1523-2" tabindex="-1"></a><span class="fu">print</span>(dat_twitter_corpus)</span></code></pre></div>
 <pre><code>## Corpus consisting of 7,504 documents and 42 docvars.
 ## twitter.json.1 :
 ## &quot;@EFC_Jayy UKIP&quot;
@@ -2255,7 +2255,7 @@ This is a JSON file (.json) downloaded from the Twitter stream API.</p>
 </div>
 <div id="summary-29" class="section level4 hasAnchor" number="5.6.1.2">
 <h4><span class="header-section-number">5.6.1.2</span> Summary<a href="5.6-twitter-data-1.html#summary-29" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1528-1"><a href="5.6-twitter-data-1.html#cb1528-1" tabindex="-1"></a><span class="fu">summary</span>(dat_twitter_corpus, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1525-1"><a href="5.6-twitter-data-1.html#cb1525-1" tabindex="-1"></a><span class="fu">summary</span>(dat_twitter_corpus, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Corpus consisting of 7504 documents, showing 10 documents:
 ## 
 ##             Text Types Tokens Sentences retweet_count favorite_count favorited
@@ -2415,7 +2415,7 @@ This is a JSON file (.json) downloaded from the Twitter stream API.</p>
 </div>
 <div id="accessing-parts-of-corpus-11" class="section level4 hasAnchor" number="5.6.1.3">
 <h4><span class="header-section-number">5.6.1.3</span> Accessing parts of corpus<a href="5.6-twitter-data-1.html#accessing-parts-of-corpus-11" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1530-1"><a href="5.6-twitter-data-1.html#cb1530-1" tabindex="-1"></a>dat_twitter_corpus[,<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1527-1"><a href="5.6-twitter-data-1.html#cb1527-1" tabindex="-1"></a>dat_twitter_corpus[,<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## Corpus consisting of 7,504 documents and 42 docvars.
 ## twitter.json.1 :
 ## &quot;@EFC_Jayy UKIP&quot;
@@ -2439,7 +2439,7 @@ This is a JSON file (.json) downloaded from the Twitter stream API.</p>
 </div>
 <div id="document-level-information-9" class="section level4 hasAnchor" number="5.6.1.4">
 <h4><span class="header-section-number">5.6.1.4</span> Document-level information<a href="5.6-twitter-data-1.html#document-level-information-9" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1532-1"><a href="5.6-twitter-data-1.html#cb1532-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">docvars</span>(dat_twitter_corpus))</span></code></pre></div>
+<div class="sourceCode" id="cb1529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1529-1"><a href="5.6-twitter-data-1.html#cb1529-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">docvars</span>(dat_twitter_corpus))</span></code></pre></div>
 <pre><code>##   retweet_count favorite_count favorited truncated             id_str
 ## 1             0              0     FALSE     FALSE 872596537142116352
 ## 2            90            108     FALSE     FALSE 872596536869363712
@@ -2541,7 +2541,7 @@ This is a JSON file (.json) downloaded from the Twitter stream API.</p>
 </div>
 <div id="unique-variable-names-for-volume-5" class="section level4 hasAnchor" number="5.6.1.5">
 <h4><span class="header-section-number">5.6.1.5</span> Unique variable names (for volume)<a href="5.6-twitter-data-1.html#unique-variable-names-for-volume-5" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1534-1"><a href="5.6-twitter-data-1.html#cb1534-1" tabindex="-1"></a><span class="fu">unique</span>(<span class="fu">docvars</span>(dat_twitter_corpus, <span class="at">field =</span> <span class="st">&quot;lang&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1531-1"><a href="5.6-twitter-data-1.html#cb1531-1" tabindex="-1"></a><span class="fu">unique</span>(<span class="fu">docvars</span>(dat_twitter_corpus, <span class="at">field =</span> <span class="st">&quot;lang&quot;</span>))</span></code></pre></div>
 <pre><code>##  [1] &quot;en&quot;  &quot;tl&quot;  &quot;und&quot; &quot;fr&quot;  &quot;ja&quot;  &quot;de&quot;  &quot;sv&quot;  &quot;hu&quot;  &quot;ht&quot;  &quot;lt&quot;  &quot;cy&quot;  &quot;ar&quot; 
 ## [13] &quot;pt&quot;  &quot;in&quot;  &quot;fi&quot;  &quot;tr&quot;  &quot;es&quot;  &quot;hi&quot;  &quot;fa&quot;  &quot;it&quot;  &quot;pl&quot;</code></pre>
 </div>
@@ -2554,8 +2554,8 @@ This is a JSON file (.json) downloaded from the Twitter stream API.</p>
 We can remove punctuations or not</p>
 <div id="with-punctuations-11" class="section level5 hasAnchor" number="5.6.2.1.1">
 <h5><span class="header-section-number">5.6.2.1.1</span> With punctuations<a href="5.6-twitter-data-1.html#with-punctuations-11" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1536-1"><a href="5.6-twitter-data-1.html#cb1536-1" tabindex="-1"></a>dat_twitter_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_twitter_corpus)</span>
-<span id="cb1536-2"><a href="5.6-twitter-data-1.html#cb1536-2" tabindex="-1"></a>dat_twitter_corpus_tok</span></code></pre></div>
+<div class="sourceCode" id="cb1533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1533-1"><a href="5.6-twitter-data-1.html#cb1533-1" tabindex="-1"></a>dat_twitter_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_twitter_corpus)</span>
+<span id="cb1533-2"><a href="5.6-twitter-data-1.html#cb1533-2" tabindex="-1"></a>dat_twitter_corpus_tok</span></code></pre></div>
 <pre><code>## Tokens consisting of 7,504 documents and 42 docvars.
 ## twitter.json.1 :
 ## [1] &quot;@EFC_Jayy&quot; &quot;UKIP&quot;     
@@ -2593,8 +2593,8 @@ We can remove punctuations or not</p>
 </div>
 <div id="without-punctuations-11" class="section level5 hasAnchor" number="5.6.2.1.2">
 <h5><span class="header-section-number">5.6.2.1.2</span> Without punctuations<a href="5.6-twitter-data-1.html#without-punctuations-11" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1538-1"><a href="5.6-twitter-data-1.html#cb1538-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_twitter_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1538-2"><a href="5.6-twitter-data-1.html#cb1538-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct</span></code></pre></div>
+<div class="sourceCode" id="cb1535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1535-1"><a href="5.6-twitter-data-1.html#cb1535-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(dat_twitter_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1535-2"><a href="5.6-twitter-data-1.html#cb1535-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct</span></code></pre></div>
 <pre><code>## Tokens consisting of 7,504 documents and 42 docvars.
 ## twitter.json.1 :
 ## [1] &quot;@EFC_Jayy&quot; &quot;UKIP&quot;     
@@ -2639,8 +2639,8 @@ We can remove punctuations or not</p>
 <h4><span class="header-section-number">5.6.2.2</span> Compound words<a href="5.6-twitter-data-1.html#compound-words-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div id="kwic-phrase-4" class="section level5 hasAnchor" number="5.6.2.2.1">
 <h5><span class="header-section-number">5.6.2.2.1</span> <code>kwic</code> Phrase<a href="5.6-twitter-data-1.html#kwic-phrase-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1540-1"><a href="5.6-twitter-data-1.html#cb1540-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_phrase <span class="ot">&lt;-</span> <span class="fu">kwic</span>(dat_twitter_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="fu">phrase</span>(<span class="st">&quot;the tory&quot;</span>), <span class="at">window =</span> <span class="dv">6</span>)</span>
-<span id="cb1540-2"><a href="5.6-twitter-data-1.html#cb1540-2" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_tok_no_punct_phrase, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1537-1"><a href="5.6-twitter-data-1.html#cb1537-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_phrase <span class="ot">&lt;-</span> <span class="fu">kwic</span>(dat_twitter_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="fu">phrase</span>(<span class="st">&quot;the tory&quot;</span>), <span class="at">window =</span> <span class="dv">6</span>)</span>
+<span id="cb1537-2"><a href="5.6-twitter-data-1.html#cb1537-2" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_tok_no_punct_phrase, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Keyword-in-context with 10 matches.                                                                           
 ##   [twitter.json.112, 6:7] RT@SocialistVoice People are mocking | the Tory |
 ##   [twitter.json.131, 6:7] RT@SocialistVoice People are mocking | the Tory |
@@ -2666,9 +2666,9 @@ We can remove punctuations or not</p>
 </div>
 <div id="compounds-4" class="section level5 hasAnchor" number="5.6.2.2.2">
 <h5><span class="header-section-number">5.6.2.2.2</span> Compounds<a href="5.6-twitter-data-1.html#compounds-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1542-1"><a href="5.6-twitter-data-1.html#cb1542-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_comp <span class="ot">&lt;-</span> <span class="fu">tokens_compound</span>(dat_twitter_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">phrase</span>(<span class="st">&quot;the tory&quot;</span>))</span>
-<span id="cb1542-2"><a href="5.6-twitter-data-1.html#cb1542-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_comp_kwic <span class="ot">&lt;-</span> <span class="fu">kwic</span>(dat_twitter_corpus_tok_no_punct_comp, <span class="at">pattern =</span> <span class="fu">phrase</span>(<span class="st">&quot;the_tory&quot;</span>))</span>
-<span id="cb1542-3"><a href="5.6-twitter-data-1.html#cb1542-3" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_tok_no_punct_comp_kwic, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1539-1"><a href="5.6-twitter-data-1.html#cb1539-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_comp <span class="ot">&lt;-</span> <span class="fu">tokens_compound</span>(dat_twitter_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">phrase</span>(<span class="st">&quot;the tory&quot;</span>))</span>
+<span id="cb1539-2"><a href="5.6-twitter-data-1.html#cb1539-2" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_comp_kwic <span class="ot">&lt;-</span> <span class="fu">kwic</span>(dat_twitter_corpus_tok_no_punct_comp, <span class="at">pattern =</span> <span class="fu">phrase</span>(<span class="st">&quot;the_tory&quot;</span>))</span>
+<span id="cb1539-3"><a href="5.6-twitter-data-1.html#cb1539-3" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_tok_no_punct_comp_kwic, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Keyword-in-context with 10 matches.                                                                         
 ##   [twitter.json.112, 6] RT@SocialistVoice People are mocking | the_Tory |
 ##   [twitter.json.131, 6] RT@SocialistVoice People are mocking | the_Tory |
@@ -2701,12 +2701,12 @@ N-grams yield a sequence of tokens from already tokenised text object.</p>
 <div id="multi-grams-4" class="section level5 hasAnchor" number="5.6.2.3.1">
 <h5><span class="header-section-number">5.6.2.3.1</span> Multi-grams<a href="5.6-twitter-data-1.html#multi-grams-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>The code below allows to obtain the sequences of consecutive compound words, with 2, 3 or 4 compound words.</p>
-<div class="sourceCode" id="cb1544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1544-1"><a href="5.6-twitter-data-1.html#cb1544-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_ngram <span class="ot">&lt;-</span> <span class="fu">tokens_ngrams</span>(dat_twitter_corpus_tok_no_punct, <span class="at">n =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1544-2"><a href="5.6-twitter-data-1.html#cb1544-2" tabindex="-1"></a>  <span class="fu">unlist</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1544-3"><a href="5.6-twitter-data-1.html#cb1544-3" tabindex="-1"></a>  <span class="fu">tolower</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1544-4"><a href="5.6-twitter-data-1.html#cb1544-4" tabindex="-1"></a>  <span class="fu">table</span>()</span>
-<span id="cb1544-5"><a href="5.6-twitter-data-1.html#cb1544-5" tabindex="-1"></a><span class="do">## Top 10 rows</span></span>
-<span id="cb1544-6"><a href="5.6-twitter-data-1.html#cb1544-6" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_tok_no_punct_ngram, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1541-1"><a href="5.6-twitter-data-1.html#cb1541-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_ngram <span class="ot">&lt;-</span> <span class="fu">tokens_ngrams</span>(dat_twitter_corpus_tok_no_punct, <span class="at">n =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1541-2"><a href="5.6-twitter-data-1.html#cb1541-2" tabindex="-1"></a>  <span class="fu">unlist</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1541-3"><a href="5.6-twitter-data-1.html#cb1541-3" tabindex="-1"></a>  <span class="fu">tolower</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1541-4"><a href="5.6-twitter-data-1.html#cb1541-4" tabindex="-1"></a>  <span class="fu">table</span>()</span>
+<span id="cb1541-5"><a href="5.6-twitter-data-1.html#cb1541-5" tabindex="-1"></a><span class="do">## Top 10 rows</span></span>
+<span id="cb1541-6"><a href="5.6-twitter-data-1.html#cb1541-6" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_tok_no_punct_ngram, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## .
 ##                                 ‼️_‼️                               ‼️_‼️_‼️ 
 ##                                  10                                   8 
@@ -2718,8 +2718,8 @@ N-grams yield a sequence of tokens from already tokenised text object.</p>
 ##                                   2                                   2 
 ##                                ‼️_do                            ‼️_do_not 
 ##                                   1                                   1</code></pre>
-<div class="sourceCode" id="cb1546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1546-1"><a href="5.6-twitter-data-1.html#cb1546-1" tabindex="-1"></a><span class="do">## Last 10 rows</span></span>
-<span id="cb1546-2"><a href="5.6-twitter-data-1.html#cb1546-2" tabindex="-1"></a><span class="fu">tail</span>(dat_twitter_corpus_tok_no_punct_ngram, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1543-1"><a href="5.6-twitter-data-1.html#cb1543-1" tabindex="-1"></a><span class="do">## Last 10 rows</span></span>
+<span id="cb1543-2"><a href="5.6-twitter-data-1.html#cb1543-2" tabindex="-1"></a><span class="fu">tail</span>(dat_twitter_corpus_tok_no_punct_ngram, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## .
 ##   英国_の_総_選挙         選挙_保守      選挙_保守_党   選挙_保守_党_と 
 ##                 1                 1                 1                 1 
@@ -2731,12 +2731,12 @@ N-grams yield a sequence of tokens from already tokenised text object.</p>
 <div id="skip-grams-4" class="section level5 hasAnchor" number="5.6.2.3.2">
 <h5><span class="header-section-number">5.6.2.3.2</span> Skip-grams<a href="5.6-twitter-data-1.html#skip-grams-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Skip-grams allow to obtain non consecutive n-grams</p>
-<div class="sourceCode" id="cb1548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1548-1"><a href="5.6-twitter-data-1.html#cb1548-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_ngram_skip <span class="ot">&lt;-</span> <span class="fu">tokens_ngrams</span>(dat_twitter_corpus_tok_no_punct, <span class="at">n =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">skip =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1548-2"><a href="5.6-twitter-data-1.html#cb1548-2" tabindex="-1"></a>  <span class="fu">unlist</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1548-3"><a href="5.6-twitter-data-1.html#cb1548-3" tabindex="-1"></a>  <span class="fu">tolower</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1548-4"><a href="5.6-twitter-data-1.html#cb1548-4" tabindex="-1"></a>  <span class="fu">table</span>()</span>
-<span id="cb1548-5"><a href="5.6-twitter-data-1.html#cb1548-5" tabindex="-1"></a><span class="do">## Top 10 rows</span></span>
-<span id="cb1548-6"><a href="5.6-twitter-data-1.html#cb1548-6" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_tok_no_punct_ngram_skip, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1545-1"><a href="5.6-twitter-data-1.html#cb1545-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_ngram_skip <span class="ot">&lt;-</span> <span class="fu">tokens_ngrams</span>(dat_twitter_corpus_tok_no_punct, <span class="at">n =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">skip =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1545-2"><a href="5.6-twitter-data-1.html#cb1545-2" tabindex="-1"></a>  <span class="fu">unlist</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1545-3"><a href="5.6-twitter-data-1.html#cb1545-3" tabindex="-1"></a>  <span class="fu">tolower</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1545-4"><a href="5.6-twitter-data-1.html#cb1545-4" tabindex="-1"></a>  <span class="fu">table</span>()</span>
+<span id="cb1545-5"><a href="5.6-twitter-data-1.html#cb1545-5" tabindex="-1"></a><span class="do">## Top 10 rows</span></span>
+<span id="cb1545-6"><a href="5.6-twitter-data-1.html#cb1545-6" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_tok_no_punct_ngram_skip, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## .
 ##                           ‼️_‼️                         ‼️_‼️_‼️ 
 ##                            14                             8 
@@ -2748,8 +2748,8 @@ N-grams yield a sequence of tokens from already tokenised text object.</p>
 ##                             4                             4 
 ##                         ‼️_not                  ‼️_not_pencil 
 ##                             1                             1</code></pre>
-<div class="sourceCode" id="cb1550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1550-1"><a href="5.6-twitter-data-1.html#cb1550-1" tabindex="-1"></a><span class="do">## Last 10 rows</span></span>
-<span id="cb1550-2"><a href="5.6-twitter-data-1.html#cb1550-2" tabindex="-1"></a><span class="fu">tail</span>(dat_twitter_corpus_tok_no_punct_ngram_skip, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1547-1"><a href="5.6-twitter-data-1.html#cb1547-1" tabindex="-1"></a><span class="do">## Last 10 rows</span></span>
+<span id="cb1547-2"><a href="5.6-twitter-data-1.html#cb1547-2" tabindex="-1"></a><span class="fu">tail</span>(dat_twitter_corpus_tok_no_punct_ngram_skip, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## .
 ##      開_て_ない 開_て_ない_最終 開_て_ない_結果           開_み        開_み_と 
 ##               1               1               1               1               1 
@@ -2763,9 +2763,9 @@ N-grams yield a sequence of tokens from already tokenised text object.</p>
 Here, we will create a dictionary that we populate ourselves and we show how to use it to search for items</p>
 <div id="create-dictionary-4" class="section level5 hasAnchor" number="5.6.2.4.1">
 <h5><span class="header-section-number">5.6.2.4.1</span> Create dictionary<a href="5.6-twitter-data-1.html#create-dictionary-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1552-1"><a href="5.6-twitter-data-1.html#cb1552-1" tabindex="-1"></a>dict_dat_twitter <span class="ot">&lt;-</span> <span class="fu">dictionary</span>(<span class="fu">list</span>(<span class="at">Tories =</span> <span class="fu">c</span>(<span class="st">&quot;Tory*&quot;</span>, <span class="st">&quot;Conservative*&quot;</span>),</span>
-<span id="cb1552-2"><a href="5.6-twitter-data-1.html#cb1552-2" tabindex="-1"></a>                        <span class="at">Labour =</span> <span class="fu">c</span>(<span class="st">&quot;Socialist*&quot;</span>, <span class="st">&quot;Labour*&quot;</span>)))</span>
-<span id="cb1552-3"><a href="5.6-twitter-data-1.html#cb1552-3" tabindex="-1"></a><span class="fu">print</span>(dict_dat_twitter)</span></code></pre></div>
+<div class="sourceCode" id="cb1549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1549-1"><a href="5.6-twitter-data-1.html#cb1549-1" tabindex="-1"></a>dict_dat_twitter <span class="ot">&lt;-</span> <span class="fu">dictionary</span>(<span class="fu">list</span>(<span class="at">Tories =</span> <span class="fu">c</span>(<span class="st">&quot;Tory*&quot;</span>, <span class="st">&quot;Conservative*&quot;</span>),</span>
+<span id="cb1549-2"><a href="5.6-twitter-data-1.html#cb1549-2" tabindex="-1"></a>                        <span class="at">Labour =</span> <span class="fu">c</span>(<span class="st">&quot;Socialist*&quot;</span>, <span class="st">&quot;Labour*&quot;</span>)))</span>
+<span id="cb1549-3"><a href="5.6-twitter-data-1.html#cb1549-3" tabindex="-1"></a><span class="fu">print</span>(dict_dat_twitter)</span></code></pre></div>
 <pre><code>## Dictionary object with 2 key entries.
 ## - [Tories]:
 ##   - tory*, conservative*
@@ -2774,8 +2774,8 @@ Here, we will create a dictionary that we populate ourselves and we show how to 
 </div>
 <div id="token-lookup-4" class="section level5 hasAnchor" number="5.6.2.4.2">
 <h5><span class="header-section-number">5.6.2.4.2</span> Token lookup<a href="5.6-twitter-data-1.html#token-lookup-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1554-1"><a href="5.6-twitter-data-1.html#cb1554-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_dict_toks <span class="ot">&lt;-</span> <span class="fu">tokens_lookup</span>(dat_twitter_corpus_tok_no_punct, <span class="at">dictionary =</span> dict_dat_twitter)</span>
-<span id="cb1554-2"><a href="5.6-twitter-data-1.html#cb1554-2" tabindex="-1"></a><span class="fu">print</span>(dat_twitter_corpus_tok_no_punct_dict_toks)</span></code></pre></div>
+<div class="sourceCode" id="cb1551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1551-1"><a href="5.6-twitter-data-1.html#cb1551-1" tabindex="-1"></a>dat_twitter_corpus_tok_no_punct_dict_toks <span class="ot">&lt;-</span> <span class="fu">tokens_lookup</span>(dat_twitter_corpus_tok_no_punct, <span class="at">dictionary =</span> dict_dat_twitter)</span>
+<span id="cb1551-2"><a href="5.6-twitter-data-1.html#cb1551-2" tabindex="-1"></a><span class="fu">print</span>(dat_twitter_corpus_tok_no_punct_dict_toks)</span></code></pre></div>
 <pre><code>## Tokens consisting of 7,504 documents and 42 docvars.
 ## twitter.json.1 :
 ## character(0)
@@ -2799,7 +2799,7 @@ Here, we will create a dictionary that we populate ourselves and we show how to 
 </div>
 <div id="dfm-4" class="section level5 hasAnchor" number="5.6.2.4.3">
 <h5><span class="header-section-number">5.6.2.4.3</span> DFM<a href="5.6-twitter-data-1.html#dfm-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1556-1"><a href="5.6-twitter-data-1.html#cb1556-1" tabindex="-1"></a><span class="fu">dfm</span>(dat_twitter_corpus_tok_no_punct_dict_toks)</span></code></pre></div>
+<div class="sourceCode" id="cb1553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1553-1"><a href="5.6-twitter-data-1.html#cb1553-1" tabindex="-1"></a><span class="fu">dfm</span>(dat_twitter_corpus_tok_no_punct_dict_toks)</span></code></pre></div>
 <pre><code>## Document-feature matrix of: 7,504 documents, 2 features (85.65% sparse) and 42 docvars.
 ##                 features
 ## docs             tories labour
@@ -2820,22 +2820,22 @@ We will use the <a href="https://cran.r-project.org/web/packages/udpipe/index.ht
 <h5><span class="header-section-number">5.6.2.5.1</span> Download and load language model<a href="5.6-twitter-data-1.html#download-and-load-language-model-3" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Before using the PoS-tagger, we need to download a language model.
 As you can see from typing <code>?udpipe_download_model</code>, there are 65 languages trained on 101 treebanks from <a href="https://universaldependencies.org/">here</a></p>
-<div class="sourceCode" id="cb1558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1558-1"><a href="5.6-twitter-data-1.html#cb1558-1" tabindex="-1"></a>file_to_check <span class="ot">&lt;-</span> <span class="st">&quot;models/english-ewt-ud-2.5-191206.udpipe&quot;</span></span>
-<span id="cb1558-2"><a href="5.6-twitter-data-1.html#cb1558-2" tabindex="-1"></a></span>
-<span id="cb1558-3"><a href="5.6-twitter-data-1.html#cb1558-3" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(<span class="at">file =</span> file_to_check)){</span>
-<span id="cb1558-4"><a href="5.6-twitter-data-1.html#cb1558-4" tabindex="-1"></a>  m_english <span class="ot">&lt;-</span> <span class="fu">udpipe_load_model</span>(<span class="at">file =</span> <span class="st">&quot;models/english-ewt-ud-2.5-191206.udpipe&quot;</span>)</span>
-<span id="cb1558-5"><a href="5.6-twitter-data-1.html#cb1558-5" tabindex="-1"></a>}<span class="cf">else</span>{</span>
-<span id="cb1558-6"><a href="5.6-twitter-data-1.html#cb1558-6" tabindex="-1"></a>  m_english <span class="ot">&lt;-</span> <span class="fu">udpipe_download_model</span>(<span class="at">model_dir =</span> <span class="st">&quot;models/&quot;</span>, <span class="at">language =</span> <span class="st">&quot;english-ewt&quot;</span>)</span>
-<span id="cb1558-7"><a href="5.6-twitter-data-1.html#cb1558-7" tabindex="-1"></a>  m_english <span class="ot">&lt;-</span> <span class="fu">udpipe_load_model</span>(<span class="at">file =</span> <span class="st">&quot;models/english-ewt-ud-2.5-191206.udpipe&quot;</span>)</span>
-<span id="cb1558-8"><a href="5.6-twitter-data-1.html#cb1558-8" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb1555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1555-1"><a href="5.6-twitter-data-1.html#cb1555-1" tabindex="-1"></a>file_to_check <span class="ot">&lt;-</span> <span class="st">&quot;models/english-ewt-ud-2.5-191206.udpipe&quot;</span></span>
+<span id="cb1555-2"><a href="5.6-twitter-data-1.html#cb1555-2" tabindex="-1"></a></span>
+<span id="cb1555-3"><a href="5.6-twitter-data-1.html#cb1555-3" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(<span class="at">file =</span> file_to_check)){</span>
+<span id="cb1555-4"><a href="5.6-twitter-data-1.html#cb1555-4" tabindex="-1"></a>  m_english <span class="ot">&lt;-</span> <span class="fu">udpipe_load_model</span>(<span class="at">file =</span> <span class="st">&quot;models/english-ewt-ud-2.5-191206.udpipe&quot;</span>)</span>
+<span id="cb1555-5"><a href="5.6-twitter-data-1.html#cb1555-5" tabindex="-1"></a>}<span class="cf">else</span>{</span>
+<span id="cb1555-6"><a href="5.6-twitter-data-1.html#cb1555-6" tabindex="-1"></a>  m_english <span class="ot">&lt;-</span> <span class="fu">udpipe_download_model</span>(<span class="at">model_dir =</span> <span class="st">&quot;models/&quot;</span>, <span class="at">language =</span> <span class="st">&quot;english-ewt&quot;</span>)</span>
+<span id="cb1555-7"><a href="5.6-twitter-data-1.html#cb1555-7" tabindex="-1"></a>  m_english <span class="ot">&lt;-</span> <span class="fu">udpipe_load_model</span>(<span class="at">file =</span> <span class="st">&quot;models/english-ewt-ud-2.5-191206.udpipe&quot;</span>)</span>
+<span id="cb1555-8"><a href="5.6-twitter-data-1.html#cb1555-8" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="tokenise-tag-dependency-parsing-4" class="section level5 hasAnchor" number="5.6.2.5.2">
 <h5><span class="header-section-number">5.6.2.5.2</span> Tokenise, tag, dependency parsing<a href="5.6-twitter-data-1.html#tokenise-tag-dependency-parsing-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We use the already tokenised text, with no punctuations.</p>
-<div class="sourceCode" id="cb1559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1559-1"><a href="5.6-twitter-data-1.html#cb1559-1" tabindex="-1"></a>dat_twitter_anndf <span class="ot">&lt;-</span> <span class="fu">udpipe_annotate</span>(m_english, <span class="at">x =</span> dat_twitter_corpus_tok_no_punct[[<span class="dv">2</span>]]) <span class="sc">%&gt;%</span></span>
-<span id="cb1559-2"><a href="5.6-twitter-data-1.html#cb1559-2" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() </span>
-<span id="cb1559-3"><a href="5.6-twitter-data-1.html#cb1559-3" tabindex="-1"></a><span class="do">## inspect</span></span>
-<span id="cb1559-4"><a href="5.6-twitter-data-1.html#cb1559-4" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_anndf, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1556-1"><a href="5.6-twitter-data-1.html#cb1556-1" tabindex="-1"></a>dat_twitter_anndf <span class="ot">&lt;-</span> <span class="fu">udpipe_annotate</span>(m_english, <span class="at">x =</span> dat_twitter_corpus_tok_no_punct[[<span class="dv">2</span>]]) <span class="sc">%&gt;%</span></span>
+<span id="cb1556-2"><a href="5.6-twitter-data-1.html#cb1556-2" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() </span>
+<span id="cb1556-3"><a href="5.6-twitter-data-1.html#cb1556-3" tabindex="-1"></a><span class="do">## inspect</span></span>
+<span id="cb1556-4"><a href="5.6-twitter-data-1.html#cb1556-4" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_anndf, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##    doc_id paragraph_id sentence_id      sentence token_id         token
 ## 1    doc1            1           1            RT        1            RT
 ## 2    doc2            1           1  @Corbynator2        1  @Corbynator2
@@ -2872,11 +2872,11 @@ As you can see from typing <code>?udpipe_download_model</code>, there are 65 lan
 </div>
 <div id="dependency-parsing-4" class="section level5 hasAnchor" number="5.6.2.5.3">
 <h5><span class="header-section-number">5.6.2.5.3</span> Dependency parsing<a href="5.6-twitter-data-1.html#dependency-parsing-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1561-1"><a href="5.6-twitter-data-1.html#cb1561-1" tabindex="-1"></a><span class="do">## parse text</span></span>
-<span id="cb1561-2"><a href="5.6-twitter-data-1.html#cb1561-2" tabindex="-1"></a>dat_twitter_corpus_sent <span class="ot">&lt;-</span> <span class="fu">udpipe_annotate</span>(m_english, <span class="at">x =</span> dat_twitter_corpus[[<span class="dv">2</span>]]) <span class="sc">%&gt;%</span></span>
-<span id="cb1561-3"><a href="5.6-twitter-data-1.html#cb1561-3" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
-<span id="cb1561-4"><a href="5.6-twitter-data-1.html#cb1561-4" tabindex="-1"></a><span class="do">## inspect</span></span>
-<span id="cb1561-5"><a href="5.6-twitter-data-1.html#cb1561-5" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_sent)</span></code></pre></div>
+<div class="sourceCode" id="cb1558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1558-1"><a href="5.6-twitter-data-1.html#cb1558-1" tabindex="-1"></a><span class="do">## parse text</span></span>
+<span id="cb1558-2"><a href="5.6-twitter-data-1.html#cb1558-2" tabindex="-1"></a>dat_twitter_corpus_sent <span class="ot">&lt;-</span> <span class="fu">udpipe_annotate</span>(m_english, <span class="at">x =</span> dat_twitter_corpus[[<span class="dv">2</span>]]) <span class="sc">%&gt;%</span></span>
+<span id="cb1558-3"><a href="5.6-twitter-data-1.html#cb1558-3" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb1558-4"><a href="5.6-twitter-data-1.html#cb1558-4" tabindex="-1"></a><span class="do">## inspect</span></span>
+<span id="cb1558-5"><a href="5.6-twitter-data-1.html#cb1558-5" tabindex="-1"></a><span class="fu">head</span>(dat_twitter_corpus_sent)</span></code></pre></div>
 <pre><code>##   doc_id paragraph_id sentence_id
 ## 1   doc1            1           1
 ## 2   doc1            1           1
@@ -2905,10 +2905,10 @@ As you can see from typing <code>?udpipe_download_model</code>, there are 65 lan
 ## 4        &lt;NA&gt;             3    case &lt;NA&gt; &lt;NA&gt;
 ## 5 Number=Plur             1    nmod &lt;NA&gt; &lt;NA&gt;
 ## 6        &lt;NA&gt;             7    case &lt;NA&gt; &lt;NA&gt;</code></pre>
-<div class="sourceCode" id="cb1563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1563-1"><a href="5.6-twitter-data-1.html#cb1563-1" tabindex="-1"></a>dat_twitter_corpus_sent_short <span class="ot">&lt;-</span> dat_twitter_corpus_sent[<span class="dv">3</span><span class="sc">:</span><span class="dv">21</span>,]</span>
-<span id="cb1563-2"><a href="5.6-twitter-data-1.html#cb1563-2" tabindex="-1"></a>dat_twitter_corpus_sent_dplot <span class="ot">&lt;-</span> <span class="fu">textplot_dependencyparser</span>(dat_twitter_corpus_sent_short, <span class="at">size =</span> <span class="dv">3</span>) </span>
-<span id="cb1563-3"><a href="5.6-twitter-data-1.html#cb1563-3" tabindex="-1"></a><span class="do">## show plot</span></span>
-<span id="cb1563-4"><a href="5.6-twitter-data-1.html#cb1563-4" tabindex="-1"></a>dat_twitter_corpus_sent_dplot</span></code></pre></div>
+<div class="sourceCode" id="cb1560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1560-1"><a href="5.6-twitter-data-1.html#cb1560-1" tabindex="-1"></a>dat_twitter_corpus_sent_short <span class="ot">&lt;-</span> dat_twitter_corpus_sent[<span class="dv">3</span><span class="sc">:</span><span class="dv">21</span>,]</span>
+<span id="cb1560-2"><a href="5.6-twitter-data-1.html#cb1560-2" tabindex="-1"></a>dat_twitter_corpus_sent_dplot <span class="ot">&lt;-</span> <span class="fu">textplot_dependencyparser</span>(dat_twitter_corpus_sent_short, <span class="at">size =</span> <span class="dv">3</span>) </span>
+<span id="cb1560-3"><a href="5.6-twitter-data-1.html#cb1560-3" tabindex="-1"></a><span class="do">## show plot</span></span>
+<span id="cb1560-4"><a href="5.6-twitter-data-1.html#cb1560-4" tabindex="-1"></a>dat_twitter_corpus_sent_dplot</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-677-1.png" width="672" /></p>
 </div>
 </div>
@@ -2917,20 +2917,20 @@ As you can see from typing <code>?udpipe_download_model</code>, there are 65 lan
 <p>Feature co-occurrence matrix (FCM) records the number of co-occurrences of tokens</p>
 <div id="computing-number-of-co-occurrences-4" class="section level5 hasAnchor" number="5.6.2.6.1">
 <h5><span class="header-section-number">5.6.2.6.1</span> Computing number of co-occurrences<a href="5.6-twitter-data-1.html#computing-number-of-co-occurrences-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1564-1"><a href="5.6-twitter-data-1.html#cb1564-1" tabindex="-1"></a>dat_twitter_corpus_dfmat <span class="ot">&lt;-</span> <span class="fu">dfm</span>(dat_twitter_corpus_tok_no_punct)</span>
-<span id="cb1564-2"><a href="5.6-twitter-data-1.html#cb1564-2" tabindex="-1"></a>dat_twitter_corpus_dfmat_trim <span class="ot">&lt;-</span> <span class="fu">dfm_trim</span>(dat_twitter_corpus_dfmat, <span class="at">min_termfreq =</span> <span class="dv">50</span>)</span>
-<span id="cb1564-3"><a href="5.6-twitter-data-1.html#cb1564-3" tabindex="-1"></a></span>
-<span id="cb1564-4"><a href="5.6-twitter-data-1.html#cb1564-4" tabindex="-1"></a>topfeatures_dat_twitter_corpus <span class="ot">&lt;-</span> <span class="fu">topfeatures</span>(dat_twitter_corpus_dfmat_trim)</span>
-<span id="cb1564-5"><a href="5.6-twitter-data-1.html#cb1564-5" tabindex="-1"></a>topfeatures_dat_twitter_corpus</span></code></pre></div>
+<div class="sourceCode" id="cb1561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1561-1"><a href="5.6-twitter-data-1.html#cb1561-1" tabindex="-1"></a>dat_twitter_corpus_dfmat <span class="ot">&lt;-</span> <span class="fu">dfm</span>(dat_twitter_corpus_tok_no_punct)</span>
+<span id="cb1561-2"><a href="5.6-twitter-data-1.html#cb1561-2" tabindex="-1"></a>dat_twitter_corpus_dfmat_trim <span class="ot">&lt;-</span> <span class="fu">dfm_trim</span>(dat_twitter_corpus_dfmat, <span class="at">min_termfreq =</span> <span class="dv">50</span>)</span>
+<span id="cb1561-3"><a href="5.6-twitter-data-1.html#cb1561-3" tabindex="-1"></a></span>
+<span id="cb1561-4"><a href="5.6-twitter-data-1.html#cb1561-4" tabindex="-1"></a>topfeatures_dat_twitter_corpus <span class="ot">&lt;-</span> <span class="fu">topfeatures</span>(dat_twitter_corpus_dfmat_trim)</span>
+<span id="cb1561-5"><a href="5.6-twitter-data-1.html#cb1561-5" tabindex="-1"></a>topfeatures_dat_twitter_corpus</span></code></pre></div>
 <pre><code>##      rt     the      to       a #ge2017     for    vote     and      of      in 
 ##    5827    3973    3418    2627    2483    2334    1886    1738    1738    1598</code></pre>
-<div class="sourceCode" id="cb1566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1566-1"><a href="5.6-twitter-data-1.html#cb1566-1" tabindex="-1"></a><span class="fu">nfeat</span>(dat_twitter_corpus_dfmat_trim)</span></code></pre></div>
+<div class="sourceCode" id="cb1563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1563-1"><a href="5.6-twitter-data-1.html#cb1563-1" tabindex="-1"></a><span class="fu">nfeat</span>(dat_twitter_corpus_dfmat_trim)</span></code></pre></div>
 <pre><code>## [1] 383</code></pre>
 </div>
 <div id="features-co-occurrences-4" class="section level5 hasAnchor" number="5.6.2.6.2">
 <h5><span class="header-section-number">5.6.2.6.2</span> Features co-occurrences<a href="5.6-twitter-data-1.html#features-co-occurrences-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1568-1"><a href="5.6-twitter-data-1.html#cb1568-1" tabindex="-1"></a>dat_twitter_corpus_fcmat <span class="ot">&lt;-</span> <span class="fu">fcm</span>(dat_twitter_corpus_dfmat_trim)</span>
-<span id="cb1568-2"><a href="5.6-twitter-data-1.html#cb1568-2" tabindex="-1"></a>dat_twitter_corpus_fcmat</span></code></pre></div>
+<div class="sourceCode" id="cb1565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1565-1"><a href="5.6-twitter-data-1.html#cb1565-1" tabindex="-1"></a>dat_twitter_corpus_fcmat <span class="ot">&lt;-</span> <span class="fu">fcm</span>(dat_twitter_corpus_dfmat_trim)</span>
+<span id="cb1565-2"><a href="5.6-twitter-data-1.html#cb1565-2" tabindex="-1"></a>dat_twitter_corpus_fcmat</span></code></pre></div>
 <pre><code>## Feature co-occurrence matrix of: 383 by 383 features.
 ##                features
 ## features        ukip  rt @corbynator2 @jeremycorbyn from people  at  the rally

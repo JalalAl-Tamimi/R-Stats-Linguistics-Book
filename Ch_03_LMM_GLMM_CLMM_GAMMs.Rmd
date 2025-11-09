@@ -1181,7 +1181,7 @@ pp %>%
   theme_bw(base_size = 20) +
   labs(y = "Probability", x = "") +
   coord_cartesian(ylim = c(-0.1, 1.1), expand = FALSE) +
-  scale_y_discrete(limits = c(0,1), labels = c("Young", "Old")) +
+  scale_y_continuous(breaks = c(0,1), labels = c("Young","Old")) +
   scale_x_continuous(breaks = c(-3, -2, -1, 0, 1, 2, 3)) 
 ```
  
@@ -1244,12 +1244,18 @@ summary(mdl.clmm.Int)
 
 ##### Random effects 2 - Intercepts and Slopes
 
-We run our second clmm model as a simple, i.e., with random intercepts and random slopes. Because the model will run for a while, we added an if condition to say f the model was run previously, simply load the rds file rather than running it.
+We run our second clmm model as a simple, i.e., with random intercepts and random slopes. Because the model will run for a while, we added an if condition to say if the model was run previously, simply load the rds file rather than running it.
 
 
 ```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
-system.time(mdl.clmm.Slope <- rating %>% 
-                                       clmm(Response ~ Context + (Context|Subject) + (1|Item), data = .))
+if (file.exists("outputs/mdl.clmm.Slope.rds")) {
+  mdl.clmm.Slope <- readRDS("outputs/mdl.clmm.Slope.rds")
+} else {
+  mdl.sys.timeClmmSlope <- system.time(mdl.clmm.Slope <- rating %>% 
+  clmm(Response ~ Context + (Context|Subject) + (1|Item), data = .))
+  mdl.sys.timeClmmSlope
+  saveRDS(mdl.clmm.Slope, "outputs/mdl.clmm.Slope.rds")
+}
 summary(mdl.clmm.Slope)
 ```
 
@@ -1437,7 +1443,7 @@ We run our first clm model as a simple, i.e., with no random effects
 ```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
 system.time(mdl.clm.1 <- weightRatings %>% 
   clm(Rating ~ Class * Sex  * Frequency, data = .))
-summary(mdl.clm)
+summary(mdl.clm.1)
 ```
 
 
@@ -1448,7 +1454,7 @@ We run our first model as a simple, i.e., with random intercepts
 ```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
 system.time(mdl.clmm.Int.1 <- weightRatings %>% 
   clmm(Rating ~ Class * Sex  * Frequency + (1|Subject:Word), data = .))
-summary(mdl.clmm.Int)
+summary(mdl.clmm.Int.1)
 ```
 
 
@@ -1461,7 +1467,7 @@ We run our second model as a simple, i.e., with random intercepts and random slo
 ```{r warning=FALSE, message=FALSE, error=FALSE, cache=TRUE}
 system.time(mdl.clmm.Slope.1 <- weightRatings %>% 
   clmm(Rating ~ Class * Sex  * Frequency + (Class|Subject:Word), data = .))
-summary(mdl.clmm.Slope)
+summary(mdl.clmm.Slope.1)
 ```
 
 
@@ -1503,8 +1509,8 @@ The model comparison above shows that using random intercepts is enough in our c
 #### Model’s fit
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
-print(tab_model(mdl.clmm.Int.1, file = paste0("outputs/mdl.clmm.Int.1.html")))
-htmltools::includeHTML("outputs/mdl.clmm.Int.1.html")
+print(tab_model(mdl.clmm.Slope.1, file = paste0("outputs/mdl.clmm.Slope.1.html")))
+htmltools::includeHTML("outputs/mdl.clmm.Slope.1.html")
 ```
 
 
@@ -1521,19 +1527,19 @@ We use a modified version of a plotting function that allows us to visualise the
 
 ```{r warning = FALSE, message = FALSE, error = FALSE}
 par(oma = c(4, 0, 0, 3), mgp = c(2, 1, 0))
-xlim  =  c(min(mdl.clmm.Int.1$beta), max(mdl.clmm.Int.1$beta))
+xlim  =  c(min(mdl.clmm.Slope.1$beta), max(mdl.clmm.Slope.1$beta))
 ylim  =  c(0, 1)
 plot(0, 0, xlim = xlim, ylim = ylim, type = "n", ylab = expression(Probability), xlab = "", xaxt = "n", main = "Predicted curves", cex = 2, cex.lab = 1.5, cex.main = 1.5, cex.axis = 1.5)
-axis(side = 1, at = mdl.clmm.Int.1$beta, labels = names(mdl.clmm.Int.1$beta), las = 2, cex = 0.75, cex.lab = 0.75, cex.axis = 0.75)
+axis(side = 1, at = mdl.clmm.Slope.1$beta, labels = names(mdl.clmm.Slope.1$beta), las = 2, cex = 0.75, cex.lab = 0.75, cex.axis = 0.75)
 xs  =  seq(xlim[1], xlim[2], length.out = 100)
-lines(xs, plogis(mdl.clmm.Int.1$Theta[1] - xs), col = 'black')
-lines(xs, plogis(mdl.clmm.Int.1$Theta[2] - xs) - plogis(mdl.clmm.Int.1$Theta[1] - xs), col = 'red')
-lines(xs, plogis(mdl.clmm.Int.1$Theta[3] - xs) - plogis(mdl.clmm.Int.1$Theta[2] - xs), col = 'green')
-lines(xs, plogis(mdl.clmm.Int.1$Theta[4] - xs) - plogis(mdl.clmm.Int.1$Theta[3] - xs), col = 'orange')
-lines(xs, plogis(mdl.clmm.Int.1$Theta[5] - xs) - plogis(mdl.clmm.Int.1$Theta[4] - xs), col = 'yellow')
-lines(xs, plogis(mdl.clmm.Int.1$Theta[6] - xs) - plogis(mdl.clmm.Int.1$Theta[5] - xs), col = 'grey')
-lines(xs, 1 - (plogis(mdl.clmm.Int.1$Theta[6] - xs)), col = 'blue')
-abline(v = c(0,mdl.clmm.Int.1$beta),lty = 3)
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[1] - xs), col = 'black')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[2] - xs) - plogis(mdl.clmm.Slope.1$Theta[1] - xs), col = 'red')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[3] - xs) - plogis(mdl.clmm.Slope.1$Theta[2] - xs), col = 'green')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[4] - xs) - plogis(mdl.clmm.Slope.1$Theta[3] - xs), col = 'orange')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[5] - xs) - plogis(mdl.clmm.Slope.1$Theta[4] - xs), col = 'yellow')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[6] - xs) - plogis(mdl.clmm.Slope.1$Theta[5] - xs), col = 'grey')
+lines(xs, 1 - (plogis(mdl.clmm.Slope.1$Theta[6] - xs)), col = 'blue')
+abline(v = c(0,mdl.clmm.Slope.1$beta),lty = 3)
 abline(h = 0, lty = "dashed")
 abline(h = 0.2, lty = "dashed")
 abline(h = 0.4, lty = "dashed")
@@ -1554,65 +1560,65 @@ Here is an attempt to add the 97.5% confidence intervals to these plots. This is
 
 ```{r warning=FALSE, message=FALSE, error=FALSE}
 par(oma = c(4, 0, 0, 3), mgp = c(2, 1, 0))
-xlim  =  c(min(mdl.clmm.Int.1$beta), max(mdl.clmm.Int.1$beta))
+xlim  =  c(min(mdl.clmm.Slope.1$beta), max(mdl.clmm.Slope.1$beta))
 ylim  =  c(0, 1)
 plot(0, 0, xlim = xlim, ylim = ylim, type = "n", ylab = expression(Probability), xlab = "", xaxt = "n", main = "Predicted curves", cex = 2, cex.lab = 1.5, cex.main = 1.5, cex.axis = 1.5)
-axis(side = 1, at = mdl.clmm.Int.1$beta, labels = names(mdl.clmm.Int.1$beta), las = 2, cex = 0.75, cex.lab = 0.75, cex.axis = 0.75)
+axis(side = 1, at = mdl.clmm.Slope.1$beta, labels = names(mdl.clmm.Slope.1$beta), las = 2, cex = 0.75, cex.lab = 0.75, cex.axis = 0.75)
 xs  =  seq(xlim[1], xlim[2], length.out = 100)
 
 
 #+CI 
-lines(xs, plogis(mdl.clmm.Int.1$Theta[1]+(summary(mdl.clmm.Int.1)$coefficient[,2][[1]]/1.96) - xs), col='black')
-lines(xs, plogis(mdl.clmm.Int.1$Theta[2]+(summary(mdl.clmm.Int.1)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[1]+(summary(mdl.clmm.Int.1)$coefficient[,2][[1]]/1.96) - xs), col='red')
-lines(xs, plogis(mdl.clmm.Int.1$Theta[3]+(summary(mdl.clmm.Int.1)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[2]+(summary(mdl.clmm.Int.1)$coefficient[,2][[2]]/1.96) - xs), col='green')
-lines(xs, plogis(mdl.clmm.Int.1$Theta[4]+(summary(mdl.clmm.Int.1)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[3]+(summary(mdl.clmm.Int.1)$coefficient[,2][[3]]/1.96) - xs), col='orange')
-lines(xs, plogis(mdl.clmm.Int.1$Theta[5]-(summary(mdl.clmm.Int.1)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[4]-(summary(mdl.clmm.Int.1)$coefficient[,2][[4]]/1.96) - xs), col='yellow')
-lines(xs, plogis(mdl.clmm.Int.1$Theta[6]-(summary(mdl.clmm.Int.1)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[5]-(summary(mdl.clmm.Int.1)$coefficient[,2][[5]]/1.96) - xs), col='grey')
-lines(xs, 1-(plogis(mdl.clmm.Int.1$Theta[6]-(summary(mdl.clmm.Int.1)$coefficient[,2][[6]]/1.96) - xs)), col='blue')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[1]+(summary(mdl.clmm.Slope.1)$coefficient[,2][[1]]/1.96) - xs), col='black')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[2]+(summary(mdl.clmm.Slope.1)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clmm.Slope.1$Theta[1]+(summary(mdl.clmm.Slope.1)$coefficient[,2][[1]]/1.96) - xs), col='red')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[3]+(summary(mdl.clmm.Slope.1)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clmm.Slope.1$Theta[2]+(summary(mdl.clmm.Slope.1)$coefficient[,2][[2]]/1.96) - xs), col='green')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[4]+(summary(mdl.clmm.Slope.1)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clmm.Slope.1$Theta[3]+(summary(mdl.clmm.Slope.1)$coefficient[,2][[3]]/1.96) - xs), col='orange')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[5]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clmm.Slope.1$Theta[4]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[4]]/1.96) - xs), col='yellow')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[6]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clmm.Slope.1$Theta[5]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[5]]/1.96) - xs), col='grey')
+lines(xs, 1-(plogis(mdl.clmm.Slope.1$Theta[6]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[6]]/1.96) - xs)), col='blue')
 
 #-CI 
-lines(xs, plogis(mdl.clmm.Int.1$Theta[1]-(summary(mdl.clmm.Int.1)$coefficient[,2][[1]]/1.96) - xs), col='black')
-lines(xs, plogis(mdl.clmm.Int.1$Theta[2]-(summary(mdl.clmm.Int.1)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[1]-(summary(mdl.clmm.Int.1)$coefficient[,2][[1]]/1.96) - xs), col='red')
-lines(xs, plogis(mdl.clmm.Int.1$Theta[3]-(summary(mdl.clmm.Int.1)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[2]-(summary(mdl.clmm.Int.1)$coefficient[,2][[2]]/1.96) - xs), col='green')
-lines(xs, plogis(mdl.clmm.Int.1$Theta[4]-(summary(mdl.clmm.Int.1)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[3]-(summary(mdl.clmm.Int.1)$coefficient[,2][[3]]/1.96) - xs), col='orange')
-lines(xs, plogis(mdl.clmm.Int.1$Theta[5]-(summary(mdl.clmm.Int.1)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[4]-(summary(mdl.clmm.Int.1)$coefficient[,2][[4]]/1.96) - xs), col='yellow')
-lines(xs, plogis(mdl.clmm.Int.1$Theta[6]-(summary(mdl.clmm.Int.1)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[5]-(summary(mdl.clmm.Int.1)$coefficient[,2][[5]]/1.96) - xs), col='grey')
-lines(xs, 1-(plogis(mdl.clmm.Int.1$Theta[6]-(summary(mdl.clmm.Int.1)$coefficient[,2][[6]]/1.96) - xs)), col='blue')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[1]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[1]]/1.96) - xs), col='black')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[2]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clmm.Slope.1$Theta[1]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[1]]/1.96) - xs), col='red')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[3]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clmm.Slope.1$Theta[2]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[2]]/1.96) - xs), col='green')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[4]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clmm.Slope.1$Theta[3]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[3]]/1.96) - xs), col='orange')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[5]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clmm.Slope.1$Theta[4]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[4]]/1.96) - xs), col='yellow')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[6]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clmm.Slope.1$Theta[5]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[5]]/1.96) - xs), col='grey')
+lines(xs, 1-(plogis(mdl.clmm.Slope.1$Theta[6]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[6]]/1.96) - xs)), col='blue')
 
 ## fill area around CI using c(x, rev(x)), c(y2, rev(y1))
 polygon(c(xs, rev(xs)),
-        c(plogis(mdl.clmm.Int.1$Theta[1]+(summary(mdl.clmm.Int.1)$coefficient[,2][[1]]/1.96) - xs), rev(plogis(mdl.clmm.Int.1$Theta[1]-(summary(mdl.clmm.Int.1)$coefficient[,2][[1]]/1.96) - xs))), col = "gray90")
+        c(plogis(mdl.clmm.Slope.1$Theta[1]+(summary(mdl.clmm.Slope.1)$coefficient[,2][[1]]/1.96) - xs), rev(plogis(mdl.clmm.Slope.1$Theta[1]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[1]]/1.96) - xs))), col = "gray90")
 
 polygon(c(xs, rev(xs)),
-        c(plogis(mdl.clmm.Int.1$Theta[2]+(summary(mdl.clmm.Int.1)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[1]+(summary(mdl.clmm.Int.1)$coefficient[,2][[1]]/1.96) - xs), rev(plogis(mdl.clmm.Int.1$Theta[2]-(summary(mdl.clmm.Int.1)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[1]-(summary(mdl.clmm.Int.1)$coefficient[,2][[1]]/1.96) - xs))), col = "gray90")
+        c(plogis(mdl.clmm.Slope.1$Theta[2]+(summary(mdl.clmm.Slope.1)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clmm.Slope.1$Theta[1]+(summary(mdl.clmm.Slope.1)$coefficient[,2][[1]]/1.96) - xs), rev(plogis(mdl.clmm.Slope.1$Theta[2]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[2]]/1.96) - xs)-plogis(mdl.clmm.Slope.1$Theta[1]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[1]]/1.96) - xs))), col = "gray90")
 
 
 polygon(c(xs, rev(xs)),
-        c(plogis(mdl.clmm.Int.1$Theta[3]+(summary(mdl.clmm.Int.1)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[2]+(summary(mdl.clmm.Int.1)$coefficient[,2][[2]]/1.96) - xs), rev(plogis(mdl.clmm.Int.1$Theta[3]-(summary(mdl.clmm.Int.1)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[2]-(summary(mdl.clmm.Int.1)$coefficient[,2][[2]]/1.96) - xs))), col = "gray90")
+        c(plogis(mdl.clmm.Slope.1$Theta[3]+(summary(mdl.clmm.Slope.1)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clmm.Slope.1$Theta[2]+(summary(mdl.clmm.Slope.1)$coefficient[,2][[2]]/1.96) - xs), rev(plogis(mdl.clmm.Slope.1$Theta[3]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[3]]/1.96) - xs)-plogis(mdl.clmm.Slope.1$Theta[2]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[2]]/1.96) - xs))), col = "gray90")
 
 polygon(c(xs, rev(xs)),
-        c(plogis(mdl.clmm.Int.1$Theta[4]+(summary(mdl.clmm.Int.1)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[3]+(summary(mdl.clmm.Int.1)$coefficient[,2][[3]]/1.96) - xs), rev(plogis(mdl.clmm.Int.1$Theta[4]-(summary(mdl.clmm.Int.1)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[3]-(summary(mdl.clmm.Int.1)$coefficient[,2][[3]]/1.96) - xs))), col = "gray90")
+        c(plogis(mdl.clmm.Slope.1$Theta[4]+(summary(mdl.clmm.Slope.1)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clmm.Slope.1$Theta[3]+(summary(mdl.clmm.Slope.1)$coefficient[,2][[3]]/1.96) - xs), rev(plogis(mdl.clmm.Slope.1$Theta[4]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[4]]/1.96) - xs)-plogis(mdl.clmm.Slope.1$Theta[3]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[3]]/1.96) - xs))), col = "gray90")
 
 polygon(c(xs, rev(xs)),
-        c(plogis(mdl.clmm.Int.1$Theta[5]+(summary(mdl.clmm.Int.1)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[4]+(summary(mdl.clmm.Int.1)$coefficient[,2][[4]]/1.96) - xs), rev(plogis(mdl.clmm.Int.1$Theta[5]-(summary(mdl.clmm.Int.1)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[4]-(summary(mdl.clmm.Int.1)$coefficient[,2][[4]]/1.96) - xs))), col = "gray90")
+        c(plogis(mdl.clmm.Slope.1$Theta[5]+(summary(mdl.clmm.Slope.1)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clmm.Slope.1$Theta[4]+(summary(mdl.clmm.Slope.1)$coefficient[,2][[4]]/1.96) - xs), rev(plogis(mdl.clmm.Slope.1$Theta[5]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[5]]/1.96) - xs)-plogis(mdl.clmm.Slope.1$Theta[4]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[4]]/1.96) - xs))), col = "gray90")
 
 polygon(c(xs, rev(xs)),
-        c(plogis(mdl.clmm.Int.1$Theta[6]+(summary(mdl.clmm.Int.1)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[5]+(summary(mdl.clmm.Int.1)$coefficient[,2][[5]]/1.96) - xs), rev(plogis(mdl.clmm.Int.1$Theta[6]-(summary(mdl.clmm.Int.1)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clmm.Int.1$Theta[5]-(summary(mdl.clmm.Int.1)$coefficient[,2][[5]]/1.96) - xs))), col = "gray90")
+        c(plogis(mdl.clmm.Slope.1$Theta[6]+(summary(mdl.clmm.Slope.1)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clmm.Slope.1$Theta[5]+(summary(mdl.clmm.Slope.1)$coefficient[,2][[5]]/1.96) - xs), rev(plogis(mdl.clmm.Slope.1$Theta[6]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[6]]/1.96) - xs)-plogis(mdl.clmm.Slope.1$Theta[5]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[5]]/1.96) - xs))), col = "gray90")
 
         
 polygon(c(xs, rev(xs)),
-        c(1-(plogis(mdl.clmm.Int.1$Theta[6]-(summary(mdl.clmm.Int.1)$coefficient[,2][[6]]/1.96) - xs)), rev(1-(plogis(mdl.clmm.Int.1$Theta[6]+(summary(mdl.clmm.Int.1)$coefficient[,2][[6]]/1.96) - xs)))), col = "gray90")     
+        c(1-(plogis(mdl.clmm.Slope.1$Theta[6]-(summary(mdl.clmm.Slope.1)$coefficient[,2][[6]]/1.96) - xs)), rev(1-(plogis(mdl.clmm.Slope.1$Theta[6]+(summary(mdl.clmm.Slope.1)$coefficient[,2][[6]]/1.96) - xs)))), col = "gray90")     
 
 
 
-lines(xs, plogis(mdl.clmm.Int.1$Theta[1] - xs), col = 'black')
-lines(xs, plogis(mdl.clmm.Int.1$Theta[2] - xs) - plogis(mdl.clmm.Int.1$Theta[1] - xs), col = 'red')
-lines(xs, plogis(mdl.clmm.Int.1$Theta[3] - xs) - plogis(mdl.clmm.Int.1$Theta[2] - xs), col = 'green')
-lines(xs, plogis(mdl.clmm.Int.1$Theta[4] - xs) - plogis(mdl.clmm.Int.1$Theta[3] - xs), col = 'orange')
-lines(xs, plogis(mdl.clmm.Int.1$Theta[5] - xs) - plogis(mdl.clmm.Int.1$Theta[4] - xs), col = 'yellow')
-lines(xs, plogis(mdl.clmm.Int.1$Theta[6] - xs) - plogis(mdl.clmm.Int.1$Theta[5] - xs), col = 'grey')
-lines(xs, 1 - (plogis(mdl.clmm.Int.1$Theta[6] - xs)), col = 'blue')
-abline(v = c(0,mdl.clmm.Int.1$beta),lty = 3)
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[1] - xs), col = 'black')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[2] - xs) - plogis(mdl.clmm.Slope.1$Theta[1] - xs), col = 'red')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[3] - xs) - plogis(mdl.clmm.Slope.1$Theta[2] - xs), col = 'green')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[4] - xs) - plogis(mdl.clmm.Slope.1$Theta[3] - xs), col = 'orange')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[5] - xs) - plogis(mdl.clmm.Slope.1$Theta[4] - xs), col = 'yellow')
+lines(xs, plogis(mdl.clmm.Slope.1$Theta[6] - xs) - plogis(mdl.clmm.Slope.1$Theta[5] - xs), col = 'grey')
+lines(xs, 1 - (plogis(mdl.clmm.Slope.1$Theta[6] - xs)), col = 'blue')
+abline(v = c(0,mdl.clmm.Slope.1$beta),lty = 3)
 abline(h = 0, lty = "dashed")
 abline(h = 0.2, lty = "dashed")
 abline(h = 0.4, lty = "dashed")

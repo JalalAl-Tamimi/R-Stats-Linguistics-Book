@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-10-11" />
+<meta name="date" content="2025-11-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -2229,9 +2229,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We will use the same dataset that comes from phonetic research. This dataset is from my current work on the <code>phonetic basis of the guttural natural class in Levantine Arabic</code>. Acoustic analyses were conducted on multiple portions of the VCV sequence, and we report here the averaged results on the first half of V2. Acoustic metrics were obtained via VoiceSauce: various acoustic metrics of supralaryngeal (bark difference) and laryngeal (voice quality via amplitude harmonic differences, noise, energy) were obtained. A total of 23 different acoustic metrics were obtained from 10 participants. Here, we use the data from the first two participants for demonstration purposes (one male and one female). The grouping factor of interest is context with two levels: <code>guttural</code> vs <code>non-guttural</code>. Gutturals include uvular, pharyngealised and pharyngeal consonants; non-gutturals include coronal plain, velar and glottal consonants.</p>
 <p>The aim of the study was to evaluate whether the combination of the acoustic metrics provides support for a difference between the two classes of gutturals vs non-gutturals.</p>
 <p>We run a GLM with <code>context</code> as our outcome, and <code>Z2-Z1</code> as our predictor. We want to evaluate whether the two classes can be separated when using the acoustic metric <code>Z2-Z1</code>. Context has two levels, and this will be considered as a binomial distribution.</p>
-<div class="sourceCode" id="cb2138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2138-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2138-1" tabindex="-1"></a>mdl.glm.Z2mnZ1 <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
-<span id="cb2138-2"><a href="8.4-glm-as-a-classification-tool-1.html#cb2138-2" tabindex="-1"></a>  <span class="fu">glm</span>(context <span class="sc">~</span> Z2mnZ1, <span class="at">data =</span> ., <span class="at">family =</span> binomial)</span>
-<span id="cb2138-3"><a href="8.4-glm-as-a-classification-tool-1.html#cb2138-3" tabindex="-1"></a><span class="fu">summary</span>(mdl.glm.Z2mnZ1)</span></code></pre></div>
+<div class="sourceCode" id="cb2135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2135-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2135-1" tabindex="-1"></a>mdl.glm.Z2mnZ1 <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb2135-2"><a href="8.4-glm-as-a-classification-tool-1.html#cb2135-2" tabindex="-1"></a>  <span class="fu">glm</span>(context <span class="sc">~</span> Z2mnZ1, <span class="at">data =</span> ., <span class="at">family =</span> binomial)</span>
+<span id="cb2135-3"><a href="8.4-glm-as-a-classification-tool-1.html#cb2135-3" tabindex="-1"></a><span class="fu">summary</span>(mdl.glm.Z2mnZ1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = context ~ Z2mnZ1, family = binomial, data = .)
@@ -2250,25 +2250,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## AIC: 545.01
 ## 
 ## Number of Fisher Scoring iterations: 4</code></pre>
-<div class="sourceCode" id="cb2140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2140-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2140-1" tabindex="-1"></a><span class="fu">tidy</span>(mdl.glm.Z2mnZ1) <span class="sc">%&gt;%</span> </span>
-<span id="cb2140-2"><a href="8.4-glm-as-a-classification-tool-1.html#cb2140-2" tabindex="-1"></a>  <span class="fu">select</span>(term, estimate) <span class="sc">%&gt;%</span> </span>
-<span id="cb2140-3"><a href="8.4-glm-as-a-classification-tool-1.html#cb2140-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">estimate =</span> <span class="fu">round</span>(estimate, <span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb2137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2137-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2137-1" tabindex="-1"></a><span class="fu">tidy</span>(mdl.glm.Z2mnZ1) <span class="sc">%&gt;%</span> </span>
+<span id="cb2137-2"><a href="8.4-glm-as-a-classification-tool-1.html#cb2137-2" tabindex="-1"></a>  <span class="fu">select</span>(term, estimate) <span class="sc">%&gt;%</span> </span>
+<span id="cb2137-3"><a href="8.4-glm-as-a-classification-tool-1.html#cb2137-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">estimate =</span> <span class="fu">round</span>(estimate, <span class="dv">3</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 2
 ##   term        estimate
 ##   &lt;chr&gt;          &lt;dbl&gt;
 ## 1 (Intercept)    0.501
 ## 2 Z2mnZ1        -0.123</code></pre>
-<div class="sourceCode" id="cb2142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2142-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2142-1" tabindex="-1"></a><span class="do">## to only get the coefficients</span></span>
-<span id="cb2142-2"><a href="8.4-glm-as-a-classification-tool-1.html#cb2142-2" tabindex="-1"></a>mycoef2 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mdl.glm.Z2mnZ1) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(estimate)</span></code></pre></div>
+<div class="sourceCode" id="cb2139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2139-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2139-1" tabindex="-1"></a><span class="do">## to only get the coefficients</span></span>
+<span id="cb2139-2"><a href="8.4-glm-as-a-classification-tool-1.html#cb2139-2" tabindex="-1"></a>mycoef2 <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mdl.glm.Z2mnZ1) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(estimate)</span></code></pre></div>
 </div>
 <div id="plogis" class="section level3 hasAnchor" number="8.4.2">
 <h3><span class="header-section-number">8.4.2</span> Plogis<a href="8.4-glm-as-a-classification-tool-1.html#plogis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The result above shows that when moving from the <code>non-guttural</code> (intercept), a unit increase (i.e., <code>guttural</code>) yields a statistically significant decrease in the log odds associated with <code>Z2-Z1</code>. We can evaluate this further from a classification point of view, using <code>plogis</code>.</p>
-<div class="sourceCode" id="cb2143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2143-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2143-1" tabindex="-1"></a><span class="do">## non-guttural</span></span>
-<span id="cb2143-2"><a href="8.4-glm-as-a-classification-tool-1.html#cb2143-2" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb2140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2140-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2140-1" tabindex="-1"></a><span class="do">## non-guttural</span></span>
+<span id="cb2140-2"><a href="8.4-glm-as-a-classification-tool-1.html#cb2140-2" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## [1] 0.622722</code></pre>
-<div class="sourceCode" id="cb2145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2145-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2145-1" tabindex="-1"></a><span class="co">#guttural</span></span>
-<span id="cb2145-2"><a href="8.4-glm-as-a-classification-tool-1.html#cb2145-2" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>] <span class="sc">+</span> mycoef2[<span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb2142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2142-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2142-1" tabindex="-1"></a><span class="co">#guttural</span></span>
+<span id="cb2142-2"><a href="8.4-glm-as-a-classification-tool-1.html#cb2142-2" tabindex="-1"></a><span class="fu">plogis</span>(mycoef2[<span class="dv">1</span>] <span class="sc">+</span> mycoef2[<span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## [1] 0.5934644</code></pre>
 <p>The <code>plogis</code> function provides the probability of being in the <code>guttural</code> class. The intercept (non-guttural) is 0.5, and the <code>guttural</code> class is 0.41. This means that the model predicts that a unit increase in <code>Z2-Z1</code> yields a decrease of 9% in the probability of being in the <code>guttural</code> class.
 This is a small effect, but it is statistically significant. The model also provides the log odds associated with the predictor. The log odds are the natural logarithm of the odds ratio, which is the ratio of the probability of being in one class over the other.
@@ -2278,36 +2278,36 @@ The log odds are not easy to interpret, but they can be used to evaluate the eff
 <div id="model-predictions" class="section level3 hasAnchor" number="8.4.3">
 <h3><span class="header-section-number">8.4.3</span> Model predictions<a href="8.4-glm-as-a-classification-tool-1.html#model-predictions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As above, we obtain predictions from the model. Because we are using a numeric predictor, we need to assign a threshold for the predict function. The threshold can be thought of as telling the predict function to assign any predictions lower than 50% to one group, and any higher to another.</p>
-<div class="sourceCode" id="cb2147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2147-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2147-1" tabindex="-1"></a>pred.glm.Z2mnZ1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(mdl.glm.Z2mnZ1, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)<span class="sc">&gt;</span><span class="fl">0.5</span></span>
-<span id="cb2147-2"><a href="8.4-glm-as-a-classification-tool-1.html#cb2147-2" tabindex="-1"></a></span>
-<span id="cb2147-3"><a href="8.4-glm-as-a-classification-tool-1.html#cb2147-3" tabindex="-1"></a>tbl.glm.Z2mnZ1 <span class="ot">&lt;-</span> <span class="fu">table</span>(pred.glm.Z2mnZ1, dfPharV2<span class="sc">$</span>context)</span>
-<span id="cb2147-4"><a href="8.4-glm-as-a-classification-tool-1.html#cb2147-4" tabindex="-1"></a><span class="fu">rownames</span>(tbl.glm.Z2mnZ1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Non-Guttural&quot;</span>, <span class="st">&quot;Guttural&quot;</span>)</span>
-<span id="cb2147-5"><a href="8.4-glm-as-a-classification-tool-1.html#cb2147-5" tabindex="-1"></a>tbl.glm.Z2mnZ1</span></code></pre></div>
+<div class="sourceCode" id="cb2144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2144-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2144-1" tabindex="-1"></a>pred.glm.Z2mnZ1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(mdl.glm.Z2mnZ1, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)<span class="sc">&gt;</span><span class="fl">0.5</span></span>
+<span id="cb2144-2"><a href="8.4-glm-as-a-classification-tool-1.html#cb2144-2" tabindex="-1"></a></span>
+<span id="cb2144-3"><a href="8.4-glm-as-a-classification-tool-1.html#cb2144-3" tabindex="-1"></a>tbl.glm.Z2mnZ1 <span class="ot">&lt;-</span> <span class="fu">table</span>(pred.glm.Z2mnZ1, dfPharV2<span class="sc">$</span>context)</span>
+<span id="cb2144-4"><a href="8.4-glm-as-a-classification-tool-1.html#cb2144-4" tabindex="-1"></a><span class="fu">rownames</span>(tbl.glm.Z2mnZ1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Non-Guttural&quot;</span>, <span class="st">&quot;Guttural&quot;</span>)</span>
+<span id="cb2144-5"><a href="8.4-glm-as-a-classification-tool-1.html#cb2144-5" tabindex="-1"></a>tbl.glm.Z2mnZ1</span></code></pre></div>
 <pre><code>##                
 ## pred.glm.Z2mnZ1 Non-Guttural Guttural
 ##    Non-Guttural          167       75
 ##    Guttural               55      105</code></pre>
-<div class="sourceCode" id="cb2149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2149-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2149-1" tabindex="-1"></a><span class="do">## from PresenceAbsence</span></span>
-<span id="cb2149-2"><a href="8.4-glm-as-a-classification-tool-1.html#cb2149-2" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">pcc</span>(tbl.glm.Z2mnZ1)</span></code></pre></div>
+<div class="sourceCode" id="cb2146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2146-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2146-1" tabindex="-1"></a><span class="do">## from PresenceAbsence</span></span>
+<span id="cb2146-2"><a href="8.4-glm-as-a-classification-tool-1.html#cb2146-2" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">pcc</span>(tbl.glm.Z2mnZ1)</span></code></pre></div>
 <pre><code>##         PCC    PCC.sd
 ## 1 0.6766169 0.0233592</code></pre>
-<div class="sourceCode" id="cb2151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2151-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2151-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">specificity</span>(tbl.glm.Z2mnZ1)</span></code></pre></div>
+<div class="sourceCode" id="cb2148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2148-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2148-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">specificity</span>(tbl.glm.Z2mnZ1)</span></code></pre></div>
 <pre><code>##   specificity specificity.sd
 ## 1   0.5833333     0.03684905</code></pre>
-<div class="sourceCode" id="cb2153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2153-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2153-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">sensitivity</span>(tbl.glm.Z2mnZ1)</span></code></pre></div>
+<div class="sourceCode" id="cb2150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2150-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2150-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">sensitivity</span>(tbl.glm.Z2mnZ1)</span></code></pre></div>
 <pre><code>##   sensitivity sensitivity.sd
 ## 1   0.7522523     0.02903959</code></pre>
-<div class="sourceCode" id="cb2155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2155-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2155-1" tabindex="-1"></a>roc.glm.Z2mnZ1 <span class="ot">&lt;-</span> pROC<span class="sc">::</span><span class="fu">roc</span>(dfPharV2<span class="sc">$</span>context, <span class="fu">as.numeric</span>(pred.glm.Z2mnZ1))</span></code></pre></div>
+<div class="sourceCode" id="cb2152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2152-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2152-1" tabindex="-1"></a>roc.glm.Z2mnZ1 <span class="ot">&lt;-</span> pROC<span class="sc">::</span><span class="fu">roc</span>(dfPharV2<span class="sc">$</span>context, <span class="fu">as.numeric</span>(pred.glm.Z2mnZ1))</span></code></pre></div>
 <pre><code>## Setting levels: control = Non-Guttural, case = Guttural</code></pre>
 <pre><code>## Setting direction: controls &lt; cases</code></pre>
-<div class="sourceCode" id="cb2158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2158-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2158-1" tabindex="-1"></a>roc.glm.Z2mnZ1</span></code></pre></div>
+<div class="sourceCode" id="cb2155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2155-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2155-1" tabindex="-1"></a>roc.glm.Z2mnZ1</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## roc.default(response = dfPharV2$context, predictor = as.numeric(pred.glm.Z2mnZ1))
 ## 
 ## Data: as.numeric(pred.glm.Z2mnZ1) in 222 controls (dfPharV2$context Non-Guttural) &lt; 180 cases (dfPharV2$context Guttural).
 ## Area under the curve: 0.6678</code></pre>
-<div class="sourceCode" id="cb2160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2160-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2160-1" tabindex="-1"></a>pROC<span class="sc">::</span><span class="fu">plot.roc</span>(roc.glm.Z2mnZ1, <span class="at">legacy.axes =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2157-1"><a href="8.4-glm-as-a-classification-tool-1.html#cb2157-1" tabindex="-1"></a>pROC<span class="sc">::</span><span class="fu">plot.roc</span>(roc.glm.Z2mnZ1, <span class="at">legacy.axes =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-975-1.png" width="672" /></p>
 <p>The model above was able to explain the difference between the two classes with an accuracy of 67.7%. It has a slightly low specificity (0.583) to detect <code>gutturals</code>, but a sightly high sensitivity (0.752) to reject the <code>non-gutturals</code>. Looking at the confusion matrix, we observe that both groups were relatively accurately identified, but we have relatively large errors (or confusions). The AUC is at 0.6678 which is not too high.</p>
 <p>Let’s continue with GLM to evaluate it further. We start by running a correlation test to evaluate issues with GLM.</p>
