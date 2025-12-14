@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-11-09" />
+<meta name="date" content="2025-12-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -531,7 +531,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2.6.4.4" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-and-d-prime"><i class="fa fa-check"></i><b>2.6.4.4</b> GLM and d prime</a></li>
-<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-as-a-classification-tool"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
+<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#GLM-Classification"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
 <li class="chapter" data-level="2.6.4.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-other-distributions"><i class="fa fa-check"></i><b>2.6.4.6</b> GLM: Other distributions</a></li>
 </ul></li>
 </ul></li>
@@ -2091,11 +2091,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1" data-path="8.1-what-is-predictive-modelling.html"><a href="8.1-what-is-predictive-modelling.html"><i class="fa fa-check"></i><b>8.1</b> What is predictive modelling</a></li>
 <li class="chapter" data-level="8.2" data-path="8.2-loading-packages-7.html"><a href="8.2-loading-packages-7.html"><i class="fa fa-check"></i><b>8.2</b> Loading packages</a></li>
 <li class="chapter" data-level="8.3" data-path="8.3-read-dataset-1.html"><a href="8.3-read-dataset-1.html"><i class="fa fa-check"></i><b>8.3</b> Read dataset</a></li>
-<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
+<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
-<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
-<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
+<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
+<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
+<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="8.5-issues-with-glm-and-regression-analyses-in-general.html"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html"><i class="fa fa-check"></i><b>8.5</b> Issues with GLM (and regression analyses in general)</a>
 <ul>
@@ -2223,12 +2223,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="loading-packages-3" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Loading packages<a href="4.1-loading-packages-3.html#loading-packages-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb867"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb867-1"><a href="4.1-loading-packages-3.html#cb867-1" tabindex="-1"></a><span class="do">## Use the code below to check if you have all required packages installed. If some are not installed already, the code below will install these. If you have all packages installed, then you could load them with the second code.</span></span>
-<span id="cb867-2"><a href="4.1-loading-packages-3.html#cb867-2" tabindex="-1"></a>requiredPackages <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;tidyverse&#39;</span>, <span class="st">&#39;tidytext&#39;</span>, <span class="st">&#39;rvest&#39;</span>, <span class="st">&#39;janeaustenr&#39;</span>, <span class="st">&#39;proustr&#39;</span>, <span class="st">&#39;textdata&#39;</span>, <span class="st">&#39;gutenbergr&#39;</span>, <span class="st">&#39;quanteda&#39;</span>, <span class="st">&#39;readtext&#39;</span>, <span class="st">&#39;tm&#39;</span>, <span class="st">&#39;SnowballC&#39;</span>, <span class="st">&#39;stopwords&#39;</span>, <span class="st">&#39;quanteda.textplots&#39;</span>)</span>
-<span id="cb867-3"><a href="4.1-loading-packages-3.html#cb867-3" tabindex="-1"></a><span class="cf">for</span>(p <span class="cf">in</span> requiredPackages){</span>
-<span id="cb867-4"><a href="4.1-loading-packages-3.html#cb867-4" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(p,<span class="at">character.only =</span> <span class="cn">TRUE</span>)) <span class="fu">install.packages</span>(p)</span>
-<span id="cb867-5"><a href="4.1-loading-packages-3.html#cb867-5" tabindex="-1"></a>  <span class="fu">library</span>(p,<span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb867-6"><a href="4.1-loading-packages-3.html#cb867-6" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb861"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb861-1"><a href="4.1-loading-packages-3.html#cb861-1" tabindex="-1"></a><span class="do">## Use the code below to check if you have all required packages installed. If some are not installed already, the code below will install these. If you have all packages installed, then you could load them with the second code.</span></span>
+<span id="cb861-2"><a href="4.1-loading-packages-3.html#cb861-2" tabindex="-1"></a>requiredPackages <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;tidyverse&#39;</span>, <span class="st">&#39;tidytext&#39;</span>, <span class="st">&#39;rvest&#39;</span>, <span class="st">&#39;janeaustenr&#39;</span>, <span class="st">&#39;proustr&#39;</span>, <span class="st">&#39;textdata&#39;</span>, <span class="st">&#39;gutenbergr&#39;</span>, <span class="st">&#39;quanteda&#39;</span>, <span class="st">&#39;readtext&#39;</span>, <span class="st">&#39;tm&#39;</span>, <span class="st">&#39;SnowballC&#39;</span>, <span class="st">&#39;stopwords&#39;</span>, <span class="st">&#39;quanteda.textplots&#39;</span>)</span>
+<span id="cb861-3"><a href="4.1-loading-packages-3.html#cb861-3" tabindex="-1"></a><span class="cf">for</span>(p <span class="cf">in</span> requiredPackages){</span>
+<span id="cb861-4"><a href="4.1-loading-packages-3.html#cb861-4" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(p,<span class="at">character.only =</span> <span class="cn">TRUE</span>)) <span class="fu">install.packages</span>(p)</span>
+<span id="cb861-5"><a href="4.1-loading-packages-3.html#cb861-5" tabindex="-1"></a>  <span class="fu">library</span>(p,<span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb861-6"><a href="4.1-loading-packages-3.html#cb861-6" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## Loading required package: tidytext</code></pre>
 <pre><code>## Loading required package: rvest</code></pre>
 <pre><code>## 

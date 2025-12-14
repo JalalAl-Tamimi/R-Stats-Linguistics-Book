@@ -251,7 +251,7 @@ accuracy-and-error
 sensitivity-specificity-precision-etc.
 std-measures
 glm-and-d-prime
-glm-as-a-classification-tool
+GLM-Classification
 glm-other-distributions
 CLM
 ratings-of-percept-of-nasality
@@ -1227,7 +1227,7 @@ DT-RF
 what-is-predictive-modelling
 loading-packages-7
 read-dataset-1
-glm-as-a-classification-tool-1
+glm-as-a-classification-tool
 model-specification-1
 plogis
 model-predictions

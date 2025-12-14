@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-11-09" />
+<meta name="date" content="2025-12-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -531,7 +531,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2.6.4.4" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-and-d-prime"><i class="fa fa-check"></i><b>2.6.4.4</b> GLM and d prime</a></li>
-<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-as-a-classification-tool"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
+<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#GLM-Classification"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
 <li class="chapter" data-level="2.6.4.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-other-distributions"><i class="fa fa-check"></i><b>2.6.4.6</b> GLM: Other distributions</a></li>
 </ul></li>
 </ul></li>
@@ -2091,11 +2091,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1" data-path="8.1-what-is-predictive-modelling.html"><a href="8.1-what-is-predictive-modelling.html"><i class="fa fa-check"></i><b>8.1</b> What is predictive modelling</a></li>
 <li class="chapter" data-level="8.2" data-path="8.2-loading-packages-7.html"><a href="8.2-loading-packages-7.html"><i class="fa fa-check"></i><b>8.2</b> Loading packages</a></li>
 <li class="chapter" data-level="8.3" data-path="8.3-read-dataset-1.html"><a href="8.3-read-dataset-1.html"><i class="fa fa-check"></i><b>8.3</b> Read dataset</a></li>
-<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
+<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
-<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
-<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
+<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
+<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
+<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="8.5-issues-with-glm-and-regression-analyses-in-general.html"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html"><i class="fa fa-check"></i><b>8.5</b> Issues with GLM (and regression analyses in general)</a>
 <ul>
@@ -2229,15 +2229,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Multi-category outcome (multinomial)</li>
 </ol>
 <p>The code below gives you an idea of how to specify these models</p>
-<div class="sourceCode" id="cb864"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb864-1"><a href="3.7-other-distibutions.html#cb864-1" tabindex="-1"></a><span class="do">### Poisson family</span></span>
-<span id="cb864-2"><a href="3.7-other-distibutions.html#cb864-2" tabindex="-1"></a><span class="do">### lme4::glmer(outcome~predictor(s)+(1|subject)+(1|items)..., data=data, family=poisson)</span></span>
-<span id="cb864-3"><a href="3.7-other-distibutions.html#cb864-3" tabindex="-1"></a></span>
-<span id="cb864-4"><a href="3.7-other-distibutions.html#cb864-4" tabindex="-1"></a><span class="do">### Multinomial family</span></span>
-<span id="cb864-5"><a href="3.7-other-distibutions.html#cb864-5" tabindex="-1"></a><span class="do">### a bit complicated as there is a need to use Bayesian approaches, see e.g., </span></span>
-<span id="cb864-6"><a href="3.7-other-distibutions.html#cb864-6" tabindex="-1"></a><span class="do">### glmmADMB</span></span>
-<span id="cb864-7"><a href="3.7-other-distibutions.html#cb864-7" tabindex="-1"></a><span class="do">### mixcat</span></span>
-<span id="cb864-8"><a href="3.7-other-distibutions.html#cb864-8" tabindex="-1"></a><span class="do">### MCMCglmm</span></span>
-<span id="cb864-9"><a href="3.7-other-distibutions.html#cb864-9" tabindex="-1"></a><span class="do">### see https://gist.github.com/casallas/8263818</span></span></code></pre></div>
+<div class="sourceCode" id="cb858"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb858-1"><a href="3.7-other-distibutions.html#cb858-1" tabindex="-1"></a><span class="do">### Poisson family</span></span>
+<span id="cb858-2"><a href="3.7-other-distibutions.html#cb858-2" tabindex="-1"></a><span class="do">### lme4::glmer(outcome~predictor(s)+(1|subject)+(1|items)..., data=data, family=poisson)</span></span>
+<span id="cb858-3"><a href="3.7-other-distibutions.html#cb858-3" tabindex="-1"></a></span>
+<span id="cb858-4"><a href="3.7-other-distibutions.html#cb858-4" tabindex="-1"></a><span class="do">### Multinomial family</span></span>
+<span id="cb858-5"><a href="3.7-other-distibutions.html#cb858-5" tabindex="-1"></a><span class="do">### a bit complicated as there is a need to use Bayesian approaches, see e.g., </span></span>
+<span id="cb858-6"><a href="3.7-other-distibutions.html#cb858-6" tabindex="-1"></a><span class="do">### glmmADMB</span></span>
+<span id="cb858-7"><a href="3.7-other-distibutions.html#cb858-7" tabindex="-1"></a><span class="do">### mixcat</span></span>
+<span id="cb858-8"><a href="3.7-other-distibutions.html#cb858-8" tabindex="-1"></a><span class="do">### MCMCglmm</span></span>
+<span id="cb858-9"><a href="3.7-other-distibutions.html#cb858-9" tabindex="-1"></a><span class="do">### see https://gist.github.com/casallas/8263818</span></span></code></pre></div>
 </div>
             </section>
 

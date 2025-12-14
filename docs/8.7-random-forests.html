@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-11-09" />
+<meta name="date" content="2025-12-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -531,7 +531,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2.6.4.4" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-and-d-prime"><i class="fa fa-check"></i><b>2.6.4.4</b> GLM and d prime</a></li>
-<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-as-a-classification-tool"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
+<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#GLM-Classification"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
 <li class="chapter" data-level="2.6.4.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-other-distributions"><i class="fa fa-check"></i><b>2.6.4.6</b> GLM: Other distributions</a></li>
 </ul></li>
 </ul></li>
@@ -2091,11 +2091,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1" data-path="8.1-what-is-predictive-modelling.html"><a href="8.1-what-is-predictive-modelling.html"><i class="fa fa-check"></i><b>8.1</b> What is predictive modelling</a></li>
 <li class="chapter" data-level="8.2" data-path="8.2-loading-packages-7.html"><a href="8.2-loading-packages-7.html"><i class="fa fa-check"></i><b>8.2</b> Loading packages</a></li>
 <li class="chapter" data-level="8.3" data-path="8.3-read-dataset-1.html"><a href="8.3-read-dataset-1.html"><i class="fa fa-check"></i><b>8.3</b> Read dataset</a></li>
-<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
+<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
-<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
-<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
+<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
+<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
+<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="8.5-issues-with-glm-and-regression-analyses-in-general.html"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html"><i class="fa fa-check"></i><b>8.5</b> Issues with GLM (and regression analyses in general)</a>
 <ul>
@@ -2247,47 +2247,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li><code>fraction = 0.632</code> = Use 63.2% of the data in each split.</li>
 </ol>
-<div class="sourceCode" id="cb2230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2230-1"><a href="8.7-random-forests.html#cb2230-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2230-2"><a href="8.7-random-forests.html#cb2230-2" tabindex="-1"></a>mdl.cforest <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
-<span id="cb2230-3"><a href="8.7-random-forests.html#cb2230-3" tabindex="-1"></a>  <span class="fu">cforest</span>(context <span class="sc">~</span> ., <span class="at">data =</span> ., </span>
-<span id="cb2230-4"><a href="8.7-random-forests.html#cb2230-4" tabindex="-1"></a>          <span class="at">controls =</span> <span class="fu">cforest_unbiased</span>(<span class="at">ntree =</span> <span class="dv">100</span>, </span>
-<span id="cb2230-5"><a href="8.7-random-forests.html#cb2230-5" tabindex="-1"></a>                                      <span class="at">mtry =</span> <span class="fu">round</span>(<span class="fu">sqrt</span>(<span class="dv">23</span>))))</span></code></pre></div>
+<div class="sourceCode" id="cb2224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2224-1"><a href="8.7-random-forests.html#cb2224-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2224-2"><a href="8.7-random-forests.html#cb2224-2" tabindex="-1"></a>mdl.cforest <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb2224-3"><a href="8.7-random-forests.html#cb2224-3" tabindex="-1"></a>  <span class="fu">cforest</span>(context <span class="sc">~</span> ., <span class="at">data =</span> ., </span>
+<span id="cb2224-4"><a href="8.7-random-forests.html#cb2224-4" tabindex="-1"></a>          <span class="at">controls =</span> <span class="fu">cforest_unbiased</span>(<span class="at">ntree =</span> <span class="dv">100</span>, </span>
+<span id="cb2224-5"><a href="8.7-random-forests.html#cb2224-5" tabindex="-1"></a>                                      <span class="at">mtry =</span> <span class="fu">round</span>(<span class="fu">sqrt</span>(<span class="dv">23</span>))))</span></code></pre></div>
 </div>
 <div id="predictions" class="section level4 hasAnchor" number="8.7.1.2">
 <h4><span class="header-section-number">8.7.1.2</span> Predictions<a href="8.7-random-forests.html#predictions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>To obtain predictions from the model, we use the <code>predict</code> function and add <code>OOB = TRUE</code>. This uses the out-of-bag sample (i.e., 1/3 of the data).</p>
-<div class="sourceCode" id="cb2231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2231-1"><a href="8.7-random-forests.html#cb2231-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2231-2"><a href="8.7-random-forests.html#cb2231-2" tabindex="-1"></a>pred.cforest <span class="ot">&lt;-</span> <span class="fu">predict</span>(mdl.cforest, <span class="at">OOB =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2231-3"><a href="8.7-random-forests.html#cb2231-3" tabindex="-1"></a>tbl.cforest <span class="ot">&lt;-</span> <span class="fu">table</span>(pred.cforest, dfPharV2<span class="sc">$</span>context)</span>
-<span id="cb2231-4"><a href="8.7-random-forests.html#cb2231-4" tabindex="-1"></a>tbl.cforest</span></code></pre></div>
+<div class="sourceCode" id="cb2225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2225-1"><a href="8.7-random-forests.html#cb2225-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2225-2"><a href="8.7-random-forests.html#cb2225-2" tabindex="-1"></a>pred.cforest <span class="ot">&lt;-</span> <span class="fu">predict</span>(mdl.cforest, <span class="at">OOB =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2225-3"><a href="8.7-random-forests.html#cb2225-3" tabindex="-1"></a>tbl.cforest <span class="ot">&lt;-</span> <span class="fu">table</span>(pred.cforest, dfPharV2<span class="sc">$</span>context)</span>
+<span id="cb2225-4"><a href="8.7-random-forests.html#cb2225-4" tabindex="-1"></a>tbl.cforest</span></code></pre></div>
 <pre><code>##               
 ## pred.cforest   Non-Guttural Guttural
 ##   Non-Guttural          204       43
 ##   Guttural               18      137</code></pre>
-<div class="sourceCode" id="cb2233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2233-1"><a href="8.7-random-forests.html#cb2233-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">pcc</span>(tbl.cforest)</span></code></pre></div>
+<div class="sourceCode" id="cb2227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2227-1"><a href="8.7-random-forests.html#cb2227-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">pcc</span>(tbl.cforest)</span></code></pre></div>
 <pre><code>##         PCC     PCC.sd
 ## 1 0.8482587 0.01791612</code></pre>
-<div class="sourceCode" id="cb2235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2235-1"><a href="8.7-random-forests.html#cb2235-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">specificity</span>(tbl.cforest)</span></code></pre></div>
+<div class="sourceCode" id="cb2229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2229-1"><a href="8.7-random-forests.html#cb2229-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">specificity</span>(tbl.cforest)</span></code></pre></div>
 <pre><code>##   specificity specificity.sd
 ## 1   0.7611111     0.03187099</code></pre>
-<div class="sourceCode" id="cb2237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2237-1"><a href="8.7-random-forests.html#cb2237-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">sensitivity</span>(tbl.cforest)</span></code></pre></div>
+<div class="sourceCode" id="cb2231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2231-1"><a href="8.7-random-forests.html#cb2231-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">sensitivity</span>(tbl.cforest)</span></code></pre></div>
 <pre><code>##   sensitivity sensitivity.sd
 ## 1   0.9189189     0.01836125</code></pre>
-<div class="sourceCode" id="cb2239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2239-1"><a href="8.7-random-forests.html#cb2239-1" tabindex="-1"></a>roc.cforest <span class="ot">&lt;-</span> pROC<span class="sc">::</span><span class="fu">roc</span>(dfPharV2<span class="sc">$</span>context, <span class="fu">as.numeric</span>(pred.cforest))</span></code></pre></div>
+<div class="sourceCode" id="cb2233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2233-1"><a href="8.7-random-forests.html#cb2233-1" tabindex="-1"></a>roc.cforest <span class="ot">&lt;-</span> pROC<span class="sc">::</span><span class="fu">roc</span>(dfPharV2<span class="sc">$</span>context, <span class="fu">as.numeric</span>(pred.cforest))</span></code></pre></div>
 <pre><code>## Setting levels: control = Non-Guttural, case = Guttural</code></pre>
 <pre><code>## Setting direction: controls &lt; cases</code></pre>
-<div class="sourceCode" id="cb2242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2242-1"><a href="8.7-random-forests.html#cb2242-1" tabindex="-1"></a>roc.cforest</span></code></pre></div>
+<div class="sourceCode" id="cb2236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2236-1"><a href="8.7-random-forests.html#cb2236-1" tabindex="-1"></a>roc.cforest</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## roc.default(response = dfPharV2$context, predictor = as.numeric(pred.cforest))
 ## 
 ## Data: as.numeric(pred.cforest) in 222 controls (dfPharV2$context Non-Guttural) &lt; 180 cases (dfPharV2$context Guttural).
 ## Area under the curve: 0.84</code></pre>
-<div class="sourceCode" id="cb2244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2244-1"><a href="8.7-random-forests.html#cb2244-1" tabindex="-1"></a>pROC<span class="sc">::</span><span class="fu">plot.roc</span>(roc.cforest, <span class="at">legacy.axes =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2238-1"><a href="8.7-random-forests.html#cb2238-1" tabindex="-1"></a>pROC<span class="sc">::</span><span class="fu">plot.roc</span>(roc.cforest, <span class="at">legacy.axes =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-991-1.png" width="672" /></p>
 <p>Compared with the 82.8% classification accuracy we obtained using <code>ctree</code> using our full dataset above (model 1), here we obtain 84.8%; a 2% increase in classification accuracy. The specificity is slightly lower at 0.761 (at detecting the gutturals), but the sensitivity is higher at 0.919 (at detecting the non-gutturals). The ROC curve shows the relationship between the two with an AUC of 0.84.</p>
 <p>We could test whether there is statistically significant difference between our <code>ctree</code> and <code>cforest</code> models. Using the ROC curves, the <code>roc.test</code> conducts a non-parametric Z test of significance on the correlated ROC curves. The results show a statistically significant improvement using the <code>cforest</code> model. This is normal because we are growing 100 different trees, with random selection of both predictors and samples and provide an <code>averaged</code> prediction.</p>
-<div class="sourceCode" id="cb2245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2245-1"><a href="8.7-random-forests.html#cb2245-1" tabindex="-1"></a>pROC<span class="sc">::</span><span class="fu">roc.test</span>(roc.ctree, roc.cforest)</span></code></pre></div>
+<div class="sourceCode" id="cb2239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2239-1"><a href="8.7-random-forests.html#cb2239-1" tabindex="-1"></a>pROC<span class="sc">::</span><span class="fu">roc.test</span>(roc.ctree, roc.cforest)</span></code></pre></div>
 <pre><code>## 
 ##  DeLong&#39;s test for two correlated ROC curves
 ## 
@@ -2299,7 +2299,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## sample estimates:
 ## AUC of roc1 AUC of roc2 
 ##    0.823048    0.840015</code></pre>
-<div class="sourceCode" id="cb2247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2247-1"><a href="8.7-random-forests.html#cb2247-1" tabindex="-1"></a>pROC<span class="sc">::</span><span class="fu">roc.test</span>(roc.ctree1, roc.cforest)</span></code></pre></div>
+<div class="sourceCode" id="cb2241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2241-1"><a href="8.7-random-forests.html#cb2241-1" tabindex="-1"></a>pROC<span class="sc">::</span><span class="fu">roc.test</span>(roc.ctree1, roc.cforest)</span></code></pre></div>
 <pre><code>## 
 ##  DeLong&#39;s test for two correlated ROC curves
 ## 
@@ -2325,18 +2325,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>DANGER ZONE</strong>: using conditional permutation test requires a lot of RAMs, unless you have access to a cluster, and/or a lot of RAMs, do not attempt running it. We will run the non-conditional version here for demonstration.</p>
 <div id="non-conditional-permutation-tests" class="section level5 hasAnchor" number="8.7.1.3.1">
 <h5><span class="header-section-number">8.7.1.3.1</span> Non-conditional permutation tests<a href="8.7-random-forests.html#non-conditional-permutation-tests" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb2249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2249-1"><a href="8.7-random-forests.html#cb2249-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2249-2"><a href="8.7-random-forests.html#cb2249-2" tabindex="-1"></a>VarImp.cforest <span class="ot">&lt;-</span> varImp<span class="sc">::</span><span class="fu">varImpAUC</span>(mdl.cforest, <span class="at">conditional =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb2249-3"><a href="8.7-random-forests.html#cb2249-3" tabindex="-1"></a>lattice<span class="sc">::</span><span class="fu">barchart</span>(<span class="fu">sort</span>(VarImp.cforest))</span></code></pre></div>
+<div class="sourceCode" id="cb2243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2243-1"><a href="8.7-random-forests.html#cb2243-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2243-2"><a href="8.7-random-forests.html#cb2243-2" tabindex="-1"></a>VarImp.cforest <span class="ot">&lt;-</span> varImp<span class="sc">::</span><span class="fu">varImpAUC</span>(mdl.cforest, <span class="at">conditional =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2243-3"><a href="8.7-random-forests.html#cb2243-3" tabindex="-1"></a>lattice<span class="sc">::</span><span class="fu">barchart</span>(<span class="fu">sort</span>(VarImp.cforest))</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-993-1.png" width="672" /></p>
 <p>The Variable Importance Scores via non-conditional permutation tests showed that <code>A2*-A3*</code> (i.e., energy in mid-high frequencies around F2 and F3) is the most important variable at explaining the difference between gutturals and non-gutturals, followed by <code>Z4-Z3</code> (pharyngeal constriction), <code>H1*-A3*</code> (energy in mid-high frequency component), <code>Z2-Z1</code> (degree of compactness), <code>Z3-Z2</code> (spectral divergence), <code>H1*-A2</code> (energy in mid frequency component) and <code>Z1-Z0</code> (degree of openness). All other predictors contribute to the contrast but to varying degrees (from <code>H1*-H2*</code> to <code>H1*-A1*</code>). The last 5 predictors are the least important and and the CPP has a 0 mean decrease in accuracy and can even be ignored.</p>
 </div>
 <div id="conditional-permutation-tests" class="section level5 hasAnchor" number="8.7.1.3.2">
 <h5><span class="header-section-number">8.7.1.3.2</span> Conditional permutation tests<a href="8.7-random-forests.html#conditional-permutation-tests" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>On this relatively small dataset, the conditional permutation tests were relatively fast. Be careful with larger datasets.</p>
-<div class="sourceCode" id="cb2250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2250-1"><a href="8.7-random-forests.html#cb2250-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2250-2"><a href="8.7-random-forests.html#cb2250-2" tabindex="-1"></a>VarImp.cforest <span class="ot">&lt;-</span> varImp<span class="sc">::</span><span class="fu">varImpAUC</span>(mdl.cforest, <span class="at">conditional =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2250-3"><a href="8.7-random-forests.html#cb2250-3" tabindex="-1"></a>lattice<span class="sc">::</span><span class="fu">barchart</span>(<span class="fu">sort</span>(VarImp.cforest))</span></code></pre></div>
+<div class="sourceCode" id="cb2244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2244-1"><a href="8.7-random-forests.html#cb2244-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2244-2"><a href="8.7-random-forests.html#cb2244-2" tabindex="-1"></a>VarImp.cforest <span class="ot">&lt;-</span> varImp<span class="sc">::</span><span class="fu">varImpAUC</span>(mdl.cforest, <span class="at">conditional =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2244-3"><a href="8.7-random-forests.html#cb2244-3" tabindex="-1"></a>lattice<span class="sc">::</span><span class="fu">barchart</span>(<span class="fu">sort</span>(VarImp.cforest))</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-994-1.png" width="672" /></p>
 </div>
 </div>
@@ -2350,22 +2350,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="declare-parallel-computing" class="section level4 hasAnchor" number="8.7.2.1">
 <h4><span class="header-section-number">8.7.2.1</span> Declare parallel computing<a href="8.7-random-forests.html#declare-parallel-computing" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We start by declaring parallel computing on your devices. This is essential to run these complex computations. The code below is designed to only use 1 core from your machine (and it is not too complex), but if you try to increase the complexity of your computations, you will need parallel computing.</p>
-<div class="sourceCode" id="cb2251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2251-1"><a href="8.7-random-forests.html#cb2251-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2251-2"><a href="8.7-random-forests.html#cb2251-2" tabindex="-1"></a></span>
-<span id="cb2251-3"><a href="8.7-random-forests.html#cb2251-3" tabindex="-1"></a><span class="co">#Declare parallel computing </span></span>
-<span id="cb2251-4"><a href="8.7-random-forests.html#cb2251-4" tabindex="-1"></a>ncores <span class="ot">&lt;-</span> <span class="fu">availableCores</span>()</span>
-<span id="cb2251-5"><a href="8.7-random-forests.html#cb2251-5" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">paste0</span>(<span class="st">&quot;Number of cores available for model calculations set to &quot;</span>, ncores, <span class="st">&quot;.&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb2245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2245-1"><a href="8.7-random-forests.html#cb2245-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2245-2"><a href="8.7-random-forests.html#cb2245-2" tabindex="-1"></a></span>
+<span id="cb2245-3"><a href="8.7-random-forests.html#cb2245-3" tabindex="-1"></a><span class="co">#Declare parallel computing </span></span>
+<span id="cb2245-4"><a href="8.7-random-forests.html#cb2245-4" tabindex="-1"></a>ncores <span class="ot">&lt;-</span> <span class="fu">availableCores</span>()</span>
+<span id="cb2245-5"><a href="8.7-random-forests.html#cb2245-5" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">paste0</span>(<span class="st">&quot;Number of cores available for model calculations set to &quot;</span>, ncores, <span class="st">&quot;.&quot;</span>))</span></code></pre></div>
 <pre><code>## Number of cores available for model calculations set to 12.</code></pre>
-<div class="sourceCode" id="cb2253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2253-1"><a href="8.7-random-forests.html#cb2253-1" tabindex="-1"></a><span class="fu">registerDoFuture</span>()</span>
-<span id="cb2253-2"><a href="8.7-random-forests.html#cb2253-2" tabindex="-1"></a><span class="fu">makeClusterPSOCK</span>(ncores)</span></code></pre></div>
-<pre><code>## Socket cluster with 12 nodes on host &#39;localhost&#39; (R version 4.5.1 (2025-06-13 ucrt), platform x86_64-w64-mingw32)</code></pre>
-<div class="sourceCode" id="cb2255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2255-1"><a href="8.7-random-forests.html#cb2255-1" tabindex="-1"></a><span class="fu">plan</span>(multisession)</span>
-<span id="cb2255-2"><a href="8.7-random-forests.html#cb2255-2" tabindex="-1"></a>ncores</span></code></pre></div>
+<div class="sourceCode" id="cb2247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2247-1"><a href="8.7-random-forests.html#cb2247-1" tabindex="-1"></a><span class="fu">registerDoFuture</span>()</span>
+<span id="cb2247-2"><a href="8.7-random-forests.html#cb2247-2" tabindex="-1"></a><span class="fu">makeClusterPSOCK</span>(ncores)</span></code></pre></div>
+<pre><code>## Socket cluster with 12 nodes on host &#39;localhost&#39; (R version 4.5.2 (2025-10-31 ucrt), platform x86_64-w64-mingw32)</code></pre>
+<div class="sourceCode" id="cb2249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2249-1"><a href="8.7-random-forests.html#cb2249-1" tabindex="-1"></a><span class="fu">plan</span>(multisession)</span>
+<span id="cb2249-2"><a href="8.7-random-forests.html#cb2249-2" tabindex="-1"></a>ncores</span></code></pre></div>
 <pre><code>## system 
 ##     12</code></pre>
-<div class="sourceCode" id="cb2257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2257-1"><a href="8.7-random-forests.html#cb2257-1" tabindex="-1"></a><span class="do">## below we register our random number generator. This will mostly be used within the tidymodels below. This allows replication of the results</span></span>
-<span id="cb2257-2"><a href="8.7-random-forests.html#cb2257-2" tabindex="-1"></a><span class="do">## below to suppress any warnings from doFuture</span></span>
-<span id="cb2257-3"><a href="8.7-random-forests.html#cb2257-3" tabindex="-1"></a><span class="fu">options</span>(<span class="at">doFuture.rng.onMisuse =</span> <span class="st">&quot;ignore&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2251-1"><a href="8.7-random-forests.html#cb2251-1" tabindex="-1"></a><span class="do">## below we register our random number generator. This will mostly be used within the tidymodels below. This allows replication of the results</span></span>
+<span id="cb2251-2"><a href="8.7-random-forests.html#cb2251-2" tabindex="-1"></a><span class="do">## below to suppress any warnings from doFuture</span></span>
+<span id="cb2251-3"><a href="8.7-random-forests.html#cb2251-3" tabindex="-1"></a><span class="fu">options</span>(<span class="at">doFuture.rng.onMisuse =</span> <span class="st">&quot;ignore&quot;</span>)</span></code></pre></div>
 <p>The <code>ranger</code> package proposes a reimplementation of the original Random Forests algorithms, written in C++ and allows for parallel computing. It offers more flexibility in terms of model specification.</p>
 </div>
 <div id="model-specification-4" class="section level4 hasAnchor" number="8.7.2.2">
@@ -2382,13 +2382,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>num.threads</code> = allow for parallel computing. Here we only specify 1 thread, but can use all thread on your computer (or cluster).</li>
 </ol>
 <p>We use options 2-7 to make sure we have an unbiased selection process with <code>ranger</code>. You can try on your own running the model below by using the defaults to see how the rate of classification increases more, but with the caveat that it has a biased selection process.</p>
-<div class="sourceCode" id="cb2258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2258-1"><a href="8.7-random-forests.html#cb2258-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2258-2"><a href="8.7-random-forests.html#cb2258-2" tabindex="-1"></a>mdl.ranger <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
-<span id="cb2258-3"><a href="8.7-random-forests.html#cb2258-3" tabindex="-1"></a>  <span class="fu">ranger</span>(context <span class="sc">~</span> ., <span class="at">data =</span> ., <span class="at">num.trees =</span> <span class="dv">500</span>, <span class="at">mtry =</span> <span class="fu">round</span>(<span class="fu">sqrt</span>(<span class="dv">23</span>)),</span>
-<span id="cb2258-4"><a href="8.7-random-forests.html#cb2258-4" tabindex="-1"></a>         <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">sample.fraction =</span> <span class="fl">0.632</span>, </span>
-<span id="cb2258-5"><a href="8.7-random-forests.html#cb2258-5" tabindex="-1"></a>         <span class="at">importance =</span> <span class="st">&quot;permutation&quot;</span>, <span class="at">scale.permutation.importance =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb2258-6"><a href="8.7-random-forests.html#cb2258-6" tabindex="-1"></a>         <span class="at">splitrule =</span> <span class="st">&quot;extratrees&quot;</span>, <span class="at">num.threads =</span> ncores)</span>
-<span id="cb2258-7"><a href="8.7-random-forests.html#cb2258-7" tabindex="-1"></a>mdl.ranger</span></code></pre></div>
+<div class="sourceCode" id="cb2252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2252-1"><a href="8.7-random-forests.html#cb2252-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2252-2"><a href="8.7-random-forests.html#cb2252-2" tabindex="-1"></a>mdl.ranger <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb2252-3"><a href="8.7-random-forests.html#cb2252-3" tabindex="-1"></a>  <span class="fu">ranger</span>(context <span class="sc">~</span> ., <span class="at">data =</span> ., <span class="at">num.trees =</span> <span class="dv">500</span>, <span class="at">mtry =</span> <span class="fu">round</span>(<span class="fu">sqrt</span>(<span class="dv">23</span>)),</span>
+<span id="cb2252-4"><a href="8.7-random-forests.html#cb2252-4" tabindex="-1"></a>         <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">sample.fraction =</span> <span class="fl">0.632</span>, </span>
+<span id="cb2252-5"><a href="8.7-random-forests.html#cb2252-5" tabindex="-1"></a>         <span class="at">importance =</span> <span class="st">&quot;permutation&quot;</span>, <span class="at">scale.permutation.importance =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2252-6"><a href="8.7-random-forests.html#cb2252-6" tabindex="-1"></a>         <span class="at">splitrule =</span> <span class="st">&quot;extratrees&quot;</span>, <span class="at">num.threads =</span> ncores)</span>
+<span id="cb2252-7"><a href="8.7-random-forests.html#cb2252-7" tabindex="-1"></a>mdl.ranger</span></code></pre></div>
 <pre><code>## Ranger result
 ## 
 ## Call:
@@ -2411,21 +2411,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Unfortunately, when growing a tree with <code>ranger</code>, we cannot use predictions from the OOB sample as there are no comparable options to do so on the predictions. We need to hard-code this. We split the data into a training and a testing sets. The training will be on 2/3s of the data; the testing is on the remaining 1/3.</p>
 <div id="create-a-training-and-a-testing-set" class="section level5 hasAnchor" number="8.7.2.3.1">
 <h5><span class="header-section-number">8.7.2.3.1</span> Create a training and a testing set<a href="8.7-random-forests.html#create-a-training-and-a-testing-set" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb2260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2260-1"><a href="8.7-random-forests.html#cb2260-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2260-2"><a href="8.7-random-forests.html#cb2260-2" tabindex="-1"></a>train.idx <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(dfPharV2), <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">*</span> <span class="fu">nrow</span>(dfPharV2))</span>
-<span id="cb2260-3"><a href="8.7-random-forests.html#cb2260-3" tabindex="-1"></a>gutt.train <span class="ot">&lt;-</span> dfPharV2[train.idx, ]</span>
-<span id="cb2260-4"><a href="8.7-random-forests.html#cb2260-4" tabindex="-1"></a>gutt.test <span class="ot">&lt;-</span> dfPharV2[<span class="sc">-</span>train.idx, ]</span></code></pre></div>
+<div class="sourceCode" id="cb2254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2254-1"><a href="8.7-random-forests.html#cb2254-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2254-2"><a href="8.7-random-forests.html#cb2254-2" tabindex="-1"></a>train.idx <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(dfPharV2), <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">*</span> <span class="fu">nrow</span>(dfPharV2))</span>
+<span id="cb2254-3"><a href="8.7-random-forests.html#cb2254-3" tabindex="-1"></a>gutt.train <span class="ot">&lt;-</span> dfPharV2[train.idx, ]</span>
+<span id="cb2254-4"><a href="8.7-random-forests.html#cb2254-4" tabindex="-1"></a>gutt.test <span class="ot">&lt;-</span> dfPharV2[<span class="sc">-</span>train.idx, ]</span></code></pre></div>
 </div>
 <div id="model-specification-5" class="section level5 hasAnchor" number="8.7.2.3.2">
 <h5><span class="header-section-number">8.7.2.3.2</span> Model specification<a href="8.7-random-forests.html#model-specification-5" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We use the same model specification as above, except from using the training set and saving the forest (with <code>write.forest = TRUE</code>).</p>
-<div class="sourceCode" id="cb2261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2261-1"><a href="8.7-random-forests.html#cb2261-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2261-2"><a href="8.7-random-forests.html#cb2261-2" tabindex="-1"></a>mdl.ranger2 <span class="ot">&lt;-</span> gutt.train <span class="sc">%&gt;%</span> </span>
-<span id="cb2261-3"><a href="8.7-random-forests.html#cb2261-3" tabindex="-1"></a>  <span class="fu">ranger</span>(context <span class="sc">~</span> ., <span class="at">data =</span> ., <span class="at">num.trees =</span> <span class="dv">500</span>, <span class="at">mtry =</span> <span class="fu">round</span>(<span class="fu">sqrt</span>(<span class="dv">23</span>)),</span>
-<span id="cb2261-4"><a href="8.7-random-forests.html#cb2261-4" tabindex="-1"></a>         <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">sample.fraction =</span> <span class="fl">0.632</span>, </span>
-<span id="cb2261-5"><a href="8.7-random-forests.html#cb2261-5" tabindex="-1"></a>         <span class="at">importance =</span> <span class="st">&quot;permutation&quot;</span>, <span class="at">scale.permutation.importance =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb2261-6"><a href="8.7-random-forests.html#cb2261-6" tabindex="-1"></a>         <span class="at">splitrule =</span> <span class="st">&quot;extratrees&quot;</span>, <span class="at">num.threads =</span> ncores, <span class="at">write.forest =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2261-7"><a href="8.7-random-forests.html#cb2261-7" tabindex="-1"></a>mdl.ranger2</span></code></pre></div>
+<div class="sourceCode" id="cb2255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2255-1"><a href="8.7-random-forests.html#cb2255-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2255-2"><a href="8.7-random-forests.html#cb2255-2" tabindex="-1"></a>mdl.ranger2 <span class="ot">&lt;-</span> gutt.train <span class="sc">%&gt;%</span> </span>
+<span id="cb2255-3"><a href="8.7-random-forests.html#cb2255-3" tabindex="-1"></a>  <span class="fu">ranger</span>(context <span class="sc">~</span> ., <span class="at">data =</span> ., <span class="at">num.trees =</span> <span class="dv">500</span>, <span class="at">mtry =</span> <span class="fu">round</span>(<span class="fu">sqrt</span>(<span class="dv">23</span>)),</span>
+<span id="cb2255-4"><a href="8.7-random-forests.html#cb2255-4" tabindex="-1"></a>         <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">sample.fraction =</span> <span class="fl">0.632</span>, </span>
+<span id="cb2255-5"><a href="8.7-random-forests.html#cb2255-5" tabindex="-1"></a>         <span class="at">importance =</span> <span class="st">&quot;permutation&quot;</span>, <span class="at">scale.permutation.importance =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2255-6"><a href="8.7-random-forests.html#cb2255-6" tabindex="-1"></a>         <span class="at">splitrule =</span> <span class="st">&quot;extratrees&quot;</span>, <span class="at">num.threads =</span> ncores, <span class="at">write.forest =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2255-7"><a href="8.7-random-forests.html#cb2255-7" tabindex="-1"></a>mdl.ranger2</span></code></pre></div>
 <pre><code>## Ranger result
 ## 
 ## Call:
@@ -2446,34 +2446,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="predictions-1" class="section level5 hasAnchor" number="8.7.2.3.3">
 <h5><span class="header-section-number">8.7.2.3.3</span> Predictions<a href="8.7-random-forests.html#predictions-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>For the predictions, we use the testing set as a validation set. This is to be considered as a true reflection of the model. This is unseen data not used in the training set.</p>
-<div class="sourceCode" id="cb2263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2263-1"><a href="8.7-random-forests.html#cb2263-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2263-2"><a href="8.7-random-forests.html#cb2263-2" tabindex="-1"></a>pred.ranger2 <span class="ot">&lt;-</span> <span class="fu">predict</span>(mdl.ranger2, <span class="at">data =</span> gutt.test)</span>
-<span id="cb2263-3"><a href="8.7-random-forests.html#cb2263-3" tabindex="-1"></a>tbl.ranger2 <span class="ot">&lt;-</span> <span class="fu">table</span>(pred.ranger2<span class="sc">$</span>predictions, gutt.test<span class="sc">$</span>context)</span>
-<span id="cb2263-4"><a href="8.7-random-forests.html#cb2263-4" tabindex="-1"></a>tbl.ranger2</span></code></pre></div>
+<div class="sourceCode" id="cb2257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2257-1"><a href="8.7-random-forests.html#cb2257-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2257-2"><a href="8.7-random-forests.html#cb2257-2" tabindex="-1"></a>pred.ranger2 <span class="ot">&lt;-</span> <span class="fu">predict</span>(mdl.ranger2, <span class="at">data =</span> gutt.test)</span>
+<span id="cb2257-3"><a href="8.7-random-forests.html#cb2257-3" tabindex="-1"></a>tbl.ranger2 <span class="ot">&lt;-</span> <span class="fu">table</span>(pred.ranger2<span class="sc">$</span>predictions, gutt.test<span class="sc">$</span>context)</span>
+<span id="cb2257-4"><a href="8.7-random-forests.html#cb2257-4" tabindex="-1"></a>tbl.ranger2</span></code></pre></div>
 <pre><code>##               
 ##                Non-Guttural Guttural
 ##   Non-Guttural           68        7
 ##   Guttural                5       54</code></pre>
-<div class="sourceCode" id="cb2265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2265-1"><a href="8.7-random-forests.html#cb2265-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">pcc</span>(tbl.ranger2)</span></code></pre></div>
+<div class="sourceCode" id="cb2259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2259-1"><a href="8.7-random-forests.html#cb2259-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">pcc</span>(tbl.ranger2)</span></code></pre></div>
 <pre><code>##         PCC     PCC.sd
 ## 1 0.9104478 0.02475939</code></pre>
-<div class="sourceCode" id="cb2267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2267-1"><a href="8.7-random-forests.html#cb2267-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">specificity</span>(tbl.ranger2)</span></code></pre></div>
+<div class="sourceCode" id="cb2261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2261-1"><a href="8.7-random-forests.html#cb2261-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">specificity</span>(tbl.ranger2)</span></code></pre></div>
 <pre><code>##   specificity specificity.sd
 ## 1   0.8852459     0.04114721</code></pre>
-<div class="sourceCode" id="cb2269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2269-1"><a href="8.7-random-forests.html#cb2269-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">sensitivity</span>(tbl.ranger2)</span></code></pre></div>
+<div class="sourceCode" id="cb2263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2263-1"><a href="8.7-random-forests.html#cb2263-1" tabindex="-1"></a>PresenceAbsence<span class="sc">::</span><span class="fu">sensitivity</span>(tbl.ranger2)</span></code></pre></div>
 <pre><code>##   sensitivity sensitivity.sd
 ## 1   0.9315068     0.02976805</code></pre>
-<div class="sourceCode" id="cb2271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2271-1"><a href="8.7-random-forests.html#cb2271-1" tabindex="-1"></a>roc.ranger <span class="ot">&lt;-</span> pROC<span class="sc">::</span><span class="fu">roc</span>(gutt.test<span class="sc">$</span>context, <span class="fu">as.numeric</span>(pred.ranger2<span class="sc">$</span>predictions))</span></code></pre></div>
+<div class="sourceCode" id="cb2265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2265-1"><a href="8.7-random-forests.html#cb2265-1" tabindex="-1"></a>roc.ranger <span class="ot">&lt;-</span> pROC<span class="sc">::</span><span class="fu">roc</span>(gutt.test<span class="sc">$</span>context, <span class="fu">as.numeric</span>(pred.ranger2<span class="sc">$</span>predictions))</span></code></pre></div>
 <pre><code>## Setting levels: control = Non-Guttural, case = Guttural</code></pre>
 <pre><code>## Setting direction: controls &lt; cases</code></pre>
-<div class="sourceCode" id="cb2274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2274-1"><a href="8.7-random-forests.html#cb2274-1" tabindex="-1"></a>roc.ranger</span></code></pre></div>
+<div class="sourceCode" id="cb2268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2268-1"><a href="8.7-random-forests.html#cb2268-1" tabindex="-1"></a>roc.ranger</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## roc.default(response = gutt.test$context, predictor = as.numeric(pred.ranger2$predictions))
 ## 
 ## Data: as.numeric(pred.ranger2$predictions) in 73 controls (gutt.test$context Non-Guttural) &lt; 61 cases (gutt.test$context Guttural).
 ## Area under the curve: 0.9084</code></pre>
-<div class="sourceCode" id="cb2276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2276-1"><a href="8.7-random-forests.html#cb2276-1" tabindex="-1"></a>pROC<span class="sc">::</span><span class="fu">plot.roc</span>(roc.ranger, <span class="at">legacy.axes =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2270-1"><a href="8.7-random-forests.html#cb2270-1" tabindex="-1"></a>pROC<span class="sc">::</span><span class="fu">plot.roc</span>(roc.ranger, <span class="at">legacy.axes =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-999-1.png" width="672" /></p>
 <p>The classification rate based on the testing set is 91.1%. This is comparable to the one we obtained with <code>cforest</code>. The changes in the settings allow for similarities in the predictions obtained from both <code>party</code> and <code>ranger</code>.</p>
 </div>
@@ -2482,10 +2482,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="default-1" class="section level6 hasAnchor" number="8.7.2.3.4.1">
 <h6><span class="header-section-number">8.7.2.3.4.1</span> Default<a href="8.7-random-forests.html#default-1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
 <p>For the variable importance scores, we obtain them from either the training set or the full model above.</p>
-<div class="sourceCode" id="cb2277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2277-1"><a href="8.7-random-forests.html#cb2277-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2277-2"><a href="8.7-random-forests.html#cb2277-2" tabindex="-1"></a>lattice<span class="sc">::</span><span class="fu">barchart</span>(<span class="fu">sort</span>(mdl.ranger2<span class="sc">$</span>variable.importance), <span class="at">main =</span> <span class="st">&quot;Variable Importance scores - training set&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2271-1"><a href="8.7-random-forests.html#cb2271-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2271-2"><a href="8.7-random-forests.html#cb2271-2" tabindex="-1"></a>lattice<span class="sc">::</span><span class="fu">barchart</span>(<span class="fu">sort</span>(mdl.ranger2<span class="sc">$</span>variable.importance), <span class="at">main =</span> <span class="st">&quot;Variable Importance scores - training set&quot;</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-1000-1.png" width="672" /></p>
-<div class="sourceCode" id="cb2278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2278-1"><a href="8.7-random-forests.html#cb2278-1" tabindex="-1"></a>lattice<span class="sc">::</span><span class="fu">barchart</span>(<span class="fu">sort</span>(mdl.ranger<span class="sc">$</span>variable.importance), <span class="at">main =</span> <span class="st">&quot;Variable Importance scores - full set&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2272-1"><a href="8.7-random-forests.html#cb2272-1" tabindex="-1"></a>lattice<span class="sc">::</span><span class="fu">barchart</span>(<span class="fu">sort</span>(mdl.ranger<span class="sc">$</span>variable.importance), <span class="at">main =</span> <span class="st">&quot;Variable Importance scores - full set&quot;</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-1000-2.png" width="672" /></p>
 <p>There are similarities between <code>cforest</code> and <code>ranger</code>, with minor differences. <code>Z2-Z1</code> is the best predictor at explaining the differences between gutturals and non-gutturals with <code>ranger</code> followed by <code>Z3-Z2</code> and then <code>A2*-A3*</code>, (reverse with <code>cforest</code>!). The order of the additional predictors is sightly different between the two models. This is expected as the <code>cforest</code> model only used 100 trees, whereas the <code>ranger</code> model used 500 trees.</p>
 <p>A clear difference between the packages <code>party</code> and <code>ranger</code> is that the former allows for conditional permutation tests for variable importance scores; this is absent from <code>ranger</code>. However, there is a debate in the literature on whether correlated data are harmful within Random Forests. It is clear that how Random Forests work, i.e., the randomness in the selection process in number of data points, predictors, splitting rules, etc. allow the trees to be decorrelated from each other. Hence, the conditional permutation tests may not be required. But what they offer is to condition variable importance scores on each other (based on correlation tests) to mimic what a multiple regression analysis does (but without suffering from suppression!). Strong predictors will show major contribution, while weak ones will be squashed giving them extremely low (or even negative) scores. Within <code>ranger</code>, it is possible to evaluate this by estimating p values associated with each variable importance.We use the <code>altman</code> method. See documentation for more details.</p>
@@ -2493,16 +2493,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="with-p-values" class="section level6 hasAnchor" number="8.7.2.3.4.2">
 <h6><span class="header-section-number">8.7.2.3.4.2</span> With p values<a href="8.7-random-forests.html#with-p-values" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb2279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2279-1"><a href="8.7-random-forests.html#cb2279-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2279-2"><a href="8.7-random-forests.html#cb2279-2" tabindex="-1"></a>VarImp.pval <span class="ot">&lt;-</span> <span class="fu">importance_pvalues</span>(mdl.ranger2, <span class="at">method =</span> <span class="st">&quot;altmann&quot;</span>,</span>
-<span id="cb2279-3"><a href="8.7-random-forests.html#cb2279-3" tabindex="-1"></a>                                  <span class="at">num.permutations =</span> <span class="dv">2000</span>, </span>
-<span id="cb2279-4"><a href="8.7-random-forests.html#cb2279-4" tabindex="-1"></a>                                  <span class="at">formula =</span> context <span class="sc">~</span> ., <span class="at">data =</span> gutt.train,</span>
-<span id="cb2279-5"><a href="8.7-random-forests.html#cb2279-5" tabindex="-1"></a>                                  <span class="at">num.threads =</span> ncores)</span>
-<span id="cb2279-6"><a href="8.7-random-forests.html#cb2279-6" tabindex="-1"></a>VarImp.pvaldf <span class="ot">&lt;-</span> VarImp.pval <span class="sc">%&gt;%</span> </span>
-<span id="cb2279-7"><a href="8.7-random-forests.html#cb2279-7" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb2279-8"><a href="8.7-random-forests.html#cb2279-8" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">&quot;correlate&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2279-9"><a href="8.7-random-forests.html#cb2279-9" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(importance))</span>
-<span id="cb2279-10"><a href="8.7-random-forests.html#cb2279-10" tabindex="-1"></a>VarImp.pvaldf</span></code></pre></div>
+<div class="sourceCode" id="cb2273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2273-1"><a href="8.7-random-forests.html#cb2273-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2273-2"><a href="8.7-random-forests.html#cb2273-2" tabindex="-1"></a>VarImp.pval <span class="ot">&lt;-</span> <span class="fu">importance_pvalues</span>(mdl.ranger2, <span class="at">method =</span> <span class="st">&quot;altmann&quot;</span>,</span>
+<span id="cb2273-3"><a href="8.7-random-forests.html#cb2273-3" tabindex="-1"></a>                                  <span class="at">num.permutations =</span> <span class="dv">2000</span>, </span>
+<span id="cb2273-4"><a href="8.7-random-forests.html#cb2273-4" tabindex="-1"></a>                                  <span class="at">formula =</span> context <span class="sc">~</span> ., <span class="at">data =</span> gutt.train,</span>
+<span id="cb2273-5"><a href="8.7-random-forests.html#cb2273-5" tabindex="-1"></a>                                  <span class="at">num.threads =</span> ncores)</span>
+<span id="cb2273-6"><a href="8.7-random-forests.html#cb2273-6" tabindex="-1"></a>VarImp.pvaldf <span class="ot">&lt;-</span> VarImp.pval <span class="sc">%&gt;%</span> </span>
+<span id="cb2273-7"><a href="8.7-random-forests.html#cb2273-7" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2273-8"><a href="8.7-random-forests.html#cb2273-8" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">&quot;correlate&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2273-9"><a href="8.7-random-forests.html#cb2273-9" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(importance))</span>
+<span id="cb2273-10"><a href="8.7-random-forests.html#cb2273-10" tabindex="-1"></a>VarImp.pvaldf</span></code></pre></div>
 <pre><code>##    correlate  importance       pvalue
 ## 1     Z2mnZ1 0.064323232 0.0004997501
 ## 2     Z4mnZ3 0.049898990 0.0004997501
@@ -2540,23 +2540,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="training-and-testing-sets" class="section level4 hasAnchor" number="8.7.3.1">
 <h4><span class="header-section-number">8.7.3.1</span> Training and testing sets<a href="8.7-random-forests.html#training-and-testing-sets" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We start by creating a training and a testing set using the function <code>initial_split</code>. Using <code>strata = context</code> allows the model to split the data taking into account its structure and splits the data according to proportions of each group.</p>
-<div class="sourceCode" id="cb2281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2281-1"><a href="8.7-random-forests.html#cb2281-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2281-2"><a href="8.7-random-forests.html#cb2281-2" tabindex="-1"></a>train_test_split <span class="ot">&lt;-</span></span>
-<span id="cb2281-3"><a href="8.7-random-forests.html#cb2281-3" tabindex="-1"></a>  <span class="fu">initial_split</span>(</span>
-<span id="cb2281-4"><a href="8.7-random-forests.html#cb2281-4" tabindex="-1"></a>    <span class="at">data =</span> dfPharV2,</span>
-<span id="cb2281-5"><a href="8.7-random-forests.html#cb2281-5" tabindex="-1"></a>    <span class="at">strata =</span> <span class="st">&quot;context&quot;</span>,</span>
-<span id="cb2281-6"><a href="8.7-random-forests.html#cb2281-6" tabindex="-1"></a>    <span class="at">prop =</span> <span class="fl">0.667</span>) </span>
-<span id="cb2281-7"><a href="8.7-random-forests.html#cb2281-7" tabindex="-1"></a>train_test_split</span></code></pre></div>
+<div class="sourceCode" id="cb2275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2275-1"><a href="8.7-random-forests.html#cb2275-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2275-2"><a href="8.7-random-forests.html#cb2275-2" tabindex="-1"></a>train_test_split <span class="ot">&lt;-</span></span>
+<span id="cb2275-3"><a href="8.7-random-forests.html#cb2275-3" tabindex="-1"></a>  <span class="fu">initial_split</span>(</span>
+<span id="cb2275-4"><a href="8.7-random-forests.html#cb2275-4" tabindex="-1"></a>    <span class="at">data =</span> dfPharV2,</span>
+<span id="cb2275-5"><a href="8.7-random-forests.html#cb2275-5" tabindex="-1"></a>    <span class="at">strata =</span> <span class="st">&quot;context&quot;</span>,</span>
+<span id="cb2275-6"><a href="8.7-random-forests.html#cb2275-6" tabindex="-1"></a>    <span class="at">prop =</span> <span class="fl">0.667</span>) </span>
+<span id="cb2275-7"><a href="8.7-random-forests.html#cb2275-7" tabindex="-1"></a>train_test_split</span></code></pre></div>
 <pre><code>## &lt;Training/Testing/Total&gt;
 ## &lt;268/134/402&gt;</code></pre>
-<div class="sourceCode" id="cb2283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2283-1"><a href="8.7-random-forests.html#cb2283-1" tabindex="-1"></a>train_tbl <span class="ot">&lt;-</span> train_test_split <span class="sc">%&gt;%</span> <span class="fu">training</span>() </span>
-<span id="cb2283-2"><a href="8.7-random-forests.html#cb2283-2" tabindex="-1"></a>test_tbl  <span class="ot">&lt;-</span> train_test_split <span class="sc">%&gt;%</span> <span class="fu">testing</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2277-1"><a href="8.7-random-forests.html#cb2277-1" tabindex="-1"></a>train_tbl <span class="ot">&lt;-</span> train_test_split <span class="sc">%&gt;%</span> <span class="fu">training</span>() </span>
+<span id="cb2277-2"><a href="8.7-random-forests.html#cb2277-2" tabindex="-1"></a>test_tbl  <span class="ot">&lt;-</span> train_test_split <span class="sc">%&gt;%</span> <span class="fu">testing</span>()</span></code></pre></div>
 </div>
 <div id="set-for-cross-validation" class="section level4 hasAnchor" number="8.7.3.2">
 <h4><span class="header-section-number">8.7.3.2</span> Set for cross-validation<a href="8.7-random-forests.html#set-for-cross-validation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We can (if we want to), create a 10-folds cross-validation on the training set. This allows to fine tune the training by obtaining the forest with the highest accuracy. This is a clear difference with <code>ranger</code>. While it is not impossible to hard code that, <code>tidymodels</code> simplify it for us!!</p>
-<div class="sourceCode" id="cb2284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2284-1"><a href="8.7-random-forests.html#cb2284-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2284-2"><a href="8.7-random-forests.html#cb2284-2" tabindex="-1"></a>train_cv <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(train_tbl, <span class="at">v =</span> <span class="dv">10</span>, <span class="at">strata =</span> <span class="st">&quot;context&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2278-1"><a href="8.7-random-forests.html#cb2278-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2278-2"><a href="8.7-random-forests.html#cb2278-2" tabindex="-1"></a>train_cv <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(train_tbl, <span class="at">v =</span> <span class="dv">10</span>, <span class="at">strata =</span> <span class="st">&quot;context&quot;</span>)</span></code></pre></div>
 </div>
 <div id="model-specification-6" class="section level4 hasAnchor" number="8.7.3.3">
 <h4><span class="header-section-number">8.7.3.3</span> Model Specification<a href="8.7-random-forests.html#model-specification-6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -2577,23 +2577,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 4.Finally, if you have categorical predictors, you can transform them into dummy variables using <code>step_dummy()</code>: 1s and 2s for binary; or use one-hot-encoding <code>step_dummy(predictor, one_hot = TRUE)</code></li>
 </ol>
 <p>See documentations of <code>tidymodels</code> for what you can apply!!</p>
-<div class="sourceCode" id="cb2285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2285-1"><a href="8.7-random-forests.html#cb2285-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2285-2"><a href="8.7-random-forests.html#cb2285-2" tabindex="-1"></a>recipe <span class="ot">&lt;-</span>  </span>
-<span id="cb2285-3"><a href="8.7-random-forests.html#cb2285-3" tabindex="-1"></a>  train_tbl <span class="sc">%&gt;%</span></span>
-<span id="cb2285-4"><a href="8.7-random-forests.html#cb2285-4" tabindex="-1"></a>  <span class="fu">recipe</span>(context <span class="sc">~</span> .) <span class="sc">%&gt;%</span></span>
-<span id="cb2285-5"><a href="8.7-random-forests.html#cb2285-5" tabindex="-1"></a>  <span class="fu">step_center</span>(<span class="fu">all_predictors</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb2285-6"><a href="8.7-random-forests.html#cb2285-6" tabindex="-1"></a>  <span class="fu">step_scale</span>(<span class="fu">all_predictors</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>())</span>
-<span id="cb2285-7"><a href="8.7-random-forests.html#cb2285-7" tabindex="-1"></a></span>
-<span id="cb2285-8"><a href="8.7-random-forests.html#cb2285-8" tabindex="-1"></a>recipePrep <span class="ot">&lt;-</span> recipe <span class="sc">%&gt;%</span> </span>
-<span id="cb2285-9"><a href="8.7-random-forests.html#cb2285-9" tabindex="-1"></a>  <span class="fu">prep</span>()</span>
-<span id="cb2285-10"><a href="8.7-random-forests.html#cb2285-10" tabindex="-1"></a></span>
-<span id="cb2285-11"><a href="8.7-random-forests.html#cb2285-11" tabindex="-1"></a>trainData_baked <span class="ot">&lt;-</span> <span class="fu">bake</span>(recipePrep, <span class="at">new_data =</span> train_tbl) <span class="do">## convert to the train data to the newly imputed data</span></span>
-<span id="cb2285-12"><a href="8.7-random-forests.html#cb2285-12" tabindex="-1"></a></span>
-<span id="cb2285-13"><a href="8.7-random-forests.html#cb2285-13" tabindex="-1"></a>trainData_prep <span class="ot">&lt;-</span> recipe <span class="sc">%&gt;%</span> </span>
-<span id="cb2285-14"><a href="8.7-random-forests.html#cb2285-14" tabindex="-1"></a>  <span class="fu">prep</span>()</span>
-<span id="cb2285-15"><a href="8.7-random-forests.html#cb2285-15" tabindex="-1"></a></span>
-<span id="cb2285-16"><a href="8.7-random-forests.html#cb2285-16" tabindex="-1"></a>trainData_baked <span class="ot">&lt;-</span> <span class="fu">bake</span>(trainData_prep, <span class="at">new_data =</span> train_tbl) <span class="do">## convert to the train data to the newly imputed data</span></span>
-<span id="cb2285-17"><a href="8.7-random-forests.html#cb2285-17" tabindex="-1"></a>trainData_baked</span></code></pre></div>
+<div class="sourceCode" id="cb2279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2279-1"><a href="8.7-random-forests.html#cb2279-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2279-2"><a href="8.7-random-forests.html#cb2279-2" tabindex="-1"></a>recipe <span class="ot">&lt;-</span>  </span>
+<span id="cb2279-3"><a href="8.7-random-forests.html#cb2279-3" tabindex="-1"></a>  train_tbl <span class="sc">%&gt;%</span></span>
+<span id="cb2279-4"><a href="8.7-random-forests.html#cb2279-4" tabindex="-1"></a>  <span class="fu">recipe</span>(context <span class="sc">~</span> .) <span class="sc">%&gt;%</span></span>
+<span id="cb2279-5"><a href="8.7-random-forests.html#cb2279-5" tabindex="-1"></a>  <span class="fu">step_center</span>(<span class="fu">all_predictors</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb2279-6"><a href="8.7-random-forests.html#cb2279-6" tabindex="-1"></a>  <span class="fu">step_scale</span>(<span class="fu">all_predictors</span>(), <span class="sc">-</span><span class="fu">all_outcomes</span>())</span>
+<span id="cb2279-7"><a href="8.7-random-forests.html#cb2279-7" tabindex="-1"></a></span>
+<span id="cb2279-8"><a href="8.7-random-forests.html#cb2279-8" tabindex="-1"></a>recipePrep <span class="ot">&lt;-</span> recipe <span class="sc">%&gt;%</span> </span>
+<span id="cb2279-9"><a href="8.7-random-forests.html#cb2279-9" tabindex="-1"></a>  <span class="fu">prep</span>()</span>
+<span id="cb2279-10"><a href="8.7-random-forests.html#cb2279-10" tabindex="-1"></a></span>
+<span id="cb2279-11"><a href="8.7-random-forests.html#cb2279-11" tabindex="-1"></a>trainData_baked <span class="ot">&lt;-</span> <span class="fu">bake</span>(recipePrep, <span class="at">new_data =</span> train_tbl) <span class="do">## convert to the train data to the newly imputed data</span></span>
+<span id="cb2279-12"><a href="8.7-random-forests.html#cb2279-12" tabindex="-1"></a></span>
+<span id="cb2279-13"><a href="8.7-random-forests.html#cb2279-13" tabindex="-1"></a>trainData_prep <span class="ot">&lt;-</span> recipe <span class="sc">%&gt;%</span> </span>
+<span id="cb2279-14"><a href="8.7-random-forests.html#cb2279-14" tabindex="-1"></a>  <span class="fu">prep</span>()</span>
+<span id="cb2279-15"><a href="8.7-random-forests.html#cb2279-15" tabindex="-1"></a></span>
+<span id="cb2279-16"><a href="8.7-random-forests.html#cb2279-16" tabindex="-1"></a>trainData_baked <span class="ot">&lt;-</span> <span class="fu">bake</span>(trainData_prep, <span class="at">new_data =</span> train_tbl) <span class="do">## convert to the train data to the newly imputed data</span></span>
+<span id="cb2279-17"><a href="8.7-random-forests.html#cb2279-17" tabindex="-1"></a>trainData_baked</span></code></pre></div>
 <pre><code>## # A tibble: 268 × 24
 ##       CPP Energy   H1A1c   H1A2c  H1A3c  H1H2c    H2H4c  H2KH5Kc   H42Kc  HNR05
 ##     &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
@@ -2616,36 +2616,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="setting-the-engine" class="section level5 hasAnchor" number="8.7.3.3.2">
 <h5><span class="header-section-number">8.7.3.3.2</span> Setting the engine<a href="8.7-random-forests.html#setting-the-engine" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We set the engine here as a <code>rand_forest</code>. We specify a classification mode. Then, we set an engine with engine specific parameters.</p>
-<div class="sourceCode" id="cb2287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2287-1"><a href="8.7-random-forests.html#cb2287-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2287-2"><a href="8.7-random-forests.html#cb2287-2" tabindex="-1"></a>engine_tidym <span class="ot">&lt;-</span> <span class="fu">rand_forest</span>(</span>
-<span id="cb2287-3"><a href="8.7-random-forests.html#cb2287-3" tabindex="-1"></a>    <span class="at">mode =</span> <span class="st">&quot;classification&quot;</span>,</span>
-<span id="cb2287-4"><a href="8.7-random-forests.html#cb2287-4" tabindex="-1"></a>    <span class="at">engine =</span> <span class="st">&quot;ranger&quot;</span>,</span>
-<span id="cb2287-5"><a href="8.7-random-forests.html#cb2287-5" tabindex="-1"></a>    mtry <span class="sc">%&gt;%</span> <span class="fu">tune</span>(),</span>
-<span id="cb2287-6"><a href="8.7-random-forests.html#cb2287-6" tabindex="-1"></a>    trees <span class="sc">%&gt;%</span> <span class="fu">tune</span>(),</span>
-<span id="cb2287-7"><a href="8.7-random-forests.html#cb2287-7" tabindex="-1"></a>    <span class="at">min_n =</span> <span class="dv">1</span></span>
-<span id="cb2287-8"><a href="8.7-random-forests.html#cb2287-8" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb2287-9"><a href="8.7-random-forests.html#cb2287-9" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">&quot;ranger&quot;</span>, <span class="at">importance =</span> <span class="st">&quot;permutation&quot;</span>, <span class="at">sample.fraction =</span> <span class="fl">0.632</span>,</span>
-<span id="cb2287-10"><a href="8.7-random-forests.html#cb2287-10" tabindex="-1"></a>             <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">write.forest =</span> T, <span class="at">splitrule =</span> <span class="st">&quot;extratrees&quot;</span>,</span>
-<span id="cb2287-11"><a href="8.7-random-forests.html#cb2287-11" tabindex="-1"></a>             <span class="at">scale.permutation.importance =</span> <span class="cn">FALSE</span>) <span class="do">## we add engine specific settings</span></span></code></pre></div>
+<div class="sourceCode" id="cb2281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2281-1"><a href="8.7-random-forests.html#cb2281-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2281-2"><a href="8.7-random-forests.html#cb2281-2" tabindex="-1"></a>engine_tidym <span class="ot">&lt;-</span> <span class="fu">rand_forest</span>(</span>
+<span id="cb2281-3"><a href="8.7-random-forests.html#cb2281-3" tabindex="-1"></a>    <span class="at">mode =</span> <span class="st">&quot;classification&quot;</span>,</span>
+<span id="cb2281-4"><a href="8.7-random-forests.html#cb2281-4" tabindex="-1"></a>    <span class="at">engine =</span> <span class="st">&quot;ranger&quot;</span>,</span>
+<span id="cb2281-5"><a href="8.7-random-forests.html#cb2281-5" tabindex="-1"></a>    mtry <span class="sc">%&gt;%</span> <span class="fu">tune</span>(),</span>
+<span id="cb2281-6"><a href="8.7-random-forests.html#cb2281-6" tabindex="-1"></a>    trees <span class="sc">%&gt;%</span> <span class="fu">tune</span>(),</span>
+<span id="cb2281-7"><a href="8.7-random-forests.html#cb2281-7" tabindex="-1"></a>    <span class="at">min_n =</span> <span class="dv">1</span></span>
+<span id="cb2281-8"><a href="8.7-random-forests.html#cb2281-8" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb2281-9"><a href="8.7-random-forests.html#cb2281-9" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">&quot;ranger&quot;</span>, <span class="at">importance =</span> <span class="st">&quot;permutation&quot;</span>, <span class="at">sample.fraction =</span> <span class="fl">0.632</span>,</span>
+<span id="cb2281-10"><a href="8.7-random-forests.html#cb2281-10" tabindex="-1"></a>             <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">write.forest =</span> T, <span class="at">splitrule =</span> <span class="st">&quot;extratrees&quot;</span>,</span>
+<span id="cb2281-11"><a href="8.7-random-forests.html#cb2281-11" tabindex="-1"></a>             <span class="at">scale.permutation.importance =</span> <span class="cn">FALSE</span>) <span class="do">## we add engine specific settings</span></span></code></pre></div>
 </div>
 <div id="settings-for-tuning" class="section level5 hasAnchor" number="8.7.3.3.3">
 <h5><span class="header-section-number">8.7.3.3.3</span> Settings for tuning<a href="8.7-random-forests.html#settings-for-tuning" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>If we want to tune the model, then uncomment the lines below. It is important to use an mtry that hovers around the round(sqrt(Variables)). If you use all available variables, then your forest is biased as it is able to see all predictors. For number of trees, low numbers are not great, as you can easily underfit the data and not produce meaningful results. Large numbers are fine and Random Forests do not overfit (in theory).</p>
 <p>The full dataset has around 2000 observations, and 23 predictors (well even more, but let’s ignore it for the moment). I tuned <code>mtry</code> to be between 4 and 6, and <code>trees</code> to be between 1000 and 5000 in a 30 step increment. In total, with a 10-folds cross validation, I grew 30 random forests on each fold for a total of 300 Random Forests on the training set!!! This of course will take a loooooong time to compute on your computer if using one thread. So use parallel computing or a cluster. When running in the cluster with 20 cores, each with 11GB RAMs, and it took around 260.442 seconds to run with 220GB RAMS! Of course, with smaller RAMs and number of cores, the code will still run but will take longer.</p>
-<div class="sourceCode" id="cb2288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2288-1"><a href="8.7-random-forests.html#cb2288-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2288-2"><a href="8.7-random-forests.html#cb2288-2" tabindex="-1"></a>gridy_tidym <span class="ot">&lt;-</span> <span class="fu">grid_random</span>(</span>
-<span id="cb2288-3"><a href="8.7-random-forests.html#cb2288-3" tabindex="-1"></a>  <span class="fu">mtry</span>() <span class="sc">%&gt;%</span> <span class="fu">range_set</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">6</span>)),</span>
-<span id="cb2288-4"><a href="8.7-random-forests.html#cb2288-4" tabindex="-1"></a>  <span class="fu">trees</span>() <span class="sc">%&gt;%</span> <span class="fu">range_set</span>(<span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>)),</span>
-<span id="cb2288-5"><a href="8.7-random-forests.html#cb2288-5" tabindex="-1"></a>  <span class="at">size =</span> <span class="dv">30</span></span>
-<span id="cb2288-6"><a href="8.7-random-forests.html#cb2288-6" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb2282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2282-1"><a href="8.7-random-forests.html#cb2282-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2282-2"><a href="8.7-random-forests.html#cb2282-2" tabindex="-1"></a>gridy_tidym <span class="ot">&lt;-</span> <span class="fu">grid_random</span>(</span>
+<span id="cb2282-3"><a href="8.7-random-forests.html#cb2282-3" tabindex="-1"></a>  <span class="fu">mtry</span>() <span class="sc">%&gt;%</span> <span class="fu">range_set</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">6</span>)),</span>
+<span id="cb2282-4"><a href="8.7-random-forests.html#cb2282-4" tabindex="-1"></a>  <span class="fu">trees</span>() <span class="sc">%&gt;%</span> <span class="fu">range_set</span>(<span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>)),</span>
+<span id="cb2282-5"><a href="8.7-random-forests.html#cb2282-5" tabindex="-1"></a>  <span class="at">size =</span> <span class="dv">30</span></span>
+<span id="cb2282-6"><a href="8.7-random-forests.html#cb2282-6" tabindex="-1"></a>  )</span></code></pre></div>
 </div>
 <div id="workflow" class="section level5 hasAnchor" number="8.7.3.3.4">
 <h5><span class="header-section-number">8.7.3.3.4</span> Workflow<a href="8.7-random-forests.html#workflow" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Now we define the workflow adding the <code>recipe</code> and the <code>model</code>.</p>
-<div class="sourceCode" id="cb2289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2289-1"><a href="8.7-random-forests.html#cb2289-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2289-2"><a href="8.7-random-forests.html#cb2289-2" tabindex="-1"></a>wkfl_tidym <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb2289-3"><a href="8.7-random-forests.html#cb2289-3" tabindex="-1"></a>  <span class="fu">add_recipe</span>(recipe) <span class="sc">%&gt;%</span> </span>
-<span id="cb2289-4"><a href="8.7-random-forests.html#cb2289-4" tabindex="-1"></a>  <span class="fu">add_model</span>(engine_tidym)</span></code></pre></div>
+<div class="sourceCode" id="cb2283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2283-1"><a href="8.7-random-forests.html#cb2283-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2283-2"><a href="8.7-random-forests.html#cb2283-2" tabindex="-1"></a>wkfl_tidym <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2283-3"><a href="8.7-random-forests.html#cb2283-3" tabindex="-1"></a>  <span class="fu">add_recipe</span>(recipe) <span class="sc">%&gt;%</span> </span>
+<span id="cb2283-4"><a href="8.7-random-forests.html#cb2283-4" tabindex="-1"></a>  <span class="fu">add_model</span>(engine_tidym)</span></code></pre></div>
 </div>
 <div id="tuning-and-running-model" class="section level5 hasAnchor" number="8.7.3.3.5">
 <h5><span class="header-section-number">8.7.3.3.5</span> Tuning and running model<a href="8.7-random-forests.html#tuning-and-running-model" class="anchor-section" aria-label="Anchor link to header"></a></h5>
@@ -2656,17 +2656,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 3. Within each fold, we grow 30 random forests; we have a total of 300 Random Forests, and we use an ROC-AUC based search for the best performing model</p>
 <p>Of course, you could use a larger size to grow more trees, with this will take longer to run!</p>
 <p>The model will run for about 2-3 minutes with an 8 cores machine and 32GB of RAMs. For demonstration purposes, the tuning of number of trees is restricted to between 1000 and 2000 trees. This can of course be increased to 5000 trees (or more) depending on the size of the dataset</p>
-<div class="sourceCode" id="cb2290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2290-1"><a href="8.7-random-forests.html#cb2290-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2290-2"><a href="8.7-random-forests.html#cb2290-2" tabindex="-1"></a><span class="fu">system.time</span>(grid_tidym <span class="ot">&lt;-</span> </span>
-<span id="cb2290-3"><a href="8.7-random-forests.html#cb2290-3" tabindex="-1"></a>  <span class="fu">tune_grid</span>(wkfl_tidym, </span>
-<span id="cb2290-4"><a href="8.7-random-forests.html#cb2290-4" tabindex="-1"></a>            <span class="at">resamples =</span> train_cv,</span>
-<span id="cb2290-5"><a href="8.7-random-forests.html#cb2290-5" tabindex="-1"></a>            <span class="at">grid =</span> gridy_tidym,</span>
-<span id="cb2290-6"><a href="8.7-random-forests.html#cb2290-6" tabindex="-1"></a>            <span class="at">metrics =</span> <span class="fu">metric_set</span>(accuracy, roc_auc, sens, spec,f_meas, precision, recall),</span>
-<span id="cb2290-7"><a href="8.7-random-forests.html#cb2290-7" tabindex="-1"></a>            <span class="at">control =</span> <span class="fu">control_grid</span>(<span class="at">save_pred =</span> <span class="cn">TRUE</span>, <span class="at">parallel_over =</span> <span class="cn">NULL</span>))</span>
-<span id="cb2290-8"><a href="8.7-random-forests.html#cb2290-8" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb2284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2284-1"><a href="8.7-random-forests.html#cb2284-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2284-2"><a href="8.7-random-forests.html#cb2284-2" tabindex="-1"></a><span class="fu">system.time</span>(grid_tidym <span class="ot">&lt;-</span> </span>
+<span id="cb2284-3"><a href="8.7-random-forests.html#cb2284-3" tabindex="-1"></a>  <span class="fu">tune_grid</span>(wkfl_tidym, </span>
+<span id="cb2284-4"><a href="8.7-random-forests.html#cb2284-4" tabindex="-1"></a>            <span class="at">resamples =</span> train_cv,</span>
+<span id="cb2284-5"><a href="8.7-random-forests.html#cb2284-5" tabindex="-1"></a>            <span class="at">grid =</span> gridy_tidym,</span>
+<span id="cb2284-6"><a href="8.7-random-forests.html#cb2284-6" tabindex="-1"></a>            <span class="at">metrics =</span> <span class="fu">metric_set</span>(accuracy, roc_auc, sens, spec,f_meas, precision, recall),</span>
+<span id="cb2284-7"><a href="8.7-random-forests.html#cb2284-7" tabindex="-1"></a>            <span class="at">control =</span> <span class="fu">control_grid</span>(<span class="at">save_pred =</span> <span class="cn">TRUE</span>, <span class="at">parallel_over =</span> <span class="cn">NULL</span>))</span>
+<span id="cb2284-8"><a href="8.7-random-forests.html#cb2284-8" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    0.98    0.30   69.86</code></pre>
-<div class="sourceCode" id="cb2292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2292-1"><a href="8.7-random-forests.html#cb2292-1" tabindex="-1"></a><span class="fu">print</span>(grid_tidym)</span></code></pre></div>
+##    0.69    0.40   57.29</code></pre>
+<div class="sourceCode" id="cb2286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2286-1"><a href="8.7-random-forests.html#cb2286-1" tabindex="-1"></a><span class="fu">print</span>(grid_tidym)</span></code></pre></div>
 <pre><code>## # Tuning results
 ## # 10-fold cross-validation using stratification 
 ## # A tibble: 10 × 5
@@ -2686,8 +2686,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="finalise-model" class="section level5 hasAnchor" number="8.7.3.3.6">
 <h5><span class="header-section-number">8.7.3.3.6</span> Finalise model<a href="8.7-random-forests.html#finalise-model" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We obtain the best performing model from cross-validation, then finalise the workflow by predicting the results on the testing set and obtain the results of the best performing model</p>
-<div class="sourceCode" id="cb2294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2294-1"><a href="8.7-random-forests.html#cb2294-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2294-2"><a href="8.7-random-forests.html#cb2294-2" tabindex="-1"></a><span class="fu">collect_metrics</span>(grid_tidym)</span></code></pre></div>
+<div class="sourceCode" id="cb2288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2288-1"><a href="8.7-random-forests.html#cb2288-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2288-2"><a href="8.7-random-forests.html#cb2288-2" tabindex="-1"></a><span class="fu">collect_metrics</span>(grid_tidym)</span></code></pre></div>
 <pre><code>## # A tibble: 210 × 8
 ##     mtry trees .metric   .estimator  mean     n std_err .config         
 ##    &lt;int&gt; &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;           
@@ -2702,14 +2702,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9     4  1196 f_meas    binary     0.898    10  0.0202 pre0_mod02_post0
 ## 10     4  1196 precision binary     0.862    10  0.0285 pre0_mod02_post0
 ## # ℹ 200 more rows</code></pre>
-<div class="sourceCode" id="cb2296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2296-1"><a href="8.7-random-forests.html#cb2296-1" tabindex="-1"></a>grid_tidym_best <span class="ot">&lt;-</span> <span class="fu">select_best</span>(grid_tidym, <span class="at">metric =</span> <span class="st">&quot;roc_auc&quot;</span>)</span>
-<span id="cb2296-2"><a href="8.7-random-forests.html#cb2296-2" tabindex="-1"></a>grid_tidym_best</span></code></pre></div>
+<div class="sourceCode" id="cb2290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2290-1"><a href="8.7-random-forests.html#cb2290-1" tabindex="-1"></a>grid_tidym_best <span class="ot">&lt;-</span> <span class="fu">select_best</span>(grid_tidym, <span class="at">metric =</span> <span class="st">&quot;roc_auc&quot;</span>)</span>
+<span id="cb2290-2"><a href="8.7-random-forests.html#cb2290-2" tabindex="-1"></a>grid_tidym_best</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 3
 ##    mtry trees .config         
 ##   &lt;int&gt; &lt;int&gt; &lt;chr&gt;           
 ## 1     6  1354 pre0_mod26_post0</code></pre>
-<div class="sourceCode" id="cb2298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2298-1"><a href="8.7-random-forests.html#cb2298-1" tabindex="-1"></a>wkfl_tidym_best <span class="ot">&lt;-</span> <span class="fu">finalize_workflow</span>(wkfl_tidym, grid_tidym_best)</span>
-<span id="cb2298-2"><a href="8.7-random-forests.html#cb2298-2" tabindex="-1"></a>wkfl_tidym_final <span class="ot">&lt;-</span> <span class="fu">last_fit</span>(wkfl_tidym_best, <span class="at">split =</span> train_test_split)</span></code></pre></div>
+<div class="sourceCode" id="cb2292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2292-1"><a href="8.7-random-forests.html#cb2292-1" tabindex="-1"></a>wkfl_tidym_best <span class="ot">&lt;-</span> <span class="fu">finalize_workflow</span>(wkfl_tidym, grid_tidym_best)</span>
+<span id="cb2292-2"><a href="8.7-random-forests.html#cb2292-2" tabindex="-1"></a>wkfl_tidym_final <span class="ot">&lt;-</span> <span class="fu">last_fit</span>(wkfl_tidym_best, <span class="at">split =</span> train_test_split)</span></code></pre></div>
 </div>
 </div>
 <div id="results-1" class="section level4 hasAnchor" number="8.7.3.4">
@@ -2719,41 +2719,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h5><span class="header-section-number">8.7.3.4.1</span> Cross-validation on training set<a href="8.7-random-forests.html#cross-validation-on-training-set" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div id="accuracy" class="section level6 hasAnchor" number="8.7.3.4.1.1">
 <h6><span class="header-section-number">8.7.3.4.1.1</span> Accuracy<a href="8.7-random-forests.html#accuracy" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb2299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2299-1"><a href="8.7-random-forests.html#cb2299-1" tabindex="-1"></a><span class="fu">percent</span>(<span class="fu">show_best</span>(grid_tidym, <span class="at">metric =</span> <span class="st">&quot;accuracy&quot;</span>, <span class="at">n =</span> <span class="dv">1</span>)<span class="sc">$</span>mean)</span></code></pre></div>
+<div class="sourceCode" id="cb2293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2293-1"><a href="8.7-random-forests.html#cb2293-1" tabindex="-1"></a><span class="fu">percent</span>(<span class="fu">show_best</span>(grid_tidym, <span class="at">metric =</span> <span class="st">&quot;accuracy&quot;</span>, <span class="at">n =</span> <span class="dv">1</span>)<span class="sc">$</span>mean)</span></code></pre></div>
 <pre><code>## [1] &quot;89%&quot;</code></pre>
 </div>
 <div id="roc-auc" class="section level6 hasAnchor" number="8.7.3.4.1.2">
 <h6><span class="header-section-number">8.7.3.4.1.2</span> ROC-AUC<a href="8.7-random-forests.html#roc-auc" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb2301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2301-1"><a href="8.7-random-forests.html#cb2301-1" tabindex="-1"></a><span class="do">## Cross-validated training performance</span></span>
-<span id="cb2301-2"><a href="8.7-random-forests.html#cb2301-2" tabindex="-1"></a><span class="fu">show_best</span>(grid_tidym, <span class="at">metric =</span> <span class="st">&quot;roc_auc&quot;</span>, <span class="at">n =</span> <span class="dv">1</span>)<span class="sc">$</span>mean</span></code></pre></div>
+<div class="sourceCode" id="cb2295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2295-1"><a href="8.7-random-forests.html#cb2295-1" tabindex="-1"></a><span class="do">## Cross-validated training performance</span></span>
+<span id="cb2295-2"><a href="8.7-random-forests.html#cb2295-2" tabindex="-1"></a><span class="fu">show_best</span>(grid_tidym, <span class="at">metric =</span> <span class="st">&quot;roc_auc&quot;</span>, <span class="at">n =</span> <span class="dv">1</span>)<span class="sc">$</span>mean</span></code></pre></div>
 <pre><code>## [1] 0.9678968</code></pre>
 </div>
 <div id="sensitivity" class="section level6 hasAnchor" number="8.7.3.4.1.3">
 <h6><span class="header-section-number">8.7.3.4.1.3</span> Sensitivity<a href="8.7-random-forests.html#sensitivity" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb2303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2303-1"><a href="8.7-random-forests.html#cb2303-1" tabindex="-1"></a><span class="fu">show_best</span>(grid_tidym, <span class="at">metric =</span> <span class="st">&quot;sens&quot;</span>, <span class="at">n =</span> <span class="dv">1</span>)<span class="sc">$</span>mean</span></code></pre></div>
+<div class="sourceCode" id="cb2297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2297-1"><a href="8.7-random-forests.html#cb2297-1" tabindex="-1"></a><span class="fu">show_best</span>(grid_tidym, <span class="at">metric =</span> <span class="st">&quot;sens&quot;</span>, <span class="at">n =</span> <span class="dv">1</span>)<span class="sc">$</span>mean</span></code></pre></div>
 <pre><code>## [1] 0.9509524</code></pre>
 </div>
 <div id="specificity" class="section level6 hasAnchor" number="8.7.3.4.1.4">
 <h6><span class="header-section-number">8.7.3.4.1.4</span> Specificity<a href="8.7-random-forests.html#specificity" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb2305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2305-1"><a href="8.7-random-forests.html#cb2305-1" tabindex="-1"></a><span class="fu">show_best</span>(grid_tidym, <span class="at">metric =</span> <span class="st">&quot;spec&quot;</span>, <span class="at">n =</span> <span class="dv">1</span>)<span class="sc">$</span>mean</span></code></pre></div>
+<div class="sourceCode" id="cb2299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2299-1"><a href="8.7-random-forests.html#cb2299-1" tabindex="-1"></a><span class="fu">show_best</span>(grid_tidym, <span class="at">metric =</span> <span class="st">&quot;spec&quot;</span>, <span class="at">n =</span> <span class="dv">1</span>)<span class="sc">$</span>mean</span></code></pre></div>
 <pre><code>## [1] 0.8166667</code></pre>
 </div>
 <div id="f-measure" class="section level6 hasAnchor" number="8.7.3.4.1.5">
 <h6><span class="header-section-number">8.7.3.4.1.5</span> F-measure<a href="8.7-random-forests.html#f-measure" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb2307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2307-1"><a href="8.7-random-forests.html#cb2307-1" tabindex="-1"></a><span class="do">## Cross-validated training performance</span></span>
-<span id="cb2307-2"><a href="8.7-random-forests.html#cb2307-2" tabindex="-1"></a><span class="fu">show_best</span>(grid_tidym, <span class="at">metric =</span> <span class="st">&quot;f_meas&quot;</span>, <span class="at">n =</span> <span class="dv">1</span>)<span class="sc">$</span>mean</span></code></pre></div>
+<div class="sourceCode" id="cb2301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2301-1"><a href="8.7-random-forests.html#cb2301-1" tabindex="-1"></a><span class="do">## Cross-validated training performance</span></span>
+<span id="cb2301-2"><a href="8.7-random-forests.html#cb2301-2" tabindex="-1"></a><span class="fu">show_best</span>(grid_tidym, <span class="at">metric =</span> <span class="st">&quot;f_meas&quot;</span>, <span class="at">n =</span> <span class="dv">1</span>)<span class="sc">$</span>mean</span></code></pre></div>
 <pre><code>## [1] 0.9061602</code></pre>
 </div>
 <div id="precision" class="section level6 hasAnchor" number="8.7.3.4.1.6">
 <h6><span class="header-section-number">8.7.3.4.1.6</span> Precision<a href="8.7-random-forests.html#precision" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb2309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2309-1"><a href="8.7-random-forests.html#cb2309-1" tabindex="-1"></a><span class="do">## Cross-validated training performance</span></span>
-<span id="cb2309-2"><a href="8.7-random-forests.html#cb2309-2" tabindex="-1"></a><span class="fu">show_best</span>(grid_tidym, <span class="at">metric =</span> <span class="st">&quot;precision&quot;</span>, <span class="at">n =</span> <span class="dv">1</span>)<span class="sc">$</span>mean</span></code></pre></div>
+<div class="sourceCode" id="cb2303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2303-1"><a href="8.7-random-forests.html#cb2303-1" tabindex="-1"></a><span class="do">## Cross-validated training performance</span></span>
+<span id="cb2303-2"><a href="8.7-random-forests.html#cb2303-2" tabindex="-1"></a><span class="fu">show_best</span>(grid_tidym, <span class="at">metric =</span> <span class="st">&quot;precision&quot;</span>, <span class="at">n =</span> <span class="dv">1</span>)<span class="sc">$</span>mean</span></code></pre></div>
 <pre><code>## [1] 0.869493</code></pre>
 </div>
 <div id="recall" class="section level6 hasAnchor" number="8.7.3.4.1.7">
 <h6><span class="header-section-number">8.7.3.4.1.7</span> Recall<a href="8.7-random-forests.html#recall" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb2311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2311-1"><a href="8.7-random-forests.html#cb2311-1" tabindex="-1"></a><span class="do">## Cross-validated training performance</span></span>
-<span id="cb2311-2"><a href="8.7-random-forests.html#cb2311-2" tabindex="-1"></a><span class="fu">show_best</span>(grid_tidym, <span class="at">metric =</span> <span class="st">&quot;recall&quot;</span>, <span class="at">n =</span> <span class="dv">1</span>)<span class="sc">$</span>mean</span></code></pre></div>
+<div class="sourceCode" id="cb2305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2305-1"><a href="8.7-random-forests.html#cb2305-1" tabindex="-1"></a><span class="do">## Cross-validated training performance</span></span>
+<span id="cb2305-2"><a href="8.7-random-forests.html#cb2305-2" tabindex="-1"></a><span class="fu">show_best</span>(grid_tidym, <span class="at">metric =</span> <span class="st">&quot;recall&quot;</span>, <span class="at">n =</span> <span class="dv">1</span>)<span class="sc">$</span>mean</span></code></pre></div>
 <pre><code>## [1] 0.9509524</code></pre>
 </div>
 </div>
@@ -2761,7 +2761,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h5><span class="header-section-number">8.7.3.4.2</span> Predictions testing set<a href="8.7-random-forests.html#predictions-testing-set" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div id="overall" class="section level6 hasAnchor" number="8.7.3.4.2.1">
 <h6><span class="header-section-number">8.7.3.4.2.1</span> Overall<a href="8.7-random-forests.html#overall" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb2313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2313-1"><a href="8.7-random-forests.html#cb2313-1" tabindex="-1"></a>wkfl_tidym_final<span class="sc">$</span>.metrics</span></code></pre></div>
+<div class="sourceCode" id="cb2307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2307-1"><a href="8.7-random-forests.html#cb2307-1" tabindex="-1"></a>wkfl_tidym_final<span class="sc">$</span>.metrics</span></code></pre></div>
 <pre><code>## [[1]]
 ## # A tibble: 3 × 4
 ##   .metric     .estimator .estimate .config        
@@ -2772,60 +2772,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="accuracy-1" class="section level6 hasAnchor" number="8.7.3.4.2.2">
 <h6><span class="header-section-number">8.7.3.4.2.2</span> Accuracy<a href="8.7-random-forests.html#accuracy-1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb2315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2315-1"><a href="8.7-random-forests.html#cb2315-1" tabindex="-1"></a><span class="co">#accuracy</span></span>
-<span id="cb2315-2"><a href="8.7-random-forests.html#cb2315-2" tabindex="-1"></a><span class="fu">percent</span>(wkfl_tidym_final<span class="sc">$</span>.metrics[[<span class="dv">1</span>]]<span class="sc">$</span>.estimate[[<span class="dv">1</span>]])</span></code></pre></div>
+<div class="sourceCode" id="cb2309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2309-1"><a href="8.7-random-forests.html#cb2309-1" tabindex="-1"></a><span class="co">#accuracy</span></span>
+<span id="cb2309-2"><a href="8.7-random-forests.html#cb2309-2" tabindex="-1"></a><span class="fu">percent</span>(wkfl_tidym_final<span class="sc">$</span>.metrics[[<span class="dv">1</span>]]<span class="sc">$</span>.estimate[[<span class="dv">1</span>]])</span></code></pre></div>
 <pre><code>## [1] &quot;91%&quot;</code></pre>
 </div>
 <div id="roc-auc-1" class="section level6 hasAnchor" number="8.7.3.4.2.3">
 <h6><span class="header-section-number">8.7.3.4.2.3</span> ROC-AUC<a href="8.7-random-forests.html#roc-auc-1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb2317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2317-1"><a href="8.7-random-forests.html#cb2317-1" tabindex="-1"></a><span class="co">#roc-auc</span></span>
-<span id="cb2317-2"><a href="8.7-random-forests.html#cb2317-2" tabindex="-1"></a>wkfl_tidym_final<span class="sc">$</span>.metrics[[<span class="dv">1</span>]]<span class="sc">$</span>.estimate[[<span class="dv">2</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb2311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2311-1"><a href="8.7-random-forests.html#cb2311-1" tabindex="-1"></a><span class="co">#roc-auc</span></span>
+<span id="cb2311-2"><a href="8.7-random-forests.html#cb2311-2" tabindex="-1"></a>wkfl_tidym_final<span class="sc">$</span>.metrics[[<span class="dv">1</span>]]<span class="sc">$</span>.estimate[[<span class="dv">2</span>]]</span></code></pre></div>
 <pre><code>## [1] 0.9754505</code></pre>
 </div>
 </div>
 <div id="confusion-matrix-training-set" class="section level5 hasAnchor" number="8.7.3.4.3">
 <h5><span class="header-section-number">8.7.3.4.3</span> Confusion Matrix training set<a href="8.7-random-forests.html#confusion-matrix-training-set" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb2319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2319-1"><a href="8.7-random-forests.html#cb2319-1" tabindex="-1"></a>wkfl_tidym_final<span class="sc">$</span>.predictions[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span></span>
-<span id="cb2319-2"><a href="8.7-random-forests.html#cb2319-2" tabindex="-1"></a>  <span class="fu">conf_mat</span>(context, .pred_class) <span class="sc">%&gt;%</span></span>
-<span id="cb2319-3"><a href="8.7-random-forests.html#cb2319-3" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2319-4"><a href="8.7-random-forests.html#cb2319-4" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb2319-5"><a href="8.7-random-forests.html#cb2319-5" tabindex="-1"></a>  <span class="fu">group_by</span>(Truth) <span class="sc">%&gt;%</span> <span class="do">## group by Truth to compute percentages</span></span>
-<span id="cb2319-6"><a href="8.7-random-forests.html#cb2319-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span><span class="fu">percent</span>(<span class="fu">prop.table</span>(n))) <span class="sc">%&gt;%</span> <span class="do">## calculate percentages row-wise</span></span>
-<span id="cb2319-7"><a href="8.7-random-forests.html#cb2319-7" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Prediction, Truth, <span class="at">alpha =</span> prop)) <span class="sc">+</span></span>
-<span id="cb2319-8"><a href="8.7-random-forests.html#cb2319-8" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb2319-9"><a href="8.7-random-forests.html#cb2319-9" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> prop), <span class="at">colour =</span> <span class="st">&quot;white&quot;</span>, <span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2313-1"><a href="8.7-random-forests.html#cb2313-1" tabindex="-1"></a>wkfl_tidym_final<span class="sc">$</span>.predictions[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span></span>
+<span id="cb2313-2"><a href="8.7-random-forests.html#cb2313-2" tabindex="-1"></a>  <span class="fu">conf_mat</span>(context, .pred_class) <span class="sc">%&gt;%</span></span>
+<span id="cb2313-3"><a href="8.7-random-forests.html#cb2313-3" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2313-4"><a href="8.7-random-forests.html#cb2313-4" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb2313-5"><a href="8.7-random-forests.html#cb2313-5" tabindex="-1"></a>  <span class="fu">group_by</span>(Truth) <span class="sc">%&gt;%</span> <span class="do">## group by Truth to compute percentages</span></span>
+<span id="cb2313-6"><a href="8.7-random-forests.html#cb2313-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span><span class="fu">percent</span>(<span class="fu">prop.table</span>(n))) <span class="sc">%&gt;%</span> <span class="do">## calculate percentages row-wise</span></span>
+<span id="cb2313-7"><a href="8.7-random-forests.html#cb2313-7" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Prediction, Truth, <span class="at">alpha =</span> prop)) <span class="sc">+</span></span>
+<span id="cb2313-8"><a href="8.7-random-forests.html#cb2313-8" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb2313-9"><a href="8.7-random-forests.html#cb2313-9" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> prop), <span class="at">colour =</span> <span class="st">&quot;white&quot;</span>, <span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">8</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-1020-1.png" width="768" /></p>
 </div>
 <div id="variable-importance" class="section level5 hasAnchor" number="8.7.3.4.4">
 <h5><span class="header-section-number">8.7.3.4.4</span> Variable Importance<a href="8.7-random-forests.html#variable-importance" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div id="best-10" class="section level6 hasAnchor" number="8.7.3.4.4.1">
 <h6><span class="header-section-number">8.7.3.4.4.1</span> Best 10<a href="8.7-random-forests.html#best-10" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb2320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2320-1"><a href="8.7-random-forests.html#cb2320-1" tabindex="-1"></a><span class="fu">vip</span>(<span class="fu">pull_workflow_fit</span>(wkfl_tidym_final<span class="sc">$</span>.workflow[[<span class="dv">1</span>]]))</span></code></pre></div>
+<div class="sourceCode" id="cb2314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2314-1"><a href="8.7-random-forests.html#cb2314-1" tabindex="-1"></a><span class="fu">vip</span>(<span class="fu">pull_workflow_fit</span>(wkfl_tidym_final<span class="sc">$</span>.workflow[[<span class="dv">1</span>]]))</span></code></pre></div>
 <pre><code>## Warning: `pull_workflow_fit()` was deprecated in workflows 0.2.3.
 ## ℹ Please use `extract_fit_parsnip()` instead.
 ## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-## generated.</code></pre>
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning
+## was generated.</code></pre>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-1021-1.png" width="672" /></p>
 </div>
 <div id="all-predictors" class="section level6 hasAnchor" number="8.7.3.4.4.2">
 <h6><span class="header-section-number">8.7.3.4.4.2</span> All predictors<a href="8.7-random-forests.html#all-predictors" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb2322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2322-1"><a href="8.7-random-forests.html#cb2322-1" tabindex="-1"></a><span class="fu">vip</span>(<span class="fu">pull_workflow_fit</span>(wkfl_tidym_final<span class="sc">$</span>.workflow[[<span class="dv">1</span>]]), <span class="at">num_features =</span> <span class="dv">23</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2316-1"><a href="8.7-random-forests.html#cb2316-1" tabindex="-1"></a><span class="fu">vip</span>(<span class="fu">pull_workflow_fit</span>(wkfl_tidym_final<span class="sc">$</span>.workflow[[<span class="dv">1</span>]]), <span class="at">num_features =</span> <span class="dv">23</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-1022-1.png" width="672" /></p>
 </div>
 <div id="p-values-computed-with-permutation-importance-pimp" class="section level6 hasAnchor" number="8.7.3.4.4.3">
 <h6><span class="header-section-number">8.7.3.4.4.3</span> P-values computed with permutation importance (PIMP)<a href="8.7-random-forests.html#p-values-computed-with-permutation-importance-pimp" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb2323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2323-1"><a href="8.7-random-forests.html#cb2323-1" tabindex="-1"></a>testData_baked <span class="ot">&lt;-</span> <span class="fu">bake</span>(recipePrep, <span class="at">new_data =</span> test_tbl) <span class="do">## convert  the test data to the newly imputed data</span></span>
-<span id="cb2323-2"><a href="8.7-random-forests.html#cb2323-2" tabindex="-1"></a></span>
-<span id="cb2323-3"><a href="8.7-random-forests.html#cb2323-3" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2323-4"><a href="8.7-random-forests.html#cb2323-4" tabindex="-1"></a><span class="fu">system.time</span>(VarImp.pval <span class="ot">&lt;-</span> wkfl_tidym_final <span class="sc">%&gt;%</span> <span class="fu">extract_fit_engine</span>() <span class="sc">%&gt;%</span>  <span class="fu">importance_pvalues</span>(<span class="at">method =</span> <span class="st">&quot;altmann&quot;</span>, <span class="at">formula =</span> context <span class="sc">~</span>., <span class="at">data =</span> testData_baked, <span class="at">num.permutations =</span> <span class="dv">2000</span>, <span class="at">num.threads =</span> ncores))</span></code></pre></div>
+<div class="sourceCode" id="cb2317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2317-1"><a href="8.7-random-forests.html#cb2317-1" tabindex="-1"></a>testData_baked <span class="ot">&lt;-</span> <span class="fu">bake</span>(recipePrep, <span class="at">new_data =</span> test_tbl) <span class="do">## convert  the test data to the newly imputed data</span></span>
+<span id="cb2317-2"><a href="8.7-random-forests.html#cb2317-2" tabindex="-1"></a></span>
+<span id="cb2317-3"><a href="8.7-random-forests.html#cb2317-3" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2317-4"><a href="8.7-random-forests.html#cb2317-4" tabindex="-1"></a><span class="fu">system.time</span>(VarImp.pval <span class="ot">&lt;-</span> wkfl_tidym_final <span class="sc">%&gt;%</span> <span class="fu">extract_fit_engine</span>() <span class="sc">%&gt;%</span>  <span class="fu">importance_pvalues</span>(<span class="at">method =</span> <span class="st">&quot;altmann&quot;</span>, <span class="at">formula =</span> context <span class="sc">~</span>., <span class="at">data =</span> testData_baked, <span class="at">num.permutations =</span> <span class="dv">2000</span>, <span class="at">num.threads =</span> ncores))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##  635.43  467.05  181.39</code></pre>
-<div class="sourceCode" id="cb2325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2325-1"><a href="8.7-random-forests.html#cb2325-1" tabindex="-1"></a>VarImp.pvaldf <span class="ot">&lt;-</span> VarImp.pval <span class="sc">%&gt;%</span> </span>
-<span id="cb2325-2"><a href="8.7-random-forests.html#cb2325-2" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb2325-3"><a href="8.7-random-forests.html#cb2325-3" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">&quot;correlate&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2325-4"><a href="8.7-random-forests.html#cb2325-4" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(importance))</span>
-<span id="cb2325-5"><a href="8.7-random-forests.html#cb2325-5" tabindex="-1"></a>VarImp.pvaldf</span></code></pre></div>
+##  610.57  451.11  205.25</code></pre>
+<div class="sourceCode" id="cb2319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2319-1"><a href="8.7-random-forests.html#cb2319-1" tabindex="-1"></a>VarImp.pvaldf <span class="ot">&lt;-</span> VarImp.pval <span class="sc">%&gt;%</span> </span>
+<span id="cb2319-2"><a href="8.7-random-forests.html#cb2319-2" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2319-3"><a href="8.7-random-forests.html#cb2319-3" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">&quot;correlate&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2319-4"><a href="8.7-random-forests.html#cb2319-4" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(importance))</span>
+<span id="cb2319-5"><a href="8.7-random-forests.html#cb2319-5" tabindex="-1"></a>VarImp.pvaldf</span></code></pre></div>
 <pre><code>##    correlate  importance       pvalue
 ## 1     Z2mnZ1 0.074190949 0.0004997501
 ## 2     Z4mnZ3 0.048110350 0.0004997501
@@ -2855,16 +2855,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="gains-curves" class="section level5 hasAnchor" number="8.7.3.4.5">
 <h5><span class="header-section-number">8.7.3.4.5</span> Gains curves<a href="8.7-random-forests.html#gains-curves" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>This is an interesting features that show how much is gained when looking at various portions of the data. We see a gradual increase in the values. When 50% of the data were tested, around 83% of the results within the non-guttural class were already identified. The more testing was performed, the more confidence in the results there are and then when 84.96% of the data were tested, 100% of the cases were found.</p>
-<div class="sourceCode" id="cb2327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2327-1"><a href="8.7-random-forests.html#cb2327-1" tabindex="-1"></a>wkfl_tidym_final<span class="sc">$</span>.predictions[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span></span>
-<span id="cb2327-2"><a href="8.7-random-forests.html#cb2327-2" tabindex="-1"></a>  <span class="fu">gain_curve</span>(context, <span class="st">`</span><span class="at">.pred_Non-Guttural</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2327-3"><a href="8.7-random-forests.html#cb2327-3" tabindex="-1"></a>  <span class="fu">autoplot</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb2321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2321-1"><a href="8.7-random-forests.html#cb2321-1" tabindex="-1"></a>wkfl_tidym_final<span class="sc">$</span>.predictions[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span></span>
+<span id="cb2321-2"><a href="8.7-random-forests.html#cb2321-2" tabindex="-1"></a>  <span class="fu">gain_curve</span>(context, <span class="st">`</span><span class="at">.pred_Non-Guttural</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2321-3"><a href="8.7-random-forests.html#cb2321-3" tabindex="-1"></a>  <span class="fu">autoplot</span>() </span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-1024-1.png" width="672" /></p>
 </div>
 <div id="roc-curves" class="section level5 hasAnchor" number="8.7.3.4.6">
 <h5><span class="header-section-number">8.7.3.4.6</span> ROC Curves<a href="8.7-random-forests.html#roc-curves" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb2328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2328-1"><a href="8.7-random-forests.html#cb2328-1" tabindex="-1"></a>wkfl_tidym_final<span class="sc">$</span>.predictions[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span></span>
-<span id="cb2328-2"><a href="8.7-random-forests.html#cb2328-2" tabindex="-1"></a>  <span class="fu">roc_curve</span>(context, <span class="st">`</span><span class="at">.pred_Non-Guttural</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2328-3"><a href="8.7-random-forests.html#cb2328-3" tabindex="-1"></a>  <span class="fu">autoplot</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb2322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2322-1"><a href="8.7-random-forests.html#cb2322-1" tabindex="-1"></a>wkfl_tidym_final<span class="sc">$</span>.predictions[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span></span>
+<span id="cb2322-2"><a href="8.7-random-forests.html#cb2322-2" tabindex="-1"></a>  <span class="fu">roc_curve</span>(context, <span class="st">`</span><span class="at">.pred_Non-Guttural</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2322-3"><a href="8.7-random-forests.html#cb2322-3" tabindex="-1"></a>  <span class="fu">autoplot</span>() </span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-1025-1.png" width="672" /></p>
 <p>This is the end of this chapter introducing Random Forests. We have seen how to run them using <code>party</code>, <code>ranger</code> and <code>tidymodels</code>. The latter is a great package that allows to streamline the process of running machine learning models. It is not restricted to Random Forests, and can be used for any type of model!</p>
 </div>

@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-11-09" />
+<meta name="date" content="2025-12-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -531,7 +531,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2.6.4.4" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-and-d-prime"><i class="fa fa-check"></i><b>2.6.4.4</b> GLM and d prime</a></li>
-<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-as-a-classification-tool"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
+<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#GLM-Classification"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
 <li class="chapter" data-level="2.6.4.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-other-distributions"><i class="fa fa-check"></i><b>2.6.4.6</b> GLM: Other distributions</a></li>
 </ul></li>
 </ul></li>
@@ -2091,11 +2091,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1" data-path="8.1-what-is-predictive-modelling.html"><a href="8.1-what-is-predictive-modelling.html"><i class="fa fa-check"></i><b>8.1</b> What is predictive modelling</a></li>
 <li class="chapter" data-level="8.2" data-path="8.2-loading-packages-7.html"><a href="8.2-loading-packages-7.html"><i class="fa fa-check"></i><b>8.2</b> Loading packages</a></li>
 <li class="chapter" data-level="8.3" data-path="8.3-read-dataset-1.html"><a href="8.3-read-dataset-1.html"><i class="fa fa-check"></i><b>8.3</b> Read dataset</a></li>
-<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
+<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
-<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
-<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
+<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
+<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
+<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="8.5-issues-with-glm-and-regression-analyses-in-general.html"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html"><i class="fa fa-check"></i><b>8.5</b> Issues with GLM (and regression analyses in general)</a>
 <ul>
@@ -2233,17 +2233,17 @@ As with cluster analysis, we could compute number of clusters; something we are 
 <p>We perform a MDS Clustering with 2 Clusters.
 We use a Euclidean distance matrix.
 See <a href="https://pages.mtu.edu/~shanem/psy5220/daily/Day16/MDS.html">here</a> for details on the available dissimilarity methods.</p>
-<div class="sourceCode" id="cb2123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2123-1"><a href="7.6-multidimensional-scaling.html#cb2123-1" tabindex="-1"></a>dat1MDS <span class="ot">&lt;-</span> dfPharPCA</span>
-<span id="cb2123-2"><a href="7.6-multidimensional-scaling.html#cb2123-2" tabindex="-1"></a></span>
-<span id="cb2123-3"><a href="7.6-multidimensional-scaling.html#cb2123-3" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb2123-4"><a href="7.6-multidimensional-scaling.html#cb2123-4" tabindex="-1"></a></span>
-<span id="cb2123-5"><a href="7.6-multidimensional-scaling.html#cb2123-5" tabindex="-1"></a>mds.resdat1 <span class="ot">&lt;-</span> dat1MDS[<span class="sc">-</span><span class="dv">1</span>] <span class="sc">%&gt;%</span></span>
-<span id="cb2123-6"><a href="7.6-multidimensional-scaling.html#cb2123-6" tabindex="-1"></a>  <span class="fu">dist</span>(<span class="at">method =</span> <span class="st">&#39;euclidean&#39;</span>) <span class="sc">%&gt;%</span>          </span>
-<span id="cb2123-7"><a href="7.6-multidimensional-scaling.html#cb2123-7" tabindex="-1"></a>  <span class="fu">cmdscale</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb2123-8"><a href="7.6-multidimensional-scaling.html#cb2123-8" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span>
-<span id="cb2123-9"><a href="7.6-multidimensional-scaling.html#cb2123-9" tabindex="-1"></a><span class="fu">colnames</span>(mds.resdat1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Dim.1&quot;</span>, <span class="st">&quot;Dim.2&quot;</span>)</span>
-<span id="cb2123-10"><a href="7.6-multidimensional-scaling.html#cb2123-10" tabindex="-1"></a></span>
-<span id="cb2123-11"><a href="7.6-multidimensional-scaling.html#cb2123-11" tabindex="-1"></a>mds.resdat1 <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2117-1"><a href="7.6-multidimensional-scaling.html#cb2117-1" tabindex="-1"></a>dat1MDS <span class="ot">&lt;-</span> dfPharPCA</span>
+<span id="cb2117-2"><a href="7.6-multidimensional-scaling.html#cb2117-2" tabindex="-1"></a></span>
+<span id="cb2117-3"><a href="7.6-multidimensional-scaling.html#cb2117-3" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb2117-4"><a href="7.6-multidimensional-scaling.html#cb2117-4" tabindex="-1"></a></span>
+<span id="cb2117-5"><a href="7.6-multidimensional-scaling.html#cb2117-5" tabindex="-1"></a>mds.resdat1 <span class="ot">&lt;-</span> dat1MDS[<span class="sc">-</span><span class="dv">1</span>] <span class="sc">%&gt;%</span></span>
+<span id="cb2117-6"><a href="7.6-multidimensional-scaling.html#cb2117-6" tabindex="-1"></a>  <span class="fu">dist</span>(<span class="at">method =</span> <span class="st">&#39;euclidean&#39;</span>) <span class="sc">%&gt;%</span>          </span>
+<span id="cb2117-7"><a href="7.6-multidimensional-scaling.html#cb2117-7" tabindex="-1"></a>  <span class="fu">cmdscale</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb2117-8"><a href="7.6-multidimensional-scaling.html#cb2117-8" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span>
+<span id="cb2117-9"><a href="7.6-multidimensional-scaling.html#cb2117-9" tabindex="-1"></a><span class="fu">colnames</span>(mds.resdat1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Dim.1&quot;</span>, <span class="st">&quot;Dim.2&quot;</span>)</span>
+<span id="cb2117-10"><a href="7.6-multidimensional-scaling.html#cb2117-10" tabindex="-1"></a></span>
+<span id="cb2117-11"><a href="7.6-multidimensional-scaling.html#cb2117-11" tabindex="-1"></a>mds.resdat1 <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 2
 ##    Dim.1 Dim.2
 ##    &lt;dbl&gt; &lt;dbl&gt;
@@ -2260,27 +2260,27 @@ See <a href="https://pages.mtu.edu/~shanem/psy5220/daily/Day16/MDS.html">here</a
 </div>
 <div id="kmeans-clustering-1" class="section level3 hasAnchor" number="7.6.2">
 <h3><span class="header-section-number">7.6.2</span> Kmeans clustering<a href="7.6-multidimensional-scaling.html#kmeans-clustering-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb2125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2125-1"><a href="7.6-multidimensional-scaling.html#cb2125-1" tabindex="-1"></a><span class="do">## K-means clustering</span></span>
-<span id="cb2125-2"><a href="7.6-multidimensional-scaling.html#cb2125-2" tabindex="-1"></a>clust <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(mds.resdat1, <span class="dv">2</span>)<span class="sc">$</span>cluster <span class="sc">%&gt;%</span></span>
-<span id="cb2125-3"><a href="7.6-multidimensional-scaling.html#cb2125-3" tabindex="-1"></a>  <span class="fu">as.factor</span>()</span>
-<span id="cb2125-4"><a href="7.6-multidimensional-scaling.html#cb2125-4" tabindex="-1"></a>mds.resdat1 <span class="ot">&lt;-</span> mds.resdat1 <span class="sc">%&gt;%</span></span>
-<span id="cb2125-5"><a href="7.6-multidimensional-scaling.html#cb2125-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">groups =</span> clust)</span>
-<span id="cb2125-6"><a href="7.6-multidimensional-scaling.html#cb2125-6" tabindex="-1"></a>mds.resdat1<span class="sc">$</span>context <span class="ot">&lt;-</span> dat1MDS<span class="sc">$</span>context</span></code></pre></div>
+<div class="sourceCode" id="cb2119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2119-1"><a href="7.6-multidimensional-scaling.html#cb2119-1" tabindex="-1"></a><span class="do">## K-means clustering</span></span>
+<span id="cb2119-2"><a href="7.6-multidimensional-scaling.html#cb2119-2" tabindex="-1"></a>clust <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(mds.resdat1, <span class="dv">2</span>)<span class="sc">$</span>cluster <span class="sc">%&gt;%</span></span>
+<span id="cb2119-3"><a href="7.6-multidimensional-scaling.html#cb2119-3" tabindex="-1"></a>  <span class="fu">as.factor</span>()</span>
+<span id="cb2119-4"><a href="7.6-multidimensional-scaling.html#cb2119-4" tabindex="-1"></a>mds.resdat1 <span class="ot">&lt;-</span> mds.resdat1 <span class="sc">%&gt;%</span></span>
+<span id="cb2119-5"><a href="7.6-multidimensional-scaling.html#cb2119-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">groups =</span> clust)</span>
+<span id="cb2119-6"><a href="7.6-multidimensional-scaling.html#cb2119-6" tabindex="-1"></a>mds.resdat1<span class="sc">$</span>context <span class="ot">&lt;-</span> dat1MDS<span class="sc">$</span>context</span></code></pre></div>
 </div>
 <div id="plot-7" class="section level3 hasAnchor" number="7.6.3">
 <h3><span class="header-section-number">7.6.3</span> Plot<a href="7.6-multidimensional-scaling.html#plot-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb2126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2126-1"><a href="7.6-multidimensional-scaling.html#cb2126-1" tabindex="-1"></a><span class="do">## Plot and color by groups</span></span>
-<span id="cb2126-2"><a href="7.6-multidimensional-scaling.html#cb2126-2" tabindex="-1"></a><span class="fu">ggscatter</span>(mds.resdat1, <span class="at">x =</span> <span class="st">&quot;Dim.1&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Dim.2&quot;</span>, <span class="at">col =</span> <span class="st">&quot;context&quot;</span>,</span>
-<span id="cb2126-3"><a href="7.6-multidimensional-scaling.html#cb2126-3" tabindex="-1"></a>          <span class="at">label =</span> <span class="cn">NULL</span>,</span>
-<span id="cb2126-4"><a href="7.6-multidimensional-scaling.html#cb2126-4" tabindex="-1"></a>          <span class="at">color =</span> <span class="st">&quot;context&quot;</span>,</span>
-<span id="cb2126-5"><a href="7.6-multidimensional-scaling.html#cb2126-5" tabindex="-1"></a>          <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>),</span>
-<span id="cb2126-6"><a href="7.6-multidimensional-scaling.html#cb2126-6" tabindex="-1"></a>          <span class="at">size =</span> <span class="dv">2</span>, </span>
-<span id="cb2126-7"><a href="7.6-multidimensional-scaling.html#cb2126-7" tabindex="-1"></a>          <span class="at">ellipse =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2126-8"><a href="7.6-multidimensional-scaling.html#cb2126-8" tabindex="-1"></a>          <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
-<span id="cb2126-9"><a href="7.6-multidimensional-scaling.html#cb2126-9" tabindex="-1"></a>          <span class="at">repel =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb2126-10"><a href="7.6-multidimensional-scaling.html#cb2126-10" tabindex="-1"></a>          <span class="at">shape =</span> <span class="st">&quot;context&quot;</span>,</span>
-<span id="cb2126-11"><a href="7.6-multidimensional-scaling.html#cb2126-11" tabindex="-1"></a>          <span class="at">point =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb2126-12"><a href="7.6-multidimensional-scaling.html#cb2126-12" tabindex="-1"></a>          <span class="at">mean.point =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2120-1"><a href="7.6-multidimensional-scaling.html#cb2120-1" tabindex="-1"></a><span class="do">## Plot and color by groups</span></span>
+<span id="cb2120-2"><a href="7.6-multidimensional-scaling.html#cb2120-2" tabindex="-1"></a><span class="fu">ggscatter</span>(mds.resdat1, <span class="at">x =</span> <span class="st">&quot;Dim.1&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Dim.2&quot;</span>, <span class="at">col =</span> <span class="st">&quot;context&quot;</span>,</span>
+<span id="cb2120-3"><a href="7.6-multidimensional-scaling.html#cb2120-3" tabindex="-1"></a>          <span class="at">label =</span> <span class="cn">NULL</span>,</span>
+<span id="cb2120-4"><a href="7.6-multidimensional-scaling.html#cb2120-4" tabindex="-1"></a>          <span class="at">color =</span> <span class="st">&quot;context&quot;</span>,</span>
+<span id="cb2120-5"><a href="7.6-multidimensional-scaling.html#cb2120-5" tabindex="-1"></a>          <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>),</span>
+<span id="cb2120-6"><a href="7.6-multidimensional-scaling.html#cb2120-6" tabindex="-1"></a>          <span class="at">size =</span> <span class="dv">2</span>, </span>
+<span id="cb2120-7"><a href="7.6-multidimensional-scaling.html#cb2120-7" tabindex="-1"></a>          <span class="at">ellipse =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2120-8"><a href="7.6-multidimensional-scaling.html#cb2120-8" tabindex="-1"></a>          <span class="at">ellipse.type =</span> <span class="st">&quot;convex&quot;</span>,</span>
+<span id="cb2120-9"><a href="7.6-multidimensional-scaling.html#cb2120-9" tabindex="-1"></a>          <span class="at">repel =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2120-10"><a href="7.6-multidimensional-scaling.html#cb2120-10" tabindex="-1"></a>          <span class="at">shape =</span> <span class="st">&quot;context&quot;</span>,</span>
+<span id="cb2120-11"><a href="7.6-multidimensional-scaling.html#cb2120-11" tabindex="-1"></a>          <span class="at">point =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2120-12"><a href="7.6-multidimensional-scaling.html#cb2120-12" tabindex="-1"></a>          <span class="at">mean.point =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-969-1.png" width="672" /></p>
 </div>
 </div>

@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-11-09" />
+<meta name="date" content="2025-12-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -531,7 +531,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2.6.4.4" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-and-d-prime"><i class="fa fa-check"></i><b>2.6.4.4</b> GLM and d prime</a></li>
-<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-as-a-classification-tool"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
+<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#GLM-Classification"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
 <li class="chapter" data-level="2.6.4.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-other-distributions"><i class="fa fa-check"></i><b>2.6.4.6</b> GLM: Other distributions</a></li>
 </ul></li>
 </ul></li>
@@ -2091,11 +2091,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1" data-path="8.1-what-is-predictive-modelling.html"><a href="8.1-what-is-predictive-modelling.html"><i class="fa fa-check"></i><b>8.1</b> What is predictive modelling</a></li>
 <li class="chapter" data-level="8.2" data-path="8.2-loading-packages-7.html"><a href="8.2-loading-packages-7.html"><i class="fa fa-check"></i><b>8.2</b> Loading packages</a></li>
 <li class="chapter" data-level="8.3" data-path="8.3-read-dataset-1.html"><a href="8.3-read-dataset-1.html"><i class="fa fa-check"></i><b>8.3</b> Read dataset</a></li>
-<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
+<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
-<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
-<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
+<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
+<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
+<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="8.5-issues-with-glm-and-regression-analyses-in-general.html"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html"><i class="fa fa-check"></i><b>8.5</b> Issues with GLM (and regression analyses in general)</a>
 <ul>
@@ -2225,16 +2225,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.8</span> Multiple webpages<a href="5.8-multiple-webpages-1.html#multiple-webpages-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="read_html-3" class="section level3 hasAnchor" number="5.8.1">
 <h3><span class="header-section-number">5.8.1</span> Read_html<a href="5.8-multiple-webpages-1.html#read_html-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1615-1"><a href="5.8-multiple-webpages-1.html#cb1615-1" tabindex="-1"></a>website <span class="ot">&lt;-</span> <span class="st">&quot;https://www.tidyverse.org/packages/&quot;</span> <span class="sc">%&gt;%</span> </span>
-<span id="cb1615-2"><a href="5.8-multiple-webpages-1.html#cb1615-2" tabindex="-1"></a>  rvest<span class="sc">::</span><span class="fu">read_html</span>()</span>
-<span id="cb1615-3"><a href="5.8-multiple-webpages-1.html#cb1615-3" tabindex="-1"></a>website</span></code></pre></div>
+<div class="sourceCode" id="cb1609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1609-1"><a href="5.8-multiple-webpages-1.html#cb1609-1" tabindex="-1"></a>website <span class="ot">&lt;-</span> <span class="st">&quot;https://www.tidyverse.org/packages/&quot;</span> <span class="sc">%&gt;%</span> </span>
+<span id="cb1609-2"><a href="5.8-multiple-webpages-1.html#cb1609-2" tabindex="-1"></a>  rvest<span class="sc">::</span><span class="fu">read_html</span>()</span>
+<span id="cb1609-3"><a href="5.8-multiple-webpages-1.html#cb1609-3" tabindex="-1"></a>website</span></code></pre></div>
 <pre><code>## {html_document}
 ## &lt;html&gt;
 ## [1] &lt;head&gt;\n&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8 ...
 ## [2] &lt;body&gt;\n&lt;div id=&quot;appTidyverseSite&quot; class=&quot;shrinkHeader alwaysShrinkHeader ...</code></pre>
-<div class="sourceCode" id="cb1617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1617-1"><a href="5.8-multiple-webpages-1.html#cb1617-1" tabindex="-1"></a>a_elements <span class="ot">&lt;-</span> website <span class="sc">%&gt;%</span> </span>
-<span id="cb1617-2"><a href="5.8-multiple-webpages-1.html#cb1617-2" tabindex="-1"></a>  rvest<span class="sc">::</span><span class="fu">html_elements</span>(<span class="at">css =</span> <span class="st">&quot;div.package &gt; a&quot;</span>)</span>
-<span id="cb1617-3"><a href="5.8-multiple-webpages-1.html#cb1617-3" tabindex="-1"></a>a_elements</span></code></pre></div>
+<div class="sourceCode" id="cb1611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1611-1"><a href="5.8-multiple-webpages-1.html#cb1611-1" tabindex="-1"></a>a_elements <span class="ot">&lt;-</span> website <span class="sc">%&gt;%</span> </span>
+<span id="cb1611-2"><a href="5.8-multiple-webpages-1.html#cb1611-2" tabindex="-1"></a>  rvest<span class="sc">::</span><span class="fu">html_elements</span>(<span class="at">css =</span> <span class="st">&quot;div.package &gt; a&quot;</span>)</span>
+<span id="cb1611-3"><a href="5.8-multiple-webpages-1.html#cb1611-3" tabindex="-1"></a>a_elements</span></code></pre></div>
 <pre><code>## {xml_nodeset (9)}
 ## [1] &lt;a href=&quot;https://ggplot2.tidyverse.org/&quot; target=&quot;_blank&quot;&gt;&lt;img class=&quot;pack ...
 ## [2] &lt;a href=&quot;https://dplyr.tidyverse.org/&quot; target=&quot;_blank&quot;&gt;&lt;img class=&quot;packag ...
@@ -2248,9 +2248,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="extract-headline-3" class="section level3 hasAnchor" number="5.8.2">
 <h3><span class="header-section-number">5.8.2</span> Extract headline<a href="5.8-multiple-webpages-1.html#extract-headline-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1619-1"><a href="5.8-multiple-webpages-1.html#cb1619-1" tabindex="-1"></a>links <span class="ot">&lt;-</span> a_elements <span class="sc">%&gt;%</span></span>
-<span id="cb1619-2"><a href="5.8-multiple-webpages-1.html#cb1619-2" tabindex="-1"></a>  rvest<span class="sc">::</span><span class="fu">html_attr</span>(<span class="at">name =</span> <span class="st">&quot;href&quot;</span>)</span>
-<span id="cb1619-3"><a href="5.8-multiple-webpages-1.html#cb1619-3" tabindex="-1"></a>links</span></code></pre></div>
+<div class="sourceCode" id="cb1613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1613-1"><a href="5.8-multiple-webpages-1.html#cb1613-1" tabindex="-1"></a>links <span class="ot">&lt;-</span> a_elements <span class="sc">%&gt;%</span></span>
+<span id="cb1613-2"><a href="5.8-multiple-webpages-1.html#cb1613-2" tabindex="-1"></a>  rvest<span class="sc">::</span><span class="fu">html_attr</span>(<span class="at">name =</span> <span class="st">&quot;href&quot;</span>)</span>
+<span id="cb1613-3"><a href="5.8-multiple-webpages-1.html#cb1613-3" tabindex="-1"></a>links</span></code></pre></div>
 <pre><code>## [1] &quot;https://ggplot2.tidyverse.org/&quot;   &quot;https://dplyr.tidyverse.org/&quot;    
 ## [3] &quot;https://tidyr.tidyverse.org/&quot;     &quot;https://readr.tidyverse.org/&quot;    
 ## [5] &quot;https://purrr.tidyverse.org/&quot;     &quot;https://tibble.tidyverse.org/&quot;   
@@ -2259,9 +2259,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="extract-subpages-1" class="section level3 hasAnchor" number="5.8.3">
 <h3><span class="header-section-number">5.8.3</span> Extract subpages<a href="5.8-multiple-webpages-1.html#extract-subpages-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1621-1"><a href="5.8-multiple-webpages-1.html#cb1621-1" tabindex="-1"></a>pages <span class="ot">&lt;-</span> links <span class="sc">%&gt;%</span> </span>
-<span id="cb1621-2"><a href="5.8-multiple-webpages-1.html#cb1621-2" tabindex="-1"></a>  <span class="fu">map</span>(rvest<span class="sc">::</span>read_html)</span>
-<span id="cb1621-3"><a href="5.8-multiple-webpages-1.html#cb1621-3" tabindex="-1"></a>pages</span></code></pre></div>
+<div class="sourceCode" id="cb1615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1615-1"><a href="5.8-multiple-webpages-1.html#cb1615-1" tabindex="-1"></a>pages <span class="ot">&lt;-</span> links <span class="sc">%&gt;%</span> </span>
+<span id="cb1615-2"><a href="5.8-multiple-webpages-1.html#cb1615-2" tabindex="-1"></a>  <span class="fu">map</span>(rvest<span class="sc">::</span>read_html)</span>
+<span id="cb1615-3"><a href="5.8-multiple-webpages-1.html#cb1615-3" tabindex="-1"></a>pages</span></code></pre></div>
 <pre><code>## [[1]]
 ## {html_document}
 ## &lt;html lang=&quot;en&quot;&gt;
@@ -2316,45 +2316,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [1] &lt;head&gt;\n&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8 ...
 ## [2] &lt;body&gt;\n    &lt;a href=&quot;#container&quot; class=&quot;visually-hidden-focusable&quot;&gt;Skip t ...</code></pre>
 <p>The structure seems to be similar across all pages</p>
-<div class="sourceCode" id="cb1623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1623-1"><a href="5.8-multiple-webpages-1.html#cb1623-1" tabindex="-1"></a>pages <span class="sc">%&gt;%</span> </span>
-<span id="cb1623-2"><a href="5.8-multiple-webpages-1.html#cb1623-2" tabindex="-1"></a>  <span class="fu">map</span>(rvest<span class="sc">::</span>html_element, <span class="at">css =</span> <span class="st">&quot;a.navbar-brand&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1623-3"><a href="5.8-multiple-webpages-1.html#cb1623-3" tabindex="-1"></a>  <span class="fu">map_chr</span>(rvest<span class="sc">::</span>html_text)</span></code></pre></div>
+<div class="sourceCode" id="cb1617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1617-1"><a href="5.8-multiple-webpages-1.html#cb1617-1" tabindex="-1"></a>pages <span class="sc">%&gt;%</span> </span>
+<span id="cb1617-2"><a href="5.8-multiple-webpages-1.html#cb1617-2" tabindex="-1"></a>  <span class="fu">map</span>(rvest<span class="sc">::</span>html_element, <span class="at">css =</span> <span class="st">&quot;a.navbar-brand&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1617-3"><a href="5.8-multiple-webpages-1.html#cb1617-3" tabindex="-1"></a>  <span class="fu">map_chr</span>(rvest<span class="sc">::</span>html_text)</span></code></pre></div>
 <pre><code>## [1] &quot;ggplot2&quot;   &quot;dplyr&quot;     &quot;tidyr&quot;     &quot;readr&quot;     &quot;purrr&quot;     &quot;tibble&quot;   
 ## [7] &quot;stringr&quot;   &quot;forcats&quot;   &quot;lubridate&quot;</code></pre>
 <p>and extracting version number</p>
-<div class="sourceCode" id="cb1625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1625-1"><a href="5.8-multiple-webpages-1.html#cb1625-1" tabindex="-1"></a>pages <span class="sc">%&gt;%</span> </span>
-<span id="cb1625-2"><a href="5.8-multiple-webpages-1.html#cb1625-2" tabindex="-1"></a>  <span class="fu">map</span>(rvest<span class="sc">::</span>html_element, <span class="at">css =</span> <span class="st">&quot;small.nav-text.text-muted.me-auto&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1625-3"><a href="5.8-multiple-webpages-1.html#cb1625-3" tabindex="-1"></a>  <span class="fu">map_chr</span>(rvest<span class="sc">::</span>html_text)</span></code></pre></div>
-<pre><code>## [1] &quot;4.0.0&quot; &quot;1.1.4&quot; &quot;1.3.1&quot; &quot;2.1.5&quot; &quot;1.2.0&quot; &quot;3.3.0&quot; &quot;1.6.0&quot; &quot;1.0.1&quot; &quot;1.9.4&quot;</code></pre>
+<div class="sourceCode" id="cb1619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1619-1"><a href="5.8-multiple-webpages-1.html#cb1619-1" tabindex="-1"></a>pages <span class="sc">%&gt;%</span> </span>
+<span id="cb1619-2"><a href="5.8-multiple-webpages-1.html#cb1619-2" tabindex="-1"></a>  <span class="fu">map</span>(rvest<span class="sc">::</span>html_element, <span class="at">css =</span> <span class="st">&quot;small.nav-text.text-muted.me-auto&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1619-3"><a href="5.8-multiple-webpages-1.html#cb1619-3" tabindex="-1"></a>  <span class="fu">map_chr</span>(rvest<span class="sc">::</span>html_text)</span></code></pre></div>
+<pre><code>## [1] &quot;4.0.1&quot; &quot;1.1.4&quot; &quot;1.3.1&quot; &quot;2.1.6&quot; &quot;1.2.0&quot; &quot;3.3.0&quot; &quot;1.6.0&quot; &quot;1.0.1&quot; &quot;1.9.4&quot;</code></pre>
 <p>and we can also add all into a tibble</p>
 </div>
 <div id="extract-text-3" class="section level3 hasAnchor" number="5.8.4">
 <h3><span class="header-section-number">5.8.4</span> Extract text<a href="5.8-multiple-webpages-1.html#extract-text-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1627-1"><a href="5.8-multiple-webpages-1.html#cb1627-1" tabindex="-1"></a>pages_table <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb1627-2"><a href="5.8-multiple-webpages-1.html#cb1627-2" tabindex="-1"></a>  <span class="at">name =</span> pages <span class="sc">%&gt;%</span> </span>
-<span id="cb1627-3"><a href="5.8-multiple-webpages-1.html#cb1627-3" tabindex="-1"></a>    <span class="fu">map</span>(rvest<span class="sc">::</span>html_element, <span class="at">css =</span> <span class="st">&quot;a.navbar-brand&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1627-4"><a href="5.8-multiple-webpages-1.html#cb1627-4" tabindex="-1"></a>    <span class="fu">map_chr</span>(rvest<span class="sc">::</span>html_text),</span>
-<span id="cb1627-5"><a href="5.8-multiple-webpages-1.html#cb1627-5" tabindex="-1"></a>  <span class="at">version =</span> pages <span class="sc">%&gt;%</span> </span>
-<span id="cb1627-6"><a href="5.8-multiple-webpages-1.html#cb1627-6" tabindex="-1"></a>    <span class="fu">map</span>(rvest<span class="sc">::</span>html_element, <span class="at">css =</span> <span class="st">&quot;small.nav-text.text-muted.me-auto&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1627-7"><a href="5.8-multiple-webpages-1.html#cb1627-7" tabindex="-1"></a>    <span class="fu">map_chr</span>(rvest<span class="sc">::</span>html_text),</span>
-<span id="cb1627-8"><a href="5.8-multiple-webpages-1.html#cb1627-8" tabindex="-1"></a>  <span class="at">CRAN =</span> pages <span class="sc">%&gt;%</span> </span>
-<span id="cb1627-9"><a href="5.8-multiple-webpages-1.html#cb1627-9" tabindex="-1"></a>    <span class="fu">map</span>(rvest<span class="sc">::</span>html_element, <span class="at">css =</span> <span class="st">&quot;ul.list-unstyled &gt; li:nth-child(1) &gt; a&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1627-10"><a href="5.8-multiple-webpages-1.html#cb1627-10" tabindex="-1"></a>    <span class="fu">map_chr</span>(rvest<span class="sc">::</span>html_attr, <span class="at">name =</span> <span class="st">&quot;href&quot;</span>),</span>
-<span id="cb1627-11"><a href="5.8-multiple-webpages-1.html#cb1627-11" tabindex="-1"></a>  <span class="at">Learn =</span> pages <span class="sc">%&gt;%</span> </span>
-<span id="cb1627-12"><a href="5.8-multiple-webpages-1.html#cb1627-12" tabindex="-1"></a>    <span class="fu">map</span>(rvest<span class="sc">::</span>html_element, <span class="at">css =</span> <span class="st">&quot;ul.list-unstyled &gt; li:nth-child(4) &gt; a&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1627-13"><a href="5.8-multiple-webpages-1.html#cb1627-13" tabindex="-1"></a>    <span class="fu">map_chr</span>(rvest<span class="sc">::</span>html_attr, <span class="at">name =</span> <span class="st">&quot;href&quot;</span>), </span>
-<span id="cb1627-14"><a href="5.8-multiple-webpages-1.html#cb1627-14" tabindex="-1"></a>  <span class="at">text =</span> pages <span class="sc">%&gt;%</span></span>
-<span id="cb1627-15"><a href="5.8-multiple-webpages-1.html#cb1627-15" tabindex="-1"></a>    <span class="fu">map</span>(rvest<span class="sc">::</span>html_element,  <span class="at">css =</span> <span class="st">&quot;body&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1627-16"><a href="5.8-multiple-webpages-1.html#cb1627-16" tabindex="-1"></a>    <span class="fu">map_chr</span>(rvest<span class="sc">::</span>html_text2)</span>
-<span id="cb1627-17"><a href="5.8-multiple-webpages-1.html#cb1627-17" tabindex="-1"></a>)</span>
-<span id="cb1627-18"><a href="5.8-multiple-webpages-1.html#cb1627-18" tabindex="-1"></a>pages_table</span></code></pre></div>
+<div class="sourceCode" id="cb1621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1621-1"><a href="5.8-multiple-webpages-1.html#cb1621-1" tabindex="-1"></a>pages_table <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1621-2"><a href="5.8-multiple-webpages-1.html#cb1621-2" tabindex="-1"></a>  <span class="at">name =</span> pages <span class="sc">%&gt;%</span> </span>
+<span id="cb1621-3"><a href="5.8-multiple-webpages-1.html#cb1621-3" tabindex="-1"></a>    <span class="fu">map</span>(rvest<span class="sc">::</span>html_element, <span class="at">css =</span> <span class="st">&quot;a.navbar-brand&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1621-4"><a href="5.8-multiple-webpages-1.html#cb1621-4" tabindex="-1"></a>    <span class="fu">map_chr</span>(rvest<span class="sc">::</span>html_text),</span>
+<span id="cb1621-5"><a href="5.8-multiple-webpages-1.html#cb1621-5" tabindex="-1"></a>  <span class="at">version =</span> pages <span class="sc">%&gt;%</span> </span>
+<span id="cb1621-6"><a href="5.8-multiple-webpages-1.html#cb1621-6" tabindex="-1"></a>    <span class="fu">map</span>(rvest<span class="sc">::</span>html_element, <span class="at">css =</span> <span class="st">&quot;small.nav-text.text-muted.me-auto&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1621-7"><a href="5.8-multiple-webpages-1.html#cb1621-7" tabindex="-1"></a>    <span class="fu">map_chr</span>(rvest<span class="sc">::</span>html_text),</span>
+<span id="cb1621-8"><a href="5.8-multiple-webpages-1.html#cb1621-8" tabindex="-1"></a>  <span class="at">CRAN =</span> pages <span class="sc">%&gt;%</span> </span>
+<span id="cb1621-9"><a href="5.8-multiple-webpages-1.html#cb1621-9" tabindex="-1"></a>    <span class="fu">map</span>(rvest<span class="sc">::</span>html_element, <span class="at">css =</span> <span class="st">&quot;ul.list-unstyled &gt; li:nth-child(1) &gt; a&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1621-10"><a href="5.8-multiple-webpages-1.html#cb1621-10" tabindex="-1"></a>    <span class="fu">map_chr</span>(rvest<span class="sc">::</span>html_attr, <span class="at">name =</span> <span class="st">&quot;href&quot;</span>),</span>
+<span id="cb1621-11"><a href="5.8-multiple-webpages-1.html#cb1621-11" tabindex="-1"></a>  <span class="at">Learn =</span> pages <span class="sc">%&gt;%</span> </span>
+<span id="cb1621-12"><a href="5.8-multiple-webpages-1.html#cb1621-12" tabindex="-1"></a>    <span class="fu">map</span>(rvest<span class="sc">::</span>html_element, <span class="at">css =</span> <span class="st">&quot;ul.list-unstyled &gt; li:nth-child(4) &gt; a&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1621-13"><a href="5.8-multiple-webpages-1.html#cb1621-13" tabindex="-1"></a>    <span class="fu">map_chr</span>(rvest<span class="sc">::</span>html_attr, <span class="at">name =</span> <span class="st">&quot;href&quot;</span>), </span>
+<span id="cb1621-14"><a href="5.8-multiple-webpages-1.html#cb1621-14" tabindex="-1"></a>  <span class="at">text =</span> pages <span class="sc">%&gt;%</span></span>
+<span id="cb1621-15"><a href="5.8-multiple-webpages-1.html#cb1621-15" tabindex="-1"></a>    <span class="fu">map</span>(rvest<span class="sc">::</span>html_element,  <span class="at">css =</span> <span class="st">&quot;body&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1621-16"><a href="5.8-multiple-webpages-1.html#cb1621-16" tabindex="-1"></a>    <span class="fu">map_chr</span>(rvest<span class="sc">::</span>html_text2)</span>
+<span id="cb1621-17"><a href="5.8-multiple-webpages-1.html#cb1621-17" tabindex="-1"></a>)</span>
+<span id="cb1621-18"><a href="5.8-multiple-webpages-1.html#cb1621-18" tabindex="-1"></a>pages_table</span></code></pre></div>
 <pre><code>## # A tibble: 9 × 5
 ##   name      version CRAN                                          Learn    text 
 ##   &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;                                         &lt;chr&gt;    &lt;chr&gt;
-## 1 ggplot2   4.0.0   https://cloud.r-project.org/package=ggplot2   https:/… &quot;Ski…
+## 1 ggplot2   4.0.1   https://cloud.r-project.org/package=ggplot2   https:/… &quot;Ski…
 ## 2 dplyr     1.1.4   https://cloud.r-project.org/package=dplyr     http://… &quot;Ski…
 ## 3 tidyr     1.3.1   https://cloud.r-project.org/package=tidyr     https:/… &quot;Ski…
-## 4 readr     2.1.5   https://cloud.r-project.org/package=readr     http://… &quot;Ski…
+## 4 readr     2.1.6   https://cloud.r-project.org/package=readr     http://… &quot;Ski…
 ## 5 purrr     1.2.0   https://cloud.r-project.org/package=purrr     http://… &quot;Ski…
 ## 6 tibble    3.3.0   https://cloud.r-project.org/package=tibble    https:/… &quot;Ski…
 ## 7 stringr   1.6.0   https://cloud.r-project.org/package=stringr   http://… &quot;Ski…
@@ -2363,11 +2363,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="create-a-corpus-13" class="section level3 hasAnchor" number="5.8.5">
 <h3><span class="header-section-number">5.8.5</span> Create a corpus<a href="5.8-multiple-webpages-1.html#create-a-corpus-13" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1629-1"><a href="5.8-multiple-webpages-1.html#cb1629-1" tabindex="-1"></a>web_pages_txt_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(pages_table)</span>
-<span id="cb1629-2"><a href="5.8-multiple-webpages-1.html#cb1629-2" tabindex="-1"></a><span class="fu">print</span>(web_pages_txt_corpus)</span></code></pre></div>
+<div class="sourceCode" id="cb1623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1623-1"><a href="5.8-multiple-webpages-1.html#cb1623-1" tabindex="-1"></a>web_pages_txt_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(pages_table)</span>
+<span id="cb1623-2"><a href="5.8-multiple-webpages-1.html#cb1623-2" tabindex="-1"></a><span class="fu">print</span>(web_pages_txt_corpus)</span></code></pre></div>
 <pre><code>## Corpus consisting of 9 documents and 4 docvars.
 ## text1 :
-## &quot;Skip to content ggplot24.0.0 Get started Reference News Rele...&quot;
+## &quot;Skip to content ggplot24.0.1 Get started Reference News Rele...&quot;
 ## 
 ## text2 :
 ## &quot;Skip to content dplyr1.1.4 Get started Reference Articles Gr...&quot;
@@ -2376,7 +2376,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## &quot;Skip to content tidyr1.3.1 Tidy data Reference Articles Pivo...&quot;
 ## 
 ## text4 :
-## &quot;Skip to content readr2.1.5 Get started Reference Articles Co...&quot;
+## &quot;Skip to content readr2.1.6 Get started Reference Articles Co...&quot;
 ## 
 ## text5 :
 ## &quot;Skip to content purrr1.2.0 Get started Reference Articles pu...&quot;
@@ -2387,14 +2387,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [ reached max_ndoc ... 3 more documents ]</code></pre>
 <div id="summary-31" class="section level4 hasAnchor" number="5.8.5.1">
 <h4><span class="header-section-number">5.8.5.1</span> Summary<a href="5.8-multiple-webpages-1.html#summary-31" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1631"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1631-1"><a href="5.8-multiple-webpages-1.html#cb1631-1" tabindex="-1"></a><span class="fu">summary</span>(web_pages_txt_corpus, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1625-1"><a href="5.8-multiple-webpages-1.html#cb1625-1" tabindex="-1"></a><span class="fu">summary</span>(web_pages_txt_corpus, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Corpus consisting of 9 documents, showing 9 documents:
 ## 
 ##   Text Types Tokens Sentences      name version
-##  text1   375    790        25   ggplot2   4.0.0
+##  text1   377    797        25   ggplot2   4.0.1
 ##  text2   419   1258        17     dplyr   1.1.4
 ##  text3   326    729        25     tidyr   1.3.1
-##  text4   571   1745        47     readr   2.1.5
+##  text4   569   1751        47     readr   2.1.6
 ##  text5   251    499        11     purrr   1.2.0
 ##  text6   269    717        14    tibble   3.3.0
 ##  text7   401   1355        23   stringr   1.6.0
@@ -2423,17 +2423,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="accessing-parts-of-corpus-13" class="section level4 hasAnchor" number="5.8.5.2">
 <h4><span class="header-section-number">5.8.5.2</span> Accessing parts of corpus<a href="5.8-multiple-webpages-1.html#accessing-parts-of-corpus-13" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1633-1"><a href="5.8-multiple-webpages-1.html#cb1633-1" tabindex="-1"></a>web_pages_txt_corpus[[<span class="dv">4</span>]]</span></code></pre></div>
-<pre><code>## [1] &quot;Skip to content\nreadr2.1.5\nGet started\nReference\nArticles\nColumn type Locales\nNews\nReleases\nVersion 2.1.0Version 2.0.0Version 1.4.0Version 1.3.1Version 1.0.0Version 0.2.0Version 0.1.0\nChangelog\nreadr\nOverview\n\nThe goal of readr is to provide a fast and friendly way to read rectangular data from delimited files, such as comma-separated values (CSV) and tab-separated values (TSV). It is designed to parse many types of data found in the wild, while providing an informative problem report when parsing leads to unexpected results. If you are new to readr, the best place to start is the data import chapter in R for Data Science.\n\nInstallation\n\n# The easiest way to get readr is to install the whole tidyverse:\ninstall.packages(\&quot;tidyverse\&quot;)\n\n# Alternatively, install just readr:\ninstall.packages(\&quot;readr\&quot;)\nCheatsheet\n\nUsage\n\nreadr is part of the core tidyverse, so you can load it with:\n\n\nlibrary(tidyverse)\n#&gt; ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n#&gt; ✔ dplyr     1.1.4          ✔ readr     2.1.4.9000\n#&gt; ✔ forcats   1.0.0          ✔ stringr   1.5.1     \n#&gt; ✔ ggplot2   3.4.3          ✔ tibble    3.2.1     \n#&gt; ✔ lubridate 1.9.3          ✔ tidyr     1.3.0     \n#&gt; ✔ purrr     1.0.2          \n#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n#&gt; ✖ dplyr::filter() masks stats::filter()\n#&gt; ✖ dplyr::lag()    masks stats::lag()\n#&gt; ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nOf course, you can also load readr as an individual package:\n\n\nlibrary(readr)\n\nTo read a rectangular dataset with readr, you combine two pieces: a function that parses the lines of the file into individual fields and a column specification.\n\nreadr supports the following file formats with these read_*() functions:\n\nread_csv(): comma-separated values (CSV)\nread_tsv(): tab-separated values (TSV)\nread_csv2(): semicolon-separated values with , as the decimal mark\nread_delim(): delimited files (CSV and TSV are important special cases)\nread_fwf(): fixed-width files\nread_table(): whitespace-separated files\nread_log(): web log files\n\nA column specification describes how each column should be converted from a character vector to a specific data type (e.g. character, numeric, datetime, etc.). In the absence of a column specification, readr will guess column types from the data. vignette(\&quot;column-types\&quot;) gives more detail on how readr guesses the column types. Column type guessing is very handy, especially during data exploration, but it’s important to remember these are just guesses. As any data analysis project matures past the exploratory phase, the best strategy is to provide explicit column types.\n\nThe following example loads a sample file bundled with readr and guesses the column types:\n\n\n(chickens &lt;- read_csv(readr_example(\&quot;chickens.csv\&quot;)))\n#&gt; Rows: 5 Columns: 4\n#&gt; ── Column specification ────────────────────────────────────────────────────────\n#&gt; Delimiter: \&quot;,\&quot;\n#&gt; chr (3): chicken, sex, motto\n#&gt; dbl (1): eggs_laid\n#&gt; \n#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.\n#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n#&gt; # A tibble: 5 × 4\n#&gt;   chicken                 sex     eggs_laid motto                               \n#&gt;   &lt;chr&gt;                   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;                               \n#&gt; 1 Foghorn Leghorn         rooster         0 That&#39;s a joke, ah say, that&#39;s a jok…\n#&gt; 2 Chicken Little          hen             3 The sky is falling!                 \n#&gt; 3 Ginger                  hen            12 Listen. We&#39;ll either die free chick…\n#&gt; 4 Camilla the Chicken     hen             7 Bawk, buck, ba-gawk.                \n#&gt; 5 Ernie The Giant Chicken rooster         0 Put Captain Solo in the cargo hold.\n\nNote that readr prints the column types – the guessed column types, in this case. This is useful because it allows you to check that the columns have been read in as you expect. If they haven’t, that means you need to provide the column specification. This sounds like a lot of trouble, but luckily readr affords a nice workflow for this. Use spec() to retrieve the (guessed) column specification from your initial effort.\n\n\nspec(chickens)\n#&gt; cols(\n#&gt;   chicken = col_character(),\n#&gt;   sex = col_character(),\n#&gt;   eggs_laid = col_double(),\n#&gt;   motto = col_character()\n#&gt; )\n\nNow you can copy, paste, and tweak this, to create a more explicit readr call that expresses the desired column types. Here we express that sex should be a factor with levels rooster and hen, in that order, and that eggs_laid should be integer.\n\n\nchickens &lt;- read_csv(\n  readr_example(\&quot;chickens.csv\&quot;),\n  col_types = cols(\n    chicken   = col_character(),\n    sex       = col_factor(levels = c(\&quot;rooster\&quot;, \&quot;hen\&quot;)),\n    eggs_laid = col_integer(),\n    motto     = col_character()\n  )\n)\nchickens\n#&gt; # A tibble: 5 × 4\n#&gt;   chicken                 sex     eggs_laid motto                               \n#&gt;   &lt;chr&gt;                   &lt;fct&gt;       &lt;int&gt; &lt;chr&gt;                               \n#&gt; 1 Foghorn Leghorn         rooster         0 That&#39;s a joke, ah say, that&#39;s a jok…\n#&gt; 2 Chicken Little          hen             3 The sky is falling!                 \n#&gt; 3 Ginger                  hen            12 Listen. We&#39;ll either die free chick…\n#&gt; 4 Camilla the Chicken     hen             7 Bawk, buck, ba-gawk.                \n#&gt; 5 Ernie The Giant Chicken rooster         0 Put Captain Solo in the cargo hold.\n\nvignette(\&quot;readr\&quot;) gives an expanded introduction to readr.\n\nEditions\n\nreadr got a new parsing engine in version 2.0.0 (released July 2021). In this so-called second edition, readr calls vroom::vroom(), by default.\n\nThe parsing engine in readr versions prior to 2.0.0 is now called the first edition. If you’re using readr &gt;= 2.0.0, you can still access first edition parsing via the functions with_edition(1, ...) and local_edition(1). And, obviously, if you’re using readr &lt; 2.0.0, you will get first edition parsing, by definition, because that’s all there is.\n\nWe will continue to support the first edition for a number of releases, but the overall goal is to make the second edition uniformly better than the first. Therefore the plan is to eventually deprecate and then remove the first edition code. New code and actively-maintained code should use the second edition. The workarounds with_edition(1, ...) and local_edition(1) are offered as a pragmatic way to patch up legacy code or as a temporary solution for infelicities identified as the second edition matures.\n\nAlternatives\n\nThere are two main alternatives to readr: base R and data.table’s fread(). The most important differences are discussed below.\n\nBase R\n\nCompared to the corresponding base functions, readr functions:\n\nUse a consistent naming scheme for the parameters (e.g. col_names and col_types not header and colClasses).\n\nAre generally much faster (up to 10x-100x) depending on the dataset.\n\nLeave strings as is by default, and automatically parse common date/time formats.\n\nHave a helpful progress bar if loading is going to take a while.\n\nAll functions work exactly the same way regardless of the current locale. To override the US-centric defaults, use locale().\n\ndata.table and fread()\n\ndata.table has a function similar to read_csv() called fread(). Compared to fread(), readr functions:\n\nAre sometimes slower, particularly on numeric heavy data.\n\nCan automatically guess some parameters, but basically encourage explicit specification of, e.g., the delimiter, skipped rows, and the header row.\n\nFollow tidyverse-wide conventions, such as returning a tibble, a standard approach for column name repair, and a common mini-language for column selection.\n\nAcknowledgements\n\nThanks to:\n\nJoe Cheng for showing me the beauty of deterministic finite automata for parsing, and for teaching me why I should write a tokenizer.\n\nJJ Allaire for helping me come up with a design that makes very few copies, and is easy to extend.\n\nDirk Eddelbuettel for coming up with the name!\n\nLinks\nView on CRAN\nBrowse source code\nReport a bug\nLearn more\nLicense\nFull license\nMIT + file LICENSE\nCommunity\nContributing guide\nCode of conduct\nGetting help\nCitation\nCiting readr\nDevelopers\nHadley Wickham\nAuthor\nJim Hester\nAuthor\nJennifer Bryan\nAuthor, maintainer\n\nCopyright holder, funder\nMore about authors...\n\nDeveloped by Hadley Wickham, Jim Hester, Jennifer Bryan, .\n\nSite built with pkgdown 2.0.7.&quot;</code></pre>
+<div class="sourceCode" id="cb1627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1627-1"><a href="5.8-multiple-webpages-1.html#cb1627-1" tabindex="-1"></a>web_pages_txt_corpus[[<span class="dv">4</span>]]</span></code></pre></div>
+<pre><code>## [1] &quot;Skip to content\nreadr2.1.6\nGet started\nReference\nArticles\nColumn type\nLocales\nNews\nReleases\nVersion 2.1.0\nVersion 2.0.0\nVersion 1.4.0\nVersion 1.3.1\nVersion 1.0.0\nVersion 0.2.0\nVersion 0.1.0\nChangelog\nreadr\nOverview\n\nThe goal of readr is to provide a fast and friendly way to read rectangular data from delimited files, such as comma-separated values (CSV) and tab-separated values (TSV). It is designed to parse many types of data found in the wild, while providing an informative problem report when parsing leads to unexpected results. If you are new to readr, the best place to start is the data import chapter in R for Data Science.\n\nInstallation\n\n# The easiest way to get readr is to install the whole tidyverse:\ninstall.packages(\&quot;tidyverse\&quot;)\n\n# Alternatively, install just readr:\ninstall.packages(\&quot;readr\&quot;)\nCheatsheet\n\nUsage\n\nreadr is part of the core tidyverse, so you can load it with:\n\n\nlibrary(tidyverse)\n#&gt; ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n#&gt; ✔ dplyr     1.1.4          ✔ readr     2.1.5.9000\n#&gt; ✔ forcats   1.0.1          ✔ stringr   1.5.2     \n#&gt; ✔ ggplot2   4.0.0          ✔ tibble    3.3.0     \n#&gt; ✔ lubridate 1.9.4          ✔ tidyr     1.3.1     \n#&gt; ✔ purrr     1.1.0          \n#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n#&gt; ✖ dplyr::filter() masks stats::filter()\n#&gt; ✖ dplyr::lag()    masks stats::lag()\n#&gt; ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nOf course, you can also load readr as an individual package:\n\n\nlibrary(readr)\n\nTo read a rectangular dataset with readr, you combine two pieces: a function that parses the lines of the file into individual fields and a column specification.\n\nreadr supports the following file formats with these read_*() functions:\n\nread_csv(): comma-separated values (CSV)\nread_tsv(): tab-separated values (TSV)\nread_csv2(): semicolon-separated values with , as the decimal mark\nread_delim(): delimited files (CSV and TSV are important special cases)\nread_fwf(): fixed-width files\nread_table(): whitespace-separated files\nread_log(): web log files\n\nA column specification describes how each column should be converted from a character vector to a specific data type (e.g. character, numeric, datetime, etc.). In the absence of a column specification, readr will guess column types from the data. vignette(\&quot;column-types\&quot;) gives more detail on how readr guesses the column types. Column type guessing is very handy, especially during data exploration, but it’s important to remember these are just guesses. As any data analysis project matures past the exploratory phase, the best strategy is to provide explicit column types.\n\nThe following example loads a sample file bundled with readr and guesses the column types:\n\n\n(chickens &lt;- read_csv(readr_example(\&quot;chickens.csv\&quot;)))\n#&gt; Rows: 5 Columns: 4\n#&gt; ── Column specification ────────────────────────────────────────────────────────\n#&gt; Delimiter: \&quot;,\&quot;\n#&gt; chr (3): chicken, sex, motto\n#&gt; dbl (1): eggs_laid\n#&gt; \n#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.\n#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n#&gt; # A tibble: 5 × 4\n#&gt;   chicken                 sex     eggs_laid motto                               \n#&gt;   &lt;chr&gt;                   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;                               \n#&gt; 1 Foghorn Leghorn         rooster         0 That&#39;s a joke, ah say, that&#39;s a jok…\n#&gt; 2 Chicken Little          hen             3 The sky is falling!                 \n#&gt; 3 Ginger                  hen            12 Listen. We&#39;ll either die free chick…\n#&gt; 4 Camilla the Chicken     hen             7 Bawk, buck, ba-gawk.                \n#&gt; 5 Ernie The Giant Chicken rooster         0 Put Captain Solo in the cargo hold.\n\nNote that readr prints the column types – the guessed column types, in this case. This is useful because it allows you to check that the columns have been read in as you expect. If they haven’t, that means you need to provide the column specification. This sounds like a lot of trouble, but luckily readr affords a nice workflow for this. Use spec() to retrieve the (guessed) column specification from your initial effort.\n\n\nspec(chickens)\n#&gt; cols(\n#&gt;   chicken = col_character(),\n#&gt;   sex = col_character(),\n#&gt;   eggs_laid = col_double(),\n#&gt;   motto = col_character()\n#&gt; )\n\nNow you can copy, paste, and tweak this, to create a more explicit readr call that expresses the desired column types. Here we express that sex should be a factor with levels rooster and hen, in that order, and that eggs_laid should be integer.\n\n\nchickens &lt;- read_csv(\n  readr_example(\&quot;chickens.csv\&quot;),\n  col_types = cols(\n    chicken   = col_character(),\n    sex       = col_factor(levels = c(\&quot;rooster\&quot;, \&quot;hen\&quot;)),\n    eggs_laid = col_integer(),\n    motto     = col_character()\n  )\n)\nchickens\n#&gt; # A tibble: 5 × 4\n#&gt;   chicken                 sex     eggs_laid motto                               \n#&gt;   &lt;chr&gt;                   &lt;fct&gt;       &lt;int&gt; &lt;chr&gt;                               \n#&gt; 1 Foghorn Leghorn         rooster         0 That&#39;s a joke, ah say, that&#39;s a jok…\n#&gt; 2 Chicken Little          hen             3 The sky is falling!                 \n#&gt; 3 Ginger                  hen            12 Listen. We&#39;ll either die free chick…\n#&gt; 4 Camilla the Chicken     hen             7 Bawk, buck, ba-gawk.                \n#&gt; 5 Ernie The Giant Chicken rooster         0 Put Captain Solo in the cargo hold.\n\nvignette(\&quot;readr\&quot;) gives an expanded introduction to readr.\n\nEditions\n\nreadr got a new parsing engine in version 2.0.0 (released July 2021). In this so-called second edition, readr calls vroom::vroom(), by default.\n\nThe parsing engine in readr versions prior to 2.0.0 is now called the first edition. If you’re using readr &gt;= 2.0.0, you can still access first edition parsing via the functions with_edition(1, ...) and local_edition(1). And, obviously, if you’re using readr &lt; 2.0.0, you will get first edition parsing, by definition, because that’s all there is.\n\nWe will continue to support the first edition for a number of releases, but the overall goal is to make the second edition uniformly better than the first. Therefore the plan is to eventually deprecate and then remove the first edition code. New code and actively-maintained code should use the second edition. The workarounds with_edition(1, ...) and local_edition(1) are offered as a pragmatic way to patch up legacy code or as a temporary solution for infelicities identified as the second edition matures.\n\nAlternatives\n\nThere are two main alternatives to readr: base R and data.table’s fread(). The most important differences are discussed below.\n\nBase R\n\nCompared to the corresponding base functions, readr functions:\n\nUse a consistent naming scheme for the parameters (e.g. col_names and col_types not header and colClasses).\n\nAre generally much faster (up to 10x-100x) depending on the dataset.\n\nLeave strings as is by default, and automatically parse common date/time formats.\n\nHave a helpful progress bar if loading is going to take a while.\n\nAll functions work exactly the same way regardless of the current locale. To override the US-centric defaults, use locale().\n\ndata.table and fread()\n\ndata.table has a function similar to read_csv() called fread(). Compared to fread(), readr functions:\n\nAre sometimes slower, particularly on numeric heavy data.\n\nCan automatically guess some parameters, but basically encourage explicit specification of, e.g., the delimiter, skipped rows, and the header row.\n\nFollow tidyverse-wide conventions, such as returning a tibble, a standard approach for column name repair, and a common mini-language for column selection.\n\nAcknowledgements\n\nThanks to:\n\nJoe Cheng for showing me the beauty of deterministic finite automata for parsing, and for teaching me why I should write a tokenizer.\n\nJJ Allaire for helping me come up with a design that makes very few copies, and is easy to extend.\n\nDirk Eddelbuettel for coming up with the name!\n\nLinks\nView on CRAN\nBrowse source code\nReport a bug\nLearn more\nLicense\nFull license\nMIT + file LICENSE\nCommunity\nContributing guide\nCode of conduct\nGetting help\nCitation\nCiting readr\nDevelopers\nHadley Wickham\nAuthor\nJim Hester\nAuthor\nJennifer Bryan\nAuthor, maintainer\n\nCopyright holder, funder\nMore about authors...\n\nDeveloped by Hadley Wickham, Jim Hester, Jennifer Bryan, .\n\nSite built with pkgdown 2.2.0.&quot;</code></pre>
 </div>
 <div id="document-level-information-11" class="section level4 hasAnchor" number="5.8.5.3">
 <h4><span class="header-section-number">5.8.5.3</span> Document-level information<a href="5.8-multiple-webpages-1.html#document-level-information-11" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1635"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1635-1"><a href="5.8-multiple-webpages-1.html#cb1635-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">docvars</span>(web_pages_txt_corpus))</span></code></pre></div>
+<div class="sourceCode" id="cb1629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1629-1"><a href="5.8-multiple-webpages-1.html#cb1629-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">docvars</span>(web_pages_txt_corpus))</span></code></pre></div>
 <pre><code>##      name version                                        CRAN
-## 1 ggplot2   4.0.0 https://cloud.r-project.org/package=ggplot2
+## 1 ggplot2   4.0.1 https://cloud.r-project.org/package=ggplot2
 ## 2   dplyr   1.1.4   https://cloud.r-project.org/package=dplyr
 ## 3   tidyr   1.3.1   https://cloud.r-project.org/package=tidyr
-## 4   readr   2.1.5   https://cloud.r-project.org/package=readr
+## 4   readr   2.1.6   https://cloud.r-project.org/package=readr
 ## 5   purrr   1.2.0   https://cloud.r-project.org/package=purrr
 ## 6  tibble   3.3.0  https://cloud.r-project.org/package=tibble
 ##                                            Learn
@@ -2453,14 +2453,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 We can remove punctuations or not</p>
 <div id="with-punctuations-13" class="section level5 hasAnchor" number="5.8.6.1.1">
 <h5><span class="header-section-number">5.8.6.1.1</span> With punctuations<a href="5.8-multiple-webpages-1.html#with-punctuations-13" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1637"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1637-1"><a href="5.8-multiple-webpages-1.html#cb1637-1" tabindex="-1"></a>web_pages_txt_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(web_pages_txt_corpus)</span>
-<span id="cb1637-2"><a href="5.8-multiple-webpages-1.html#cb1637-2" tabindex="-1"></a>web_pages_txt_corpus_tok</span></code></pre></div>
+<div class="sourceCode" id="cb1631"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1631-1"><a href="5.8-multiple-webpages-1.html#cb1631-1" tabindex="-1"></a>web_pages_txt_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(web_pages_txt_corpus)</span>
+<span id="cb1631-2"><a href="5.8-multiple-webpages-1.html#cb1631-2" tabindex="-1"></a>web_pages_txt_corpus_tok</span></code></pre></div>
 <pre><code>## Tokens consisting of 9 documents and 4 docvars.
 ## text1 :
-##  [1] &quot;Skip&quot;         &quot;to&quot;           &quot;content&quot;      &quot;ggplot24.0.0&quot; &quot;Get&quot;         
+##  [1] &quot;Skip&quot;         &quot;to&quot;           &quot;content&quot;      &quot;ggplot24.0.1&quot; &quot;Get&quot;         
 ##  [6] &quot;started&quot;      &quot;Reference&quot;    &quot;News&quot;         &quot;Releases&quot;     &quot;Version&quot;     
-## [11] &quot;3.5.0&quot;        &quot;Version&quot;     
-## [ ... and 778 more ]
+## [11] &quot;4.0.0&quot;        &quot;Version&quot;     
+## [ ... and 785 more ]
 ## 
 ## text2 :
 ##  [1] &quot;Skip&quot;       &quot;to&quot;         &quot;content&quot;    &quot;dplyr1.1.4&quot; &quot;Get&quot;       
@@ -2475,10 +2475,10 @@ We can remove punctuations or not</p>
 ## [ ... and 717 more ]
 ## 
 ## text4 :
-##  [1] &quot;Skip&quot;       &quot;to&quot;         &quot;content&quot;    &quot;readr2.1.5&quot; &quot;Get&quot;       
+##  [1] &quot;Skip&quot;       &quot;to&quot;         &quot;content&quot;    &quot;readr2.1.6&quot; &quot;Get&quot;       
 ##  [6] &quot;started&quot;    &quot;Reference&quot;  &quot;Articles&quot;   &quot;Column&quot;     &quot;type&quot;      
 ## [11] &quot;Locales&quot;    &quot;News&quot;      
-## [ ... and 1,733 more ]
+## [ ... and 1,739 more ]
 ## 
 ## text5 :
 ##  [1] &quot;Skip&quot;       &quot;to&quot;         &quot;content&quot;    &quot;purrr1.2.0&quot; &quot;Get&quot;       
@@ -2496,14 +2496,14 @@ We can remove punctuations or not</p>
 </div>
 <div id="without-punctuations-13" class="section level5 hasAnchor" number="5.8.6.1.2">
 <h5><span class="header-section-number">5.8.6.1.2</span> Without punctuations<a href="5.8-multiple-webpages-1.html#without-punctuations-13" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1639-1"><a href="5.8-multiple-webpages-1.html#cb1639-1" tabindex="-1"></a>web_pages_txt_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(web_pages_txt_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1639-2"><a href="5.8-multiple-webpages-1.html#cb1639-2" tabindex="-1"></a>web_pages_txt_corpus_tok_no_punct</span></code></pre></div>
+<div class="sourceCode" id="cb1633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1633-1"><a href="5.8-multiple-webpages-1.html#cb1633-1" tabindex="-1"></a>web_pages_txt_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(web_pages_txt_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1633-2"><a href="5.8-multiple-webpages-1.html#cb1633-2" tabindex="-1"></a>web_pages_txt_corpus_tok_no_punct</span></code></pre></div>
 <pre><code>## Tokens consisting of 9 documents and 4 docvars.
 ## text1 :
-##  [1] &quot;Skip&quot;         &quot;to&quot;           &quot;content&quot;      &quot;ggplot24.0.0&quot; &quot;Get&quot;         
+##  [1] &quot;Skip&quot;         &quot;to&quot;           &quot;content&quot;      &quot;ggplot24.0.1&quot; &quot;Get&quot;         
 ##  [6] &quot;started&quot;      &quot;Reference&quot;    &quot;News&quot;         &quot;Releases&quot;     &quot;Version&quot;     
-## [11] &quot;3.5.0&quot;        &quot;Version&quot;     
-## [ ... and 647 more ]
+## [11] &quot;4.0.0&quot;        &quot;Version&quot;     
+## [ ... and 652 more ]
 ## 
 ## text2 :
 ##  [1] &quot;Skip&quot;       &quot;to&quot;         &quot;content&quot;    &quot;dplyr1.1.4&quot; &quot;Get&quot;       
@@ -2518,10 +2518,10 @@ We can remove punctuations or not</p>
 ## [ ... and 547 more ]
 ## 
 ## text4 :
-##  [1] &quot;Skip&quot;       &quot;to&quot;         &quot;content&quot;    &quot;readr2.1.5&quot; &quot;Get&quot;       
+##  [1] &quot;Skip&quot;       &quot;to&quot;         &quot;content&quot;    &quot;readr2.1.6&quot; &quot;Get&quot;       
 ##  [6] &quot;started&quot;    &quot;Reference&quot;  &quot;Articles&quot;   &quot;Column&quot;     &quot;type&quot;      
 ## [11] &quot;Locales&quot;    &quot;News&quot;      
-## [ ... and 1,364 more ]
+## [ ... and 1,370 more ]
 ## 
 ## text5 :
 ##  [1] &quot;Skip&quot;       &quot;to&quot;         &quot;content&quot;    &quot;purrr1.2.0&quot; &quot;Get&quot;       
@@ -2542,11 +2542,11 @@ We can remove punctuations or not</p>
 <h4><span class="header-section-number">5.8.6.2</span> Compound words<a href="5.8-multiple-webpages-1.html#compound-words-6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div id="kwic-phrase-6" class="section level5 hasAnchor" number="5.8.6.2.1">
 <h5><span class="header-section-number">5.8.6.2.1</span> <code>kwic</code> Phrase<a href="5.8-multiple-webpages-1.html#kwic-phrase-6" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1641-1"><a href="5.8-multiple-webpages-1.html#cb1641-1" tabindex="-1"></a>web_pages_txt_corpus_tok_no_punct_phrase <span class="ot">&lt;-</span> <span class="fu">kwic</span>(web_pages_txt_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="fu">phrase</span>(<span class="st">&quot;the tidy*&quot;</span>), <span class="at">window =</span> <span class="dv">6</span>)</span>
-<span id="cb1641-2"><a href="5.8-multiple-webpages-1.html#cb1641-2" tabindex="-1"></a><span class="fu">head</span>(web_pages_txt_corpus_tok_no_punct_phrase, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1635"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1635-1"><a href="5.8-multiple-webpages-1.html#cb1635-1" tabindex="-1"></a>web_pages_txt_corpus_tok_no_punct_phrase <span class="ot">&lt;-</span> <span class="fu">kwic</span>(web_pages_txt_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="fu">phrase</span>(<span class="st">&quot;the tidy*&quot;</span>), <span class="at">window =</span> <span class="dv">6</span>)</span>
+<span id="cb1635-2"><a href="5.8-multiple-webpages-1.html#cb1635-2" tabindex="-1"></a><span class="fu">head</span>(web_pages_txt_corpus_tok_no_punct_phrase, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Keyword-in-context with 4 matches.                                                                     
-##  [text1, 348:349]          give you a comprehensive introduction to |
-##  [text1, 502:503]        announcements and deep-dives you can visit |
+##  [text1, 350:351]          give you a comprehensive introduction to |
+##  [text1, 504:505]        announcements and deep-dives you can visit |
 ##  [text3, 109:110]         that is used wherever possible throughout |
 ##  [text3, 477:478] please use community.rstudio.com Please note that |
 ##                                                        
@@ -2557,12 +2557,12 @@ We can remove punctuations or not</p>
 </div>
 <div id="compounds-6" class="section level5 hasAnchor" number="5.8.6.2.2">
 <h5><span class="header-section-number">5.8.6.2.2</span> Compounds<a href="5.8-multiple-webpages-1.html#compounds-6" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1643-1"><a href="5.8-multiple-webpages-1.html#cb1643-1" tabindex="-1"></a>web_pages_txt_corpus_tok_no_punct_comp <span class="ot">&lt;-</span> <span class="fu">tokens_compound</span>(web_pages_txt_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">phrase</span>(<span class="st">&quot;the tidy*&quot;</span>))</span>
-<span id="cb1643-2"><a href="5.8-multiple-webpages-1.html#cb1643-2" tabindex="-1"></a>web_pages_txt_corpus_tok_no_punct_comp_kwic <span class="ot">&lt;-</span> <span class="fu">kwic</span>(web_pages_txt_corpus_tok_no_punct_comp, <span class="at">pattern =</span> <span class="fu">phrase</span>(<span class="st">&quot;the_tidy*&quot;</span>))</span>
-<span id="cb1643-3"><a href="5.8-multiple-webpages-1.html#cb1643-3" tabindex="-1"></a><span class="fu">head</span>(web_pages_txt_corpus_tok_no_punct_comp_kwic, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1637"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1637-1"><a href="5.8-multiple-webpages-1.html#cb1637-1" tabindex="-1"></a>web_pages_txt_corpus_tok_no_punct_comp <span class="ot">&lt;-</span> <span class="fu">tokens_compound</span>(web_pages_txt_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">phrase</span>(<span class="st">&quot;the tidy*&quot;</span>))</span>
+<span id="cb1637-2"><a href="5.8-multiple-webpages-1.html#cb1637-2" tabindex="-1"></a>web_pages_txt_corpus_tok_no_punct_comp_kwic <span class="ot">&lt;-</span> <span class="fu">kwic</span>(web_pages_txt_corpus_tok_no_punct_comp, <span class="at">pattern =</span> <span class="fu">phrase</span>(<span class="st">&quot;the_tidy*&quot;</span>))</span>
+<span id="cb1637-3"><a href="5.8-multiple-webpages-1.html#cb1637-3" tabindex="-1"></a><span class="fu">head</span>(web_pages_txt_corpus_tok_no_punct_comp_kwic, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Keyword-in-context with 4 matches.                                                                          
-##  [text1, 348]        you a comprehensive introduction to | the_tidyverse |
-##  [text1, 501]               and deep-dives you can visit | the_tidyverse |
+##  [text1, 350]        you a comprehensive introduction to | the_tidyverse |
+##  [text1, 503]               and deep-dives you can visit | the_tidyverse |
 ##  [text3, 109]       is used wherever possible throughout | the_tidyverse |
 ##  [text3, 476] use community.rstudio.com Please note that |   the_tidyr   |
 ##                             
@@ -2580,12 +2580,12 @@ N-grams yield a sequence of tokens from already tokenised text object.</p>
 <div id="multi-grams-6" class="section level5 hasAnchor" number="5.8.6.3.1">
 <h5><span class="header-section-number">5.8.6.3.1</span> Multi-grams<a href="5.8-multiple-webpages-1.html#multi-grams-6" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>The code below allows to obtain the sequences of consecutive compound words, with 2, 3 or 4 compound words.</p>
-<div class="sourceCode" id="cb1645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1645-1"><a href="5.8-multiple-webpages-1.html#cb1645-1" tabindex="-1"></a>web_pages_txt_corpus_tok_no_punct_ngram <span class="ot">&lt;-</span> <span class="fu">tokens_ngrams</span>(web_pages_txt_corpus_tok_no_punct, <span class="at">n =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1645-2"><a href="5.8-multiple-webpages-1.html#cb1645-2" tabindex="-1"></a>  <span class="fu">unlist</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1645-3"><a href="5.8-multiple-webpages-1.html#cb1645-3" tabindex="-1"></a>  <span class="fu">tolower</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1645-4"><a href="5.8-multiple-webpages-1.html#cb1645-4" tabindex="-1"></a>  <span class="fu">table</span>()</span>
-<span id="cb1645-5"><a href="5.8-multiple-webpages-1.html#cb1645-5" tabindex="-1"></a><span class="do">## Top 10 rows</span></span>
-<span id="cb1645-6"><a href="5.8-multiple-webpages-1.html#cb1645-6" tabindex="-1"></a><span class="fu">head</span>(web_pages_txt_corpus_tok_no_punct_ngram, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1639-1"><a href="5.8-multiple-webpages-1.html#cb1639-1" tabindex="-1"></a>web_pages_txt_corpus_tok_no_punct_ngram <span class="ot">&lt;-</span> <span class="fu">tokens_ngrams</span>(web_pages_txt_corpus_tok_no_punct, <span class="at">n =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1639-2"><a href="5.8-multiple-webpages-1.html#cb1639-2" tabindex="-1"></a>  <span class="fu">unlist</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1639-3"><a href="5.8-multiple-webpages-1.html#cb1639-3" tabindex="-1"></a>  <span class="fu">tolower</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1639-4"><a href="5.8-multiple-webpages-1.html#cb1639-4" tabindex="-1"></a>  <span class="fu">table</span>()</span>
+<span id="cb1639-5"><a href="5.8-multiple-webpages-1.html#cb1639-5" tabindex="-1"></a><span class="do">## Top 10 rows</span></span>
+<span id="cb1639-6"><a href="5.8-multiple-webpages-1.html#cb1639-6" tabindex="-1"></a><span class="fu">head</span>(web_pages_txt_corpus_tok_no_punct_ngram, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## .
 ##              $_cyl            $_cyl_|          $_cyl_|_&gt;                ^_2 
 ##                  1                  1                  1                  2 
@@ -2593,8 +2593,8 @@ N-grams yield a sequence of tokens from already tokenised text object.</p>
 ##                  1                  1                  1                  1 
 ##   `_show_col_types `_show_col_types_= 
 ##                  1                  1</code></pre>
-<div class="sourceCode" id="cb1647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1647-1"><a href="5.8-multiple-webpages-1.html#cb1647-1" tabindex="-1"></a><span class="do">## Last 10 rows</span></span>
-<span id="cb1647-2"><a href="5.8-multiple-webpages-1.html#cb1647-2" tabindex="-1"></a><span class="fu">tail</span>(web_pages_txt_corpus_tok_no_punct_ngram, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1641-1"><a href="5.8-multiple-webpages-1.html#cb1641-1" tabindex="-1"></a><span class="do">## Last 10 rows</span></span>
+<span id="cb1641-2"><a href="5.8-multiple-webpages-1.html#cb1641-2" tabindex="-1"></a><span class="fu">tail</span>(web_pages_txt_corpus_tok_no_punct_ngram, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## .
 ##   zero_length_outputs_learn                  zones_leap 
 ##                           1                           1 
@@ -2610,15 +2610,15 @@ N-grams yield a sequence of tokens from already tokenised text object.</p>
 <div id="skip-grams-6" class="section level5 hasAnchor" number="5.8.6.3.2">
 <h5><span class="header-section-number">5.8.6.3.2</span> Skip-grams<a href="5.8-multiple-webpages-1.html#skip-grams-6" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Skip-grams allow to obtain non consecutive n-grams</p>
-<div class="sourceCode" id="cb1649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1649-1"><a href="5.8-multiple-webpages-1.html#cb1649-1" tabindex="-1"></a>web_pages_txt_corpus_tok_no_punct_ngram_skip <span class="ot">&lt;-</span> <span class="fu">tokens_ngrams</span>(web_pages_txt_corpus_tok_no_punct, <span class="at">n =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">skip =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
-<span id="cb1649-2"><a href="5.8-multiple-webpages-1.html#cb1649-2" tabindex="-1"></a><span class="do">## Top 10 rows</span></span>
-<span id="cb1649-3"><a href="5.8-multiple-webpages-1.html#cb1649-3" tabindex="-1"></a><span class="fu">head</span>(web_pages_txt_corpus_tok_no_punct_ngram_skip[[<span class="dv">7</span>]], <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1643-1"><a href="5.8-multiple-webpages-1.html#cb1643-1" tabindex="-1"></a>web_pages_txt_corpus_tok_no_punct_ngram_skip <span class="ot">&lt;-</span> <span class="fu">tokens_ngrams</span>(web_pages_txt_corpus_tok_no_punct, <span class="at">n =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">skip =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
+<span id="cb1643-2"><a href="5.8-multiple-webpages-1.html#cb1643-2" tabindex="-1"></a><span class="do">## Top 10 rows</span></span>
+<span id="cb1643-3"><a href="5.8-multiple-webpages-1.html#cb1643-3" tabindex="-1"></a><span class="fu">head</span>(web_pages_txt_corpus_tok_no_punct_ngram_skip[[<span class="dv">7</span>]], <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;Skip_content&quot;           &quot;Skip_stringr1.6.0&quot;      &quot;to_stringr1.6.0&quot;       
 ##  [4] &quot;to_Get&quot;                 &quot;content_Get&quot;            &quot;content_started&quot;       
 ##  [7] &quot;stringr1.6.0_started&quot;   &quot;stringr1.6.0_Reference&quot; &quot;Get_Reference&quot;         
 ## [10] &quot;Get_Articles&quot;</code></pre>
-<div class="sourceCode" id="cb1651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1651-1"><a href="5.8-multiple-webpages-1.html#cb1651-1" tabindex="-1"></a><span class="do">## Last 10 rows</span></span>
-<span id="cb1651-2"><a href="5.8-multiple-webpages-1.html#cb1651-2" tabindex="-1"></a><span class="fu">tail</span>(web_pages_txt_corpus_tok_no_punct_ngram_skip[[<span class="dv">7</span>]], <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1645-1"><a href="5.8-multiple-webpages-1.html#cb1645-1" tabindex="-1"></a><span class="do">## Last 10 rows</span></span>
+<span id="cb1645-2"><a href="5.8-multiple-webpages-1.html#cb1645-2" tabindex="-1"></a><span class="fu">tail</span>(web_pages_txt_corpus_tok_no_punct_ngram_skip[[<span class="dv">7</span>]], <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;Developed_Hadley_built_pkgdown&quot;  &quot;Developed_Hadley_built_2.1.3&quot;   
 ##  [3] &quot;Developed_Wickham_built_pkgdown&quot; &quot;Developed_Wickham_built_2.1.3&quot;  
 ##  [5] &quot;Developed_Wickham_with_2.1.3&quot;    &quot;by_Wickham_built_pkgdown&quot;       
@@ -2632,9 +2632,9 @@ N-grams yield a sequence of tokens from already tokenised text object.</p>
 Here, we will create a dictionary that we populate ourselves and we show how to use it to search for items</p>
 <div id="create-dictionary-6" class="section level5 hasAnchor" number="5.8.6.4.1">
 <h5><span class="header-section-number">5.8.6.4.1</span> Create dictionary<a href="5.8-multiple-webpages-1.html#create-dictionary-6" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1653"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1653-1"><a href="5.8-multiple-webpages-1.html#cb1653-1" tabindex="-1"></a>dict_web_pages_txt <span class="ot">&lt;-</span> <span class="fu">dictionary</span>(<span class="fu">list</span>(<span class="at">tidy_family =</span> <span class="fu">c</span>(<span class="st">&quot;tidy*&quot;</span>, <span class="st">&quot;ggplot**&quot;</span>),</span>
-<span id="cb1653-2"><a href="5.8-multiple-webpages-1.html#cb1653-2" tabindex="-1"></a>                        <span class="at">r_packages =</span> <span class="st">&quot;*r&quot;</span>))</span>
-<span id="cb1653-3"><a href="5.8-multiple-webpages-1.html#cb1653-3" tabindex="-1"></a><span class="fu">print</span>(dict_web_pages_txt)</span></code></pre></div>
+<div class="sourceCode" id="cb1647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1647-1"><a href="5.8-multiple-webpages-1.html#cb1647-1" tabindex="-1"></a>dict_web_pages_txt <span class="ot">&lt;-</span> <span class="fu">dictionary</span>(<span class="fu">list</span>(<span class="at">tidy_family =</span> <span class="fu">c</span>(<span class="st">&quot;tidy*&quot;</span>, <span class="st">&quot;ggplot**&quot;</span>),</span>
+<span id="cb1647-2"><a href="5.8-multiple-webpages-1.html#cb1647-2" tabindex="-1"></a>                        <span class="at">r_packages =</span> <span class="st">&quot;*r&quot;</span>))</span>
+<span id="cb1647-3"><a href="5.8-multiple-webpages-1.html#cb1647-3" tabindex="-1"></a><span class="fu">print</span>(dict_web_pages_txt)</span></code></pre></div>
 <pre><code>## Dictionary object with 2 key entries.
 ## - [tidy_family]:
 ##   - tidy*, ggplot**
@@ -2643,8 +2643,8 @@ Here, we will create a dictionary that we populate ourselves and we show how to 
 </div>
 <div id="token-lookup-6" class="section level5 hasAnchor" number="5.8.6.4.2">
 <h5><span class="header-section-number">5.8.6.4.2</span> Token lookup<a href="5.8-multiple-webpages-1.html#token-lookup-6" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1655"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1655-1"><a href="5.8-multiple-webpages-1.html#cb1655-1" tabindex="-1"></a>web_pages_txt_corpus_tok_no_punct_dict_toks <span class="ot">&lt;-</span> <span class="fu">tokens_lookup</span>(web_pages_txt_corpus_tok_no_punct, <span class="at">dictionary =</span> dict_web_pages_txt)</span>
-<span id="cb1655-2"><a href="5.8-multiple-webpages-1.html#cb1655-2" tabindex="-1"></a><span class="fu">print</span>(web_pages_txt_corpus_tok_no_punct_dict_toks)</span></code></pre></div>
+<div class="sourceCode" id="cb1649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1649-1"><a href="5.8-multiple-webpages-1.html#cb1649-1" tabindex="-1"></a>web_pages_txt_corpus_tok_no_punct_dict_toks <span class="ot">&lt;-</span> <span class="fu">tokens_lookup</span>(web_pages_txt_corpus_tok_no_punct, <span class="at">dictionary =</span> dict_web_pages_txt)</span>
+<span id="cb1649-2"><a href="5.8-multiple-webpages-1.html#cb1649-2" tabindex="-1"></a><span class="fu">print</span>(web_pages_txt_corpus_tok_no_punct_dict_toks)</span></code></pre></div>
 <pre><code>## Tokens consisting of 9 documents and 4 docvars.
 ## text1 :
 ##  [1] &quot;tidy_family&quot; &quot;r_packages&quot;  &quot;tidy_family&quot; &quot;tidy_family&quot; &quot;tidy_family&quot;
@@ -2686,7 +2686,7 @@ Here, we will create a dictionary that we populate ourselves and we show how to 
 </div>
 <div id="dfm-6" class="section level5 hasAnchor" number="5.8.6.4.3">
 <h5><span class="header-section-number">5.8.6.4.3</span> DFM<a href="5.8-multiple-webpages-1.html#dfm-6" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1657-1"><a href="5.8-multiple-webpages-1.html#cb1657-1" tabindex="-1"></a><span class="fu">dfm</span>(web_pages_txt_corpus_tok_no_punct_dict_toks)</span></code></pre></div>
+<div class="sourceCode" id="cb1651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1651-1"><a href="5.8-multiple-webpages-1.html#cb1651-1" tabindex="-1"></a><span class="fu">dfm</span>(web_pages_txt_corpus_tok_no_punct_dict_toks)</span></code></pre></div>
 <pre><code>## Document-feature matrix of: 9 documents, 2 features (0.00% sparse) and 4 docvars.
 ##        features
 ## docs    tidy_family r_packages
@@ -2707,27 +2707,27 @@ We will use the <a href="https://cran.r-project.org/web/packages/udpipe/index.ht
 <h5><span class="header-section-number">5.8.6.5.1</span> Download and load language model<a href="5.8-multiple-webpages-1.html#download-and-load-language-model-5" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Before using the PoS-tagger, we need to download a language model.
 As you can see from typing <code>?udpipe_download_model</code>, there are 65 languages trained on 101 treebanks from <a href="https://universaldependencies.org/">here</a></p>
-<div class="sourceCode" id="cb1659"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1659-1"><a href="5.8-multiple-webpages-1.html#cb1659-1" tabindex="-1"></a>file_to_check <span class="ot">&lt;-</span> <span class="st">&quot;models/english-ewt-ud-2.5-191206.udpipe&quot;</span></span>
-<span id="cb1659-2"><a href="5.8-multiple-webpages-1.html#cb1659-2" tabindex="-1"></a></span>
-<span id="cb1659-3"><a href="5.8-multiple-webpages-1.html#cb1659-3" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(<span class="at">file =</span> file_to_check)){</span>
-<span id="cb1659-4"><a href="5.8-multiple-webpages-1.html#cb1659-4" tabindex="-1"></a>  m_english <span class="ot">&lt;-</span> <span class="fu">udpipe_load_model</span>(<span class="at">file =</span> <span class="st">&quot;models/english-ewt-ud-2.5-191206.udpipe&quot;</span>)</span>
-<span id="cb1659-5"><a href="5.8-multiple-webpages-1.html#cb1659-5" tabindex="-1"></a>}<span class="cf">else</span>{</span>
-<span id="cb1659-6"><a href="5.8-multiple-webpages-1.html#cb1659-6" tabindex="-1"></a>  m_english <span class="ot">&lt;-</span> <span class="fu">udpipe_download_model</span>(<span class="at">model_dir =</span> <span class="st">&quot;models/&quot;</span>, <span class="at">language =</span> <span class="st">&quot;english-ewt&quot;</span>)</span>
-<span id="cb1659-7"><a href="5.8-multiple-webpages-1.html#cb1659-7" tabindex="-1"></a>  m_english <span class="ot">&lt;-</span> <span class="fu">udpipe_load_model</span>(<span class="at">file =</span> <span class="st">&quot;models/english-ewt-ud-2.5-191206.udpipe&quot;</span>)</span>
-<span id="cb1659-8"><a href="5.8-multiple-webpages-1.html#cb1659-8" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb1653"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1653-1"><a href="5.8-multiple-webpages-1.html#cb1653-1" tabindex="-1"></a>file_to_check <span class="ot">&lt;-</span> <span class="st">&quot;models/english-ewt-ud-2.5-191206.udpipe&quot;</span></span>
+<span id="cb1653-2"><a href="5.8-multiple-webpages-1.html#cb1653-2" tabindex="-1"></a></span>
+<span id="cb1653-3"><a href="5.8-multiple-webpages-1.html#cb1653-3" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(<span class="at">file =</span> file_to_check)){</span>
+<span id="cb1653-4"><a href="5.8-multiple-webpages-1.html#cb1653-4" tabindex="-1"></a>  m_english <span class="ot">&lt;-</span> <span class="fu">udpipe_load_model</span>(<span class="at">file =</span> <span class="st">&quot;models/english-ewt-ud-2.5-191206.udpipe&quot;</span>)</span>
+<span id="cb1653-5"><a href="5.8-multiple-webpages-1.html#cb1653-5" tabindex="-1"></a>}<span class="cf">else</span>{</span>
+<span id="cb1653-6"><a href="5.8-multiple-webpages-1.html#cb1653-6" tabindex="-1"></a>  m_english <span class="ot">&lt;-</span> <span class="fu">udpipe_download_model</span>(<span class="at">model_dir =</span> <span class="st">&quot;models/&quot;</span>, <span class="at">language =</span> <span class="st">&quot;english-ewt&quot;</span>)</span>
+<span id="cb1653-7"><a href="5.8-multiple-webpages-1.html#cb1653-7" tabindex="-1"></a>  m_english <span class="ot">&lt;-</span> <span class="fu">udpipe_load_model</span>(<span class="at">file =</span> <span class="st">&quot;models/english-ewt-ud-2.5-191206.udpipe&quot;</span>)</span>
+<span id="cb1653-8"><a href="5.8-multiple-webpages-1.html#cb1653-8" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="tokenise-tag-dependency-parsing-6" class="section level5 hasAnchor" number="5.8.6.5.2">
 <h5><span class="header-section-number">5.8.6.5.2</span> Tokenise, tag, dependency parsing<a href="5.8-multiple-webpages-1.html#tokenise-tag-dependency-parsing-6" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We use the already tokenised text, with no punctuations.</p>
-<div class="sourceCode" id="cb1660"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1660-1"><a href="5.8-multiple-webpages-1.html#cb1660-1" tabindex="-1"></a>web_pages_txt_anndf <span class="ot">&lt;-</span> <span class="fu">udpipe_annotate</span>(m_english, <span class="at">x =</span> web_pages_txt_corpus_tok_no_punct[[<span class="dv">1</span>]]) <span class="sc">%&gt;%</span></span>
-<span id="cb1660-2"><a href="5.8-multiple-webpages-1.html#cb1660-2" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() </span>
-<span id="cb1660-3"><a href="5.8-multiple-webpages-1.html#cb1660-3" tabindex="-1"></a><span class="do">## inspect</span></span>
-<span id="cb1660-4"><a href="5.8-multiple-webpages-1.html#cb1660-4" tabindex="-1"></a><span class="fu">head</span>(web_pages_txt_anndf, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1654-1"><a href="5.8-multiple-webpages-1.html#cb1654-1" tabindex="-1"></a>web_pages_txt_anndf <span class="ot">&lt;-</span> <span class="fu">udpipe_annotate</span>(m_english, <span class="at">x =</span> web_pages_txt_corpus_tok_no_punct[[<span class="dv">1</span>]]) <span class="sc">%&gt;%</span></span>
+<span id="cb1654-2"><a href="5.8-multiple-webpages-1.html#cb1654-2" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() </span>
+<span id="cb1654-3"><a href="5.8-multiple-webpages-1.html#cb1654-3" tabindex="-1"></a><span class="do">## inspect</span></span>
+<span id="cb1654-4"><a href="5.8-multiple-webpages-1.html#cb1654-4" tabindex="-1"></a><span class="fu">head</span>(web_pages_txt_anndf, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##    doc_id paragraph_id sentence_id     sentence token_id        token
 ## 1    doc1            1           1         Skip        1         Skip
 ## 2    doc2            1           1           to        1           to
 ## 3    doc3            1           1      content        1      content
-## 4    doc4            1           1 ggplot24.0.0        1 ggplot24.0.0
+## 4    doc4            1           1 ggplot24.0.1        1 ggplot24.0.1
 ## 5    doc5            1           1          Get        1          Get
 ## 6    doc6            1           1      started        1      started
 ## 7    doc7            1           1    Reference        1    Reference
@@ -2738,7 +2738,7 @@ As you can see from typing <code>?udpipe_download_model</code>, there are 65 lan
 ## 1          skip NOUN   NN                      Number=Sing             0
 ## 2            to  ADP   IN                             &lt;NA&gt;             0
 ## 3       content NOUN   NN                      Number=Sing             0
-## 4  ggplot24.0.0 NOUN   NN                      Number=Sing             0
+## 4  ggplot24.0.1 NOUN   NN                      Number=Sing             0
 ## 5           get VERB   VB            Mood=Imp|VerbForm=Fin             0
 ## 6         start VERB  VBD Mood=Ind|Tense=Past|VerbForm=Fin             0
 ## 7     reference NOUN   NN                      Number=Sing             0
@@ -2759,11 +2759,11 @@ As you can see from typing <code>?udpipe_download_model</code>, there are 65 lan
 </div>
 <div id="dependency-parsing-6" class="section level5 hasAnchor" number="5.8.6.5.3">
 <h5><span class="header-section-number">5.8.6.5.3</span> Dependency parsing<a href="5.8-multiple-webpages-1.html#dependency-parsing-6" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1662"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1662-1"><a href="5.8-multiple-webpages-1.html#cb1662-1" tabindex="-1"></a><span class="do">## parse text</span></span>
-<span id="cb1662-2"><a href="5.8-multiple-webpages-1.html#cb1662-2" tabindex="-1"></a>web_pages_txt_corpus_sent <span class="ot">&lt;-</span> <span class="fu">udpipe_annotate</span>(m_english, <span class="at">x =</span> web_pages_txt_corpus[[<span class="dv">1</span>]]) <span class="sc">%&gt;%</span></span>
-<span id="cb1662-3"><a href="5.8-multiple-webpages-1.html#cb1662-3" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
-<span id="cb1662-4"><a href="5.8-multiple-webpages-1.html#cb1662-4" tabindex="-1"></a><span class="do">## inspect</span></span>
-<span id="cb1662-5"><a href="5.8-multiple-webpages-1.html#cb1662-5" tabindex="-1"></a><span class="fu">head</span>(web_pages_txt_corpus_sent)</span></code></pre></div>
+<div class="sourceCode" id="cb1656"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1656-1"><a href="5.8-multiple-webpages-1.html#cb1656-1" tabindex="-1"></a><span class="do">## parse text</span></span>
+<span id="cb1656-2"><a href="5.8-multiple-webpages-1.html#cb1656-2" tabindex="-1"></a>web_pages_txt_corpus_sent <span class="ot">&lt;-</span> <span class="fu">udpipe_annotate</span>(m_english, <span class="at">x =</span> web_pages_txt_corpus[[<span class="dv">1</span>]]) <span class="sc">%&gt;%</span></span>
+<span id="cb1656-3"><a href="5.8-multiple-webpages-1.html#cb1656-3" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb1656-4"><a href="5.8-multiple-webpages-1.html#cb1656-4" tabindex="-1"></a><span class="do">## inspect</span></span>
+<span id="cb1656-5"><a href="5.8-multiple-webpages-1.html#cb1656-5" tabindex="-1"></a><span class="fu">head</span>(web_pages_txt_corpus_sent)</span></code></pre></div>
 <pre><code>##   doc_id paragraph_id sentence_id
 ## 1   doc1            1           1
 ## 2   doc1            1           1
@@ -2771,18 +2771,18 @@ As you can see from typing <code>?udpipe_download_model</code>, there are 65 lan
 ## 4   doc1            1           1
 ## 5   doc1            1           2
 ## 6   doc1            1           2
-##                                                                                                                                                                                                                                                  sentence
-## 1                                                                                                                                                                                                                            Skip to content ggplot24.0.0
-## 2                                                                                                                                                                                                                            Skip to content ggplot24.0.0
-## 3                                                                                                                                                                                                                            Skip to content ggplot24.0.0
-## 4                                                                                                                                                                                                                            Skip to content ggplot24.0.0
-## 5 Get started Reference News Releases Version 3.5.0 Version 3.4.0 Version 3.3.0 Version 3.2.0 Version 3.1.0 Version 3.0.0 Version 2.2.0 Version 2.1.0 Version 2.0.0 Version 1.0.0 Changelog Articles Aesthetic specifications Developer Extending ggplot2
-## 6 Get started Reference News Releases Version 3.5.0 Version 3.4.0 Version 3.3.0 Version 3.2.0 Version 3.1.0 Version 3.0.0 Version 2.2.0 Version 2.1.0 Version 2.0.0 Version 1.0.0 Changelog Articles Aesthetic specifications Developer Extending ggplot2
+##                                                                                                                                                                                                                                                                sentence
+## 1                                                                                                                                                                                                                                          Skip to content ggplot24.0.1
+## 2                                                                                                                                                                                                                                          Skip to content ggplot24.0.1
+## 3                                                                                                                                                                                                                                          Skip to content ggplot24.0.1
+## 4                                                                                                                                                                                                                                          Skip to content ggplot24.0.1
+## 5 Get started Reference News Releases Version 4.0.0 Version 3.5.0 Version 3.4.0 Version 3.3.0 Version 3.2.0 Version 3.1.0 Version 3.0.0 Version 2.2.0 Version 2.1.0 Version 2.0.0 Version 1.0.0 Changelog Articles Aesthetic specifications Developer Extending ggplot2
+## 6 Get started Reference News Releases Version 4.0.0 Version 3.5.0 Version 3.4.0 Version 3.3.0 Version 3.2.0 Version 3.1.0 Version 3.0.0 Version 2.2.0 Version 2.1.0 Version 2.0.0 Version 1.0.0 Changelog Articles Aesthetic specifications Developer Extending ggplot2
 ##   token_id        token        lemma upos xpos                    feats
 ## 1        1         Skip         skip VERB   VB    Mood=Imp|VerbForm=Fin
 ## 2        2           to           to PART   TO                     &lt;NA&gt;
 ## 3        3      content      contend VERB   VB             VerbForm=Inf
-## 4        4 ggplot24.0.0 ggplot24.0.0 NOUN   NN              Number=Sing
+## 4        4 ggplot24.0.1 ggplot24.0.1 NOUN   NN              Number=Sing
 ## 5        1          Get          get VERB   VB    Mood=Imp|VerbForm=Fin
 ## 6        2      started        start VERB  VBN Tense=Past|VerbForm=Part
 ##   head_token_id dep_rel deps            misc
@@ -2791,10 +2791,10 @@ As you can see from typing <code>?udpipe_download_model</code>, there are 65 lan
 ## 3             1   xcomp &lt;NA&gt; SpacesAfter=\\n
 ## 4             3     obj &lt;NA&gt; SpacesAfter=\\n
 ## 5             0    root &lt;NA&gt;            &lt;NA&gt;
-## 6            27    amod &lt;NA&gt; SpacesAfter=\\n</code></pre>
-<div class="sourceCode" id="cb1664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1664-1"><a href="5.8-multiple-webpages-1.html#cb1664-1" tabindex="-1"></a>web_pages_txt_corpus_sent_dplot <span class="ot">&lt;-</span> <span class="fu">textplot_dependencyparser</span>(web_pages_txt_corpus_sent, <span class="at">size =</span> <span class="dv">3</span>) </span>
-<span id="cb1664-2"><a href="5.8-multiple-webpages-1.html#cb1664-2" tabindex="-1"></a><span class="do">## show plot</span></span>
-<span id="cb1664-3"><a href="5.8-multiple-webpages-1.html#cb1664-3" tabindex="-1"></a>web_pages_txt_corpus_sent_dplot</span></code></pre></div>
+## 6            29    amod &lt;NA&gt; SpacesAfter=\\n</code></pre>
+<div class="sourceCode" id="cb1658"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1658-1"><a href="5.8-multiple-webpages-1.html#cb1658-1" tabindex="-1"></a>web_pages_txt_corpus_sent_dplot <span class="ot">&lt;-</span> <span class="fu">textplot_dependencyparser</span>(web_pages_txt_corpus_sent, <span class="at">size =</span> <span class="dv">3</span>) </span>
+<span id="cb1658-2"><a href="5.8-multiple-webpages-1.html#cb1658-2" tabindex="-1"></a><span class="do">## show plot</span></span>
+<span id="cb1658-3"><a href="5.8-multiple-webpages-1.html#cb1658-3" tabindex="-1"></a>web_pages_txt_corpus_sent_dplot</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-725-1.png" width="672" /></p>
 </div>
 </div>
@@ -2803,34 +2803,34 @@ As you can see from typing <code>?udpipe_download_model</code>, there are 65 lan
 <p>Feature co-occurrence matrix (FCM) records the number of co-occurrences of tokens</p>
 <div id="computing-number-of-co-occurrences-6" class="section level5 hasAnchor" number="5.8.6.6.1">
 <h5><span class="header-section-number">5.8.6.6.1</span> Computing number of co-occurrences<a href="5.8-multiple-webpages-1.html#computing-number-of-co-occurrences-6" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1665-1"><a href="5.8-multiple-webpages-1.html#cb1665-1" tabindex="-1"></a>web_pages_txt_corpus_dfmat <span class="ot">&lt;-</span> <span class="fu">dfm</span>(web_pages_txt_corpus_tok_no_punct)</span>
-<span id="cb1665-2"><a href="5.8-multiple-webpages-1.html#cb1665-2" tabindex="-1"></a>web_pages_txt_corpus_dfmat_trim <span class="ot">&lt;-</span> <span class="fu">dfm_trim</span>(web_pages_txt_corpus_dfmat, <span class="at">min_termfreq =</span> <span class="dv">5</span>)</span>
-<span id="cb1665-3"><a href="5.8-multiple-webpages-1.html#cb1665-3" tabindex="-1"></a></span>
-<span id="cb1665-4"><a href="5.8-multiple-webpages-1.html#cb1665-4" tabindex="-1"></a>topfeatures_web_pages_txt_corpus <span class="ot">&lt;-</span> <span class="fu">topfeatures</span>(web_pages_txt_corpus_dfmat_trim)</span>
-<span id="cb1665-5"><a href="5.8-multiple-webpages-1.html#cb1665-5" tabindex="-1"></a>topfeatures_web_pages_txt_corpus</span></code></pre></div>
-<pre><code>##       &gt;     the      to       a       ─      of       &lt;     and       1 version 
-##     271     187     147     138     132      91      91      79      72      67</code></pre>
-<div class="sourceCode" id="cb1667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1667-1"><a href="5.8-multiple-webpages-1.html#cb1667-1" tabindex="-1"></a><span class="fu">nfeat</span>(web_pages_txt_corpus_dfmat_trim)</span></code></pre></div>
-<pre><code>## [1] 259</code></pre>
+<div class="sourceCode" id="cb1659"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1659-1"><a href="5.8-multiple-webpages-1.html#cb1659-1" tabindex="-1"></a>web_pages_txt_corpus_dfmat <span class="ot">&lt;-</span> <span class="fu">dfm</span>(web_pages_txt_corpus_tok_no_punct)</span>
+<span id="cb1659-2"><a href="5.8-multiple-webpages-1.html#cb1659-2" tabindex="-1"></a>web_pages_txt_corpus_dfmat_trim <span class="ot">&lt;-</span> <span class="fu">dfm_trim</span>(web_pages_txt_corpus_dfmat, <span class="at">min_termfreq =</span> <span class="dv">5</span>)</span>
+<span id="cb1659-3"><a href="5.8-multiple-webpages-1.html#cb1659-3" tabindex="-1"></a></span>
+<span id="cb1659-4"><a href="5.8-multiple-webpages-1.html#cb1659-4" tabindex="-1"></a>topfeatures_web_pages_txt_corpus <span class="ot">&lt;-</span> <span class="fu">topfeatures</span>(web_pages_txt_corpus_dfmat_trim)</span>
+<span id="cb1659-5"><a href="5.8-multiple-webpages-1.html#cb1659-5" tabindex="-1"></a>topfeatures_web_pages_txt_corpus</span></code></pre></div>
+<pre><code>##       &gt;     the      to       a       ─      of       &lt;     and version       1 
+##     271     187     147     138     132      91      91      79      74      72</code></pre>
+<div class="sourceCode" id="cb1661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1661-1"><a href="5.8-multiple-webpages-1.html#cb1661-1" tabindex="-1"></a><span class="fu">nfeat</span>(web_pages_txt_corpus_dfmat_trim)</span></code></pre></div>
+<pre><code>## [1] 260</code></pre>
 </div>
 <div id="features-co-occurrences-6" class="section level5 hasAnchor" number="5.8.6.6.2">
 <h5><span class="header-section-number">5.8.6.6.2</span> Features co-occurrences<a href="5.8-multiple-webpages-1.html#features-co-occurrences-6" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1669"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1669-1"><a href="5.8-multiple-webpages-1.html#cb1669-1" tabindex="-1"></a>web_pages_txt_corpus_fcmat <span class="ot">&lt;-</span> <span class="fu">fcm</span>(web_pages_txt_corpus_dfmat_trim)</span>
-<span id="cb1669-2"><a href="5.8-multiple-webpages-1.html#cb1669-2" tabindex="-1"></a>web_pages_txt_corpus_fcmat</span></code></pre></div>
-<pre><code>## Feature co-occurrence matrix of: 259 by 259 features.
+<div class="sourceCode" id="cb1663"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1663-1"><a href="5.8-multiple-webpages-1.html#cb1663-1" tabindex="-1"></a>web_pages_txt_corpus_fcmat <span class="ot">&lt;-</span> <span class="fu">fcm</span>(web_pages_txt_corpus_dfmat_trim)</span>
+<span id="cb1663-2"><a href="5.8-multiple-webpages-1.html#cb1663-2" tabindex="-1"></a>web_pages_txt_corpus_fcmat</span></code></pre></div>
+<pre><code>## Feature co-occurrence matrix of: 260 by 260 features.
 ##            features
 ## features    skip   to content get started reference news releases version 2.0.0
-##   skip         0  147       9  23      10         9    9       10      67     7
-##   to           0 1459     147 427     157       147  147      183    1020   216
-##   content      0    0       0  23      10         9    9       10      67     7
-##   get          0    0       0  23      25        23   23       26     170    22
-##   started      0    0       0   0       1        10   10       11      74     7
-##   reference    0    0       0   0       0         0    9       10      67     7
-##   news         0    0       0   0       0         0    0       10      67     7
-##   releases     0    0       0   0       0         0    0        1      69    12
-##   version      0    0       0   0       0         0    0        0     263    28
-##   2.0.0        0    0       0   0       0         0    0        0       0    10
-## [ reached max_nfeat ... 249 more features, reached max_nfeat ... 249 more features ]</code></pre>
+##   skip         0  147       9  23      10         9    9       10      74     8
+##   to           0 1459     147 427     157       147  147      183    1263   252
+##   content      0    0       0  23      10         9    9       10      74     8
+##   get          0    0       0  23      25        23   23       26     193    25
+##   started      0    0       0   0       1        10   10       11      81     8
+##   reference    0    0       0   0       0         0    9       10      74     8
+##   news         0    0       0   0       0         0    0       10      74     8
+##   releases     0    0       0   0       0         0    0        1      82    14
+##   version      0    0       0   0       0         0    0        0     301    67
+##   2.0.0        0    0       0   0       0         0    0        0       0    15
+## [ reached max_nfeat ... 250 more features, reached max_nfeat ... 250 more features ]</code></pre>
 </div>
 </div>
 </div>

@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-11-09" />
+<meta name="date" content="2025-12-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -531,7 +531,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2.6.4.4" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-and-d-prime"><i class="fa fa-check"></i><b>2.6.4.4</b> GLM and d prime</a></li>
-<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-as-a-classification-tool"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
+<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#GLM-Classification"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
 <li class="chapter" data-level="2.6.4.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-other-distributions"><i class="fa fa-check"></i><b>2.6.4.6</b> GLM: Other distributions</a></li>
 </ul></li>
 </ul></li>
@@ -2091,11 +2091,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1" data-path="8.1-what-is-predictive-modelling.html"><a href="8.1-what-is-predictive-modelling.html"><i class="fa fa-check"></i><b>8.1</b> What is predictive modelling</a></li>
 <li class="chapter" data-level="8.2" data-path="8.2-loading-packages-7.html"><a href="8.2-loading-packages-7.html"><i class="fa fa-check"></i><b>8.2</b> Loading packages</a></li>
 <li class="chapter" data-level="8.3" data-path="8.3-read-dataset-1.html"><a href="8.3-read-dataset-1.html"><i class="fa fa-check"></i><b>8.3</b> Read dataset</a></li>
-<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
+<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
-<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
-<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
+<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
+<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
+<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="8.5-issues-with-glm-and-regression-analyses-in-general.html"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html"><i class="fa fa-check"></i><b>8.5</b> Issues with GLM (and regression analyses in general)</a>
 <ul>
@@ -2229,23 +2229,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s run a first GLMM (Generalised Linear Model).</p>
 <div id="simulating-a-new-dataset" class="section level4 hasAnchor" number="3.4.1.1">
 <h4><span class="header-section-number">3.4.1.1</span> Simulating a new dataset<a href="3.4-GLMM.html#simulating-a-new-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb682-1"><a href="3.4-GLMM.html#cb682-1" tabindex="-1"></a>grammatical2 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(</span>
-<span id="cb682-2"><a href="3.4-GLMM.html#cb682-2" tabindex="-1"></a>  <span class="fu">cbind</span>(<span class="st">&quot;participant&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;participant&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;p1&quot;</span>, <span class="dv">165</span>), <span class="fu">rep</span>(<span class="st">&quot;p2&quot;</span>, <span class="dv">165</span>)),</span>
-<span id="cb682-3"><a href="3.4-GLMM.html#cb682-3" tabindex="-1"></a>    <span class="st">&quot;grammaticality&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;grammatical&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;grammatical&quot;</span>, <span class="dv">105</span>), </span>
-<span id="cb682-4"><a href="3.4-GLMM.html#cb682-4" tabindex="-1"></a> <span class="st">&quot;ungrammatical&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;ungrammatical&quot;</span>, <span class="dv">60</span>),</span>
-<span id="cb682-5"><a href="3.4-GLMM.html#cb682-5" tabindex="-1"></a> <span class="st">&quot;grammatical&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;grammatical&quot;</span>, <span class="dv">105</span>), </span>
-<span id="cb682-6"><a href="3.4-GLMM.html#cb682-6" tabindex="-1"></a> <span class="st">&quot;ungrammatical&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;ungrammatical&quot;</span>, <span class="dv">60</span>)),</span>
-<span id="cb682-7"><a href="3.4-GLMM.html#cb682-7" tabindex="-1"></a>        <span class="st">&quot;response&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;yes&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;yes&quot;</span>, <span class="dv">100</span>), </span>
-<span id="cb682-8"><a href="3.4-GLMM.html#cb682-8" tabindex="-1"></a>                       <span class="st">&quot;no&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;no&quot;</span>, <span class="dv">5</span>),</span>
-<span id="cb682-9"><a href="3.4-GLMM.html#cb682-9" tabindex="-1"></a>                       <span class="st">&quot;yes&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;yes&quot;</span>, <span class="dv">10</span>),</span>
-<span id="cb682-10"><a href="3.4-GLMM.html#cb682-10" tabindex="-1"></a>                       <span class="st">&quot;no&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;no&quot;</span>, <span class="dv">50</span>),</span>
-<span id="cb682-11"><a href="3.4-GLMM.html#cb682-11" tabindex="-1"></a>    <span class="st">&quot;yes&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;yes&quot;</span>, <span class="dv">90</span>), </span>
-<span id="cb682-12"><a href="3.4-GLMM.html#cb682-12" tabindex="-1"></a>                       <span class="st">&quot;no&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;no&quot;</span>, <span class="dv">15</span>),</span>
-<span id="cb682-13"><a href="3.4-GLMM.html#cb682-13" tabindex="-1"></a>                       <span class="st">&quot;yes&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;yes&quot;</span>, <span class="dv">30</span>),</span>
-<span id="cb682-14"><a href="3.4-GLMM.html#cb682-14" tabindex="-1"></a>                       <span class="st">&quot;no&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;no&quot;</span>, <span class="dv">30</span>))),</span>
-<span id="cb682-15"><a href="3.4-GLMM.html#cb682-15" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb682-16"><a href="3.4-GLMM.html#cb682-16" tabindex="-1"></a>grammatical2 <span class="sc">%&gt;%</span> </span>
-<span id="cb682-17"><a href="3.4-GLMM.html#cb682-17" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb676-1"><a href="3.4-GLMM.html#cb676-1" tabindex="-1"></a>grammatical2 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(</span>
+<span id="cb676-2"><a href="3.4-GLMM.html#cb676-2" tabindex="-1"></a>  <span class="fu">cbind</span>(<span class="st">&quot;participant&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;participant&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;p1&quot;</span>, <span class="dv">165</span>), <span class="fu">rep</span>(<span class="st">&quot;p2&quot;</span>, <span class="dv">165</span>)),</span>
+<span id="cb676-3"><a href="3.4-GLMM.html#cb676-3" tabindex="-1"></a>    <span class="st">&quot;grammaticality&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;grammatical&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;grammatical&quot;</span>, <span class="dv">105</span>), </span>
+<span id="cb676-4"><a href="3.4-GLMM.html#cb676-4" tabindex="-1"></a> <span class="st">&quot;ungrammatical&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;ungrammatical&quot;</span>, <span class="dv">60</span>),</span>
+<span id="cb676-5"><a href="3.4-GLMM.html#cb676-5" tabindex="-1"></a> <span class="st">&quot;grammatical&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;grammatical&quot;</span>, <span class="dv">105</span>), </span>
+<span id="cb676-6"><a href="3.4-GLMM.html#cb676-6" tabindex="-1"></a> <span class="st">&quot;ungrammatical&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;ungrammatical&quot;</span>, <span class="dv">60</span>)),</span>
+<span id="cb676-7"><a href="3.4-GLMM.html#cb676-7" tabindex="-1"></a>        <span class="st">&quot;response&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;yes&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;yes&quot;</span>, <span class="dv">100</span>), </span>
+<span id="cb676-8"><a href="3.4-GLMM.html#cb676-8" tabindex="-1"></a>                       <span class="st">&quot;no&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;no&quot;</span>, <span class="dv">5</span>),</span>
+<span id="cb676-9"><a href="3.4-GLMM.html#cb676-9" tabindex="-1"></a>                       <span class="st">&quot;yes&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;yes&quot;</span>, <span class="dv">10</span>),</span>
+<span id="cb676-10"><a href="3.4-GLMM.html#cb676-10" tabindex="-1"></a>                       <span class="st">&quot;no&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;no&quot;</span>, <span class="dv">50</span>),</span>
+<span id="cb676-11"><a href="3.4-GLMM.html#cb676-11" tabindex="-1"></a>    <span class="st">&quot;yes&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;yes&quot;</span>, <span class="dv">90</span>), </span>
+<span id="cb676-12"><a href="3.4-GLMM.html#cb676-12" tabindex="-1"></a>                       <span class="st">&quot;no&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;no&quot;</span>, <span class="dv">15</span>),</span>
+<span id="cb676-13"><a href="3.4-GLMM.html#cb676-13" tabindex="-1"></a>                       <span class="st">&quot;yes&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;yes&quot;</span>, <span class="dv">30</span>),</span>
+<span id="cb676-14"><a href="3.4-GLMM.html#cb676-14" tabindex="-1"></a>                       <span class="st">&quot;no&quot;</span> <span class="ot">=</span> <span class="fu">rep</span>(<span class="st">&quot;no&quot;</span>, <span class="dv">30</span>))),</span>
+<span id="cb676-15"><a href="3.4-GLMM.html#cb676-15" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb676-16"><a href="3.4-GLMM.html#cb676-16" tabindex="-1"></a>grammatical2 <span class="sc">%&gt;%</span> </span>
+<span id="cb676-17"><a href="3.4-GLMM.html#cb676-17" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##    participant grammaticality response
 ## 1           p1    grammatical      yes
 ## 2           p1    grammatical      yes
@@ -2260,14 +2260,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="manipulations-and-a-table" class="section level4 hasAnchor" number="3.4.1.2">
 <h4><span class="header-section-number">3.4.1.2</span> Manipulations and a table<a href="3.4-GLMM.html#manipulations-and-a-table" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb684-1"><a href="3.4-GLMM.html#cb684-1" tabindex="-1"></a>grammatical2 <span class="ot">&lt;-</span> grammatical2 <span class="sc">%&gt;%</span> </span>
-<span id="cb684-2"><a href="3.4-GLMM.html#cb684-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">factor</span>(response, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;no&quot;</span>, <span class="st">&quot;yes&quot;</span>)),</span>
-<span id="cb684-3"><a href="3.4-GLMM.html#cb684-3" tabindex="-1"></a>         <span class="at">grammaticality =</span> <span class="fu">factor</span>(grammaticality, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;ungrammatical&quot;</span>, <span class="st">&quot;grammatical&quot;</span>)))</span>
-<span id="cb684-4"><a href="3.4-GLMM.html#cb684-4" tabindex="-1"></a></span>
-<span id="cb684-5"><a href="3.4-GLMM.html#cb684-5" tabindex="-1"></a>grammatical2 <span class="sc">%&gt;%</span> </span>
-<span id="cb684-6"><a href="3.4-GLMM.html#cb684-6" tabindex="-1"></a>  <span class="fu">select</span>(response, grammaticality) <span class="sc">%&gt;%</span> </span>
-<span id="cb684-7"><a href="3.4-GLMM.html#cb684-7" tabindex="-1"></a>  <span class="fu">group_by</span>(response, grammaticality) <span class="sc">%&gt;%</span> </span>
-<span id="cb684-8"><a href="3.4-GLMM.html#cb684-8" tabindex="-1"></a>  <span class="fu">table</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb678-1"><a href="3.4-GLMM.html#cb678-1" tabindex="-1"></a>grammatical2 <span class="ot">&lt;-</span> grammatical2 <span class="sc">%&gt;%</span> </span>
+<span id="cb678-2"><a href="3.4-GLMM.html#cb678-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">factor</span>(response, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;no&quot;</span>, <span class="st">&quot;yes&quot;</span>)),</span>
+<span id="cb678-3"><a href="3.4-GLMM.html#cb678-3" tabindex="-1"></a>         <span class="at">grammaticality =</span> <span class="fu">factor</span>(grammaticality, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;ungrammatical&quot;</span>, <span class="st">&quot;grammatical&quot;</span>)))</span>
+<span id="cb678-4"><a href="3.4-GLMM.html#cb678-4" tabindex="-1"></a></span>
+<span id="cb678-5"><a href="3.4-GLMM.html#cb678-5" tabindex="-1"></a>grammatical2 <span class="sc">%&gt;%</span> </span>
+<span id="cb678-6"><a href="3.4-GLMM.html#cb678-6" tabindex="-1"></a>  <span class="fu">select</span>(response, grammaticality) <span class="sc">%&gt;%</span> </span>
+<span id="cb678-7"><a href="3.4-GLMM.html#cb678-7" tabindex="-1"></a>  <span class="fu">group_by</span>(response, grammaticality) <span class="sc">%&gt;%</span> </span>
+<span id="cb678-8"><a href="3.4-GLMM.html#cb678-8" tabindex="-1"></a>  <span class="fu">table</span>()</span></code></pre></div>
 <pre><code>##         grammaticality
 ## response ungrammatical grammatical
 ##      no             80          20
@@ -2278,9 +2278,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="random-intercepts-1" class="section level5 hasAnchor" number="3.4.1.3.1">
 <h5><span class="header-section-number">3.4.1.3.1</span> Random Intercepts<a href="3.4-GLMM.html#random-intercepts-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>The results below show the logodds for our model.</p>
-<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb686-1"><a href="3.4-GLMM.html#cb686-1" tabindex="-1"></a>mdl.glmm <span class="ot">&lt;-</span> grammatical2 <span class="sc">%&gt;%</span> </span>
-<span id="cb686-2"><a href="3.4-GLMM.html#cb686-2" tabindex="-1"></a>  <span class="fu">glmer</span>(response <span class="sc">~</span> grammaticality <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>participant), <span class="at">data =</span> ., <span class="at">family =</span> binomial)</span>
-<span id="cb686-3"><a href="3.4-GLMM.html#cb686-3" tabindex="-1"></a><span class="fu">summary</span>(mdl.glmm)</span></code></pre></div>
+<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb680-1"><a href="3.4-GLMM.html#cb680-1" tabindex="-1"></a>mdl.glmm <span class="ot">&lt;-</span> grammatical2 <span class="sc">%&gt;%</span> </span>
+<span id="cb680-2"><a href="3.4-GLMM.html#cb680-2" tabindex="-1"></a>  <span class="fu">glmer</span>(response <span class="sc">~</span> grammaticality <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>participant), <span class="at">data =</span> ., <span class="at">family =</span> binomial)</span>
+<span id="cb680-3"><a href="3.4-GLMM.html#cb680-3" tabindex="-1"></a><span class="fu">summary</span>(mdl.glmm)</span></code></pre></div>
 <pre><code>## Generalized linear mixed model fit by maximum likelihood (Laplace
 ##   Approximation) [glmerMod]
 ##  Family: binomial  ( logit )
@@ -2313,9 +2313,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="random-slopes" class="section level5 hasAnchor" number="3.4.1.3.2">
 <h5><span class="header-section-number">3.4.1.3.2</span> Random Slopes<a href="3.4-GLMM.html#random-slopes" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>The results below show the logodds for our model.</p>
-<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="3.4-GLMM.html#cb688-1" tabindex="-1"></a>mdl.glmmSlope <span class="ot">&lt;-</span> grammatical2 <span class="sc">%&gt;%</span> </span>
-<span id="cb688-2"><a href="3.4-GLMM.html#cb688-2" tabindex="-1"></a>  <span class="fu">glmer</span>(response <span class="sc">~</span> grammaticality <span class="sc">+</span> (grammaticality<span class="sc">|</span>participant), <span class="at">data =</span> ., <span class="at">family =</span> binomial)</span>
-<span id="cb688-3"><a href="3.4-GLMM.html#cb688-3" tabindex="-1"></a><span class="fu">summary</span>(mdl.glmmSlope)</span></code></pre></div>
+<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb682-1"><a href="3.4-GLMM.html#cb682-1" tabindex="-1"></a>mdl.glmmSlope <span class="ot">&lt;-</span> grammatical2 <span class="sc">%&gt;%</span> </span>
+<span id="cb682-2"><a href="3.4-GLMM.html#cb682-2" tabindex="-1"></a>  <span class="fu">glmer</span>(response <span class="sc">~</span> grammaticality <span class="sc">+</span> (grammaticality<span class="sc">|</span>participant), <span class="at">data =</span> ., <span class="at">family =</span> binomial)</span>
+<span id="cb682-3"><a href="3.4-GLMM.html#cb682-3" tabindex="-1"></a><span class="fu">summary</span>(mdl.glmmSlope)</span></code></pre></div>
 <pre><code>## Generalized linear mixed model fit by maximum likelihood (Laplace
 ##   Approximation) [glmerMod]
 ##  Family: binomial  ( logit )
@@ -2351,9 +2351,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="random-slopes-decorrelated" class="section level5 hasAnchor" number="3.4.1.3.3">
 <h5><span class="header-section-number">3.4.1.3.3</span> Random Slopes decorrelated<a href="3.4-GLMM.html#random-slopes-decorrelated" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>The results below show the logodds for our model.</p>
-<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="3.4-GLMM.html#cb690-1" tabindex="-1"></a>mdl.glmmSlopeDec <span class="ot">&lt;-</span> grammatical2 <span class="sc">%&gt;%</span> </span>
-<span id="cb690-2"><a href="3.4-GLMM.html#cb690-2" tabindex="-1"></a>  <span class="fu">glmer</span>(response <span class="sc">~</span> grammaticality <span class="sc">+</span> (grammaticality<span class="sc">||</span>participant), <span class="at">data =</span> ., <span class="at">family =</span> binomial)</span>
-<span id="cb690-3"><a href="3.4-GLMM.html#cb690-3" tabindex="-1"></a><span class="fu">summary</span>(mdl.glmmSlopeDec)</span></code></pre></div>
+<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb684-1"><a href="3.4-GLMM.html#cb684-1" tabindex="-1"></a>mdl.glmmSlopeDec <span class="ot">&lt;-</span> grammatical2 <span class="sc">%&gt;%</span> </span>
+<span id="cb684-2"><a href="3.4-GLMM.html#cb684-2" tabindex="-1"></a>  <span class="fu">glmer</span>(response <span class="sc">~</span> grammaticality <span class="sc">+</span> (grammaticality<span class="sc">||</span>participant), <span class="at">data =</span> ., <span class="at">family =</span> binomial)</span>
+<span id="cb684-3"><a href="3.4-GLMM.html#cb684-3" tabindex="-1"></a><span class="fu">summary</span>(mdl.glmmSlopeDec)</span></code></pre></div>
 <pre><code>## Generalized linear mixed model fit by maximum likelihood (Laplace
 ##   Approximation) [glmerMod]
 ##  Family: binomial  ( logit )
@@ -2390,7 +2390,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="model-comparison-1" class="section level4 hasAnchor" number="3.4.1.4">
 <h4><span class="header-section-number">3.4.1.4</span> Model comparison<a href="3.4-GLMM.html#model-comparison-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="3.4-GLMM.html#cb692-1" tabindex="-1"></a><span class="fu">anova</span>(mdl.glmm, mdl.glmmSlope)</span></code></pre></div>
+<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb686-1"><a href="3.4-GLMM.html#cb686-1" tabindex="-1"></a><span class="fu">anova</span>(mdl.glmm, mdl.glmmSlope)</span></code></pre></div>
 <pre><code>## Data: .
 ## Models:
 ## mdl.glmm: response ~ grammaticality + (1 | participant)
@@ -2400,7 +2400,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## mdl.glmmSlope    5 280.25 299.25 -135.13    270.25 14.584  2  0.0006811 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb694-1"><a href="3.4-GLMM.html#cb694-1" tabindex="-1"></a><span class="fu">anova</span>(mdl.glmmSlope, mdl.glmmSlopeDec)</span></code></pre></div>
+<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="3.4-GLMM.html#cb688-1" tabindex="-1"></a><span class="fu">anova</span>(mdl.glmmSlope, mdl.glmmSlopeDec)</span></code></pre></div>
 <pre><code>## Data: .
 ## Models:
 ## mdl.glmmSlope: response ~ grammaticality + (grammaticality | participant)
@@ -2414,8 +2414,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">3.4.1.5</span> Getting results<a href="3.4-GLMM.html#getting-results" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div id="models-fit-7" class="section level5 hasAnchor" number="3.4.1.5.1">
 <h5><span class="header-section-number">3.4.1.5.1</span> Model’s fit<a href="3.4-GLMM.html#models-fit-7" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb696-1"><a href="3.4-GLMM.html#cb696-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tab_model</span>(mdl.glmmSlope, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.glmmSlope.html&quot;</span>)))</span>
-<span id="cb696-2"><a href="3.4-GLMM.html#cb696-2" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">&quot;outputs/mdl.glmmSlope.html&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="3.4-GLMM.html#cb690-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tab_model</span>(mdl.glmmSlope, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.glmmSlope.html&quot;</span>)))</span>
+<span id="cb690-2"><a href="3.4-GLMM.html#cb690-2" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">&quot;outputs/mdl.glmmSlope.html&quot;</span>)</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">&nbsp;</th>
@@ -2477,23 +2477,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="fixed-effects-2" class="section level5 hasAnchor" number="3.4.1.5.2">
 <h5><span class="header-section-number">3.4.1.5.2</span> Fixed effects<a href="3.4-GLMM.html#fixed-effects-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb697-1"><a href="3.4-GLMM.html#cb697-1" tabindex="-1"></a><span class="fu">fixef</span>(mdl.glmmSlope)</span></code></pre></div>
+<div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb691-1"><a href="3.4-GLMM.html#cb691-1" tabindex="-1"></a><span class="fu">fixef</span>(mdl.glmmSlope)</span></code></pre></div>
 <pre><code>##               (Intercept) grammaticalitygrammatical 
 ##                -0.7950773                 3.1738527</code></pre>
-<div class="sourceCode" id="cb699"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb699-1"><a href="3.4-GLMM.html#cb699-1" tabindex="-1"></a><span class="fu">fixef</span>(mdl.glmmSlope)[<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb693-1"><a href="3.4-GLMM.html#cb693-1" tabindex="-1"></a><span class="fu">fixef</span>(mdl.glmmSlope)[<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## (Intercept) 
 ##  -0.7950773</code></pre>
-<div class="sourceCode" id="cb701"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb701-1"><a href="3.4-GLMM.html#cb701-1" tabindex="-1"></a><span class="fu">fixef</span>(mdl.glmmSlope)[<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb695-1"><a href="3.4-GLMM.html#cb695-1" tabindex="-1"></a><span class="fu">fixef</span>(mdl.glmmSlope)[<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## grammaticalitygrammatical 
 ##                  3.173853</code></pre>
 </div>
 <div id="random-effects-3" class="section level5 hasAnchor" number="3.4.1.5.3">
 <h5><span class="header-section-number">3.4.1.5.3</span> Random effects<a href="3.4-GLMM.html#random-effects-3" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="3.4-GLMM.html#cb703-1" tabindex="-1"></a><span class="fu">coef</span>(mdl.glmmSlope)<span class="sc">$</span><span class="st">`</span><span class="at">participant</span><span class="st">`</span>[<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb697-1"><a href="3.4-GLMM.html#cb697-1" tabindex="-1"></a><span class="fu">coef</span>(mdl.glmmSlope)<span class="sc">$</span><span class="st">`</span><span class="at">participant</span><span class="st">`</span>[<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>##    (Intercept)
 ## p1 -1.50933642
 ## p2 -0.05609396</code></pre>
-<div class="sourceCode" id="cb705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb705-1"><a href="3.4-GLMM.html#cb705-1" tabindex="-1"></a><span class="fu">coef</span>(mdl.glmmSlope)<span class="sc">$</span><span class="st">`</span><span class="at">participant</span><span class="st">`</span>[<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb699"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb699-1"><a href="3.4-GLMM.html#cb699-1" tabindex="-1"></a><span class="fu">coef</span>(mdl.glmmSlope)<span class="sc">$</span><span class="st">`</span><span class="at">participant</span><span class="st">`</span>[<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>##    grammaticalitygrammatical
 ## p1                  4.414908
 ## p2                  1.889839</code></pre>
@@ -2501,37 +2501,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="logodds-to-odd-ratios-1" class="section level5 hasAnchor" number="3.4.1.5.4">
 <h5><span class="header-section-number">3.4.1.5.4</span> Logodds to Odd ratios<a href="3.4-GLMM.html#logodds-to-odd-ratios-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Logodds can be modified to talk about the odds of an event.</p>
-<div class="sourceCode" id="cb707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb707-1"><a href="3.4-GLMM.html#cb707-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">fixef</span>(mdl.glmmSlope)[<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb701"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb701-1"><a href="3.4-GLMM.html#cb701-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">fixef</span>(mdl.glmmSlope)[<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## (Intercept) 
 ##   0.4515463</code></pre>
-<div class="sourceCode" id="cb709"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb709-1"><a href="3.4-GLMM.html#cb709-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">fixef</span>(mdl.glmmSlope)[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">fixef</span>(mdl.glmmSlope)[<span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="3.4-GLMM.html#cb703-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">fixef</span>(mdl.glmmSlope)[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">fixef</span>(mdl.glmmSlope)[<span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## (Intercept) 
 ##    10.79168</code></pre>
 </div>
 <div id="logodds-to-proportions-3" class="section level5 hasAnchor" number="3.4.1.5.5">
 <h5><span class="header-section-number">3.4.1.5.5</span> LogOdds to proportions<a href="3.4-GLMM.html#logodds-to-proportions-3" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>If you want to talk about the percentage “accuracy” of our model, then we can transform our loggodds into proportions. This shows that the proportion of “grammatical” receiving a “yes” response increases by 99% (or 95% based on our “true” coefficients).</p>
-<div class="sourceCode" id="cb711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb711-1"><a href="3.4-GLMM.html#cb711-1" tabindex="-1"></a><span class="fu">plogis</span>(<span class="fu">fixef</span>(mdl.glmmSlope)[<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb705-1"><a href="3.4-GLMM.html#cb705-1" tabindex="-1"></a><span class="fu">plogis</span>(<span class="fu">fixef</span>(mdl.glmmSlope)[<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## (Intercept) 
 ##   0.3110795</code></pre>
-<div class="sourceCode" id="cb713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb713-1"><a href="3.4-GLMM.html#cb713-1" tabindex="-1"></a><span class="fu">plogis</span>(<span class="fu">fixef</span>(mdl.glmmSlope)[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">fixef</span>(mdl.glmmSlope)[<span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb707-1"><a href="3.4-GLMM.html#cb707-1" tabindex="-1"></a><span class="fu">plogis</span>(<span class="fu">fixef</span>(mdl.glmmSlope)[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">fixef</span>(mdl.glmmSlope)[<span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## (Intercept) 
 ##   0.9151944</code></pre>
 </div>
 <div id="plotting-5" class="section level5 hasAnchor" number="3.4.1.5.6">
 <h5><span class="header-section-number">3.4.1.5.6</span> Plotting<a href="3.4-GLMM.html#plotting-5" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb715"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb715-1"><a href="3.4-GLMM.html#cb715-1" tabindex="-1"></a>grammatical2 <span class="ot">&lt;-</span> grammatical2 <span class="sc">%&gt;%</span> </span>
-<span id="cb715-2"><a href="3.4-GLMM.html#cb715-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> <span class="fu">predict</span>(mdl.glmmSlope, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>))</span>
-<span id="cb715-3"><a href="3.4-GLMM.html#cb715-3" tabindex="-1"></a>grammatical2 <span class="sc">%&gt;%</span> </span>
-<span id="cb715-4"><a href="3.4-GLMM.html#cb715-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(grammaticality), <span class="at">y =</span> prob)) <span class="sc">+</span></span>
-<span id="cb715-5"><a href="3.4-GLMM.html#cb715-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb715-6"><a href="3.4-GLMM.html#cb715-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;glm&quot;</span>, </span>
-<span id="cb715-7"><a href="3.4-GLMM.html#cb715-7" tabindex="-1"></a>    <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>), </span>
-<span id="cb715-8"><a href="3.4-GLMM.html#cb715-8" tabindex="-1"></a>    <span class="at">se =</span> T) <span class="sc">+</span> <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>)<span class="sc">+</span></span>
-<span id="cb715-9"><a href="3.4-GLMM.html#cb715-9" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>)<span class="sc">+</span></span>
-<span id="cb715-10"><a href="3.4-GLMM.html#cb715-10" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
-<span id="cb715-11"><a href="3.4-GLMM.html#cb715-11" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">&quot;Ungrammatical&quot;</span>, <span class="st">&quot;Grammatical&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb715-12"><a href="3.4-GLMM.html#cb715-12" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="sc">~</span> participant, <span class="at">margins =</span> <span class="cn">TRUE</span>, <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb709"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb709-1"><a href="3.4-GLMM.html#cb709-1" tabindex="-1"></a>grammatical2 <span class="ot">&lt;-</span> grammatical2 <span class="sc">%&gt;%</span> </span>
+<span id="cb709-2"><a href="3.4-GLMM.html#cb709-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> <span class="fu">predict</span>(mdl.glmmSlope, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>))</span>
+<span id="cb709-3"><a href="3.4-GLMM.html#cb709-3" tabindex="-1"></a>grammatical2 <span class="sc">%&gt;%</span> </span>
+<span id="cb709-4"><a href="3.4-GLMM.html#cb709-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(grammaticality), <span class="at">y =</span> prob)) <span class="sc">+</span></span>
+<span id="cb709-5"><a href="3.4-GLMM.html#cb709-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb709-6"><a href="3.4-GLMM.html#cb709-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;glm&quot;</span>, </span>
+<span id="cb709-7"><a href="3.4-GLMM.html#cb709-7" tabindex="-1"></a>    <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>), </span>
+<span id="cb709-8"><a href="3.4-GLMM.html#cb709-8" tabindex="-1"></a>    <span class="at">se =</span> T) <span class="sc">+</span> <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>)<span class="sc">+</span></span>
+<span id="cb709-9"><a href="3.4-GLMM.html#cb709-9" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>)<span class="sc">+</span></span>
+<span id="cb709-10"><a href="3.4-GLMM.html#cb709-10" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb709-11"><a href="3.4-GLMM.html#cb709-11" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">&quot;Ungrammatical&quot;</span>, <span class="st">&quot;Grammatical&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb709-12"><a href="3.4-GLMM.html#cb709-12" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="sc">~</span> participant, <span class="at">margins =</span> <span class="cn">TRUE</span>, <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-297-1.png" width="672" /></p>
 </div>
 </div>
@@ -2548,12 +2548,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In the <code>english</code> dataset, we have a random factor: “Word”. We include it here.</p>
 <div id="random-intercepts-2" class="section level6 hasAnchor" number="3.4.2.1.1.1">
 <h6><span class="header-section-number">3.4.2.1.1.1</span> Random Intercepts<a href="3.4-GLMM.html#random-intercepts-2" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb716-1"><a href="3.4-GLMM.html#cb716-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english <span class="sc">%&gt;%</span> </span>
-<span id="cb716-2"><a href="3.4-GLMM.html#cb716-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">AgeSubject =</span> <span class="fu">factor</span>(AgeSubject, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;young&quot;</span>, <span class="st">&quot;old&quot;</span>)))</span>
-<span id="cb716-3"><a href="3.4-GLMM.html#cb716-3" tabindex="-1"></a></span>
-<span id="cb716-4"><a href="3.4-GLMM.html#cb716-4" tabindex="-1"></a>mdl.glmm2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb716-5"><a href="3.4-GLMM.html#cb716-5" tabindex="-1"></a>  <span class="fu">glmer</span>(AgeSubject <span class="sc">~</span> RTlexdec <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Word), <span class="at">data =</span> ., <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
-<span id="cb716-6"><a href="3.4-GLMM.html#cb716-6" tabindex="-1"></a><span class="fu">summary</span>(mdl.glmm2)</span></code></pre></div>
+<div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb710-1"><a href="3.4-GLMM.html#cb710-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english <span class="sc">%&gt;%</span> </span>
+<span id="cb710-2"><a href="3.4-GLMM.html#cb710-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">AgeSubject =</span> <span class="fu">factor</span>(AgeSubject, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;young&quot;</span>, <span class="st">&quot;old&quot;</span>)))</span>
+<span id="cb710-3"><a href="3.4-GLMM.html#cb710-3" tabindex="-1"></a></span>
+<span id="cb710-4"><a href="3.4-GLMM.html#cb710-4" tabindex="-1"></a>mdl.glmm2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb710-5"><a href="3.4-GLMM.html#cb710-5" tabindex="-1"></a>  <span class="fu">glmer</span>(AgeSubject <span class="sc">~</span> RTlexdec <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Word), <span class="at">data =</span> ., <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb710-6"><a href="3.4-GLMM.html#cb710-6" tabindex="-1"></a><span class="fu">summary</span>(mdl.glmm2)</span></code></pre></div>
 <pre><code>## Generalized linear mixed model fit by maximum likelihood (Laplace
 ##   Approximation) [glmerMod]
 ##  Family: binomial  ( logit )
@@ -2587,9 +2587,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="random-slopes-1" class="section level6 hasAnchor" number="3.4.2.1.1.2">
 <h6><span class="header-section-number">3.4.2.1.1.2</span> Random Slopes<a href="3.4-GLMM.html#random-slopes-1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb718-1"><a href="3.4-GLMM.html#cb718-1" tabindex="-1"></a>mdl.glmmSlope2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb718-2"><a href="3.4-GLMM.html#cb718-2" tabindex="-1"></a>  <span class="fu">glmer</span>(AgeSubject <span class="sc">~</span> RTlexdec <span class="sc">+</span> (RTlexdec<span class="sc">|</span>Word), <span class="at">data =</span> ., <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
-<span id="cb718-3"><a href="3.4-GLMM.html#cb718-3" tabindex="-1"></a><span class="fu">summary</span>(mdl.glmmSlope2)</span></code></pre></div>
+<div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb712-1"><a href="3.4-GLMM.html#cb712-1" tabindex="-1"></a>mdl.glmmSlope2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb712-2"><a href="3.4-GLMM.html#cb712-2" tabindex="-1"></a>  <span class="fu">glmer</span>(AgeSubject <span class="sc">~</span> RTlexdec <span class="sc">+</span> (RTlexdec<span class="sc">|</span>Word), <span class="at">data =</span> ., <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb712-3"><a href="3.4-GLMM.html#cb712-3" tabindex="-1"></a><span class="fu">summary</span>(mdl.glmmSlope2)</span></code></pre></div>
 <pre><code>## Generalized linear mixed model fit by maximum likelihood (Laplace
 ##   Approximation) [glmerMod]
 ##  Family: binomial  ( logit )
@@ -2626,7 +2626,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="model-comparison-2" class="section level4 hasAnchor" number="3.4.2.2">
 <h4><span class="header-section-number">3.4.2.2</span> Model comparison<a href="3.4-GLMM.html#model-comparison-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb720-1"><a href="3.4-GLMM.html#cb720-1" tabindex="-1"></a><span class="fu">anova</span>(mdl.glmm2, mdl.glmmSlope2)</span></code></pre></div>
+<div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb714-1"><a href="3.4-GLMM.html#cb714-1" tabindex="-1"></a><span class="fu">anova</span>(mdl.glmm2, mdl.glmmSlope2)</span></code></pre></div>
 <pre><code>## Data: .
 ## Models:
 ## mdl.glmm2: AgeSubject ~ RTlexdec + (1 | Word)
@@ -2642,8 +2642,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">3.4.2.3</span> Gettings results<a href="3.4-GLMM.html#gettings-results" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div id="models-fit-8" class="section level5 hasAnchor" number="3.4.2.3.1">
 <h5><span class="header-section-number">3.4.2.3.1</span> Model’s fit<a href="3.4-GLMM.html#models-fit-8" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb722-1"><a href="3.4-GLMM.html#cb722-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tab_model</span>(mdl.glmmSlope2, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.glmmSlope2.html&quot;</span>)))</span>
-<span id="cb722-2"><a href="3.4-GLMM.html#cb722-2" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">&quot;outputs/mdl.glmmSlope2.html&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb716-1"><a href="3.4-GLMM.html#cb716-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tab_model</span>(mdl.glmmSlope2, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.glmmSlope2.html&quot;</span>)))</span>
+<span id="cb716-2"><a href="3.4-GLMM.html#cb716-2" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">&quot;outputs/mdl.glmmSlope2.html&quot;</span>)</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">&nbsp;</th>
@@ -2705,19 +2705,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="fixed-effects-3" class="section level5 hasAnchor" number="3.4.2.3.2">
 <h5><span class="header-section-number">3.4.2.3.2</span> Fixed effects<a href="3.4-GLMM.html#fixed-effects-3" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb723-1"><a href="3.4-GLMM.html#cb723-1" tabindex="-1"></a><span class="fu">fixef</span>(mdl.glmmSlope2)</span></code></pre></div>
+<div class="sourceCode" id="cb717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb717-1"><a href="3.4-GLMM.html#cb717-1" tabindex="-1"></a><span class="fu">fixef</span>(mdl.glmmSlope2)</span></code></pre></div>
 <pre><code>## (Intercept)    RTlexdec 
 ##  -179.97997    27.53549</code></pre>
-<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="3.4-GLMM.html#cb725-1" tabindex="-1"></a><span class="fu">fixef</span>(mdl.glmmSlope2)[<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb719"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb719-1"><a href="3.4-GLMM.html#cb719-1" tabindex="-1"></a><span class="fu">fixef</span>(mdl.glmmSlope2)[<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## (Intercept) 
 ##     -179.98</code></pre>
-<div class="sourceCode" id="cb727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb727-1"><a href="3.4-GLMM.html#cb727-1" tabindex="-1"></a><span class="fu">fixef</span>(mdl.glmmSlope2)[<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb721-1"><a href="3.4-GLMM.html#cb721-1" tabindex="-1"></a><span class="fu">fixef</span>(mdl.glmmSlope2)[<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## RTlexdec 
 ## 27.53549</code></pre>
 </div>
 <div id="random-effects-4" class="section level5 hasAnchor" number="3.4.2.3.3">
 <h5><span class="header-section-number">3.4.2.3.3</span> Random effects<a href="3.4-GLMM.html#random-effects-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb729"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb729-1"><a href="3.4-GLMM.html#cb729-1" tabindex="-1"></a><span class="fu">coef</span>(mdl.glmmSlope2)<span class="sc">$</span><span class="st">`</span><span class="at">Word</span><span class="st">`</span>[<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb723-1"><a href="3.4-GLMM.html#cb723-1" tabindex="-1"></a><span class="fu">coef</span>(mdl.glmmSlope2)<span class="sc">$</span><span class="st">`</span><span class="at">Word</span><span class="st">`</span>[<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>##         (Intercept)
 ## ace      -183.90593
 ## act      -194.45238
@@ -4916,7 +4916,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## zip      -188.51307
 ## zone     -192.72947
 ## zoo      -180.22778</code></pre>
-<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb731-1"><a href="3.4-GLMM.html#cb731-1" tabindex="-1"></a><span class="fu">coef</span>(mdl.glmmSlope2)<span class="sc">$</span><span class="st">`</span><span class="at">Word</span><span class="st">`</span>[<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="3.4-GLMM.html#cb725-1" tabindex="-1"></a><span class="fu">coef</span>(mdl.glmmSlope2)<span class="sc">$</span><span class="st">`</span><span class="at">Word</span><span class="st">`</span>[<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>##          RTlexdec
 ## ace     28.144457
 ## act     29.780336
@@ -7119,36 +7119,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="logodds-to-odd-ratios-2" class="section level5 hasAnchor" number="3.4.2.3.4">
 <h5><span class="header-section-number">3.4.2.3.4</span> Logodds to Odd ratios<a href="3.4-GLMM.html#logodds-to-odd-ratios-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Logodds can be modified to talk about the odds of an event.</p>
-<div class="sourceCode" id="cb733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb733-1"><a href="3.4-GLMM.html#cb733-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">fixef</span>(mdl.glmmSlope2)[<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb727-1"><a href="3.4-GLMM.html#cb727-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">fixef</span>(mdl.glmmSlope2)[<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>##  (Intercept) 
 ## 6.850044e-79</code></pre>
-<div class="sourceCode" id="cb735"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb735-1"><a href="3.4-GLMM.html#cb735-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">fixef</span>(mdl.glmmSlope2)[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">fixef</span>(mdl.glmmSlope2)[<span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb729"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb729-1"><a href="3.4-GLMM.html#cb729-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">fixef</span>(mdl.glmmSlope2)[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">fixef</span>(mdl.glmmSlope2)[<span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## (Intercept) 
 ## 6.22596e-67</code></pre>
 </div>
 <div id="logodds-to-proportions-4" class="section level5 hasAnchor" number="3.4.2.3.5">
 <h5><span class="header-section-number">3.4.2.3.5</span> LogOdds to proportions<a href="3.4-GLMM.html#logodds-to-proportions-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>If you want to talk about the percentage “accuracy” of our model, then we can transform our loggodds into proportions. This shows that the proportion of “grammatical” receiving a “yes” response increases by 99% (or 95% based on our “true” coefficients)</p>
-<div class="sourceCode" id="cb737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb737-1"><a href="3.4-GLMM.html#cb737-1" tabindex="-1"></a><span class="fu">plogis</span>(<span class="fu">fixef</span>(mdl.glmmSlope2)[<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb731-1"><a href="3.4-GLMM.html#cb731-1" tabindex="-1"></a><span class="fu">plogis</span>(<span class="fu">fixef</span>(mdl.glmmSlope2)[<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>##  (Intercept) 
 ## 6.850044e-79</code></pre>
-<div class="sourceCode" id="cb739"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb739-1"><a href="3.4-GLMM.html#cb739-1" tabindex="-1"></a><span class="fu">plogis</span>(<span class="fu">fixef</span>(mdl.glmmSlope2)[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">fixef</span>(mdl.glmmSlope2)[<span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb733-1"><a href="3.4-GLMM.html#cb733-1" tabindex="-1"></a><span class="fu">plogis</span>(<span class="fu">fixef</span>(mdl.glmmSlope2)[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">fixef</span>(mdl.glmmSlope2)[<span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## (Intercept) 
 ## 6.22596e-67</code></pre>
 </div>
 <div id="plotting-6" class="section level5 hasAnchor" number="3.4.2.3.6">
 <h5><span class="header-section-number">3.4.2.3.6</span> Plotting<a href="3.4-GLMM.html#plotting-6" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb741-1"><a href="3.4-GLMM.html#cb741-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb741-2"><a href="3.4-GLMM.html#cb741-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prob2 =</span> <span class="fu">predict</span>(mdl.glmmSlope2, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>))</span>
-<span id="cb741-3"><a href="3.4-GLMM.html#cb741-3" tabindex="-1"></a>english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb741-4"><a href="3.4-GLMM.html#cb741-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(AgeSubject), <span class="at">y =</span> prob2)) <span class="sc">+</span></span>
-<span id="cb741-5"><a href="3.4-GLMM.html#cb741-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb741-6"><a href="3.4-GLMM.html#cb741-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;glm&quot;</span>, </span>
-<span id="cb741-7"><a href="3.4-GLMM.html#cb741-7" tabindex="-1"></a>    <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>), </span>
-<span id="cb741-8"><a href="3.4-GLMM.html#cb741-8" tabindex="-1"></a>    <span class="at">se =</span> T) <span class="sc">+</span> <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>)<span class="sc">+</span></span>
-<span id="cb741-9"><a href="3.4-GLMM.html#cb741-9" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>)<span class="sc">+</span></span>
-<span id="cb741-10"><a href="3.4-GLMM.html#cb741-10" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
-<span id="cb741-11"><a href="3.4-GLMM.html#cb741-11" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">&quot;Young&quot;</span>, <span class="st">&quot;Old&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb735"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb735-1"><a href="3.4-GLMM.html#cb735-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb735-2"><a href="3.4-GLMM.html#cb735-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prob2 =</span> <span class="fu">predict</span>(mdl.glmmSlope2, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>))</span>
+<span id="cb735-3"><a href="3.4-GLMM.html#cb735-3" tabindex="-1"></a>english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb735-4"><a href="3.4-GLMM.html#cb735-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(AgeSubject), <span class="at">y =</span> prob2)) <span class="sc">+</span></span>
+<span id="cb735-5"><a href="3.4-GLMM.html#cb735-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb735-6"><a href="3.4-GLMM.html#cb735-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;glm&quot;</span>, </span>
+<span id="cb735-7"><a href="3.4-GLMM.html#cb735-7" tabindex="-1"></a>    <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>), </span>
+<span id="cb735-8"><a href="3.4-GLMM.html#cb735-8" tabindex="-1"></a>    <span class="at">se =</span> T) <span class="sc">+</span> <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>)<span class="sc">+</span></span>
+<span id="cb735-9"><a href="3.4-GLMM.html#cb735-9" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>)<span class="sc">+</span></span>
+<span id="cb735-10"><a href="3.4-GLMM.html#cb735-10" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb735-11"><a href="3.4-GLMM.html#cb735-11" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">&quot;Young&quot;</span>, <span class="st">&quot;Old&quot;</span>))</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-306-1.png" width="672" /></p>
 <p>The plot above shows how the two groups differ using a glmm. The results point to an overall increase in the proportion of reaction time when moving from the “Young” to the “Old” group.</p>
 <p>Let’s use z-scoring next</p>
@@ -7158,15 +7158,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">3.4.2.4</span> With z-scoring of predictor<a href="3.4-GLMM.html#with-z-scoring-of-predictor-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div id="model-estimation-4" class="section level5 hasAnchor" number="3.4.2.4.1">
 <h5><span class="header-section-number">3.4.2.4.1</span> Model estimation<a href="3.4-GLMM.html#model-estimation-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb742"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb742-1"><a href="3.4-GLMM.html#cb742-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb742-2"><a href="3.4-GLMM.html#cb742-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">RTlexdec_z</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">scale</span>(RTlexdec, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb742-3"><a href="3.4-GLMM.html#cb742-3" tabindex="-1"></a></span>
-<span id="cb742-4"><a href="3.4-GLMM.html#cb742-4" tabindex="-1"></a>english2[<span class="st">&#39;RTlexdec_z&#39;</span>] <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">scale</span>(english2<span class="sc">$</span>RTlexdec))</span></code></pre></div>
+<div class="sourceCode" id="cb736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb736-1"><a href="3.4-GLMM.html#cb736-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb736-2"><a href="3.4-GLMM.html#cb736-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">RTlexdec_z</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">scale</span>(RTlexdec, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb736-3"><a href="3.4-GLMM.html#cb736-3" tabindex="-1"></a></span>
+<span id="cb736-4"><a href="3.4-GLMM.html#cb736-4" tabindex="-1"></a>english2[<span class="st">&#39;RTlexdec_z&#39;</span>] <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">scale</span>(english2<span class="sc">$</span>RTlexdec))</span></code></pre></div>
 <div id="random-intercepts-3" class="section level6 hasAnchor" number="3.4.2.4.1.1">
 <h6><span class="header-section-number">3.4.2.4.1.1</span> Random Intercepts<a href="3.4-GLMM.html#random-intercepts-3" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="3.4-GLMM.html#cb743-1" tabindex="-1"></a>mdl.glmm3 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb743-2"><a href="3.4-GLMM.html#cb743-2" tabindex="-1"></a>  <span class="fu">glmer</span>(AgeSubject <span class="sc">~</span> RTlexdec_z <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Word), <span class="at">data =</span> ., <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
-<span id="cb743-3"><a href="3.4-GLMM.html#cb743-3" tabindex="-1"></a><span class="fu">summary</span>(mdl.glmm3)</span></code></pre></div>
+<div class="sourceCode" id="cb737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb737-1"><a href="3.4-GLMM.html#cb737-1" tabindex="-1"></a>mdl.glmm3 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb737-2"><a href="3.4-GLMM.html#cb737-2" tabindex="-1"></a>  <span class="fu">glmer</span>(AgeSubject <span class="sc">~</span> RTlexdec_z <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Word), <span class="at">data =</span> ., <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb737-3"><a href="3.4-GLMM.html#cb737-3" tabindex="-1"></a><span class="fu">summary</span>(mdl.glmm3)</span></code></pre></div>
 <pre><code>## Generalized linear mixed model fit by maximum likelihood (Laplace
 ##   Approximation) [glmerMod]
 ##  Family: binomial  ( logit )
@@ -7200,9 +7200,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="random-slopes-2" class="section level6 hasAnchor" number="3.4.2.4.1.2">
 <h6><span class="header-section-number">3.4.2.4.1.2</span> Random Slopes<a href="3.4-GLMM.html#random-slopes-2" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb745-1"><a href="3.4-GLMM.html#cb745-1" tabindex="-1"></a>mdl.glmmSlope3 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb745-2"><a href="3.4-GLMM.html#cb745-2" tabindex="-1"></a>  <span class="fu">glmer</span>(AgeSubject <span class="sc">~</span> RTlexdec_z <span class="sc">+</span> (RTlexdec_z<span class="sc">|</span>Word), <span class="at">data =</span> ., <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
-<span id="cb745-3"><a href="3.4-GLMM.html#cb745-3" tabindex="-1"></a><span class="fu">summary</span>(mdl.glmmSlope3)</span></code></pre></div>
+<div class="sourceCode" id="cb739"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb739-1"><a href="3.4-GLMM.html#cb739-1" tabindex="-1"></a>mdl.glmmSlope3 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb739-2"><a href="3.4-GLMM.html#cb739-2" tabindex="-1"></a>  <span class="fu">glmer</span>(AgeSubject <span class="sc">~</span> RTlexdec_z <span class="sc">+</span> (RTlexdec_z<span class="sc">|</span>Word), <span class="at">data =</span> ., <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb739-3"><a href="3.4-GLMM.html#cb739-3" tabindex="-1"></a><span class="fu">summary</span>(mdl.glmmSlope3)</span></code></pre></div>
 <pre><code>## Generalized linear mixed model fit by maximum likelihood (Laplace
 ##   Approximation) [glmerMod]
 ##  Family: binomial  ( logit )
@@ -7238,7 +7238,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="model-comparison-3" class="section level5 hasAnchor" number="3.4.2.4.2">
 <h5><span class="header-section-number">3.4.2.4.2</span> Model comparison<a href="3.4-GLMM.html#model-comparison-3" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb747-1"><a href="3.4-GLMM.html#cb747-1" tabindex="-1"></a><span class="fu">anova</span>(mdl.glmm3, mdl.glmmSlope3)</span></code></pre></div>
+<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb741-1"><a href="3.4-GLMM.html#cb741-1" tabindex="-1"></a><span class="fu">anova</span>(mdl.glmm3, mdl.glmmSlope3)</span></code></pre></div>
 <pre><code>## Data: .
 ## Models:
 ## mdl.glmm3: AgeSubject ~ RTlexdec_z + (1 | Word)
@@ -7254,8 +7254,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h5><span class="header-section-number">3.4.2.4.3</span> Gettings results<a href="3.4-GLMM.html#gettings-results-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div id="models-fit-9" class="section level6 hasAnchor" number="3.4.2.4.3.1">
 <h6><span class="header-section-number">3.4.2.4.3.1</span> Model’s fit<a href="3.4-GLMM.html#models-fit-9" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="3.4-GLMM.html#cb749-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tab_model</span>(mdl.glmmSlope3, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.glmmSlope3.html&quot;</span>)))</span>
-<span id="cb749-2"><a href="3.4-GLMM.html#cb749-2" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">&quot;outputs/mdl.glmmSlope3.html&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="3.4-GLMM.html#cb743-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">tab_model</span>(mdl.glmmSlope3, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;outputs/mdl.glmmSlope3.html&quot;</span>)))</span>
+<span id="cb743-2"><a href="3.4-GLMM.html#cb743-2" tabindex="-1"></a>htmltools<span class="sc">::</span><span class="fu">includeHTML</span>(<span class="st">&quot;outputs/mdl.glmmSlope3.html&quot;</span>)</span></code></pre></div>
 <table style="border-collapse:collapse; border:none;">
 <tr>
 <th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">&nbsp;</th>
@@ -7321,19 +7321,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="fixed-effects-4" class="section level6 hasAnchor" number="3.4.2.4.3.2">
 <h6><span class="header-section-number">3.4.2.4.3.2</span> Fixed effects<a href="3.4-GLMM.html#fixed-effects-4" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="3.4-GLMM.html#cb750-1" tabindex="-1"></a><span class="fu">fixef</span>(mdl.glmmSlope3)</span></code></pre></div>
+<div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb744-1"><a href="3.4-GLMM.html#cb744-1" tabindex="-1"></a><span class="fu">fixef</span>(mdl.glmmSlope3)</span></code></pre></div>
 <pre><code>## (Intercept)  RTlexdec_z 
 ##   0.3801193   4.3205029</code></pre>
-<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="3.4-GLMM.html#cb752-1" tabindex="-1"></a><span class="fu">fixef</span>(mdl.glmmSlope3)[<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb746-1"><a href="3.4-GLMM.html#cb746-1" tabindex="-1"></a><span class="fu">fixef</span>(mdl.glmmSlope3)[<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## (Intercept) 
 ##   0.3801193</code></pre>
-<div class="sourceCode" id="cb754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb754-1"><a href="3.4-GLMM.html#cb754-1" tabindex="-1"></a><span class="fu">fixef</span>(mdl.glmmSlope3)[<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb748-1"><a href="3.4-GLMM.html#cb748-1" tabindex="-1"></a><span class="fu">fixef</span>(mdl.glmmSlope3)[<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## RTlexdec_z 
 ##   4.320503</code></pre>
 </div>
 <div id="random-effects-5" class="section level6 hasAnchor" number="3.4.2.4.3.3">
 <h6><span class="header-section-number">3.4.2.4.3.3</span> Random effects<a href="3.4-GLMM.html#random-effects-5" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb756-1"><a href="3.4-GLMM.html#cb756-1" tabindex="-1"></a><span class="fu">coef</span>(mdl.glmmSlope3)<span class="sc">$</span><span class="st">`</span><span class="at">Word</span><span class="st">`</span>[<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="3.4-GLMM.html#cb750-1" tabindex="-1"></a><span class="fu">coef</span>(mdl.glmmSlope3)<span class="sc">$</span><span class="st">`</span><span class="at">Word</span><span class="st">`</span>[<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>##           (Intercept)
 ## ace      0.4429212637
 ## act      0.6115900993
@@ -9532,7 +9532,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## zip      0.5166070163
 ## zone     0.5840377042
 ## zoo      0.3840845368</code></pre>
-<div class="sourceCode" id="cb758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb758-1"><a href="3.4-GLMM.html#cb758-1" tabindex="-1"></a><span class="fu">coef</span>(mdl.glmmSlope3)<span class="sc">$</span><span class="st">`</span><span class="at">Word</span><span class="st">`</span>[<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="3.4-GLMM.html#cb752-1" tabindex="-1"></a><span class="fu">coef</span>(mdl.glmmSlope3)<span class="sc">$</span><span class="st">`</span><span class="at">Word</span><span class="st">`</span>[<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>##         RTlexdec_z
 ## ace       4.416057
 ## act       4.672691
@@ -11737,38 +11737,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h5><span class="header-section-number">3.4.2.4.4</span> Plotting<a href="3.4-GLMM.html#plotting-7" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div id="normal-1" class="section level6 hasAnchor" number="3.4.2.4.4.1">
 <h6><span class="header-section-number">3.4.2.4.4.1</span> Normal<a href="3.4-GLMM.html#normal-1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb760-1"><a href="3.4-GLMM.html#cb760-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb760-2"><a href="3.4-GLMM.html#cb760-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prob3 =</span> <span class="fu">predict</span>(mdl.glmmSlope3, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>))</span>
-<span id="cb760-3"><a href="3.4-GLMM.html#cb760-3" tabindex="-1"></a>english2 <span class="sc">%&gt;%</span> </span>
-<span id="cb760-4"><a href="3.4-GLMM.html#cb760-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(AgeSubject), <span class="at">y =</span> prob3)) <span class="sc">+</span></span>
-<span id="cb760-5"><a href="3.4-GLMM.html#cb760-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb760-6"><a href="3.4-GLMM.html#cb760-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;glm&quot;</span>, </span>
-<span id="cb760-7"><a href="3.4-GLMM.html#cb760-7" tabindex="-1"></a>    <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>), </span>
-<span id="cb760-8"><a href="3.4-GLMM.html#cb760-8" tabindex="-1"></a>    <span class="at">se =</span> T) <span class="sc">+</span> <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>)<span class="sc">+</span></span>
-<span id="cb760-9"><a href="3.4-GLMM.html#cb760-9" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>)<span class="sc">+</span></span>
-<span id="cb760-10"><a href="3.4-GLMM.html#cb760-10" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
-<span id="cb760-11"><a href="3.4-GLMM.html#cb760-11" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">&quot;Young&quot;</span>, <span class="st">&quot;Old&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb754-1"><a href="3.4-GLMM.html#cb754-1" tabindex="-1"></a>english2 <span class="ot">&lt;-</span> english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb754-2"><a href="3.4-GLMM.html#cb754-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prob3 =</span> <span class="fu">predict</span>(mdl.glmmSlope3, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>))</span>
+<span id="cb754-3"><a href="3.4-GLMM.html#cb754-3" tabindex="-1"></a>english2 <span class="sc">%&gt;%</span> </span>
+<span id="cb754-4"><a href="3.4-GLMM.html#cb754-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(AgeSubject), <span class="at">y =</span> prob3)) <span class="sc">+</span></span>
+<span id="cb754-5"><a href="3.4-GLMM.html#cb754-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb754-6"><a href="3.4-GLMM.html#cb754-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;glm&quot;</span>, </span>
+<span id="cb754-7"><a href="3.4-GLMM.html#cb754-7" tabindex="-1"></a>    <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>), </span>
+<span id="cb754-8"><a href="3.4-GLMM.html#cb754-8" tabindex="-1"></a>    <span class="at">se =</span> T) <span class="sc">+</span> <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>)<span class="sc">+</span></span>
+<span id="cb754-9"><a href="3.4-GLMM.html#cb754-9" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>)<span class="sc">+</span></span>
+<span id="cb754-10"><a href="3.4-GLMM.html#cb754-10" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb754-11"><a href="3.4-GLMM.html#cb754-11" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">&quot;Young&quot;</span>, <span class="st">&quot;Old&quot;</span>))</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-314-1.png" width="672" /></p>
 <p>We obtain the exact same plots, but the model estimations are different. Let’s use another type of predictions</p>
 </div>
 <div id="z-scores-1" class="section level6 hasAnchor" number="3.4.2.4.4.2">
 <h6><span class="header-section-number">3.4.2.4.4.2</span> z-scores<a href="3.4-GLMM.html#z-scores-1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb761"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb761-1"><a href="3.4-GLMM.html#cb761-1" tabindex="-1"></a>z_vals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">0.01</span>)</span>
-<span id="cb761-2"><a href="3.4-GLMM.html#cb761-2" tabindex="-1"></a>n <span class="ot">=</span> <span class="fu">nrow</span>(english2)</span>
-<span id="cb761-3"><a href="3.4-GLMM.html#cb761-3" tabindex="-1"></a></span>
-<span id="cb761-4"><a href="3.4-GLMM.html#cb761-4" tabindex="-1"></a>dfPredNew <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">RTlexdec_z =</span> z_vals)</span>
-<span id="cb761-5"><a href="3.4-GLMM.html#cb761-5" tabindex="-1"></a></span>
-<span id="cb761-6"><a href="3.4-GLMM.html#cb761-6" tabindex="-1"></a><span class="do">### store the predicted probabilities for each value of RTlexdec_z</span></span>
-<span id="cb761-7"><a href="3.4-GLMM.html#cb761-7" tabindex="-1"></a>pp <span class="ot">&lt;-</span> <span class="fu">cbind</span>(dfPredNew, <span class="at">prob =</span> <span class="fu">predict</span>(mdl.glmmSlope3, <span class="at">newdata =</span> dfPredNew, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>, <span class="at">re.form =</span> <span class="cn">NA</span>))<span class="co">#re.form is used to cancel random effects</span></span>
-<span id="cb761-8"><a href="3.4-GLMM.html#cb761-8" tabindex="-1"></a></span>
-<span id="cb761-9"><a href="3.4-GLMM.html#cb761-9" tabindex="-1"></a>pp <span class="sc">%&gt;%</span> </span>
-<span id="cb761-10"><a href="3.4-GLMM.html#cb761-10" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> RTlexdec_z, <span class="at">y =</span> prob)) <span class="sc">+</span></span>
-<span id="cb761-11"><a href="3.4-GLMM.html#cb761-11" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb761-12"><a href="3.4-GLMM.html#cb761-12" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
-<span id="cb761-13"><a href="3.4-GLMM.html#cb761-13" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
-<span id="cb761-14"><a href="3.4-GLMM.html#cb761-14" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.1</span>, <span class="fl">1.1</span>), <span class="at">expand =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb761-15"><a href="3.4-GLMM.html#cb761-15" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Young&quot;</span>,<span class="st">&quot;Old&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb761-16"><a href="3.4-GLMM.html#cb761-16" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)) </span></code></pre></div>
+<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb755-1"><a href="3.4-GLMM.html#cb755-1" tabindex="-1"></a>z_vals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">0.01</span>)</span>
+<span id="cb755-2"><a href="3.4-GLMM.html#cb755-2" tabindex="-1"></a>n <span class="ot">=</span> <span class="fu">nrow</span>(english2)</span>
+<span id="cb755-3"><a href="3.4-GLMM.html#cb755-3" tabindex="-1"></a></span>
+<span id="cb755-4"><a href="3.4-GLMM.html#cb755-4" tabindex="-1"></a>dfPredNew <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">RTlexdec_z =</span> z_vals)</span>
+<span id="cb755-5"><a href="3.4-GLMM.html#cb755-5" tabindex="-1"></a></span>
+<span id="cb755-6"><a href="3.4-GLMM.html#cb755-6" tabindex="-1"></a><span class="do">### store the predicted probabilities for each value of RTlexdec_z</span></span>
+<span id="cb755-7"><a href="3.4-GLMM.html#cb755-7" tabindex="-1"></a>pp <span class="ot">&lt;-</span> <span class="fu">cbind</span>(dfPredNew, <span class="at">prob =</span> <span class="fu">predict</span>(mdl.glmmSlope3, <span class="at">newdata =</span> dfPredNew, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>, <span class="at">re.form =</span> <span class="cn">NA</span>))<span class="co">#re.form is used to cancel random effects</span></span>
+<span id="cb755-8"><a href="3.4-GLMM.html#cb755-8" tabindex="-1"></a></span>
+<span id="cb755-9"><a href="3.4-GLMM.html#cb755-9" tabindex="-1"></a>pp <span class="sc">%&gt;%</span> </span>
+<span id="cb755-10"><a href="3.4-GLMM.html#cb755-10" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> RTlexdec_z, <span class="at">y =</span> prob)) <span class="sc">+</span></span>
+<span id="cb755-11"><a href="3.4-GLMM.html#cb755-11" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb755-12"><a href="3.4-GLMM.html#cb755-12" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb755-13"><a href="3.4-GLMM.html#cb755-13" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Probability&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb755-14"><a href="3.4-GLMM.html#cb755-14" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.1</span>, <span class="fl">1.1</span>), <span class="at">expand =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb755-15"><a href="3.4-GLMM.html#cb755-15" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Young&quot;</span>,<span class="st">&quot;Old&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb755-16"><a href="3.4-GLMM.html#cb755-16" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)) </span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-315-1.png" width="672" /></p>
 <p>We obtain the exact same plots, but the model estimations are different.</p>
 </div>

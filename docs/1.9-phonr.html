@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-11-09" />
+<meta name="date" content="2025-12-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -531,7 +531,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2.6.4.4" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-and-d-prime"><i class="fa fa-check"></i><b>2.6.4.4</b> GLM and d prime</a></li>
-<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-as-a-classification-tool"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
+<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#GLM-Classification"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
 <li class="chapter" data-level="2.6.4.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-other-distributions"><i class="fa fa-check"></i><b>2.6.4.6</b> GLM: Other distributions</a></li>
 </ul></li>
 </ul></li>
@@ -2091,11 +2091,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1" data-path="8.1-what-is-predictive-modelling.html"><a href="8.1-what-is-predictive-modelling.html"><i class="fa fa-check"></i><b>8.1</b> What is predictive modelling</a></li>
 <li class="chapter" data-level="8.2" data-path="8.2-loading-packages-7.html"><a href="8.2-loading-packages-7.html"><i class="fa fa-check"></i><b>8.2</b> Loading packages</a></li>
 <li class="chapter" data-level="8.3" data-path="8.3-read-dataset-1.html"><a href="8.3-read-dataset-1.html"><i class="fa fa-check"></i><b>8.3</b> Read dataset</a></li>
-<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
+<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
-<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
-<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
+<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
+<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
+<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="8.5-issues-with-glm-and-regression-analyses-in-general.html"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html"><i class="fa fa-check"></i><b>8.5</b> Issues with GLM (and regression analyses in general)</a>
 <ul>
@@ -2228,8 +2228,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>These two packages allow to do various things with phoneticy data. <a href="https://drammock.github.io/phonR/">PhonR</a> former allows to normalise data and generate nice plots; the Vowels is a suite of normalisation procedures and plotting functions (it used to be an online platform, but this is not working anymore! <a href="http://lvc.uoregon.edu/norm/">see here</a> or <a href="http://ncslaap.lib.ncsu.edu/tools/norm/">here</a>). See help for <a href="https://cran.r-project.org/web/packages/vowels/vowels.pdf">Vowels</a>.</p>
 <p>We’ll heavily use PhonR as it provides standard and many advanced options for normalisation and plotting, etc..</p>
 <p>I am borrowing many examples from the <a href="https://drammock.github.io/phonR/">PhonR</a> link. You can adapt the codes below to your own data</p>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="1.9-phonr.html#cb299-1" tabindex="-1"></a><span class="fu">data</span>(indoVowels)  <span class="co"># provides dataframe &#39;indo&#39;</span></span>
-<span id="cb299-2"><a href="1.9-phonr.html#cb299-2" tabindex="-1"></a><span class="fu">str</span>(indo)</span></code></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="1.9-phonr.html#cb293-1" tabindex="-1"></a><span class="fu">data</span>(indoVowels)  <span class="co"># provides dataframe &#39;indo&#39;</span></span>
+<span id="cb293-2"><a href="1.9-phonr.html#cb293-2" tabindex="-1"></a><span class="fu">str</span>(indo)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    1725 obs. of  5 variables:
 ##  $ subj  : chr  &quot;F02&quot; &quot;F02&quot; &quot;F02&quot; &quot;F02&quot; ...
 ##  $ gender: Factor w/ 2 levels &quot;f&quot;,&quot;m&quot;: 1 1 1 1 1 1 1 1 1 1 ...
@@ -2239,9 +2239,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="normalisation" class="section level3 hasAnchor" number="1.9.2">
 <h3><span class="header-section-number">1.9.2</span> Normalisation<a href="1.9-phonr.html#normalisation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="1.9-phonr.html#cb301-1" tabindex="-1"></a><span class="co">#bark</span></span>
-<span id="cb301-2"><a href="1.9-phonr.html#cb301-2" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">normBark</span>(<span class="fu">cbind</span>(f1, f2))) <span class="sc">%&gt;%</span> </span>
-<span id="cb301-3"><a href="1.9-phonr.html#cb301-3" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="1.9-phonr.html#cb295-1" tabindex="-1"></a><span class="co">#bark</span></span>
+<span id="cb295-2"><a href="1.9-phonr.html#cb295-2" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">normBark</span>(<span class="fu">cbind</span>(f1, f2))) <span class="sc">%&gt;%</span> </span>
+<span id="cb295-3"><a href="1.9-phonr.html#cb295-3" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">20</span>)</span></code></pre></div>
 <pre><code>##             f1       f2
 ##  [1,] 8.833918 12.30457
 ##  [2,] 7.932374 12.70532
@@ -2263,9 +2263,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [18,] 7.593087 11.85573
 ## [19,] 5.057221 11.67127
 ## [20,] 6.368064 10.73797</code></pre>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="1.9-phonr.html#cb303-1" tabindex="-1"></a><span class="co">#erb</span></span>
-<span id="cb303-2"><a href="1.9-phonr.html#cb303-2" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">normErb</span>(<span class="fu">cbind</span>(f1, f2))) <span class="sc">%&gt;%</span> </span>
-<span id="cb303-3"><a href="1.9-phonr.html#cb303-3" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="1.9-phonr.html#cb297-1" tabindex="-1"></a><span class="co">#erb</span></span>
+<span id="cb297-2"><a href="1.9-phonr.html#cb297-2" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">normErb</span>(<span class="fu">cbind</span>(f1, f2))) <span class="sc">%&gt;%</span> </span>
+<span id="cb297-3"><a href="1.9-phonr.html#cb297-3" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">20</span>)</span></code></pre></div>
 <pre><code>##             f1       f2
 ##  [1,] 16.00664 20.28137
 ##  [2,] 14.86545 20.77643
@@ -2287,9 +2287,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [18,] 14.42874 19.72933
 ## [19,] 10.96836 19.50298
 ## [20,] 12.80763 18.35952</code></pre>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="1.9-phonr.html#cb305-1" tabindex="-1"></a><span class="co">#mel</span></span>
-<span id="cb305-2"><a href="1.9-phonr.html#cb305-2" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">normMel</span>(<span class="fu">cbind</span>(f1, f2))) <span class="sc">%&gt;%</span> </span>
-<span id="cb305-3"><a href="1.9-phonr.html#cb305-3" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="1.9-phonr.html#cb299-1" tabindex="-1"></a><span class="co">#mel</span></span>
+<span id="cb299-2"><a href="1.9-phonr.html#cb299-2" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">normMel</span>(<span class="fu">cbind</span>(f1, f2))) <span class="sc">%&gt;%</span> </span>
+<span id="cb299-3"><a href="1.9-phonr.html#cb299-3" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">20</span>)</span></code></pre></div>
 <pre><code>##              f1       f2
 ##  [1,] 1033.9416 1434.625
 ##  [2,]  934.4759 1483.584
@@ -2311,9 +2311,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [18,]  897.3346 1380.607
 ## [19,]  622.3732 1358.640
 ## [20,]  764.1399 1249.344</code></pre>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="1.9-phonr.html#cb307-1" tabindex="-1"></a><span class="co">#lobanov</span></span>
-<span id="cb307-2"><a href="1.9-phonr.html#cb307-2" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">normLobanov</span>(<span class="fu">cbind</span>(f1, f2), <span class="at">group=</span>subj)) <span class="sc">%&gt;%</span> </span>
-<span id="cb307-3"><a href="1.9-phonr.html#cb307-3" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="1.9-phonr.html#cb301-1" tabindex="-1"></a><span class="co">#lobanov</span></span>
+<span id="cb301-2"><a href="1.9-phonr.html#cb301-2" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">normLobanov</span>(<span class="fu">cbind</span>(f1, f2), <span class="at">group=</span>subj)) <span class="sc">%&gt;%</span> </span>
+<span id="cb301-3"><a href="1.9-phonr.html#cb301-3" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">20</span>)</span></code></pre></div>
 <pre><code>##             f1           f2
 ## 1   1.90935053  0.014251925
 ## 2   1.24911468  0.180502189
@@ -2335,9 +2335,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 18  1.53347221 -0.004713094
 ## 19  0.51288465  0.309606914
 ## 20  1.88650426 -0.100056446</code></pre>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="1.9-phonr.html#cb309-1" tabindex="-1"></a><span class="co">#lognormed</span></span>
-<span id="cb309-2"><a href="1.9-phonr.html#cb309-2" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">normLog</span>(<span class="fu">cbind</span>(f1, f2))) <span class="sc">%&gt;%</span> </span>
-<span id="cb309-3"><a href="1.9-phonr.html#cb309-3" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="1.9-phonr.html#cb303-1" tabindex="-1"></a><span class="co">#lognormed</span></span>
+<span id="cb303-2"><a href="1.9-phonr.html#cb303-2" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">normLog</span>(<span class="fu">cbind</span>(f1, f2))) <span class="sc">%&gt;%</span> </span>
+<span id="cb303-3"><a href="1.9-phonr.html#cb303-3" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">20</span>)</span></code></pre></div>
 <pre><code>##             f1       f2
 ##  [1,] 3.022016 3.255273
 ##  [2,] 2.956168 3.281261
@@ -2359,10 +2359,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [18,] 2.930440 3.226084
 ## [19,] 2.712650 3.214049
 ## [20,] 2.831870 3.152594</code></pre>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="1.9-phonr.html#cb311-1" tabindex="-1"></a><span class="co"># using the convenience wrapper:</span></span>
-<span id="cb311-2"><a href="1.9-phonr.html#cb311-2" tabindex="-1"></a><span class="co">#bark</span></span>
-<span id="cb311-3"><a href="1.9-phonr.html#cb311-3" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">normVowels</span>(<span class="st">&#39;bark&#39;</span>, <span class="at">f1=</span>f1, <span class="at">f2=</span>f2)) <span class="sc">%&gt;%</span> </span>
-<span id="cb311-4"><a href="1.9-phonr.html#cb311-4" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="1.9-phonr.html#cb305-1" tabindex="-1"></a><span class="co"># using the convenience wrapper:</span></span>
+<span id="cb305-2"><a href="1.9-phonr.html#cb305-2" tabindex="-1"></a><span class="co">#bark</span></span>
+<span id="cb305-3"><a href="1.9-phonr.html#cb305-3" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">normVowels</span>(<span class="st">&#39;bark&#39;</span>, <span class="at">f1=</span>f1, <span class="at">f2=</span>f2)) <span class="sc">%&gt;%</span> </span>
+<span id="cb305-4"><a href="1.9-phonr.html#cb305-4" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">20</span>)</span></code></pre></div>
 <pre><code>##             f1       f2
 ##  [1,] 8.833918 12.30457
 ##  [2,] 7.932374 12.70532
@@ -2384,10 +2384,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [18,] 7.593087 11.85573
 ## [19,] 5.057221 11.67127
 ## [20,] 6.368064 10.73797</code></pre>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="1.9-phonr.html#cb313-1" tabindex="-1"></a><span class="co">#wattfab</span></span>
-<span id="cb313-2"><a href="1.9-phonr.html#cb313-2" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">normVowels</span>(<span class="st">&#39;wattfabricius&#39;</span>, <span class="at">f1=</span>f1, <span class="at">f2=</span>f2,</span>
-<span id="cb313-3"><a href="1.9-phonr.html#cb313-3" tabindex="-1"></a><span class="at">vowel=</span>vowel, <span class="at">group=</span>subj)) <span class="sc">%&gt;%</span> </span>
-<span id="cb313-4"><a href="1.9-phonr.html#cb313-4" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="1.9-phonr.html#cb307-1" tabindex="-1"></a><span class="co">#wattfab</span></span>
+<span id="cb307-2"><a href="1.9-phonr.html#cb307-2" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">normVowels</span>(<span class="st">&#39;wattfabricius&#39;</span>, <span class="at">f1=</span>f1, <span class="at">f2=</span>f2,</span>
+<span id="cb307-3"><a href="1.9-phonr.html#cb307-3" tabindex="-1"></a><span class="at">vowel=</span>vowel, <span class="at">group=</span>subj)) <span class="sc">%&gt;%</span> </span>
+<span id="cb307-4"><a href="1.9-phonr.html#cb307-4" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">20</span>)</span></code></pre></div>
 <pre><code>##             f1        f2
 ##  [1,] 1.923869 0.9674299
 ##  [2,] 1.653211 1.0270880
@@ -2412,10 +2412,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="calculating-vowel-space-area" class="section level3 hasAnchor" number="1.9.3">
 <h3><span class="header-section-number">1.9.3</span> Calculating vowel space area<a href="1.9-phonr.html#calculating-vowel-space-area" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="1.9-phonr.html#cb315-1" tabindex="-1"></a>poly.area <span class="ot">&lt;-</span> <span class="fu">with</span>(indo, <span class="fu">vowelMeansPolygonArea</span>(f1, f2, vowel, <span class="at">poly.order =</span> <span class="fu">c</span>(<span class="st">&quot;i&quot;</span>, </span>
-<span id="cb315-2"><a href="1.9-phonr.html#cb315-2" tabindex="-1"></a>    <span class="st">&quot;e&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;o&quot;</span>, <span class="st">&quot;u&quot;</span>), <span class="at">group =</span> subj))</span>
-<span id="cb315-3"><a href="1.9-phonr.html#cb315-3" tabindex="-1"></a>hull.area <span class="ot">&lt;-</span> <span class="fu">with</span>(indo, <span class="fu">convexHullArea</span>(f1, f2, <span class="at">group =</span> subj))</span>
-<span id="cb315-4"><a href="1.9-phonr.html#cb315-4" tabindex="-1"></a><span class="fu">rbind</span>(poly.area, hull.area)</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="1.9-phonr.html#cb309-1" tabindex="-1"></a>poly.area <span class="ot">&lt;-</span> <span class="fu">with</span>(indo, <span class="fu">vowelMeansPolygonArea</span>(f1, f2, vowel, <span class="at">poly.order =</span> <span class="fu">c</span>(<span class="st">&quot;i&quot;</span>, </span>
+<span id="cb309-2"><a href="1.9-phonr.html#cb309-2" tabindex="-1"></a>    <span class="st">&quot;e&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;o&quot;</span>, <span class="st">&quot;u&quot;</span>), <span class="at">group =</span> subj))</span>
+<span id="cb309-3"><a href="1.9-phonr.html#cb309-3" tabindex="-1"></a>hull.area <span class="ot">&lt;-</span> <span class="fu">with</span>(indo, <span class="fu">convexHullArea</span>(f1, f2, <span class="at">group =</span> subj))</span>
+<span id="cb309-4"><a href="1.9-phonr.html#cb309-4" tabindex="-1"></a><span class="fu">rbind</span>(poly.area, hull.area)</span></code></pre></div>
 <pre><code>##                 F02      F04     F08      F09      M01      M02      M03
 ## poly.area  485051.4 337364.0  434816 302064.9 197746.1 229501.7 215713.3
 ## hull.area 1254575.0 866109.5 1020835 751327.0 517212.5 666246.0 477518.5
@@ -2425,40 +2425,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="the-plotvowels-function" class="section level3 hasAnchor" number="1.9.4">
 <h3><span class="header-section-number">1.9.4</span> The <code>plotVowels</code> function<a href="1.9-phonr.html#the-plotvowels-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="1.9-phonr.html#cb317-1" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">plotVowels</span>(f1, f2, <span class="at">var.sty.by =</span> vowel, <span class="at">var.col.by =</span> vowel, <span class="at">pretty =</span> <span class="cn">TRUE</span>, <span class="at">legend.kwd=</span><span class="st">&quot;bottomleft&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="1.9-phonr.html#cb311-1" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">plotVowels</span>(f1, f2, <span class="at">var.sty.by =</span> vowel, <span class="at">var.col.by =</span> vowel, <span class="at">pretty =</span> <span class="cn">TRUE</span>, <span class="at">legend.kwd=</span><span class="st">&quot;bottomleft&quot;</span>))</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-123-1.png" width="672" /></p>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="1.9-phonr.html#cb318-1" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">plotVowels</span>(f1, f2, <span class="at">var.sty.by =</span> vowel, <span class="at">var.col.by =</span> gender, <span class="at">pretty =</span> <span class="cn">TRUE</span>, <span class="at">legend.kwd=</span><span class="st">&quot;bottomleft&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="1.9-phonr.html#cb312-1" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">plotVowels</span>(f1, f2, <span class="at">var.sty.by =</span> vowel, <span class="at">var.col.by =</span> gender, <span class="at">pretty =</span> <span class="cn">TRUE</span>, <span class="at">legend.kwd=</span><span class="st">&quot;bottomleft&quot;</span>))</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-123-2.png" width="672" /></p>
 </div>
 <div id="token-means" class="section level3 hasAnchor" number="1.9.5">
 <h3><span class="header-section-number">1.9.5</span> Token means<a href="1.9-phonr.html#token-means" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="1.9-phonr.html#cb319-1" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">plotVowels</span>(f1, f2, vowel, <span class="at">group =</span> gender, <span class="at">plot.tokens =</span> <span class="cn">FALSE</span>, <span class="at">plot.means =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb319-2"><a href="1.9-phonr.html#cb319-2" tabindex="-1"></a>    <span class="at">var.col.by =</span> gender, <span class="at">var.sty.by =</span> vowel, <span class="at">pretty =</span> <span class="cn">TRUE</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">2900</span>, <span class="dv">600</span>), </span>
-<span id="cb319-3"><a href="1.9-phonr.html#cb319-3" tabindex="-1"></a>    <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">250</span>), <span class="at">legend.kwd=</span><span class="st">&quot;bottomleft&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="1.9-phonr.html#cb313-1" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">plotVowels</span>(f1, f2, vowel, <span class="at">group =</span> gender, <span class="at">plot.tokens =</span> <span class="cn">FALSE</span>, <span class="at">plot.means =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb313-2"><a href="1.9-phonr.html#cb313-2" tabindex="-1"></a>    <span class="at">var.col.by =</span> gender, <span class="at">var.sty.by =</span> vowel, <span class="at">pretty =</span> <span class="cn">TRUE</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">2900</span>, <span class="dv">600</span>), </span>
+<span id="cb313-3"><a href="1.9-phonr.html#cb313-3" tabindex="-1"></a>    <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">250</span>), <span class="at">legend.kwd=</span><span class="st">&quot;bottomleft&quot;</span>))</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-124-1.png" width="672" /></p>
 </div>
 <div id="ellipses-and-areas" class="section level3 hasAnchor" number="1.9.6">
 <h3><span class="header-section-number">1.9.6</span> Ellipses and areas<a href="1.9-phonr.html#ellipses-and-areas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="1.9-phonr.html#cb320-1" tabindex="-1"></a><span class="co">#Ellipses</span></span>
-<span id="cb320-2"><a href="1.9-phonr.html#cb320-2" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">plotVowels</span>(f1, f2, vowel, <span class="at">group =</span> gender, <span class="at">pch.tokens =</span> vowel, <span class="at">cex.tokens =</span> <span class="fl">1.2</span>, </span>
-<span id="cb320-3"><a href="1.9-phonr.html#cb320-3" tabindex="-1"></a>    <span class="at">alpha.tokens =</span> <span class="fl">0.3</span>, <span class="at">plot.means =</span> <span class="cn">TRUE</span>, <span class="at">pch.means =</span> vowel, <span class="at">cex.means =</span> <span class="dv">2</span>, <span class="at">var.col.by =</span> vowel, </span>
-<span id="cb320-4"><a href="1.9-phonr.html#cb320-4" tabindex="-1"></a>    <span class="at">var.sty.by =</span> gender, <span class="at">hull.fill =</span> <span class="cn">TRUE</span>, <span class="at">hull.line =</span> <span class="cn">TRUE</span>, <span class="at">fill.opacity =</span> <span class="fl">0.1</span>, </span>
-<span id="cb320-5"><a href="1.9-phonr.html#cb320-5" tabindex="-1"></a>    <span class="at">pretty =</span> <span class="cn">TRUE</span>, <span class="at">legend.kwd =</span> <span class="st">&quot;bottomright&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="1.9-phonr.html#cb314-1" tabindex="-1"></a><span class="co">#Ellipses</span></span>
+<span id="cb314-2"><a href="1.9-phonr.html#cb314-2" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">plotVowels</span>(f1, f2, vowel, <span class="at">group =</span> gender, <span class="at">pch.tokens =</span> vowel, <span class="at">cex.tokens =</span> <span class="fl">1.2</span>, </span>
+<span id="cb314-3"><a href="1.9-phonr.html#cb314-3" tabindex="-1"></a>    <span class="at">alpha.tokens =</span> <span class="fl">0.3</span>, <span class="at">plot.means =</span> <span class="cn">TRUE</span>, <span class="at">pch.means =</span> vowel, <span class="at">cex.means =</span> <span class="dv">2</span>, <span class="at">var.col.by =</span> vowel, </span>
+<span id="cb314-4"><a href="1.9-phonr.html#cb314-4" tabindex="-1"></a>    <span class="at">var.sty.by =</span> gender, <span class="at">hull.fill =</span> <span class="cn">TRUE</span>, <span class="at">hull.line =</span> <span class="cn">TRUE</span>, <span class="at">fill.opacity =</span> <span class="fl">0.1</span>, </span>
+<span id="cb314-5"><a href="1.9-phonr.html#cb314-5" tabindex="-1"></a>    <span class="at">pretty =</span> <span class="cn">TRUE</span>, <span class="at">legend.kwd =</span> <span class="st">&quot;bottomright&quot;</span>))</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-125-1.png" width="672" /></p>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="1.9-phonr.html#cb321-1" tabindex="-1"></a><span class="co">#areas</span></span>
-<span id="cb321-2"><a href="1.9-phonr.html#cb321-2" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">plotVowels</span>(f1, f2, vowel, <span class="at">group =</span> subj, <span class="at">plot.tokens =</span> <span class="cn">FALSE</span>, <span class="at">plot.means =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb321-3"><a href="1.9-phonr.html#cb321-3" tabindex="-1"></a>    <span class="at">pch.means =</span> vowel, <span class="at">cex.means =</span> <span class="dv">2</span>, <span class="at">var.col.by =</span> vowel, <span class="at">var.sty.by =</span> subj, <span class="at">ellipse.line =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb321-4"><a href="1.9-phonr.html#cb321-4" tabindex="-1"></a>    <span class="at">ellipse.fill =</span> <span class="cn">TRUE</span>, <span class="at">fill.opacity =</span> <span class="fl">0.1</span>, <span class="at">pretty =</span> <span class="cn">TRUE</span>, <span class="at">legend.kwd =</span> <span class="st">&quot;bottomright&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="1.9-phonr.html#cb315-1" tabindex="-1"></a><span class="co">#areas</span></span>
+<span id="cb315-2"><a href="1.9-phonr.html#cb315-2" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">plotVowels</span>(f1, f2, vowel, <span class="at">group =</span> subj, <span class="at">plot.tokens =</span> <span class="cn">FALSE</span>, <span class="at">plot.means =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb315-3"><a href="1.9-phonr.html#cb315-3" tabindex="-1"></a>    <span class="at">pch.means =</span> vowel, <span class="at">cex.means =</span> <span class="dv">2</span>, <span class="at">var.col.by =</span> vowel, <span class="at">var.sty.by =</span> subj, <span class="at">ellipse.line =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb315-4"><a href="1.9-phonr.html#cb315-4" tabindex="-1"></a>    <span class="at">ellipse.fill =</span> <span class="cn">TRUE</span>, <span class="at">fill.opacity =</span> <span class="fl">0.1</span>, <span class="at">pretty =</span> <span class="cn">TRUE</span>, <span class="at">legend.kwd =</span> <span class="st">&quot;bottomright&quot;</span>))</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-125-2.png" width="672" /></p>
 </div>
 <div id="linking-vowels" class="section level3 hasAnchor" number="1.9.7">
 <h3><span class="header-section-number">1.9.7</span> Linking vowels<a href="1.9-phonr.html#linking-vowels" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="1.9-phonr.html#cb322-1" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">plotVowels</span>(f1, f2, vowel, <span class="at">group =</span> subj, <span class="at">var.col.by =</span> subj, <span class="at">var.sty.by =</span> subj, </span>
-<span id="cb322-2"><a href="1.9-phonr.html#cb322-2" tabindex="-1"></a>    <span class="at">plot.tokens =</span> <span class="cn">FALSE</span>, <span class="at">plot.means =</span> <span class="cn">TRUE</span>, <span class="at">pch.means =</span> vowel, <span class="at">cex.means =</span> <span class="dv">2</span>, <span class="at">pretty =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb322-3"><a href="1.9-phonr.html#cb322-3" tabindex="-1"></a>    <span class="at">poly.line =</span> <span class="cn">TRUE</span>, <span class="at">poly.order =</span> <span class="fu">c</span>(<span class="st">&quot;i&quot;</span>, <span class="st">&quot;e&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;o&quot;</span>, <span class="st">&quot;u&quot;</span>), <span class="at">legend.kwd =</span> <span class="st">&quot;bottomleft&quot;</span>, </span>
-<span id="cb322-4"><a href="1.9-phonr.html#cb322-4" tabindex="-1"></a>    <span class="at">legend.args =</span> <span class="fu">list</span>(<span class="at">seg.len =</span> <span class="dv">3</span>, <span class="at">cex =</span> <span class="fl">1.2</span>, <span class="at">lwd =</span> <span class="dv">2</span>), <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;gray70&quot;</span>, <span class="st">&quot;gray40&quot;</span>, </span>
-<span id="cb322-5"><a href="1.9-phonr.html#cb322-5" tabindex="-1"></a>        <span class="st">&quot;gray10&quot;</span>), <span class="at">lty =</span> <span class="fu">c</span>(<span class="st">&quot;solid&quot;</span>, <span class="st">&quot;solid&quot;</span>, <span class="st">&quot;dotdash&quot;</span>, <span class="st">&quot;dotdash&quot;</span>, <span class="st">&quot;dotted&quot;</span>, <span class="st">&quot;longdash&quot;</span>, </span>
-<span id="cb322-6"><a href="1.9-phonr.html#cb322-6" tabindex="-1"></a>        <span class="st">&quot;dashed&quot;</span>, <span class="st">&quot;dotted&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="1.9-phonr.html#cb316-1" tabindex="-1"></a><span class="fu">with</span>(indo, <span class="fu">plotVowels</span>(f1, f2, vowel, <span class="at">group =</span> subj, <span class="at">var.col.by =</span> subj, <span class="at">var.sty.by =</span> subj, </span>
+<span id="cb316-2"><a href="1.9-phonr.html#cb316-2" tabindex="-1"></a>    <span class="at">plot.tokens =</span> <span class="cn">FALSE</span>, <span class="at">plot.means =</span> <span class="cn">TRUE</span>, <span class="at">pch.means =</span> vowel, <span class="at">cex.means =</span> <span class="dv">2</span>, <span class="at">pretty =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb316-3"><a href="1.9-phonr.html#cb316-3" tabindex="-1"></a>    <span class="at">poly.line =</span> <span class="cn">TRUE</span>, <span class="at">poly.order =</span> <span class="fu">c</span>(<span class="st">&quot;i&quot;</span>, <span class="st">&quot;e&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;o&quot;</span>, <span class="st">&quot;u&quot;</span>), <span class="at">legend.kwd =</span> <span class="st">&quot;bottomleft&quot;</span>, </span>
+<span id="cb316-4"><a href="1.9-phonr.html#cb316-4" tabindex="-1"></a>    <span class="at">legend.args =</span> <span class="fu">list</span>(<span class="at">seg.len =</span> <span class="dv">3</span>, <span class="at">cex =</span> <span class="fl">1.2</span>, <span class="at">lwd =</span> <span class="dv">2</span>), <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;gray70&quot;</span>, <span class="st">&quot;gray40&quot;</span>, </span>
+<span id="cb316-5"><a href="1.9-phonr.html#cb316-5" tabindex="-1"></a>        <span class="st">&quot;gray10&quot;</span>), <span class="at">lty =</span> <span class="fu">c</span>(<span class="st">&quot;solid&quot;</span>, <span class="st">&quot;solid&quot;</span>, <span class="st">&quot;dotdash&quot;</span>, <span class="st">&quot;dotdash&quot;</span>, <span class="st">&quot;dotted&quot;</span>, <span class="st">&quot;longdash&quot;</span>, </span>
+<span id="cb316-6"><a href="1.9-phonr.html#cb316-6" tabindex="-1"></a>        <span class="st">&quot;dashed&quot;</span>, <span class="st">&quot;dotted&quot;</span>)))</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-126-1.png" width="672" /></p>
 </div>
 </div>

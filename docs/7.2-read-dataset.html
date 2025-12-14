@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-11-09" />
+<meta name="date" content="2025-12-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -531,7 +531,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2.6.4.4" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-and-d-prime"><i class="fa fa-check"></i><b>2.6.4.4</b> GLM and d prime</a></li>
-<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-as-a-classification-tool"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
+<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#GLM-Classification"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
 <li class="chapter" data-level="2.6.4.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-other-distributions"><i class="fa fa-check"></i><b>2.6.4.6</b> GLM: Other distributions</a></li>
 </ul></li>
 </ul></li>
@@ -2091,11 +2091,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1" data-path="8.1-what-is-predictive-modelling.html"><a href="8.1-what-is-predictive-modelling.html"><i class="fa fa-check"></i><b>8.1</b> What is predictive modelling</a></li>
 <li class="chapter" data-level="8.2" data-path="8.2-loading-packages-7.html"><a href="8.2-loading-packages-7.html"><i class="fa fa-check"></i><b>8.2</b> Loading packages</a></li>
 <li class="chapter" data-level="8.3" data-path="8.3-read-dataset-1.html"><a href="8.3-read-dataset-1.html"><i class="fa fa-check"></i><b>8.3</b> Read dataset</a></li>
-<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
+<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
-<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
-<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
+<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
+<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
+<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="8.5-issues-with-glm-and-regression-analyses-in-general.html"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html"><i class="fa fa-check"></i><b>8.5</b> Issues with GLM (and regression analyses in general)</a>
 <ul>
@@ -2229,16 +2229,16 @@ The former group comprises: uvular, pharyngealised and pharyngeal consonants; th
 These six classes were produced in three different vowel environments /i: a: u:/.
 In each class, there were multiple consonants (total 21).
 Acoustic measurements are used to quantify supralaryngeal (formant distances on the Bark scale) and laryngeal (voice quality) measurements.</p>
-<div class="sourceCode" id="cb1995"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1995-1"><a href="7.2-read-dataset.html#cb1995-1" tabindex="-1"></a>dfPharV2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/dfPharV2.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1989"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1989-1"><a href="7.2-read-dataset.html#cb1989-1" tabindex="-1"></a>dfPharV2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/dfPharV2.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 402 Columns: 25
-## ── Column specification ───────────────────────────────────────────────────────────
+## ── Column specification ─────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr  (2): contextN, context
 ## dbl (23): CPP, Energy, H1A1c, H1A2c, H1A3c, H1H2c, H2H4c, H2KH5Kc, H42Kc, HN...
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb1997"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1997-1"><a href="7.2-read-dataset.html#cb1997-1" tabindex="-1"></a>dfPharV2</span></code></pre></div>
+<div class="sourceCode" id="cb1991"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1991-1"><a href="7.2-read-dataset.html#cb1991-1" tabindex="-1"></a>dfPharV2</span></code></pre></div>
 <pre><code>## # A tibble: 402 × 25
 ##    contextN context    CPP Energy H1A1c H1A2c   H1A3c   H1H2c H2H4c H2KH5Kc
 ##    &lt;chr&gt;    &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
@@ -2257,9 +2257,9 @@ Acoustic measurements are used to quantify supralaryngeal (formant distances on 
 ## #   HNR35 &lt;dbl&gt;, SHR &lt;dbl&gt;, soe &lt;dbl&gt;, Z1mnZ0 &lt;dbl&gt;, Z2mnZ1 &lt;dbl&gt;,
 ## #   Z3mnZ2 &lt;dbl&gt;, Z4mnZ3 &lt;dbl&gt;, F0Bark &lt;dbl&gt;, A1mnA2 &lt;dbl&gt;, A1mnA3 &lt;dbl&gt;,
 ## #   A2mnA3 &lt;dbl&gt;</code></pre>
-<div class="sourceCode" id="cb1999"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1999-1"><a href="7.2-read-dataset.html#cb1999-1" tabindex="-1"></a>dfPharV2 <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
-<span id="cb1999-2"><a href="7.2-read-dataset.html#cb1999-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">factor</span>(context, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Non-Guttural&quot;</span>, <span class="st">&quot;Guttural&quot;</span>)))</span>
-<span id="cb1999-3"><a href="7.2-read-dataset.html#cb1999-3" tabindex="-1"></a>dfPharV2</span></code></pre></div>
+<div class="sourceCode" id="cb1993"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1993-1"><a href="7.2-read-dataset.html#cb1993-1" tabindex="-1"></a>dfPharV2 <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb1993-2"><a href="7.2-read-dataset.html#cb1993-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">context =</span> <span class="fu">factor</span>(context, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Non-Guttural&quot;</span>, <span class="st">&quot;Guttural&quot;</span>)))</span>
+<span id="cb1993-3"><a href="7.2-read-dataset.html#cb1993-3" tabindex="-1"></a>dfPharV2</span></code></pre></div>
 <pre><code>## # A tibble: 402 × 25
 ##    contextN context    CPP Energy H1A1c H1A2c   H1A3c   H1H2c H2H4c H2KH5Kc
 ##    &lt;chr&gt;    &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;

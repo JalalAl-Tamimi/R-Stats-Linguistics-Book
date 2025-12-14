@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-11-09" />
+<meta name="date" content="2025-12-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -531,7 +531,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2.6.4.4" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-and-d-prime"><i class="fa fa-check"></i><b>2.6.4.4</b> GLM and d prime</a></li>
-<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-as-a-classification-tool"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
+<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#GLM-Classification"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
 <li class="chapter" data-level="2.6.4.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-other-distributions"><i class="fa fa-check"></i><b>2.6.4.6</b> GLM: Other distributions</a></li>
 </ul></li>
 </ul></li>
@@ -2091,11 +2091,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1" data-path="8.1-what-is-predictive-modelling.html"><a href="8.1-what-is-predictive-modelling.html"><i class="fa fa-check"></i><b>8.1</b> What is predictive modelling</a></li>
 <li class="chapter" data-level="8.2" data-path="8.2-loading-packages-7.html"><a href="8.2-loading-packages-7.html"><i class="fa fa-check"></i><b>8.2</b> Loading packages</a></li>
 <li class="chapter" data-level="8.3" data-path="8.3-read-dataset-1.html"><a href="8.3-read-dataset-1.html"><i class="fa fa-check"></i><b>8.3</b> Read dataset</a></li>
-<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
+<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
-<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
-<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
+<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
+<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
+<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="8.5-issues-with-glm-and-regression-analyses-in-general.html"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html"><i class="fa fa-check"></i><b>8.5</b> Issues with GLM (and regression analyses in general)</a>
 <ul>
@@ -2223,14 +2223,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="loading-packages-6" class="section level2 hasAnchor" number="7.1">
 <h2><span class="header-section-number">7.1</span> Loading packages<a href="7.1-loading-packages-6.html#loading-packages-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb1994"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1994-1"><a href="7.1-loading-packages-6.html#cb1994-1" tabindex="-1"></a><span class="do">### Use the code below to check if you have all required packages installed. If some are not installed already, the code below will install these. If you have all packages installed, then you could load them with the second code.</span></span>
-<span id="cb1994-2"><a href="7.1-loading-packages-6.html#cb1994-2" tabindex="-1"></a>requiredPackages <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;tidyverse&#39;</span>, <span class="st">&#39;knitr&#39;</span>, <span class="st">&#39;Hmisc&#39;</span>, <span class="st">&#39;corrplot&#39;</span>, <span class="st">&#39;FactoMineR&#39;</span>, <span class="st">&#39;factoextra&#39;</span>, <span class="st">&#39;FactoInvestigate&#39;</span>, <span class="st">&#39;webshot&#39;</span>, <span class="st">&#39;RColorBrewer&#39;</span>, <span class="st">&#39;scatterplot3d&#39;</span>, <span class="st">&#39;recipes&#39;</span>, <span class="st">&#39;cluster&#39;</span>, <span class="st">&#39;cowplot&#39;</span>, <span class="st">&#39;GGally&#39;</span>, <span class="st">&#39;ggpubr&#39;</span>, <span class="st">&#39;ggrepel&#39;</span>, <span class="st">&#39;zoo&#39;</span>)</span>
-<span id="cb1994-3"><a href="7.1-loading-packages-6.html#cb1994-3" tabindex="-1"></a><span class="cf">for</span>(p <span class="cf">in</span> requiredPackages){</span>
-<span id="cb1994-4"><a href="7.1-loading-packages-6.html#cb1994-4" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(p,<span class="at">character.only =</span> <span class="cn">TRUE</span>)) <span class="fu">install.packages</span>(p, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1994-5"><a href="7.1-loading-packages-6.html#cb1994-5" tabindex="-1"></a>  <span class="fu">library</span>(p,<span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1994-6"><a href="7.1-loading-packages-6.html#cb1994-6" tabindex="-1"></a>}</span>
-<span id="cb1994-7"><a href="7.1-loading-packages-6.html#cb1994-7" tabindex="-1"></a><span class="do">## below to change maximum overlap for the PCA, Cluster and MDS to draw all information. </span></span>
-<span id="cb1994-8"><a href="7.1-loading-packages-6.html#cb1994-8" tabindex="-1"></a><span class="fu">options</span>(<span class="at">ggrepel.max.overlaps =</span> <span class="cn">Inf</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1988"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1988-1"><a href="7.1-loading-packages-6.html#cb1988-1" tabindex="-1"></a><span class="do">### Use the code below to check if you have all required packages installed. If some are not installed already, the code below will install these. If you have all packages installed, then you could load them with the second code.</span></span>
+<span id="cb1988-2"><a href="7.1-loading-packages-6.html#cb1988-2" tabindex="-1"></a>requiredPackages <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;tidyverse&#39;</span>, <span class="st">&#39;knitr&#39;</span>, <span class="st">&#39;Hmisc&#39;</span>, <span class="st">&#39;corrplot&#39;</span>, <span class="st">&#39;FactoMineR&#39;</span>, <span class="st">&#39;factoextra&#39;</span>, <span class="st">&#39;FactoInvestigate&#39;</span>, <span class="st">&#39;webshot&#39;</span>, <span class="st">&#39;RColorBrewer&#39;</span>, <span class="st">&#39;scatterplot3d&#39;</span>, <span class="st">&#39;recipes&#39;</span>, <span class="st">&#39;cluster&#39;</span>, <span class="st">&#39;cowplot&#39;</span>, <span class="st">&#39;GGally&#39;</span>, <span class="st">&#39;ggpubr&#39;</span>, <span class="st">&#39;ggrepel&#39;</span>, <span class="st">&#39;zoo&#39;</span>)</span>
+<span id="cb1988-3"><a href="7.1-loading-packages-6.html#cb1988-3" tabindex="-1"></a><span class="cf">for</span>(p <span class="cf">in</span> requiredPackages){</span>
+<span id="cb1988-4"><a href="7.1-loading-packages-6.html#cb1988-4" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(p,<span class="at">character.only =</span> <span class="cn">TRUE</span>)) <span class="fu">install.packages</span>(p, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1988-5"><a href="7.1-loading-packages-6.html#cb1988-5" tabindex="-1"></a>  <span class="fu">library</span>(p,<span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1988-6"><a href="7.1-loading-packages-6.html#cb1988-6" tabindex="-1"></a>}</span>
+<span id="cb1988-7"><a href="7.1-loading-packages-6.html#cb1988-7" tabindex="-1"></a><span class="do">## below to change maximum overlap for the PCA, Cluster and MDS to draw all information. </span></span>
+<span id="cb1988-8"><a href="7.1-loading-packages-6.html#cb1988-8" tabindex="-1"></a><span class="fu">options</span>(<span class="at">ggrepel.max.overlaps =</span> <span class="cn">Inf</span>)</span></code></pre></div>
 </div>
             </section>
 

@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-11-09" />
+<meta name="date" content="2025-12-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -531,7 +531,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2.6.4.4" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-and-d-prime"><i class="fa fa-check"></i><b>2.6.4.4</b> GLM and d prime</a></li>
-<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-as-a-classification-tool"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
+<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#GLM-Classification"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
 <li class="chapter" data-level="2.6.4.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-other-distributions"><i class="fa fa-check"></i><b>2.6.4.6</b> GLM: Other distributions</a></li>
 </ul></li>
 </ul></li>
@@ -2091,11 +2091,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1" data-path="8.1-what-is-predictive-modelling.html"><a href="8.1-what-is-predictive-modelling.html"><i class="fa fa-check"></i><b>8.1</b> What is predictive modelling</a></li>
 <li class="chapter" data-level="8.2" data-path="8.2-loading-packages-7.html"><a href="8.2-loading-packages-7.html"><i class="fa fa-check"></i><b>8.2</b> Loading packages</a></li>
 <li class="chapter" data-level="8.3" data-path="8.3-read-dataset-1.html"><a href="8.3-read-dataset-1.html"><i class="fa fa-check"></i><b>8.3</b> Read dataset</a></li>
-<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
+<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
-<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
-<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
+<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
+<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
+<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="8.5-issues-with-glm-and-regression-analyses-in-general.html"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html"><i class="fa fa-check"></i><b>8.5</b> Issues with GLM (and regression analyses in general)</a>
 <ul>
@@ -2225,8 +2225,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.7</span> Single web page<a href="4.7-single-web-page.html#single-web-page" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="read_html" class="section level3 hasAnchor" number="4.7.1">
 <h3><span class="header-section-number">4.7.1</span> Read_html<a href="4.7-single-web-page.html#read_html" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1172-1"><a href="4.7-single-web-page.html#cb1172-1" tabindex="-1"></a>web_page <span class="ot">&lt;-</span> rvest<span class="sc">::</span><span class="fu">read_html</span>(<span class="st">&quot;https://www.tidyverse.org/packages/&quot;</span>)</span>
-<span id="cb1172-2"><a href="4.7-single-web-page.html#cb1172-2" tabindex="-1"></a>web_page</span></code></pre></div>
+<div class="sourceCode" id="cb1166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1166-1"><a href="4.7-single-web-page.html#cb1166-1" tabindex="-1"></a>web_page <span class="ot">&lt;-</span> rvest<span class="sc">::</span><span class="fu">read_html</span>(<span class="st">&quot;https://www.tidyverse.org/packages/&quot;</span>)</span>
+<span id="cb1166-2"><a href="4.7-single-web-page.html#cb1166-2" tabindex="-1"></a>web_page</span></code></pre></div>
 <pre><code>## {html_document}
 ## &lt;html&gt;
 ## [1] &lt;head&gt;\n&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8 ...
@@ -2235,22 +2235,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="extract-headline" class="section level3 hasAnchor" number="4.7.2">
 <h3><span class="header-section-number">4.7.2</span> Extract headline<a href="4.7-single-web-page.html#extract-headline" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1174-1"><a href="4.7-single-web-page.html#cb1174-1" tabindex="-1"></a>header_web_page <span class="ot">&lt;-</span> web_page <span class="sc">%&gt;%</span></span>
-<span id="cb1174-2"><a href="4.7-single-web-page.html#cb1174-2" tabindex="-1"></a>  <span class="do">## extract paragraphs</span></span>
-<span id="cb1174-3"><a href="4.7-single-web-page.html#cb1174-3" tabindex="-1"></a>  rvest<span class="sc">::</span><span class="fu">html_nodes</span>(<span class="st">&quot;h1&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1174-4"><a href="4.7-single-web-page.html#cb1174-4" tabindex="-1"></a>  <span class="do">## extract text</span></span>
-<span id="cb1174-5"><a href="4.7-single-web-page.html#cb1174-5" tabindex="-1"></a>  rvest<span class="sc">::</span><span class="fu">html_text</span>() </span>
-<span id="cb1174-6"><a href="4.7-single-web-page.html#cb1174-6" tabindex="-1"></a><span class="fu">head</span>(header_web_page)</span></code></pre></div>
+<div class="sourceCode" id="cb1168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1168-1"><a href="4.7-single-web-page.html#cb1168-1" tabindex="-1"></a>header_web_page <span class="ot">&lt;-</span> web_page <span class="sc">%&gt;%</span></span>
+<span id="cb1168-2"><a href="4.7-single-web-page.html#cb1168-2" tabindex="-1"></a>  <span class="do">## extract paragraphs</span></span>
+<span id="cb1168-3"><a href="4.7-single-web-page.html#cb1168-3" tabindex="-1"></a>  rvest<span class="sc">::</span><span class="fu">html_nodes</span>(<span class="st">&quot;h1&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1168-4"><a href="4.7-single-web-page.html#cb1168-4" tabindex="-1"></a>  <span class="do">## extract text</span></span>
+<span id="cb1168-5"><a href="4.7-single-web-page.html#cb1168-5" tabindex="-1"></a>  rvest<span class="sc">::</span><span class="fu">html_text</span>() </span>
+<span id="cb1168-6"><a href="4.7-single-web-page.html#cb1168-6" tabindex="-1"></a><span class="fu">head</span>(header_web_page)</span></code></pre></div>
 <pre><code>## [1] &quot;Tidyverse packages&quot;</code></pre>
 </div>
 <div id="extract-text" class="section level3 hasAnchor" number="4.7.3">
 <h3><span class="header-section-number">4.7.3</span> Extract text<a href="4.7-single-web-page.html#extract-text" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1176-1"><a href="4.7-single-web-page.html#cb1176-1" tabindex="-1"></a>web_page_txt <span class="ot">&lt;-</span> web_page <span class="sc">%&gt;%</span></span>
-<span id="cb1176-2"><a href="4.7-single-web-page.html#cb1176-2" tabindex="-1"></a>  <span class="do">## extract paragraphs</span></span>
-<span id="cb1176-3"><a href="4.7-single-web-page.html#cb1176-3" tabindex="-1"></a>  rvest<span class="sc">::</span><span class="fu">html_nodes</span>(<span class="st">&quot;p&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1176-4"><a href="4.7-single-web-page.html#cb1176-4" tabindex="-1"></a>  <span class="do">## extract text</span></span>
-<span id="cb1176-5"><a href="4.7-single-web-page.html#cb1176-5" tabindex="-1"></a>  rvest<span class="sc">::</span><span class="fu">html_text</span>()</span>
-<span id="cb1176-6"><a href="4.7-single-web-page.html#cb1176-6" tabindex="-1"></a><span class="fu">head</span>(web_page_txt)</span></code></pre></div>
+<div class="sourceCode" id="cb1170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1170-1"><a href="4.7-single-web-page.html#cb1170-1" tabindex="-1"></a>web_page_txt <span class="ot">&lt;-</span> web_page <span class="sc">%&gt;%</span></span>
+<span id="cb1170-2"><a href="4.7-single-web-page.html#cb1170-2" tabindex="-1"></a>  <span class="do">## extract paragraphs</span></span>
+<span id="cb1170-3"><a href="4.7-single-web-page.html#cb1170-3" tabindex="-1"></a>  rvest<span class="sc">::</span><span class="fu">html_nodes</span>(<span class="st">&quot;p&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1170-4"><a href="4.7-single-web-page.html#cb1170-4" tabindex="-1"></a>  <span class="do">## extract text</span></span>
+<span id="cb1170-5"><a href="4.7-single-web-page.html#cb1170-5" tabindex="-1"></a>  rvest<span class="sc">::</span><span class="fu">html_text</span>()</span>
+<span id="cb1170-6"><a href="4.7-single-web-page.html#cb1170-6" tabindex="-1"></a><span class="fu">head</span>(web_page_txt)</span></code></pre></div>
 <pre><code>## [1] &quot;Install all the packages in the tidyverse by running install.packages(\&quot;tidyverse\&quot;).&quot;                                                                                                                                                              
 ## [2] &quot;Run library(tidyverse) to load the core tidyverse and make it available\nin your current R session.&quot;                                                                                                                                                
 ## [3] &quot;Learn more about the tidyverse package at https://tidyverse.tidyverse.org.&quot;                                                                                                                                                                         
@@ -2260,8 +2260,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="create-a-corpus-5" class="section level3 hasAnchor" number="4.7.4">
 <h3><span class="header-section-number">4.7.4</span> Create a corpus<a href="4.7-single-web-page.html#create-a-corpus-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1178-1"><a href="4.7-single-web-page.html#cb1178-1" tabindex="-1"></a>web_page_txt_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(web_page_txt)</span>
-<span id="cb1178-2"><a href="4.7-single-web-page.html#cb1178-2" tabindex="-1"></a><span class="fu">print</span>(web_page_txt_corpus)</span></code></pre></div>
+<div class="sourceCode" id="cb1172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1172-1"><a href="4.7-single-web-page.html#cb1172-1" tabindex="-1"></a>web_page_txt_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(web_page_txt)</span>
+<span id="cb1172-2"><a href="4.7-single-web-page.html#cb1172-2" tabindex="-1"></a><span class="fu">print</span>(web_page_txt_corpus)</span></code></pre></div>
 <pre><code>## Corpus consisting of 31 documents.
 ## text1 :
 ## &quot;Install all the packages in the tidyverse by running install...&quot;
@@ -2284,7 +2284,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [ reached max_ndoc ... 25 more documents ]</code></pre>
 <div id="summary-19" class="section level4 hasAnchor" number="4.7.4.1">
 <h4><span class="header-section-number">4.7.4.1</span> Summary<a href="4.7-single-web-page.html#summary-19" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1180-1"><a href="4.7-single-web-page.html#cb1180-1" tabindex="-1"></a><span class="fu">summary</span>(web_page_txt_corpus, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1174-1"><a href="4.7-single-web-page.html#cb1174-1" tabindex="-1"></a><span class="fu">summary</span>(web_page_txt_corpus, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Corpus consisting of 31 documents, showing 10 documents:
 ## 
 ##    Text Types Tokens Sentences
@@ -2301,12 +2301,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="accessing-parts-of-corpus-5" class="section level4 hasAnchor" number="4.7.4.2">
 <h4><span class="header-section-number">4.7.4.2</span> Accessing parts of corpus<a href="4.7-single-web-page.html#accessing-parts-of-corpus-5" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1182-1"><a href="4.7-single-web-page.html#cb1182-1" tabindex="-1"></a>web_page_txt_corpus[[<span class="dv">4</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb1176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1176-1"><a href="4.7-single-web-page.html#cb1176-1" tabindex="-1"></a>web_page_txt_corpus[[<span class="dv">4</span>]]</span></code></pre></div>
 <pre><code>## [1] &quot;The core tidyverse includes the packages that you’re likely to use in everyday data analyses. As of tidyverse 1.3.0, the following packages are included in the core tidyverse:&quot;</code></pre>
 </div>
 <div id="document-level-information-4" class="section level4 hasAnchor" number="4.7.4.3">
 <h4><span class="header-section-number">4.7.4.3</span> Document-level information<a href="4.7-single-web-page.html#document-level-information-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1184-1"><a href="4.7-single-web-page.html#cb1184-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">docvars</span>(web_page_txt_corpus))</span></code></pre></div>
+<div class="sourceCode" id="cb1178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1178-1"><a href="4.7-single-web-page.html#cb1178-1" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">docvars</span>(web_page_txt_corpus))</span></code></pre></div>
 <pre><code>## data frame with 0 columns and 6 rows</code></pre>
 </div>
 </div>
@@ -2317,8 +2317,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">4.7.5.1</span> Sentences<a href="4.7-single-web-page.html#sentences-5" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div id="transform-10" class="section level5 hasAnchor" number="4.7.5.1.1">
 <h5><span class="header-section-number">4.7.5.1.1</span> Transform<a href="4.7-single-web-page.html#transform-10" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1186-1"><a href="4.7-single-web-page.html#cb1186-1" tabindex="-1"></a>web_page_txt_corpus_sent <span class="ot">&lt;-</span> <span class="fu">corpus_reshape</span>(web_page_txt_corpus, <span class="at">to =</span> <span class="st">&quot;sentences&quot;</span>)</span>
-<span id="cb1186-2"><a href="4.7-single-web-page.html#cb1186-2" tabindex="-1"></a>web_page_txt_corpus_sent</span></code></pre></div>
+<div class="sourceCode" id="cb1180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1180-1"><a href="4.7-single-web-page.html#cb1180-1" tabindex="-1"></a>web_page_txt_corpus_sent <span class="ot">&lt;-</span> <span class="fu">corpus_reshape</span>(web_page_txt_corpus, <span class="at">to =</span> <span class="st">&quot;sentences&quot;</span>)</span>
+<span id="cb1180-2"><a href="4.7-single-web-page.html#cb1180-2" tabindex="-1"></a>web_page_txt_corpus_sent</span></code></pre></div>
 <pre><code>## Corpus consisting of 57 documents.
 ## text1.1 :
 ## &quot;Install all the packages in the tidyverse by running install...&quot;
@@ -2342,7 +2342,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="summary-20" class="section level5 hasAnchor" number="4.7.5.1.2">
 <h5><span class="header-section-number">4.7.5.1.2</span> Summary<a href="4.7-single-web-page.html#summary-20" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1188-1"><a href="4.7-single-web-page.html#cb1188-1" tabindex="-1"></a><span class="fu">summary</span>(web_page_txt_corpus_sent)</span></code></pre></div>
+<div class="sourceCode" id="cb1182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1182-1"><a href="4.7-single-web-page.html#cb1182-1" tabindex="-1"></a><span class="fu">summary</span>(web_page_txt_corpus_sent)</span></code></pre></div>
 <pre><code>## Corpus consisting of 57 documents, showing 57 documents:
 ## 
 ##      Text Types Tokens Sentences
@@ -2407,10 +2407,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="subset-10" class="section level5 hasAnchor" number="4.7.5.1.3">
 <h5><span class="header-section-number">4.7.5.1.3</span> Subset<a href="4.7-single-web-page.html#subset-10" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We can subset sentences with 10 or more words</p>
-<div class="sourceCode" id="cb1190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1190-1"><a href="4.7-single-web-page.html#cb1190-1" tabindex="-1"></a>web_page_txt_corpus_sent_long <span class="ot">&lt;-</span> <span class="fu">corpus_subset</span>(web_page_txt_corpus_sent, <span class="fu">ntoken</span>(web_page_txt_corpus_sent) <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
-<span id="cb1190-2"><a href="4.7-single-web-page.html#cb1190-2" tabindex="-1"></a><span class="fu">ndoc</span>(web_page_txt_corpus_sent_long)</span></code></pre></div>
+<div class="sourceCode" id="cb1184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1184-1"><a href="4.7-single-web-page.html#cb1184-1" tabindex="-1"></a>web_page_txt_corpus_sent_long <span class="ot">&lt;-</span> <span class="fu">corpus_subset</span>(web_page_txt_corpus_sent, <span class="fu">ntoken</span>(web_page_txt_corpus_sent) <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
+<span id="cb1184-2"><a href="4.7-single-web-page.html#cb1184-2" tabindex="-1"></a><span class="fu">ndoc</span>(web_page_txt_corpus_sent_long)</span></code></pre></div>
 <pre><code>## [1] 37</code></pre>
-<div class="sourceCode" id="cb1192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1192-1"><a href="4.7-single-web-page.html#cb1192-1" tabindex="-1"></a><span class="fu">summary</span>(web_page_txt_corpus_sent_long)</span></code></pre></div>
+<div class="sourceCode" id="cb1186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1186-1"><a href="4.7-single-web-page.html#cb1186-1" tabindex="-1"></a><span class="fu">summary</span>(web_page_txt_corpus_sent_long)</span></code></pre></div>
 <pre><code>## Corpus consisting of 37 documents, showing 37 documents:
 ## 
 ##      Text Types Tokens Sentences
@@ -2457,8 +2457,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">4.7.5.2</span> Paragraphs<a href="4.7-single-web-page.html#paragraphs-5" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div id="transform-11" class="section level5 hasAnchor" number="4.7.5.2.1">
 <h5><span class="header-section-number">4.7.5.2.1</span> Transform<a href="4.7-single-web-page.html#transform-11" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1194-1"><a href="4.7-single-web-page.html#cb1194-1" tabindex="-1"></a>web_page_txt_corpus_para <span class="ot">&lt;-</span> <span class="fu">corpus_reshape</span>(web_page_txt_corpus, <span class="at">to =</span> <span class="st">&quot;paragraphs&quot;</span>)</span>
-<span id="cb1194-2"><a href="4.7-single-web-page.html#cb1194-2" tabindex="-1"></a>web_page_txt_corpus_para</span></code></pre></div>
+<div class="sourceCode" id="cb1188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1188-1"><a href="4.7-single-web-page.html#cb1188-1" tabindex="-1"></a>web_page_txt_corpus_para <span class="ot">&lt;-</span> <span class="fu">corpus_reshape</span>(web_page_txt_corpus, <span class="at">to =</span> <span class="st">&quot;paragraphs&quot;</span>)</span>
+<span id="cb1188-2"><a href="4.7-single-web-page.html#cb1188-2" tabindex="-1"></a>web_page_txt_corpus_para</span></code></pre></div>
 <pre><code>## Corpus consisting of 31 documents.
 ## text1 :
 ## &quot;Install all the packages in the tidyverse by running install...&quot;
@@ -2482,7 +2482,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="summary-21" class="section level5 hasAnchor" number="4.7.5.2.2">
 <h5><span class="header-section-number">4.7.5.2.2</span> Summary<a href="4.7-single-web-page.html#summary-21" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1196-1"><a href="4.7-single-web-page.html#cb1196-1" tabindex="-1"></a><span class="fu">summary</span>(web_page_txt_corpus_para)</span></code></pre></div>
+<div class="sourceCode" id="cb1190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1190-1"><a href="4.7-single-web-page.html#cb1190-1" tabindex="-1"></a><span class="fu">summary</span>(web_page_txt_corpus_para)</span></code></pre></div>
 <pre><code>## Corpus consisting of 31 documents, showing 31 documents:
 ## 
 ##    Text Types Tokens Sentences
@@ -2521,10 +2521,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="subset-11" class="section level5 hasAnchor" number="4.7.5.2.3">
 <h5><span class="header-section-number">4.7.5.2.3</span> Subset<a href="4.7-single-web-page.html#subset-11" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We can subset sentences with 10 or more words</p>
-<div class="sourceCode" id="cb1198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1198-1"><a href="4.7-single-web-page.html#cb1198-1" tabindex="-1"></a>web_page_txt_corpus_para_long <span class="ot">&lt;-</span> <span class="fu">corpus_subset</span>(web_page_txt_corpus_para, <span class="fu">ntoken</span>(web_page_txt_corpus_para) <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
-<span id="cb1198-2"><a href="4.7-single-web-page.html#cb1198-2" tabindex="-1"></a><span class="fu">ndoc</span>(web_page_txt_corpus_para_long)</span></code></pre></div>
+<div class="sourceCode" id="cb1192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1192-1"><a href="4.7-single-web-page.html#cb1192-1" tabindex="-1"></a>web_page_txt_corpus_para_long <span class="ot">&lt;-</span> <span class="fu">corpus_subset</span>(web_page_txt_corpus_para, <span class="fu">ntoken</span>(web_page_txt_corpus_para) <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
+<span id="cb1192-2"><a href="4.7-single-web-page.html#cb1192-2" tabindex="-1"></a><span class="fu">ndoc</span>(web_page_txt_corpus_para_long)</span></code></pre></div>
 <pre><code>## [1] 25</code></pre>
-<div class="sourceCode" id="cb1200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1200-1"><a href="4.7-single-web-page.html#cb1200-1" tabindex="-1"></a><span class="fu">summary</span>(web_page_txt_corpus_para_long)</span></code></pre></div>
+<div class="sourceCode" id="cb1194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1194-1"><a href="4.7-single-web-page.html#cb1194-1" tabindex="-1"></a><span class="fu">summary</span>(web_page_txt_corpus_para_long)</span></code></pre></div>
 <pre><code>## Corpus consisting of 25 documents, showing 25 documents:
 ## 
 ##    Text Types Tokens Sentences
@@ -2560,8 +2560,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>tokens()</code> segments texts in a corpus into tokens (words or sentences) by word boundaries. We can remove punctuations or not</p>
 <div id="with-punctuations-5" class="section level5 hasAnchor" number="4.7.5.3.1">
 <h5><span class="header-section-number">4.7.5.3.1</span> With punctuations<a href="4.7-single-web-page.html#with-punctuations-5" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1202-1"><a href="4.7-single-web-page.html#cb1202-1" tabindex="-1"></a>web_page_txt_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(web_page_txt_corpus)</span>
-<span id="cb1202-2"><a href="4.7-single-web-page.html#cb1202-2" tabindex="-1"></a>web_page_txt_corpus_tok</span></code></pre></div>
+<div class="sourceCode" id="cb1196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1196-1"><a href="4.7-single-web-page.html#cb1196-1" tabindex="-1"></a>web_page_txt_corpus_tok <span class="ot">&lt;-</span> <span class="fu">tokens</span>(web_page_txt_corpus)</span>
+<span id="cb1196-2"><a href="4.7-single-web-page.html#cb1196-2" tabindex="-1"></a>web_page_txt_corpus_tok</span></code></pre></div>
 <pre><code>## Tokens consisting of 31 documents.
 ## text1 :
 ##  [1] &quot;Install&quot;          &quot;all&quot;              &quot;the&quot;              &quot;packages&quot;        
@@ -2602,8 +2602,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="without-punctuations-5" class="section level5 hasAnchor" number="4.7.5.3.2">
 <h5><span class="header-section-number">4.7.5.3.2</span> Without punctuations<a href="4.7-single-web-page.html#without-punctuations-5" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1204-1"><a href="4.7-single-web-page.html#cb1204-1" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(web_page_txt_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1204-2"><a href="4.7-single-web-page.html#cb1204-2" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct</span></code></pre></div>
+<div class="sourceCode" id="cb1198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1198-1"><a href="4.7-single-web-page.html#cb1198-1" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct <span class="ot">&lt;-</span> <span class="fu">tokens</span>(web_page_txt_corpus, <span class="at">remove_punct =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1198-2"><a href="4.7-single-web-page.html#cb1198-2" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct</span></code></pre></div>
 <pre><code>## Tokens consisting of 31 documents.
 ## text1 :
 ##  [1] &quot;Install&quot;          &quot;all&quot;              &quot;the&quot;              &quot;packages&quot;        
@@ -2644,8 +2644,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="types-5" class="section level4 hasAnchor" number="4.7.5.4">
 <h4><span class="header-section-number">4.7.5.4</span> Types<a href="4.7-single-web-page.html#types-5" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We can also generate <code>types</code> on the tokenised corpus (without punctuations)</p>
-<div class="sourceCode" id="cb1206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1206-1"><a href="4.7-single-web-page.html#cb1206-1" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct_types <span class="ot">&lt;-</span> <span class="fu">types</span>(web_page_txt_corpus_tok_no_punct)</span>
-<span id="cb1206-2"><a href="4.7-single-web-page.html#cb1206-2" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct_types</span></code></pre></div>
+<div class="sourceCode" id="cb1200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1200-1"><a href="4.7-single-web-page.html#cb1200-1" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct_types <span class="ot">&lt;-</span> <span class="fu">types</span>(web_page_txt_corpus_tok_no_punct)</span>
+<span id="cb1200-2"><a href="4.7-single-web-page.html#cb1200-2" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct_types</span></code></pre></div>
 <pre><code>##   [1] &quot;Install&quot;                         &quot;all&quot;                            
 ##   [3] &quot;the&quot;                             &quot;packages&quot;                       
 ##   [5] &quot;in&quot;                              &quot;tidyverse&quot;                      
@@ -2827,8 +2827,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="pattern-5" class="section level5 hasAnchor" number="4.7.5.5.1">
 <h5><span class="header-section-number">4.7.5.5.1</span> Pattern<a href="4.7-single-web-page.html#pattern-5" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>You can see how keywords are used in the actual contexts in a concordance view produced by <code>kwic()</code>. <code>Pattern</code> is used to search for the pattern we are interested in (with * as a wildcard). <code>Window</code> used to display number of words/tokens around it.</p>
-<div class="sourceCode" id="cb1208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1208-1"><a href="4.7-single-web-page.html#cb1208-1" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct_types_tidy <span class="ot">&lt;-</span> <span class="fu">kwic</span>(web_page_txt_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="st">&quot;tidy*&quot;</span>, <span class="at">window =</span> <span class="dv">6</span>)</span>
-<span id="cb1208-2"><a href="4.7-single-web-page.html#cb1208-2" tabindex="-1"></a><span class="fu">head</span>(web_page_txt_corpus_tok_no_punct_types_tidy, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1202-1"><a href="4.7-single-web-page.html#cb1202-1" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct_types_tidy <span class="ot">&lt;-</span> <span class="fu">kwic</span>(web_page_txt_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="st">&quot;tidy*&quot;</span>, <span class="at">window =</span> <span class="dv">6</span>)</span>
+<span id="cb1202-2"><a href="4.7-single-web-page.html#cb1202-2" tabindex="-1"></a><span class="fu">head</span>(web_page_txt_corpus_tok_no_punct_types_tidy, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Keyword-in-context with 10 matches.                                                                       
 ##   [text1, 7]              Install all the packages in the | tidyverse |
 ##  [text1, 11] in the tidyverse by running install.packages | tidyverse |
@@ -2854,8 +2854,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="phrase-5" class="section level5 hasAnchor" number="4.7.5.5.2">
 <h5><span class="header-section-number">4.7.5.5.2</span> Phrase<a href="4.7-single-web-page.html#phrase-5" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1210-1"><a href="4.7-single-web-page.html#cb1210-1" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct_phrase <span class="ot">&lt;-</span> <span class="fu">kwic</span>(web_page_txt_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="fu">phrase</span>(<span class="st">&quot;the tidy*&quot;</span>), <span class="at">window =</span> <span class="dv">6</span>)</span>
-<span id="cb1210-2"><a href="4.7-single-web-page.html#cb1210-2" tabindex="-1"></a><span class="fu">head</span>(web_page_txt_corpus_tok_no_punct_phrase, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1204-1"><a href="4.7-single-web-page.html#cb1204-1" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct_phrase <span class="ot">&lt;-</span> <span class="fu">kwic</span>(web_page_txt_corpus_tok_no_punct, <span class="at">pattern =</span>  <span class="fu">phrase</span>(<span class="st">&quot;the tidy*&quot;</span>), <span class="at">window =</span> <span class="dv">6</span>)</span>
+<span id="cb1204-2"><a href="4.7-single-web-page.html#cb1204-2" tabindex="-1"></a><span class="fu">head</span>(web_page_txt_corpus_tok_no_punct_phrase, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Keyword-in-context with 6 matches.                                                                     
 ##    [text1, 6:7]         Install all the packages in | the tidyverse |
 ##    [text3, 4:5]                    Learn more about | the tidyverse |
@@ -2876,8 +2876,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">4.7.5.6</span> stopwords<a href="4.7-single-web-page.html#stopwords-5" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><code>stopwords</code> are function words (or grammatical words). We can search for these and remove them (if not necessary). This step is often useful because we are not interested in these stop_words.</p>
 <p><code>tokens_remove()</code> is an alias to <code>tokens_select(selection = "remove")</code></p>
-<div class="sourceCode" id="cb1212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1212-1"><a href="4.7-single-web-page.html#cb1212-1" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct_no_Stop <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(web_page_txt_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">stopwords</span>(<span class="st">&quot;en&quot;</span>, <span class="at">source =</span> <span class="st">&quot;stopwords-iso&quot;</span>), <span class="at">selection =</span> <span class="st">&quot;remove&quot;</span>)</span>
-<span id="cb1212-2"><a href="4.7-single-web-page.html#cb1212-2" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct_no_Stop</span></code></pre></div>
+<div class="sourceCode" id="cb1206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1206-1"><a href="4.7-single-web-page.html#cb1206-1" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct_no_Stop <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(web_page_txt_corpus_tok_no_punct, <span class="at">pattern =</span> <span class="fu">stopwords</span>(<span class="st">&quot;en&quot;</span>, <span class="at">source =</span> <span class="st">&quot;stopwords-iso&quot;</span>), <span class="at">selection =</span> <span class="st">&quot;remove&quot;</span>)</span>
+<span id="cb1206-2"><a href="4.7-single-web-page.html#cb1206-2" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct_no_Stop</span></code></pre></div>
 <pre><code>## Tokens consisting of 31 documents.
 ## text1 :
 ## [1] &quot;Install&quot;          &quot;packages&quot;         &quot;tidyverse&quot;        &quot;running&quot;         
@@ -2915,8 +2915,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To be able to extract the stems of each of the given words, we use the function <code>tokens_wordstem</code>, <code>char_wordstem</code> or <code>dfm_wordstem</code></p>
 <div id="tokens_wordstem-5" class="section level5 hasAnchor" number="4.7.5.7.1">
 <h5><span class="header-section-number">4.7.5.7.1</span> <code>tokens_wordstem</code><a href="4.7-single-web-page.html#tokens_wordstem-5" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb1214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1214-1"><a href="4.7-single-web-page.html#cb1214-1" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct_no_Stop_stem <span class="ot">&lt;-</span> <span class="fu">tokens_wordstem</span>(web_page_txt_corpus_tok_no_punct_no_Stop)</span>
-<span id="cb1214-2"><a href="4.7-single-web-page.html#cb1214-2" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct_no_Stop_stem</span></code></pre></div>
+<div class="sourceCode" id="cb1208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1208-1"><a href="4.7-single-web-page.html#cb1208-1" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct_no_Stop_stem <span class="ot">&lt;-</span> <span class="fu">tokens_wordstem</span>(web_page_txt_corpus_tok_no_punct_no_Stop)</span>
+<span id="cb1208-2"><a href="4.7-single-web-page.html#cb1208-2" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct_no_Stop_stem</span></code></pre></div>
 <pre><code>## Tokens consisting of 31 documents.
 ## text1 :
 ## [1] &quot;Install&quot;        &quot;packag&quot;         &quot;tidyvers&quot;       &quot;run&quot;           
@@ -2949,8 +2949,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="dfm_wordstem-5" class="section level5 hasAnchor" number="4.7.5.7.2">
 <h5><span class="header-section-number">4.7.5.7.2</span> <code>dfm_wordstem</code><a href="4.7-single-web-page.html#dfm_wordstem-5" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Here we can use the <code>dfm</code> (for Document Feature Matrix) to obtain details of the wordstems used in each of the texts</p>
-<div class="sourceCode" id="cb1216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1216-1"><a href="4.7-single-web-page.html#cb1216-1" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct_no_Stop_stem_dfm <span class="ot">&lt;-</span> <span class="fu">dfm</span>(web_page_txt_corpus_tok_no_punct_no_Stop)</span>
-<span id="cb1216-2"><a href="4.7-single-web-page.html#cb1216-2" tabindex="-1"></a><span class="fu">dfm_wordstem</span>(web_page_txt_corpus_tok_no_punct_no_Stop_stem_dfm)</span></code></pre></div>
+<div class="sourceCode" id="cb1210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1210-1"><a href="4.7-single-web-page.html#cb1210-1" tabindex="-1"></a>web_page_txt_corpus_tok_no_punct_no_Stop_stem_dfm <span class="ot">&lt;-</span> <span class="fu">dfm</span>(web_page_txt_corpus_tok_no_punct_no_Stop)</span>
+<span id="cb1210-2"><a href="4.7-single-web-page.html#cb1210-2" tabindex="-1"></a><span class="fu">dfm_wordstem</span>(web_page_txt_corpus_tok_no_punct_no_Stop_stem_dfm)</span></code></pre></div>
 <pre><code>## Document-feature matrix of: 31 documents, 204 features (95.13% sparse) and 0 docvars.
 ##        features
 ## docs    instal packag tidyvers run install.packag librari load core current

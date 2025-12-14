@@ -23,7 +23,7 @@
 <meta name="author" content="Jalal Al-Tamimi" />
 
 
-<meta name="date" content="2025-11-09" />
+<meta name="date" content="2025-12-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -531,7 +531,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2.6.4.4" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-and-d-prime"><i class="fa fa-check"></i><b>2.6.4.4</b> GLM and d prime</a></li>
-<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-as-a-classification-tool"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
+<li class="chapter" data-level="2.6.4.5" data-path="2.6-GLM.html"><a href="2.6-GLM.html#GLM-Classification"><i class="fa fa-check"></i><b>2.6.4.5</b> GLM as a classification tool</a></li>
 <li class="chapter" data-level="2.6.4.6" data-path="2.6-GLM.html"><a href="2.6-GLM.html#glm-other-distributions"><i class="fa fa-check"></i><b>2.6.4.6</b> GLM: Other distributions</a></li>
 </ul></li>
 </ul></li>
@@ -2091,11 +2091,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1" data-path="8.1-what-is-predictive-modelling.html"><a href="8.1-what-is-predictive-modelling.html"><i class="fa fa-check"></i><b>8.1</b> What is predictive modelling</a></li>
 <li class="chapter" data-level="8.2" data-path="8.2-loading-packages-7.html"><a href="8.2-loading-packages-7.html"><i class="fa fa-check"></i><b>8.2</b> Loading packages</a></li>
 <li class="chapter" data-level="8.3" data-path="8.3-read-dataset-1.html"><a href="8.3-read-dataset-1.html"><i class="fa fa-check"></i><b>8.3</b> Read dataset</a></li>
-<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
+<li class="chapter" data-level="8.4" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html"><i class="fa fa-check"></i><b>8.4</b> GLM as a classification tool</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
-<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
-<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool-1.html"><a href="8.4-glm-as-a-classification-tool-1.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
+<li class="chapter" data-level="8.4.1" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-specification-1"><i class="fa fa-check"></i><b>8.4.1</b> Model specification</a></li>
+<li class="chapter" data-level="8.4.2" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#plogis"><i class="fa fa-check"></i><b>8.4.2</b> Plogis</a></li>
+<li class="chapter" data-level="8.4.3" data-path="8.4-glm-as-a-classification-tool.html"><a href="8.4-glm-as-a-classification-tool.html#model-predictions"><i class="fa fa-check"></i><b>8.4.3</b> Model predictions</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="8.5-issues-with-glm-and-regression-analyses-in-general.html"><a href="8.5-issues-with-glm-and-regression-analyses-in-general.html"><i class="fa fa-check"></i><b>8.5</b> Issues with GLM (and regression analyses in general)</a>
 <ul>
@@ -2231,9 +2231,9 @@ Then you need to make decisions on how many dimensions to retain (usually, those
 <h3><span class="header-section-number">7.4.1</span> Model specification<a href="7.4-principal-component-analyses---pca.html#model-specification" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We use the package <code>FactoMineR</code> to run our PCA.
 We use all acoustic measures as predictors and our qualitative variable as the <code>context</code>.</p>
-<div class="sourceCode" id="cb2029"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2029-1"><a href="7.4-principal-component-analyses---pca.html#cb2029-1" tabindex="-1"></a>dfPharPCA <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
-<span id="cb2029-2"><a href="7.4-principal-component-analyses---pca.html#cb2029-2" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(<span class="at">var =</span> <span class="st">&quot;contextN&quot;</span>)</span>
-<span id="cb2029-3"><a href="7.4-principal-component-analyses---pca.html#cb2029-3" tabindex="-1"></a>dfPharPCA</span></code></pre></div>
+<div class="sourceCode" id="cb2023"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2023-1"><a href="7.4-principal-component-analyses---pca.html#cb2023-1" tabindex="-1"></a>dfPharPCA <span class="ot">&lt;-</span> dfPharV2 <span class="sc">%&gt;%</span> </span>
+<span id="cb2023-2"><a href="7.4-principal-component-analyses---pca.html#cb2023-2" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(<span class="at">var =</span> <span class="st">&quot;contextN&quot;</span>)</span>
+<span id="cb2023-3"><a href="7.4-principal-component-analyses---pca.html#cb2023-3" tabindex="-1"></a>dfPharPCA</span></code></pre></div>
 <pre><code>##             context      CPP    Energy     H1A1c        H1A2c         H1A3c
 ## G_01       Guttural 23.53283 22.753333 15.162000 16.037000000  -3.297166667
 ## G_02       Guttural 25.71500 22.831167 13.196333 11.624000000  -5.915833333
@@ -3846,10 +3846,10 @@ We use all acoustic measures as predictors and our qualitative variable as the <
 ## NG_220 2.0113137 2.6604471   1.12550000 -19.2691667 -20.394666670
 ## NG_221 1.8697238 2.6208004   3.03883333 -18.5955000 -21.634333330
 ## NG_222 1.7939113 2.6886140   4.76550000 -20.3470000 -25.112500000</code></pre>
-<div class="sourceCode" id="cb2031"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2031-1"><a href="7.4-principal-component-analyses---pca.html#cb2031-1" tabindex="-1"></a>pcaDat1 <span class="ot">&lt;-</span> <span class="fu">PCA</span>(dfPharPCA,</span>
-<span id="cb2031-2"><a href="7.4-principal-component-analyses---pca.html#cb2031-2" tabindex="-1"></a>               <span class="at">quali.sup =</span> <span class="dv">1</span>,</span>
-<span id="cb2031-3"><a href="7.4-principal-component-analyses---pca.html#cb2031-3" tabindex="-1"></a>               <span class="at">graph =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2031-4"><a href="7.4-principal-component-analyses---pca.html#cb2031-4" tabindex="-1"></a>               <span class="at">scale.unit =</span> <span class="cn">TRUE</span>, <span class="at">ncp =</span> <span class="dv">5</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb2025"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2025-1"><a href="7.4-principal-component-analyses---pca.html#cb2025-1" tabindex="-1"></a>pcaDat1 <span class="ot">&lt;-</span> <span class="fu">PCA</span>(dfPharPCA,</span>
+<span id="cb2025-2"><a href="7.4-principal-component-analyses---pca.html#cb2025-2" tabindex="-1"></a>               <span class="at">quali.sup =</span> <span class="dv">1</span>,</span>
+<span id="cb2025-3"><a href="7.4-principal-component-analyses---pca.html#cb2025-3" tabindex="-1"></a>               <span class="at">graph =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2025-4"><a href="7.4-principal-component-analyses---pca.html#cb2025-4" tabindex="-1"></a>               <span class="at">scale.unit =</span> <span class="cn">TRUE</span>, <span class="at">ncp =</span> <span class="dv">5</span>) </span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-932-1.png" width="672" /><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-932-2.png" width="672" /></p>
 </div>
 <div id="scree-plot" class="section level3 hasAnchor" number="7.4.2">
@@ -3858,7 +3858,7 @@ We use all acoustic measures as predictors and our qualitative variable as the <
 This is equivalent to the normalized eigenvalues of the covariance matrix used in PCA.
 Traditionally, any PC that explained 5% or above of the variance can be retained.
 In our example below, we know that the first 2 dimensions explain most of the variance, with the third dimension contributing more than 10%.</p>
-<div class="sourceCode" id="cb2032"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2032-1"><a href="7.4-principal-component-analyses---pca.html#cb2032-1" tabindex="-1"></a><span class="fu">fviz_eig</span>(pcaDat1)</span></code></pre></div>
+<div class="sourceCode" id="cb2026"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2026-1"><a href="7.4-principal-component-analyses---pca.html#cb2026-1" tabindex="-1"></a><span class="fu">fviz_eig</span>(pcaDat1)</span></code></pre></div>
 <pre><code>## Warning in geom_bar(stat = &quot;identity&quot;, fill = barfill, color = barcolor, :
 ## Ignoring empty aesthetic: `width`.</code></pre>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-933-1.png" width="672" /></p>
@@ -3868,7 +3868,7 @@ In our example below, we know that the first 2 dimensions explain most of the va
 <div id="summary-of-results" class="section level4 hasAnchor" number="7.4.3.1">
 <h4><span class="header-section-number">7.4.3.1</span> Summary of results<a href="7.4-principal-component-analyses---pca.html#summary-of-results" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Based on the summary of results, we observe that the first 5 dimensions account 88.3% of the variance in the data; each contribute individually to more than 5% of the variance (the fifth is at 4.97%!).</p>
-<div class="sourceCode" id="cb2034"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2034-1"><a href="7.4-principal-component-analyses---pca.html#cb2034-1" tabindex="-1"></a><span class="fu">summary</span>(pcaDat1)</span></code></pre></div>
+<div class="sourceCode" id="cb2028"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2028-1"><a href="7.4-principal-component-analyses---pca.html#cb2028-1" tabindex="-1"></a><span class="fu">summary</span>(pcaDat1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## PCA(X = dfPharPCA, scale.unit = TRUE, ncp = 5, quali.sup = 1,  
@@ -3952,7 +3952,7 @@ In our example below, we know that the first 2 dimensions explain most of the va
 <div id="contribution-of-predictors-and-groups" class="section level4 hasAnchor" number="7.4.3.2">
 <h4><span class="header-section-number">7.4.3.2</span> Contribution of predictors and groups<a href="7.4-principal-component-analyses---pca.html#contribution-of-predictors-and-groups" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Below, we look at the contributions of the main 5 dimensions.</p>
-<div class="sourceCode" id="cb2036"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2036-1"><a href="7.4-principal-component-analyses---pca.html#cb2036-1" tabindex="-1"></a><span class="fu">dimdesc</span>(pcaDat1, <span class="at">axes =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">proba =</span> <span class="fl">0.05</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2030"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2030-1"><a href="7.4-principal-component-analyses---pca.html#cb2030-1" tabindex="-1"></a><span class="fu">dimdesc</span>(pcaDat1, <span class="at">axes =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">proba =</span> <span class="fl">0.05</span>)</span></code></pre></div>
 <pre><code>## $Dim.1
 ## 
 ## Link between the variable and the continuous variables (R-square)
@@ -4103,27 +4103,27 @@ In our example below, we know that the first 2 dimensions explain most of the va
 <p>We look next at the contribution of the top 10 predictors on each of the 6 dimensions</p>
 <div id="dimension-1" class="section level5 hasAnchor" number="7.4.3.3.1">
 <h5><span class="header-section-number">7.4.3.3.1</span> Dimension 1<a href="7.4-principal-component-analyses---pca.html#dimension-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb2038"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2038-1"><a href="7.4-principal-component-analyses---pca.html#cb2038-1" tabindex="-1"></a><span class="fu">fviz_contrib</span>(pcaDat1, <span class="at">choice =</span> <span class="st">&quot;var&quot;</span>, <span class="at">axes =</span> <span class="dv">1</span>, <span class="at">top =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2032"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2032-1"><a href="7.4-principal-component-analyses---pca.html#cb2032-1" tabindex="-1"></a><span class="fu">fviz_contrib</span>(pcaDat1, <span class="at">choice =</span> <span class="st">&quot;var&quot;</span>, <span class="at">axes =</span> <span class="dv">1</span>, <span class="at">top =</span> <span class="dv">10</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-936-1.png" width="672" /></p>
 </div>
 <div id="dimension-2" class="section level5 hasAnchor" number="7.4.3.3.2">
 <h5><span class="header-section-number">7.4.3.3.2</span> Dimension 2<a href="7.4-principal-component-analyses---pca.html#dimension-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb2039"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2039-1"><a href="7.4-principal-component-analyses---pca.html#cb2039-1" tabindex="-1"></a><span class="fu">fviz_contrib</span>(pcaDat1, <span class="at">choice =</span> <span class="st">&quot;var&quot;</span>, <span class="at">axes =</span> <span class="dv">2</span>, <span class="at">top =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2033"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2033-1"><a href="7.4-principal-component-analyses---pca.html#cb2033-1" tabindex="-1"></a><span class="fu">fviz_contrib</span>(pcaDat1, <span class="at">choice =</span> <span class="st">&quot;var&quot;</span>, <span class="at">axes =</span> <span class="dv">2</span>, <span class="at">top =</span> <span class="dv">10</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-937-1.png" width="672" /></p>
 </div>
 <div id="dimension-3" class="section level5 hasAnchor" number="7.4.3.3.3">
 <h5><span class="header-section-number">7.4.3.3.3</span> Dimension 3<a href="7.4-principal-component-analyses---pca.html#dimension-3" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb2040"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2040-1"><a href="7.4-principal-component-analyses---pca.html#cb2040-1" tabindex="-1"></a><span class="fu">fviz_contrib</span>(pcaDat1, <span class="at">choice =</span> <span class="st">&quot;var&quot;</span>, <span class="at">axes =</span> <span class="dv">3</span>, <span class="at">top =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2034"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2034-1"><a href="7.4-principal-component-analyses---pca.html#cb2034-1" tabindex="-1"></a><span class="fu">fviz_contrib</span>(pcaDat1, <span class="at">choice =</span> <span class="st">&quot;var&quot;</span>, <span class="at">axes =</span> <span class="dv">3</span>, <span class="at">top =</span> <span class="dv">10</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-938-1.png" width="672" /></p>
 </div>
 <div id="dimension-4" class="section level5 hasAnchor" number="7.4.3.3.4">
 <h5><span class="header-section-number">7.4.3.3.4</span> Dimension 4<a href="7.4-principal-component-analyses---pca.html#dimension-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb2041"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2041-1"><a href="7.4-principal-component-analyses---pca.html#cb2041-1" tabindex="-1"></a><span class="fu">fviz_contrib</span>(pcaDat1, <span class="at">choice =</span> <span class="st">&quot;var&quot;</span>, <span class="at">axes =</span> <span class="dv">4</span>, <span class="at">top =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2035"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2035-1"><a href="7.4-principal-component-analyses---pca.html#cb2035-1" tabindex="-1"></a><span class="fu">fviz_contrib</span>(pcaDat1, <span class="at">choice =</span> <span class="st">&quot;var&quot;</span>, <span class="at">axes =</span> <span class="dv">4</span>, <span class="at">top =</span> <span class="dv">10</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-939-1.png" width="672" /></p>
 </div>
 <div id="dimension-5" class="section level5 hasAnchor" number="7.4.3.3.5">
 <h5><span class="header-section-number">7.4.3.3.5</span> Dimension 5<a href="7.4-principal-component-analyses---pca.html#dimension-5" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb2042"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2042-1"><a href="7.4-principal-component-analyses---pca.html#cb2042-1" tabindex="-1"></a><span class="fu">fviz_contrib</span>(pcaDat1, <span class="at">choice =</span> <span class="st">&quot;var&quot;</span>, <span class="at">axes =</span> <span class="dv">5</span>, <span class="at">top =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2036"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2036-1"><a href="7.4-principal-component-analyses---pca.html#cb2036-1" tabindex="-1"></a><span class="fu">fviz_contrib</span>(pcaDat1, <span class="at">choice =</span> <span class="st">&quot;var&quot;</span>, <span class="at">axes =</span> <span class="dv">5</span>, <span class="at">top =</span> <span class="dv">10</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-940-1.png" width="672" /></p>
 </div>
 </div>
@@ -4134,59 +4134,59 @@ In our example below, we know that the first 2 dimensions explain most of the va
 <h4><span class="header-section-number">7.4.4.1</span> Default plots<a href="7.4-principal-component-analyses---pca.html#default-plots" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div id="pca-individuals" class="section level5 hasAnchor" number="7.4.4.1.1">
 <h5><span class="header-section-number">7.4.4.1.1</span> PCA Individuals<a href="7.4-principal-component-analyses---pca.html#pca-individuals" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb2043"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2043-1"><a href="7.4-principal-component-analyses---pca.html#cb2043-1" tabindex="-1"></a><span class="fu">fviz_pca_ind</span>(pcaDat1, <span class="at">col.ind =</span> <span class="st">&quot;cos2&quot;</span>, </span>
-<span id="cb2043-2"><a href="7.4-principal-component-analyses---pca.html#cb2043-2" tabindex="-1"></a>             <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>),</span>
-<span id="cb2043-3"><a href="7.4-principal-component-analyses---pca.html#cb2043-3" tabindex="-1"></a>             <span class="at">repel =</span> <span class="cn">FALSE</span> <span class="do">## Avoid text overlapping (slow if many points)</span></span>
-<span id="cb2043-4"><a href="7.4-principal-component-analyses---pca.html#cb2043-4" tabindex="-1"></a>             )</span></code></pre></div>
+<div class="sourceCode" id="cb2037"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2037-1"><a href="7.4-principal-component-analyses---pca.html#cb2037-1" tabindex="-1"></a><span class="fu">fviz_pca_ind</span>(pcaDat1, <span class="at">col.ind =</span> <span class="st">&quot;cos2&quot;</span>, </span>
+<span id="cb2037-2"><a href="7.4-principal-component-analyses---pca.html#cb2037-2" tabindex="-1"></a>             <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>),</span>
+<span id="cb2037-3"><a href="7.4-principal-component-analyses---pca.html#cb2037-3" tabindex="-1"></a>             <span class="at">repel =</span> <span class="cn">FALSE</span> <span class="do">## Avoid text overlapping (slow if many points)</span></span>
+<span id="cb2037-4"><a href="7.4-principal-component-analyses---pca.html#cb2037-4" tabindex="-1"></a>             )</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-941-1.png" width="672" /></p>
 </div>
 <div id="pca-biplot-12" class="section level5 hasAnchor" number="7.4.4.1.2">
 <h5><span class="header-section-number">7.4.4.1.2</span> PCA Biplot 1:2<a href="7.4-principal-component-analyses---pca.html#pca-biplot-12" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb2044"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2044-1"><a href="7.4-principal-component-analyses---pca.html#cb2044-1" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(pcaDat1, <span class="at">repel =</span> <span class="cn">FALSE</span>, <span class="at">habillage =</span> dfPharPCA<span class="sc">$</span>context, <span class="at">addEllipses =</span> <span class="cn">TRUE</span>, <span class="at">title =</span> <span class="st">&quot;Biplot&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2038"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2038-1"><a href="7.4-principal-component-analyses---pca.html#cb2038-1" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(pcaDat1, <span class="at">repel =</span> <span class="cn">FALSE</span>, <span class="at">habillage =</span> dfPharPCA<span class="sc">$</span>context, <span class="at">addEllipses =</span> <span class="cn">TRUE</span>, <span class="at">title =</span> <span class="st">&quot;Biplot&quot;</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-942-1.png" width="672" /></p>
 </div>
 <div id="pca-biplot-34" class="section level5 hasAnchor" number="7.4.4.1.3">
 <h5><span class="header-section-number">7.4.4.1.3</span> PCA Biplot 3:4<a href="7.4-principal-component-analyses---pca.html#pca-biplot-34" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb2045"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2045-1"><a href="7.4-principal-component-analyses---pca.html#cb2045-1" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(pcaDat1, <span class="at">axes =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>), <span class="at">repel =</span> <span class="cn">FALSE</span>, <span class="at">habillage =</span> dfPharPCA<span class="sc">$</span>context, <span class="at">addEllipses =</span> <span class="cn">TRUE</span>, <span class="at">title =</span> <span class="st">&quot;Biplot&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2039"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2039-1"><a href="7.4-principal-component-analyses---pca.html#cb2039-1" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(pcaDat1, <span class="at">axes =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>), <span class="at">repel =</span> <span class="cn">FALSE</span>, <span class="at">habillage =</span> dfPharPCA<span class="sc">$</span>context, <span class="at">addEllipses =</span> <span class="cn">TRUE</span>, <span class="at">title =</span> <span class="st">&quot;Biplot&quot;</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-943-1.png" width="672" /></p>
 </div>
 </div>
 <div id="clustering" class="section level4 hasAnchor" number="7.4.4.2">
 <h4><span class="header-section-number">7.4.4.2</span> Clustering<a href="7.4-principal-component-analyses---pca.html#clustering" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb2046"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2046-1"><a href="7.4-principal-component-analyses---pca.html#cb2046-1" tabindex="-1"></a><span class="fu">fviz_pca_ind</span>(pcaDat1,</span>
-<span id="cb2046-2"><a href="7.4-principal-component-analyses---pca.html#cb2046-2" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">&quot;none&quot;</span>, <span class="do">## hide individual labels</span></span>
-<span id="cb2046-3"><a href="7.4-principal-component-analyses---pca.html#cb2046-3" tabindex="-1"></a>             <span class="at">habillage =</span> dfPharPCA<span class="sc">$</span>context, <span class="do">## color by groups</span></span>
-<span id="cb2046-4"><a href="7.4-principal-component-analyses---pca.html#cb2046-4" tabindex="-1"></a>             <span class="at">addEllipses =</span> <span class="cn">TRUE</span> <span class="do">## Concentration ellipses</span></span>
-<span id="cb2046-5"><a href="7.4-principal-component-analyses---pca.html#cb2046-5" tabindex="-1"></a>             )</span></code></pre></div>
+<div class="sourceCode" id="cb2040"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2040-1"><a href="7.4-principal-component-analyses---pca.html#cb2040-1" tabindex="-1"></a><span class="fu">fviz_pca_ind</span>(pcaDat1,</span>
+<span id="cb2040-2"><a href="7.4-principal-component-analyses---pca.html#cb2040-2" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">&quot;none&quot;</span>, <span class="do">## hide individual labels</span></span>
+<span id="cb2040-3"><a href="7.4-principal-component-analyses---pca.html#cb2040-3" tabindex="-1"></a>             <span class="at">habillage =</span> dfPharPCA<span class="sc">$</span>context, <span class="do">## color by groups</span></span>
+<span id="cb2040-4"><a href="7.4-principal-component-analyses---pca.html#cb2040-4" tabindex="-1"></a>             <span class="at">addEllipses =</span> <span class="cn">TRUE</span> <span class="do">## Concentration ellipses</span></span>
+<span id="cb2040-5"><a href="7.4-principal-component-analyses---pca.html#cb2040-5" tabindex="-1"></a>             )</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-944-1.png" width="672" /></p>
 </div>
 <div id="d-by-groups" class="section level4 hasAnchor" number="7.4.4.3">
 <h4><span class="header-section-number">7.4.4.3</span> 3-D By Groups<a href="7.4-principal-component-analyses---pca.html#d-by-groups" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb2047"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2047-1"><a href="7.4-principal-component-analyses---pca.html#cb2047-1" tabindex="-1"></a>coord <span class="ot">&lt;-</span> pcaDat1<span class="sc">$</span>quali.sup<span class="sc">$</span>coord[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,<span class="dv">0</span>]</span>
-<span id="cb2047-2"><a href="7.4-principal-component-analyses---pca.html#cb2047-2" tabindex="-1"></a>coord</span></code></pre></div>
+<div class="sourceCode" id="cb2041"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2041-1"><a href="7.4-principal-component-analyses---pca.html#cb2041-1" tabindex="-1"></a>coord <span class="ot">&lt;-</span> pcaDat1<span class="sc">$</span>quali.sup<span class="sc">$</span>coord[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,<span class="dv">0</span>]</span>
+<span id="cb2041-2"><a href="7.4-principal-component-analyses---pca.html#cb2041-2" tabindex="-1"></a>coord</span></code></pre></div>
 <pre><code>##             
 ## Non-Guttural
 ## Guttural</code></pre>
-<div class="sourceCode" id="cb2049"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2049-1"><a href="7.4-principal-component-analyses---pca.html#cb2049-1" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb2049-2"><a href="7.4-principal-component-analyses---pca.html#cb2049-2" tabindex="-1"></a><span class="fu">with</span>(pcaDat1, {</span>
-<span id="cb2049-3"><a href="7.4-principal-component-analyses---pca.html#cb2049-3" tabindex="-1"></a>  s3d <span class="ot">&lt;-</span> <span class="fu">scatterplot3d</span>(pcaDat1<span class="sc">$</span>quali.sup<span class="sc">$</span>coord[,<span class="dv">1</span>], pcaDat1<span class="sc">$</span>quali.sup<span class="sc">$</span>coord[,<span class="dv">2</span>], pcaDat1<span class="sc">$</span>quali.sup<span class="sc">$</span>coord[,<span class="dv">3</span>],        <span class="do">## x y and z axis</span></span>
-<span id="cb2049-4"><a href="7.4-principal-component-analyses---pca.html#cb2049-4" tabindex="-1"></a>                       <span class="at">color=</span><span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>), <span class="at">pch=</span><span class="dv">19</span>,        <span class="do">## filled blue and red circles</span></span>
-<span id="cb2049-5"><a href="7.4-principal-component-analyses---pca.html#cb2049-5" tabindex="-1"></a>                       <span class="at">type=</span><span class="st">&quot;h&quot;</span>,                    <span class="do">## vertical lines to the x-y plane</span></span>
-<span id="cb2049-6"><a href="7.4-principal-component-analyses---pca.html#cb2049-6" tabindex="-1"></a>                       <span class="at">main=</span><span class="st">&quot;PCA 3-D Scatterplot&quot;</span>,</span>
-<span id="cb2049-7"><a href="7.4-principal-component-analyses---pca.html#cb2049-7" tabindex="-1"></a>                       <span class="at">xlab=</span><span class="st">&quot;Dim1(37.7%)&quot;</span>,</span>
-<span id="cb2049-8"><a href="7.4-principal-component-analyses---pca.html#cb2049-8" tabindex="-1"></a>                       <span class="at">ylab=</span><span class="st">&quot;&quot;</span>,</span>
-<span id="cb2049-9"><a href="7.4-principal-component-analyses---pca.html#cb2049-9" tabindex="-1"></a>                       <span class="at">zlab=</span><span class="st">&quot;Dim3(11.4%)&quot;</span>,</span>
-<span id="cb2049-10"><a href="7.4-principal-component-analyses---pca.html#cb2049-10" tabindex="-1"></a>                       <span class="co">#xlim = c(-1.5, 1.5), ylim = c(-1.5, 1.5), zlim = c(-0.8, 0.8)</span></span>
-<span id="cb2049-11"><a href="7.4-principal-component-analyses---pca.html#cb2049-11" tabindex="-1"></a>)</span>
-<span id="cb2049-12"><a href="7.4-principal-component-analyses---pca.html#cb2049-12" tabindex="-1"></a>  s3d.coords <span class="ot">&lt;-</span> s3d<span class="sc">$</span><span class="fu">xyz.convert</span>(pcaDat1<span class="sc">$</span>quali.sup<span class="sc">$</span>coord[,<span class="dv">1</span>], pcaDat1<span class="sc">$</span>quali.sup<span class="sc">$</span>coord[,<span class="dv">2</span>], pcaDat1<span class="sc">$</span>quali.sup<span class="sc">$</span>coord[,<span class="dv">3</span>]) <span class="do">## convert 3D coords to 2D projection</span></span>
-<span id="cb2049-13"><a href="7.4-principal-component-analyses---pca.html#cb2049-13" tabindex="-1"></a>  <span class="fu">text</span>(s3d.coords<span class="sc">$</span>x, s3d.coords<span class="sc">$</span>y,             <span class="do">## x and y coordinates</span></span>
-<span id="cb2049-14"><a href="7.4-principal-component-analyses---pca.html#cb2049-14" tabindex="-1"></a>       <span class="at">labels=</span><span class="fu">row.names</span>(coord), <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>),              <span class="do">## text to plot</span></span>
-<span id="cb2049-15"><a href="7.4-principal-component-analyses---pca.html#cb2049-15" tabindex="-1"></a>       <span class="at">cex=</span><span class="dv">1</span>, <span class="at">pos=</span><span class="dv">4</span>)           <span class="do">## shrink text 50% and place to right of points)</span></span>
-<span id="cb2049-16"><a href="7.4-principal-component-analyses---pca.html#cb2049-16" tabindex="-1"></a>})</span>
-<span id="cb2049-17"><a href="7.4-principal-component-analyses---pca.html#cb2049-17" tabindex="-1"></a>dims <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="st">&quot;usr&quot;</span>)</span>
-<span id="cb2049-18"><a href="7.4-principal-component-analyses---pca.html#cb2049-18" tabindex="-1"></a>x <span class="ot">&lt;-</span> dims[<span class="dv">1</span>]<span class="sc">+</span> <span class="fl">0.8</span><span class="sc">*</span><span class="fu">diff</span>(dims[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
-<span id="cb2049-19"><a href="7.4-principal-component-analyses---pca.html#cb2049-19" tabindex="-1"></a>y <span class="ot">&lt;-</span> dims[<span class="dv">3</span>]<span class="sc">+</span> <span class="fl">0.08</span><span class="sc">*</span><span class="fu">diff</span>(dims[<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>])</span>
-<span id="cb2049-20"><a href="7.4-principal-component-analyses---pca.html#cb2049-20" tabindex="-1"></a><span class="fu">text</span>(x, y, <span class="st">&quot;Dim2(25.5%)&quot;</span>, <span class="at">srt =</span> <span class="dv">25</span>,<span class="at">col=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2043"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2043-1"><a href="7.4-principal-component-analyses---pca.html#cb2043-1" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2043-2"><a href="7.4-principal-component-analyses---pca.html#cb2043-2" tabindex="-1"></a><span class="fu">with</span>(pcaDat1, {</span>
+<span id="cb2043-3"><a href="7.4-principal-component-analyses---pca.html#cb2043-3" tabindex="-1"></a>  s3d <span class="ot">&lt;-</span> <span class="fu">scatterplot3d</span>(pcaDat1<span class="sc">$</span>quali.sup<span class="sc">$</span>coord[,<span class="dv">1</span>], pcaDat1<span class="sc">$</span>quali.sup<span class="sc">$</span>coord[,<span class="dv">2</span>], pcaDat1<span class="sc">$</span>quali.sup<span class="sc">$</span>coord[,<span class="dv">3</span>],        <span class="do">## x y and z axis</span></span>
+<span id="cb2043-4"><a href="7.4-principal-component-analyses---pca.html#cb2043-4" tabindex="-1"></a>                       <span class="at">color=</span><span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>), <span class="at">pch=</span><span class="dv">19</span>,        <span class="do">## filled blue and red circles</span></span>
+<span id="cb2043-5"><a href="7.4-principal-component-analyses---pca.html#cb2043-5" tabindex="-1"></a>                       <span class="at">type=</span><span class="st">&quot;h&quot;</span>,                    <span class="do">## vertical lines to the x-y plane</span></span>
+<span id="cb2043-6"><a href="7.4-principal-component-analyses---pca.html#cb2043-6" tabindex="-1"></a>                       <span class="at">main=</span><span class="st">&quot;PCA 3-D Scatterplot&quot;</span>,</span>
+<span id="cb2043-7"><a href="7.4-principal-component-analyses---pca.html#cb2043-7" tabindex="-1"></a>                       <span class="at">xlab=</span><span class="st">&quot;Dim1(37.7%)&quot;</span>,</span>
+<span id="cb2043-8"><a href="7.4-principal-component-analyses---pca.html#cb2043-8" tabindex="-1"></a>                       <span class="at">ylab=</span><span class="st">&quot;&quot;</span>,</span>
+<span id="cb2043-9"><a href="7.4-principal-component-analyses---pca.html#cb2043-9" tabindex="-1"></a>                       <span class="at">zlab=</span><span class="st">&quot;Dim3(11.4%)&quot;</span>,</span>
+<span id="cb2043-10"><a href="7.4-principal-component-analyses---pca.html#cb2043-10" tabindex="-1"></a>                       <span class="co">#xlim = c(-1.5, 1.5), ylim = c(-1.5, 1.5), zlim = c(-0.8, 0.8)</span></span>
+<span id="cb2043-11"><a href="7.4-principal-component-analyses---pca.html#cb2043-11" tabindex="-1"></a>)</span>
+<span id="cb2043-12"><a href="7.4-principal-component-analyses---pca.html#cb2043-12" tabindex="-1"></a>  s3d.coords <span class="ot">&lt;-</span> s3d<span class="sc">$</span><span class="fu">xyz.convert</span>(pcaDat1<span class="sc">$</span>quali.sup<span class="sc">$</span>coord[,<span class="dv">1</span>], pcaDat1<span class="sc">$</span>quali.sup<span class="sc">$</span>coord[,<span class="dv">2</span>], pcaDat1<span class="sc">$</span>quali.sup<span class="sc">$</span>coord[,<span class="dv">3</span>]) <span class="do">## convert 3D coords to 2D projection</span></span>
+<span id="cb2043-13"><a href="7.4-principal-component-analyses---pca.html#cb2043-13" tabindex="-1"></a>  <span class="fu">text</span>(s3d.coords<span class="sc">$</span>x, s3d.coords<span class="sc">$</span>y,             <span class="do">## x and y coordinates</span></span>
+<span id="cb2043-14"><a href="7.4-principal-component-analyses---pca.html#cb2043-14" tabindex="-1"></a>       <span class="at">labels=</span><span class="fu">row.names</span>(coord), <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>),              <span class="do">## text to plot</span></span>
+<span id="cb2043-15"><a href="7.4-principal-component-analyses---pca.html#cb2043-15" tabindex="-1"></a>       <span class="at">cex=</span><span class="dv">1</span>, <span class="at">pos=</span><span class="dv">4</span>)           <span class="do">## shrink text 50% and place to right of points)</span></span>
+<span id="cb2043-16"><a href="7.4-principal-component-analyses---pca.html#cb2043-16" tabindex="-1"></a>})</span>
+<span id="cb2043-17"><a href="7.4-principal-component-analyses---pca.html#cb2043-17" tabindex="-1"></a>dims <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="st">&quot;usr&quot;</span>)</span>
+<span id="cb2043-18"><a href="7.4-principal-component-analyses---pca.html#cb2043-18" tabindex="-1"></a>x <span class="ot">&lt;-</span> dims[<span class="dv">1</span>]<span class="sc">+</span> <span class="fl">0.8</span><span class="sc">*</span><span class="fu">diff</span>(dims[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
+<span id="cb2043-19"><a href="7.4-principal-component-analyses---pca.html#cb2043-19" tabindex="-1"></a>y <span class="ot">&lt;-</span> dims[<span class="dv">3</span>]<span class="sc">+</span> <span class="fl">0.08</span><span class="sc">*</span><span class="fu">diff</span>(dims[<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>])</span>
+<span id="cb2043-20"><a href="7.4-principal-component-analyses---pca.html#cb2043-20" tabindex="-1"></a><span class="fu">text</span>(x, y, <span class="st">&quot;Dim2(25.5%)&quot;</span>, <span class="at">srt =</span> <span class="dv">25</span>,<span class="at">col=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-945-1.png" width="672" /></p>
 <p>Using the PCA approach allowed us to separate the two contexts and showed that we can use up to five dimensions to explain the results.</p>
 </div>
@@ -4198,31 +4198,31 @@ It will generate an HTML report that we can import below.
 The report includes the PCA results, detection of outliers, evaluation of inertia (or % cumulative variance explained), in addition to a description of the top significant dimensions.
 It also provides a classification via clustering of the predictors, and an evaluation of the results.
 It should be noted that “<em>This interpretation of the results was carried out automatically, it cannot match the quality of a personal interpretation</em>”</p>
-<div class="sourceCode" id="cb2050"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2050-1"><a href="7.4-principal-component-analyses---pca.html#cb2050-1" tabindex="-1"></a><span class="fu">Investigate</span>(pcaDat1, <span class="at">file =</span> <span class="st">&quot;outputs/Investigate.Rmd&quot;</span>, <span class="at">language =</span> <span class="st">&quot;en&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2044"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2044-1"><a href="7.4-principal-component-analyses---pca.html#cb2044-1" tabindex="-1"></a><span class="fu">Investigate</span>(pcaDat1, <span class="at">file =</span> <span class="st">&quot;outputs/Investigate.Rmd&quot;</span>, <span class="at">language =</span> <span class="st">&quot;en&quot;</span>)</span></code></pre></div>
 <pre><code>## -- creation of the .Rmd file (time spent : 0s) --
 ## 
-## -- detection of outliers (time spent : 0.01s) --
+## -- detection of outliers (time spent : 0.02s) --
 ## 0 outlier(s) terminated 
 ## 
-## -- analysis of the inertia (time spent : 0.03s) --
+## -- analysis of the inertia (time spent : 0.06s) --
 ## 4 component(s) carrying information : total inertia of 83.3% 
 ## 
-## -- components description (time spent : 23.01s) --
+## -- components description (time spent : 12.76s) --
 ## plane 1:2 
 ## plane 3:4 
 ## 
-## -- classification (time spent : 23.46s) --
+## -- classification (time spent : 13.29s) --
 ## 3 clusters 
 ## 
-## -- annexes writing (time spent : 23.6s) --
+## -- annexes writing (time spent : 13.47s) --
 ## 
-## -- saving data (time spent : 23.73s) --
+## -- saving data (time spent : 13.71s) --
 ## 
-## -- outputs compilation (time spent : 23.73s) --</code></pre>
-<pre><code>## -- task completed (time spent : 33.85s) --
+## -- outputs compilation (time spent : 13.71s) --</code></pre>
+<pre><code>## -- task completed (time spent : 24.57s) --
 ## This interpretation of the results was carried out automatically, 
 ## it cannot match the quality of a personal interpretation</code></pre>
-<div class="sourceCode" id="cb2053"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2053-1"><a href="7.4-principal-component-analyses---pca.html#cb2053-1" tabindex="-1"></a>webshot<span class="sc">::</span><span class="fu">webshot</span>(<span class="at">url =</span> <span class="st">&quot;outputs/Investigate.html&quot;</span>, <span class="at">file =</span> <span class="st">&quot;outputs/Investigate.png&quot;</span>, <span class="at">vwidth =</span> <span class="dv">1000</span>, <span class="at">vheight =</span> <span class="dv">275</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2047"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2047-1"><a href="7.4-principal-component-analyses---pca.html#cb2047-1" tabindex="-1"></a>webshot<span class="sc">::</span><span class="fu">webshot</span>(<span class="at">url =</span> <span class="st">&quot;outputs/Investigate.html&quot;</span>, <span class="at">file =</span> <span class="st">&quot;outputs/Investigate.png&quot;</span>, <span class="at">vwidth =</span> <span class="dv">1000</span>, <span class="at">vheight =</span> <span class="dv">275</span>)</span></code></pre></div>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-947-1.png" width="672" /></p>
 <p><img src="outputs/Investigate.png" style="width:16cm" /></p>
 </div>
@@ -4233,12 +4233,12 @@ These top five dimensions are orthogonal to each other, i.e., they are not corre
 <p>What we can do next is to export the coordinates of the PCA analysis and save them on the original dataframe, which we can use further in a linear mixed effects regression or any other tools.</p>
 <div id="saving-coordinates" class="section level5 hasAnchor" number="7.4.6.0.1">
 <h5><span class="header-section-number">7.4.6.0.1</span> Saving coordinates<a href="7.4-principal-component-analyses---pca.html#saving-coordinates" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb2054"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2054-1"><a href="7.4-principal-component-analyses---pca.html#cb2054-1" tabindex="-1"></a>PCA_coord <span class="ot">&lt;-</span> pcaDat1<span class="sc">$</span>ind<span class="sc">$</span>coord</span>
-<span id="cb2054-2"><a href="7.4-principal-component-analyses---pca.html#cb2054-2" tabindex="-1"></a>PCA_coord <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(PCA_coord)</span>
-<span id="cb2054-3"><a href="7.4-principal-component-analyses---pca.html#cb2054-3" tabindex="-1"></a>dfPharPCAFull <span class="ot">&lt;-</span> dfPharPCA <span class="sc">%&gt;%</span> </span>
-<span id="cb2054-4"><a href="7.4-principal-component-analyses---pca.html#cb2054-4" tabindex="-1"></a>  <span class="fu">bind_cols</span>(PCA_coord)</span>
-<span id="cb2054-5"><a href="7.4-principal-component-analyses---pca.html#cb2054-5" tabindex="-1"></a>dfPharPCAFull <span class="sc">%&gt;%</span> </span>
-<span id="cb2054-6"><a href="7.4-principal-component-analyses---pca.html#cb2054-6" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2048"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2048-1"><a href="7.4-principal-component-analyses---pca.html#cb2048-1" tabindex="-1"></a>PCA_coord <span class="ot">&lt;-</span> pcaDat1<span class="sc">$</span>ind<span class="sc">$</span>coord</span>
+<span id="cb2048-2"><a href="7.4-principal-component-analyses---pca.html#cb2048-2" tabindex="-1"></a>PCA_coord <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(PCA_coord)</span>
+<span id="cb2048-3"><a href="7.4-principal-component-analyses---pca.html#cb2048-3" tabindex="-1"></a>dfPharPCAFull <span class="ot">&lt;-</span> dfPharPCA <span class="sc">%&gt;%</span> </span>
+<span id="cb2048-4"><a href="7.4-principal-component-analyses---pca.html#cb2048-4" tabindex="-1"></a>  <span class="fu">bind_cols</span>(PCA_coord)</span>
+<span id="cb2048-5"><a href="7.4-principal-component-analyses---pca.html#cb2048-5" tabindex="-1"></a>dfPharPCAFull <span class="sc">%&gt;%</span> </span>
+<span id="cb2048-6"><a href="7.4-principal-component-analyses---pca.html#cb2048-6" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##       context      CPP    Energy    H1A1c    H1A2c       H1A3c       H1H2c
 ## G_01 Guttural 23.53283 22.753333 15.16200 16.03700 -3.29716667 -1.18416667
 ## G_02 Guttural 25.71500 22.831167 13.19633 11.62400 -5.91583333 -0.73916667
@@ -4300,9 +4300,9 @@ These top five dimensions are orthogonal to each other, i.e., they are not corre
 <p>In our case, and given that the data comes from one participant, we use a simple linear regression analysis on each of the five dimension.</p>
 <div id="dimension-1-1" class="section level6 hasAnchor" number="7.4.6.0.2.1">
 <h6><span class="header-section-number">7.4.6.0.2.1</span> Dimension 1<a href="7.4-principal-component-analyses---pca.html#dimension-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb2056"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2056-1"><a href="7.4-principal-component-analyses---pca.html#cb2056-1" tabindex="-1"></a>dfPharPCAFull <span class="sc">%&gt;%</span> </span>
-<span id="cb2056-2"><a href="7.4-principal-component-analyses---pca.html#cb2056-2" tabindex="-1"></a>  <span class="fu">lm</span>(Dim<span class="fl">.1</span> <span class="sc">~</span> context, <span class="at">data =</span> .) <span class="sc">%&gt;%</span></span>
-<span id="cb2056-3"><a href="7.4-principal-component-analyses---pca.html#cb2056-3" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2050"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2050-1"><a href="7.4-principal-component-analyses---pca.html#cb2050-1" tabindex="-1"></a>dfPharPCAFull <span class="sc">%&gt;%</span> </span>
+<span id="cb2050-2"><a href="7.4-principal-component-analyses---pca.html#cb2050-2" tabindex="-1"></a>  <span class="fu">lm</span>(Dim<span class="fl">.1</span> <span class="sc">~</span> context, <span class="at">data =</span> .) <span class="sc">%&gt;%</span></span>
+<span id="cb2050-3"><a href="7.4-principal-component-analyses---pca.html#cb2050-3" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Dim.1 ~ context, data = .)
@@ -4322,9 +4322,9 @@ These top five dimensions are orthogonal to each other, i.e., they are not corre
 </div>
 <div id="dimension-2-1" class="section level6 hasAnchor" number="7.4.6.0.2.2">
 <h6><span class="header-section-number">7.4.6.0.2.2</span> Dimension 2<a href="7.4-principal-component-analyses---pca.html#dimension-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb2058"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2058-1"><a href="7.4-principal-component-analyses---pca.html#cb2058-1" tabindex="-1"></a>dfPharPCAFull <span class="sc">%&gt;%</span> </span>
-<span id="cb2058-2"><a href="7.4-principal-component-analyses---pca.html#cb2058-2" tabindex="-1"></a>  <span class="fu">lm</span>(Dim<span class="fl">.2</span> <span class="sc">~</span> context, <span class="at">data =</span> .) <span class="sc">%&gt;%</span></span>
-<span id="cb2058-3"><a href="7.4-principal-component-analyses---pca.html#cb2058-3" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2052"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2052-1"><a href="7.4-principal-component-analyses---pca.html#cb2052-1" tabindex="-1"></a>dfPharPCAFull <span class="sc">%&gt;%</span> </span>
+<span id="cb2052-2"><a href="7.4-principal-component-analyses---pca.html#cb2052-2" tabindex="-1"></a>  <span class="fu">lm</span>(Dim<span class="fl">.2</span> <span class="sc">~</span> context, <span class="at">data =</span> .) <span class="sc">%&gt;%</span></span>
+<span id="cb2052-3"><a href="7.4-principal-component-analyses---pca.html#cb2052-3" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Dim.2 ~ context, data = .)
@@ -4346,9 +4346,9 @@ These top five dimensions are orthogonal to each other, i.e., they are not corre
 </div>
 <div id="dimension-3-1" class="section level6 hasAnchor" number="7.4.6.0.2.3">
 <h6><span class="header-section-number">7.4.6.0.2.3</span> Dimension 3<a href="7.4-principal-component-analyses---pca.html#dimension-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb2060"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2060-1"><a href="7.4-principal-component-analyses---pca.html#cb2060-1" tabindex="-1"></a>dfPharPCAFull <span class="sc">%&gt;%</span> </span>
-<span id="cb2060-2"><a href="7.4-principal-component-analyses---pca.html#cb2060-2" tabindex="-1"></a>  <span class="fu">lm</span>(Dim<span class="fl">.3</span> <span class="sc">~</span> context, <span class="at">data =</span> .) <span class="sc">%&gt;%</span></span>
-<span id="cb2060-3"><a href="7.4-principal-component-analyses---pca.html#cb2060-3" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2054"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2054-1"><a href="7.4-principal-component-analyses---pca.html#cb2054-1" tabindex="-1"></a>dfPharPCAFull <span class="sc">%&gt;%</span> </span>
+<span id="cb2054-2"><a href="7.4-principal-component-analyses---pca.html#cb2054-2" tabindex="-1"></a>  <span class="fu">lm</span>(Dim<span class="fl">.3</span> <span class="sc">~</span> context, <span class="at">data =</span> .) <span class="sc">%&gt;%</span></span>
+<span id="cb2054-3"><a href="7.4-principal-component-analyses---pca.html#cb2054-3" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Dim.3 ~ context, data = .)
@@ -4370,9 +4370,9 @@ These top five dimensions are orthogonal to each other, i.e., they are not corre
 </div>
 <div id="dimension-4-1" class="section level6 hasAnchor" number="7.4.6.0.2.4">
 <h6><span class="header-section-number">7.4.6.0.2.4</span> Dimension 4<a href="7.4-principal-component-analyses---pca.html#dimension-4-1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb2062"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2062-1"><a href="7.4-principal-component-analyses---pca.html#cb2062-1" tabindex="-1"></a>dfPharPCAFull <span class="sc">%&gt;%</span> </span>
-<span id="cb2062-2"><a href="7.4-principal-component-analyses---pca.html#cb2062-2" tabindex="-1"></a>  <span class="fu">lm</span>(Dim<span class="fl">.4</span> <span class="sc">~</span> context, <span class="at">data =</span> .) <span class="sc">%&gt;%</span></span>
-<span id="cb2062-3"><a href="7.4-principal-component-analyses---pca.html#cb2062-3" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2056"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2056-1"><a href="7.4-principal-component-analyses---pca.html#cb2056-1" tabindex="-1"></a>dfPharPCAFull <span class="sc">%&gt;%</span> </span>
+<span id="cb2056-2"><a href="7.4-principal-component-analyses---pca.html#cb2056-2" tabindex="-1"></a>  <span class="fu">lm</span>(Dim<span class="fl">.4</span> <span class="sc">~</span> context, <span class="at">data =</span> .) <span class="sc">%&gt;%</span></span>
+<span id="cb2056-3"><a href="7.4-principal-component-analyses---pca.html#cb2056-3" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Dim.4 ~ context, data = .)
@@ -4394,9 +4394,9 @@ These top five dimensions are orthogonal to each other, i.e., they are not corre
 </div>
 <div id="dimension-5-1" class="section level6 hasAnchor" number="7.4.6.0.2.5">
 <h6><span class="header-section-number">7.4.6.0.2.5</span> Dimension 5<a href="7.4-principal-component-analyses---pca.html#dimension-5-1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
-<div class="sourceCode" id="cb2064"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2064-1"><a href="7.4-principal-component-analyses---pca.html#cb2064-1" tabindex="-1"></a>dfPharPCAFull <span class="sc">%&gt;%</span> </span>
-<span id="cb2064-2"><a href="7.4-principal-component-analyses---pca.html#cb2064-2" tabindex="-1"></a>  <span class="fu">lm</span>(Dim<span class="fl">.5</span> <span class="sc">~</span> context, <span class="at">data =</span> .) <span class="sc">%&gt;%</span></span>
-<span id="cb2064-3"><a href="7.4-principal-component-analyses---pca.html#cb2064-3" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2058"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2058-1"><a href="7.4-principal-component-analyses---pca.html#cb2058-1" tabindex="-1"></a>dfPharPCAFull <span class="sc">%&gt;%</span> </span>
+<span id="cb2058-2"><a href="7.4-principal-component-analyses---pca.html#cb2058-2" tabindex="-1"></a>  <span class="fu">lm</span>(Dim<span class="fl">.5</span> <span class="sc">~</span> context, <span class="at">data =</span> .) <span class="sc">%&gt;%</span></span>
+<span id="cb2058-3"><a href="7.4-principal-component-analyses---pca.html#cb2058-3" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Dim.5 ~ context, data = .)
