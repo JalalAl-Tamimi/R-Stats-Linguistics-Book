@@ -17,7 +17,7 @@ Predictive modelling is a statistical technique that uses either traditional or 
 2. Predict results on new ranges (e.g., if you have results on age group 30-50, in theory, you could predict the patterns for age 20 or 70)
 3. Predict results on new data, either on the testing set or any new data you obtain in the future. 
 
-To understand this further, we will start with a simple Generalised Linear Model predicting a perception experiment on grammaticality judgement, before moving to Decision Trees and Random Forests. 
+To understand this further, we will start with a simple Generalised Linear Model predicting context separation from a production task, before moving to Decision Trees and Random Forests. We previously used a Generalised Linear Model to predict perception of grammaticality as a classification tool in **chapter** \@ref(GLM-Classification)
 
 
 ## Loading packages 

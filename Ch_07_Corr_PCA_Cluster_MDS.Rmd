@@ -2,7 +2,6 @@
 # Reducing Dimensionality: Correlations, Principal Component Analysis, cluster analysis and Multidimensional scaling {#Corr-PCA-Cluster-MDS}
 
 In this chapter, we will look at how to reduce dimensionality of our dataset.
-This is important when you have a large number of predictors and you want to reduce the number of predictors to a smaller set.
 This is particularly important when you have a large number of predictors and you want to reduce the number of predictors to a smaller set.
 
 When you have multiple predictors (numeric or categorical) that are related to the outcome, you will need a way to assess whether all the predictors are needed.

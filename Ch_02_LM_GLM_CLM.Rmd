@@ -1890,7 +1890,7 @@ coef(glm(response ~ grammaticality, data = grammatical, family = binomial(probit
 
 ```
 
-#### GLM as a classification tool
+#### GLM as a classification tool {#GLM-Classification}
 
 The code below demonstrates the links between our GLM model and what we
 had obtained above from SDT. The predictions' table shows that our GLM
