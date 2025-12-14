@@ -40,6 +40,13 @@ The preview shows you a rendered HTML copy of the contents of the editor. Conseq
 
 You can knit notebook into PDF or Word. Make sure to install the `tinytex` package using the following code: `install.packages("tinytex")`. If you already use \LaTeX\ with another distribution, then you do not need to install `tinytex` (though this works perfectly out of the bag). Then from the menu above (Knit), then choose `Knit to PDF` or `Knit to Word`. This is an excellent way to get your work fully written within RStudio: You will write a text (like this), have a specific structure and also have all your results in one place. This allows for transparency and replicability. 
 
+You may get an error message related to the defautl CRAN repository not being set up correctly. In this case, you will need to do the following:
+
+1. Run the following code line: `usethis::edit_r_profile()`
+2. Add the following to your profile: `options(repos = "https://cloud.r-project.org/")
+`
+3. Restart your R distribution and then click on knit on the top 
+
 ## R and R Studio
 
 ### R

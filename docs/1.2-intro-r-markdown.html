@@ -2236,6 +2236,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="knitting-to-other-formats" class="section level3 hasAnchor" number="1.2.2">
 <h3><span class="header-section-number">1.2.2</span> Knitting to other formats<a href="1.2-intro-r-markdown.html#knitting-to-other-formats" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You can knit notebook into PDF or Word. Make sure to install the <code>tinytex</code> package using the following code: <code>install.packages("tinytex")</code>. If you already use  with another distribution, then you do not need to install <code>tinytex</code> (though this works perfectly out of the bag). Then from the menu above (Knit), then choose <code>Knit to PDF</code> or <code>Knit to Word</code>. This is an excellent way to get your work fully written within RStudio: You will write a text (like this), have a specific structure and also have all your results in one place. This allows for transparency and replicability.</p>
+<p>You may get an error message related to the defautl CRAN repository not being set up correctly. In this case, you will need to do the following:</p>
+<ol style="list-style-type: decimal">
+<li>Run the following code line: <code>usethis::edit_r_profile()</code></li>
+<li>Add the following to your profile: <code>options(repos = "https://cloud.r-project.org/")</code></li>
+<li>Restart your R distribution and then click on knit on the top</li>
+</ol>
 </div>
 </div>
             </section>
@@ -2286,7 +2292,7 @@ gitbook.start({
     "link": null,
     "text": null
   },
-  "download": null,
+  "download": ["Statistics-for-Linguists-using-R.pdf"],
   "search": {
     "engine": "fuse",
     "options": null

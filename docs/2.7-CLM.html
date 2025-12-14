@@ -2610,7 +2610,7 @@ males.</p>
 <div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="2.7-CLM.html#cb588-1" tabindex="-1"></a><span class="fu">system.time</span>(mdl.clm2 <span class="ot">&lt;-</span> weightRatings <span class="sc">%&gt;%</span> </span>
 <span id="cb588-2"><a href="2.7-CLM.html#cb588-2" tabindex="-1"></a>  <span class="fu">clm</span>(Rating <span class="sc">~</span> Class <span class="sc">*</span> Sex  <span class="sc">*</span> Frequency, <span class="at">data =</span> .))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    0.03    0.00    0.04</code></pre>
+##    0.22    0.06    0.07</code></pre>
 <div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="2.7-CLM.html#cb590-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.clm2)</span></code></pre></div>
 <pre><code>## formula: Rating ~ Class * Sex * Frequency
 ## data:    .
@@ -2942,7 +2942,7 @@ gitbook.start({
     "link": null,
     "text": null
   },
-  "download": null,
+  "download": ["Statistics-for-Linguists-using-R.pdf"],
   "search": {
     "engine": "fuse",
     "options": null

@@ -2665,7 +2665,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2284-7"><a href="8.7-random-forests.html#cb2284-7" tabindex="-1"></a>            <span class="at">control =</span> <span class="fu">control_grid</span>(<span class="at">save_pred =</span> <span class="cn">TRUE</span>, <span class="at">parallel_over =</span> <span class="cn">NULL</span>))</span>
 <span id="cb2284-8"><a href="8.7-random-forests.html#cb2284-8" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    0.69    0.40   57.29</code></pre>
+##    0.73    0.29   66.58</code></pre>
 <div class="sourceCode" id="cb2286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2286-1"><a href="8.7-random-forests.html#cb2286-1" tabindex="-1"></a><span class="fu">print</span>(grid_tidym)</span></code></pre></div>
 <pre><code>## # Tuning results
 ## # 10-fold cross-validation using stratification 
@@ -2804,8 +2804,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Warning: `pull_workflow_fit()` was deprecated in workflows 0.2.3.
 ## ℹ Please use `extract_fit_parsnip()` instead.
 ## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning
-## was generated.</code></pre>
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
 <p><img src="Statistics-for-Linguists-using-R_files/figure-html/unnamed-chunk-1021-1.png" width="672" /></p>
 </div>
 <div id="all-predictors" class="section level6 hasAnchor" number="8.7.3.4.4.2">
@@ -2820,7 +2820,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2317-3"><a href="8.7-random-forests.html#cb2317-3" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb2317-4"><a href="8.7-random-forests.html#cb2317-4" tabindex="-1"></a><span class="fu">system.time</span>(VarImp.pval <span class="ot">&lt;-</span> wkfl_tidym_final <span class="sc">%&gt;%</span> <span class="fu">extract_fit_engine</span>() <span class="sc">%&gt;%</span>  <span class="fu">importance_pvalues</span>(<span class="at">method =</span> <span class="st">&quot;altmann&quot;</span>, <span class="at">formula =</span> context <span class="sc">~</span>., <span class="at">data =</span> testData_baked, <span class="at">num.permutations =</span> <span class="dv">2000</span>, <span class="at">num.threads =</span> ncores))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##  610.57  451.11  205.25</code></pre>
+##  544.28  426.36  151.16</code></pre>
 <div class="sourceCode" id="cb2319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2319-1"><a href="8.7-random-forests.html#cb2319-1" tabindex="-1"></a>VarImp.pvaldf <span class="ot">&lt;-</span> VarImp.pval <span class="sc">%&gt;%</span> </span>
 <span id="cb2319-2"><a href="8.7-random-forests.html#cb2319-2" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb2319-3"><a href="8.7-random-forests.html#cb2319-3" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">&quot;correlate&quot;</span>) <span class="sc">%&gt;%</span> </span>
@@ -2919,7 +2919,7 @@ gitbook.start({
     "link": null,
     "text": null
   },
-  "download": null,
+  "download": ["Statistics-for-Linguists-using-R.pdf"],
   "search": {
     "engine": "fuse",
     "options": null

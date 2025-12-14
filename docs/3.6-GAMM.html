@@ -2338,7 +2338,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb812-10"><a href="3.6-GAMM.html#cb812-10" tabindex="-1"></a><span class="fu">s</span>(Interval, Word, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>)) <span class="sc">+</span>             <span class="fu">s</span>(Interval, Word, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>), <span class="at">by =</span> Sex.ord),</span>
 <span id="cb812-11"><a href="3.6-GAMM.html#cb812-11" tabindex="-1"></a>                                      <span class="at">data =</span> dynamicDF, <span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">nthreads =</span> <span class="dv">2</span>))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    1.46    0.39    1.36</code></pre>
+##    0.81    0.42    0.83</code></pre>
 <div id="acf-no-ar1" class="section level6 hasAnchor" number="3.6.3.1.1.1">
 <h6><span class="header-section-number">3.6.3.1.1.1</span> ACF No AR1<a href="3.6-GAMM.html#acf-no-ar1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
 <div class="sourceCode" id="cb814"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb814-1"><a href="3.6-GAMM.html#cb814-1" tabindex="-1"></a><span class="fu">acf_resid</span>(mdl.gamm.F2.noAR, <span class="at">main =</span> <span class="st">&quot;Average ACF No.AR F2&quot;</span>,<span class="at">cex.lab=</span><span class="fl">1.5</span>,<span class="at">cex.axis=</span><span class="fl">1.5</span>)</span></code></pre></div>
@@ -2545,7 +2545,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb819-9"><a href="3.6-GAMM.html#cb819-9" tabindex="-1"></a>                                     <span class="do">### random smooths by word</span></span>
 <span id="cb819-10"><a href="3.6-GAMM.html#cb819-10" tabindex="-1"></a><span class="fu">s</span>(Interval, Word, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>)) <span class="sc">+</span>             <span class="fu">s</span>(Interval, Word, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>), <span class="at">by =</span> Sex.ord), <span class="at">data =</span> dynamicDF, <span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">nthreads =</span> <span class="dv">2</span>, <span class="at">AR.start =</span> dynamicDF<span class="sc">$</span>start, <span class="at">rho =</span> rho_est))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    0.99    0.31    1.01</code></pre>
+##    0.67    0.30    0.67</code></pre>
 </div>
 <div id="acf-ar1" class="section level6 hasAnchor" number="3.6.3.2.0.2">
 <h6><span class="header-section-number">3.6.3.2.0.2</span> ACF AR1<a href="3.6-GAMM.html#acf-ar1" class="anchor-section" aria-label="Anchor link to header"></a></h6>
@@ -2848,7 +2848,7 @@ fREML = 1943.1 Scale est. = 1469.1 n = 396</p>
 <span id="cb824-9"><a href="3.6-GAMM.html#cb824-9" tabindex="-1"></a>                                     <span class="do">### random smooths by word</span></span>
 <span id="cb824-10"><a href="3.6-GAMM.html#cb824-10" tabindex="-1"></a><span class="fu">s</span>(Interval, Word, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>)) <span class="sc">+</span>             <span class="fu">s</span>(Interval, Word, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>), <span class="at">by =</span> Sex.ord), <span class="at">data =</span> dynamicDF, <span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">nthreads =</span> <span class="dv">2</span>, <span class="at">AR.start =</span> dynamicDF<span class="sc">$</span>start, <span class="at">rho =</span> rho_est, <span class="at">method=</span><span class="st">&quot;ML&quot;</span>))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   58.53   16.23   30.73</code></pre>
+##   47.70   12.44   26.26</code></pre>
 </div>
 <div id="model-2-without-convowelint.ord" class="section level5 hasAnchor" number="3.6.4.1.2">
 <h5><span class="header-section-number">3.6.4.1.2</span> Model 2 (without ConVowelInt.ord)<a href="3.6-GAMM.html#model-2-without-convowelint.ord" class="anchor-section" aria-label="Anchor link to header"></a></h5>
@@ -2862,7 +2862,7 @@ fREML = 1943.1 Scale est. = 1469.1 n = 396</p>
 <span id="cb826-8"><a href="3.6-GAMM.html#cb826-8" tabindex="-1"></a>                                     <span class="do">### random smooths by word</span></span>
 <span id="cb826-9"><a href="3.6-GAMM.html#cb826-9" tabindex="-1"></a><span class="fu">s</span>(Interval, Word, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>)) <span class="sc">+</span>             <span class="fu">s</span>(Interval, Word, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>), <span class="at">by =</span> Sex.ord), <span class="at">data =</span> dynamicDF, <span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">nthreads =</span> <span class="dv">2</span>, <span class="at">AR.start =</span> dynamicDF<span class="sc">$</span>start, <span class="at">rho =</span> rho_est, <span class="at">method=</span><span class="st">&quot;ML&quot;</span>))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    7.04    3.50    7.45</code></pre>
+##    6.85    2.60    6.42</code></pre>
 </div>
 <div id="null-model" class="section level5 hasAnchor" number="3.6.4.1.3">
 <h5><span class="header-section-number">3.6.4.1.3</span> Null Model<a href="3.6-GAMM.html#null-model" class="anchor-section" aria-label="Anchor link to header"></a></h5>
@@ -2875,7 +2875,7 @@ fREML = 1943.1 Scale est. = 1469.1 n = 396</p>
 <span id="cb828-7"><a href="3.6-GAMM.html#cb828-7" tabindex="-1"></a>                                     <span class="do">### random smooths by word</span></span>
 <span id="cb828-8"><a href="3.6-GAMM.html#cb828-8" tabindex="-1"></a><span class="fu">s</span>(Interval, Word, <span class="at">bs =</span> <span class="st">&quot;fs&quot;</span>, <span class="at">k =</span> <span class="dv">11</span>, <span class="at">m =</span> <span class="dv">1</span>, <span class="at">xt=</span><span class="fu">list</span>(<span class="at">bs =</span> <span class="st">&quot;tp&quot;</span>)), <span class="at">data =</span> dynamicDF, <span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">nthreads =</span> <span class="dv">2</span>, <span class="at">AR.start =</span> dynamicDF<span class="sc">$</span>start, <span class="at">rho =</span> rho_est, <span class="at">method=</span><span class="st">&quot;ML&quot;</span>))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##     2.3     2.0     4.2</code></pre>
+##    2.30    0.90    3.39</code></pre>
 </div>
 </div>
 <div id="testing-significance-4" class="section level4 hasAnchor" number="3.6.4.2">
@@ -3113,7 +3113,7 @@ gitbook.start({
     "link": null,
     "text": null
   },
-  "download": null,
+  "download": ["Statistics-for-Linguists-using-R.pdf"],
   "search": {
     "engine": "fuse",
     "options": null

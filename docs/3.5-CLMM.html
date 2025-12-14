@@ -2277,7 +2277,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb760-1"><a href="3.5-CLMM.html#cb760-1" tabindex="-1"></a><span class="fu">system.time</span>(mdl.clm <span class="ot">&lt;-</span> rating <span class="sc">%&gt;%</span> </span>
 <span id="cb760-2"><a href="3.5-CLMM.html#cb760-2" tabindex="-1"></a>  <span class="fu">clm</span>(Response <span class="sc">~</span> Context, <span class="at">data =</span> .))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    0.02    0.00    0.02</code></pre>
+##    0.03    0.00    0.05</code></pre>
 <div class="sourceCode" id="cb762"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb762-1"><a href="3.5-CLMM.html#cb762-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.clm)</span></code></pre></div>
 <pre><code>## formula: Response ~ Context
 ## data:    .
@@ -2316,7 +2316,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb764"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb764-1"><a href="3.5-CLMM.html#cb764-1" tabindex="-1"></a><span class="fu">system.time</span>(mdl.clmm.Int <span class="ot">&lt;-</span> rating <span class="sc">%&gt;%</span> </span>
 <span id="cb764-2"><a href="3.5-CLMM.html#cb764-2" tabindex="-1"></a>  <span class="fu">clmm</span>(Response <span class="sc">~</span> Context <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Subject) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Item), <span class="at">data =</span> .))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    5.81    0.21    6.23</code></pre>
+##    3.75    0.17    4.10</code></pre>
 <div class="sourceCode" id="cb766"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb766-1"><a href="3.5-CLMM.html#cb766-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.clmm.Int)</span></code></pre></div>
 <pre><code>## Cumulative Link Mixed Model fitted with the Laplace approximation
 ## 
@@ -2777,7 +2777,7 @@ This dataset is a little complex. Data comes from multiple subjects who rated 81
 <div class="sourceCode" id="cb782"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb782-1"><a href="3.5-CLMM.html#cb782-1" tabindex="-1"></a><span class="fu">system.time</span>(mdl.clm<span class="fl">.1</span> <span class="ot">&lt;-</span> weightRatings <span class="sc">%&gt;%</span> </span>
 <span id="cb782-2"><a href="3.5-CLMM.html#cb782-2" tabindex="-1"></a>  <span class="fu">clm</span>(Rating <span class="sc">~</span> Class <span class="sc">*</span> Sex  <span class="sc">*</span> Frequency, <span class="at">data =</span> .))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##    0.15    0.10    0.09</code></pre>
+##    0.15    0.02    0.01</code></pre>
 <div class="sourceCode" id="cb784"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb784-1"><a href="3.5-CLMM.html#cb784-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.clm<span class="fl">.1</span>)</span></code></pre></div>
 <pre><code>## formula: Rating ~ Class * Sex * Frequency
 ## data:    .
@@ -2812,7 +2812,7 @@ This dataset is a little complex. Data comes from multiple subjects who rated 81
 <div class="sourceCode" id="cb786"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb786-1"><a href="3.5-CLMM.html#cb786-1" tabindex="-1"></a><span class="fu">system.time</span>(mdl.clmm.Int<span class="fl">.1</span> <span class="ot">&lt;-</span> weightRatings <span class="sc">%&gt;%</span> </span>
 <span id="cb786-2"><a href="3.5-CLMM.html#cb786-2" tabindex="-1"></a>  <span class="fu">clmm</span>(Rating <span class="sc">~</span> Class <span class="sc">*</span> Sex  <span class="sc">*</span> Frequency <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Subject<span class="sc">:</span>Word), <span class="at">data =</span> .))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   44.05    0.55   45.31</code></pre>
+##   16.86    0.46   17.74</code></pre>
 <div class="sourceCode" id="cb788"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb788-1"><a href="3.5-CLMM.html#cb788-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.clmm.Int<span class="fl">.1</span>)</span></code></pre></div>
 <pre><code>## Cumulative Link Mixed Model fitted with the Laplace approximation
 ## 
@@ -2854,7 +2854,7 @@ This dataset is a little complex. Data comes from multiple subjects who rated 81
 <div class="sourceCode" id="cb790"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb790-1"><a href="3.5-CLMM.html#cb790-1" tabindex="-1"></a><span class="fu">system.time</span>(mdl.clmm.Slope<span class="fl">.1</span> <span class="ot">&lt;-</span> weightRatings <span class="sc">%&gt;%</span> </span>
 <span id="cb790-2"><a href="3.5-CLMM.html#cb790-2" tabindex="-1"></a>  <span class="fu">clmm</span>(Rating <span class="sc">~</span> Class <span class="sc">*</span> Sex  <span class="sc">*</span> Frequency <span class="sc">+</span> (Class<span class="sc">|</span>Subject<span class="sc">:</span>Word), <span class="at">data =</span> .))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   82.33    5.50   89.36</code></pre>
+##   34.33    1.54   36.37</code></pre>
 <div class="sourceCode" id="cb792"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb792-1"><a href="3.5-CLMM.html#cb792-1" tabindex="-1"></a><span class="fu">summary</span>(mdl.clmm.Slope<span class="fl">.1</span>)</span></code></pre></div>
 <pre><code>## Cumulative Link Mixed Model fitted with the Laplace approximation
 ## 
@@ -3219,7 +3219,7 @@ gitbook.start({
     "link": null,
     "text": null
   },
-  "download": null,
+  "download": ["Statistics-for-Linguists-using-R.pdf"],
   "search": {
     "engine": "fuse",
     "options": null
